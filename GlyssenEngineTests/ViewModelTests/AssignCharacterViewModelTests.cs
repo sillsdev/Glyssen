@@ -18,7 +18,6 @@ namespace GlyssenEngineTests.ViewModelTests
 	internal class AssignCharacterViewModelTests
 	{
 		private Project m_testProject;
-		//private string m_testProjectFilePath;
 		private AssignCharacterViewModel m_model;
 		private bool m_fullProjectRefreshRequired;
 		private int m_assigned;
@@ -29,14 +28,25 @@ namespace GlyssenEngineTests.ViewModelTests
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = null;
+			CreateTestProjectForMark();
+		}
+
+		private void CreateTestProjectForMark()
+		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
-			//m_testProjectFilePath = ProjectRepository.GetProjectFilePath(m_testProject);
 		}
 
 		[SetUp]
 		public void SetUp()
-		{
-			m_testProject.ClearAssignCharacterStatus(); //Otherwise tests interfere with each other in an undesirable way
+		{			
+			if (m_fullProjectRefreshRequired)
+			{
+				TestProject.DeleteTestProjects();
+				CreateTestProjectForMark();
+				m_fullProjectRefreshRequired = false;
+			}
+			else
+				m_testProject.ClearAssignCharacterStatus(); //Otherwise tests interfere with each other in an undesirable way
 			m_model = new AssignCharacterViewModel(m_testProject, BlocksToDisplay.NotAssignedAutomatically, m_testProject.Status.AssignCharacterBlock);
 			m_model.SetUiStrings("narrator ({0})",
 				"book title or chapter ({0})",
@@ -51,17 +61,6 @@ namespace GlyssenEngineTests.ViewModelTests
 		private void HandleAssignedBlocksIncremented(AssignCharacterViewModel sender, int increment)
 		{
 			m_assigned += increment;
-		}
-
-		[TearDown]
-		public void Teardown()
-		{
-			if (m_fullProjectRefreshRequired)
-			{
-				OneTimeTearDown();
-				OneTimeSetUp();
-				m_fullProjectRefreshRequired = false;
-			}
 		}
 
 		[OneTimeTearDown]
@@ -2119,13 +2118,30 @@ namespace GlyssenEngineTests.ViewModelTests
 	{
 		private Project m_testProject;
 		private AssignCharacterViewModel m_model;
+		private bool m_fullProjectRefreshRequired;
 
 		[OneTimeSetUp]
 		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerseOct2015;
+			CreateTestProjectForActs();
+		}
+
+		private void CreateTestProjectForActs()
+		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.ACT);
+		}
+
+		[SetUp]
+		public void SetUp()
+		{			
+			if (m_fullProjectRefreshRequired)
+			{
+				TestProject.DeleteTestProjects();
+				CreateTestProjectForActs();
+				m_fullProjectRefreshRequired = false;
+			}
 		}
 
 		private void CreateModel(BlocksToDisplay mode)
@@ -2148,35 +2164,29 @@ namespace GlyssenEngineTests.ViewModelTests
 		[Test]
 		public void ApplyCurrentReferenceTextMatchup_BlockMatchupAlreadyApplied_ThrowsInvalidOperationException()
 		{
-			try
-			{
-				CreateModel(BlocksToDisplay.NotYetAssigned);
-				var verseRefActs837 = new VerseRef(44, 8, 37);
-				m_model.TryLoadBlock(verseRefActs837);
-				if (!m_model.IsCurrentLocationRelevant)
-					m_model.LoadNextRelevantBlock();
-				Assert.IsTrue(m_model.CurrentBlock.ChapterNumber == 8 && m_model.CurrentBlock.InitialStartVerseNumber == 37);
-
-				m_model.CurrentBlock.CharacterId = m_model.GetUniqueCharacters("Philip the evangelist").First().CharacterId;
-				m_model.CurrentBlock.UserConfirmed = true;
+			m_fullProjectRefreshRequired = true;
+			CreateModel(BlocksToDisplay.NotYetAssigned);
+			var verseRefActs837 = new VerseRef(44, 8, 37);
+			m_model.TryLoadBlock(verseRefActs837);
+			if (!m_model.IsCurrentLocationRelevant)
 				m_model.LoadNextRelevantBlock();
-				Assert.AreEqual(37, m_model.CurrentBlock.InitialStartVerseNumber);
-				m_model.CurrentBlock.CharacterId = m_model.GetUniqueCharacters("Ethiop").First().CharacterId;
-				m_model.CurrentBlock.UserConfirmed = true;
-				m_model.LoadNextRelevantBlock();
+			Assert.IsTrue(m_model.CurrentBlock.ChapterNumber == 8 && m_model.CurrentBlock.InitialStartVerseNumber == 37);
 
-				m_model.SetMode(BlocksToDisplay.NotAlignedToReferenceText, true);
+			m_model.CurrentBlock.CharacterId = m_model.GetUniqueCharacters("Philip the evangelist").First().CharacterId;
+			m_model.CurrentBlock.UserConfirmed = true;
+			m_model.LoadNextRelevantBlock();
+			Assert.AreEqual(37, m_model.CurrentBlock.InitialStartVerseNumber);
+			m_model.CurrentBlock.CharacterId = m_model.GetUniqueCharacters("Ethiop").First().CharacterId;
+			m_model.CurrentBlock.UserConfirmed = true;
+			m_model.LoadNextRelevantBlock();
 
-				Assert.IsFalse(m_model.CurrentBlock.ChapterNumber == 8 && m_model.CurrentBlock.InitialStartVerseNumber <= 37);
-				while (m_model.CanNavigateToPreviousRelevantBlock && m_model.CurrentBlock.ChapterNumber >= 8)
-				{
-					m_model.LoadPreviousRelevantBlock();
-					Assert.IsFalse(m_model.CurrentBlock.ChapterNumber == 8 && m_model.CurrentBlock.InitialStartVerseNumber == 37);
-				}
-			}
-			finally
+			m_model.SetMode(BlocksToDisplay.NotAlignedToReferenceText, true);
+
+			Assert.IsFalse(m_model.CurrentBlock.ChapterNumber == 8 && m_model.CurrentBlock.InitialStartVerseNumber <= 37);
+			while (m_model.CanNavigateToPreviousRelevantBlock && m_model.CurrentBlock.ChapterNumber >= 8)
 			{
-				m_testProject = TestProject.CreateTestProject(TestProject.TestBook.ACT);
+				m_model.LoadPreviousRelevantBlock();
+				Assert.IsFalse(m_model.CurrentBlock.ChapterNumber == 8 && m_model.CurrentBlock.InitialStartVerseNumber == 37);
 			}
 		}
 
@@ -2202,30 +2212,24 @@ namespace GlyssenEngineTests.ViewModelTests
 		[TestCase(1)]
 		public void GetCharacterToSelectForCurrentBlock_BlockIsRemainingAmbiguousBlockOfOneIndirectAndOnePotentialInVerse_ReturnsNull(int indexOfCharacterToAssignToFirstBlock)
 		{
+			m_fullProjectRefreshRequired = true;
 			CreateModel(BlocksToDisplay.NotAssignedAutomatically);
-			try
-			{
-				while (m_model.CurrentBlock.ChapterNumber != 8 || m_model.CurrentBlock.InitialStartVerseNumber != 37)
-					m_model.LoadNextRelevantBlock();
-				Assert.AreEqual("ACT", m_model.CurrentBookId);
-				Assert.AreEqual(8, m_model.CurrentBlock.ChapterNumber);
-				Assert.AreEqual(37, m_model.CurrentBlock.InitialStartVerseNumber);
-				Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear);
-				var possibleCharactersForActs837 = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
-				Assert.AreEqual(3, possibleCharactersForActs837.Count);
-				m_model.SetCharacterAndDelivery(possibleCharactersForActs837.Where(c => !c.IsNarrator).ElementAt(indexOfCharacterToAssignToFirstBlock),
-					AssignCharacterViewModel.Delivery.Normal);
-				Assert.IsFalse(m_model.CurrentBlock.CharacterIsUnclear);
+			while (m_model.CurrentBlock.ChapterNumber != 8 || m_model.CurrentBlock.InitialStartVerseNumber != 37)
 				m_model.LoadNextRelevantBlock();
-				Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear);
-				Assert.AreEqual(8, m_model.CurrentBlock.ChapterNumber);
-				Assert.AreEqual(37, m_model.CurrentBlock.InitialStartVerseNumber);
-				Assert.IsNull(m_model.GetCharacterToSelectForCurrentBlock(possibleCharactersForActs837));
-			}
-			finally
-			{
-				m_testProject = TestProject.CreateTestProject(TestProject.TestBook.ACT);
-			}
+			Assert.AreEqual("ACT", m_model.CurrentBookId);
+			Assert.AreEqual(8, m_model.CurrentBlock.ChapterNumber);
+			Assert.AreEqual(37, m_model.CurrentBlock.InitialStartVerseNumber);
+			Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear);
+			var possibleCharactersForActs837 = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
+			Assert.AreEqual(3, possibleCharactersForActs837.Count);
+			m_model.SetCharacterAndDelivery(possibleCharactersForActs837.Where(c => !c.IsNarrator).ElementAt(indexOfCharacterToAssignToFirstBlock),
+				AssignCharacterViewModel.Delivery.Normal);
+			Assert.IsFalse(m_model.CurrentBlock.CharacterIsUnclear);
+			m_model.LoadNextRelevantBlock();
+			Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear);
+			Assert.AreEqual(8, m_model.CurrentBlock.ChapterNumber);
+			Assert.AreEqual(37, m_model.CurrentBlock.InitialStartVerseNumber);
+			Assert.IsNull(m_model.GetCharacterToSelectForCurrentBlock(possibleCharactersForActs837));
 		}
 	}
 
