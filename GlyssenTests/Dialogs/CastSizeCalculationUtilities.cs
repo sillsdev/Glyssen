@@ -15,6 +15,7 @@ using GlyssenFileBasedPersistence;
 using L10NSharp;
 using NUnit.Framework;
 using SIL.Scripture;
+using SIL.TestUtilities;
 using SIL.WritingSystems;
 
 namespace GlyssenTests.Dialogs
@@ -33,6 +34,7 @@ namespace GlyssenTests.Dialogs
 	/// </summary>
 	[Category("SkipOnTeamCity")] // These tests rely on local files that the developer has to put in place.
 	[TestFixture]
+	[OfflineSldr]
 	class CalculateMinimumCastSizesForNewTestamentBasedOnAcholi
 	{
 		private Project m_project;
@@ -45,26 +47,15 @@ namespace GlyssenTests.Dialogs
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = null;
 			CharacterDetailData.TabDelimitedCharacterDetailData = null;
 
-			Sldr.Initialize();
-			try
-			{
-				m_project =
-					Project.Load(ProjectRepository.LoadProject(@"C:\ProgramData\FCBH-SIL\Glyssen\ach\3b9fdc679b9319c3\Acholi New Test 1985 Audio\ach.glyssen"), null, null);
-				TestProject.SimulateDisambiguationForAllBooks(m_project);
-				m_project.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.SingleNarrator;
-			}
-			catch
-			{
-				// If we have an exception here, OneTimeTearDown doesn't get called which means we need to call Sldr.Cleanup() now
-				Sldr.Cleanup();
-				throw;
-			}
+			m_project =
+				Project.Load(ProjectRepository.LoadProject(@"C:\ProgramData\FCBH-SIL\Glyssen\ach\3b9fdc679b9319c3\Acholi New Test 1985 Audio\ach.glyssen"), null, null);
+			TestProject.SimulateDisambiguationForAllBooks(m_project);
+			m_project.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.SingleNarrator;
 		}
 
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
-			Sldr.Cleanup();
 			var ntBooks = SilBooks.Codes_3Letter.Skip(39).ToArray();
 
 			if (m_results.Count == 27 || m_results.Count == 1)
@@ -171,6 +162,7 @@ namespace GlyssenTests.Dialogs
 
 	[Category("SkipOnTeamCity")] // These tests rely on local files that the developer has to put in place.
 	[TestFixture]
+	[OfflineSldr]
 	class CalculateMinimumCastSizesForOldTestamentBasedOnKunaSanBlas
 	{
 		private Project m_project;
@@ -183,30 +175,16 @@ namespace GlyssenTests.Dialogs
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = null;
 			CharacterDetailData.TabDelimitedCharacterDetailData = null;
 
-			Sldr.Initialize();
-			try
-			{
-				m_project = Project.Load(ProjectRepository.LoadProject(
+			m_project = Project.Load(ProjectRepository.LoadProject(
 					@"C:\ProgramData\FCBH-SIL\Glyssen\cuk\5a6b88fafe1c8f2b\The Bible in Kuna, San Blas Audio\cuk.glyssen"),
-					HandleMissingBundleNeededForProjectUpgrade, null);
-				TestProject.SimulateDisambiguationForAllBooks(m_project);
-				m_project.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.SingleNarrator;
-
-			}
-			catch
-			{
-				// If we have an exception here, OneTimeTearDown doesn't get called which means we need to call Sldr.Cleanup() now.
-				// This can affect other tests, otherwise.
-				Sldr.Cleanup();
-				throw;
-			}
+				HandleMissingBundleNeededForProjectUpgrade, null);
+			TestProject.SimulateDisambiguationForAllBooks(m_project);
+			m_project.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.SingleNarrator;
 		}
 
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
-			Sldr.Cleanup();
-
 			var otBooks = SilBooks.Codes_3Letter.Take(39).ToArray();
 
 			if (m_results.Count == 39 || m_results.Count == 1)

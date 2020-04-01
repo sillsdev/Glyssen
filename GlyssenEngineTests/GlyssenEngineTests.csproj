@@ -249,7 +249,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BiblicalAuthorsTests.cs" />
-    <Compile Include="Bundle\GlyssenBundleTests.cs" />
     <Compile Include="Bundle\GlyssenDblTextMetadataTests.cs" />
     <Compile Include="Character\CharacterAssignerTests.cs" />
     <Compile Include="Character\CharacterGroupListTests.cs" />
