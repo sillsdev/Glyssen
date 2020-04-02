@@ -4,8 +4,12 @@ using SIL.DblBundle.Text;
 
 namespace Glyssen.Shared
 {
+	public delegate void ProjectDeletedHandler(object sender, IProject deletedProject);
+
 	public interface IProjectPersistenceWriter
 	{
+		event ProjectDeletedHandler OnProjectDeleted;
+
 		/// <summary>
 		/// Method to alert the persistence implementation that project data is about
 		/// to be persisted so that any required initialization can be performed.
@@ -40,7 +44,7 @@ namespace Glyssen.Shared
 		
 		/// <summary>
 		/// Permanently removes all persisted resources related to the specified project,
-		/// included any required cleanup.
+		/// included any required cleanup. Raises the OnProjectDeleted event.
 		/// </summary>
 		/// <param name="project"></param>
 		void DeleteProject(IUserProject project);

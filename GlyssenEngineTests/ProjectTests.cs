@@ -12,11 +12,11 @@ using GlyssenEngine.Character;
 using GlyssenEngine.Paratext;
 using GlyssenEngine.Quote;
 using GlyssenEngine.Script;
-using GlyssenEngineTests.Bundle;
-using GlyssenFileBasedPersistence;
+using InMemoryTestPersistence;
 using GlyssenSharedTests;
 using NUnit.Framework;
 using Rhino.Mocks;
+using SIL.DblBundle.Tests.Text;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
 using SIL.Extensions;
@@ -24,58 +24,139 @@ using SIL.IO;
 using SIL.ObjectModel;
 using SIL.Reflection;
 using SIL.Scripture;
+using SIL.TestUtilities;
 using SIL.WritingSystems;
 
 namespace GlyssenEngineTests
 {
-	[TestFixture, Timeout(90000)]
+	[TestFixture]
+	[OfflineSldr]
 	class ProjectTests
 	{
-		private readonly HashSet<string> m_tempProjectFolders = new HashSet<string>();
-		private GlyssenBundle GetGlyssenBundleToBeUsedForProject(bool includeLdml = true)
+		private GlyssenBundle m_bundleWithLdml;
+		
+		private GlyssenBundle m_bundleWithoutLdml; // This one typically has the Language modified
+		private GlyssenDblMetadataLanguage m_restoreLanguage;
+
+		private GlyssenBundle m_bundleWithModifiedQuotationMarks;
+		private BulkObservableList<QuotationMark> m_restoreQuotationMarks;
+		
+		private TempFile m_tempBundleFileWithLdml;
+		private TempFile m_tempBundleFileWithoutLdml;
+
+		public const string kTestBundleIdPrefix = "test~~ProjectTests";
+
+		private GlyssenBundle BundleWithLdml =>
+			m_bundleWithLdml ?? (m_bundleWithLdml = GetNewGlyssenBundleAndFile(true));
+
+		private GlyssenBundle GetBundleWithoutLdmlAndWithModifiedLanguage(Action<GlyssenDblMetadataLanguage> modify)
 		{
-			var bundle = GlyssenBundleTests.GetNewGlyssenBundleForTest(includeLdml);
-			m_tempProjectFolders.Add(Path.Combine(ProjectRepository.ProjectsBaseFolder, bundle.Metadata.Id));
+			GlyssenBundle bundle;
+			if (m_bundleWithoutLdml == null)
+			{
+				m_bundleWithoutLdml = GetNewGlyssenBundleAndFile(false);
+				bundle = m_bundleWithoutLdml;
+				m_restoreLanguage = bundle.Metadata.Language.Clone();
+			}
+			else
+			{
+				bundle = m_bundleWithoutLdml;
+				bundle.Metadata.Language = m_restoreLanguage.Clone();
+			}
+
+			modify?.Invoke(bundle.Metadata.Language);
 			return bundle;
 		}
 
-		[TearDown]
-		public void Teardown()
+		private GlyssenBundle GetBundleWithModifiedQuotationMarks(Action<BulkObservableList<QuotationMark>> modify)
 		{
-			TestReferenceText.ForgetCustomReferenceTexts();
+			GlyssenBundle bundle;
+			if (m_bundleWithModifiedQuotationMarks == null)
+			{
+				m_bundleWithModifiedQuotationMarks = GetNewGlyssenBundleAndFile(true);
+				bundle = m_bundleWithModifiedQuotationMarks;
+				m_restoreQuotationMarks = new BulkObservableList<QuotationMark>(
+					bundle.WritingSystemDefinition.QuotationMarks
+					.Select(q => new QuotationMark(q.Open, q.Close, q.Continue, q.Level, q.Type)));
+			}
+			else
+			{
+				bundle = m_bundleWithModifiedQuotationMarks;
+				bundle.WritingSystemDefinition.QuotationMarks.Clear();
+				bundle.WritingSystemDefinition.QuotationMarks.AddRange(m_restoreQuotationMarks
+					.Select(q => new QuotationMark(q.Open, q.Close, q.Continue, q.Level, q.Type)));
+			}
+
+			modify(bundle.WritingSystemDefinition.QuotationMarks);
+			return bundle;
+		}
+
+		private GlyssenBundle GetNewGlyssenBundleAndFile(bool includeLdml)
+		{
+			TempFile bundleFile;
+			if (includeLdml)
+			{
+				if (m_tempBundleFileWithLdml == null)
+					m_tempBundleFileWithLdml = TextBundleTests.CreateZippedTextBundleFromResources(true);
+				bundleFile = m_tempBundleFileWithLdml;
+			}
+			else
+			{
+				if (m_tempBundleFileWithoutLdml == null)
+					m_tempBundleFileWithoutLdml = TextBundleTests.CreateZippedTextBundleFromResources(false);
+				bundleFile = m_tempBundleFileWithoutLdml;
+			}
+			
+			var bundle = new GlyssenBundle(bundleFile.Path);
+			var uniqueBundleId = kTestBundleIdPrefix + Path.GetFileNameWithoutExtension(bundleFile.Path);
+			bundle.Metadata.Language.Iso = bundle.Metadata.Id = uniqueBundleId;
+			return bundle;
 		}
 
 		[OneTimeSetUp]
 		public void OneTimeSetUp()
 		{
 			GlyssenInfo.Product = "GlyssenTests";
+			if (Project.FontRepository == null)
+				Project.FontRepository = new TestProject.TestFontRepository();
 
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Properties.Resources.TestCharacterDetail;
-
-			// Clean up anything from previously aborted tests
-			if (Directory.Exists(ProjectRepository.ProjectsBaseFolder))
-			{
-				foreach (var directory in Directory.GetDirectories(ProjectRepository.ProjectsBaseFolder, GlyssenBundleTests.kTestBundleIdPrefix + "*"))
-					RobustIO.DeleteDirectoryAndContents(directory);
-			}
 		}
 
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
-			foreach (var folder in m_tempProjectFolders)
-				RobustIO.DeleteDirectoryAndContents(folder);
+			if (m_tempBundleFileWithLdml != null)
+			{
+				m_tempBundleFileWithLdml.Dispose();
+				m_tempBundleFileWithLdml = null;
+			}
+
+			if (m_tempBundleFileWithoutLdml != null)
+			{
+				m_tempBundleFileWithoutLdml.Dispose();
+				m_tempBundleFileWithoutLdml = null;
+			}
+		}
+
+		[TearDown]
+		public void Teardown()
+		{
+			TestReferenceText.ForgetCustomReferenceTexts();
+			((PersistenceImplementation)Project.Writer).ClearAllUserProjects();
 		}
 
 		[Test]
 		public void CreateFromBundle_BundleContainsQuoteInformation_LoadsQuoteSystemFromBundle()
 		{
-			var bundle = GetGlyssenBundleToBeUsedForProject();
 			var bogusQuoteSystem = new QuoteSystem(new QuotationMark("^", "^^", "^^^", 1, QuotationMarkingSystemType.Normal));
-			bundle.WritingSystemDefinition.QuotationMarks.Clear();
-			bundle.WritingSystemDefinition.QuotationMarks.AddRange(bogusQuoteSystem.AllLevels);
+			var bundle = GetBundleWithModifiedQuotationMarks(qms =>
+			{
+				qms.Clear();
+				qms.AddRange(bogusQuoteSystem.AllLevels);
+			});
 			var project = new Project(bundle);
 
 			WaitForProjectInitializationToFinish(project, ProjectState.FullyInitialized);
@@ -87,8 +168,7 @@ namespace GlyssenEngineTests
 		[Test]
 		public void CreateFromBundle_BundleDoesNotContainQuoteInformation_GuessesQuoteSystem()
 		{
-			var bundle = GetGlyssenBundleToBeUsedForProject();
-			bundle.WritingSystemDefinition.QuotationMarks.Clear();
+			var bundle = GetBundleWithModifiedQuotationMarks(qms => qms.Clear());
 			var project = new Project(bundle);
 
 			WaitForProjectInitializationToFinish(project, ProjectState.NeedsQuoteSystemConfirmation);
@@ -98,9 +178,11 @@ namespace GlyssenEngineTests
 		}
 
 		[Test]
-		public void UpdateProjectFromBundleData()
+		public void UpdateProjectFromBundleData_IndirectTestOfCopyGlyssenModifiableSettings_FontInfoDoesNotGetChanged()
 		{
-			var originalBundle = GetGlyssenBundleToBeUsedForProject();
+			// We cannot use the "standard" one because we change the bundle here and we want a different bundle for the update below.
+			var originalBundle = GetNewGlyssenBundleAndFile(true);
+
 			originalBundle.Metadata.FontSizeInPoints = 10;
 			var project = new Project(originalBundle);
 
@@ -108,27 +190,33 @@ namespace GlyssenEngineTests
 
 			Assert.AreEqual(10, project.FontSizeInPoints);
 
-			var newBundle = GetGlyssenBundleToBeUsedForProject();
-			originalBundle.Metadata.FontSizeInPoints = 12;
+			var newBundle = BundleWithLdml;
+
+			// Technically, this is overkill. Since newBundle's metadata has a font size of 14, we could just leave it as 10
+			// and check that it stays as 10.
+			Assert.AreNotEqual(12, newBundle.Metadata.FontSizeInPoints);
+			project.UpdateSettings(new GlyssenEngine.ViewModels.ProjectSettingsViewModel(project), "Polaris Basic Frog", 12, false);
+
 			var updatedProject = project.UpdateProjectFromBundleData(newBundle);
 
 			WaitForProjectInitializationToFinish(updatedProject, ProjectState.ReadyForUserInteraction);
 
 			Assert.AreEqual(12, updatedProject.FontSizeInPoints);
+			Assert.AreEqual("Polaris Basic Frog", updatedProject.FontFamily);
 		}
 
 		[Test]
 		public void UpdateProjectFromBundleData_BundleDoesNotContainLdmlFile_MaintainsOriginalQuoteSystem()
 		{
-			var originalBundle = GetGlyssenBundleToBeUsedForProject();
-			originalBundle.WritingSystemDefinition.QuotationMarks[0] = new QuotationMark("open", "close", "cont", 1, QuotationMarkingSystemType.Normal);
+			var originalBundle = GetBundleWithModifiedQuotationMarks(qms =>
+				qms[0] = new QuotationMark("open", "close", "cont", 1, QuotationMarkingSystemType.Normal));
 			var project = new Project(originalBundle);
 
 			WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
 
 			Assert.AreEqual("open", project.QuoteSystem.FirstLevel.Open);
 
-			var newBundle = GetGlyssenBundleToBeUsedForProject(false);
+			var newBundle = GetBundleWithoutLdmlAndWithModifiedLanguage(null);
 			Assert.IsNull(newBundle.WritingSystemDefinition);
 			var updatedProject = project.UpdateProjectFromBundleData(newBundle);
 
@@ -138,8 +226,8 @@ namespace GlyssenEngineTests
 		[Test]
 		public void UpdateProjectFromBundleData_ExistingProjectHasUserDecisions_UserDecisionsApplied()
 		{
-			var originalBundle = GetGlyssenBundleToBeUsedForProject();
-			originalBundle.WritingSystemDefinition.QuotationMarks[0] = new QuotationMark("open", "close", "cont", 1, QuotationMarkingSystemType.Normal);
+			var originalBundle = GetBundleWithModifiedQuotationMarks(qms =>
+				qms[0] = new QuotationMark("open", "close", "cont", 1, QuotationMarkingSystemType.Normal));
 			var project = new Project(originalBundle);
 
 			WaitForProjectInitializationToFinish(project, ProjectState.FullyInitialized);
@@ -151,8 +239,7 @@ namespace GlyssenEngineTests
 				new [] { new CharacterVerse(verseRef, "Wilma", "agitated beyond belief", null, true) }));
 			block.UserConfirmed = true;
 
-			var newBundle = GetGlyssenBundleToBeUsedForProject();
-			var updatedProject = project.UpdateProjectFromBundleData(newBundle);
+			var updatedProject = project.UpdateProjectFromBundleData(BundleWithLdml);
 
 			WaitForProjectInitializationToFinish(updatedProject, ProjectState.FullyInitialized);
 
@@ -162,8 +249,7 @@ namespace GlyssenEngineTests
 		[Test]
 		public void CopyQuoteMarksIfAppropriate_TargetWsHasNoQuotes_TargetReceivesQuotes()
 		{
-			var originalBundle = GetGlyssenBundleToBeUsedForProject();
-			var project = new Project(originalBundle);
+			var project = new Project(BundleWithLdml);
 			project.Status.QuoteSystemStatus = QuoteSystemStatus.UserSet;
 
 			WritingSystemDefinition targetWs = new WritingSystemDefinition();
@@ -177,8 +263,7 @@ namespace GlyssenEngineTests
 		[Test]
 		public void CopyQuoteMarksIfAppropriate_TargetWsHasQuotes_TargetQuotesObtained_TargetDoesNotReceiveQuotes()
 		{
-			var originalBundle = GetGlyssenBundleToBeUsedForProject();
-			var project = new Project(originalBundle);
+			var project = new Project(BundleWithLdml);
 			project.Status.QuoteSystemStatus = QuoteSystemStatus.Obtained;
 
 			WritingSystemDefinition targetWs = new WritingSystemDefinition();
@@ -197,15 +282,18 @@ namespace GlyssenEngineTests
 		[Test]
 		public void CopyQuoteMarksIfAppropriate_TargetWsHasLessQuoteLevelsThanOriginal_CommonLevelsSame_TargetReceivesQuotes()
 		{
-			var originalBundle = GetGlyssenBundleToBeUsedForProject();
 			var bogusQuoteSystem = new QuoteSystem(new BulkObservableList<QuotationMark>
 			{
 				new QuotationMark("^", "^^", "^^^", 1, QuotationMarkingSystemType.Normal),
 				new QuotationMark("$", "^^$", "$$$", 1, QuotationMarkingSystemType.Normal)
 			});
-			originalBundle.WritingSystemDefinition.QuotationMarks.Clear();
-			originalBundle.WritingSystemDefinition.QuotationMarks.AddRange(bogusQuoteSystem.AllLevels);
-			var project = new Project(originalBundle);
+
+			var bundle = GetBundleWithModifiedQuotationMarks(qms =>
+			{
+				qms.Clear();
+				qms.AddRange(bogusQuoteSystem.AllLevels);
+			});
+			var project = new Project(bundle);
 			project.Status.QuoteSystemStatus = QuoteSystemStatus.UserSet;
 
 			WritingSystemDefinition targetWs = new WritingSystemDefinition();
@@ -224,15 +312,18 @@ namespace GlyssenEngineTests
 		[Test]
 		public void CopyQuoteMarksIfAppropriate_TargetWsHasLessQuoteLevelsThanOriginal_CommonLevelsDifferent_TargetDoesNotReceiveQuotes()
 		{
-			var originalBundle = GetGlyssenBundleToBeUsedForProject();
 			var bogusQuoteSystem = new QuoteSystem(new BulkObservableList<QuotationMark>
 			{
 				new QuotationMark("^", "^^", "^^^", 1, QuotationMarkingSystemType.Normal),
 				new QuotationMark("$", "^^$", "$$$", 1, QuotationMarkingSystemType.Normal)
 			});
-			originalBundle.WritingSystemDefinition.QuotationMarks.Clear();
-			originalBundle.WritingSystemDefinition.QuotationMarks.AddRange(bogusQuoteSystem.AllLevels);
-			var project = new Project(originalBundle);
+
+			var bundle = GetBundleWithModifiedQuotationMarks(qms =>
+			{
+				qms.Clear();
+				qms.AddRange(bogusQuoteSystem.AllLevels);
+			});
+			var project = new Project(bundle);
 			project.Status.QuoteSystemStatus = QuoteSystemStatus.UserSet;
 
 			WritingSystemDefinition targetWs = new WritingSystemDefinition();
@@ -249,277 +340,215 @@ namespace GlyssenEngineTests
 		}
 
 		[Test]
-		[Timeout(11000)]
 		public void SetQuoteSystem_QuoteParseCompletedCalledWithNewQuoteSystem()
 		{
-			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
-			try
+			var project = new Project(BundleWithLdml);
+
+			QuoteSystem quoteSystemAfterQuoteParserCompletes = null;
+
+			project.QuoteParseCompleted += delegate(object sender, EventArgs args) { quoteSystemAfterQuoteParserCompletes = ((Project)sender).QuoteSystem; };
+
+			WaitForProjectInitializationToFinish(project, ProjectState.FullyInitialized);
+
+			Assert.AreNotEqual(QuoteSystem.Default, project.QuoteSystem);
+			project.SetQuoteSystem(QuoteSystemStatus.UserSet, QuoteSystem.Default);
+
+			do
 			{
-				m_tempProjectFolders.Add(Path.Combine(ProjectRepository.ProjectsBaseFolder, originalBundleAndFile.Item1.Metadata.Id));
-				var originalBundle = originalBundleAndFile.Item1;
-				var project = new Project(originalBundle);
+				Thread.Sleep(100);
+			} while (quoteSystemAfterQuoteParserCompletes == null);
 
-				WaitForProjectInitializationToFinish(project, ProjectState.FullyInitialized);
-
-				QuoteSystem quoteSystemAfterQuoteParserCompletes = null;
-
-				project.QuoteParseCompleted += delegate(object sender, EventArgs args)
-				{
-					quoteSystemAfterQuoteParserCompletes = ((Project)sender).QuoteSystem;
-				};
-
-				Assert.AreNotEqual(QuoteSystem.Default, project.QuoteSystem);
-				project.SetQuoteSystem(QuoteSystemStatus.UserSet, QuoteSystem.Default);
-
-				do
-				{
-					Thread.Sleep(100);
-				} while (quoteSystemAfterQuoteParserCompletes == null);
-
-				Assert.AreEqual(QuoteSystem.Default, quoteSystemAfterQuoteParserCompletes);
-				Assert.AreEqual(project.QuoteSystem, quoteSystemAfterQuoteParserCompletes);
-			}
-			finally
-			{
-				// Must dispose after because changing the quote system needs access to original bundle file
-				originalBundleAndFile.Item2.Dispose();
-			}
+			Assert.AreEqual(QuoteSystem.Default, quoteSystemAfterQuoteParserCompletes);
+			Assert.AreEqual(project.QuoteSystem, quoteSystemAfterQuoteParserCompletes);
 		}
 
 		[TestCase("Boaz")]
 		[TestCase("Mr. Rogers")]
-		[Timeout(11000)]
 		public void SetQuoteSystem_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
-			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
-			try
+			var testProject = new Project(BundleWithLdml);
+
+			WaitForProjectInitializationToFinish(testProject, ProjectState.FullyInitialized);
+
+			var book = testProject.IncludedBooks.First();
+			var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(book,
+				book.GetScriptBlocks().Count - 1);
+
+			SetAndConfirmCharacterAndDeliveryForAllCorrelatedBlocks(matchup, book.BookNumber, testProject, character);
+
+			Assert.IsTrue(testProject.ProjectCharacterVerseData.Any());
+			if (!CharacterDetailData.Singleton.GetDictionary().ContainsKey(character))
+				testProject.AddProjectCharacterDetail(new CharacterDetail {CharacterId = character, Age = CharacterAge.Elder, Gender = CharacterGender.Male});
+
+			matchup.Apply();
+
+			var newQuoteSystem = new QuoteSystem(testProject.QuoteSystem);
+			newQuoteSystem.AllLevels.Add(new QuotationMark("=+", "#$", "^&", newQuoteSystem.FirstLevel.Level, QuotationMarkingSystemType.Narrative));
+
+			bool complete = false;
+
+			testProject.QuoteParseCompleted += delegate { complete = true; };
+
+			var origCountOfUserConfirmedBlocks = book.GetScriptBlocks().Count(b => b.UserConfirmed);
+
+			var prevQuoteSystemDate = testProject.QuoteSystemDate;
+			testProject.SetQuoteSystem(QuoteSystemStatus.UserSet, newQuoteSystem);
+			Assert.IsTrue(prevQuoteSystemDate < testProject.QuoteSystemDate);
+
+			do
 			{
-				m_tempProjectFolders.Add(Path.Combine(ProjectRepository.ProjectsBaseFolder, originalBundleAndFile.Item1.Metadata.Id));
-				var originalBundle = originalBundleAndFile.Item1;
-				var testProject = new Project(originalBundle);
+				Thread.Sleep(100);
+			} while (!complete);
 
-				WaitForProjectInitializationToFinish(testProject, ProjectState.FullyInitialized);
-
-				var book = testProject.IncludedBooks.First();
-				var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(book,
-					book.GetScriptBlocks().Count - 1);
-
-				SetAndConfirmCharacterAndDeliveryForAllCorrelatedBlocks(matchup, book.BookNumber, testProject, character);
-
-				Assert.IsTrue(testProject.ProjectCharacterVerseData.Any());
-				if (!CharacterDetailData.Singleton.GetDictionary().ContainsKey(character))
-					testProject.AddProjectCharacterDetail(new CharacterDetail { CharacterId = character, Age = CharacterAge.Elder, Gender = CharacterGender.Male });
-
-				matchup.Apply();
-
-				var newQuoteSystem = new QuoteSystem(testProject.QuoteSystem);
-				newQuoteSystem.AllLevels.Add(new QuotationMark("=+", "#$", "^&", newQuoteSystem.FirstLevel.Level, QuotationMarkingSystemType.Narrative));
-
-				bool complete = false;
-
-				testProject.QuoteParseCompleted += delegate
-				{
-					complete = true;
-				};
-
-				var origCountOfUserConfirmedBlocks = book.GetScriptBlocks().Count(b => b.UserConfirmed);
-
-				var prevQuoteSystemDate = testProject.QuoteSystemDate;
-				testProject.SetQuoteSystem(QuoteSystemStatus.UserSet, newQuoteSystem);
-				Assert.IsTrue(prevQuoteSystemDate < testProject.QuoteSystemDate);
-
-				do
-				{
-					Thread.Sleep(100);
-				} while (!complete);
-
-				var userConfirmedBlocksAfterReapplying = testProject.IncludedBooks.First().GetScriptBlocks().Where(b => b.UserConfirmed).ToList();
-				Assert.AreEqual(origCountOfUserConfirmedBlocks, userConfirmedBlocksAfterReapplying.Count);
-				foreach (var blockWithReappliedUserDecision in userConfirmedBlocksAfterReapplying)
-				{
-					Assert.AreEqual(character, blockWithReappliedUserDecision.CharacterId);
-					Assert.AreEqual("foamy", blockWithReappliedUserDecision.Delivery);
-				}
-			}
-			finally
+			var userConfirmedBlocksAfterReapplying = testProject.IncludedBooks.First().GetScriptBlocks().Where(b => b.UserConfirmed).ToList();
+			Assert.AreEqual(origCountOfUserConfirmedBlocks, userConfirmedBlocksAfterReapplying.Count);
+			foreach (var blockWithReappliedUserDecision in userConfirmedBlocksAfterReapplying)
 			{
-				// Must dispose after because changing the quote system needs access to original bundle file
-				originalBundleAndFile.Item2.Dispose();
+				Assert.AreEqual(character, blockWithReappliedUserDecision.CharacterId);
+				Assert.AreEqual("foamy", blockWithReappliedUserDecision.Delivery);
 			}
+
+			Assert.IsTrue(((PersistenceImplementation)Project.Writer).WasExpectedBackupCreated(
+				testProject, "Backup before quote system change", true));
 		}
+
 		[Test]
-		[Timeout(11000)]
 		public void SetQuoteSystem_ProjectQuoteSystemChanged_QuoteSystemDateUpdated()
 		{
-			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
-			try
+			var testProject = new Project(BundleWithLdml);
+
+			WaitForProjectInitializationToFinish(testProject, ProjectState.FullyInitialized);
+
+			var newQuoteSystem = new QuoteSystem(testProject.QuoteSystem);
+			newQuoteSystem.AllLevels.Add(new QuotationMark("=+", "#$", "^&", newQuoteSystem.FirstLevel.Level, QuotationMarkingSystemType.Narrative));
+
+			bool complete = false;
+
+			testProject.QuoteParseCompleted += (sender, args) => complete = true;
+
+			void WaitForParsingToComplete()
 			{
-				m_tempProjectFolders.Add(Path.Combine(ProjectRepository.ProjectsBaseFolder, originalBundleAndFile.Item1.Metadata.Id));
-				var originalBundle = originalBundleAndFile.Item1;
-				var testProject = new Project(originalBundle);
-
-				WaitForProjectInitializationToFinish(testProject, ProjectState.FullyInitialized);
-
-				var newQuoteSystem = new QuoteSystem(testProject.QuoteSystem);
-				newQuoteSystem.AllLevels.Add(new QuotationMark("=+", "#$", "^&", newQuoteSystem.FirstLevel.Level, QuotationMarkingSystemType.Narrative));
-
-				bool complete = false;
-
-				testProject.QuoteParseCompleted += (sender, args) => complete = true;
-
-				void WaitForParsingToComplete()
+				do
 				{
-					do
-					{
-						Thread.Sleep(100);
-					} while (!complete);
-				}
-
-				testProject.SetQuoteSystem(QuoteSystemStatus.UserSet, newQuoteSystem);
-
-				WaitForParsingToComplete();
-
-				complete = false;
-
-				var prevQuoteSystemDate = testProject.QuoteSystemDate;
-				var prevProjectState = testProject.ProjectState;
-				// First, demonstrate that setting it to the same value does nothing.
-				testProject.SetQuoteSystem(QuoteSystemStatus.UserSet, newQuoteSystem);
-				Assert.AreEqual(prevQuoteSystemDate, testProject.QuoteSystemDate);
-				Assert.AreEqual(prevProjectState, testProject.ProjectState);
-
-				// Next, demonstrate that setting it to a different value updates the date.
-				newQuoteSystem = new QuoteSystem(testProject.QuoteSystem);
-				newQuoteSystem.AllLevels.Add(new QuotationMark("*+", "@!", "~`", newQuoteSystem.FirstLevel.Level, QuotationMarkingSystemType.Normal));
-				testProject.SetQuoteSystem(QuoteSystemStatus.UserSet, newQuoteSystem);
-				Assert.IsTrue(prevQuoteSystemDate < testProject.QuoteSystemDate);
-
-				WaitForParsingToComplete();
+					Thread.Sleep(100);
+				} while (!complete);
 			}
-			finally
-			{
-				// Must dispose after because changing the quote system needs access to original bundle file
-				originalBundleAndFile.Item2.Dispose();
-			}
+
+			testProject.SetQuoteSystem(QuoteSystemStatus.UserSet, newQuoteSystem);
+
+			WaitForParsingToComplete();
+
+			complete = false;
+
+			var prevQuoteSystemDate = testProject.QuoteSystemDate;
+			var prevProjectState = testProject.ProjectState;
+			// First, demonstrate that setting it to the same value does nothing.
+			testProject.SetQuoteSystem(QuoteSystemStatus.UserSet, newQuoteSystem);
+			Assert.AreEqual(prevQuoteSystemDate, testProject.QuoteSystemDate);
+			Assert.AreEqual(prevProjectState, testProject.ProjectState);
+
+			// Next, demonstrate that setting it to a different value updates the date.
+			newQuoteSystem = new QuoteSystem(testProject.QuoteSystem);
+			newQuoteSystem.AllLevels.Add(new QuotationMark("*+", "@!", "~`", newQuoteSystem.FirstLevel.Level, QuotationMarkingSystemType.Normal));
+			testProject.SetQuoteSystem(QuoteSystemStatus.UserSet, newQuoteSystem);
+			Assert.IsTrue(prevQuoteSystemDate < testProject.QuoteSystemDate);
+
+			WaitForParsingToComplete();
 		}
 
 		[TestCase("Boaz")]
 		[TestCase("Mr. Rogers")]
-		[Timeout(11000)]
 		public void UpdateProjectFromBundleData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
-			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
-			try
+			var testProject = new Project(BundleWithLdml);
+
+			WaitForProjectInitializationToFinish(testProject, ProjectState.FullyInitialized);
+
+			var book = testProject.IncludedBooks.First();
+			var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(book,
+				book.GetScriptBlocks().Count - 1);
+
+			SetAndConfirmCharacterAndDeliveryForAllCorrelatedBlocks(matchup, book.BookNumber, testProject, character);
+
+			Assert.IsTrue(testProject.ProjectCharacterVerseData.Any());
+			if (!CharacterDetailData.Singleton.GetDictionary().ContainsKey(character))
+				testProject.AddProjectCharacterDetail(new CharacterDetail {CharacterId = character, Age = CharacterAge.Elder, Gender = CharacterGender.Male});
+
+			matchup.Apply();
+
+			bool complete = false;
+
+			var origCountOfUserConfirmedBlocks = book.GetScriptBlocks().Count(b => b.UserConfirmed);
+
+			var updatedProject = testProject.UpdateProjectFromBundleData(BundleWithLdml);
+
+			updatedProject.QuoteParseCompleted += delegate { complete = true; };
+
+			do
 			{
-				m_tempProjectFolders.Add(Path.Combine(ProjectRepository.ProjectsBaseFolder, originalBundleAndFile.Item1.Metadata.Id));
-				var originalBundle = originalBundleAndFile.Item1;
-				var testProject = new Project(originalBundle);
+				Thread.Sleep(100);
+			} while (!complete);
 
-				WaitForProjectInitializationToFinish(testProject, ProjectState.FullyInitialized);
-
-				var book = testProject.IncludedBooks.First();
-				var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(book,
-					book.GetScriptBlocks().Count - 1);
-
-				SetAndConfirmCharacterAndDeliveryForAllCorrelatedBlocks(matchup, book.BookNumber, testProject, character);
-
-				Assert.IsTrue(testProject.ProjectCharacterVerseData.Any());
-				if (!CharacterDetailData.Singleton.GetDictionary().ContainsKey(character))
-					testProject.AddProjectCharacterDetail(new CharacterDetail { CharacterId = character, Age = CharacterAge.Elder, Gender = CharacterGender.Male });
-
-				matchup.Apply();
-
-				bool complete = false;
-
-				var origCountOfUserConfirmedBlocks = book.GetScriptBlocks().Count(b => b.UserConfirmed);
-
-				var updatedProject = testProject.UpdateProjectFromBundleData(originalBundle);
-
-				updatedProject.QuoteParseCompleted += delegate
-				{
-					complete = true;
-				};
-
-				do
-				{
-					Thread.Sleep(100);
-				} while (!complete);
-
-				var userConfirmedBlocksAfterReapplying = updatedProject.IncludedBooks.First().GetScriptBlocks().Where(b => b.UserConfirmed).ToList();
-				Assert.AreEqual(origCountOfUserConfirmedBlocks, userConfirmedBlocksAfterReapplying.Count);
-				foreach (var blockWithReappliedUserDecision in userConfirmedBlocksAfterReapplying)
-				{
-					Assert.AreEqual(character, blockWithReappliedUserDecision.CharacterId);
-					Assert.AreEqual("foamy", blockWithReappliedUserDecision.Delivery);
-				}
-			}
-			finally
+			var userConfirmedBlocksAfterReapplying = updatedProject.IncludedBooks.First().GetScriptBlocks().Where(b => b.UserConfirmed).ToList();
+			Assert.AreEqual(origCountOfUserConfirmedBlocks, userConfirmedBlocksAfterReapplying.Count);
+			foreach (var blockWithReappliedUserDecision in userConfirmedBlocksAfterReapplying)
 			{
-				originalBundleAndFile.Item2.Dispose();
+				Assert.AreEqual(character, blockWithReappliedUserDecision.CharacterId);
+				Assert.AreEqual("foamy", blockWithReappliedUserDecision.Delivery);
 			}
+
+			Assert.IsTrue(((PersistenceImplementation)Project.Writer).WasExpectedBackupCreated(
+				testProject, "Backup before updating from new bundle", true));
 		}
 
 		[TestCase("Boaz")]
 		[TestCase("Mr. Rogers")]
-		[Timeout(11000)]
 		public void UpdateFromParatextData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
-			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
-			try
+			var bundle = BundleWithLdml;
+			var testProject = new Project(bundle);
+
+			WaitForProjectInitializationToFinish(testProject, ProjectState.FullyInitialized);
+
+			var book = testProject.IncludedBooks.First();
+			var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(book,
+				book.GetScriptBlocks().Count - 1);
+
+			SetAndConfirmCharacterAndDeliveryForAllCorrelatedBlocks(matchup, book.BookNumber, testProject, character);
+
+			Assert.IsTrue(testProject.ProjectCharacterVerseData.Any());
+			if (!CharacterDetailData.Singleton.GetDictionary().ContainsKey(character))
+				testProject.AddProjectCharacterDetail(new CharacterDetail {CharacterId = character, Age = CharacterAge.Elder, Gender = CharacterGender.Male});
+
+			matchup.Apply();
+
+			bool complete = false;
+
+			var origCountOfUserConfirmedBlocks = book.GetScriptBlocks().Count(b => b.UserConfirmed);
+
+			var scrTextWrapper = MockRepository.GenerateMock<IParatextScrTextWrapper>();
+			scrTextWrapper.Stub(w => w.AvailableBooks).Return(testProject.AvailableBooks);
+			scrTextWrapper.Stub(w => w.HasQuotationRulesSet).Return(false);
+			scrTextWrapper.Stub(w => w.DoesBookPassChecks(book.BookNumber)).Return(true);
+			var list = new ParatextUsxBookList {{book.BookNumber, bundle.UsxBooksToInclude.Single(), "checksum", true}};
+			scrTextWrapper.Stub(w => w.UsxDocumentsForIncludedBooks).Return(list);
+			scrTextWrapper.Stub(w => w.Stylesheet).Return(new TestStylesheet());
+
+			var updatedProject = testProject.UpdateProjectFromParatextData(scrTextWrapper);
+
+			updatedProject.QuoteParseCompleted += delegate { complete = true; };
+
+			do
 			{
-				m_tempProjectFolders.Add(Path.Combine(ProjectRepository.ProjectsBaseFolder, originalBundleAndFile.Item1.Metadata.Id));
-				var originalBundle = originalBundleAndFile.Item1;
-				var testProject = new Project(originalBundle);
+				Thread.Sleep(100);
+			} while (!complete);
 
-				WaitForProjectInitializationToFinish(testProject, ProjectState.FullyInitialized);
-
-				var book = testProject.IncludedBooks.First();
-				var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(book,
-					book.GetScriptBlocks().Count - 1);
-
-				SetAndConfirmCharacterAndDeliveryForAllCorrelatedBlocks(matchup, book.BookNumber, testProject, character);
-
-				Assert.IsTrue(testProject.ProjectCharacterVerseData.Any());
-				if (!CharacterDetailData.Singleton.GetDictionary().ContainsKey(character))
-					testProject.AddProjectCharacterDetail(new CharacterDetail { CharacterId = character, Age = CharacterAge.Elder, Gender = CharacterGender.Male });
-
-				matchup.Apply();
-
-				bool complete = false;
-
-				var origCountOfUserConfirmedBlocks = book.GetScriptBlocks().Count(b => b.UserConfirmed);
-
-				var scrTextWrapper = MockRepository.GenerateMock<IParatextScrTextWrapper>();
-				scrTextWrapper.Stub(w => w.AvailableBooks).Return(testProject.AvailableBooks);
-				scrTextWrapper.Stub(w => w.HasQuotationRulesSet).Return(false);
-				scrTextWrapper.Stub(w => w.DoesBookPassChecks(book.BookNumber)).Return(true);
-				var list = new ParatextUsxBookList {{book.BookNumber, originalBundle.UsxBooksToInclude.Single(), "checksum", true}};
-				scrTextWrapper.Stub(w => w.UsxDocumentsForIncludedBooks).Return(list);
-				scrTextWrapper.Stub(w => w.Stylesheet).Return(new TestStylesheet());
-
-				var updatedProject = testProject.UpdateProjectFromParatextData(scrTextWrapper);
-
-				updatedProject.QuoteParseCompleted += delegate
-				{
-					complete = true;
-				};
-
-				do
-				{
-					Thread.Sleep(100);
-				} while (!complete);
-
-				var userConfirmedBlocksAfterReapplying = updatedProject.IncludedBooks.First().GetScriptBlocks().Where(b => b.UserConfirmed).ToList();
-				Assert.AreEqual(origCountOfUserConfirmedBlocks, userConfirmedBlocksAfterReapplying.Count);
-				foreach (var blockWithReappliedUserDecision in userConfirmedBlocksAfterReapplying)
-				{
-					Assert.AreEqual(character, blockWithReappliedUserDecision.CharacterId);
-					Assert.AreEqual("foamy", blockWithReappliedUserDecision.Delivery);
-				}
-			}
-			finally
+			var userConfirmedBlocksAfterReapplying = updatedProject.IncludedBooks.First().GetScriptBlocks().Where(b => b.UserConfirmed).ToList();
+			Assert.AreEqual(origCountOfUserConfirmedBlocks, userConfirmedBlocksAfterReapplying.Count);
+			foreach (var blockWithReappliedUserDecision in userConfirmedBlocksAfterReapplying)
 			{
-				originalBundleAndFile.Item2.Dispose();
+				Assert.AreEqual(character, blockWithReappliedUserDecision.CharacterId);
+				Assert.AreEqual("foamy", blockWithReappliedUserDecision.Delivery);
 			}
 		}
 
@@ -736,7 +765,7 @@ namespace GlyssenEngineTests
 
 		[TestCase(QuotationParagraphContinueType.Innermost, "<", "<<")]
 		[TestCase(QuotationParagraphContinueType.Outermost, "<<", "<<")]
-		public void SetWsQuotationMarksUsingFullySpecifiedContinuers_3Levels_NonCompundingContinuers_NoChange(QuotationParagraphContinueType type,
+		public void SetWsQuotationMarksUsingFullySpecifiedContinuers_3Levels_NonCompoundingContinuers_NoChange(QuotationParagraphContinueType type,
 			string level2Cont, string level3Cont)
 		{
 			var project = TestProject.CreateBasicTestProject();
@@ -846,200 +875,143 @@ namespace GlyssenEngineTests
 			metadata.AvailableBooks.Insert(0, new Book { Code = "MAT" });
 			project.Save();
 
-			project = TestProject.LoadExistingTestProject();
+			project = TestProject.LoadExistingTestProject(project.MetadataId);
 
 			Assert.AreEqual("JUD", project.AvailableBooks.Single().Code);
 		}
 
 		[Test]
-		[Timeout(11000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsIsoIsSet_ProjectIsCreatedSuccessfully()
 		{
-			Sldr.Initialize();
-			try
+			var bundle = GetBundleWithoutLdmlAndWithModifiedLanguage(l =>
 			{
-				var bundle = GetGlyssenBundleToBeUsedForProject(false);
-				bundle.Metadata.Language.Ldml = "";
-				bundle.Metadata.Language.Iso = "ach";
-				bundle.Metadata.Language.Name = "Acholi"; // see messages in Assert.AreEqual lines below
-				var project = new Project(bundle);
-				m_tempProjectFolders.Add(Path.GetDirectoryName(ProjectRepository.GetProjectFolderPath(project)));
-				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
-				Assert.IsNotNull(project);
-				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
-				Assert.AreEqual("ach", project.WritingSystem.Id);
-				Assert.AreEqual("Acoli", project.WritingSystem.Language.Name,
-					"This name should be coming from the \"global\" cache, not from the metadata above - note spelling difference.");
-				Assert.AreEqual("ach", project.WritingSystem.Language.Iso3Code,
-					"If \"ach\" is not found in the global cache, the language subtag will be considered \"private-use\" and the " +
-					"ISO code will be null");
-				Assert.AreEqual("ach", project.WritingSystem.Language.Code);
-			}
-			finally
-			{
-				Sldr.Cleanup();
-			}
+				l.Ldml = "";
+				l.Iso = "ach";
+				l.Name = "Acholi"; // see messages in Assert.AreEqual lines below
+			});
+			var project = new Project(bundle);
+			WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
+			Assert.IsNotNull(project);
+			Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
+			Assert.AreEqual("ach", project.WritingSystem.Id);
+			Assert.AreEqual("Acoli", project.WritingSystem.Language.Name,
+				"This name should be coming from the \"global\" cache, not from the metadata above - note spelling difference.");
+			Assert.AreEqual("ach", project.WritingSystem.Language.Iso3Code,
+				"If \"ach\" is not found in the global cache, the language subtag will be considered \"private-use\" and the " +
+				"ISO code will be null");
+			Assert.AreEqual("ach", project.WritingSystem.Language.Code);
 		}
 
 		[Test]
-		[Timeout(11000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlIsSet_ProjectIsCreatedSuccessfully()
 		{
-			Sldr.Initialize();
-			try
-			{
-				var bundle = GetGlyssenBundleToBeUsedForProject(false);
-				bundle.Metadata.Language.Ldml = "ach";
-				var project = new Project(bundle);
-				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
-				Assert.IsNotNull(project);
-				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
-				Assert.AreEqual("ach", project.WritingSystem.Id);
-			}
-			finally
-			{
-				Sldr.Cleanup();
-			}
+			var bundle = GetBundleWithoutLdmlAndWithModifiedLanguage(l => l.Ldml = "ach");
+			var project = new Project(bundle);
+			WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
+			Assert.IsNotNull(project);
+			Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
+			Assert.AreEqual("ach", project.WritingSystem.Id);
 		}
 
-		[Test, Timeout(16000)]
+		[Test]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlHasCountrySpecified_ProjectIsCreatedSuccessfully()
 		{
-			Sldr.Initialize();
-			try
+			var bundle = GetBundleWithoutLdmlAndWithModifiedLanguage(l =>
 			{
-				var bundle = GetGlyssenBundleToBeUsedForProject(false);
-				bundle.Metadata.Language.Iso = "ach";
-				bundle.Metadata.Language.Ldml = "ach-CM";
-				var project = new Project(bundle);
-				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
-				Assert.IsNotNull(project);
-				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
-				Assert.AreEqual("ach", project.WritingSystem.Id);
-			}
-			finally
-			{
-				Sldr.Cleanup();
-			}
+				l.Iso = "ach";
+				l.Ldml = "ach-CM";
+			});
+			var project = new Project(bundle);
+			WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
+			Assert.IsNotNull(project);
+			Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
+			Assert.AreEqual("ach", project.WritingSystem.Id);
 		}
 
-		[Test, Timeout(11000)]
+		[Test]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlAndIsoCodesHaveCountySpecified_ProjectIsCreatedSuccessfully()
 		{
-			Sldr.Initialize();
-			try
+			var bundle = GetBundleWithoutLdmlAndWithModifiedLanguage(l =>
 			{
-				var bundle = GetGlyssenBundleToBeUsedForProject(false);
-				bundle.Metadata.Language.Iso = "ach-CM";
-				bundle.Metadata.Language.Ldml = "ach-CM";
-				var project = new Project(bundle);
-				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
-				Assert.IsNotNull(project);
-				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
-				Assert.AreEqual("ach", project.WritingSystem.Id);
-			}
-			finally
-			{
-				Sldr.Cleanup();
-			}
+				l.Iso = "ach-CM";
+				l.Ldml = "ach-CM";
+			});
+			var project = new Project(bundle);
+			WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
+			Assert.IsNotNull(project);
+			Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
+			Assert.AreEqual("ach", project.WritingSystem.Id);
 		}
 
 		[Test]
-		[Timeout(11000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlCodeIsInvalid_ProjectIsCreatedSuccessfully()
 		{
-			Sldr.Initialize();
-			try
+			var bundle = GetBundleWithoutLdmlAndWithModifiedLanguage(l =>
 			{
-				var bundle = GetGlyssenBundleToBeUsedForProject(false);
-				bundle.Metadata.Language.Iso = "ach-CM";
-				bundle.Metadata.Language.Ldml = "ach%CM***-blah___ickypoo!";
-				var project = new Project(bundle);
-				m_tempProjectFolders.Add(Path.Combine(ProjectRepository.ProjectsBaseFolder, bundle.Metadata.Language.Ldml));
-				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
-				Assert.IsNotNull(project);
-				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
-				Assert.AreEqual("ach", project.WritingSystem.Id);
-			}
-			finally
-			{
-				Sldr.Cleanup();
-			}
+				l.Iso = "ach-CM";
+				l.Ldml = "ach%CM***-blah___ickypoo!";
+			});
+			var project = new Project(bundle);
+			WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
+			Assert.IsNotNull(project);
+			Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
+			Assert.AreEqual("ach", project.WritingSystem.Id);
 		}
 
 		[Test]
-		[Timeout(11000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsIsoCodeIsInvalid_ProjectIsCreatedSuccessfully()
 		{
-			Sldr.Initialize();
-			try
+			var bundle = GetBundleWithoutLdmlAndWithModifiedLanguage(l =>
 			{
-				var bundle = GetGlyssenBundleToBeUsedForProject(false);
-				bundle.Metadata.Language.Iso = "ach%CM-blah___ickypoo!";
-				bundle.Metadata.Language.Ldml = "ach-CM";
-				var project = new Project(bundle);
-				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
-				Assert.IsNotNull(project);
-				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
-				Assert.AreEqual("ach", project.WritingSystem.Id);
-			}
-			finally
-			{
-				Sldr.Cleanup();
-			}
+				l.Iso = "ach%CM-blah___ickypoo!";
+				l.Ldml = "ach-CM";
+			});
+			var project = new Project(bundle);
+			WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
+			Assert.IsNotNull(project);
+			Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
+			Assert.AreEqual("ach", project.WritingSystem.Id);
 		}
 
 		[Test]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsIsoCodeNotInLanguageRepo_ProjectIsCreatedUsingPrivateUseWritingSystem()
 		{
-			Sldr.Initialize();
-			try
+			var bundle = GetBundleWithoutLdmlAndWithModifiedLanguage(l =>
 			{
-				var bundle = GetGlyssenBundleToBeUsedForProject(false);
-				bundle.Metadata.Language.Iso = "zyt";
-				bundle.Metadata.Language.Ldml = "";
-				var project = new Project(bundle);
-				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
-				Assert.IsNotNull(project);
-				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
-				Assert.AreEqual("zyt", project.WritingSystem.Id);
-				Assert.IsTrue(project.WritingSystem.Language.IsPrivateUse);
-			}
-			finally
-			{
-				Sldr.Cleanup();
-			}
+				l.Iso = "zyt";
+				l.Ldml = "";
+			});
+			var project = new Project(bundle);
+			WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
+			Assert.IsNotNull(project);
+			Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
+			Assert.AreEqual("zyt", project.WritingSystem.Id);
+			Assert.IsTrue(project.WritingSystem.Language.IsPrivateUse);
 		}
 
 		[Test]
 		public void Constructor_MetadataContainsAvailableBookThatDoesNotExist_SpuriousBookRemovedFromMetadata()
 		{
-			var sampleMetadata = new GlyssenDblTextMetadata();
-			sampleMetadata.AvailableBooks = new List<Book>();
-			sampleMetadata.AvailableBooks.Insert(0, new Book { Code = "GEN" });
-			sampleMetadata.AvailableBooks.Insert(0, new Book { Code = "PSA" });
-			sampleMetadata.AvailableBooks.Insert(0, new Book { Code = "MAT" });
-
-			sampleMetadata.FontFamily = "Times New Roman";
-			sampleMetadata.FontSizeInPoints = 12;
-			sampleMetadata.Id = "~~funkyFrogLipsAndStuff";
-			sampleMetadata.Language = new GlyssenDblMetadataLanguage { Iso = "~~funkyFrogLipsAndStuff" };
-			sampleMetadata.Identification = new DblMetadataIdentification { Name = "~~funkyFrogLipsAndStuff" };
+			var sampleMetadata = new GlyssenDblTextMetadata
+			{
+				AvailableBooks = new List<Book>(new[]
+					{
+						new Book {Code = "GEN"},
+						new Book {Code = "PSA"},
+						new Book {Code = "MAT"}
+					}),
+				FontFamily = "Times New Roman",
+				FontSizeInPoints = 12,
+				Id = "~~funkyFrogLipsAndStuff",
+				Language = new GlyssenDblMetadataLanguage {Iso = "~~funkyFrogLipsAndStuff"},
+				Identification = new DblMetadataIdentification {Name = "~~funkyFrogLipsAndStuff"}
+			};
 
 			var sampleWs = new WritingSystemDefinition();
 
-			try
-			{
-				var project = new Project(sampleMetadata, new List<UsxDocument>(), SfmLoader.GetUsfmStylesheet(), sampleWs);
-				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
-				Assert.False(project.AvailableBooks.Any());
-			}
-			finally
-			{
-				var testProjFolder = Path.Combine(ProjectRepository.ProjectsBaseFolder, "~~funkyFrogLipsAndStuff");
-				if (Directory.Exists(testProjFolder))
-					RobustIO.DeleteDirectoryAndContents(testProjFolder);
-			}
+			var project = new Project(sampleMetadata, new List<UsxDocument>(), SfmLoader.GetUsfmStylesheet(), sampleWs);
+			WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
+			Assert.False(project.AvailableBooks.Any());
 		}
 
 		[TestCase(2, 1, 1, 0)]
@@ -1175,7 +1147,6 @@ namespace GlyssenEngineTests
 		}
 
 		[Test]
-		[Timeout(11000)]
 		public void SetReferenceText_ChangeFromEnglishToFrenchWithOneBlockMismatched_ReferenceTextClearedForAllRelatedBlocks()
 		{
 			// Setup
@@ -1194,10 +1165,10 @@ namespace GlyssenEngineTests
 				"Setup problem: GetBlocksForVerseMatchedToReferenceText expected to match all except the last " +
 				"vern block to exactly one ref block.");
 			Assert.IsFalse(matchup.CorrelatedBlocks.Last().MatchesReferenceText);
-			var englishTextOfLastNarrtorBlock = ((ScriptText)matchup.CorrelatedBlocks[3].ReferenceBlocks.Single().BlockElements.Single()).Content;
-			var iQuoteMark = englishTextOfLastNarrtorBlock.IndexOf("“");
+			var englishTextOfLastNarratorBlock = ((ScriptText)matchup.CorrelatedBlocks[3].ReferenceBlocks.Single().BlockElements.Single()).Content;
+			var iQuoteMark = englishTextOfLastNarratorBlock.IndexOf("“", StringComparison.Ordinal);
 			matchup.SetReferenceText(3, "This is not going to match the corresponding English text in the French test reference text.");
-			matchup.SetReferenceText(4, englishTextOfLastNarrtorBlock.Substring(iQuoteMark));
+			matchup.SetReferenceText(4, englishTextOfLastNarratorBlock.Substring(iQuoteMark));
 			matchup.CorrelatedBlocks.Last().SetNonDramaticCharacterId(mark.NarratorCharacterId);
 			matchup.MatchAllBlocks();
 			matchup.Apply();
@@ -1285,7 +1256,7 @@ namespace GlyssenEngineTests
 			metadata.AvailableBooks.Insert(0, new Book { Code = "GEN" });
 			project.Save();
 
-			project = TestProject.LoadExistingTestProject();
+			project = TestProject.LoadExistingTestProject(project.MetadataId);
 
 			Assert.AreEqual(BookSelectionStatus.Reviewed, project.BookSelectionStatus);
 		}
@@ -1294,7 +1265,7 @@ namespace GlyssenEngineTests
 		public void Name_GetDefaultRecordingProjectName_SetCorrectly()
 		{
 			var project = TestProject.CreateBasicTestProject();
-			Assert.AreEqual(project.Id + " Audio", project.Name);
+			Assert.AreEqual(project.Metadata.Identification.Name + " Audio", project.Name);
 		}
 
 		[Test]
@@ -1341,7 +1312,6 @@ namespace GlyssenEngineTests
 		}
 
 		[Test]
-		[Timeout(11000)]
 		public void CalculateSpeechDistributionScore_BoazInProjectThatOnlyIncludesRuth_ReturnsResultFromMaxBook()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.RUT);
@@ -1365,14 +1335,23 @@ namespace GlyssenEngineTests
 			}
 		}
 
+		private static int s_initialSleepTime = 1500;
+
 		private void WaitForProjectInitializationToFinish(Project project, ProjectState projectState)
 		{
-			const int maxCyclesAllowed = 1000000;
-			int iCycle = 1;
+			const int maxCyclesAllowed = 100000;
+			var iCycle = 1;
+			var sleepTime = s_initialSleepTime;
+			s_initialSleepTime = 500;
 			while ((project.ProjectState & projectState) == 0)
 			{
 				if (iCycle++ < maxCyclesAllowed)
-					Thread.Sleep(100);
+				{
+					TestContext.WriteLine(sleepTime);
+					Thread.Sleep(sleepTime);
+					if (sleepTime > 200)
+						sleepTime /= 2;
+				}
 				else
 					Assert.Fail("Timed out waiting for project initialization. Expected ProjectState = " + projectState + "; current ProjectState = " + project.ProjectState);
 			}

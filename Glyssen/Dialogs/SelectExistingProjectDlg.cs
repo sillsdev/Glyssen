@@ -1,12 +1,9 @@
 ﻿using System;
-using System.IO;
 using System.Windows.Forms;
 using Glyssen.Shared.Bundle;
-using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenFileBasedPersistence;
 using SIL.DblBundle;
-using static System.String;
 
 namespace Glyssen.Dialogs
 {

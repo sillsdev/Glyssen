@@ -9,14 +9,14 @@ namespace GlyssenFileBasedPersistenceTests
 		private static PersistenceImplementation s_currentImpl;
 		private static PersistenceImplementation s_restoreImpl;
 
-		private readonly string s_customReferenceTextBaseFolder;
+		private readonly string m_customReferenceTextBaseFolder;
 		
 		protected override string CustomReferenceTextProjectFileLocation =>
-			s_customReferenceTextBaseFolder ?? base.CustomReferenceTextProjectFileLocation;
+			m_customReferenceTextBaseFolder ?? base.CustomReferenceTextProjectFileLocation;
 
 		internal TestFilePersistenceImplementation(string proprietaryReferenceTextProjectFileLocation)
 		{
-			s_customReferenceTextBaseFolder = proprietaryReferenceTextProjectFileLocation;
+			m_customReferenceTextBaseFolder = proprietaryReferenceTextProjectFileLocation;
 		}
 
 		public bool IsProprietaryReferenceTextLocationOveridden =>
@@ -38,8 +38,6 @@ namespace GlyssenFileBasedPersistenceTests
 
 			s_currentImpl = s_restoreImpl;
 		}
-
-		public static PersistenceImplementation CurrentImplementation => s_currentImpl;
 
 		public static PersistenceImplementation OverrideProprietaryReferenceTextProjectFileLocationToTempLocation(bool createFolder = true)
 		{

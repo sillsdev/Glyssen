@@ -13,6 +13,7 @@ using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Script;
 using GlyssenEngineTests.Script;
+using InMemoryTestPersistence;
 using NUnit.Framework;
 using SIL.IO;
 using SIL.Reflection;
@@ -2509,7 +2510,7 @@ namespace GlyssenEngineTests
 			});
 
 			var metadata = new GlyssenDblTextMetadata {Language = new GlyssenDblMetadataLanguage {Name = "Doublespeak"}};
-			TestReferenceText.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
+			TestReferenceText.ForgetCustomReferenceTexts();
 			var persistenceImpl = (IProjectPersistenceWriter)ReferenceTextProxy.Reader;
 			var customDoubleSpeakReferenceTextId = new ReferenceTextId(ReferenceTextType.Custom, "Doublespeak");
 			persistenceImpl.SetUpProjectPersistence(customDoubleSpeakReferenceTextId);
@@ -2591,7 +2592,7 @@ namespace GlyssenEngineTests
 			const string kPoetian = "Poetian";
 			var metadata = new GlyssenDblTextMetadata();
 			metadata.Language = new GlyssenDblMetadataLanguage { Name = kPoetian };
-			TestReferenceText.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
+			TestReferenceText.ForgetCustomReferenceTexts();
 			var persistenceImpl = (IProjectPersistenceWriter)ReferenceTextProxy.Reader;
 			var customPoetianReferenceTextId = new ReferenceTextId(ReferenceTextType.Custom, kPoetian);
 			persistenceImpl.SetUpProjectPersistence(customPoetianReferenceTextId);
@@ -4204,21 +4205,13 @@ namespace GlyssenEngineTests
 
 		public static void ForgetCustomReferenceTexts()
 		{
-			GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.CleanupUpTempImplementationAndRestorePreviousImplementation();
-			var impl = GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.CurrentImplementation;
-			if (impl != null)
-				ReferenceTextProxy.Reader = Reader = impl;
-		}
-
-		public static void OverrideProprietaryReferenceTextProjectFileLocationToTempLocation()
-		{
-			ReferenceTextProxy.Reader = Reader = 
-				GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
+			var impl = Project.Writer as PersistenceImplementation;
+			impl?.ForgetCustomReferenceTexts();
 		}
 
 		public static ReferenceText CreateCustomReferenceText(params TestReferenceTextResource[] booksToInclude)
 		{
-			OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
+			Assert.That(Project.Writer is PersistenceImplementation);
 			var customLanguageId = ReferenceTextTestUtils.CreateCustomReferenceText((IProjectPersistenceWriter)ReferenceTextProxy.Reader, booksToInclude);
 			return GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, customLanguageId));
 		}

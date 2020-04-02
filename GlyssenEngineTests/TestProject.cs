@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Xml;
@@ -11,17 +10,18 @@ using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
-using GlyssenFileBasedPersistence;
+using InMemoryTestPersistence;
 using NUnit.Framework;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
-using SIL.IO;
 using SIL.WritingSystems;
 
 namespace GlyssenEngineTests
 {
 	static class TestProject
 	{
+		private static readonly Random s_random = new Random(DateTime.Now.Millisecond);
+
 		public class TestFontRepository : IFontRepository
 		{
 			public bool IsFontInstalled(string fontFamilyIdentifier)
@@ -90,12 +90,11 @@ namespace GlyssenEngineTests
 		}
 
 		private const string kTest = "test~~";
+		private const string kTestFontFamily = "Times New Roman";
 
 		public static void DeleteTestProjects()
 		{
-			var testProjFolder = Path.Combine(ProjectRepository.ProjectsBaseFolder, kTest);
-			if (Directory.Exists(testProjFolder))
-				RobustIO.DeleteDirectoryAndContents(testProjFolder);
+			((PersistenceImplementation)Project.Writer).ClearAllUserProjects();
 		}
 
 		public static Project CreateTestProject(params TestBook[] booksToInclude)
@@ -108,9 +107,9 @@ namespace GlyssenEngineTests
 			m_errorDuringProjectCreation = null;
 
 			AppDomain.CurrentDomain.UnhandledException += HandleErrorDuringProjectCreation;
+			var metadataId = s_random.Next(16000).ToString();
 			try
 			{
-				DeleteTestProjects();
 				var sampleMetadata = new GlyssenDblTextMetadata();
 				sampleMetadata.AvailableBooks = new List<Book>();
 				var books = new List<UsxDocument>();
@@ -118,9 +117,9 @@ namespace GlyssenEngineTests
 				foreach (var testBook in booksToInclude)
 					AddBook(testBook, sampleMetadata, books);
 
-				sampleMetadata.FontFamily = "Times New Roman";
+				sampleMetadata.FontFamily = kTestFontFamily;
 				sampleMetadata.FontSizeInPoints = 12;
-				sampleMetadata.Id = kTest;
+				sampleMetadata.Id = metadataId;
 				sampleMetadata.Language = new GlyssenDblMetadataLanguage {Iso = kTest};
 				sampleMetadata.Identification = new DblMetadataIdentification {Name = kTest};
 				sampleMetadata.ProjectStatus.QuoteSystemStatus = QuoteSystemStatus.Obtained;
@@ -132,7 +131,7 @@ namespace GlyssenEngineTests
 
 				// Wait for quote parse to finish
 				while (project.ProjectState != ProjectState.FullyInitialized && m_errorDuringProjectCreation == null)
-					Thread.Sleep(100);
+					Thread.Sleep(30);
 			}
 			finally
 			{
@@ -142,20 +141,39 @@ namespace GlyssenEngineTests
 			if (m_errorDuringProjectCreation != null)
 				throw m_errorDuringProjectCreation;
 
-			return LoadExistingTestProject();
+			return LoadExistingTestProject(metadataId);
 		}
 
 		private static void HandleErrorDuringProjectCreation(object sender, UnhandledExceptionEventArgs e)
 		{
 			m_errorDuringProjectCreation = (e.ExceptionObject as Exception) ?? new Exception("Something went wrong on background thread trying to create test project.");
+		} 
+
+		private class TestProjectStub: IUserProject
+		{
+			public string Name => Project.GetDefaultRecordingProjectName(kTest, kTest);
+			public string LanguageIsoCode => kTest;
+			public string ValidLanguageIsoCode => WellKnownSubtags.UnlistedLanguage;
+			public string MetadataId { get; }
+			public string FontFamily => kTestFontFamily;
+
+			public TestProjectStub(string metadataId)
+			{
+				MetadataId = metadataId;
+			}
 		}
 
-		public static Project LoadExistingTestProject()
+		public static Project LoadExistingTestProject(string metadataId)
 		{
-			var projFilePath = ProjectRepository.GetProjectFilePath(kTest, kTest, Project.GetDefaultRecordingProjectName(kTest, kTest));
-			var unInitializedProject = ProjectRepository.LoadProject(projFilePath);
-			Assert.IsTrue(unInitializedProject.ProjectIsWritable);
-			return Project.Load(unInitializedProject, null, null);
+			using (var metadataReader = ProjectBase.Reader.Load(new TestProjectStub(metadataId), ProjectResource.Metadata))
+			{
+				var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(metadataReader, ProjectResource.Metadata.ToString(), out var exception);
+				if (exception != null)
+					throw exception;
+				var project = Project.Load(new Project(metadata), null, null);
+				Assert.IsTrue(project.ProjectIsWritable);
+				return project;
+			}
 		}
 
 		public static Project CreateBasicTestProject()

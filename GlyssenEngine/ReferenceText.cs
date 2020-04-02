@@ -8,6 +8,7 @@ using Glyssen.Shared.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
+using SIL.Extensions;
 using SIL.Reporting;
 using SIL.Scripture;
 
@@ -18,7 +19,19 @@ namespace GlyssenEngine
 		protected readonly ReferenceTextType m_referenceTextType;
 		private readonly HashSet<string> m_modifiedBooks = new HashSet<string>();
 
-		private static readonly Dictionary<IReferenceTextProxy, ReferenceText> s_instantiatedReferenceTexts = new Dictionary<IReferenceTextProxy, ReferenceText>();
+		private static readonly Dictionary<IReferenceTextProxy, ReferenceText> s_instantiatedReferenceTexts;
+
+		static ReferenceText()
+		{
+			s_instantiatedReferenceTexts = new Dictionary<IReferenceTextProxy, ReferenceText>();
+			Project.Writer.OnProjectDeleted += delegate(object sender, IProject project)
+			{
+				if (project is IReferenceTextProject refText && refText.Type == ReferenceTextType.Custom)
+				{
+					s_instantiatedReferenceTexts.RemoveAll(r => r.Key.Type == ReferenceTextType.Custom && r.Key.Name == project.Name);
+				}
+			};
+		}
 
 		public static ReferenceText GetStandardReferenceText(ReferenceTextType referenceTextType)
 		{

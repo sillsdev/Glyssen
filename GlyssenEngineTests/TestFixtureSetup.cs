@@ -1,5 +1,5 @@
 ﻿using GlyssenEngine;
-using GlyssenFileBasedPersistence;
+using InMemoryTestPersistence;
 using NUnit.Framework;
 
 /// <summary>

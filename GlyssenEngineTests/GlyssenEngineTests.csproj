@@ -249,7 +249,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BiblicalAuthorsTests.cs" />
-    <Compile Include="Bundle\GlyssenBundleTests.cs" />
     <Compile Include="Bundle\GlyssenDblTextMetadataTests.cs" />
     <Compile Include="Character\CharacterAssignerTests.cs" />
     <Compile Include="Character\CharacterGroupListTests.cs" />
@@ -320,10 +319,6 @@
       <Project>{FDF9DF2E-776B-4D7C-8E63-61DAD4C39AC3}</Project>
       <Name>GlyssenEngine</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GlyssenFileBasedPersistenceTests\GlyssenFileBasedPersistenceTests.csproj">
-      <Project>{103d9fd4-4cd1-4fa1-850d-fb765223509c}</Project>
-      <Name>GlyssenFileBasedPersistenceTests</Name>
-    </ProjectReference>
     <ProjectReference Include="..\GlyssenFileBasedPersistence\GlyssenFileBasedPersistence.csproj">
       <Project>{6664b511-ec4e-47ef-b073-b31ab9c947d4}</Project>
       <Name>GlyssenFileBasedPersistence</Name>
@@ -335,6 +330,10 @@
     <ProjectReference Include="..\GlyssenShared\GlyssenShared.csproj">
       <Project>{965C34CF-8AFB-4132-A2FF-FD4EBB0B410D}</Project>
       <Name>GlyssenShared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InMemoryTestPersistence\InMemoryTestPersistence.csproj">
+      <Project>{15569590-2f4b-4ac5-a174-407a35a3a797}</Project>
+      <Name>InMemoryTestPersistence</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

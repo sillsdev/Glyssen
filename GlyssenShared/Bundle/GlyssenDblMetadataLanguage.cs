@@ -40,5 +40,10 @@ namespace Glyssen.Shared.Bundle
 		[XmlElement("heSaidText")]
 		[DefaultValue(null)]
 		public string HeSaidText { get; set; }
+
+		public GlyssenDblMetadataLanguage Clone()
+		{
+			return (GlyssenDblMetadataLanguage)MemberwiseClone();
+		}
 	}
 }
