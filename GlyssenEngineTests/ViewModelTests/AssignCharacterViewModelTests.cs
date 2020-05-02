@@ -894,7 +894,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_fullProjectRefreshRequired = true;
 
 			// Find some place where we have a long run of continuation blocks, where the first two are in the
-			// same vere but the next one starts a new verse.
+			// same verse but the next one starts a new verse.
 			int i = 0;
 			for (; i < m_testProject.Books[0].Blocks.Count - 4; i++)
 			{

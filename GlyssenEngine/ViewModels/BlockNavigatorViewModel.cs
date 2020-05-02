@@ -835,7 +835,7 @@ namespace GlyssenEngine.ViewModels
 				$"{CurrentBook.BookId} {CurrentBlock.ChapterNumber}:{CurrentBlock.InitialStartVerseNumber}");
 
 			m_currentRefBlockMatchups = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook,
-				currentIndices.BlockIndex, currentIndices.MultiBlockCount);
+				currentIndices.BlockIndex, m_project.ReportingClauses, currentIndices.MultiBlockCount);
 			if (m_currentRefBlockMatchups != null)
 			{
 				m_currentRefBlockMatchups.MatchAllBlocks();
@@ -937,6 +937,16 @@ namespace GlyssenEngine.ViewModels
 				for (int i = startIndex; i < RelevantBlockCount && m_relevantBookBlockIndices[i].BookIndex == currentBookIndex; i++)
 					m_relevantBookBlockIndices[i].BlockIndex += insertions;
 			}
+
+			ProcessNewHeSaidRenderings();
+		}
+
+		private void ProcessNewHeSaidRenderings()
+		{
+			if (m_project.AddNewReportingClauses(m_currentRefBlockMatchups.HeSaidBlocks.Select(b => b.GetText(false).Trim()).Distinct()))
+			{
+				// TODO: re-check existing matchups to pare down list of relevant matchups.
+			}
 		}
 
 		protected virtual void HandleCurrentBlockChanged()
@@ -1004,7 +1014,7 @@ namespace GlyssenEngine.ViewModels
 
 					BlockMatchup matchup;
 					if (AttemptRefBlockMatchup &&
-						(matchup = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook, indices.BlockIndex)) != null)
+						(matchup = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook, indices.BlockIndex, m_project.ReportingClauses)) != null)
 					{
 						if (indices.ExtendForMatchup(matchup))
 							m_navigator.SetIndices(indices); // The call to GetIndices (above) gets a copy, so we need to set the state to reflect the updated Multi-block count

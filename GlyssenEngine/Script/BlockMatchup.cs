@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using Glyssen.Shared;
 using GlyssenEngine.Character;
+using GlyssenEngine.Utilities;
 using SIL.Extensions;
 using SIL.Reporting;
 using SIL.Scripture;
@@ -226,6 +227,23 @@ namespace GlyssenEngine.Script
 					"Applying block matchup resulted in an illegal multi-block quote chain (includes a \"standard\" character block).");
 			}
 		}
+
+		/// <summary>
+		/// Gets the blocks that are assigned to the book's narrator character and are matched to
+		/// the primary reference text's rendering of "he said". N.B: This looks at the
+		/// OriginalBlocks (i.e., the blocks in the real data, not the CorrelatedBlocks which are
+		/// the matchup's temporary collection); therefore, this should normally only be called
+		/// after Apply is called.
+		/// </summary>
+		public IEnumerable<Block> HeSaidBlocks =>
+			OriginalBlocks.Where(b => b.CharacterIs(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator) &&
+			// REVIEW: Maybe some day it will make sense to see if the text matches any of the
+			// ReportingClauses in the reference language. For now, we really only expect there to
+			// be one, and that is the only one we can insert. Even if we were to add others (e.g.,
+			// "they said") to English (or other known reference text languages), it would be
+			// pretty unlikely that we would get matches very often. And it's not 1005 clear that
+			// we would want to return them if we did.
+			b.GetPrimaryReferenceText(true)?.Trim() == m_referenceLanguageInfo.HeSaidText);
 
 		public Block SetReferenceText(int blockIndex, string text, int level = 0)
 		{
@@ -454,6 +472,19 @@ namespace GlyssenEngine.Script
 			if (!blockIndices.Any())
 				throw new ArgumentException();
 			return !blockIndices.Any(i => CorrelatedBlocks[i].CharacterIsStandard);
+		}
+
+		public void MatchHeSaidBlocks(IReadOnlyList<string> reportingClauses)
+		{
+			if (reportingClauses == null || !reportingClauses.Any())
+				return;
+			foreach (var block in CorrelatedBlocks.Where(b => !b.MatchesReferenceText &&
+				reportingClauses.Contains(b.BlockElements.OfType<ScriptText>().OnlyOrDefault()?.Content.Trim())))
+			{
+				block.SetMatchedReferenceBlock(m_referenceLanguageInfo.HeSaidText);
+				if (m_referenceLanguageInfo.HasSecondaryReferenceText)
+					block.ReferenceBlocks.Single().SetMatchedReferenceBlock(m_referenceLanguageInfo.BackingReferenceLanguage.HeSaidText);
+			}
 		}
 	}
 }
