@@ -945,7 +945,30 @@ namespace GlyssenEngine.ViewModels
 		{
 			if (m_project.AddNewReportingClauses(m_currentRefBlockMatchups.HeSaidBlocks.Select(b => b.GetText(false).Trim()).Distinct()))
 			{
-				// TODO: re-check existing matchups to pare down list of relevant matchups.
+				for (var i = 0; i < m_relevantBookBlockIndices.Count;)
+				{
+					if (i == m_currentRelevantIndex)
+					{
+						i++;
+						continue;
+					}
+
+					var location = m_relevantBookBlockIndices[i];
+					var matchup = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(m_project.IncludedBooks[location.BookIndex],
+						location.BlockIndex, m_project.ReportingClauses, location.MultiBlockCount);
+					// We do not want to remove blocks that the user has matched manually (in case they want to navigate back to them),
+					// so if all of the (original) blocks are explicitly matched, then leave it alone.
+					if (matchup != null && matchup.OriginalBlocks.Any(b => !b.MatchesReferenceText) && !IsRelevant(matchup))
+					{
+						if (i < m_currentRelevantIndex)
+							m_currentRelevantIndex--;
+						m_relevantBookBlockIndices.RemoveAt(i);
+					}
+					else
+					{
+						i++;
+					}
+				}
 			}
 		}
 
@@ -1021,8 +1044,7 @@ namespace GlyssenEngine.ViewModels
 
 						// TODO (PG-784): If a book is single-voice, no block in it should match this filter.
 						//if (!CurrentBookIsSingleVoice)
-						if (matchup.OriginalBlocks.Any(b => IsRelevant(b)) ||
-							((Mode & BlocksToDisplay.NotAlignedToReferenceText) > 0 && !matchup.AllScriptureBlocksMatch))
+						if (IsRelevant(matchup))
 						{
 							AddRelevant(indices);
 						}
@@ -1053,6 +1075,10 @@ namespace GlyssenEngine.ViewModels
 		{
 			// No-op in base class
 		}
+
+		private bool IsRelevant(BlockMatchup matchup) =>
+			matchup.OriginalBlocks.Any(b => IsRelevant(b)) ||
+			(Mode & BlocksToDisplay.NotAlignedToReferenceText) > 0 && !matchup.AllScriptureBlocksMatch;
 
 		private bool IsRelevant(Block block, bool rebuildingFilter = true)
 		{
