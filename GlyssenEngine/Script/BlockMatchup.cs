@@ -201,7 +201,10 @@ namespace GlyssenEngine.Script
 					vernBlock.MultiBlockQuote = MultiBlockQuote.None;
 
 				if (vernBlock.CharacterIsUnclear)
-					throw new InvalidOperationException("Vernacular block matched to reference block must have a CharacterId that is not ambiguous or unknown.");
+				{
+					throw new InvalidOperationException("Vernacular block matched to reference block must have a CharacterId that is not ambiguous or unknown:" +
+						vernBlock.ToString(true, m_vernacularBook.BookId));
+				}
 
 				if (CorrelatedBlocks[i].UserConfirmed)
 					vernBlock.UserConfirmed = true;
