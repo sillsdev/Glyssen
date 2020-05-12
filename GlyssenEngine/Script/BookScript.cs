@@ -630,10 +630,10 @@ namespace GlyssenEngine.Script
 					Debug.Fail("Something unexpected happened. Logic above should guarantee that unsplit source matched split target.");
 					continue;
 				}
-				if (!sourceMatchup.AllScriptureBlocksMatch)
+				if (!sourceMatchup.AllScriptureBlocksMatch || sourceMatchup.CorrelatedBlocks.Any(b => b.CharacterIsUnclear))
 				{
 					// Something has apparently changed (in the reference text or in the parser?) that causes the target matchup
-					// to now contain some blocks than were not orginally matched up when the source blocks were aligned.
+					// to now contain some blocks than were not originally matched up when the source blocks were aligned.
 					continue;
 				}
 
