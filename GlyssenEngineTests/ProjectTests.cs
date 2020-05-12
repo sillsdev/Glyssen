@@ -506,8 +506,8 @@ namespace GlyssenEngineTests
 
 				i += matchup.OriginalBlockCount;
 			}
-			Assert.IsTrue(heSaidRenderings.Count > 0, "Setup conditions note met");
-			Assert.IsTrue(matchupIndices.Count > 0, "Setup conditions note met");
+			Assert.IsTrue(heSaidRenderings.Count > 0, "Setup conditions not met");
+			Assert.IsTrue(matchupIndices.Count > 0, "Setup conditions not met");
 
 			// SUT
 			Assert.IsTrue(project.AddNewReportingClauses(heSaidRenderings));

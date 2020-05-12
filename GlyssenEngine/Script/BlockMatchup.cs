@@ -241,7 +241,7 @@ namespace GlyssenEngine.Script
 			// ReportingClauses in the reference language. For now, we really only expect there to
 			// be one, and that is the only one we can insert. Even if we were to add others (e.g.,
 			// "they said") to English (or other known reference text languages), it would be
-			// pretty unlikely that we would get matches very often. And it's not 1005 clear that
+			// pretty unlikely that we would get matches very often. And it's not 100% clear that
 			// we would want to return them if we did.
 			b.GetPrimaryReferenceText(true)?.Trim() == m_referenceLanguageInfo.HeSaidText);
 

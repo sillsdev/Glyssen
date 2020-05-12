@@ -37,7 +37,7 @@ namespace Glyssen.Shared.Bundle
 		public int FontSizeUiAdjustment { get; set; }
 
 		/// <summary>
-		/// Historically, the "heSaidText" element held the (on-and-only) rendering of "he said" in
+		/// Historically, the "heSaidText" element held the (one-and-only) rendering of "he said" in
 		/// the language. This was needed only for reference texts and was not exposed via the UI.
 		/// However, now that we are detecting and applying reporting clauses, there is the
 		/// possibility of multiple ones. We don't actually care what the specific meaning of each
