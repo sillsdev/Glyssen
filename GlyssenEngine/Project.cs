@@ -526,7 +526,7 @@ namespace GlyssenEngine
 			return itemToRemove != null && ProjectCharacterDetail.Remove(itemToRemove);
 		}
 
-		public IReadOnlyList<string> ReportingClauses => m_metadata.Language.ReportingClauses;
+		public IReadOnlyCollection<string> ReportingClauses => m_metadata.Language.ReportingClauses;
 
 		public bool AddNewReportingClauses(IEnumerable<string> reportingClauses)
 		{

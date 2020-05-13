@@ -14,7 +14,7 @@ namespace Glyssen.Shared.Bundle
 	public class GlyssenDblMetadataLanguage : DblMetadataLanguage
 	{
 		private int m_fontSizeInPoints;
-		private string m_heSaidTextTemp;
+		private string m_heSaidText;
 
 		/// <summary>
 		/// This is pulled in from the stylesheet or set via the ProjectSettingsDlg.
@@ -37,55 +37,31 @@ namespace Glyssen.Shared.Bundle
 		public int FontSizeUiAdjustment { get; set; }
 
 		/// <summary>
-		/// Historically, the "heSaidText" element held the (one-and-only) rendering of "he said" in
-		/// the language. This was needed only for reference texts and was not exposed via the UI.
-		/// However, now that we are detecting and applying reporting clauses, there is the
-		/// possibility of multiple ones. We don't actually care what the specific meaning of each
-		/// one is. For data migration purposes, we don't ever expect to have both the "heSaidText"
-		/// element and a list of reporting clauses, but the set code should handle it correctly if
-		/// it ever happened. For most reference texts, the list of reporting clauses will just
-		/// contain a single entry (which used to be the "heSaidText"). 
+		/// Translation equivalent for "he said." in this language.
+		/// This is needed only for reference texts and is not exposed via the UI.
 		/// </summary>
 		[XmlElement("heSaidText")]
 		[DefaultValue(null)]
-		public string HeSaidText_DeprecatedXml
-		{
-			get => null;
-			set => HeSaidText = value;
-
-		}
-
-		/// <summary>
-		/// Translation equivalent for "he said." in this language.
-		/// </summary>
 		public string HeSaidText
 		{
-			get => ReportingClauses?.FirstOrDefault();
+			get => m_heSaidText;
 			set
 			{
-				m_heSaidTextTemp = value;
-				if (ReportingClauses == null)
-					ReportingClauses = new List<string>(new [] { value });
-				else if (ReportingClauses.Count == 0)
+				m_heSaidText = value;
+				if (ReportingClauses != null && !ReportingClauses.Contains(value))
 					ReportingClauses.Add(value);
-				else if (ReportingClauses[0] != value)
-				{
-					if (ReportingClauses.Contains(value))
-						ReportingClauses.Remove(value);
-					ReportingClauses.Insert(0, value);
-				}
 			}
 		}
 
 		/// <summary>
 		/// Translation equivalent for "he said", "they said", "she says", "you will say", etc. in
-		/// this language. The first one will be treated as the default "he said" text. (The
-		/// current UI doesn't actually give the user a way to order them to ensure this, so if we
-		/// ever implement the ability to create a custom reference text from a Glyssen project,
-		/// they will need a way to re-order them so that the desired "he said" is first.)
+		/// this language.
 		/// </summary>
+		/// <remarks>If we ever implement the ability to create a custom reference text from a
+		/// Glyssen project, there will need a way to select the desired "he said" from this list
+		/// to set <see cref="HeSaidText"/>.</remarks>
 		[XmlElement("reportingClause")]
-		public List<string> ReportingClauses { get; set; }
+		public HashSet<string> ReportingClauses { get; set; }
 
 		public GlyssenDblMetadataLanguage Clone()
 		{

@@ -477,7 +477,7 @@ namespace GlyssenEngine.Script
 			return !blockIndices.Any(i => CorrelatedBlocks[i].CharacterIsStandard);
 		}
 
-		public void MatchHeSaidBlocks(IReadOnlyList<string> reportingClauses)
+		public void MatchHeSaidBlocks(IReadOnlyCollection<string> reportingClauses)
 		{
 			if (reportingClauses == null || !reportingClauses.Any())
 				return;

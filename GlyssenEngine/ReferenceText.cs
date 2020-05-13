@@ -215,7 +215,7 @@ namespace GlyssenEngine
 		/// <param name="allowSplitting">Flag indicating whether existing reference text blocks can be split (at verse breaks) to
 		/// achieve better correspondence to the vernacular blocks.</param>
 		public BlockMatchup GetBlocksForVerseMatchedToReferenceText(BookScript vernacularBook, int iBlock,
-			IReadOnlyList<string> reportingClauses = null, uint predeterminedBlockCount = 0, bool allowSplitting = true)
+			IReadOnlyCollection<string> reportingClauses = null, uint predeterminedBlockCount = 0, bool allowSplitting = true)
 		{
 			if (iBlock < 0 || iBlock >= vernacularBook.GetScriptBlocks().Count)
 				throw new ArgumentOutOfRangeException("iBlock");

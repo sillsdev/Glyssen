@@ -553,7 +553,7 @@ namespace GlyssenEngine.Script
 				AddOverrideInfo(info);
 		}
 
-		public void ApplyUserDecisions(BookScript sourceBookScript, ReferenceText referenceTextToReapply = null, IReadOnlyList<string> reportingClauses = null)
+		public void ApplyUserDecisions(BookScript sourceBookScript, ReferenceText referenceTextToReapply = null, IReadOnlyCollection<string> reportingClauses = null)
 		{
 			var blockComparer = new SplitBlockComparer();
 
@@ -571,7 +571,7 @@ namespace GlyssenEngine.Script
 		}
 
 		private void ApplyReferenceBlockMatches(BookScript sourceBookScript, ReferenceText referenceTextToReapply,
-			IReadOnlyList<string> reportingClauses, SplitBlockComparer blockComparer)
+			IReadOnlyCollection<string> reportingClauses, SplitBlockComparer blockComparer)
 		{
 			var sourceBlocks = sourceBookScript.GetScriptBlocks();
 			for (int iSrc = 0; iSrc < sourceBlocks.Count; iSrc++)
