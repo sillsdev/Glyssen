@@ -48,8 +48,11 @@ namespace Glyssen.Shared.Bundle
 			set
 			{
 				m_heSaidText = value;
-				if (ReportingClauses != null && !ReportingClauses.Contains(value))
-					ReportingClauses.Add(value);
+				// There is no actual purpose in doing this since currently only reference texts
+				// should have a "heSaidText" element and we never access the ReportingClauses for
+				// a reference text, but since technically the "he said" text is a reporting
+				// clause, this feels like the right thing to do. (It might matter in the future.)
+				ReportingClauses?.Add(value);
 			}
 		}
 

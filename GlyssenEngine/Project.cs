@@ -530,14 +530,10 @@ namespace GlyssenEngine
 
 		public bool AddNewReportingClauses(IEnumerable<string> reportingClauses)
 		{
-			var newAdditions = reportingClauses.Where(c => !m_metadata.Language.ReportingClauses.Contains(c)).ToList();
-			if (newAdditions.Any())
-			{
-				m_metadata.Language.ReportingClauses.AddRange(newAdditions);
-				return true;
-			}
-
-			return false;
+			var retVal = false;
+			foreach (var reportingClause in reportingClauses)
+				retVal |= m_metadata.Language.ReportingClauses.Add(reportingClause);
+			return retVal;
 		}
 
 		public void UpdateSettings(ProjectSettingsViewModel model, string defaultFontFamily, int defaultFontSizeInPoints, bool rightToLeftScript)
