@@ -230,7 +230,7 @@ namespace GlyssenEngine.Bundle
 		}
 
 		/// <summary>
-		/// This is not part of the original DBL metadata. This data is now stored as part of the "langauge" data.
+		/// This is not part of the original DBL metadata. This data is now stored as part of the "language" data.
 		/// </summary>
 		[XmlElement("fontSizeInPoints")]
 		[DefaultValue(default(int))]

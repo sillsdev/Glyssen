@@ -553,7 +553,7 @@ namespace GlyssenEngine.Script
 				AddOverrideInfo(info);
 		}
 
-		public void ApplyUserDecisions(BookScript sourceBookScript, ReferenceText referenceTextToReapply = null)
+		public void ApplyUserDecisions(BookScript sourceBookScript, ReferenceText referenceTextToReapply = null, IReadOnlyCollection<string> reportingClauses = null)
 		{
 			var blockComparer = new SplitBlockComparer();
 
@@ -565,13 +565,13 @@ namespace GlyssenEngine.Script
 
 			ApplyUserSplits(sourceBookScript, blockComparer);
 			if (referenceTextToReapply != null)
-				ApplyReferenceBlockMatches(sourceBookScript, referenceTextToReapply, blockComparer);
+				ApplyReferenceBlockMatches(sourceBookScript, referenceTextToReapply, reportingClauses, blockComparer);
 			ApplyUserAssignments(sourceBookScript);
 			CleanUpMultiBlockQuotes();
 		}
 
 		private void ApplyReferenceBlockMatches(BookScript sourceBookScript, ReferenceText referenceTextToReapply,
-			SplitBlockComparer blockComparer)
+			IReadOnlyCollection<string> reportingClauses, SplitBlockComparer blockComparer)
 		{
 			var sourceBlocks = sourceBookScript.GetScriptBlocks();
 			for (int iSrc = 0; iSrc < sourceBlocks.Count; iSrc++)
@@ -623,7 +623,7 @@ namespace GlyssenEngine.Script
 				}
 				else if (!sourceBlocks.Skip(iSrc).Take(targetMatchup.CorrelatedBlocks.Count).SequenceEqual(targetMatchup.CorrelatedBlocks, blockComparer))
 					continue;
-				var sourceMatchup = referenceTextToReapply.GetBlocksForVerseMatchedToReferenceText(sourceBookScript, iSrc,
+				var sourceMatchup = referenceTextToReapply.GetBlocksForVerseMatchedToReferenceText(sourceBookScript, iSrc, reportingClauses,
 					(uint)targetMatchup.CorrelatedBlocks.Count, false);
 				if (sourceMatchup.CountOfBlocksAddedBySplitting != 0)
 				{

@@ -122,37 +122,17 @@ namespace GlyssenEngine
 			}
 		}
 
-		public bool HasSecondaryReferenceText
-		{
-			get { return m_referenceTextType != ReferenceTextType.English; }
-		}
+		public bool HasSecondaryReferenceText => m_referenceTextType != ReferenceTextType.English;
 
-		public string SecondaryReferenceTextLanguageName
-		{
-			get { return HasSecondaryReferenceText ? "English" : null; }
-		}
+		public ReferenceText SecondaryReferenceText => GetStandardReferenceText(ReferenceTextType.English);
 
-		public ReferenceText SecondaryReferenceText
-		{
-			get { return GetStandardReferenceText(ReferenceTextType.English); }
-		}
+		public IReferenceLanguageInfo BackingReferenceLanguage => SecondaryReferenceText;
 
-		public IReferenceLanguageInfo BackingReferenceLanguage
-		{
-			get { return SecondaryReferenceText; }
-		}
+		// ENHANCE: When we support custom reference texts in languages that do not use a simple space character, this will
+		// need to be overridable in m_metadata.Language.
+		public string WordSeparator => " ";
 
-		public string WordSeparator
-		{
-			// ENHANCE: When we support custom reference texts in languages that do not use a simple space character, this will
-			// need to be overridable in m_metadata.Language.
-			get { return " "; }
-		}
-
-		public string HeSaidText
-		{
-			get { return m_metadata.Language.HeSaidText ?? "he said."; }
-		}
+		public string HeSaidText => m_metadata.Language.HeSaidText ?? "he said.";
 
 		/// <summary>
 		/// This gets the included books from the project. As needed, blocks are broken up and matched to
@@ -229,12 +209,13 @@ namespace GlyssenEngine
 		/// </summary>
 		/// <param name="vernacularBook">The book</param>
 		/// <param name="iBlock">Index of the "anchor" block for the matchup</param>
+		/// <param name="reportingClauses">vernacular strings that can be automatically matched to "he said"</param>
 		/// <param name="predeterminedBlockCount">Used to get a fast result if the caller knows the exact extent of the desired
 		/// matchup (typically based on a previous call to this method).</param>
 		/// <param name="allowSplitting">Flag indicating whether existing reference text blocks can be split (at verse breaks) to
 		/// achieve better correspondence to the vernacular blocks.</param>
 		public BlockMatchup GetBlocksForVerseMatchedToReferenceText(BookScript vernacularBook, int iBlock,
-			uint predeterminedBlockCount = 0, bool allowSplitting = true)
+			IReadOnlyCollection<string> reportingClauses = null, uint predeterminedBlockCount = 0, bool allowSplitting = true)
 		{
 			if (iBlock < 0 || iBlock >= vernacularBook.GetScriptBlocks().Count)
 				throw new ArgumentOutOfRangeException("iBlock");
@@ -253,6 +234,8 @@ namespace GlyssenEngine
 			var matchup = new BlockMatchup(vernacularBook, iBlock, splitBlocks,
 				block => IsOkayToSplitBeforeBlock(vernacularBook, block, verseSplitLocationsBasedOnRef),
 				this, predeterminedBlockCount);
+
+			matchup.MatchHeSaidBlocks(reportingClauses);
 
 			if (!matchup.AllScriptureBlocksMatch)
 			{

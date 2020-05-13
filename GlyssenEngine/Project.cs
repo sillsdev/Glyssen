@@ -526,6 +526,16 @@ namespace GlyssenEngine
 			return itemToRemove != null && ProjectCharacterDetail.Remove(itemToRemove);
 		}
 
+		public IReadOnlyCollection<string> ReportingClauses => m_metadata.Language.ReportingClauses;
+
+		public bool AddNewReportingClauses(IEnumerable<string> reportingClauses)
+		{
+			var retVal = false;
+			foreach (var reportingClause in reportingClauses)
+				retVal |= m_metadata.Language.ReportingClauses.Add(reportingClause);
+			return retVal;
+		}
+
 		public void UpdateSettings(ProjectSettingsViewModel model, string defaultFontFamily, int defaultFontSizeInPoints, bool rightToLeftScript)
 		{
 			Debug.Assert(!IsNullOrEmpty(model.RecordingProjectName));
@@ -1384,7 +1394,7 @@ namespace GlyssenEngine
 				var sourceBookScript = sourceProject.m_books.SingleOrDefault(b => b.BookId == targetBookScript.BookId);
 				if (sourceBookScript != null)
 				{
-					targetBookScript.ApplyUserDecisions(sourceBookScript, ReferenceText);
+					targetBookScript.ApplyUserDecisions(sourceBookScript, ReferenceText, ReportingClauses);
 				}
 			}
 			Analyze();
