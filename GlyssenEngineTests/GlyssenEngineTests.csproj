@@ -302,6 +302,7 @@
     <Compile Include="UndoActionsTests\UndoStackTests.cs" />
     <Compile Include="Casting\VoiceActorListTests.cs" />
     <Compile Include="Casting\VoiceActorTests.cs" />
+    <Compile Include="Utilities\ListExtensionsTests.cs" />
     <Compile Include="Utilities\StringExtensionsTests.cs" />
     <Compile Include="Utilities\VerseBridge.cs" />
     <Compile Include="ViewModelTests\AddCharactersToGroupViewModelTests.cs" />

@@ -1312,17 +1312,19 @@ namespace GlyssenEngine
 		private void AddMissingAvailableBooks()
 		{
 			BookNames nameInfo = null;
-			for (var i = 0; i < m_books.Count; i++)
+
+			int Compare(Book book, BookScript bookScript) => BCVRef.BookToNumber(book.Code).CompareTo(bookScript.BookNumber);
+			Book GetBook(BookScript bookScript)
 			{
-				if (m_projectMetadata.AvailableBooks[i].Code != m_books[i].BookId)
-				{
-					if (!IsLiveParatextProject)
-						throw new InvalidOperationException($"Book {m_books[i].BookId} parsed and added to project but not in AvailableBooks in metadata!");
-					if (nameInfo == null)
-						nameInfo = GetSourceParatextProject().BookNames;
-					m_projectMetadata.AvailableBooks.Insert(i, ParatextScrTextWrapper.GetBook(nameInfo, m_books[i].BookNumber, true));
-				}
+				if (!IsLiveParatextProject)
+					throw new InvalidOperationException($"Book {bookScript.BookId} parsed and added to project but not in AvailableBooks in metadata!");
+				if (nameInfo == null)
+					nameInfo = GetSourceParatextProject().BookNames;
+				return ParatextScrTextWrapper.GetBook(nameInfo, bookScript.BookNumber, true);
 			}
+
+			// Merge m_books into m_projectMetadata.AvailableBooks
+			m_projectMetadata.AvailableBooks.MergeOrderedList(m_books, Compare, GetBook);
 		}
 
 		protected override void SetVersification(ScrVers versification)
