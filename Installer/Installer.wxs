@@ -7,8 +7,10 @@
 <!--this is replaced at build time by the msbuild 'package' target -->
 <?define Property_ProductCode = "*" ?>
 <!-- auto-generate a new GUID each time -->
+
+<!-- This needs to match the one in Glyssen Bootstrap Installer.wxs -->
+<!-- Don't even think of EVER changing this -->
 <?define Property_UpgradeCode = "{cd92c128-d3c7-4c9a-acc6-81e4184ef6ca}" ?>
-<!--Don't even think of EVER changing this -->
 
 <!-- good intro to the component vs. file thing, and why each file here is a separate component:
 http://blogs.msdn.com/robmen/archive/2003/10/04/56479.aspx -->
@@ -33,9 +35,9 @@ http://blogs.msdn.com/robmen/archive/2003/10/04/56479.aspx -->
       <UpgradeVersion Minimum ="0.0.0" IncludeMinimum ="yes" Maximum ="$(var.Property_ProductVersion)" IncludeMaximum ="no" Property ="OLDERVERSIONBEINGUPGRADED" />
     </Upgrade >
 
-    <!-- show the license page -->
+    <!-- show the license page - now done in boot-strapper -->
     <UIRef Id="WixUI_Minimal"/>
-    <WixVariable Id="WixUILicenseRtf" Value="..\distfiles\License.rtf" />
+    <!-- <WixVariable Id="WixUILicenseRtf" Value="..\distfiles\License.rtf" /> -->
     <!-- Top banner / 493 × 58 -->
     <WixVariable Id="WixUIBannerBmp" Value="installerBanner.jpg" />
     <!-- Background bitmap used on the welcome and completion dialogs / 493 × 312 -->

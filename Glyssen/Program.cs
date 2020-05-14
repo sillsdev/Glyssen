@@ -361,7 +361,7 @@ namespace Glyssen
 		/// <returns>The number of running Glyssen instances</returns>
 		public static int GetRunningGlyssenProcessCount()
 		{
-			return Process.GetProcesses().Count(p => p.ProcessName.ToLowerInvariant().Contains("glyssen"));
+			return Process.GetProcesses().Select(p => p.ProcessName.ToLowerInvariant()).Count(n => n.Contains("glyssen") && !n.Contains("installer"));
 		}
 	}
 }
