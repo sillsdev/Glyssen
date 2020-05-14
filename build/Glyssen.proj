@@ -59,10 +59,10 @@
 	<CreateProperty Value="$(Version).$(BuildHash)">
 		<Output PropertyName="FullVersion" TaskParameter="Value"/>
 	</CreateProperty>
-	<CreateProperty Value="GlyssenInstaller.$(Version).msi" Condition=" '$(Label)' == '' ">
+	<CreateProperty Value="GlyssenInstaller.$(Version).exe" Condition=" '$(Label)' == '' ">
 		<Output PropertyName="InstallerFileName" TaskParameter="Value"/>
 	</CreateProperty>
-	<CreateProperty Value="GlyssenInstaller.$(Version).$(Label).msi" Condition=" '$(Label)' != '' ">
+	<CreateProperty Value="GlyssenInstaller.$(Version).$(Label).exe" Condition=" '$(Label)' != '' ">
 		<Output PropertyName="InstallerFileName" TaskParameter="Value"/>
 	</CreateProperty>
 	<Message Text="Version: $(Version)" Importance="high"/>
@@ -142,20 +142,27 @@
 		<FileUpdate File="$(RootDir)\Installer\Installer.wxs" Regex='Property_ProductVersion = ".*"'
 			ReplacementText ="Property_ProductVersion = &quot;$(Version)&quot;" />
 
+		<FileUpdate File="$(RootDir)\Installer\Bootstrapper\Glyssen Bootstrap Installer.wxs" Regex='Property_ProductVersion = ".*"'
+			ReplacementText ="Property_ProductVersion = &quot;$(Version)&quot;" />
+			
 		<Message Text="Making Installer Version: $(Version)" Importance="high" />
 
-		<MSBuild Projects="$(RootDir)\Installer\Installer.wixproj"/>
+		<MSBuild
+			Projects="$(RootDir)\src\Installer\Installer.sln"
+			Targets="Rebuild"
+			Properties="Configuration=$(Configuration)" />
+		<Message Text="Build Complete"/>
 
 		<!-- remove an existing one with the same name, if necessary -->
 		<Delete Files="$(RootDir)\output\installer\$(InstallerFileName)" TreatErrorsAsWarnings="false" />
 
-		<Copy SourceFiles="$(RootDir)\output\installer\GlyssenInstaller.msi"
+		<Copy SourceFiles="$(RootDir)\output\installer\GlyssenInstaller.exe"
 			DestinationFiles="$(RootDir)\output\installer\$(InstallerFileName)"
 		/>
 		<Message Text="Copied installer to $(RootDir)\output\installer\$(InstallerFileName)" Importance="high"/>
 
 		<!-- remove the installer which has no version number (wouldn't need this if the copy above was a move, instead) -->
-		<Delete Files="$(RootDir)\output\installer\GlyssenInstaller.msi" TreatErrorsAsWarnings="false" />
+		<Delete Files="$(RootDir)\output\installer\GlyssenInstaller.exe" TreatErrorsAsWarnings="false" />
 
 		<!-- copy it so we aren't modifying the original, which then is a pain on dev machines -->
 		<Copy SourceFiles ="$(RootDir)\installer\template.download_info"
@@ -203,12 +210,12 @@
 	<!-- These targets are designed to be additional steps on TeamCity after running target Installer. Pick the appropriate one
 	depending on whether your project's output MUST be signed or it's only nice if it is. For example, a continuous build
 	might use SignIfPossible, while a Publication build must use SignInstaller.-->
-	<Target Name="SignInstaller" DependsOnTargets="VersionNumbers">
+	<Target Name="SignInstaller" DependsOnTargets="VersionNumbers; Installer">
 		<Exec Command='sign "$(RootDir)\output\installer\$(InstallerFileName)"'></Exec>
 		<Message Text="Signed installer at $(RootDir)\output\installer\$(InstallerFileName)" Importance="high"/>
 	</Target>
 
-	<Target Name="SignIfPossible" DependsOnTargets="VersionNumbers">
+	<Target Name="SignIfPossible" DependsOnTargets="VersionNumbers; Installer">
 		<Exec Command='sign "$(RootDir)\output\installer\$(InstallerFileName)"' ContinueOnError="true"></Exec>
 	</Target>
 

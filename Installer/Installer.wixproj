@@ -4,7 +4,7 @@
     <ProductVersion>1.0</ProductVersion>
     <ProjectGuid>{ae2c52bc-6b66-4f8b-8b50-2cba58a8207d}</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>GlyssenInstaller</OutputName>
+    <OutputName>Glyssen</OutputName>
     <OutputType>Package</OutputType>
 	<DefineSolutionProperties>false</DefineSolutionProperties>
   </PropertyGroup>
