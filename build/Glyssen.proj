@@ -148,7 +148,7 @@
 		<Message Text="Making Installer Version: $(Version)" Importance="high" />
 
 		<MSBuild
-			Projects="$(RootDir)\src\Installer\Installer.sln"
+			Projects="$(RootDir)\Installer\Installer.sln"
 			Targets="Rebuild"
 			Properties="Configuration=$(Configuration)" />
 		<Message Text="Build Complete"/>

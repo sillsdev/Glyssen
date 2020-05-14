@@ -11,7 +11,7 @@
 	<Bundle Name="Glyssen $(var.Property_ProductVersion)" Version="$(var.Property_ProductVersion)"
     Manufacturer="SIL"
     AboutUrl="https://software.sil.org/glyssen/"
-    IconSourceFile="..\..\Glyssen\Glyssen\Resources\glyssen.ico"
+    IconSourceFile="..\..\Glyssen\Resources\glyssen.ico"
     UpgradeCode="$(var.Property_UpgradeCode)">
 
 		<bal:Condition Message="Windows 7 or later is required. (32-bit Windows not supported)">(VersionNT64 &gt; v6.0)</bal:Condition>
@@ -55,7 +55,7 @@
 				<ExitCode Value="1638" Behavior="success"/> <!-- Don't fail if newer version is installed -->
 			</ExePackage>
 			
-			<MsiPackage SourceFile="\..\..\output\installer\Glyssen.msi"/>
+			<MsiPackage SourceFile="..\..\output\installer\Glyssen.msi"/>
 		</Chain>
 	</Bundle>
 
