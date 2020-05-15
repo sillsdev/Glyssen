@@ -5,21 +5,21 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Windows.Forms;
 using DesktopAnalytics;
-using Gecko;
 using Glyssen.Dialogs;
 using Glyssen.Properties;
 using Glyssen.Shared;
 using Glyssen.Utilities;
 using GlyssenEngine;
 using GlyssenEngine.Utilities;
+using GlyssenFileBasedPersistence;
 using L10NSharp;
 using L10NSharp.UI;
 using Paratext.Data;
 using Paratext.Data.Users;
 using PtxUtils;
+using PtxUtils.Progress;
 using SIL;
 using SIL.IO;
 using SIL.Reporting;
@@ -84,6 +84,8 @@ namespace Glyssen
 			Logger.Init();
 			Trace.Listeners.Add(new LogFileTraceListener());
 
+			GlyssenVersificationTable.Initialize();
+			ProgressUtils.Implementation = new ProgressUtilsImpl();
 			Alert.Implementation = new AlertImpl(); // Do this before calling Initialize, just in case Initialize tries to display an alert.
 			if (ParatextInfo.IsParatextInstalled)
 			{
@@ -162,7 +164,7 @@ namespace Glyssen
 
 				var oldPgBaseFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
 					GlyssenInfo.Company, kOldProductName);
-				var baseDataFolder = GlyssenInfo.BaseDataFolder;
+				var baseDataFolder = ProjectRepository.ProjectsBaseFolder;
 				if (Directory.Exists(oldPgBaseFolder) && !Directory.Exists(baseDataFolder))
 					Directory.Move(oldPgBaseFolder, baseDataFolder);
 
@@ -235,6 +237,11 @@ namespace Glyssen
 					return DialogResult.Yes == MessageBox.Show(msg, GlyssenInfo.Product, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
 				}
 
+				Project.DefaultRecordingProjectNameSuffix = " " + LocalizationManager.GetString("Project.RecordingProjectDefaultSuffix", "Audio",
+					"This must not contain any illegal file path characters!").Trim(FileSystemUtils.TrimCharacters);
+				var persistenceImpl = new PersistenceImplementation();
+				ProjectBase.Reader = ReferenceTextProxy.Reader = persistenceImpl;
+				Project.Writer = persistenceImpl;
 				var upgradeInfo = DataMigrator.UpgradeToCurrentDataFormatVersion(HandleMissingBundleNeededForUpgrade,
 					HandleProjectPathChanged, ConfirmSafeAudioAudioReplacements);
 				if (upgradeInfo != null)
@@ -259,11 +266,11 @@ namespace Glyssen
 				if (!sldrIsInitialized)
 					Sldr.Initialize();
 
-				Xpcom.Initialize(XulRunnerLocation);
+				GeckoUtilities.InitializeGecko();
 
 				try
 				{
-					Application.Run(new MainForm(args));
+					Application.Run(new MainForm(persistenceImpl, args));
 				}
 				finally
 				{
@@ -287,72 +294,6 @@ namespace Glyssen
 				return e.Filename;
 			}
 		}
-
-		private static string XulRunnerLocation
-		{
-			get
-			{
-				// Firefox files should exist in the "Firefox64" subfolder of the folder containing the executable.
-				string firefoxPath = Path.Combine(Application.StartupPath, "Firefox64");
-				if (File.Exists(Path.Combine(firefoxPath, "xul.dll")))
-					return firefoxPath;
-
-				// But while running in development - look for the nuget packages location.
-				var version = FileVersionInfo.GetVersionInfo(Assembly.GetAssembly(typeof(GeckoWebBrowser)).Location).ProductVersion;
-				string codeBase = Assembly.GetExecutingAssembly().CodeBase;
-				UriBuilder uri = new UriBuilder(codeBase);
-				string path = Uri.UnescapeDataString(uri.Path);
-
-				string fullPath = SearchForFirefoxDlls(path, version);
-				if (fullPath == null)
-					fullPath = SearchForFirefoxDlls(path, version + "-alpha");
-				if (fullPath == null)
-					fullPath = SearchForFirefoxDlls(path, version.TrimEnd('0').TrimEnd('.') + "-alpha");
-				if (fullPath != null)
-					return fullPath;
-#if DEBUG
-				// Search back from the source file. This is to allow the form designer to initalize geckofx based controls.
-				fullPath = SearchForFirefoxDlls(new FileInfo(__FILE__()).DirectoryName, version);
-				if (fullPath != null)
-				{
-					return fullPath;
-				}
-				throw new ApplicationException($"Unable to locate XulRunner files for Firefox FirefoxHtmlEditor. {codeBase} + {Environment.CurrentDirectory} + {(__FILE__())}");
-#else
-                throw new ApplicationException($"Unable to locate XulRunner files for Firefox FirefoxHtmlEditor. {codeBase} + {Environment.CurrentDirectory}");
-#endif
-			}
-		}
-
-		private static string SearchForFirefoxDlls(string path, string version)
-		{
-			string fullPath;
-			var dir = new DirectoryInfo(Path.GetDirectoryName(path));
-			do
-			{
-				string bits = Environment.Is64BitProcess ? "64." : "32.";
-				fullPath = Path.Combine(dir.FullName,
-					Path.Combine("packages", "Geckofx60." + bits + version, "content", "Firefox"));
-				if (Directory.Exists(fullPath))
-					return fullPath;
-				fullPath = Path.Combine(dir.FullName,
-					Path.Combine("packages", "Geckofx60." + bits + version.TrimEnd('0').TrimEnd('.'), "content",
-						"Firefox"));
-				if (Directory.Exists(fullPath))
-					return fullPath;
-				dir = dir.Parent;
-			}
-			while (dir != null);
-
-			return null;
-		}
-
-#if DEBUG
-		static string __FILE__([System.Runtime.CompilerServices.CallerFilePath] string fileName = "")
-		{
-			return fileName;
-		}
-#endif
 
 		private static void HandleDeleteUserSettings(string userConfigSettingsPath)
 		{
@@ -420,7 +361,7 @@ namespace Glyssen
 		/// <returns>The number of running Glyssen instances</returns>
 		public static int GetRunningGlyssenProcessCount()
 		{
-			return Process.GetProcesses().Count(p => p.ProcessName.ToLowerInvariant().Contains("glyssen"));
+			return Process.GetProcesses().Select(p => p.ProcessName.ToLowerInvariant()).Count(n => n.Contains("glyssen") && !n.Contains("installer"));
 		}
 	}
 }

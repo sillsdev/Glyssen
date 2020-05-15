@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -8,24 +7,19 @@ using SIL.IO;
 
 namespace GlyssenEngine.Utilities
 {
+	/// <summary>
+	/// In theory, this should all be taken care of by the persistence implementation, especially since different
+	/// persistence implementations might have different needs. However, before blindly doing that, we would need
+	/// to consider carefully how to ensure maximum portability so that a project created in one environment
+	/// might be able to be exported and imported in a different environment. To that end, it seems likely that
+	/// this class (perhaps one day renamed) would need to take into consideration the rules of all known
+	/// persistence implementations and ensure a univerally safe set of constraints.
+	/// </summary>
 	public static class FileSystemUtils
 	{
 		// Note: Although technically a leading period is allowed, for our purposes in Glyssen,
 		// that's unlikely to make sense.
 		public static char[] TrimCharacters = { '.', ' ' };
-
-		public static void SafeCreateAndOpenFolder(string folderPath)
-		{
-			try
-			{
-				Directory.CreateDirectory(folderPath);
-				Process.Start(folderPath);
-			}
-			catch (Exception)
-			{
-				// Ignore;
-			}
-		}
 
 		// Copied from Bloom's BookStorage and modified for efficiency (?) and to
 		// prevent duplicate contiguous characters caused by replacements. Also

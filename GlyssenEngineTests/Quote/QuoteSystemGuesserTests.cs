@@ -6,7 +6,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using Glyssen.Shared;
-using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
 using GlyssenEngineTests.Script;

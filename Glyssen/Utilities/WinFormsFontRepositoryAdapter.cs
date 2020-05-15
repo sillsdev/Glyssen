@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using Glyssen.Shared;
-using GlyssenEngine.Utilities;
 using L10NSharp;
 using SIL.Reporting;
 using SIL.Windows.Forms;

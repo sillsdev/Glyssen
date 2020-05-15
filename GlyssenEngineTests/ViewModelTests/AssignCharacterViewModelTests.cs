@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Glyssen.Shared;
 using GlyssenEngine;
+using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Script;
 using GlyssenEngineTests.Script;
@@ -21,19 +22,31 @@ namespace GlyssenEngineTests.ViewModelTests
 		private bool m_fullProjectRefreshRequired;
 		private int m_assigned;
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = null;
+			CreateTestProjectForMark();
+		}
+
+		private void CreateTestProjectForMark()
+		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
 		}
 
 		[SetUp]
 		public void SetUp()
-		{
-			m_testProject.ClearAssignCharacterStatus(); //Otherwise tests interfere with each other in an undesirable way
+		{			
+			if (m_fullProjectRefreshRequired)
+			{
+				TestProject.DeleteTestProjects();
+				CreateTestProjectForMark();
+				m_fullProjectRefreshRequired = false;
+			}
+			else
+				m_testProject.ClearAssignCharacterStatus(); //Otherwise tests interfere with each other in an undesirable way
 			m_model = new AssignCharacterViewModel(m_testProject, BlocksToDisplay.NotAssignedAutomatically, m_testProject.Status.AssignCharacterBlock);
 			m_model.SetUiStrings("narrator ({0})",
 				"book title or chapter ({0})",
@@ -50,22 +63,11 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_assigned += increment;
 		}
 
-		[TearDown]
-		public void Teardown()
-		{
-			if (m_fullProjectRefreshRequired)
-			{
-				TestFixtureTearDown();
-				TestFixtureSetUp();
-				m_fullProjectRefreshRequired = false;
-			}
-		}
-
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
 			m_testProject = null;
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]
@@ -388,6 +390,24 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			m_model.SetMode(BlocksToDisplay.HotSpots | BlocksToDisplay.ExcludeUserConfirmed);
 			Assert.AreEqual(0, m_model.CompletedBlockCount);
+		}
+
+		// PG-1344
+		[Test]
+		public void SetMode_MultipleConfirmedBlocksInMatchupForSingleVoiceBook_CompletedBlockCountDoesNotCountMatchupMoreThanOnce()
+		{
+			m_fullProjectRefreshRequired = true;
+
+			foreach (var block in m_model.BlockAccessor.CurrentBook.GetScriptBlocks())
+			{
+				block.CharacterId = CharacterVerseData.kNeedsReview;
+				block.UserConfirmed = true;
+			}
+
+			m_model.BlockAccessor.CurrentBook.SingleVoice = true;
+			m_model.SetMode(BlocksToDisplay.NeedsReview, true);
+			Assert.IsTrue(m_model.RelevantBlockCount > 1);
+			Assert.AreEqual(m_model.RelevantBlockCount, m_model.CompletedBlockCount);
 		}
 
 		// PG-1211
@@ -874,7 +894,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_fullProjectRefreshRequired = true;
 
 			// Find some place where we have a long run of continuation blocks, where the first two are in the
-			// same vere but the next one starts a new verse.
+			// same verse but the next one starts a new verse.
 			int i = 0;
 			for (; i < m_testProject.Books[0].Blocks.Count - 4; i++)
 			{
@@ -1519,41 +1539,6 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.AreEqual(unusedCharactersForMark541.Single(), m_model.GetCharacterToSelectForCurrentBlock(possibleCharactersForMark541));
 		}
 
-		[TestCase(0)]
-		[TestCase(1)]
-		public void GetCharacterToSelectForCurrentBlock_BlockIsRemainingAmbiguousBlockOfOneIndirectAndOnePotentialInVerse_ReturnsNull(int indexOfCharacterToAssignToFirstBlock)
-		{
-			m_fullProjectRefreshRequired = true;
-
-			try
-			{
-				ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerseOct2015;
-				m_testProject = TestProject.CreateTestProject(TestProject.TestBook.ACT);
-				SetUp();
-
-				while (m_model.CurrentBlock.ChapterNumber != 8 || m_model.CurrentBlock.InitialStartVerseNumber != 37)
-					m_model.LoadNextRelevantBlock();
-				Assert.AreEqual("ACT", m_model.CurrentBookId);
-				Assert.AreEqual(8, m_model.CurrentBlock.ChapterNumber);
-				Assert.AreEqual(37, m_model.CurrentBlock.InitialStartVerseNumber);
-				Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear);
-				var possibleCharactersForActs837 = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
-				Assert.AreEqual(3, possibleCharactersForActs837.Count);
-				m_model.SetCharacterAndDelivery(possibleCharactersForActs837.Where(c => !c.IsNarrator).ElementAt(indexOfCharacterToAssignToFirstBlock),
-					AssignCharacterViewModel.Delivery.Normal);
-				Assert.IsFalse(m_model.CurrentBlock.CharacterIsUnclear);
-				m_model.LoadNextRelevantBlock();
-				Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear);
-				Assert.AreEqual(8, m_model.CurrentBlock.ChapterNumber);
-				Assert.AreEqual(37, m_model.CurrentBlock.InitialStartVerseNumber);
-				Assert.IsNull(m_model.GetCharacterToSelectForCurrentBlock(possibleCharactersForActs837));
-			}
-			finally
-			{
-				ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
-			}
-		}
-
 		[Test]
 		public void SetReferenceTextMatchupCharacter_Null_CharacterSetToAmbiguousAndNotUserConfirmed()
 		{
@@ -1638,12 +1623,16 @@ namespace GlyssenEngineTests.ViewModelTests
 		//	Assert.IsTrue(m_model.CurrentBlock.ChapterNumber > 9);
 		//}
 
+		/// <summary>
+		/// Storing character detail info in the model does not actually add it to the project
+		/// unless/until it is actually used for a character assignment.
+		/// </summary>
 		[Test]
 		public void StoreCharacterDetail_CallTwiceWithSameCharacter_NotSavedInProject()
 		{
 			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.Adult);
 			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.Adult);
-			var reloadedProject = Project.Load(m_testProject.ProjectFilePath, null, null);
+			var reloadedProject = ReloadTestProject();
 			Assert.IsFalse(reloadedProject.AllCharacterDetailDictionary.ContainsKey("Larry"));
 		}
 
@@ -1686,7 +1675,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.Adult);
 			m_model.SetCharacterAndDelivery(new AssignCharacterViewModel.Character("Larry"),
 				AssignCharacterViewModel.Delivery.Normal);
-			var reloadedProject = Project.Load(m_testProject.ProjectFilePath, null, null);
+			var reloadedProject = ReloadTestProject();
 			Assert.IsTrue(reloadedProject.AllCharacterDetailDictionary.ContainsKey("Larry"));
 		}
 
@@ -1698,7 +1687,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.YoungAdult);
 			m_model.SetCharacterAndDelivery(new AssignCharacterViewModel.Character("Larry"),
 				AssignCharacterViewModel.Delivery.Normal);
-			var reloadedProject = Project.Load(m_testProject.ProjectFilePath, null, null);
+			var reloadedProject = ReloadTestProject();
 			Assert.AreEqual(CharacterAge.YoungAdult, reloadedProject.AllCharacterDetailDictionary["Larry"].Age);
 		}
 
@@ -1738,7 +1727,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			m_model.ApplyCurrentReferenceTextMatchup();
 
-			var reloadedProject = Project.Load(m_testProject.ProjectFilePath, null, null);
+			var reloadedProject = ReloadTestProject();
 
 			var christ = reloadedProject.AllCharacterDetailDictionary["Christ"];
 			Assert.AreEqual(CharacterAge.Adult, christ.Age);
@@ -1748,6 +1737,10 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.AreEqual(CharacterAge.YoungAdult, wife.Age);
 			Assert.AreEqual(CharacterGender.Female, wife.Gender);
 		}
+
+		private Project ReloadTestProject() =>
+			Project.Load(new Project((GlyssenDblTextMetadata)m_testProject.Metadata), null, null);
+
 
 		[TestCase(null)]
 		[TestCase("passionate")]
@@ -1801,7 +1794,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			m_model.ApplyCurrentReferenceTextMatchup();
 
-			var reloadedProject = Project.Load(m_testProject.ProjectFilePath, null, null);
+			var reloadedProject = ReloadTestProject();
 
 			var cvData = new CombinedCharacterVerseData(reloadedProject);
 
@@ -1819,7 +1812,7 @@ namespace GlyssenEngineTests.ViewModelTests
 					$"Character ID \"{charChrist}\" missing from ProjectCharacterVerseData for block {block}");
 
 				Assert.IsTrue(block.IsContinuationOfPreviousBlockQuote);
-				Assert.AreEqual("Christ", block.CharacterId, "Following block is not assigned to \"{charChrist}\"");
+				Assert.AreEqual("Christ", block.CharacterId, $"Following block is not assigned to \"{charChrist}\"");
 				Assert.IsTrue(string.IsNullOrEmpty(block.Delivery), "Following block should not have Delivery assigned.");
 			} while (block.IsScripture && block.LastVerseNum < lastVerseNumOfBlockFollowingMatchup);
 		}
@@ -2066,16 +2059,16 @@ namespace GlyssenEngineTests.ViewModelTests
 	{
 		private Project m_testProject;
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		/// <summary>
@@ -2125,18 +2118,35 @@ namespace GlyssenEngineTests.ViewModelTests
 	{
 		private Project m_testProject;
 		private AssignCharacterViewModel m_model;
+		private bool m_fullProjectRefreshRequired;
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerseOct2015;
+			CreateTestProjectForActs();
+		}
+
+		private void CreateTestProjectForActs()
+		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.ACT);
+		}
+
+		[SetUp]
+		public void SetUp()
+		{			
+			if (m_fullProjectRefreshRequired)
+			{
+				TestProject.DeleteTestProjects();
+				CreateTestProjectForActs();
+				m_fullProjectRefreshRequired = false;
+			}
 		}
 
 		private void CreateModel(BlocksToDisplay mode)
 		{
-			m_model = new AssignCharacterViewModel(m_testProject, mode, m_testProject.Status.AssignCharacterBlock);
+			m_model = new AssignCharacterViewModel(m_testProject, mode, null);
 			m_model.SetUiStrings("narrator ({0})",
 				"book title or chapter ({0})",
 				"introduction ({0})",
@@ -2144,16 +2154,17 @@ namespace GlyssenEngineTests.ViewModelTests
 				"normal");
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
 			m_testProject = null;
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]
 		public void ApplyCurrentReferenceTextMatchup_BlockMatchupAlreadyApplied_ThrowsInvalidOperationException()
 		{
+			m_fullProjectRefreshRequired = true;
 			CreateModel(BlocksToDisplay.NotYetAssigned);
 			var verseRefActs837 = new VerseRef(44, 8, 37);
 			m_model.TryLoadBlock(verseRefActs837);
@@ -2196,6 +2207,30 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.AreEqual(1, characters.Count(c => c.CharacterId == "God"));
 			Assert.AreEqual(1, characters.Count(c => c.CharacterId == "Holy Spirit, the"));
 		}
+
+		[TestCase(0)]
+		[TestCase(1)]
+		public void GetCharacterToSelectForCurrentBlock_BlockIsRemainingAmbiguousBlockOfOneIndirectAndOnePotentialInVerse_ReturnsNull(int indexOfCharacterToAssignToFirstBlock)
+		{
+			m_fullProjectRefreshRequired = true;
+			CreateModel(BlocksToDisplay.NotAssignedAutomatically);
+			while (m_model.CurrentBlock.ChapterNumber != 8 || m_model.CurrentBlock.InitialStartVerseNumber != 37)
+				m_model.LoadNextRelevantBlock();
+			Assert.AreEqual("ACT", m_model.CurrentBookId);
+			Assert.AreEqual(8, m_model.CurrentBlock.ChapterNumber);
+			Assert.AreEqual(37, m_model.CurrentBlock.InitialStartVerseNumber);
+			Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear);
+			var possibleCharactersForActs837 = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
+			Assert.AreEqual(3, possibleCharactersForActs837.Count);
+			m_model.SetCharacterAndDelivery(possibleCharactersForActs837.Where(c => !c.IsNarrator).ElementAt(indexOfCharacterToAssignToFirstBlock),
+				AssignCharacterViewModel.Delivery.Normal);
+			Assert.IsFalse(m_model.CurrentBlock.CharacterIsUnclear);
+			m_model.LoadNextRelevantBlock();
+			Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear);
+			Assert.AreEqual(8, m_model.CurrentBlock.ChapterNumber);
+			Assert.AreEqual(37, m_model.CurrentBlock.InitialStartVerseNumber);
+			Assert.IsNull(m_model.GetCharacterToSelectForCurrentBlock(possibleCharactersForActs837));
+		}
 	}
 
 	[TestFixture]
@@ -2210,8 +2245,8 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_indicesOfChangedBlocks.Add(index);
 		}
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerseOct2015;
@@ -2235,7 +2270,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			m_model.CorrelatedBlockCharacterAssignmentChanged -= CorrelatedBlockCharacterAssignmentChanged;
 			m_testProject = null;
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]
@@ -2343,8 +2378,8 @@ namespace GlyssenEngineTests.ViewModelTests
 		private int m_bookNum;
 		const string kObadiahTheProphet = "Obadiah, prophet";
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerseOct2015;
@@ -2382,7 +2417,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void TearDown()
 		{
 			m_testProject = null;
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]

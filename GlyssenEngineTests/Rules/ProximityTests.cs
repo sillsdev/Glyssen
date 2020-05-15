@@ -15,8 +15,8 @@ namespace GlyssenEngineTests.Rules
 		private Project m_testProject;
 		private Proximity m_proximity;
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
@@ -35,10 +35,10 @@ namespace GlyssenEngineTests.Rules
 			m_proximity = new Proximity(m_testProject);
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]

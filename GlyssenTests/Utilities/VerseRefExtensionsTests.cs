@@ -10,10 +10,12 @@ namespace GlyssenTests.Utilities
 {
 	class VerseRefExtensionsTests
 	{
-		[Test, Ignore("By Hand Only")]
+		[Test]
+		[Explicit] // by hand
 		public void SendScrReference()
 		{
 			DummyForm.Start();
+			Thread.Sleep(500);
 
 			// MAT 28:18
 			VerseRef vr = new VerseRef(040028018);

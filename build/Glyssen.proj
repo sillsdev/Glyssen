@@ -6,6 +6,11 @@
 		<Solution>Glyssen.sln</Solution>
 		<ApplicationName>Glyssen</ApplicationName>
 		<Configuration>Release</Configuration>
+		<useNUnit-x86 Condition="'$(OS)'=='Windows_NT'">true</useNUnit-x86>
+		<useNUnit-x86 Condition="'$(OS)'!='Windows_NT'">false</useNUnit-x86>
+		<ExtraExcludeCategories Condition="'$(teamcity_version)' != ''">SkipOnTeamCity,$(ExtraExcludeCategories)</ExtraExcludeCategories>
+		<TeamCity Condition="'$(teamcity_version)' != ''">true</TeamCity>
+		<TeamCity Condition="'$(teamcity_version)' == ''">false</TeamCity>
 		<RestartBuild Condition="!Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')">true</RestartBuild>
 		<RestartBuild Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')">false</RestartBuild>
 	</PropertyGroup>
@@ -22,8 +27,7 @@
   <UsingTask TaskName="FileUpdate"
     AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
     Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
-  <UsingTask TaskName="NUnitTeamCity" AssemblyFile="$(teamcity_dotnet_nunitlauncher_msbuild_task)" Condition="'$(teamcity_version)' != '' And '$(OS)'=='Windows_NT'"/>
-
+  <UsingTask TaskName="NUnit3" AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll" />
   <Import Project="../.nuget/NuGet.targets" />
 
   <Target Name="RestoreBuildTasks" DependsOnTargets="CheckPrerequisites">
@@ -55,10 +59,10 @@
 	<CreateProperty Value="$(Version).$(BuildHash)">
 		<Output PropertyName="FullVersion" TaskParameter="Value"/>
 	</CreateProperty>
-	<CreateProperty Value="GlyssenInstaller.$(Version).msi" Condition=" '$(Label)' == '' ">
+	<CreateProperty Value="GlyssenInstaller.$(Version).exe" Condition=" '$(Label)' == '' ">
 		<Output PropertyName="InstallerFileName" TaskParameter="Value"/>
 	</CreateProperty>
-	<CreateProperty Value="GlyssenInstaller.$(Version).$(Label).msi" Condition=" '$(Label)' != '' ">
+	<CreateProperty Value="GlyssenInstaller.$(Version).$(Label).exe" Condition=" '$(Label)' != '' ">
 		<Output PropertyName="InstallerFileName" TaskParameter="Value"/>
 	</CreateProperty>
 	<Message Text="Version: $(Version)" Importance="high"/>
@@ -120,13 +124,16 @@
 		<CreateItem Include="$(RootDir)\output\$(Configuration)\**\*Tests.dll" Exclude="$(RootDir)\output\$(Configuration)\SIL.DblBundle.Tests.dll">
 			<Output ItemName="TestAssemblies" TaskParameter="Include" />
 		</CreateItem>
-		<NUnitTeamCity
-			Platform="x64"
+		<NUnit3
+			TeamCity="$(TeamCity)"
+			Verbose="true"
+			ToolPath="$(RootDir)/packages/NUnit.ConsoleRunner.3.11.1/tools"
+			WorkingDirectory="$(RootDir)/output/$(Configuration)"
 			Assemblies="@(TestAssemblies)"
-			ExcludeCategory="SkipOnTeamCity;ByHand"
-			NUnitVersion="NUnit-2.5.8" />
+			ExcludeCategory="$(ExtraExcludeCategories)$(excludedCategories)" 
+			Force32Bit="false" />
 	</Target>
-
+	
 	<Target Name="Installer" DependsOnTargets="VersionNumbers; MakeWixForDistFiles; MakeWixForXulRunner; Build ">
 
 		<!-- set the version number in the installer configuration program.	Perhaps there's a way to just send in the variables rather than this brute-force
@@ -135,20 +142,27 @@
 		<FileUpdate File="$(RootDir)\Installer\Installer.wxs" Regex='Property_ProductVersion = ".*"'
 			ReplacementText ="Property_ProductVersion = &quot;$(Version)&quot;" />
 
+		<FileUpdate File="$(RootDir)\Installer\Bootstrapper\Glyssen Bootstrap Installer.wxs" Regex='Property_ProductVersion = ".*"'
+			ReplacementText ="Property_ProductVersion = &quot;$(Version)&quot;" />
+			
 		<Message Text="Making Installer Version: $(Version)" Importance="high" />
 
-		<MSBuild Projects="$(RootDir)\Installer\Installer.wixproj"/>
+		<MSBuild
+			Projects="$(RootDir)\Installer\Installer.sln"
+			Targets="Rebuild"
+			Properties="Configuration=$(Configuration)" />
+		<Message Text="Build Complete"/>
 
 		<!-- remove an existing one with the same name, if necessary -->
 		<Delete Files="$(RootDir)\output\installer\$(InstallerFileName)" TreatErrorsAsWarnings="false" />
 
-		<Copy SourceFiles="$(RootDir)\output\installer\GlyssenInstaller.msi"
+		<Copy SourceFiles="$(RootDir)\output\installer\GlyssenInstaller.exe"
 			DestinationFiles="$(RootDir)\output\installer\$(InstallerFileName)"
 		/>
 		<Message Text="Copied installer to $(RootDir)\output\installer\$(InstallerFileName)" Importance="high"/>
 
 		<!-- remove the installer which has no version number (wouldn't need this if the copy above was a move, instead) -->
-		<Delete Files="$(RootDir)\output\installer\GlyssenInstaller.msi" TreatErrorsAsWarnings="false" />
+		<Delete Files="$(RootDir)\output\installer\GlyssenInstaller.exe" TreatErrorsAsWarnings="false" />
 
 		<!-- copy it so we aren't modifying the original, which then is a pain on dev machines -->
 		<Copy SourceFiles ="$(RootDir)\installer\template.download_info"
@@ -196,12 +210,12 @@
 	<!-- These targets are designed to be additional steps on TeamCity after running target Installer. Pick the appropriate one
 	depending on whether your project's output MUST be signed or it's only nice if it is. For example, a continuous build
 	might use SignIfPossible, while a Publication build must use SignInstaller.-->
-	<Target Name="SignInstaller" DependsOnTargets="VersionNumbers">
+	<Target Name="SignInstaller" DependsOnTargets="VersionNumbers; Installer">
 		<Exec Command='sign "$(RootDir)\output\installer\$(InstallerFileName)"'></Exec>
 		<Message Text="Signed installer at $(RootDir)\output\installer\$(InstallerFileName)" Importance="high"/>
 	</Target>
 
-	<Target Name="SignIfPossible" DependsOnTargets="VersionNumbers">
+	<Target Name="SignIfPossible" DependsOnTargets="VersionNumbers; Installer">
 		<Exec Command='sign "$(RootDir)\output\installer\$(InstallerFileName)"' ContinueOnError="true"></Exec>
 	</Target>
 
@@ -227,16 +241,9 @@
 			RootDirectory="$(RootDir)\packages\Geckofx60.64.60.0.44\content\Firefox"
 			InstallerSourceDirectory="$(RootDir)\Installer"
 			OutputFilePath="$(RootDir)\output\installer\GeneratedXulRunner.wxs"
-			MatchRegExPattern=".*"
-			>
+			MatchRegExPattern=".*">
 			<Output TaskParameter="OutputFilePath" ItemName="Compile" />
 		</MakeWixForDirTree>
 	</Target>
-
-<Target Name="Upload" DependsOnTargets="VersionNumbers" >
-	<Message Text="Attempting rsync of GlyssenInstaller.$(Version).*" Importance="high"/>
-	<Exec Command ='"c:\program files\cwRsync\bin\rsync.exe" -vzlt --chmod=Dug=rwx,Fu=rw,go=r --stats --rsync-path="sudo -u vu2004 rsync" -e"\"c:\program files\cwRsync\bin\ssh\" -oUserKnownHostsFile=C:\BuildAgent\conf\known_hosts -oIdentityFile=/cygdrive/c/BuildAgent/conf/bob.key -l root"  "../output/installer/GlyssenInstaller.$(Version).msi" root@software.sil.org:/var/www/virtual/software.sil.org/htdocs/downloads/r/glyssen/' />
-	<Exec Command ='"c:\program files\cwRsync\bin\rsync.exe" -vzlt --chmod=Dug=rwx,Fu=rw,go=r --stats --rsync-path="sudo -u vu2004 rsync" -e"\"c:\program files\cwRsync\bin\ssh\" -oUserKnownHostsFile=C:\BuildAgent\conf\known_hosts -oIdentityFile=/cygdrive/c/BuildAgent/conf/bob.key -l root"  "../output/installer/GlyssenInstaller.$(Version).download_info" root@software.sil.org:/var/www/virtual/software.sil.org/htdocs/downloads/r/glyssen/' />
-</Target>
 
 </Project>

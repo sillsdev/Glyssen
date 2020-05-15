@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using GlyssenEngine.Casting;
 using NUnit.Framework;
-using SIL.IO;
 using SIL.TestUtilities;
 
 namespace GlyssenEngineTests.Casting
@@ -12,28 +13,32 @@ namespace GlyssenEngineTests.Casting
 		[Test]
 		public void Roundtrip_Actors()
 		{
-			using (TempFile tempFile = new TempFile())
-			{
-				VoiceActorList list = new VoiceActorList();
-				list.AllActors = new List<VoiceActor>
+			var list = new VoiceActorList
+				{AllActors = new List<VoiceActor>
 				{
-					new VoiceActor{Id = 0, Name = "A", Gender = ActorGender.Female, Age = ActorAge.Elder},
-					new VoiceActor{Id = 1, Name = "B"}
-				};
-
-				// Generates file correctly
-				list.SaveToFile(tempFile.Path);
-				AssertThatXmlIn.File(tempFile.Path)
-					.HasSpecifiedNumberOfMatchesForXpath("/VoiceActors/VoiceActor", 2);
-				AssertThatXmlIn.File(tempFile.Path)
-					.HasSpecifiedNumberOfMatchesForXpath("/VoiceActors/VoiceActor[@Id='0' and @Gender='Female' and @Age='Elder' and text()='A']", 1);
-				AssertThatXmlIn.File(tempFile.Path)
-					.HasSpecifiedNumberOfMatchesForXpath("/VoiceActors/VoiceActor[@Id='1' and @Gender='Male' and @Age='Adult' and text()='B']", 1);
-
-				// Reads from file correctly
-				VoiceActorList listFromFile = VoiceActorList.LoadVoiceActorListFromFile(tempFile.Path);
-				Assert.AreEqual(list.ActiveActors, listFromFile.ActiveActors);
+					new VoiceActor {Id = 0, Name = "A", Gender = ActorGender.Female, Age = ActorAge.Elder},
+					new VoiceActor {Id = 1, Name = "B"}
+				}
+			};
+				
+			var sb = new StringBuilder();
+			using (var writer = new StringWriter(sb))
+			{
+				// Generates XML correctly
+				list.Save(writer);
 			}
+
+			var results = sb.ToString();
+			AssertThatXmlIn.String(results)
+				.HasSpecifiedNumberOfMatchesForXpath("/VoiceActors/VoiceActor", 2);
+			AssertThatXmlIn.String(results)
+				.HasSpecifiedNumberOfMatchesForXpath("/VoiceActors/VoiceActor[@Id='0' and @Gender='Female' and @Age='Elder' and text()='A']", 1);
+			AssertThatXmlIn.String(results)
+				.HasSpecifiedNumberOfMatchesForXpath("/VoiceActors/VoiceActor[@Id='1' and @Gender='Male' and @Age='Adult' and text()='B']", 1);
+
+			// Reads XML correctly
+			var listFromDeserialization = VoiceActorList.LoadVoiceActorList(new StringReader(results));
+			Assert.AreEqual(list.ActiveActors, listFromDeserialization.ActiveActors);
 		}
 
 		[Test]

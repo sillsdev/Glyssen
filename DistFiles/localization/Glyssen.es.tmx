@@ -11836,6 +11836,15 @@
         <seg>No se pudo crear el sistema de escritura basado en archivo LDML para el proyecto {0} {1}.</seg>
       </tuv>
     </tu>
+    <tu tuid="Project.FallingBackToDefaultEnglishVersification">
+      <note>Param: “English” (versification name)</note>
+      <tuv xml:lang="en">
+        <seg>Therefore, the {0} versification is being used by default. If this is not the correct versification for this project, some things will not work as expected.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Así que la versificación {0} se usará por defecto. Si ésta no es la correcta versificación para este proyecto, algunas cosas no funcionarán como se espera.</seg>
+      </tuv>
+    </tu>
     <tu tuid="Project.IgnoreToRepairLdmlFile">
       <note>Param 0: "Ignore" button label; Param 1: Product name (e.g., "Glyssen")</note>
       <tuv xml:lang="en">
@@ -11949,13 +11958,22 @@
         <seg>Para actualizar el proyecto {0}, el proyecto {2} debe estar disponible en {1}, pero no lo está.</seg>
       </tuv>
     </tu>
-    <tu tuid="Project.ParatextProjectMissingNoFallbackVersificationFile">
-      <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier); Param 2: Glyssen recording project name; Param 3: “English” (versification mame)</note>
+    <tu tuid="Project.ParatextProjectFallbackVersificationInvalid">
+      <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier); Param 2: Glyssen recording project name; Param 3: Error details</note>
       <tuv xml:lang="en">
-        <seg>{0} project {1} is not available and project {2} does not have a fallback versification file; therefore, the {3} versification is being used by default. If this is not the correct versification for this project, some things will not work as expected.</seg>
+        <seg>{0} project {1} is not available and the fallback versification in project {2} is invalid:\n {3}\n</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>El proyecto {0} {1} no está disponible y el proyecto {2} no tiene un archivo de versificación de respaldo. Así que la versificación {3} se usará por defecto. Si ésta no es la correcta versificación para este proyecto, se esperan algunos problemas.</seg>
+        <seg>El proyecto {0} {1} no está disponible y la versificación de respaldo en el proyecto {2} es inválido:\n {3}\n</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.ParatextProjectNoFallbackVersification">
+      <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier); Param 2: Glyssen recording project name</note>
+      <tuv xml:lang="en">
+        <seg>{0} project {1} is not available and project {2} does not have a fallback versification. </seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>El proyecto {0} {1} no está disponible y el proyecto {2} no tiene una versificación de respaldo. </seg>
       </tuv>
     </tu>
     <tu tuid="Project.ParatextProjectNotFound">
@@ -12180,10 +12198,10 @@
     </tu>
     <tu tuid="ReferenceText.CouldNotLoad">
       <tuv xml:lang="en">
-        <seg>The {0} reference text could not be loaded from: {1}</seg>
+        <seg>The {0} reference text could not be loaded.</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>No se pudo cargar el texto de referencia {0} de: {1}</seg>
+        <seg>No se pudo cargar el texto de referencia {0}.</seg>
       </tuv>
     </tu>
     <tu tuid="ReferenceText.MultipleLoadErrors">

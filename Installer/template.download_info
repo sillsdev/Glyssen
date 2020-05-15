@@ -6,8 +6,8 @@
   "platform_version": "",
   "architecture": "",
   "stability": "release",
-  "file": "GlyssenInstaller._VERSION_.msi",
+  "file": "GlyssenInstaller._VERSION_.exe",
   "md5": "",
-  "type": "msi",
+  "type": "exe",
   "build": ""
 }

@@ -10,19 +10,19 @@ namespace GlyssenEngineTests.Character
 	{
 		private Project m_project;
 
-		[TestFixtureSetUp]
-		public void FixtureSetup()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			CharacterGroupAttribute<CharacterGender>.GetUiStringForValue = GetUiStringForCharacterGender;
 			CharacterGroupAttribute<CharacterAge>.GetUiStringForValue = GetUiStringForCharacterAge;
 			m_project = TestProject.CreateBasicTestProject();
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
 			m_project = null;
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		private static string GetUiStringForCharacterGender(CharacterGender characterGender)

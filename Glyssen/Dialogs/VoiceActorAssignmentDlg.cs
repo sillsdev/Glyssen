@@ -147,13 +147,13 @@ namespace Glyssen.Dialogs
 
 		private void RestoreAutoSizeInfo(Tuple<Dictionary<DataGridViewColumn, DataGridViewAutoSizeColumnMode>, DataGridViewAutoSizeRowsMode> info)
 		{
-			var columnSizeModesToRestore = info.Item1;
-			var autoSizeRowsModeToRestore = info.Item2;
+				var columnSizeModesToRestore = info.Item1;
+				var autoSizeRowsModeToRestore = info.Item2;
 
-			foreach (var kvp in columnSizeModesToRestore)
-				kvp.Key.AutoSizeMode = kvp.Value;
-			m_characterGroupGrid.AutoSizeRowsMode = autoSizeRowsModeToRestore;
-		}
+				foreach (var kvp in columnSizeModesToRestore)
+					kvp.Key.AutoSizeMode = kvp.Value;
+				m_characterGroupGrid.AutoSizeRowsMode = autoSizeRowsModeToRestore;
+			}
 
 		private void HandleStringsLocalized()
 		{
@@ -819,16 +819,15 @@ namespace Glyssen.Dialogs
 
 		private void m_characterGroupGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
 		{
+			var src = (DataGridView)sender;
 			// ignore most ArgumentExceptions in the VoiceActorCol
 			// this can happen if you type in the name of an existing cameo actor
-			if (e.Exception.GetType().Name == "ArgumentException")
+			if (e.Exception is ArgumentException)
 			{
-				var src = (DataGridView)sender;
 				if (src.CurrentCell.OwningColumn == VoiceActorCol)
 				{
-					int currentVal;
-					var success = int.TryParse(src.CurrentCell.Value.ToString(), out currentVal);
-					if (success && (currentVal > -1))
+					var success = int.TryParse(src.CurrentCell.Value.ToString(), out var currentVal);
+					if (success && currentVal > -1)
 					{
 						e.Cancel = true;
 						return;
@@ -837,6 +836,7 @@ namespace Glyssen.Dialogs
 			}
 
 			Analytics.ReportException(e.Exception);
+			Logger.WriteEvent($"Following error is fatal exception from {src.Name}. Row: {e.RowIndex}; Column: {e.ColumnIndex}");
 			ErrorReport.ReportFatalException(e.Exception);
 			throw e.Exception;
 		}
@@ -1160,17 +1160,8 @@ namespace Glyssen.Dialogs
 			foreach (Tuple<VoiceActor, bool> actorInfo in m_actorAssignmentViewModel.GetActorsSortedByAvailabilityAndName(group))
 			{
 				if (!actorInfo.Item2 && !rowForRemoveActorAdded)
-				{ 
-					table.Rows.Add(
-						-1,
-						null,
-						Resources.RemoveActor,
-						"",
-						//LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"),
-						"",
-						"",
-						"",
-						LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"));
+				{
+					AddRowForRemoveActor(table);
 					category = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AlreadyAssignedVoiceActors",
 						"Assigned to a Character Group:");
 					rowForRemoveActorAdded = true;
@@ -1178,8 +1169,24 @@ namespace Glyssen.Dialogs
 
 				table.Rows.Add(GetDataTableRow(actorInfo.Item1, category));
 			}
+			if (!rowForRemoveActorAdded)
+				AddRowForRemoveActor(table);
 
 			return table;
+		}
+
+		private static void AddRowForRemoveActor(DataTable table)
+		{
+			table.Rows.Add(
+				-1,
+				null,
+				Resources.RemoveActor,
+				"",
+				//LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"),
+				"",
+				"",
+				"",
+				LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"));
 		}
 
 		private object[] GetDataTableRow(VoiceActor actor, string category)

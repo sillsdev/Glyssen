@@ -11,6 +11,6 @@ namespace Glyssen.Shared
 		GlyssenDblTextMetadataBase Metadata { get; }
 		bool Missing { get; }
 		ReferenceTextType Type { get; }
-		string ProjectFolder { get; }
+		string Name { get; }
 	}
 }

@@ -30,8 +30,8 @@ namespace GlyssenEngineTests.Script
 		private ScrVers m_testVersification;
 		private IQuoteInterruptionFinder m_interruptionFinder;
 
-		[TestFixtureSetUp]
-		public void FixtureSetup()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
@@ -2341,7 +2341,7 @@ namespace GlyssenEngineTests.Script
 		/// <param name="matchup"></param>
 		private static void MatchUpBlocksAndApplyToSource(BlockMatchup matchup)
 		{
-			matchup.MatchAllBlocks(ScrVers.English);
+			matchup.MatchAllBlocks();
 			var narrator = CharacterVerseData.GetStandardCharacterId(matchup.BookId, CharacterVerseData.StandardCharacter.Narrator);
 			foreach (var block in matchup.CorrelatedBlocks.Where(b => b.CharacterIsUnclear ||
 				(b.MultiBlockQuote != MultiBlockQuote.None && b.CharacterIsStandard)))

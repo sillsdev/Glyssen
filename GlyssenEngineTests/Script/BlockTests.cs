@@ -7,6 +7,7 @@ using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
 using GlyssenEngine.Script;
+using GlyssenSharedTests;
 using NUnit.Framework;
 using Rhino.Mocks;
 using SIL.IO;
@@ -25,8 +26,8 @@ namespace GlyssenEngineTests.Script
 		private ScrVers m_testVersification;
 		private IQuoteInterruptionFinder m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes;
 
-		[TestFixtureSetUp]
-		public void FixtureSetup()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
@@ -49,7 +50,7 @@ namespace GlyssenEngineTests.Script
 		[TearDown]
 		public void Teardown()
 		{
-			TestReferenceText.DeleteTempCustomReferenceProjectFolder();
+			TestReferenceText.ForgetCustomReferenceTexts();
 		}
 
 		[Test]
@@ -60,7 +61,7 @@ namespace GlyssenEngineTests.Script
 			block.BlockElements.Add(new ScriptText("dijo."));
 			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
 			block.SetMatchedReferenceBlock(rtEnglish.HeSaidText);
-			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
 			Assert.AreEqual(rtFrench.HeSaidText, block.GetPrimaryReferenceText());
 			Assert.AreEqual(rtEnglish.HeSaidText, block.ReferenceBlocks.Single().GetPrimaryReferenceText());
@@ -73,7 +74,7 @@ namespace GlyssenEngineTests.Script
 			var block = new Block("p", 1, 10).AddVerse(10, "dijo."); // vernacular
 			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
 			block.SetMatchedReferenceBlock("{10}\u00A0" + rtEnglish.HeSaidText);
-			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
 			Assert.AreEqual("{10}\u00A0" + rtFrench.HeSaidText, block.GetPrimaryReferenceText());
 			Assert.AreEqual("{10}\u00A0" + rtEnglish.HeSaidText, block.ReferenceBlocks.Single().GetPrimaryReferenceText());
@@ -101,7 +102,7 @@ namespace GlyssenEngineTests.Script
 			var frenchRefText = block.SetMatchedReferenceBlock("{1}\u00A0Jésus ... {2}\u00A0Ils ... demandent: <<Où ... l'adorer.>>");
 			frenchRefText.SetMatchedReferenceBlock("{1}\u00A0Now when Jesus was born in Bethlehem of Judea in the days of King Herod, behold, wise men from the east came to Jerusalem, " +
 				"{2}\u00A0saying, “Where is the one who is born King of the Jews? For we saw his star in the east, and have come to worship him.”");
-			ReferenceText rtSpanish = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.SpanishMAT);
+			ReferenceText rtSpanish = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.SpanishMAT);
 			Assert.IsTrue(block.ChangeReferenceText("MAT", rtSpanish, ScrVers.English));
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual("{1}\u00A0Jesús ... {2}\u00A0y ... preguntaron: <<¿Dónde ... adorarlo.>>",
@@ -117,7 +118,7 @@ namespace GlyssenEngineTests.Script
 			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
 			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
 			block.SetMatchedReferenceBlock("{10}\u00A0This is some arbitrary English reference text.");
-			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			Assert.IsFalse(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
 			// Caller will be responsible for clearing the alignment (for this and other related blocks)
 			Assert.IsTrue(block.MatchesReferenceText);
@@ -131,7 +132,7 @@ namespace GlyssenEngineTests.Script
 			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
 			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
 			block.SetMatchedReferenceBlock("{10}\u00A0     ");
-			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual("{10}\u00A0", block.GetPrimaryReferenceText());
@@ -145,7 +146,7 @@ namespace GlyssenEngineTests.Script
 			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
 			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
 			block.SetMatchedReferenceBlock("     ");
-			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual("", block.GetPrimaryReferenceText());
@@ -159,7 +160,7 @@ namespace GlyssenEngineTests.Script
 			var block = new Block("p", 12, 17).AddVerse(17, "blah blah blah.").AddVerse(18, "More blah blah."); // vernacular
 			block.CharacterId = CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator);
 			block.SetMatchedReferenceBlock("{17} Stuff that doesn't match...");
-			ReferenceText rtAzeri = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriREV);
+			ReferenceText rtAzeri = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.AzeriREV);
 			Assert.IsFalse(block.ChangeReferenceText("REV", rtAzeri, ScrVers.English));
 			// Caller will be responsible for clearing the alignment (for this and other related blocks)
 			Assert.AreEqual("{17}\u00A0Stuff that doesn't match...", block.GetPrimaryReferenceText());
@@ -181,7 +182,7 @@ namespace GlyssenEngineTests.Script
 			block.BlockElements.Add(new ScriptText("<<Desde cuando le llega asi?>>"));
 			block.CharacterId = "Jesus";
 			block.SetMatchedReferenceBlock("“How long has it been since this has come to him?”");
-			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, vernVers));
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual("<<Cela lui arrive depuis quand?>>", block.GetPrimaryReferenceText());
@@ -201,7 +202,7 @@ namespace GlyssenEngineTests.Script
 			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
 			block.SetMatchedReferenceBlock("{43} He strictly ordered them, saying: “Tell no one about this!” Then he said: “Give her something to eat.” " +
 				"{1} He went out from there. He came into his own country, and his disciples followed him.");
-			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, vernVers));
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual("{43}\u00A0mais Jésus leur demandeforce: <<Ne dites rien à personne.>> Ensuite il leur dit: " +
@@ -1079,7 +1080,7 @@ namespace GlyssenEngineTests.Script
 			var joinedFrenchRefBlock = new Block(refBlockNarratorFrench.StyleTag, refBlockNarratorFrench.ChapterNumber, refBlockNarratorFrench.InitialStartVerseNumber);
 			joinedFrenchRefBlock.CharacterId = narrator;
 			joinedFrenchRefBlock.Delivery = "raspy";
-			ReferenceText rt = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMAT);
+			ReferenceText rt = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMAT);
 			joinedFrenchRefBlock.AppendJoinedBlockElements(new List<Block> { refBlockNarratorFrench, refBlockMatthewFrench }, rt);
 			Assert.AreEqual("{2}\u00A0Jésus a dit. Pour que Matthieu a répondu, «Nous savions que.»", joinedFrenchRefBlock.GetText(true));
 			// We may not technically really care too much about the next four lines (at least right now),

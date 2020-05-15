@@ -35,7 +35,7 @@ namespace GlyssenEngine.ViewModels
 		private readonly Dictionary<ReferenceText, IAdjustableFontInfo<TFont>> m_referenceTextFonts = new Dictionary<ReferenceText, IAdjustableFontInfo<TFont>>();
 		private BlockNavigator m_navigator;
 		private readonly IEnumerable<string> m_includedBooks;
-		protected List<BookBlockIndices> m_relevantBookBlockIndices;
+		private List<BookBlockIndices> m_relevantBookBlockIndices;
 		protected BookBlockIndices m_temporarilyIncludedBookBlockIndices;
 		private static readonly BookBlockTupleComparer s_bookBlockComparer = new BookBlockTupleComparer();
 		protected readonly IEqualityComparer<CharacterSpeakingMode> m_characterEqualityComparer = new CharacterEqualityComparer();
@@ -154,6 +154,12 @@ namespace GlyssenEngine.ViewModels
 		private int CountOfBlocksAddedByCurrentMatchup => BlockGroupingStyle == BlockGroupingType.BlockCorrelation ? m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting : 0;
 
 		public int RelevantBlockCount => m_relevantBookBlockIndices.Count;
+
+		protected IEnumerable<BookBlockIndices> IndicesAtOrBeyondLocationInBook(BookBlockIndices current)
+		{
+			return m_relevantBookBlockIndices.Where(r => r.BookIndex == current.BookIndex &&
+				r.BlockIndex >= current.BlockIndex);
+		}
 
 		/// <summary>
 		/// This shows the current position within the filtered list. In rainbow mode, we count "matchups". In white mode, we count blocks.
@@ -289,6 +295,8 @@ namespace GlyssenEngine.ViewModels
 				m_attemptRefBlockMatchup = true;
 			m_temporarilyIncludedBookBlockIndices = GetCurrentBlockIndices();
 			ResetFilter(BlockAccessor.CurrentBlock, stayOnCurrentBlock);
+
+			Logger.WriteEvent($"Block navigator mode set to {Mode}. Relevant blocks = {RelevantBlockCount}");
 		}
 
 		protected void ResetFilter(Block selectedBlock, bool stayOnCurrentBlock = false)
@@ -827,10 +835,10 @@ namespace GlyssenEngine.ViewModels
 				$"{CurrentBook.BookId} {CurrentBlock.ChapterNumber}:{CurrentBlock.InitialStartVerseNumber}");
 
 			m_currentRefBlockMatchups = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook,
-				currentIndices.BlockIndex, currentIndices.MultiBlockCount);
+				currentIndices.BlockIndex, m_project.ReportingClauses, currentIndices.MultiBlockCount);
 			if (m_currentRefBlockMatchups != null)
 			{
-				m_currentRefBlockMatchups.MatchAllBlocks(m_project.Versification);
+				m_currentRefBlockMatchups.MatchAllBlocks();
 				// We might have gotten here by ad-hoc navigation (clicking or using the Verse Reference control). Since we are in "rainbow mode"
 				// the filter holds *groups* of relevant blocks (rather than individual ones), so if the new current matchup corresponds to one
 				// of those groups (i.e., it is relevant), we need to set indices based on the group rather than the individual block. Otherwise,
@@ -883,7 +891,7 @@ namespace GlyssenEngine.ViewModels
 			var insertions = m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting;
 			var insertionIndex = m_currentRelevantIndex;
 
-			m_currentRefBlockMatchups.Apply(m_project.Versification);
+			m_currentRefBlockMatchups.Apply();
 			if (insertionIndex < 0)
 			{
 				var indicesOfFirstBlock = BlockAccessor.GetIndicesOfSpecificBlock(m_currentRefBlockMatchups.OriginalBlocks.First());
@@ -928,6 +936,39 @@ namespace GlyssenEngine.ViewModels
 				}
 				for (int i = startIndex; i < RelevantBlockCount && m_relevantBookBlockIndices[i].BookIndex == currentBookIndex; i++)
 					m_relevantBookBlockIndices[i].BlockIndex += insertions;
+			}
+
+			ProcessNewHeSaidRenderings();
+		}
+
+		private void ProcessNewHeSaidRenderings()
+		{
+			if (m_project.AddNewReportingClauses(m_currentRefBlockMatchups.HeSaidBlocks.Select(b => b.GetText(false).Trim()).Distinct()))
+			{
+				for (var i = 0; i < m_relevantBookBlockIndices.Count;)
+				{
+					if (i == m_currentRelevantIndex)
+					{
+						i++;
+						continue;
+					}
+
+					var location = m_relevantBookBlockIndices[i];
+					var matchup = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(m_project.IncludedBooks[location.BookIndex],
+						location.BlockIndex, m_project.ReportingClauses, location.MultiBlockCount);
+					// We do not want to remove blocks that the user has matched manually (in case they want to navigate back to them),
+					// so if all of the (original) blocks are explicitly matched, then leave it alone.
+					if (matchup != null && matchup.OriginalBlocks.Any(b => !b.MatchesReferenceText) && !IsRelevant(matchup))
+					{
+						if (i < m_currentRelevantIndex)
+							m_currentRelevantIndex--;
+						m_relevantBookBlockIndices.RemoveAt(i);
+					}
+					else
+					{
+						i++;
+					}
+				}
 			}
 		}
 
@@ -996,28 +1037,21 @@ namespace GlyssenEngine.ViewModels
 
 					BlockMatchup matchup;
 					if (AttemptRefBlockMatchup &&
-						(matchup = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook, indices.BlockIndex)) != null)
+						(matchup = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook, indices.BlockIndex, m_project.ReportingClauses)) != null)
 					{
 						if (indices.ExtendForMatchup(matchup))
 							m_navigator.SetIndices(indices); // The call to GetIndices (above) gets a copy, so we need to set the state to reflect the updated Multi-block count
 
 						// TODO (PG-784): If a book is single-voice, no block in it should match this filter.
 						//if (!CurrentBookIsSingleVoice)
-						if (matchup.OriginalBlocks.Any(b => IsRelevant(b)) ||
-							((Mode & BlocksToDisplay.NotAlignedToReferenceText) > 0 && !matchup.AllScriptureBlocksMatch))
+						if (IsRelevant(matchup))
 						{
-							foreach (var relevantBlock in matchup.OriginalBlocks)
-								RelevantBlockAdded(relevantBlock);
-							m_relevantBookBlockIndices.Add(indices);
+							AddRelevant(indices);
 						}
 					}
-					else
+					else if (IsRelevant(block))
 					{
-						if (IsRelevant(block))
-						{
-							RelevantBlockAdded(block);
-							m_relevantBookBlockIndices.Add(indices);
-						}
+						AddRelevant(indices);
 					}
 				}
 
@@ -1029,10 +1063,22 @@ namespace GlyssenEngine.ViewModels
 			m_navigator.GoToFirstBlock();
 		}
 
-		protected virtual void RelevantBlockAdded(Block block)
+		private void AddRelevant(BookBlockIndices indices, bool reSort = false)
+		{
+			m_relevantBookBlockIndices.Add(indices);
+			if (reSort)
+				m_relevantBookBlockIndices.Sort();
+			RelevantBlocksAdded(indices);
+		}
+
+		protected virtual void RelevantBlocksAdded(BookBlockIndices addedBlocks)
 		{
 			// No-op in base class
 		}
+
+		private bool IsRelevant(BlockMatchup matchup) =>
+			matchup.OriginalBlocks.Any(b => IsRelevant(b)) ||
+			(Mode & BlocksToDisplay.NotAlignedToReferenceText) > 0 && !matchup.AllScriptureBlocksMatch;
 
 		private bool IsRelevant(Block block, bool rebuildingFilter = true)
 		{
@@ -1180,9 +1226,7 @@ namespace GlyssenEngine.ViewModels
 			if (IsRelevant(newOrModifiedBlock, false))
 			{
 				var indicesOfNewOrModifiedBlock = GetBlockIndices(newOrModifiedBlock);
-				m_relevantBookBlockIndices.Add(indicesOfNewOrModifiedBlock);
-				m_relevantBookBlockIndices.Sort();
-				RelevantBlockAdded(newOrModifiedBlock);
+				AddRelevant(indicesOfNewOrModifiedBlock, true);
 				if (m_currentRelevantIndex == -1 && CurrentBlock.Equals(newOrModifiedBlock))
 					m_currentRelevantIndex = m_relevantBookBlockIndices.IndexOf(indicesOfNewOrModifiedBlock);
 			}

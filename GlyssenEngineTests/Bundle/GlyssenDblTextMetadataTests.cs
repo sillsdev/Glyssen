@@ -39,8 +39,8 @@ namespace GlyssenEngineTests.Bundle
 	<isBookSelectionUserConfirmed>true</isBookSelectionUserConfirmed>
 </DBLMetadata>";
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetup()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			var xs = new XmlSerializer(typeof(GlyssenDblTextMetadata));
 			using (TextReader reader = new StringReader(kTestXml))

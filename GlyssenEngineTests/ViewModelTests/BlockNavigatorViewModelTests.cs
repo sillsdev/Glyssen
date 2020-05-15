@@ -10,6 +10,7 @@ using NUnit.Framework;
 using SIL.Extensions;
 using SIL.Reflection;
 using SIL.Scripture;
+using static System.String;
 using BlockNavigatorViewModel = GlyssenEngine.ViewModels.BlockNavigatorViewModel<Rhino.Mocks.Interfaces.IMockedObject>;
 
 namespace GlyssenEngineTests.ViewModelTests
@@ -20,8 +21,8 @@ namespace GlyssenEngineTests.ViewModelTests
 		private Project m_testProject;
 		private BlockNavigatorViewModel m_model;
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
@@ -36,10 +37,10 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.ForwardContextBlockCount = 10;
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]
@@ -991,8 +992,8 @@ namespace GlyssenEngineTests.ViewModelTests
 		private Project m_testProject;
 		private BlockNavigatorViewModel m_model;
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
@@ -1008,7 +1009,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		[TearDown]
 		public void TearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]
@@ -1184,7 +1185,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			var matchup = m_model.CurrentReferenceTextMatchup;
 			Assert.IsNotNull(matchup);
-			matchup.MatchAllBlocks(m_testProject.Versification);
+			matchup.MatchAllBlocks();
 
 			m_model.ApplyCurrentReferenceTextMatchup();
 
@@ -1243,7 +1244,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		[TearDown]
 		public void TearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		// PG-823: Prevent out of range index
@@ -1258,7 +1259,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var matchup = m_model.CurrentReferenceTextMatchup;
 
 			Assert.IsTrue(m_model.CurrentDisplayIndex >= m_model.RelevantBlockCount);
-			matchup.MatchAllBlocks(m_testProject.Versification);
+			matchup.MatchAllBlocks();
 			foreach (var block in matchup.CorrelatedBlocks.Where(b => b.CharacterIsUnclear))
 				block.SetCharacterIdAndCharacterIdInScript("Paul", m_model.CurrentBookNumber, m_testProject.Versification);
 			Assert.IsTrue(matchup.HasOutstandingChangesToApply);
@@ -1280,8 +1281,8 @@ namespace GlyssenEngineTests.ViewModelTests
 	{
 		private Project m_testProject;
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
@@ -1296,7 +1297,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		[TearDown]
 		public void TearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		/// <summary>
@@ -1322,7 +1323,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.IsFalse(model.IsCurrentLocationRelevant);
 			var matchup = model.CurrentReferenceTextMatchup;
 			Assert.IsNotNull(matchup);
-			matchup.MatchAllBlocks(m_testProject.Versification);
+			matchup.MatchAllBlocks();
 
 			model.ApplyCurrentReferenceTextMatchup();
 
@@ -1339,8 +1340,8 @@ namespace GlyssenEngineTests.ViewModelTests
 		private Project m_testProject;
 		private BlockNavigatorViewModel m_model;
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerseOct2015;
@@ -1353,16 +1354,16 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.Ambiguous);
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]
 		public void CanNavigateToPreviousRelevantBlock_OnBlockWhoseRainbowGroupCoversFirstBlock_ReturnsFalse()
 		{
-			m_model.SetMode(m_model.Mode, false);
+			m_model.SetMode(BlocksToDisplay.Ambiguous, false);
 			while (m_model.CanNavigateToPreviousRelevantBlock)
 				m_model.LoadPreviousRelevantBlock();
 			m_model.LoadNextRelevantBlock();
@@ -1376,6 +1377,100 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.OriginalBlocks.Contains(origCurrentBlock));
 			Assert.AreEqual(1, m_model.CurrentDisplayIndex, "Note: Setting AttemptRefBlockMatchup = true should cause the filter to be" +
 				"reset and the \"block\" display index");
+		}
+
+		
+		[Test]
+		public void ApplyCurrentReferenceTextMatchup_HeSaid_SetsReferenceTextsForBlocksInGroupAndUpdatesState()
+		{
+			// SETUP
+			var markNarrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			AddHeSaidAfterQuoteAtEndOfVerseInMark(1, 8, markNarrator);
+			var addedHeSaidBlockToMatchExplicitly = AddHeSaidAfterQuoteAtEndOfVerseInMark(1, 11, markNarrator);
+			AddHeSaidAfterQuoteAtEndOfVerseInMark(1, 15, markNarrator);
+			AddHeSaidAfterQuoteAtEndOfVerseInMark(1, 17, markNarrator);
+
+			m_model.SetMode(BlocksToDisplay.NotAlignedToReferenceText, true);
+			while (m_model.CanNavigateToPreviousRelevantBlock)
+				m_model.LoadPreviousRelevantBlock();
+
+			BlockNavigatorViewModelTests.FindRefInMark(m_model, 1, 8);
+			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
+			m_model.LoadNextRelevantBlock();
+			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.First().InitialStartVerseNumber <= 11);
+			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum == 11);
+			const string separator = "***";
+			var Mark1V11MatchupBlocks = Join(separator, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Select(b => b.GetText(true)));
+			m_model.LoadNextRelevantBlock();
+			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.First().InitialStartVerseNumber <= 15);
+			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum == 15);
+			m_model.LoadNextRelevantBlock();
+			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.First().InitialStartVerseNumber <= 17);
+			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum == 17);
+			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock, "Setup condition not met");
+			m_model.LoadNextRelevantBlock();
+			var firstRelevantMatchupPastMark1V17Blocks = Join(separator, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Select(b => b.GetText(true)));
+			m_model.LoadPreviousRelevantBlock();
+			m_model.LoadPreviousRelevantBlock();
+			m_model.LoadPreviousRelevantBlock();
+			var matchup = m_model.CurrentReferenceTextMatchup;
+			Assert.AreEqual(Mark1V11MatchupBlocks, Join(separator, matchup.CorrelatedBlocks.Select(b => b.GetText(true))));
+			Assert.AreEqual(addedHeSaidBlockToMatchExplicitly, matchup.OriginalBlocks.Last());
+			bool callbackCalled = false;
+			var iHeSaidRow = matchup.CorrelatedBlocks.Count - 1;
+			matchup.InsertHeSaidText(iHeSaidRow, (iRow, level, text) =>
+			{
+				Assert.AreEqual(iHeSaidRow, iRow);
+				Assert.AreEqual(0, level);
+				Assert.AreEqual("he said.", text);
+				Assert.IsFalse(callbackCalled);
+				callbackCalled = true;
+			});
+			Assert.IsTrue(callbackCalled);
+
+			var origRelevantBlock = m_model.RelevantBlockCount;
+			var origBlockDisplayIndex = m_model.CurrentDisplayIndex;
+
+			// SUT
+			m_model.ApplyCurrentReferenceTextMatchup();
+
+			// VERIFY
+			Assert.AreEqual(matchup, m_model.CurrentReferenceTextMatchup);
+			Assert.IsTrue(m_model.IsCurrentLocationRelevant,
+				"We leave the matchup that was explicitly applied in the collection so the user can use \"Prev\" to get back to it");
+
+			Assert.AreEqual(origBlockDisplayIndex - 1, m_model.CurrentDisplayIndex,
+				"One of the previous matchups (for Mark 1:8) is no longer relevant.");
+			Assert.AreEqual(origRelevantBlock - 3, m_model.RelevantBlockCount,
+				"The three other matchups with the \"he said\" text should no longer be considered relevant.");
+			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock);
+			m_model.LoadNextRelevantBlock();
+			Assert.AreEqual(firstRelevantMatchupPastMark1V17Blocks,
+				Join(separator, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Select(b => b.GetText(true))));
+		}
+
+		private Block AddHeSaidAfterQuoteAtEndOfVerseInMark(int chapterNum, int verseNum, string markNarrator)
+		{
+			var mark = m_testProject.IncludedBooks.Single(b => b.BookId == "MRK");
+			var markBlocks = mark.GetScriptBlocks();
+			var iBlock = markBlocks.TakeWhile(b => b.ChapterNumber <= chapterNum)
+				.IndexOf(b => b.LastVerseNum == verseNum);
+			Assert.IsTrue(iBlock > 0, "Setup condition not met.");
+			while (iBlock + 1 < markBlocks.Count && markBlocks[iBlock + 1].IsScripture && markBlocks[iBlock + 1].LastVerseNum == verseNum)
+				iBlock++;
+			var block = markBlocks[iBlock];
+			var lastScriptText = (ScriptText)block.BlockElements.Last();
+			var lastTextContent = lastScriptText.Content;
+			if (lastTextContent.Last() != ' ')
+				lastTextContent = lastScriptText.Content += " ";
+			Assert.IsTrue(lastTextContent.EndsWith("” "), "Setup condition not met.");
+
+			var characterToReapply = block.CharacterId;
+			lastScriptText.Content += "wacci kum.";
+			var newBlock = mark.SplitBlock(block, verseNum.ToString(), lastTextContent.Length, false);
+			block.CharacterId = characterToReapply;
+			newBlock.CharacterId = markNarrator;
+			return newBlock;
 		}
 	}
 
@@ -1392,8 +1487,8 @@ namespace GlyssenEngineTests.ViewModelTests
 		private BlockNavigatorViewModel m_model;
 		private VerseRef m_targetReference;
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
 			var mark = m_testProject.IncludedBooks.Single();
@@ -1427,10 +1522,10 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NotAlignedToReferenceText);
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		/// <summary>
@@ -1449,17 +1544,17 @@ namespace GlyssenEngineTests.ViewModelTests
 	[TestFixture]
 	class BlockNavigatorViewModelTestsForMatCuk
 	{
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerseOct2015;
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]

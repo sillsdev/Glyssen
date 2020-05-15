@@ -14,8 +14,8 @@ namespace GlyssenEngineTests.UndoActionsTests
 	{
 		private Project m_testProject;
 
-		[TestFixtureSetUp]
-		public void FixtureSetup()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
 		}

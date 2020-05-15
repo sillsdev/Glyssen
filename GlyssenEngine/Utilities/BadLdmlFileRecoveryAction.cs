@@ -1,6 +1,6 @@
 ﻿namespace GlyssenEngine.Utilities
 {
-	public enum BadLdmlFileRecoveryAction
+	public enum BadLdmlRecoveryAction
 	{
 		Abort,
 		Retry,

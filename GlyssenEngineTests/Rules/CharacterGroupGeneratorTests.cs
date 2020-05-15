@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Casting;
@@ -18,8 +19,8 @@ namespace GlyssenEngineTests.Rules
 	[TestFixture]
 	class CharacterGroupGeneratorTestsWithTwoBooksWithNoChildrenInScript : CharacterGroupGeneratorAndAdjusterTestBase
 	{
-		[TestFixtureSetUp]
-		public void TextFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
@@ -43,10 +44,10 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[TestCase(0, 0)]
@@ -791,8 +792,8 @@ namespace GlyssenEngineTests.Rules
 	[TestFixture]
 	public class CharacterGroupGeneratorTestsWithBookHavingSameCharacterWithTwoAges : CharacterGroupGeneratorAndAdjusterTestBase
 	{
-		[TestFixtureSetUp]
-		public void TextFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
@@ -807,10 +808,10 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 
@@ -830,8 +831,8 @@ namespace GlyssenEngineTests.Rules
 	[TestFixture]
 	public class CharacterGroupGeneratorTestsWithChildrenInScript : CharacterGroupGeneratorAndAdjusterTestBase
 	{
-		[TestFixtureSetUp]
-		public void TextFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
@@ -843,10 +844,10 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]
@@ -920,8 +921,8 @@ namespace GlyssenEngineTests.Rules
 	[TestFixture]
 	class CharacterGroupGeneratorTestsWithHolySpiritInScript : CharacterGroupGeneratorAndAdjusterTestBase
 	{
-		[TestFixtureSetUp]
-		public void TextFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
@@ -933,10 +934,10 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]
@@ -1017,17 +1018,17 @@ namespace GlyssenEngineTests.Rules
 	[TestFixture]
 	internal class CharacterGroupGeneratorTestsWithJesusAsBitPartInScript : CharacterGroupGeneratorAndAdjusterTestBase
 	{
-		[TestFixtureSetUp]
-		public void TextFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.ACT);
 			TestProject.SimulateDisambiguationForAllBooks(m_testProject);
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[SetUp]
@@ -1072,8 +1073,8 @@ namespace GlyssenEngineTests.Rules
 	[TestFixture]
 	public class CharacterGroupGeneratorTestsWithSingleVoiceBook : CharacterGroupGeneratorAndAdjusterTestBase
 	{
-		[TestFixtureSetUp]
-		public void TextFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
@@ -1082,10 +1083,10 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.IncludedBooks[0].SingleVoice = true;
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]
@@ -1103,8 +1104,8 @@ namespace GlyssenEngineTests.Rules
 	[TestFixture]
 	public class CharacterGroupGeneratorTestsWithBookThatHasNoBiblicalCharactersExceptScripture : CharacterGroupGeneratorAndAdjusterTestBase
 	{
-		[TestFixtureSetUp]
-		public void TextFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
@@ -1116,10 +1117,10 @@ namespace GlyssenEngineTests.Rules
 			TestProject.SimulateDisambiguationForAllBooks(m_testProject);
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]
@@ -1145,8 +1146,8 @@ namespace GlyssenEngineTests.Rules
 	[TestFixture]
 	public class CharacterGroupGeneratorTestsWithSingleVoiceBookAndNonSingleVoiceBook : CharacterGroupGeneratorAndAdjusterTestBase
 	{
-		[TestFixtureSetUp]
-		public void TextFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
@@ -1159,10 +1160,10 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[SetUp]
@@ -1347,8 +1348,8 @@ namespace GlyssenEngineTests.Rules
 	[TestFixture]
 	public class CharacterGroupGeneratorTestsWithScriptModifiedDuringTest : CharacterGroupGeneratorAndAdjusterTestBase
 	{
-		[TestFixtureSetUp]
-		public void TextFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
@@ -1364,7 +1365,7 @@ namespace GlyssenEngineTests.Rules
 		[TearDown]
 		public void TearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]
@@ -1435,10 +1436,13 @@ namespace GlyssenEngineTests.Rules
 	[TestFixture]
 	public class CharacterGroupGeneratorTestsWithLotsOfBooks : CharacterGroupGeneratorAndAdjusterTestBase
 	{
-		[TestFixtureSetUp]
-		public void TextFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			// Note: there are currently only two tests in this fixture that require this:
+			//    GenerateCharacterGroups_NumberOfNarratorsFourFewerThanAuthors_LukeCombinesWithJudeAndHebrewsAndJohnCombinesWithPaulAndMark
+			//    GenerateCharacterGroups_NumberOfNarratorsTwoFewerThanAuthors_PaulCombinesWithJudeAndHebrewsCombinesWithMark
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetailOct2015;
 			m_testProject = TestProject.CreateTestProject(
@@ -1481,31 +1485,29 @@ namespace GlyssenEngineTests.Rules
 			group.AssignVoiceActor(m_testProject.VoiceActorList.AllActors[0].Id);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(group);
 
-			BackgroundWorker worker = new BackgroundWorker();
-			worker.WorkerSupportsCancellation = true;
+			BackgroundWorker worker = new BackgroundWorker {WorkerSupportsCancellation = true};
 			CharacterGroupGenerator generator = new CharacterGroupGenerator(m_testProject, null, worker);
 			worker.DoWork += (sender, args) =>
 			{
 				generator.GenerateCharacterGroups();
-
-				// REVIEW: Are these assertions valid here? I had one fail when running in debug, but
-				// it didn't seem to make it back across the thread boundary, and the test ended up
-				// passing. But since we check these same things after canceling, does it really matter?
-				// Since GenerateCharacterGroups is supposed to handle the cancelling, it does seem like
-				// these assertions should be okay.
-				Assert.Null(generator.GeneratedGroups);
-				Assert.AreEqual(1, m_testProject.CharacterGroupList.CharacterGroups.Count);
-				Assert.AreEqual(group, m_testProject.CharacterGroupList.CharacterGroups[0]);
 			};
+
+			var start = DateTime.Now;
 			worker.RunWorkerAsync();
 			worker.CancelAsync();
+
+			while (worker.IsBusy)
+			{
+				Assert.IsTrue(DateTime.Now.Subtract(start).Seconds < 6, "Failed to cancel within timeout (6 seconds)");
+				Thread.Sleep(100);
+			}
 
 			Assert.Null(generator.GeneratedGroups);
 			Assert.AreEqual(1, m_testProject.CharacterGroupList.CharacterGroups.Count);
 			Assert.AreEqual(group, m_testProject.CharacterGroupList.CharacterGroups[0]);
 		}
 
-		// Comma-separated lists of books which are expected to be grouped together. Each group delimted by a |
+		// Comma-separated lists of books which are expected to be grouped together. Each group delimited by a |
 		[TestCase("MRK,LUK,ACT,GAL,EPH,PHM,HEB,1JN,2JN,3JN,JUD,REV")]
 		[TestCase("MRK,HEB,JUD,LUK,ACT,1JN,2JN,3JN,REV|GAL,EPH,PHM")]
 		[TestCase("MRK,HEB,1JN,2JN,3JN,REV|LUK,ACT,JUD|GAL,EPH,PHM")]
@@ -1532,7 +1534,10 @@ namespace GlyssenEngineTests.Rules
 				for (int i = 1; i < books.Length; i++)
 				{
 					Assert.IsTrue(narGroup.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId(books[i], CharacterVerseData.StandardCharacter.Narrator)),
-						$"Expected group containing the narrator of {books[0]} to also contain the narrator of {books[i]}.");
+						$"Expected group containing the narrator of {books[0]} to also contain the narrator of {books[i]}. All characters in group containing narrator of {books[0]}:" +
+						Environment.NewLine + String.Join(Environment.NewLine, narGroup.CharacterIds) +
+						Environment.NewLine + $"All characters in group for {books[i]}:" +
+						Environment.NewLine + String.Join(Environment.NewLine, GetNarratorGroupForBook(groups, books[i])));
 				}
 				if (books.Contains("EPH"))
 				{
@@ -2065,8 +2070,8 @@ namespace GlyssenEngineTests.Rules
 	[TestFixture]
 	class CharacterGroupGeneratorTestsWith1JnAnd2JnAndEph : CharacterGroupGeneratorAndAdjusterTestBase
 	{
-		[TestFixtureSetUp]
-		public void TextFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
@@ -2090,10 +2095,10 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]
@@ -2113,8 +2118,8 @@ namespace GlyssenEngineTests.Rules
 	[TestFixture]
 	public class CharacterGroupGeneratorTestsWithExtrabiblicalCharacterOptions : CharacterGroupGeneratorAndAdjusterTestBase
 	{
-		[TestFixtureSetUp]
-		public void TextFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
@@ -2137,10 +2142,10 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]

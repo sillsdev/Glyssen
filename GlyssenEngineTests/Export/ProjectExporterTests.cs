@@ -14,6 +14,7 @@ using GlyssenEngine.Rules;
 using GlyssenEngine.Script;
 using GlyssenEngine.ViewModels;
 using GlyssenEngineTests.Script;
+using GlyssenSharedTests;
 using NUnit.Framework;
 using SIL.Extensions;
 using SIL.Reflection;
@@ -23,8 +24,8 @@ namespace GlyssenEngineTests.Export
 	[TestFixture]
 	class ProjectExporterTests
 	{
-		[TestFixtureSetUp]
-		public void FixtureSetup()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = null;
 			CharacterDetailData.TabDelimitedCharacterDetailData = null;
@@ -33,7 +34,7 @@ namespace GlyssenEngineTests.Export
 		[TearDown]
 		public void Teardown()
 		{
-			TestReferenceText.DeleteTempCustomReferenceProjectFolder();
+			TestReferenceText.ForgetCustomReferenceTexts();
 		}
 
 		[Test]
@@ -517,7 +518,7 @@ namespace GlyssenEngineTests.Export
 		public void GetExportData_BlocksAreJoinedToCustomReferenceTextWhosePageHeaderIsDifferentFromTheMainTitle_ChapterAnnouncementBasedOnPageHeader()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD);
-			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriJUD);
+			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.AzeriJUD);
 			var metadata = (GlyssenDblTextMetadata)ReflectionHelper.GetField(project, "m_metadata");
 			metadata.IncludeChapterAnnouncementForFirstChapter = true;
 			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
@@ -588,7 +589,7 @@ namespace GlyssenEngineTests.Export
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD, TestProject.TestBook.REV);
 			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
-			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriJUD, TestReferenceText.TestReferenceTextResource.AzeriREV);
+			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.AzeriJUD, TestReferenceTextResource.AzeriREV);
 			var exporter = new ProjectExporter(project);
 			exporter.ExportAnnotationsInSeparateRows = true;
 
@@ -640,7 +641,7 @@ namespace GlyssenEngineTests.Export
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD, TestProject.TestBook.REV);
 			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
-			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriJUD, TestReferenceText.TestReferenceTextResource.AzeriREV);
+			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.AzeriJUD, TestReferenceTextResource.AzeriREV);
 			var exporter = new ProjectExporter(project) {SelectedFileType = exportFileType};
 			// This is the default: exporter.ExportAnnotationsInSeparateRows = false;
 
@@ -777,7 +778,7 @@ namespace GlyssenEngineTests.Export
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.REV);
 			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
-			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriREV);
+			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.AzeriREV);
 
 			var rev =project.IncludedBooks.First();
 
@@ -805,7 +806,7 @@ namespace GlyssenEngineTests.Export
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.REV);
 			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
-			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriREV);
+			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.AzeriREV);
 
 			// Force a block that has a prepended annotation to have a null secondary reference.
 			var vernBlock = project.IncludedBooks.First().GetScriptBlocks().Single(b => b.ChapterNumber == 1 && b.InitialStartVerseNumber == 7);
@@ -827,7 +828,7 @@ namespace GlyssenEngineTests.Export
 		public void GetExportData_ExportAnnotationsInSeparateRows_AnnotationWithOffset_ReferenceTextContainsAnnotationInCorrectLocation()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.MRK);
-			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			var exporter = new ProjectExporter(project);
 			exporter.ExportAnnotationsInSeparateRows = true;
 
@@ -851,7 +852,7 @@ namespace GlyssenEngineTests.Export
 		public void GetExportData_AnnotationsCombinedWithData_AnnotationWithOffset_ReferenceTextContainsAnnotationInCorrectLocation()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.MRK);
-			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			var exporter = new ProjectExporter(project);
 			// This is the default: exporter.ExportAnnotationsInSeparateRows = false;
 

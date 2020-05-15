@@ -1,25 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Threading;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Script;
+using GlyssenEngine.Utilities;
+using SIL.Extensions;
 using SIL.Reporting;
 using SIL.Scripture;
 
 namespace GlyssenEngine
 {
-	public class ReferenceText : ProjectBase, IReferenceLanguageInfo
+	public class ReferenceText : ProjectBase, IReferenceLanguageInfo, IReferenceTextProject
 	{
 		protected readonly ReferenceTextType m_referenceTextType;
-		private string m_projectFolder;
 		private readonly HashSet<string> m_modifiedBooks = new HashSet<string>();
 
-		private static readonly Dictionary<IReferenceTextProxy, ReferenceText> s_instantiatedReferenceTexts = new Dictionary<IReferenceTextProxy, ReferenceText>();
+		private static readonly Dictionary<IReferenceTextProxy, ReferenceText> s_instantiatedReferenceTexts;
+
+		static ReferenceText()
+		{
+			s_instantiatedReferenceTexts = new Dictionary<IReferenceTextProxy, ReferenceText>();
+			if (Project.Writer != null) // Can be null in dev tools
+			{
+				Project.Writer.OnProjectDeleted += delegate(object sender, IProject project)
+				{
+					if (project is IReferenceTextProject refText && refText.Type == ReferenceTextType.Custom)
+					{
+						s_instantiatedReferenceTexts.RemoveAll(r => r.Key.Type == ReferenceTextType.Custom && r.Key.Name == project.Name);
+					}
+				};
+			}
+		}
 
 		public static ReferenceText GetStandardReferenceText(ReferenceTextType referenceTextType)
 		{
@@ -35,8 +50,8 @@ namespace GlyssenEngine
 					referenceText.ReloadModifiedBooks();
 				else
 				{
-					referenceText = new ReferenceText(id.Metadata, id.Type, id.ProjectFolder);
-					referenceText.LoadBooks();
+					referenceText = new ReferenceText(id.Metadata, id.Type);
+					referenceText.LoadExistingBooks();
 					s_instantiatedReferenceTexts[id] = referenceText;
 				}
 			}
@@ -45,26 +60,12 @@ namespace GlyssenEngine
 		}
 
 		public ReferenceTextType Type => m_referenceTextType;
+		
+		public override string Name => Type == ReferenceTextType.Custom ? LanguageName ?? m_metadata.Name : Type.ToString();
 
-		private BookScript TryLoadBook(string[] files, string bookCode)
+		private BookScript TryLoadBook(string bookCode)
 		{
-			var fileName = files.FirstOrDefault(f => Path.GetFileName(f) == bookCode + Constants.kBookScriptFileExtension);
-			return fileName != null ? BookScript.Deserialize(fileName, Versification) : null;
-		}
-
-		private string[] BookScriptFiles => Directory.GetFiles(ProjectFolder, "???" + Constants.kBookScriptFileExtension);
-
-		private void LoadBooks()
-		{
-			var files = BookScriptFiles;
-
-			for (int i = 1; i <= BCVRef.LastBook; i++)
-			{
-				string bookCode = BCVRef.NumberToBookCode(i);
-				var bookScript = TryLoadBook(files, bookCode);
-				if (bookScript != null)
-					m_books.Add(bookScript);
-			}
+			return BookScript.Deserialize(Reader.LoadBook(this, bookCode), Versification);
 		}
 
 		private void ReloadModifiedBooks()
@@ -74,13 +75,12 @@ namespace GlyssenEngine
 				if (!m_modifiedBooks.Any())
 					return;
 
-				var files = BookScriptFiles;
 				for (int i = 0; i < m_books.Count; i++)
 				{
 					var bookId = m_books[i].BookId;
 					if (m_modifiedBooks.Contains(bookId))
 					{
-						var bookScript = TryLoadBook(files, bookId);
+						var bookScript = TryLoadBook(bookId);
 						Debug.Assert(bookScript != null);
 						m_books[i] = bookScript;
 					}
@@ -90,11 +90,10 @@ namespace GlyssenEngine
 			}
 		}
 
-		protected ReferenceText(GlyssenDblTextMetadataBase metadata, ReferenceTextType referenceTextType, string projectFolder)
+		protected ReferenceText(GlyssenDblTextMetadataBase metadata, ReferenceTextType referenceTextType)
 			: base(metadata, referenceTextType.ToString())
 		{
 			m_referenceTextType = referenceTextType;
-			m_projectFolder = projectFolder;
 
 			GetBookName = bookId => GetBook(bookId)?.PageHeader;
 
@@ -113,48 +112,30 @@ namespace GlyssenEngine
 		protected virtual void SetVersification()
 		{
 			Debug.Assert(m_referenceTextType == ReferenceTextType.Custom);
-			if (File.Exists(VersificationFilePath))
+			var versification = LoadVersification(GlyssenVersificationTable.InvalidVersificationLineExceptionHandling.Throw);
+			if (versification != null)
 			{
-				SetVersification(LoadVersification(VersificationFilePath));
+				SetVersification(versification);
 			}
 			else
 			{
-				Logger.WriteMinorEvent($"Custom versification file for proprietary reference text used by this project not found: {VersificationFilePath} - Using standard English versification.");
+				Logger.WriteMinorEvent("Custom versification for proprietary reference text used by " +
+					"this project was not found or could not be loaded. Using standard English versification.");
 				SetVersification(ScrVers.English);
 			}
 		}
 
-		public bool HasSecondaryReferenceText
-		{
-			get { return m_referenceTextType != ReferenceTextType.English; }
-		}
+		public bool HasSecondaryReferenceText => m_referenceTextType != ReferenceTextType.English;
 
-		public string SecondaryReferenceTextLanguageName
-		{
-			get { return HasSecondaryReferenceText ? "English" : null; }
-		}
+		public ReferenceText SecondaryReferenceText => GetStandardReferenceText(ReferenceTextType.English);
 
-		public ReferenceText SecondaryReferenceText
-		{
-			get { return GetStandardReferenceText(ReferenceTextType.English); }
-		}
+		public IReferenceLanguageInfo BackingReferenceLanguage => SecondaryReferenceText;
 
-		public IReferenceLanguageInfo BackingReferenceLanguage
-		{
-			get { return SecondaryReferenceText; }
-		}
+		// ENHANCE: When we support custom reference texts in languages that do not use a simple space character, this will
+		// need to be overridable in m_metadata.Language.
+		public string WordSeparator => " ";
 
-		public string WordSeparator
-		{
-			// ENHANCE: When we support custom reference texts in languages that do not use a simple space character, this will
-			// need to be overridable in m_metadata.Language.
-			get { return " "; }
-		}
-
-		public string HeSaidText
-		{
-			get { return m_metadata.Language.HeSaidText ?? "he said."; }
-		}
+		public string HeSaidText => m_metadata.Language.HeSaidText ?? "he said.";
 
 		/// <summary>
 		/// This gets the included books from the project. As needed, blocks are broken up and matched to
@@ -231,12 +212,13 @@ namespace GlyssenEngine
 		/// </summary>
 		/// <param name="vernacularBook">The book</param>
 		/// <param name="iBlock">Index of the "anchor" block for the matchup</param>
+		/// <param name="reportingClauses">vernacular strings that can be automatically matched to "he said"</param>
 		/// <param name="predeterminedBlockCount">Used to get a fast result if the caller knows the exact extent of the desired
 		/// matchup (typically based on a previous call to this method).</param>
 		/// <param name="allowSplitting">Flag indicating whether existing reference text blocks can be split (at verse breaks) to
 		/// achieve better correspondence to the vernacular blocks.</param>
 		public BlockMatchup GetBlocksForVerseMatchedToReferenceText(BookScript vernacularBook, int iBlock,
-			uint predeterminedBlockCount = 0, bool allowSplitting = true)
+			IReadOnlyCollection<string> reportingClauses = null, uint predeterminedBlockCount = 0, bool allowSplitting = true)
 		{
 			if (iBlock < 0 || iBlock >= vernacularBook.GetScriptBlocks().Count)
 				throw new ArgumentOutOfRangeException("iBlock");
@@ -255,6 +237,8 @@ namespace GlyssenEngine
 			var matchup = new BlockMatchup(vernacularBook, iBlock, splitBlocks,
 				block => IsOkayToSplitBeforeBlock(vernacularBook, block, verseSplitLocationsBasedOnRef),
 				this, predeterminedBlockCount);
+
+			matchup.MatchHeSaidBlocks(reportingClauses);
 
 			if (!matchup.AllScriptureBlocksMatch)
 			{
@@ -838,7 +822,5 @@ namespace GlyssenEngine
 		{
 			return block.BlockElements.OfType<Verse>().Any(ve => ve.StartVerse <= verse && ve.EndVerse >= verse);
 		}
-
-		protected override string ProjectFolder { get { return m_projectFolder; } }
 	}
 }

@@ -4675,6 +4675,7 @@ JDG	11	38	Jephthah			Normal
 JDG	12	1	Ephraimites		Ephraim, men of	Normal		
 JDG	12	2	Jephthah			Normal		
 JDG	12	3	Jephthah			Normal		
+JDG	12	4	Jephthah			Indirect		
 JDG	12	4	Ephraimites			Quotation		
 JDG	12	5	Ephraimites		Ephraim, fugitive of	Normal		
 JDG	12	5	Gilead, men of			Normal		
@@ -5030,6 +5031,7 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	10	14	Saul's uncle			Normal		
 1SA	10	15	Saul's uncle			Normal		
 1SA	10	16	Saul			Normal		
+1SA	10	16	Samuel			Quotation		
 1SA	10	18	Samuel			Normal		
 1SA	10	19	Samuel			Normal		
 1SA	10	22	God		God (the LORD)	Normal		
@@ -5040,6 +5042,7 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	11	1	men of Jabesh			Normal		
 1SA	11	2	Nahash the Ammonite			Normal		
 1SA	11	3	elders of Jabesh			Normal		
+1SA	11	4	messengers of Jabesh			Indirect		
 1SA	11	5	Saul			Normal		
 1SA	11	7	messengers of Saul			Normal		
 1SA	11	9	Saul/Israel, men of			Normal	Saul	
