@@ -1,7 +1,8 @@
 ﻿using System.Data;
 using System.Windows.Forms;
-using Glyssen.Character;
+using GlyssenEngine.Character;
 using L10NSharp;
+using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 
 namespace Glyssen.Dialogs
@@ -17,7 +18,7 @@ namespace Glyssen.Dialogs
 			InitializeComponent();
 
 			HandleStringsLocalized();
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
 
 			PopulateComboBoxes();
 		}

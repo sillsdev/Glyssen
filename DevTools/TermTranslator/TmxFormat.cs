@@ -37,10 +37,10 @@ namespace DevTools.TermTranslator
 			SrcLang = "en";
 			AdminLang = "en";
 			CreationTool = "Palaso Localization Manager";
-			CTVersion = "2.0.35.0";
+			CtVersion = "2.0.35.0";
 			SegType = "block";
 			DataType = "unknown";
-			OTMF = "PalasoTMXUtils";
+			Otmf = "PalasoTMXUtils";
 		}
 
 		public TmxHeader Clone()
@@ -62,7 +62,7 @@ namespace DevTools.TermTranslator
 		public string CreationTool { get; set; }
 
 		[XmlAttribute("creationtoolversion")]
-		public string CTVersion { get; set; }
+		public string CtVersion { get; set; }
 
 		[XmlAttribute("segtype")]
 		public string SegType { get; set; }
@@ -71,7 +71,7 @@ namespace DevTools.TermTranslator
 		public string DataType { get; set; }
 
 		[XmlAttribute("o-tmf")]
-		public string OTMF { get; set; }
+		public string Otmf { get; set; }
 
 		[XmlElement("prop")]
 		public Prop[] Props { get; set; }

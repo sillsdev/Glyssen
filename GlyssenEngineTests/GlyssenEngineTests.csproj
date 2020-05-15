@@ -1,0 +1,410 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AA6A1CFD-60A1-4F19-B88E-CA7758E2B4DE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GlyssenEngineTests</RootNamespace>
+    <AssemblyName>GlyssenEngineTests</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\output\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\output\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\output\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>..\output\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNetZip, Version=1.13.4.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.13.4\lib\net40\DotNetZip.dll</HintPath>
+    </Reference>
+    <Reference Include="icu.net, Version=2.6.0.0, Culture=neutral, PublicKeyToken=416fdd914afa6b66, processorArchitecture=MSIL">
+      <HintPath>..\packages\icu.net.2.6.0\lib\net451\icu.net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DotNet.PlatformAbstractions, Version=3.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.DotNet.PlatformAbstractions.3.1.0\lib\net45\Microsoft.DotNet.PlatformAbstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyModel, Version=3.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyModel.3.1.0\lib\net451\Microsoft.Extensions.DependencyModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Registry, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Registry.4.7.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Registry.AccessControl, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Registry.AccessControl.4.7.0\lib\net461\Microsoft.Win32.Registry.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.SystemEvents, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.SystemEvents.4.7.0\lib\net461\Microsoft.Win32.SystemEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="NDesk.DBus, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f6716e4f9b2ed099, processorArchitecture=MSIL">
+      <HintPath>..\packages\NDesk.DBus.0.15.0\lib\NDesk.DBus.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Paratext.LexicalContracts, Version=9.1.1.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\ParatextData.9.1.1-beta\lib\netstandard2.0\Paratext.LexicalContracts.dll</HintPath>
+    </Reference>
+    <Reference Include="ParatextData, Version=9.1.1.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\ParatextData.9.1.1-beta\lib\netstandard2.0\ParatextData.dll</HintPath>
+    </Reference>
+    <Reference Include="PtxUtils, Version=9.1.1.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\ParatextData.9.1.1-beta\lib\netstandard2.0\PtxUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks, Version=3.6.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
+      <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <HintPath>..\packages\SIL.Core.8.0.0-beta0091\lib\net461\SIL.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.DblBundle, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <HintPath>..\packages\SIL.DblBundle.8.0.0-beta0085\lib\net461\SIL.DblBundle.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.DblBundle.Tests, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <HintPath>..\packages\SIL.DblBundle.Tests.8.0.0-beta0085\lib\net461\SIL.DblBundle.Tests.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.Scripture, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <HintPath>..\packages\SIL.Scripture.8.0.0-beta0091\lib\net461\SIL.Scripture.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.TestUtilities, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <HintPath>..\packages\SIL.TestUtilities.8.0.0-beta0085\lib\net461\SIL.TestUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.WritingSystems, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <HintPath>..\packages\SIL.WritingSystems.8.0.0-beta0085\lib\net461\SIL.WritingSystems.dll</HintPath>
+    </Reference>
+    <Reference Include="Spart, Version=1.0.0.0, Culture=neutral, PublicKeyToken=14d24e064e474331, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spart.1.0.0\lib\net461\Spart.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.CodeDom, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.CodeDom.4.7.0\lib\net461\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.4.7.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Odbc, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Odbc.4.7.0\lib\net461\System.Data.Odbc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.OleDb, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.OleDb.4.7.0\lib\net461\System.Data.OleDb.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.0\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.EventLog, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.EventLog.4.7.0\lib\net461\System.Diagnostics.EventLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.PerformanceCounter, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.PerformanceCounter.4.7.0\lib\net461\System.Diagnostics.PerformanceCounter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.DirectoryServices.Protocols" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.4.7.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IO.FileSystem.AccessControl, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.AccessControl.4.7.0\lib\net461\System.IO.FileSystem.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.7.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipes.AccessControl, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipes.AccessControl.4.5.1\lib\net461\System.IO.Pipes.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Ports, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Ports.4.7.0\lib\net461\System.IO.Ports.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.4.7.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Cng, Version=4.3.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Cng.4.7.0\lib\net47\System.Security.Cryptography.Cng.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Pkcs, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Pkcs.4.7.0\lib\net461\System.Security.Cryptography.Pkcs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.ProtectedData, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.ProtectedData.4.7.0\lib\net461\System.Security.Cryptography.ProtectedData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Xml, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Xml.4.7.0\lib\net461\System.Security.Cryptography.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.4.7.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.7.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Duplex, Version=4.7.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Duplex.4.7.0\lib\net461\System.ServiceModel.Duplex.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Http, Version=4.7.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Http.4.7.0\lib\net461\System.ServiceModel.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.NetTcp, Version=4.7.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.NetTcp.4.7.0\lib\net461\System.ServiceModel.NetTcp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Primitives, Version=4.7.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Primitives.4.7.0\lib\net461\System.ServiceModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Security, Version=4.7.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Security.4.7.0\lib\net461\System.ServiceModel.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Syndication, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Syndication.4.7.0\lib\net461\System.ServiceModel.Syndication.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.ServiceProcess.ServiceController, Version=4.2.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceProcess.ServiceController.4.7.0\lib\net461\System.ServiceProcess.ServiceController.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.4.7.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.AccessControl, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.AccessControl.4.7.0\lib\net461\System.Threading.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BiblicalAuthorsTests.cs" />
+    <Compile Include="Bundle\GlyssenDblTextMetadataTests.cs" />
+    <Compile Include="Character\CharacterAssignerTests.cs" />
+    <Compile Include="Character\CharacterGroupListTests.cs" />
+    <None Include="Character\Template\CharacterGroupTemplateExcelFileTests.cs" />
+    <None Include="Character\Template\CharacterGroupTemplateTests.cs" />
+    <Compile Include="Character\CharacterGroupTests.cs" />
+    <Compile Include="Character\CharacterVerseDataTests.cs" />
+    <Compile Include="Character\ControlCharacterVerseDataTests.cs" />
+    <Compile Include="Character\NarratorOverridesTests.cs" />
+    <Compile Include="Character\ProjectCharacterVerseDataTests.cs" />
+    <Compile Include="Character\RelatedCharactersTests.cs" />
+    <Compile Include="Export\ScriptExporterTests.cs" />
+    <Compile Include="ProjectCharacterDetailDataTests.cs" />
+    <Compile Include="ProjectDataMigratorTests.cs" />
+    <Compile Include="Export\ProjectExporterTests.cs" />
+    <Compile Include="ProjectTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Quote\NewTestamentBooksFirstComparerTests.cs" />
+    <Compile Include="Quote\QuoteParserTests.cs" />
+    <Compile Include="Quote\QuoteSystemGuesserTests.cs" />
+    <Compile Include="Quote\QuoteSystemTests.cs" />
+    <Compile Include="Quote\QuoteUtilsTests.cs" />
+    <Compile Include="ReferenceTextProxyTests.cs" />
+    <Compile Include="ReferenceTextTests.cs" />
+    <Compile Include="Rules\AuthorStatsTests.cs" />
+    <Compile Include="Rules\CharacterGroupGeneratorTests.cs" />
+    <Compile Include="Rules\CharacterGroupsAdjusterTests.cs" />
+    <Compile Include="Rules\ProximityTests.cs" />
+    <Compile Include="Rules\TrialGroupConfigurationTests.cs" />
+    <Compile Include="Script\BlockMatchupTests.cs" />
+    <Compile Include="Script\BlockNavigatorTests.cs" />
+    <Compile Include="Script\BlockTests.cs" />
+    <Compile Include="Script\BookScriptTests.cs" />
+    <Compile Include="Script\BookSetUtilsTests.cs" />
+    <Compile Include="TestFixtureSetup.cs" />
+    <Compile Include="TestProject.cs" />
+    <Compile Include="UndoActionsTests\MoveCharactersToGroupUndoActionTests.cs" />
+    <Compile Include="UndoActionsTests\RemoveVoiceActorAssignmentsUndoActionTests.cs" />
+    <Compile Include="UndoActionsTests\VoiceActorAssignmentUndoActionTests.cs" />
+    <Compile Include="UndoActionsTests\VoiceActorEditingUndoActionTests.cs" />
+    <Compile Include="UndoActionsTests\VoiceActorUndoActionTests.cs" />
+    <Compile Include="UsxParserTests.cs" />
+    <Compile Include="Utilities\FileSystemUtilsTests.cs" />
+    <Compile Include="Utilities\MathUtilitiesTests.cs" />
+    <Compile Include="UndoActionsTests\UndoActionSequenceTests.cs" />
+    <Compile Include="UndoActionsTests\UndoStackTests.cs" />
+    <Compile Include="Casting\VoiceActorListTests.cs" />
+    <Compile Include="Casting\VoiceActorTests.cs" />
+    <Compile Include="Utilities\ListExtensionsTests.cs" />
+    <Compile Include="Utilities\StringExtensionsTests.cs" />
+    <Compile Include="Utilities\VerseBridge.cs" />
+    <Compile Include="ViewModelTests\AddCharactersToGroupViewModelTests.cs" />
+    <Compile Include="ViewModelTests\AssignCharacterViewModelTests.cs" />
+    <Compile Include="ViewModelTests\BlockNavigatorViewModelTests.cs" />
+    <Compile Include="ViewModelTests\CastSizePlanningViewModelTests.cs" />
+    <Compile Include="ViewModelTests\ProjectSettingsViewModelTests.cs" />
+    <Compile Include="ViewModelTests\SplitBlockViewModelTests.cs" />
+    <Compile Include="ViewModelTests\UnappliedSplitsViewModelTests.cs" />
+    <Compile Include="ViewModelTests\VoiceActorAssignmentViewModelTests.cs" />
+    <Compile Include="ViewModelTests\VoiceActorInformationViewModelTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GlyssenEngine\GlyssenEngine.csproj">
+      <Project>{FDF9DF2E-776B-4D7C-8E63-61DAD4C39AC3}</Project>
+      <Name>GlyssenEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GlyssenFileBasedPersistence\GlyssenFileBasedPersistence.csproj">
+      <Project>{6664b511-ec4e-47ef-b073-b31ab9c947d4}</Project>
+      <Name>GlyssenFileBasedPersistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GlyssenSharedTests\GlyssenSharedTests.csproj">
+      <Project>{a91a6d5e-f3a1-4e6f-b9a8-4fa5c3af7707}</Project>
+      <Name>GlyssenSharedTests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GlyssenShared\GlyssenShared.csproj">
+      <Project>{965C34CF-8AFB-4132-A2FF-FD4EBB0B410D}</Project>
+      <Name>GlyssenShared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InMemoryTestPersistence\InMemoryTestPersistence.csproj">
+      <Project>{15569590-2f4b-4ac5-a174-407a35a3a797}</Project>
+      <Name>InMemoryTestPersistence</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\TestCharacterGroups.xlsx" />
+    <None Include="Resources\RussianOrthodoxVersification.txt" />
+    <None Include="Resources\TestJOS.xml" />
+    <None Include="Resources\TestJUD.xml" />
+    <None Include="Resources\TestJHN.xml" />
+    <None Include="Resources\TestHEB.xml" />
+    <None Include="Resources\TestGAL.xml" />
+    <None Include="Resources\TestEPH.xml" />
+    <None Include="Resources\Test1CO.xml" />
+    <None Include="Resources\Test1JN.xml" />
+    <None Include="Resources\Test2JN.xml" />
+    <None Include="Resources\Test3JN.xml" />
+    <None Include="Resources\TestACT.xml" />
+    <None Include="Resources\TestEmptyBook.xml" />
+    <Content Include="Resources\OriginalVersification.txt" />
+    <Content Include="Resources\TestLUK.xml" />
+    <None Include="Resources\TestMATcuk.xml" />
+    <None Include="Resources\TestMRK.xml" />
+    <None Include="Resources\TestOBAwithInterestingVerseNums.xml" />
+    <None Include="Resources\TestPHM.xml" />
+    <None Include="Resources\TestREV.xml" />
+    <None Include="Resources\TestRUT.xml" />
+    <Content Include="Resources\TestNUM.xml" />
+    <Content Include="Resources\TestVersification.txt" />
+    <None Include="Resources\TestCharacterDetailOct2015.txt" />
+    <None Include="Resources\TestCharacterDetail.txt" />
+    <None Include="Resources\TestCharacterVerse.txt" />
+    <Content Include="Resources\TestCharacterVerseOct2015.txt" />
+    <Content Include="Resources\TestNarratorOverrides.xml" />
+    <Content Include="Resources\TestRelatedCharacters.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icu4c.readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icu32\icudt54.dll" />
+    <Content Include="icu32\icuin54.dll" />
+    <Content Include="icu32\icuuc54.dll" />
+    <Content Include="icu64\icudt54.dll" />
+    <Content Include="icu64\icuin54.dll" />
+    <Content Include="icu64\icuuc54.dll" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Icu4c.Win.Full.Lib.59.1.15\build\Icu4c.Win.Full.Lib.targets" Condition="Exists('..\packages\Icu4c.Win.Full.Lib.59.1.15\build\Icu4c.Win.Full.Lib.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Icu4c.Win.Full.Lib.59.1.15\build\Icu4c.Win.Full.Lib.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Icu4c.Win.Full.Lib.59.1.15\build\Icu4c.Win.Full.Lib.targets'))" />
+    <Error Condition="!Exists('..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets'))" />
+    <Error Condition="!Exists('..\packages\NDesk.DBus.0.15.0\build\NDesk.DBus.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NDesk.DBus.0.15.0\build\NDesk.DBus.targets'))" />
+    <Error Condition="!Exists('..\packages\Mono.Posix.5.4.0.201\build\net45\Mono.Posix.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Mono.Posix.5.4.0.201\build\net45\Mono.Posix.targets'))" />
+    <Error Condition="!Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.12.0\build\NUnit.props'))" />
+  </Target>
+  <Import Project="..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets" Condition="Exists('..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets')" />
+  <Import Project="..\packages\NDesk.DBus.0.15.0\build\NDesk.DBus.targets" Condition="Exists('..\packages\NDesk.DBus.0.15.0\build\NDesk.DBus.targets')" />
+  <Import Project="..\packages\Mono.Posix.5.4.0.201\build\net45\Mono.Posix.targets" Condition="Exists('..\packages\Mono.Posix.5.4.0.201\build\net45\Mono.Posix.targets')" />
+</Project>

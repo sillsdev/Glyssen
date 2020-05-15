@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="2TI" singlevoice="false" pageheader="2-е Тимофею">
+  <block style="mt" chapter="0" book="2TI" initialStartVerse="0" characterId="BC-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" book="2TI" initialStartVerse="0" characterId="BC-2TI">
+      <text>2 TIMOTHY</text>
+    </ReferenceBlocks>
+    <text>2-е Тимофею</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="2TI" initialStartVerse="0" characterId="BC-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
+      <text>2 TIMOTHY CHP 1</text>
+    </ReferenceBlocks>
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-2TI">
+      <verse num="1" />
+      <text>Paul, an apostle of Jesus Christ through the will of God, according to the promise of the life which is in Christ Jesus,</text>
+    </ReferenceBlocks>
+    <verse num="1" />
+    <text>Павел, волею Божиею Апостол Иисуса Христа, по обетованию жизни во Христе Иисусе,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-2TI">
+      <verse num="2" />
+      <text>to Timothy, my beloved child: Grace, mercy, and peace, from God the Father and Christ Jesus our Lord.</text>
+    </ReferenceBlocks>
+    <verse num="2" />
+    <text>Тимофею, возлюбленному сыну: благодать, милость, мир от Бога Отца и Христа Иисуса, Господа нашего.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-2TI">
+      <verse num="3" />
+      <text>I thank God, whom I serve as my forefathers did, with a pure conscience. How unceasing is my memory of you in my petitions, night and day.</text>
+    </ReferenceBlocks>
+    <verse num="3" />
+    <text>Благодарю Бога, Которому служу от прародителей с чистою совестью, что непрестанно вспоминаю о тебе в молитвах моих днем и ночью,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-2TI">
+      <verse num="4" />
+      <text>When I remember your tears, I long to see you, that I may be filled with joy;</text>
+    </ReferenceBlocks>
+    <verse num="4" />
+    <text>и желаю видеть тебя, вспоминая о слезах твоих, дабы мне исполниться радости,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-2TI">
+      <verse num="5" />
+      <text>I remember the sincere faith that is in you; which lived first in your grandmother Lois, and your mother Eunice, and, I am persuaded, it is in you also.</text>
+    </ReferenceBlocks>
+    <verse num="5" />
+    <text>приводя на память нелицемерную веру твою, которая прежде обитала в бабке твоей Лоиде и матери твоей Евнике; уверен, что она и в тебе.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-2TI">
+      <verse num="6" />
+      <text>For this cause, I remind you that you should stir up the gift of God which is in you through the laying on of my hands.</text>
+    </ReferenceBlocks>
+    <verse num="6" />
+    <text>По сей причине напоминаю тебе возгревать дар Божий, который в тебе через мое рукоположение;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-2TI">
+      <verse num="7" />
+      <text>For God didn’t give us a spirit of fear, but of power, love, and self-control.</text>
+    </ReferenceBlocks>
+    <verse num="7" />
+    <text>ибо дал нам Бог духа не боязни, но силы и любви и целомудрия.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2TI">
+      <verse num="8" />
+      <text>Therefore don’t be ashamed of the testimony of our Lord, nor of me his prisoner; but endure hardship for the Good News according to the power of God.</text>
+    </ReferenceBlocks>
+    <verse num="8" />
+    <text>Итак, не стыдись свидетельства Господа нашего Иисуса Христа, ни меня, узника Его; но страдай с благовестием Христовым силою Бога,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-2TI">
+      <verse num="9" />
+      <text>He is the one who saved us and called us with a holy calling, not according to our works, but according to his own purpose and grace, which was given to us in Christ Jesus before times eternal.</text>
+    </ReferenceBlocks>
+    <verse num="9" />
+    <text>спасшего нас и призвавшего званием святым, не по делам нашим, но по Своему изволению и благодати, данной нам во Христе Иисусе прежде вековых времен,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-2TI">
+      <verse num="10" />
+      <text>It has been revealed to us now by the appearing of our Savior, Christ Jesus. He abolished death, and brought life and immortality to light through the Good News.</text>
+    </ReferenceBlocks>
+    <verse num="10" />
+    <text>открывшейся же ныне явлением Спасителя нашего Иисуса Христа, разрушившего смерть и явившего жизнь и нетление через благовестие,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-2TI">
+      <verse num="11" />
+      <text>For this, I was appointed as a preacher, an apostle, and a teacher of the Gentiles.</text>
+    </ReferenceBlocks>
+    <verse num="11" />
+    <text>для которого я поставлен проповедником и Апостолом и учителем язычников.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-2TI">
+      <verse num="12" />
+      <text>For this cause I also suffer these things. Yet I am not ashamed, for I know him whom I have believed. I am persuaded that he is able to guard that which I have committed to him against that day.</text>
+    </ReferenceBlocks>
+    <verse num="12" />
+    <text>По сей причине я и страдаю так; но не стыжусь. Ибо я знаю, в Кого уверовал, и уверен, что Он силен сохранить залог мой на оный день.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-2TI">
+      <verse num="13" />
+      <text>Hold the pattern of sound words which you have heard from me, in faith and love which is in Christ Jesus.</text>
+    </ReferenceBlocks>
+    <verse num="13" />
+    <text>Держись образца здравого учения, которое ты слышал от меня, с верою и любовью во Христе Иисусе.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-2TI">
+      <verse num="14" />
+      <text>That good thing which was committed to you, guard through the Holy Spirit who dwells in us.</text>
+    </ReferenceBlocks>
+    <verse num="14" />
+    <text>Храни добрый залог Духом Святым, живущим в нас.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-2TI">
+      <verse num="15" />
+      <text>This you know, that all who are in Asia turned away from me; of whom are Phygelus and Hermogenes.</text>
+    </ReferenceBlocks>
+    <verse num="15" />
+    <text>Ты знаешь, что все Асийские оставили меня; в числе их Фигелл и Ермоген.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-2TI">
+      <verse num="16" />
+      <text>May the Lord grant mercy to the house of Onesiphorus, for he often refreshed me, and was not ashamed of my chain.</text>
+    </ReferenceBlocks>
+    <verse num="16" />
+    <text>Да даст Господь милость дому Онисифора за то, что он многократно покоил меня и не стыдился уз моих,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-2TI">
+      <verse num="17" />
+      <text>But when he was in Rome, he sought me diligently, and found me.</text>
+    </ReferenceBlocks>
+    <verse num="17" />
+    <text>но, быв в Риме, с великим тщанием искал меня и нашел.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-2TI">
+      <verse num="18" />
+      <text>When the Lord comes again may he show mercy to him. You know what a help he was to me in Ephesus.</text>
+    </ReferenceBlocks>
+    <verse num="18" />
+    <text>Да даст ему Господь обрести милость у Господа в оный день; а сколько он служил мне в Ефесе, ты лучше знаешь.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="2TI" initialStartVerse="0" characterId="BC-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
+      <text>2 TIMOTHY CHP 2</text>
+    </ReferenceBlocks>
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-2TI">
+      <verse num="1" />
+      <text>You therefore, my child, be strengthened in the grace that is in Christ Jesus.</text>
+    </ReferenceBlocks>
+    <verse num="1" />
+    <text>Итак укрепляйся, сын мой, в благодати Христом Иисусом,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-2TI">
+      <verse num="2" />
+      <text>The things which you have heard from me among many witnesses, commit the same to faithful men, who will be able to teach others also.</text>
+    </ReferenceBlocks>
+    <verse num="2" />
+    <text>и что слышал от меня при многих свидетелях, то передай верным людям, которые были бы способны и других научить.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2TI">
+      <verse num="3" />
+      <text>You therefore must endure hardship, as a good soldier of Christ Jesus.</text>
+    </ReferenceBlocks>
+    <verse num="3" />
+    <text>Итак переноси страдания, как добрый воин Иисуса Христа.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-2TI">
+      <verse num="4" />
+      <text>No soldier on duty entangles himself in the affairs of life, that he may please him who enrolled him as a soldier.</text>
+    </ReferenceBlocks>
+    <verse num="4" />
+    <text>Никакой воин не связывает себя делами житейскими, чтобы угодить военачальнику.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2TI">
+      <verse num="5" />
+      <text>Also, if anyone competes in athletics, he isn’t crowned unless he has competed by the rules.</text>
+    </ReferenceBlocks>
+    <verse num="5" />
+    <text>Если же кто и подвизается, не увенчивается, если незаконно будет подвизаться.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-2TI">
+      <verse num="6" />
+      <text>The farmers who labor must be the first to get a share of the crops.</text>
+    </ReferenceBlocks>
+    <verse num="6" />
+    <text>Трудящемуся земледельцу первому должно вкусить от плодов.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-2TI">
+      <verse num="7" />
+      <text>Consider what I say, and may the Lord give you understanding in all things.</text>
+    </ReferenceBlocks>
+    <verse num="7" />
+    <text>Разумей, что я говорю. Да даст тебе Господь разумение во всем.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-2TI">
+      <verse num="8" />
+      <text>Remember Jesus Christ, risen from the dead, of the seed of David, according to my Good News,</text>
+    </ReferenceBlocks>
+    <verse num="8" />
+    <text>Помни Господа Иисуса Христа от семени Давидова, воскресшего из мертвых, по благовествованию моему,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-2TI">
+      <verse num="9" />
+      <text>in which I suffer hardship to the point of chains as a criminal. But God’s word isn’t chained.</text>
+    </ReferenceBlocks>
+    <verse num="9" />
+    <text>за которое я страдаю даже до уз, как злодей; но для слова Божия нет уз.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-2TI">
+      <verse num="10" />
+      <text>Therefore I endure all things for the chosen ones’ sake, that they also may obtain the salvation which is in Christ Jesus with eternal glory.</text>
+    </ReferenceBlocks>
+    <verse num="10" />
+    <text>Посему я все терплю ради избранных, дабы и они получили спасение во Христе Иисусе с вечною славою.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-2TI">
+      <verse num="11" />
+      <text>This saying is faithful: “For if we died with him, we will also live with him.</text>
+    </ReferenceBlocks>
+    <verse num="11" />
+    <text>Верно слово: если мы с Ним умерли, то с Ним и оживем;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-2TI">
+      <verse num="12" />
+      <text>If we endure, we will also reign with him. If we deny him, he also will deny us.</text>
+    </ReferenceBlocks>
+    <verse num="12" />
+    <text>если терпим, то с Ним и царствовать будем; если отречемся, и Он отречется от нас;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2TI">
+      <verse num="13" />
+      <text>If we are faithless, he remains faithful. He can’t deny himself.”</text>
+    </ReferenceBlocks>
+    <verse num="13" />
+    <text>если мы неверны, Он пребывает верен, ибо Себя отречься не может.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-2TI">
+      <verse num="14" />
+      <text>Remind them of these things, charging them in the sight of the Lord, that they don’t argue about words. It is of no profit, subverting of those who hear.</text>
+    </ReferenceBlocks>
+    <verse num="14" />
+    <text>Сие напоминай, заклиная пред Господом не вступать в словопрения, что нимало не служит к пользе, а к расстройству слушающих.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-2TI">
+      <verse num="15" />
+      <text>Study to present yourself approved by God, a workman who doesn’t need to be ashamed, properly handling the Word of Truth.</text>
+    </ReferenceBlocks>
+    <verse num="15" />
+    <text>Старайся представить себя Богу достойным, делателем неукоризненным, верно преподающим слово истины.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-2TI">
+      <verse num="16" />
+      <text>But shun empty chatter, for it will go further in ungodliness.</text>
+    </ReferenceBlocks>
+    <verse num="16" />
+    <text>А непотребного пустословия удаляйся; ибо они еще более будут преуспевать в нечестии,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-2TI">
+      <verse num="17" />
+      <text>Their teaching will consume like gangrene. Hymenaeus and Philetus are like this.</text>
+    </ReferenceBlocks>
+    <verse num="17" />
+    <text>и слово их, как рак, будет распространяться. Таковы Именей и Филит,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-2TI">
+      <verse num="18" />
+      <text>They have turned from the truth, saying that the resurrection is already past, and overthrowing the faith of some.</text>
+    </ReferenceBlocks>
+    <verse num="18" />
+    <text>которые отступили от истины, говоря, что воскресение уже было, и разрушают в некоторых веру.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-2TI">
+      <verse num="19" />
+      <text>However God's firm foundation stands, having this seal,</text>
+    </ReferenceBlocks>
+    <verse num="19" />
+    <text>Но твердое основание Божие стоит, имея печать сию:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="scripture">
+      <text>“The Lord knows those who are his,”</text>
+    </ReferenceBlocks>
+    <text>'познал Господь Своих';</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-2TI">
+      <text>and,</text>
+    </ReferenceBlocks>
+    <text>и:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="scripture">
+      <text>“Let every one who names the name of the Lord depart from unrighteousness.”</text>
+    </ReferenceBlocks>
+    <text>'да отступит от неправды всякий, исповедующий имя Господа'.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-2TI">
+      <verse num="20" />
+      <text>Now in a large house there are not only vessels of gold and of silver, but also of wood and of clay. Some are for honor, and some for dishonor.</text>
+    </ReferenceBlocks>
+    <verse num="20" />
+    <text>А в большом доме есть сосуды не только золотые и серебряные, но и деревянные и глиняные; и одни в почетном, а другие в низком употреблении.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-2TI">
+      <verse num="21" />
+      <text>If anyone therefore purges himself from these, he will be a vessel for honor, sanctified. A vessel suitable for the master’s use, prepared for every good work.</text>
+    </ReferenceBlocks>
+    <verse num="21" />
+    <text>Итак, кто будет чист от сего, тот будет сосудом в чести, освященным и благопотребным Владыке, годным на всякое доброе дело.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-2TI">
+      <verse num="22" />
+      <text>Flee from youthful lusts; but pursue righteousness, faith, love, and peace with those who call on the Lord out of a pure heart.</text>
+    </ReferenceBlocks>
+    <verse num="22" />
+    <text>Юношеских похотей убегай, а держись правды, веры, любви, мира со всеми призывающими Господа от чистого сердца.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-2TI">
+      <verse num="23" />
+      <text>But refuse foolish and ignorant questionings, knowing that they generate strife.</text>
+    </ReferenceBlocks>
+    <verse num="23" />
+    <text>От глупых и невежественных состязаний уклоняйся, зная, что они рождают ссоры;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-2TI">
+      <verse num="24" />
+      <text>The Lord’s servant must not quarrel, but be gentle towards all, able to teach, and be patient.</text>
+    </ReferenceBlocks>
+    <verse num="24" />
+    <text>рабу же Господа не должно ссориться, но быть приветливым ко всем, учительным, незлобивым,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-2TI">
+      <verse num="25" />
+      <text>In gentleness he must correct those who oppose him: perhaps God may give them repentance leading to a full knowledge of the truth.</text>
+    </ReferenceBlocks>
+    <verse num="25" />
+    <text>с кротостью наставлять противников, не даст ли им Бог покаяния к познанию истины,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-2TI">
+      <verse num="26" />
+      <text>Then they may recover themselves out of the devil’s snare, having been taken captive by him to his will.</text>
+    </ReferenceBlocks>
+    <verse num="26" />
+    <text>чтобы они освободились от сети диавола, который уловил их в свою волю.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="2TI" initialStartVerse="0" characterId="BC-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
+      <text>2 TIMOTHY CHP 3</text>
+    </ReferenceBlocks>
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-2TI">
+      <verse num="1" />
+      <text>But know this, that in the last days, grievous times will come.</text>
+    </ReferenceBlocks>
+    <verse num="1" />
+    <text>Знай же, что в последние дни наступят времена тяжкие.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-2TI">
+      <verse num="2" />
+      <text>For men will be lovers of self, lovers of money, boastful, arrogant, blasphemers, disobedient to parents, unthankful, unholy,</text>
+    </ReferenceBlocks>
+    <verse num="2" />
+    <text>Ибо люди будут самолюбивы, сребролюбивы, горды, надменны, злоречивы, родителям непокорны, неблагодарны, нечестивы, недружелюбны,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-2TI">
+      <verse num="3" />
+      <text>without natural affection, unforgiving, slanderers, without self-control, fierce, no lovers of those that are good,</text>
+    </ReferenceBlocks>
+    <verse num="3" />
+    <text>непримирительны, клеветники, невоздержны, жестоки, не любящие добра,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-2TI">
+      <verse num="4" />
+      <text>traitors, headstrong, conceited, lovers of pleasure rather than lovers of God;</text>
+    </ReferenceBlocks>
+    <verse num="4" />
+    <text>предатели, наглы, напыщенны, более сластолюбивы, нежели боголюбивы,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-2TI">
+      <verse num="5" />
+      <text>holding a form of godliness, but having denied its power. Turn away from these, also.</text>
+    </ReferenceBlocks>
+    <verse num="5" />
+    <text>имеющие вид благочестия, силы же его отрекшиеся. Таковых удаляйся.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-2TI">
+      <verse num="6" />
+      <text>For some of these are people who creep into houses, and take captive gullible women loaded down with sins, led away by various lusts.</text>
+    </ReferenceBlocks>
+    <verse num="6" />
+    <text>К сим принадлежат те, которые вкрадываются в домы и обольщают женщин, утопающих во грехах, водимых различными похотями,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-2TI">
+      <verse num="7" />
+      <text>Such women are always learning, but never able to come to the knowledge of the truth.</text>
+    </ReferenceBlocks>
+    <verse num="7" />
+    <text>всегда учащихся и никогда не могущих дойти до познания истины.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-2TI">
+      <verse num="8" />
+      <text>Even as Jannes and Jambres opposed Moses, so do these also oppose the truth; men corrupted in mind, who concerning the faith, are rejected.</text>
+    </ReferenceBlocks>
+    <verse num="8" />
+    <text>Как Ианний и Иамврий противились Моисею, так и сии противятся истине, люди, развращенные умом, невежды в вере.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-2TI">
+      <verse num="9" />
+      <text>But they will proceed no further. For their folly will be evident to all men, as theirs also came to be.</text>
+    </ReferenceBlocks>
+    <verse num="9" />
+    <text>Но они не много успеют; ибо их безумие обнаружится перед всеми, как и с теми случилось.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-2TI">
+      <verse num="10" />
+      <text>But you however know all about my teaching, conduct, purpose, faith, patience, love, steadfastness,</text>
+    </ReferenceBlocks>
+    <verse num="10" />
+    <text>А ты последовал мне в учении, житии, расположении, вере, великодушии, любви, терпении,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-2TI">
+      <verse num="11" />
+      <text>persecutions, and sufferings: those things that happened to me at Antioch, Iconium, and Lystra. I endured those persecutions. Out of them all the Lord delivered me.</text>
+    </ReferenceBlocks>
+    <verse num="11" />
+    <text>в гонениях, страданиях, постигших меня в Антиохии, Иконии, Листрах; каковые гонения я перенес, и от всех избавил меня Господь.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-2TI">
+      <verse num="12" />
+      <text>Yes, and all who desire to live godly in Christ Jesus will suffer persecution.</text>
+    </ReferenceBlocks>
+    <verse num="12" />
+    <text>Да и все, желающие жить благочестиво во Христе Иисусе, будут гонимы.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-2TI">
+      <verse num="13" />
+      <text>But evil men and impostors will grow worse and worse, deceiving and being deceived.</text>
+    </ReferenceBlocks>
+    <verse num="13" />
+    <text>Злые же люди и обманщики будут преуспевать во зле, вводя в заблуждение и заблуждаясь.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-2TI">
+      <verse num="14" />
+      <text>But you remain in the things which you have learned and have been assured of, knowing from whom you have learned them.</text>
+    </ReferenceBlocks>
+    <verse num="14" />
+    <text>А ты пребывай в том, чему научен и что тебе вверено, зная, кем ты научен.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-2TI">
+      <verse num="15" />
+      <text>From infancy, you have known the holy Scriptures which are able to make you wise for salvation through faith, which is in Christ Jesus.</text>
+    </ReferenceBlocks>
+    <verse num="15" />
+    <text>Притом же ты из детства знаешь священные писания, которые могут умудрить тебя во спасение верою во Христа Иисуса.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-2TI">
+      <verse num="16" />
+      <text>Every Scripture is God-breathed and profitable for teaching, for reproof, for correction, and for instruction in righteousness.</text>
+    </ReferenceBlocks>
+    <verse num="16" />
+    <text>Все Писание богодухновенно и полезно для научения, для обличения, для исправления, для наставления в праведности,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-2TI">
+      <verse num="17" />
+      <text>It gives the man of God everything he needs so that he will be complete, thoroughly equipped for every good work.</text>
+    </ReferenceBlocks>
+    <verse num="17" />
+    <text>да будет совершен Божий человек, ко всякому доброму делу приготовлен.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="2TI" initialStartVerse="0" characterId="BC-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
+      <text>2 TIMOTHY CHP 4</text>
+    </ReferenceBlocks>
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-2TI">
+      <verse num="1" />
+      <text>I command you therefore before God and the Lord Jesus Christ, who will judge the living and the dead at his appearing and his Kingdom:</text>
+    </ReferenceBlocks>
+    <verse num="1" />
+    <text>Итак заклинаю тебя пред Богом и Господом нашим Иисусом Христом, Который будет судить живых и мертвых в явление Его и Царствие Его:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-2TI">
+      <verse num="2" />
+      <text>Preach the word; be urgent in season and out of season; reprove, rebuke, and exhort, with all patience and teaching.</text>
+    </ReferenceBlocks>
+    <verse num="2" />
+    <text>проповедуй слово, настой во время и не во время, обличай, запрещай, увещевай со всяким долготерпением и назиданием.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-2TI">
+      <verse num="3" />
+      <text>For the time will come when they will not listen to the sound doctrine. Having itching ears, will heap up for themselves teachers after their own lusts.</text>
+    </ReferenceBlocks>
+    <verse num="3" />
+    <text>Ибо будет время, когда здравого учения принимать не будут, но по своим прихотям будут избирать себе учителей, которые льстили бы слуху;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-2TI">
+      <verse num="4" />
+      <text>They will turn away their ears from the truth, and turn aside to fables.</text>
+    </ReferenceBlocks>
+    <verse num="4" />
+    <text>и от истины отвратят слух и обратятся к басням.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-2TI">
+      <verse num="5" />
+      <text>But you be sober in all things, suffer hardship, do the work of an evangelist, and fulfill your ministry.</text>
+    </ReferenceBlocks>
+    <verse num="5" />
+    <text>Но ты будь бдителен во всем, переноси скорби, совершай дело благовестника, исполняй служение твое.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-2TI">
+      <verse num="6" />
+      <text>For I am already being offered, and the time of my departure has come.</text>
+    </ReferenceBlocks>
+    <verse num="6" />
+    <text>Ибо я уже становлюсь жертвою, и время моего отшествия настало.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-2TI">
+      <verse num="7" />
+      <text>I have fought the good fight. I have finished the course. I have kept the faith.</text>
+    </ReferenceBlocks>
+    <verse num="7" />
+    <text>Подвигом добрым я подвизался, течение совершил, веру сохранил;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-2TI">
+      <verse num="8" />
+      <text>From now on, there is stored up for me the crown of righteousness, which the Lord, the righteous judge, will give to me on that day; and not to me only, but also to all those who have loved his appearing.</text>
+    </ReferenceBlocks>
+    <verse num="8" />
+    <text>а теперь готовится мне венец правды, который даст мне Господь, праведный Судия, в день оный; и не только мне, но и всем, возлюбившим явление Его.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-2TI">
+      <verse num="9" />
+      <text>Be diligent to come to me soon,</text>
+    </ReferenceBlocks>
+    <verse num="9" />
+    <text>Постарайся придти ко мне скоро.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-2TI">
+      <verse num="10" />
+      <text>for Demas left me, having loved this present world, and went to Thessalonica; Crescens to Galatia, and Titus to Dalmatia.</text>
+    </ReferenceBlocks>
+    <verse num="10" />
+    <text>Ибо Димас оставил меня, возлюбив нынешний век, и пошел в Фессалонику, Крискент в Галатию, Тит в Далматию; один Лука со мною.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-2TI">
+      <verse num="11" />
+      <text>Only Luke is with me. Take Mark, and bring him with you, for he is useful to me for service.</text>
+    </ReferenceBlocks>
+    <verse num="11" />
+    <text>Марка возьми и приведи с собою, ибо он мне нужен для служения.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-2TI">
+      <verse num="12" />
+      <text>But I sent Tychicus to Ephesus.</text>
+    </ReferenceBlocks>
+    <verse num="12" />
+    <text>Тихика я послал в Ефес.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-2TI">
+      <verse num="13" />
+      <text>Bring the cloak that I left at Troas with Carpus when you come, and the books, especially the parchments.</text>
+    </ReferenceBlocks>
+    <verse num="13" />
+    <text>Когда пойдешь, принеси фелонь, который я оставил в Троаде у Карпа, и книги, особенно кожаные.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-2TI">
+      <verse num="14" />
+      <text>Alexander, the coppersmith, did much evil to me. The Lord will repay him according to his works.</text>
+    </ReferenceBlocks>
+    <verse num="14" />
+    <text>Александр медник много сделал мне зла. Да воздаст ему Господь по делам его!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-2TI">
+      <verse num="15" />
+      <text>You also must beware of him; for he greatly opposed our words.</text>
+    </ReferenceBlocks>
+    <verse num="15" />
+    <text>Берегись его и ты, ибо он сильно противился нашим словам.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-2TI">
+      <verse num="16" />
+      <text>At my first defense, no one came to help me, but all left me. May it not be held against them.</text>
+    </ReferenceBlocks>
+    <verse num="16" />
+    <text>При первом моем ответе никого не было со мною, но все меня оставили. Да не вменится им!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-2TI">
+      <verse num="17" />
+      <text>But the Lord stood by me, and strengthened me, that through me the message might be fully proclaimed, and that all the Gentiles might hear; and I was delivered out of the mouth of the lion.</text>
+    </ReferenceBlocks>
+    <verse num="17" />
+    <text>Господь же предстал мне и укрепил меня, дабы через меня утвердилось благовестие и услышали все язычники; и я избавился из львиных челюстей.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-2TI">
+      <verse num="18" />
+      <text>And the Lord will deliver me from every evil work, and will preserve me for his heavenly Kingdom; to whom be the glory forever and ever. Amen.</text>
+    </ReferenceBlocks>
+    <verse num="18" />
+    <text>И избавит меня Господь от всякого злого дела и сохранит для Своего Небесного Царства, Ему слава во веки веков. Аминь.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-2TI">
+      <verse num="19" />
+      <text>Greet Prisca and Aquila, and the house of Onesiphorus.</text>
+    </ReferenceBlocks>
+    <verse num="19" />
+    <text>Приветствуй Прискиллу и Акилу и дом Онисифоров.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-2TI">
+      <verse num="20" />
+      <text>Erastus remained at Corinth, but I left Trophimus at Miletus sick.</text>
+    </ReferenceBlocks>
+    <verse num="20" />
+    <text>Ераст остался в Коринфе; Трофима же я оставил больного в Милите.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-2TI">
+      <verse num="21" />
+      <text>Be diligent to come before winter. Eubulus salutes you, as do Pudens, Linus, Claudia, and all the brothers.</text>
+    </ReferenceBlocks>
+    <verse num="21" />
+    <text>Постарайся придти до зимы. Приветствуют тебя Еввул, и Пуд, и Лин, и Клавдия, и все братия.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-2TI">
+      <verse num="22" />
+      <text>The Lord Jesus Christ be with your spirit. Grace be with you. Amen.</text>
+    </ReferenceBlocks>
+    <verse num="22" />
+    <text>Господь Иисус Христос со духом твоим. Благодать с вами. Аминь.</text>
+  </block>
+  <UnappliedSplits />
+</book>

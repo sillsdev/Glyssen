@@ -1,5 +1,5 @@
-﻿using System.Security.AccessControl;
-using Gecko;
+﻿using L10NSharp.TMXUtils;
+using L10NSharp.UI;
 
 namespace Glyssen.Controls
 {
@@ -16,9 +16,12 @@ namespace Glyssen.Controls
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing)
 		{
-			if (disposing && (components != null))
+			if (disposing)
 			{
-				components.Dispose();
+				LocalizeItemDlg<TMXDocument>.StringsLocalized -= HandleStringsLocalized;
+
+				if (components != null)
+					components.Dispose();
 			}
 			base.Dispose(disposing);
 		}
@@ -51,7 +54,7 @@ namespace Glyssen.Controls
 			// colBundleName
 			// 
 			colBundleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			colBundleName.HeaderText = "_L10N_:DialogBoxes.OpenProjectDlg.ProjectsList.OriginalBundleFilename!Original Bundle Filename";
+			colBundleName.HeaderText = "_L10N_:DialogBoxes.OpenProjectDlg.ProjectsList.Source!Source";
 			colBundleName.MinimumWidth = 50;
 			colBundleName.Name = "colBundleName";
 			colBundleName.ReadOnly = true;

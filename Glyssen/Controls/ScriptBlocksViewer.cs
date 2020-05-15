@@ -1,14 +1,17 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.Windows.Forms;
 using Gecko;
-using Gecko.DOM;
 using Gecko.Events;
-using Glyssen.Dialogs;
 using Glyssen.Utilities;
+using GlyssenEngine.Script;
+using GlyssenEngine.ViewModels;
 using L10NSharp;
+using SIL.Windows.Forms.Extensions;
 using SIL.Windows.Forms.PortableSettingsProvider;
+using Font = System.Drawing.Font;
 
 namespace Glyssen.Controls
 {
@@ -23,19 +26,38 @@ namespace Glyssen.Controls
 		private const int kContextBlocksBackward = 10;
 		private const int kContextBlocksForward = 10;
 
-		private BlockNavigatorViewModel m_viewModel;
+		private BlockNavigatorViewModel<Font> m_viewModel;
 		private Func<string, string> m_getCharacterIdForUi;
 		private Func<Block, string> m_getDelivery;
 		private ToolTip m_toolTip;
 		private ScriptBlocksViewType m_viewType;
 
+		public event EventHandler SelectionChanged;
+		public event EventHandler MinimumWidthChanged;
+
 		#region Construction and Initialization
 		public ScriptBlocksViewer()
 		{
 			InitializeComponent();
+
+			DataGridViewBlocksOnMinimumWidthChanged(m_dataGridViewBlocks, new EventArgs());
+			m_dataGridViewBlocks.MinimumWidthChanged += DataGridViewBlocksOnMinimumWidthChanged;
 		}
 
-		public void Initialize(BlockNavigatorViewModel viewModel, Func<string, string> getCharacterIdForUi = null, Func<Block, string> getDelivery = null)
+		private void DataGridViewBlocksOnMinimumWidthChanged(object sender, EventArgs eventArgs)
+		{
+			var minWidth = Math.Max(m_blocksDisplayBrowser.MinimumSize.Width, m_dataGridViewBlocks.MinimumSize.Width) + Padding.Horizontal;
+
+			if (minWidth != MinimumSize.Width)
+			{
+				MinimumSize = new Size(minWidth,
+					Math.Max(m_blocksDisplayBrowser.MinimumSize.Height, m_dataGridViewBlocks.MinimumSize.Height) + Padding.Vertical);
+				if (MinimumWidthChanged != null)
+					MinimumWidthChanged(this, new EventArgs());
+			}
+		}
+
+		public void Initialize(BlockNavigatorViewModel<Font> viewModel, Func<string, string> getCharacterIdForUi = null, Func<Block, string> getDelivery = null)
 		{
 			m_viewModel = viewModel;
 			m_getCharacterIdForUi = getCharacterIdForUi;
@@ -54,8 +76,17 @@ namespace Glyssen.Controls
 			m_dataGridViewBlocks.Dock = DockStyle.Fill;
 
 			Disposed += ScriptBlocksViewer_Disposed;
+		}
 
-			m_viewModel.CurrentBlockChanged += UpdateContextBlocksDisplay;
+		protected override void OnHandleCreated(EventArgs e)
+		{
+			base.OnHandleCreated(e);
+
+			if (m_viewModel != null)
+			{
+				m_viewModel.CurrentBlockChanged += UpdateContextBlocksDisplay;
+				m_viewModel.CurrentBlockMatchupChanged += UpdateContextBlocksDisplay;
+			}
 			m_blocksDisplayBrowser.VisibleChanged += UpdateContextBlocksDisplay;
 			m_dataGridViewBlocks.VisibleChanged += UpdateContextBlocksDisplay;
 		}
@@ -102,7 +133,15 @@ namespace Glyssen.Controls
 		public override string Text
 		{
 			get { return m_title.Text; }
-			set { m_title.Text = value;  }
+			set { m_title.Text = value; }
+		}
+
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+		[Browsable(true)]
+		public BorderStyle ContentBorderStyle
+		{
+			get { return m_dataGridViewBlocks.BorderStyle; }
+			set { m_dataGridViewBlocks.BorderStyle = m_blocksDisplayBrowser.BorderStyle = value; }
 		}
 		#endregion
 
@@ -119,12 +158,6 @@ namespace Glyssen.Controls
 			UpdateContextBlocksDisplay(null, null);
 		}
 
-		public void Clear()
-		{
-			m_blocksDisplayBrowser.DisplayHtml(String.Empty);
-			m_dataGridViewBlocks.Clear();
-		}
-
 		public void ShowNothingMatchesFilterMessage()
 		{
 			string msg = LocalizationManager.GetString("DialogBoxes.ScriptBlocksViewer.NoMatches", "Nothing matches the current filter.");
@@ -139,15 +172,22 @@ namespace Glyssen.Controls
 			viewBeingShown.Visible = true;
 		}
 
+		private void HandleSelectionChanged(object sender, EventArgs args)
+		{
+			UpdateContextBlocksDisplay(sender, args);
+			if (SelectionChanged != null)
+				SelectionChanged(this, new EventArgs());
+		}
+
 		private void UpdateContextBlocksDisplay(object sender, EventArgs args)
 		{
 			this.SafeInvoke(() =>
 			{
-				if (m_blocksDisplayBrowser.Visible)
+				if (m_blocksDisplayBrowser.Visible && m_viewModel != null)
 					m_blocksDisplayBrowser.DisplayHtml(m_viewModel.Html);
 				else if (m_dataGridViewBlocks.Visible)
 					m_dataGridViewBlocks.UpdateContext();
-			}, true);
+			}, GetType().FullName + ".UpdateContextBlocksDisplay", SIL.Windows.Forms.Extensions.ControlExtensions.ErrorHandlingAction.IgnoreIfDisposed);
 		}
 
 		private void HandleDataGridViewBlocksCellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
@@ -195,7 +235,7 @@ namespace Glyssen.Controls
 					HideToolTip();
 					return;
 				}
-				else if (checkElement.ClassName != BlockNavigatorViewModel.kCssClassContext)
+				if (checkElement.ClassName != BlockNavigatorViewModel<Font>.kCssClassContext)
 					checkElement = checkElement.Parent;
 				else
 					break;
@@ -203,8 +243,9 @@ namespace Glyssen.Controls
 
 			if (m_toolTip == null)
 			{
+				Debug.Assert(checkElement != null);
 				m_toolTip = new ToolTip { IsBalloon = true };
-				string toolTipText = m_getCharacterIdForUi(checkElement.GetAttribute(BlockNavigatorViewModel.kDataCharacter));
+				string toolTipText = m_getCharacterIdForUi(checkElement.GetAttribute(BlockNavigatorViewModel<Font>.kDataCharacter));
 
 				// 42 and 43 are the magic numbers which happens to make these display in the correct place
 				// REVIEW: it would be nice to figure out a better way to place these which is more robust. These numbers have changed several times already
@@ -217,7 +258,7 @@ namespace Glyssen.Controls
 
 		private void OnDocumentCompleted(object sender, GeckoDocumentCompletedEventArgs e)
 		{
-			m_blocksDisplayBrowser.ScrollElementIntoView(BlockNavigatorViewModel.kMainQuoteElementId, -225);
+			m_blocksDisplayBrowser.ScrollElementIntoView(BlockNavigatorViewModel<Font>.kMainQuoteElementId, -225);
 		}
 
 		private void OnMouseClick(object sender, DomMouseEventArgs e)
@@ -225,19 +266,17 @@ namespace Glyssen.Controls
 			if (!m_blocksDisplayBrowser.Window.Selection.IsCollapsed)
 				return;
 
-			GeckoElement geckoElement;
-			if (GeckoUtilities.ParseDomEventTargetAsGeckoElement(e.Target, out geckoElement))
+			if (GeckoUtilities.ParseDomEventTargetAsGeckoElement(e.Target, out var geckoElement))
 			{
-				var geckoDivElement = geckoElement as GeckoDivElement;
+				var geckoHtmlElement = geckoElement as GeckoHtmlElement;
 
-				while (geckoDivElement != null && !geckoDivElement.ClassName.Contains("block scripture"))
-					geckoDivElement = geckoDivElement.Parent as GeckoDivElement;
-				if (geckoDivElement == null)
+				while (geckoHtmlElement != null && !geckoHtmlElement.ClassName.Contains("block scripture"))
+					geckoHtmlElement = geckoHtmlElement.Parent;
+				if (geckoHtmlElement == null)
 					return;
 
-				int blockIndexInBook;
-				GeckoNode blockIndexInBookAttr = geckoDivElement.Attributes["data-block-index-in-book"];
-				if (blockIndexInBookAttr == null || !Int32.TryParse(blockIndexInBookAttr.NodeValue, out blockIndexInBook))
+				GeckoNode blockIndexInBookAttr = geckoHtmlElement.Attributes["data-block-index-in-book"];
+				if (blockIndexInBookAttr == null || !Int32.TryParse(blockIndexInBookAttr.NodeValue, out var blockIndexInBook))
 					return;
 				m_viewModel.CurrentBlockIndexInBook = blockIndexInBook;
 			}

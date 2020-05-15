@@ -1,13 +1,13 @@
 {
-  "name": "Glyssen ALPHA",
+  "name": "Glyssen",
   "version": "_VERSION_",
   "date": "_DATE_",
   "platform": "win",
   "platform_version": "",
   "architecture": "",
-  "stability": "alpha",
-  "file": "GlyssenInstaller._VERSION_.msi",
+  "stability": "release",
+  "file": "GlyssenInstaller._VERSION_.exe",
   "md5": "",
-  "type": "msi",
+  "type": "exe",
   "build": ""
 }

@@ -18,9 +18,7 @@
 
 	<ItemGroup Condition=" '$(PackageSources)' == '' ">
 		<!-- Package sources used to restore packages. By default, registered sources under %APPDATA%\NuGet\NuGet.Config will be used -->
-		<!-- The official NuGet package source (https://nuget.org/api/v2/) will be excluded if package sources are specified and it does not appear in the list -->
-		<PackageSource Include="http://nuget.org/api/v2/" />
-		<PackageSource Include="http://build.palaso.org/guestAuth/app/nuget/v1/FeedService.svc/" />
+		<!-- The official NuGet package source (nuget.org) will be excluded if package sources are specified and it does not appear in the list -->
 	</ItemGroup>
 
 	<PropertyGroup>
@@ -115,7 +113,7 @@
 
 					Log.LogMessage("Downloading latest version of NuGet.exe...");
 					WebClient webClient = new WebClient();
-					webClient.DownloadFile("https://nuget.org/nuget.exe", OutputFilename);
+					webClient.DownloadFile("https://dist.nuget.org/win-x86-commandline/latest/nuget.exe", OutputFilename);
 
 					return true;
 				}

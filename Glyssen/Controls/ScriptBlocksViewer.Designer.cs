@@ -17,6 +17,7 @@ namespace Glyssen.Controls
 		{
 			if (disposing && (components != null))
 			{
+				m_dataGridViewBlocks.MinimumWidthChanged -= DataGridViewBlocksOnMinimumWidthChanged;
 				components.Dispose();
 			}
 			base.Dispose(disposing);
@@ -34,49 +35,17 @@ namespace Glyssen.Controls
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			this.m_panel = new System.Windows.Forms.Panel();
+			this.m_dataGridViewBlocks = new Glyssen.Controls.ScriptBlocksGridView();
+			this.m_blocksDisplayBrowser = new Glyssen.Controls.Browser();
 			this.m_title = new System.Windows.Forms.Label();
 			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
-			this.m_dataGridViewBlocks = new Glyssen.Controls.ScriptBlocksGridView();
 			this.colReference = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colCharacter = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colDelivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colText = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.m_blocksDisplayBrowser = new Glyssen.Controls.Browser();
-			this.m_panel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_dataGridViewBlocks)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			this.SuspendLayout();
-			// 
-			// m_panel
-			// 
-			this.m_panel.BackColor = System.Drawing.Color.Transparent;
-			this.m_panel.Controls.Add(this.m_dataGridViewBlocks);
-			this.m_panel.Controls.Add(this.m_blocksDisplayBrowser);
-			this.m_panel.Controls.Add(this.m_title);
-			this.m_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_panel.Location = new System.Drawing.Point(0, 0);
-			this.m_panel.Name = "m_panel";
-			this.m_panel.Size = new System.Drawing.Size(250, 350);
-			this.m_panel.TabIndex = 0;
-			// 
-			// m_title
-			// 
-			this.m_title.Dock = System.Windows.Forms.DockStyle.Top;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_title, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_title, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_title, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_title, "DialogBoxes.ScriptBlocksViewer.Title");
-			this.m_title.Location = new System.Drawing.Point(0, 0);
-			this.m_title.Name = "m_title";
-			this.m_title.Size = new System.Drawing.Size(250, 24);
-			this.m_title.TabIndex = 1;
-			this.m_title.Text = "Title";
-			// 
-			// m_l10NSharpExtender
-			// 
-			this.m_l10NSharpExtender.LocalizationManagerId = "Glyssen";
-			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.ScriptBlocksViewer";
 			// 
 			// m_dataGridViewBlocks
 			// 
@@ -114,7 +83,8 @@ namespace Glyssen.Controls
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_dataGridViewBlocks, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_dataGridViewBlocks, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_dataGridViewBlocks, "ScripBlocksViewer.ScriptBlocksViewer.m_dataGridViewBlocks");
-			this.m_dataGridViewBlocks.Location = new System.Drawing.Point(0, 170);
+			this.m_dataGridViewBlocks.Location = new System.Drawing.Point(3, 184);
+			this.m_dataGridViewBlocks.MinimumSize = new System.Drawing.Size(367, 9);
 			this.m_dataGridViewBlocks.MultiSelect = false;
 			this.m_dataGridViewBlocks.Name = "m_dataGridViewBlocks";
 			this.m_dataGridViewBlocks.ReadOnly = true;
@@ -126,16 +96,51 @@ namespace Glyssen.Controls
 			this.m_dataGridViewBlocks.ShowCellErrors = false;
 			this.m_dataGridViewBlocks.ShowEditingIcon = false;
 			this.m_dataGridViewBlocks.ShowRowErrors = false;
-			this.m_dataGridViewBlocks.Size = new System.Drawing.Size(247, 177);
+			this.m_dataGridViewBlocks.Size = new System.Drawing.Size(367, 166);
+			this.m_dataGridViewBlocks.StandardTab = true;
 			this.m_dataGridViewBlocks.TabIndex = 2;
 			this.m_dataGridViewBlocks.VirtualMode = true;
 			this.m_dataGridViewBlocks.Visible = false;
 			this.m_dataGridViewBlocks.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.HandleDataGridViewBlocksCellValueNeeded);
-			this.m_dataGridViewBlocks.SelectionChanged += new System.EventHandler(this.UpdateContextBlocksDisplay);
+			this.m_dataGridViewBlocks.SelectionChanged += new System.EventHandler(this.HandleSelectionChanged);
+			// 
+			// m_blocksDisplayBrowser
+			// 
+			this.m_blocksDisplayBrowser.AutoSize = true;
+			this.m_blocksDisplayBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksDisplayBrowser, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksDisplayBrowser, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_blocksDisplayBrowser, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksDisplayBrowser, "ScriptBlocksViewer.Browser");
+			this.m_blocksDisplayBrowser.Location = new System.Drawing.Point(0, 0);
+			this.m_blocksDisplayBrowser.Name = "m_blocksDisplayBrowser";
+			this.m_blocksDisplayBrowser.Size = new System.Drawing.Size(250, 350);
+			this.m_blocksDisplayBrowser.TabIndex = 0;
+			this.m_blocksDisplayBrowser.OnMouseOver += new System.EventHandler<Gecko.DomMouseEventArgs>(this.OnMouseOver);
+			this.m_blocksDisplayBrowser.OnMouseClick += new System.EventHandler<Gecko.DomMouseEventArgs>(this.OnMouseClick);
+			this.m_blocksDisplayBrowser.OnDocumentCompleted += new System.EventHandler<Gecko.Events.GeckoDocumentCompletedEventArgs>(this.OnDocumentCompleted);
+			// 
+			// m_title
+			// 
+			this.m_title.Dock = System.Windows.Forms.DockStyle.Top;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_title, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_title, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_title, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_title, "DialogBoxes.ScriptBlocksViewer.Title");
+			this.m_title.Location = new System.Drawing.Point(0, 0);
+			this.m_title.Name = "m_title";
+			this.m_title.Size = new System.Drawing.Size(250, 24);
+			this.m_title.TabIndex = 1;
+			this.m_title.Text = "Title";
+			// 
+			// m_l10NSharpExtender
+			// 
+			this.m_l10NSharpExtender.LocalizationManagerId = "Glyssen";
+			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.ScriptBlocksViewer";
 			// 
 			// colReference
 			// 
-			this.colReference.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.colReference.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.colReference.DefaultCellStyle = dataGridViewCellStyle2;
 			this.colReference.HeaderText = "_L10N_:DialogBoxes.ScriptBlocksViewer.Reference!Reference";
@@ -167,52 +172,36 @@ namespace Glyssen.Controls
 			// colText
 			// 
 			this.colText.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.colText.FillWeight = 200F;
-			this.colText.HeaderText = "_L10N_:DialogBoxes.ScriptBlocksViewer.Text!Text";
-			this.colText.MinimumWidth = 60;
+			this.colText.FillWeight = 300F;
+			this.colText.HeaderText = "_L10N_:DialogBoxes.ScriptBlocksViewer.Text!Vernacular Text";
+			this.colText.MinimumWidth = 200;
 			this.colText.Name = "colText";
 			this.colText.ReadOnly = true;
 			this.colText.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			// 
-			// m_blocksDisplayBrowser
-			// 
-			this.m_blocksDisplayBrowser.AutoSize = true;
-			this.m_blocksDisplayBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksDisplayBrowser, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksDisplayBrowser, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_blocksDisplayBrowser, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksDisplayBrowser, "ScriptBlocksViewer.Browser");
-			this.m_blocksDisplayBrowser.Location = new System.Drawing.Point(0, 24);
-			this.m_blocksDisplayBrowser.Name = "m_blocksDisplayBrowser";
-			this.m_blocksDisplayBrowser.Size = new System.Drawing.Size(250, 326);
-			this.m_blocksDisplayBrowser.TabIndex = 0;
-			this.m_blocksDisplayBrowser.OnMouseOver += new System.EventHandler<Gecko.DomMouseEventArgs>(this.OnMouseOver);
-			this.m_blocksDisplayBrowser.OnDocumentCompleted += new System.EventHandler<Gecko.Events.GeckoDocumentCompletedEventArgs>(this.OnDocumentCompleted);
-			this.m_blocksDisplayBrowser.OnMouseClick += new System.EventHandler<Gecko.DomMouseEventArgs>(this.OnMouseClick);
 			// 
 			// ScriptBlocksViewer
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Transparent;
-			this.Controls.Add(this.m_panel);
+			this.Controls.Add(this.m_dataGridViewBlocks);
+			this.Controls.Add(this.m_title);
+			this.Controls.Add(this.m_blocksDisplayBrowser);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this, "ScripBlocksViewer.ScriptBlocksViewer.ScriptBlocksViewer");
 			this.Name = "ScriptBlocksViewer";
 			this.Size = new System.Drawing.Size(250, 350);
-			this.m_panel.ResumeLayout(false);
-			this.m_panel.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_dataGridViewBlocks)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.Panel m_panel;
 		private Browser m_blocksDisplayBrowser;
 		private System.Windows.Forms.Label m_title;
 		private ScriptBlocksGridView m_dataGridViewBlocks;

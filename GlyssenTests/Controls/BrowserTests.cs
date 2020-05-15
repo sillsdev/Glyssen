@@ -1,18 +1,23 @@
-﻿using System;
+﻿using System.Threading;
 using System.Windows.Forms;
 using Glyssen.Controls;
+using Glyssen.Utilities;
 using NUnit.Framework;
 
 namespace GlyssenTests.Controls
 {
-	class BrowserTests
+	[TestFixture]
+	[Apartment(ApartmentState.STA)]
+	public class BrowserTests
 	{
-		[Test, Ignore("By hand only")]
-		[STAThread]
+		[Test]
+		[Explicit] // By hand
 		public void Navigate()
 		{
 			using (var form = new Form())
 			{
+				GeckoUtilities.InitializeGecko();
+
 				using (var browser = new Browser())
 				{
 					form.Controls.Add(browser);
@@ -22,12 +27,14 @@ namespace GlyssenTests.Controls
 			}
 		}
 
-		[Test, Ignore("By hand only")]
-		[STAThread]
+		[Test]
+		[Explicit] // By hand
 		public void DisplayHtml()
 		{
 			using (var form = new Form())
 			{
+				GeckoUtilities.InitializeGecko();
+
 				using (var browser = new Browser())
 				{
 					form.Controls.Add(browser);

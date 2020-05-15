@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="PHM" singlevoice="false" pageheader="К Филимону">
+  <block style="mt" chapter="0" book="PHM" initialStartVerse="0" characterId="BC-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" book="PHM" initialStartVerse="0" characterId="BC-PHM">
+      <text>PHILEMON</text>
+    </ReferenceBlocks>
+    <text>К Филимону</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="PHM" initialStartVerse="0" characterId="BC-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
+      <text>PHILEMON CHP 1</text>
+    </ReferenceBlocks>
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-PHM">
+      <verse num="1" />
+      <text>Paul, a prisoner of Christ Jesus, and Timothy our brother, to Philemon, our beloved fellow worker,</text>
+    </ReferenceBlocks>
+    <verse num="1" />
+    <text>Павел, узник Иисуса Христа, и Тимофей брат, Филимону возлюбленному и сотруднику нашему,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-PHM">
+      <verse num="2" />
+      <text>to the beloved Apphia, to Archippus, our fellow soldier, and to the assembly in your house:</text>
+    </ReferenceBlocks>
+    <verse num="2" />
+    <text>и Апфии, (сестре) возлюбленной, и Архиппу, сподвижнику нашему, и домашней твоей церкви:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-PHM">
+      <verse num="3" />
+      <text>Grace to you and peace from God our Father and the Lord Jesus Christ.</text>
+    </ReferenceBlocks>
+    <verse num="3" />
+    <text>благодать вам и мир от Бога Отца нашего и Господа Иисуса Христа.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-PHM">
+      <verse num="4" />
+      <text>I thank my God always, making mention of you in my prayers,</text>
+    </ReferenceBlocks>
+    <verse num="4" />
+    <text>Благодарю Бога моего, всегда вспоминая о тебе в молитвах моих,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-PHM">
+      <verse num="5" />
+      <text>hearing of your love, and of the faith which you have toward the Lord Jesus, and toward all the saints;</text>
+    </ReferenceBlocks>
+    <verse num="5" />
+    <text>слыша о твоей любви и вере, которую имеешь к Господу Иисусу и ко всем святым,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-PHM">
+      <verse num="6" />
+      <text>that the fellowship of your faith may become effective, in the knowledge of every good thing which is in us in Christ Jesus.</text>
+    </ReferenceBlocks>
+    <verse num="6" />
+    <text>дабы общение веры твоей оказалось деятельным в познании всякого у вас добра во Христе Иисусе.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-PHM">
+      <verse num="7" />
+      <text>For we have much joy and comfort in your love, because the hearts of the saints have been refreshed through you, brother.</text>
+    </ReferenceBlocks>
+    <verse num="7" />
+    <text>Ибо мы имеем великую радость и утешение в любви твоей, потому что тобою, брат, успокоены сердца святых.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-PHM">
+      <verse num="8" />
+      <text>Therefore though I have all boldness in Christ to command you that which is appropriate,</text>
+    </ReferenceBlocks>
+    <verse num="8" />
+    <text>Посему, имея великое во Христе дерзновение приказывать тебе, что должно,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-PHM">
+      <verse num="9" />
+      <text>yet for love’s sake I rather beg. I am Paul, an old man, here in prison because of Jesus Christ.</text>
+    </ReferenceBlocks>
+    <verse num="9" />
+    <text>по любви лучше прошу, не иной кто, как я, Павел старец, а теперь и узник Иисуса Христа;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-PHM">
+      <verse num="10" />
+      <text>I beg you for my child, whom I have become the father of in my chains, Onesimus,</text>
+    </ReferenceBlocks>
+    <verse num="10" />
+    <text>прошу тебя о сыне моем Онисиме, которого родил я в узах моих:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-PHM">
+      <verse num="11" />
+      <text>who once was useless to you, but now is useful to you and to me.</text>
+    </ReferenceBlocks>
+    <verse num="11" />
+    <text>он был некогда негоден для тебя, а теперь годен тебе и мне; я возвращаю его;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-PHM">
+      <verse num="12" />
+      <text>I am sending him back. Therefore receive him, that is, my own heart,</text>
+    </ReferenceBlocks>
+    <verse num="12" />
+    <text>ты же прими его, как мое сердце.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-PHM">
+      <verse num="13" />
+      <text>whom I desired to keep with me, that on your behalf he might serve me in my chains for the Good News.</text>
+    </ReferenceBlocks>
+    <verse num="13" />
+    <text>Я хотел при себе удержать его, дабы он вместо тебя послужил мне в узах за благовествование;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-PHM">
+      <verse num="14" />
+      <text>But I was willing to do nothing without your consent, that your goodness would not be as of necessity, but of free will.</text>
+    </ReferenceBlocks>
+    <verse num="14" />
+    <text>но без твоего согласия ничего не хотел сделать, чтобы доброе дело твое было не вынужденно, а добровольно.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-PHM">
+      <verse num="15" />
+      <text>For perhaps he was therefore separated from you for a while, that you would have him forever.</text>
+    </ReferenceBlocks>
+    <verse num="15" />
+    <text>Ибо, может быть, он для того на время отлучился, чтобы тебе принять его навсегда,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-PHM">
+      <verse num="16" />
+      <text>Do not think of him any longer as a slave, but more than a slave, a beloved brother. Especially to me, but how much rather to you, both in the flesh and in the Lord.</text>
+    </ReferenceBlocks>
+    <verse num="16" />
+    <text>не как уже раба, но выше раба, брата возлюбленного, особенно мне, а тем больше тебе, и по плоти и в Господе.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-PHM">
+      <verse num="17" />
+      <text>If then you count me a partner, receive him as you would receive me.</text>
+    </ReferenceBlocks>
+    <verse num="17" />
+    <text>Итак, если ты имеешь общение со мною, то прими его, как меня.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-PHM">
+      <verse num="18" />
+      <text>But if he has wronged you at all, or owes you anything, put that to my account.</text>
+    </ReferenceBlocks>
+    <verse num="18" />
+    <text>Если же он чем обидел тебя, или должен, считай это на мне.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-PHM">
+      <verse num="19" />
+      <text>I, Paul, write this with my own hand: I will repay it (not to mention to you that you owe to me even your own self besides).</text>
+    </ReferenceBlocks>
+    <verse num="19" />
+    <text>Я, Павел, написал моею рукою: я заплачу; не говорю тебе о том, что ты и самим собою мне должен.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-PHM">
+      <verse num="20" />
+      <text>Yes, brother, let me have joy from you in the Lord. Refresh my heart in the Lord.</text>
+    </ReferenceBlocks>
+    <verse num="20" />
+    <text>Так, брат, дай мне воспользоваться от тебя в Господе; успокой мое сердце в Господе.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-PHM">
+      <verse num="21" />
+      <text>Having confidence in your obedience, I write to you, knowing that you will do even beyond what I say.</text>
+    </ReferenceBlocks>
+    <verse num="21" />
+    <text>Надеясь на послушание твое, я написал к тебе, зная, что ты сделаешь и более, нежели говорю.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-PHM">
+      <verse num="22" />
+      <text>Also, prepare a guest room for me, for I hope that through your prayers I will be restored to you.</text>
+    </ReferenceBlocks>
+    <verse num="22" />
+    <text>А вместе приготовь для меня и помещение; ибо надеюсь, что по молитвам вашим я буду дарован вам.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-PHM">
+      <verse num="23" />
+      <text>Epaphras, my fellow prisoner in Christ Jesus, greets you,</text>
+    </ReferenceBlocks>
+    <verse num="23" />
+    <text>Приветствует тебя Епафрас, узник вместе со мною ради Христа Иисуса,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-PHM">
+      <verse num="24" />
+      <text>as do Mark, Aristarchus, Demas, and Luke, my fellow workers.</text>
+    </ReferenceBlocks>
+    <verse num="24" />
+    <text>Марк, Аристарх, Димас, Лука, сотрудники мои.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-PHM">
+      <verse num="25" />
+      <text>The grace of our Lord Jesus Christ be with your spirit. Amen.</text>
+    </ReferenceBlocks>
+    <verse num="25" />
+    <text>Благодать Господа нашего Иисуса Христа со духом вашим. Аминь.</text>
+  </block>
+  <UnappliedSplits />
+</book>

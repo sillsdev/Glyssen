@@ -1,25 +1,17 @@
 Glyssen
 ====================
-A joint project between Faith Comes by Hearing and SIL International, Glyssen is a tool for parsing Scripture passages and assigning characters who speak each section. It allows a native speaker to disambiguate blocks of text which may be spoken by more than one character.
+Glyssen makes it easy to produce a high-quality dramatized audio recording of Scripture. It takes the drudgery out of the process by helping to identify all the direct speech in the text and quickly identifying the biblical character who speaks each part. Then it walks you through the process of selecting a cast and assigning roles to the voice actors. Finally, it prepares a complete set of scripts to use in the recording process and helps to ensure that each part is recorded and prepared for post-production.
+
+This is a joint project between [Faith Comes by Hearing](http://www.faithcomesbyhearing.com) and [SIL International](http://www.sil.org).
+
+To learn more about Glyssen, visit [software.sil.org/glyssen](http://software.sil.org/glyssen).
 
 Source Code
 ====================
-Glyssen is written in C#. The UI uses Windows Forms.
+Glyssen is written in C# using Windows Forms.
 
-Getting up-to-date libraries
-====================
-We depend on several libraries, notably libpalaso from SIL International and L10NSharp.
-The source contains a script for downloading dependencies from TeamCity.
-
-From the build directory, run the buildUpdate.sh script:
-
-	cd {GlyssenRoot}/build
-	./buildUpdate.sh
-
-To automatically generate buildUpdate.sh from a setup on TeamCity, see
-	
-	 {GlyssenRoot}/build/readme - making buildUpdate script.txt
+We have a battery of unit tests written using NUnit.
 
 Platform
 ====================
-At least initially, Glyssen is only on Windows.
+Glyssen only runs on Windows, but FCBH is working on a new cross-platform product that will use the GlyssenEngine.

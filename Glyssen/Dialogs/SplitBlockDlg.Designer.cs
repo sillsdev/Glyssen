@@ -48,10 +48,10 @@
 			// m_lblInstructions
 			// 
 			this.m_lblInstructions.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_lblInstructions, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_lblInstructions.BackColor = System.Drawing.SystemColors.Control;
-			this.m_lblInstructions.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetBackColor(this.m_lblInstructions, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.m_lblInstructions, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_lblInstructions.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblInstructions, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblInstructions, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblInstructions, "DialogBoxes.SplitBlockDlg.ClickSplitLocation");
@@ -105,10 +105,10 @@
 			// 
 			this.m_lblInvalidSplitLocation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.m_lblInvalidSplitLocation.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_lblInvalidSplitLocation, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_lblInvalidSplitLocation.BackColor = System.Drawing.SystemColors.Control;
-			this.m_lblInvalidSplitLocation.ForeColor = System.Drawing.Color.Red;
+			this.glyssenColorPalette.SetBackColor(this.m_lblInvalidSplitLocation, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.m_lblInvalidSplitLocation, Glyssen.Utilities.GlyssenColors.Warning);
+			this.m_lblInvalidSplitLocation.ForeColor = System.Drawing.Color.Red;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblInvalidSplitLocation, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblInvalidSplitLocation, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblInvalidSplitLocation, "DialogBoxes.SplitBlockDlg.InvalidSplitLocation");
@@ -129,8 +129,8 @@
 			this.m_blocksDisplayBrowser.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_blocksDisplayBrowser, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_blocksDisplayBrowser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.m_blocksDisplayBrowser.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_blocksDisplayBrowser, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_blocksDisplayBrowser.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksDisplayBrowser, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksDisplayBrowser, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksDisplayBrowser, "DialogBoxes.SplitBlockDlg.Browser");
@@ -167,6 +167,7 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Split Block";
 			this.glyssenColorPalette.SetUsePaletteColors(this, true);
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SplitBlockDlg_FormClosing);
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.glyssenColorPalette)).EndInit();
 			this.ResumeLayout(false);

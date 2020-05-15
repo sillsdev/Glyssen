@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Platforms>AnyCPU;x64</Platforms>
+    <RootNamespace>Glyssen.Shared</RootNamespace>
+    <Authors>SIL International, Faith Comes By Hearing</Authors>
+    <PackageProjectUrl>https://software.sil.org/glyssen/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/sillsdev/glyssen/</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\output\Debug\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutputPath>..\output\Debug\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\output\Release\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutputPath>..\output\Release\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SIL.Core" Version="8.0.0-beta0091" />
+    <PackageReference Include="SIL.DblBundle" Version="8.0.0-beta0085" />
+    <PackageReference Include="SIL.Scripture" Version="8.0.0-beta0091" />
+  </ItemGroup>
+
+</Project>

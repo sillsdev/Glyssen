@@ -5,10 +5,11 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using DesktopAnalytics;
-using Glyssen.Properties;
 using Glyssen.Utilities;
-using Glyssen.VoiceActor;
+using GlyssenEngine.Casting;
+using GlyssenEngine.ViewModels;
 using L10NSharp;
+using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using SIL.Reporting;
 
@@ -35,9 +36,9 @@ namespace Glyssen.Controls
 		{
 			InitializeComponent();
 
-			// See http://stackoverflow.com/questions/937919/datagridviewimagecolumn-red-x
-			DeleteButtonCol.DefaultCellStyle.NullValue = null;
-			DeleteButtonCol.CellTemplate = new DataGridViewEmptyImageCell();
+			m_dataGrid.AddRemoveRowColumn(null, null,
+				() => LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteColumn_ToolTip_", "Delete this voice actor"),
+				DeleteActor, true);
 
 			m_dataGrid.DataError += m_dataGrid_DataError;
 
@@ -48,10 +49,15 @@ namespace Glyssen.Controls
 			ActorAge.DataSource = VoiceActorInformationViewModel.GetAgeDataTable();
 			ActorAge.ValueMember = "ID";
 			ActorAge.DisplayMember = "Name";
+			ActorAge.ToolTipText = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.ActorAgeTooltip",
+				"“Age” quality of actor’s voice");
 
 			ActorQuality.DataSource = VoiceActorInformationViewModel.GetVoiceQualityDataTable();
 			ActorQuality.ValueMember = "ID";
 			ActorQuality.DisplayMember = "Name";
+
+			ActorInactive.ToolTipText = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.ActorAgeTooltip",
+				"No longer available");
 
 			// Sadly, we have to do this here because setting it in the Designer doesn't work since BetterGrid overrides
 			// the default value in its constructor.
@@ -62,9 +68,9 @@ namespace Glyssen.Controls
 
 			// We can't set this in the designer because L10NSharp is squashing it when the header is localized.
 			Cameo.ToolTipText = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.CameoTooltip",
-															"Distinguished actor to play minor character role.");
+				"Distinguished actor to play minor character role.");
 
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
 		}
 
 		private void HandleStringsLocalized()
@@ -77,6 +83,7 @@ namespace Glyssen.Controls
 		void m_dataGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
 		{
 			Analytics.ReportException(e.Exception);
+			Logger.WriteEvent($"Following error is fatal exception from {((DataGridView)sender).Name}. Row: {e.RowIndex}; Column: {e.ColumnIndex}");
 			ErrorReport.ReportFatalException(e.Exception);
 			throw e.Exception;
 		}
@@ -121,9 +128,12 @@ namespace Glyssen.Controls
 
 		private void DeleteActor(int iRow)
 		{
-			foreach (DataGridViewRow row in m_dataGrid.Rows)
-				row.Selected = row.Index == iRow;
-			RemoveSelectedRows();
+			Debug.Assert(m_dataGrid.Rows[iRow].Selected);
+
+			if (GetCountOfConfirmedActorsToDelete() == 0)
+				return;
+
+			m_actorInformationViewModel.DeleteVoiceActors(new HashSet<VoiceActor> { m_actorInformationViewModel.Actors[iRow] });
 		}
 
 		private void SaveVoiceActorInformation()
@@ -229,12 +239,17 @@ namespace Glyssen.Controls
 
 		private void m_dataGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
 		{
+			// PG-639: has the new row been removed by m_dataGrid.CancelEdit?
+			if (e.RowIndex == m_actorInformationViewModel.Actors.Count)
+				return;
+
 			if (m_actorInformationViewModel.ValidateActor(e.RowIndex) == VoiceActorInformationViewModel.ActorValidationState.Valid)
 				SaveVoiceActorInformation();
 		}
 
 		private void m_contextMenu_Opening(object sender, CancelEventArgs e)
 		{
+			m_contextMenu_itemDeleteActors.Enabled = true;
 			if (SelectedRows.Count > 1)
 			{
 				m_contextMenu_itemDeleteActors.Text = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.ContextMenu.DeleteActors", "Delete Actors");
@@ -242,6 +257,8 @@ namespace Glyssen.Controls
 			else
 			{
 				m_contextMenu_itemDeleteActors.Text = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.ContextMenu.DeleteActor", "Delete Actor");
+				if (m_dataGrid.SelectedRows[0].IsNewRow)
+					m_contextMenu_itemDeleteActors.Enabled = false;
 			}
 		}
 
@@ -263,7 +280,7 @@ namespace Glyssen.Controls
 				if (m_dataGrid.Rows[e.RowIndex].IsNewRow)
 					return;
 
-				VoiceActor.VoiceActor editedActor = e.RowIndex < m_actorInformationViewModel.Actors.Count
+				VoiceActor editedActor = e.RowIndex < m_actorInformationViewModel.Actors.Count
 					? m_actorInformationViewModel.Actors[e.RowIndex]
 					: null;
 				Debug.Assert(editedActor != null);
@@ -280,11 +297,18 @@ namespace Glyssen.Controls
 
 		private void m_dataGrid_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
 		{
+			// The name is required, but for the new row, we have to allow it to be empty. Once it gets added to the actor collection, though,
+			// we need to delete it if the user tries to leave without ever supplying a name. Technically, we could force them to click the
+			// delete button instead, but this seems nicer.
+			// REVIEW: If we ever allow a lot more info to be specified for an actor, we may not want to allow them to accidentally abandon
+			// this and lose work.
 			if (m_dataGrid.Rows[e.RowIndex].IsNewRow)
 			{
-				if (m_actorInformationViewModel.Actors.Count == e.RowIndex + 1)
+				if (m_actorInformationViewModel.Actors.Count - 1 == e.RowIndex &&
+					(m_actorInformationViewModel.ValidateActor(e.RowIndex) ==
+					VoiceActorInformationViewModel.ActorValidationState.NoName))
 				{
-					var actorsToRemove = new HashSet<VoiceActor.VoiceActor>();
+					var actorsToRemove = new HashSet<VoiceActor>();
 					actorsToRemove.Add(m_actorInformationViewModel.Actors[e.RowIndex]);
 					m_actorInformationViewModel.DeleteVoiceActors(actorsToRemove);
 					m_dataGrid.CancelEdit();
@@ -301,6 +325,17 @@ namespace Glyssen.Controls
 						"Actor Name must be provided."));
 					if (m_dataGrid.CurrentCellAddress.X != ActorName.Index)
 						m_dataGrid.CurrentCell = m_dataGrid.Rows[e.RowIndex].Cells[ActorName.Index];
+					if (!m_dataGrid.CurrentCell.Displayed)
+					{
+						if (m_dataGrid.CurrentRow.Index < m_dataGrid.FirstDisplayedScrollingRowIndex)
+							m_dataGrid.FirstDisplayedScrollingRowIndex = m_dataGrid.CurrentRow.Index;
+						else
+						{
+							var numberOfRowsToScrollUp = m_dataGrid.CurrentRow.Index + 1 -
+								(m_dataGrid.FirstDisplayedScrollingRowIndex + m_dataGrid.DisplayedRowCount(true));
+							m_dataGrid.FirstDisplayedScrollingRowIndex += numberOfRowsToScrollUp;
+						}
+					}
 				}
 			}
 		}
@@ -345,24 +380,11 @@ namespace Glyssen.Controls
 				e.Value = actor.IsCameo;
 			else if (e.ColumnIndex == ActorInactive.Index)
 				e.Value = actor.IsInactive;
-			else if (e.ColumnIndex == DeleteButtonCol.Index)
-			{
-				if (m_dataGrid.Rows[e.RowIndex].IsNewRow)
-					e.Value = DataGridViewEmptyImageCell.EmptyBitmap;
-				else
-				{
-					var rc = m_dataGrid.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false);
-					bool mouseOverRemoveImage = rc.Contains(PointToClient(MousePosition));
-
-					if (m_dataGrid.CurrentCellAddress.Y == e.RowIndex || mouseOverRemoveImage)
-						e.Value = (mouseOverRemoveImage ? Resources.RemoveGridRowHot : DeleteButtonCol.Image);
-				}
-			}
 		}
 
 		private void m_dataGrid_CellValuePushed(object sender, DataGridViewCellValueEventArgs e)
 		{
-			VoiceActor.VoiceActor actor = m_actorInformationViewModel.Actors[e.RowIndex];
+			VoiceActor actor = m_actorInformationViewModel.Actors[e.RowIndex];
 
 			if (e.Value == null)
 				return;
@@ -370,17 +392,17 @@ namespace Glyssen.Controls
 			if (e.ColumnIndex == ActorName.Index)
 				actor.Name = (string)e.Value;
 			else if (e.ColumnIndex == ActorGender.Index)
-				actor.Gender = (ActorGender)e.Value;
+				actor.Gender = (ActorGender) e.Value;
 			else if (e.ColumnIndex == ActorAge.Index)
-				actor.Age = (ActorAge)e.Value;
+				actor.Age = (ActorAge) e.Value;
 			else if (e.ColumnIndex == ActorStatus.Index)
-				actor.Status = (bool)e.Value;
+				actor.Status = (bool) e.Value;
 			else if (e.ColumnIndex == ActorQuality.Index)
-				actor.VoiceQuality = (VoiceQuality)e.Value;
+				actor.VoiceQuality = (VoiceQuality) e.Value;
 			else if (e.ColumnIndex == Cameo.Index)
-				actor.IsCameo = (bool)e.Value;
+				actor.IsCameo = (bool) e.Value;
 			else if (e.ColumnIndex == ActorInactive.Index)
-				m_actorInformationViewModel.SetInactive(actor, (bool)e.Value);
+				m_actorInformationViewModel.SetInactive(actor, (bool) e.Value);
 		}
 
 		private void m_dataGrid_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
@@ -388,7 +410,7 @@ namespace Glyssen.Controls
 			if (m_selectedActorsRemainingToDelete > 0)
 			{
 				m_selectedActorsRemainingToDelete--;
-				var actorsToRemove = new HashSet<VoiceActor.VoiceActor>();
+				var actorsToRemove = new HashSet<VoiceActor>();
 				actorsToRemove.Add(m_actorInformationViewModel.Actors[e.RowIndex]);
 				m_actorInformationViewModel.DeleteVoiceActors(actorsToRemove);
 			}
@@ -423,7 +445,7 @@ namespace Glyssen.Controls
 
 		private int GetCountOfConfirmedActorsToDelete()
 		{
-			var actorsToRemove = new HashSet<VoiceActor.VoiceActor>();
+			var actorsToRemove = new HashSet<VoiceActor>();
 			foreach (DataGridViewRow row in m_dataGrid.SelectedRows)
 				actorsToRemove.Add(m_actorInformationViewModel.Actors[row.Index]);
 
@@ -475,19 +497,22 @@ namespace Glyssen.Controls
 		private void m_dataGrid_NewRowNeeded(object sender, DataGridViewRowEventArgs e)
 		{
 			if (m_actorInformationViewModel.Actors.Count == e.Row.Index)
+			{
 				m_actorInformationViewModel.AddNewActor();
-		}
 
-		private void m_dataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-		{
-			if (e.ColumnIndex == DeleteButtonCol.Index && e.RowIndex >= 0 && !m_dataGrid.Rows[e.RowIndex].IsNewRow)
-				DeleteActor(e.RowIndex);
-		}
+				// was the first column clicked?
+				var point = m_dataGrid.PointToClient(Cursor.Position);
+				var hit = m_dataGrid.HitTest(point.X, point.Y);
 
-		private void m_dataGrid_CellMouseEnterOrLeave(object sender, DataGridViewCellEventArgs e)
-		{
-			if (e.ColumnIndex == DeleteButtonCol.Index && e.RowIndex >= 0 && e.RowIndex < m_actorInformationViewModel.Actors.Count)
-				m_dataGrid.InvalidateCell(e.ColumnIndex, e.RowIndex);
+				if (hit.ColumnIndex != 0) return;
+
+				//PG-638: show the cursor in the name field
+				BeginInvoke(new MethodInvoker(() =>
+				{
+					m_dataGrid.CurrentCell = e.Row.Cells[0];
+					m_dataGrid.BeginEdit(true);
+				}));
+			}
 		}
 
 		private void m_dataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -495,7 +520,7 @@ namespace Glyssen.Controls
 			if (m_actorInformationViewModel == null || e.RowIndex < 0 || e.RowIndex >= m_actorInformationViewModel.Actors.Count)
 				return;
 
-			VoiceActor.VoiceActor actor = m_actorInformationViewModel.Actors[e.RowIndex];
+			VoiceActor actor = m_actorInformationViewModel.Actors[e.RowIndex];
 			if (actor.IsInactive)
 				e.CellStyle.ForeColor = Color.Gray;
 		}

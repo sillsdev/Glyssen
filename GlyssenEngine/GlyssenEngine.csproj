@@ -1,0 +1,124 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Platforms>AnyCPU;x64</Platforms>
+    <Authors>SIL International, Faith Comes By Hearing</Authors>
+    <Company>FCBH-SIL</Company>
+    <Description>Glyssen "business logic" layer used for working with projects to create audio Bible scripts.</Description>
+    <PackageProjectUrl>https://software.sil.org/glyssen/</PackageProjectUrl>
+    <Copyright>Copyright © 2014-2020 Faith Comes By Hearing and SIL International</Copyright>
+    <RepositoryUrl>https://github.com/sillsdev/glyssen/</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\output\Debug\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutputPath>..\output\Debug\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\output\Release\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutputPath>..\output\Release\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Character\Template\CharacterGroupTemplate.cs" />
+    <Compile Remove="Character\Template\CharacterGroupTemplateExcelFile.cs" />
+    <Compile Remove="Character\Template\ICharacterGroupSource.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Annotations.txt" />
+    <None Remove="Resources\BiblicalAuthors.txt" />
+    <None Remove="Resources\BlockSplit.css" />
+    <None Remove="Resources\CharacterDetail.txt" />
+    <None Remove="Resources\CharacterVerse.txt" />
+    <None Remove="Resources\EnglishVersification.txt" />
+    <None Remove="Resources\NarratorOverrides.xml" />
+    <None Remove="Resources\quoteSystems.xml" />
+    <None Remove="Resources\RelatedCharacters.xml" />
+    <None Remove="Resources\SampleMRK.xml" />
+    <None Remove="Resources\Silent.wav" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotNetZip" Version="1.13.4" />
+    <PackageReference Include="icu.net" Version="2.6.0" />
+    <PackageReference Include="Microsoft.DotNet.PlatformAbstractions" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="3.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="ParatextData" Version="9.1.1-beta" />
+    <PackageReference Include="SIL.Core" Version="8.0.0-beta0091" />
+    <PackageReference Include="SIL.DblBundle" Version="8.0.0-beta0085" />
+    <PackageReference Include="SIL.Scripture" Version="8.0.0-beta0091" />
+    <PackageReference Include="SIL.WritingSystems" Version="8.0.0-beta0085" />
+    <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GlyssenShared\GlyssenShared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>ControlDataIntegrityTests</_Parameter1>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>GlyssenTests</_Parameter1>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>GlyssenEngineTests</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Annotations.txt" />
+    <Content Include="Resources\BiblicalAuthors.txt" />
+    <Content Include="Resources\BlockSplit.css" />
+    <Content Include="Resources\CharacterDetail.txt" />
+    <Content Include="Resources\CharacterVerse.txt" />
+    <Content Include="Resources\EnglishVersification.txt" />
+    <Content Include="Resources\NarratorOverrides.xml" />
+    <Content Include="Resources\quoteSystems.xml" />
+    <Content Include="Resources\RelatedCharacters.xml" />
+    <Content Include="Resources\SampleMRK.xml" />
+    <Content Include="Resources\Silent.wav" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Character\Template\CharacterGroupTemplate.cs" />
+    <None Include="Character\Template\CharacterGroupTemplateExcelFile.cs" />
+    <None Include="Character\Template\ICharacterGroupSource.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="EPPlus">
+      <HintPath>..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

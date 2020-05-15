@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Glyssen.Utilities;
+using GlyssenEngine.ViewModels;
 using L10NSharp;
 using L10NSharp.UI;
+using L10NSharp.TMXUtils;
 
 namespace Glyssen.Dialogs
 {
@@ -17,7 +18,7 @@ namespace Glyssen.Dialogs
 
 			m_viewModel = model;
 			HandleStringsLocalized();
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg< TMXDocument>.StringsLocalized += HandleStringsLocalized;
 			m_characterDetailsGrid.RowCount = m_viewModel.FilteredCharactersCount;
 		}
 

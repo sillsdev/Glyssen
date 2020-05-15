@@ -56,20 +56,21 @@
 			// m_lblAddOneOrMore
 			// 
 			this.m_lblAddOneOrMore.AutoSize = true;
-			this.m_lblAddOneOrMore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_lblAddOneOrMore.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_lblAddOneOrMore, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tableLayoutPanelMain.SetColumnSpan(this.m_lblAddOneOrMore, 3);
 			this.glyssenColorPalette.SetForeColor(this.m_lblAddOneOrMore, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblAddOneOrMore.ForeColor = System.Drawing.Color.White;
+			this.m_lblAddOneOrMore.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblAddOneOrMore, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblAddOneOrMore, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblAddOneOrMore, "DialogBoxes.SelectExistingProjectDlg.AddOneOrMore");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblAddOneOrMore, "DialogBoxes.SplitCharacterGroupDlg.AddOneOrMore");
 			this.m_lblAddOneOrMore.Location = new System.Drawing.Point(0, 0);
 			this.m_lblAddOneOrMore.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
 			this.m_lblAddOneOrMore.Name = "m_lblAddOneOrMore";
-			this.m_lblAddOneOrMore.Size = new System.Drawing.Size(218, 13);
+			this.m_lblAddOneOrMore.Size = new System.Drawing.Size(212, 13);
 			this.m_lblAddOneOrMore.TabIndex = 0;
-			this.m_lblAddOneOrMore.Text = "Add one ore more characters to a new group";
+			this.m_lblAddOneOrMore.Text = "Add one or more characters to a new group";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblAddOneOrMore, true);
 			// 
 			// m_btnOk
 			// 
@@ -77,6 +78,7 @@
 			this.glyssenColorPalette.SetBackColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.m_btnOk.Enabled = false;
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnOk, null);
@@ -96,6 +98,7 @@
 			this.m_btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.glyssenColorPalette.SetBackColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnCancel, null);
@@ -114,6 +117,7 @@
 			this.m_btnRemove.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.m_btnRemove.AutoSize = true;
 			this.glyssenColorPalette.SetBackColor(this.m_btnRemove, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnRemove, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnRemove, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnRemove, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnRemove, null);
@@ -132,6 +136,7 @@
 			this.m_btnAdd.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.m_btnAdd.AutoSize = true;
 			this.glyssenColorPalette.SetBackColor(this.m_btnAdd, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnAdd, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnAdd, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnAdd, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnAdd, null);
@@ -148,36 +153,38 @@
 			// m_lblExistingGroup
 			// 
 			this.m_lblExistingGroup.AutoSize = true;
-			this.m_lblExistingGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_lblExistingGroup.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_lblExistingGroup, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.m_lblExistingGroup, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblExistingGroup.ForeColor = System.Drawing.Color.White;
+			this.m_lblExistingGroup.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblExistingGroup, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblExistingGroup, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblExistingGroup, "DialogBoxes.SelectExistingProjectDlg.ExistingGroup");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblExistingGroup, "DialogBoxes.SplitCharacterGroupDlg.ExistingGroup");
 			this.m_lblExistingGroup.Location = new System.Drawing.Point(0, 37);
 			this.m_lblExistingGroup.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
 			this.m_lblExistingGroup.Name = "m_lblExistingGroup";
 			this.m_lblExistingGroup.Size = new System.Drawing.Size(75, 13);
 			this.m_lblExistingGroup.TabIndex = 6;
 			this.m_lblExistingGroup.Text = "Existing Group";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblExistingGroup, true);
 			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.label2.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.label2, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.label2, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.label2.ForeColor = System.Drawing.Color.White;
+			this.label2.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label2, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.label2, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.label2, "DialogBoxes.SelectExistingProjectDlg.NewGroup");
+			this.m_l10NSharpExtender.SetLocalizingId(this.label2, "DialogBoxes.SplitCharacterGroupDlg.NewGroup");
 			this.label2.Location = new System.Drawing.Point(278, 37);
 			this.label2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(61, 13);
 			this.label2.TabIndex = 7;
 			this.label2.Text = "New Group";
+			this.glyssenColorPalette.SetUsePaletteColors(this.label2, true);
 			// 
 			// m_tableLayoutPanelMain
 			// 
@@ -282,6 +289,7 @@
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Split Character Group";
+			this.glyssenColorPalette.SetUsePaletteColors(this, true);
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			this.m_tableLayoutPanelMain.ResumeLayout(false);
 			this.m_tableLayoutPanelMain.PerformLayout();

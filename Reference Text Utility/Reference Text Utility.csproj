@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8B40629B-EFD9-4823-B494-041766B8625F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Glyssen.ReferenceTextUtility</RootNamespace>
+    <AssemblyName>ReferenceTextUtility</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\output\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\output\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\RefTextUtility.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\output\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>..\output\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AtkSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AtkSharp-signed.3.22.24.37\lib\netstandard2.0\AtkSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="CairoSharp, Version=3.22.24.37, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
+      <HintPath>..\packages\CairoSharp-signed.3.22.24.37\lib\netstandard2.0\CairoSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="DialogAdapters, Version=0.1.6.21495, Culture=neutral, PublicKeyToken=7dc842182b0626dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\DialogAdapters.0.1.6.21495\lib\net45\DialogAdapters.dll</HintPath>
+    </Reference>
+    <Reference Include="Enchant.Net, Version=1.4.0.0, Culture=neutral, PublicKeyToken=ae135aeb3d479ab9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Enchant.Net.1.4.2\lib\net461\Enchant.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="GdkSharp, Version=3.22.24.37, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
+      <HintPath>..\packages\GdkSharp-signed.3.22.24.37\lib\netstandard2.0\GdkSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="GioSharp, Version=3.22.24.37, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
+      <HintPath>..\packages\GioSharp-signed.3.22.24.37\lib\netstandard2.0\GioSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="GLibSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
+      <HintPath>..\packages\GLibSharp-signed.3.22.24.37\lib\netstandard2.0\GLibSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="GtkSharp, Version=3.22.24.37, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
+      <HintPath>..\packages\GtkSharp-signed.3.22.24.37\lib\netstandard2.0\GtkSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="icu.net, Version=2.6.0.0, Culture=neutral, PublicKeyToken=416fdd914afa6b66, processorArchitecture=MSIL">
+      <HintPath>..\packages\icu.net.2.6.0\lib\net451\icu.net.dll</HintPath>
+    </Reference>
+    <Reference Include="L10NSharp, Version=4.0.0.0, Culture=neutral, PublicKeyToken=fd0b3e309a5b7c28, processorArchitecture=MSIL">
+      <HintPath>..\packages\L10NSharp.4.0.3\lib\net461\L10NSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="MarkdownDeep, Version=1.5.7366.28328, Culture=neutral, PublicKeyToken=a3790ba34fe8597c, processorArchitecture=MSIL">
+      <HintPath>..\packages\MarkdownDeep.NET.Patched.1.5.0.2\lib\net35\MarkdownDeep.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DotNet.PlatformAbstractions, Version=3.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.DotNet.PlatformAbstractions.3.1.0\lib\net45\Microsoft.DotNet.PlatformAbstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyModel, Version=3.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyModel.3.1.0\lib\net451\Microsoft.Extensions.DependencyModel.dll</HintPath>
+    </Reference>
+    <Reference Include="NDesk.DBus, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f6716e4f9b2ed099, processorArchitecture=MSIL">
+      <HintPath>..\packages\NDesk.DBus.0.15.0\lib\NDesk.DBus.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PangoSharp, Version=3.22.24.37, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
+      <HintPath>..\packages\PangoSharp-signed.3.22.24.37\lib\netstandard2.0\PangoSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <HintPath>..\packages\SIL.Core.8.0.0-beta0091\lib\net461\SIL.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.Core.Desktop, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <HintPath>..\packages\SIL.Core.Desktop.8.0.0-beta0085\lib\net461\SIL.Core.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.DblBundle, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <HintPath>..\packages\SIL.DblBundle.8.0.0-beta0085\lib\net461\SIL.DblBundle.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.Scripture, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <HintPath>..\packages\SIL.Scripture.8.0.0-beta0091\lib\net461\SIL.Scripture.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.Windows.Forms, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <HintPath>..\packages\SIL.Windows.Forms.8.0.0-beta0085\lib\net461\SIL.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.WritingSystems, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <HintPath>..\packages\SIL.WritingSystems.8.0.0-beta0085\lib\net461\SIL.WritingSystems.dll</HintPath>
+    </Reference>
+    <Reference Include="Spart, Version=1.0.0.0, Culture=neutral, PublicKeyToken=14d24e064e474331, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spart.1.0.0\lib\net461\Spart.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.FileSystem.AccessControl, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.AccessControl.4.7.0\lib\net461\System.IO.FileSystem.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.4.7.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.7.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TagLibSharp, Version=2.2.0.0, Culture=neutral, PublicKeyToken=db62eba44689b5b0, processorArchitecture=MSIL">
+      <HintPath>..\packages\TagLibSharp.2.2.0\lib\net45\TagLibSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="OutputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OutputForm.Designer.cs">
+      <DependentUpon>OutputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RefTextUtilityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RefTextUtilityForm.Designer.cs">
+      <DependentUpon>RefTextUtilityForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="OutputForm.resx">
+      <DependentUpon>OutputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RefTextUtilityForm.resx">
+      <DependentUpon>RefTextUtilityForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GlyssenEngine\GlyssenEngine.csproj">
+      <Project>{fdf9df2e-776b-4d7c-8e63-61dad4c39ac3}</Project>
+      <Name>GlyssenEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GlyssenFileBasedPersistence\GlyssenFileBasedPersistence.csproj">
+      <Project>{6664b511-ec4e-47ef-b073-b31ab9c947d4}</Project>
+      <Name>GlyssenFileBasedPersistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GlyssenShared\GlyssenShared.csproj">
+      <Project>{965c34cf-8afb-4132-a2ff-fd4ebb0b410d}</Project>
+      <Name>GlyssenShared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RefTextDevUtilities\RefTextDevUtilities.csproj">
+      <Project>{49c0c51d-190f-450d-a7be-14e843c2e89d}</Project>
+      <Name>RefTextDevUtilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refTextMetadata.glyssen" />
+    <None Include="Resources\RefTextUtility.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refTextMetadata.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\NDesk.DBus.0.15.0\build\NDesk.DBus.targets" Condition="Exists('..\packages\NDesk.DBus.0.15.0\build\NDesk.DBus.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NDesk.DBus.0.15.0\build\NDesk.DBus.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NDesk.DBus.0.15.0\build\NDesk.DBus.targets'))" />
+    <Error Condition="!Exists('..\packages\Mono.Posix.5.4.0.201\build\net45\Mono.Posix.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Mono.Posix.5.4.0.201\build\net45\Mono.Posix.targets'))" />
+  </Target>
+  <Import Project="..\packages\Mono.Posix.5.4.0.201\build\net45\Mono.Posix.targets" Condition="Exists('..\packages\Mono.Posix.5.4.0.201\build\net45\Mono.Posix.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

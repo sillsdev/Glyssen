@@ -2,23 +2,24 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
-using Glyssen;
-using Glyssen.Bundle;
-using Glyssen.Character;
-using SIL.IO;
-using SIL.Reporting;
+using Glyssen.RefTextDevUtilities;
+using Glyssen.Shared;
+using Glyssen.Utilities;
+using GlyssenEngine;
+using GlyssenEngine.Character;
+using GlyssenEngine.Script;
+using GlyssenFileBasedPersistence;
 using SIL.Scripture;
 using SIL.WritingSystems;
+using static System.String;
 
 namespace DevTools
 {
 	class CharacterDetailProcessing
 	{
-		private const char Tab = '\t';
-		private static readonly Regex FindTabsRegex = new Regex("\t", RegexOptions.Compiled);
+		private const char kTab = '\t';
+		private static readonly Regex s_regexContentBeforeAndAfterReference = new Regex(@"(?<precedingPart>([^\t]*\t){6})[^\t]*(?<followingPart>.*)", RegexOptions.Compiled);
 
 		public static void GenerateReferences()
 		{
@@ -30,14 +31,23 @@ namespace DevTools
 
 		private static void PopulateReferences(List<CharacterDetailLine> lines)
 		{
-			Dictionary<string, List<BCVRef>> dictionary =
-				ControlCharacterVerseData.Singleton.GetAllQuoteInfo()
-					.GroupBy(c => c.Character)
-					.ToDictionary(c => c.Key, cv => cv.Select(c => c.BcvRef).ToList());
+			// ENHANCE: Get info from NarratorOverrides as well. The information there
+			// would not currently allow us to indicate exactly how many occurrences
+			// there are because it is done using ranges and we do not necessarily
+			// expect that every verse in the range could/would be assigned to that
+			// character. Perhaps we could tack on something like:
+			// ; Also used as narrator override in PSA, JER, EZK.
+			// But how useful would that information really be?
+
+			Dictionary<string, List<BCVRef>> dictionaryOfCharactersToReferences =
+				ControlCharacterVerseData.Singleton.GetAllQuoteInfo().SelectMany(cv => cv.Character.Split('/')
+				.Select(c => new Tuple<string, GlyssenEngine.Character.CharacterVerse>(c, cv)))
+				.GroupBy(t => t.Item1, t => t.Item2).ToDictionary(c => c.Key, cv => cv.Select(c => c.BcvRef).ToList());
+
 			foreach (var line in lines)
 			{
-				List<BCVRef> bcvRefs;
-				if (dictionary.TryGetValue(line.CharacterId, out bcvRefs))
+				if (dictionaryOfCharactersToReferences.TryGetValue(line.CharacterId, out var bcvRefs))
+				{
 					switch (bcvRefs.Count)
 					{
 						case 0:
@@ -52,40 +62,42 @@ namespace DevTools
 							line.ReferenceComment = bcvRefs.Min() + " <-(" + (bcvRefs.Count - 2) + " more)-> " + bcvRefs.Max();
 							break;
 					}
+				}
 			}
 		}
 
 		private static string Stringify(List<CharacterDetailLine> lines)
 		{
-			StringBuilder sb = new StringBuilder();
-			foreach (var line in lines)
-				sb.Append(GetNewLine(line)).Append(Environment.NewLine);
-			return sb.ToString();
+			return Join(Environment.NewLine, lines.Select(GetNewLine));
 		}
 
 		private static string GetNewLine(CharacterDetailLine line)
 		{
-			if (FindTabsRegex.Matches(line.CurrentLine).Count == 5)
-				return line.CurrentLine + Tab + line.ReferenceComment;
+			var match = s_regexContentBeforeAndAfterReference.Match(line.CurrentLine);
+			if (!match.Success)
+				throw new ArgumentException($"Invalid input: {line.CurrentLine}", nameof(line));
 
-			int finalTabIndex = line.CurrentLine.LastIndexOf("\t", StringComparison.Ordinal);
-			return line.CurrentLine.Substring(0, finalTabIndex + 1) + line.ReferenceComment;
+			var lineWithReferenceComment = match.Result("${precedingPart}") + line.ReferenceComment + match.Result("${followingPart}");
+			return lineWithReferenceComment;
 		}
+
+		private static string RelativePathToCharacterDetailFile => $"..\\..\\GlyssenEngine\\Resources\\{ReferenceTextUtility.kCharacterDetailTxtFilename}";
 
 		private static void WriteFile(string fileText)
 		{
-			fileText = "#Character ID\tMax Speakers\tGender\tAge\tStatus\tComment\tReference Comment" + Environment.NewLine +
-						fileText;
-			File.WriteAllText("..\\..\\..\\Glyssen\\Resources\\CharacterDetail.txt", fileText);
+			// Note: Keeping the "Status" column around in case we want to bring it back, but it is currently always empty and
+			// always ignored in Glyssen.
+			fileText = "#Character ID\tMax Speakers\tGender\tAge\tStatus\tComment\tReference\tFCBH Character" + Environment.NewLine +
+				fileText;
+			File.WriteAllText(RelativePathToCharacterDetailFile, fileText);
 		}
 
 		private static List<CharacterDetailLine> ReadFile()
 		{
-			return
-				File.ReadAllLines("..\\..\\..\\Glyssen\\Resources\\CharacterDetail.txt")
-					.Select(ReadLine)
-					.Where(l => l != null)
-					.ToList();
+			return File.ReadAllLines(RelativePathToCharacterDetailFile)
+				.Select(ReadLine)
+				.Where(l => l != null)
+				.ToList();
 		}
 
 		private static CharacterDetailLine ReadLine(string line)
@@ -93,7 +105,7 @@ namespace DevTools
 			if (line.StartsWith("#"))
 				return null;
 
-			string characterId = line.Substring(0, line.IndexOf(Tab));
+			string characterId = line.Substring(0, line.IndexOf(kTab));
 			return new CharacterDetailLine
 			{
 				CharacterId = characterId,
@@ -108,30 +120,55 @@ namespace DevTools
 			public string ReferenceComment { get; set; }
 		}
 
+		private class NonUiFontRepository : IFontRepository
+		{
+			public bool IsFontInstalled(string fontFamilyIdentifier)
+			{
+				return true;
+			}
+
+			public bool DoesTrueTypeFontFileContainFontFamily(string ttfFile, string fontFamilyIdentifier)
+			{
+				throw new NotImplementedException();
+			}
+
+			public void TryToInstall(string fontFamilyIdentifier, IReadOnlyCollection<string> ttfFile)
+			{
+				throw new NotImplementedException();
+			}
+
+			public void ReportMissingFontFamily(string fontFamilyIdentifier)
+			{
+				throw new NotImplementedException();
+			}
+		}
+
 		public static void GetAllControlFileEntriesThatCouldBeMarkedAsImplicit()
 		{
 			Sldr.Initialize();
+			ProjectBase.Reader = ReferenceTextProxy.Reader = new PersistenceImplementation();
+			Project.FontRepository = new NonUiFontRepository();
 			try
 			{
 				var projectsToUse = new Dictionary<string, Tuple<DateTime, Project>>();
-				foreach (var projFile in Project.AllRecordingProjectFolders.SelectMany(d => Directory.GetFiles(d, "*" + Project.kProjectFileExtension)))
+				foreach (var projFile in ProjectRepository.AllRecordingProjectFolders.SelectMany(d => Directory.GetFiles(d, "*" + ProjectRepository.kProjectFileExtension)))
 				{
 					var lastWriteTime = File.GetLastWriteTime(projFile);
 					try
 					{
-						Project proj = Project.Load(projFile);
+						Project proj = ProjectRepository.LoadProject(projFile);
 						if (proj.ProjectState == ProjectState.FullyInitialized)
 						{
-							var drammatizedBookCount = proj.IncludedBooks.Count(b => !b.SingleVoice);
-							if (drammatizedBookCount > 15)
+							var dramatizedBookCount = proj.IncludedBooks.Count(b => !b.SingleVoice);
+							if (dramatizedBookCount > 15)
 							{
 								Tuple<DateTime, Project> existingProjectInfo;
 								if (projectsToUse.TryGetValue(proj.Id, out existingProjectInfo))
 								{
 									var existingProject = existingProjectInfo.Item2;
-									var existingProjDrammatizedBookCount = existingProject.IncludedBooks.Count(b => !b.SingleVoice);
-									if (drammatizedBookCount > existingProjDrammatizedBookCount ||
-										(drammatizedBookCount == existingProjDrammatizedBookCount && lastWriteTime > existingProjectInfo.Item1))
+									var existingProjDramatizedBookCount = existingProject.IncludedBooks.Count(b => !b.SingleVoice);
+									if (dramatizedBookCount > existingProjDramatizedBookCount ||
+										(dramatizedBookCount == existingProjDramatizedBookCount && lastWriteTime > existingProjectInfo.Item1))
 										projectsToUse[proj.Id] = new Tuple<DateTime, Project>(lastWriteTime, proj);
 								}
 								else
@@ -165,17 +202,17 @@ namespace DevTools
 					{
 						var bookCode = BCVRef.NumberToBookCode(b);
 						bool multipleCharactersInVerse = false;
-						var allKnownSpeakers = ControlCharacterVerseData.Singleton.GetAllQuoteInfo(bookCode).ToList();
+						var allKnownSpeakers = ControlCharacterVerseData.Singleton.GetAllQuoteInfo(b).ToList();
 						var prevCharacterVerse = allKnownSpeakers.FirstOrDefault();
 						if (prevCharacterVerse == null)
 							continue;
-						var booksInAllProjects = projectsToUse.Values.Select(t => t.Item2).SelectMany(p => p.IncludedBooks).Where(book => book.BookId == bookCode && !book.SingleVoice).ToList();
+						var booksInAllProjects = projectsToUse.Values.Select(t => t.Item2).SelectMany(p => p.IncludedBooks).Where(book => book.BookNumber == b && !book.SingleVoice).ToList();
 						if (!booksInAllProjects.Any())
 						{
-							Console.WriteLine("No drammatized books included in any projects for " + bookCode);
+							Console.WriteLine("No dramatized books included in any projects for " + bookCode);
 							continue;
 						}
-						Console.WriteLine("Analyzing " + booksInAllProjects.Count + " drammatized books for " + bookCode);
+						Console.WriteLine("Analyzing " + booksInAllProjects.Count + " dramatized books for " + bookCode);
 
 						foreach (var cv in allKnownSpeakers.Skip(1))
 						{
@@ -202,7 +239,7 @@ namespace DevTools
 			}
 		}
 
-		private static void WriteImplicitCvLineIfNoNarratorBlocks(StreamWriter writer, Glyssen.Character.CharacterVerse cv, IEnumerable<BookScript> books)
+		private static void WriteImplicitCvLineIfNoNarratorBlocks(StreamWriter writer, GlyssenEngine.Character.CharacterVerse cv, IEnumerable<BookScript> books)
 		{
 			if (cv.QuoteType == QuoteType.Normal || cv.QuoteType == QuoteType.Dialogue)
 			{
@@ -229,7 +266,7 @@ namespace DevTools
 
 		private static Project GetProjectToUse(string languageToUse = "", string bundleIdToUse = "", string recordingProjectToUse = "")
 		{
-			string path = BuildProjectPath(Project.GetLanguageFolderPath(""), ref languageToUse, "Enter langauge of project to use:");
+			string path = BuildProjectPath(ProjectRepository.ProjectsBaseFolder, ref languageToUse, "Enter language of project to use:");
 			if (path == null)
 				return null;
 			path = BuildProjectPath(path, ref bundleIdToUse, "Enter bundle ID of project to use:");
@@ -238,8 +275,8 @@ namespace DevTools
 			path = BuildProjectPath(path, ref recordingProjectToUse, "Enter name of recording project to use:");
 			if (path == null)
 				return null;
-			path = Project.GetProjectFilePath(languageToUse, bundleIdToUse, recordingProjectToUse);
-			return File.Exists(path) ? Project.Load(path) : null;
+			path = ProjectRepository.GetProjectFilePath(languageToUse, bundleIdToUse, recordingProjectToUse);
+			return File.Exists(path) ? ProjectRepository.LoadProject(path) : null;
 		}
 
 		private static string BuildProjectPath(string pathBase, ref string partToAdd, string prompt)

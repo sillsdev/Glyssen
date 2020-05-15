@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="1TI" singlevoice="false" pageheader="1 TIMOTHY CHP">
+  <block style="mt" chapter="0" book="1TI" initialStartVerse="0" characterId="BC-1TI">
+    <text>1 TIMOTHY</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="1TI" initialStartVerse="0" characterId="BC-1TI">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-1TI">
+    <verse num="1" />
+    <text>Paul, an apostle of Christ Jesus according to the commandment of God our Savior, and Lord Christ Jesus our hope;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-1TI">
+    <verse num="2" />
+    <text>to Timothy, my true child in faith: Grace, mercy, and peace, from God our Father and Christ Jesus our Lord.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-1TI">
+    <verse num="3" />
+    <text>As I urged you when I was going into Macedonia, stay at Ephesus that you might command certain men not to teach a different doctrine,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1TI">
+    <verse num="4" />
+    <text>neither to pay attention to myths and endless genealogies, which cause disputes, rather than God’s stewardship, which is in faith.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-1TI">
+    <verse num="5" />
+    <text>The goal of this command is love, out of a pure heart and a good conscience and sincere faith.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1TI">
+    <verse num="6" />
+    <text>Some have wandered away from these things and have turned aside to vain talking.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-1TI">
+    <verse num="7" />
+    <text>They want to be teachers of the law, though they understand neither what they say, nor about what they strongly affirm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-1TI">
+    <verse num="8" />
+    <text>But we know that the law is good, if a man uses it lawfully.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-1TI">
+    <verse num="9" />
+    <text>We also know that law is not made for a righteous man, but for the lawless and insubordinate, for the ungodly and sinners, for the unholy and profane, for murderers of fathers and murderers of mothers, for manslayers,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1TI">
+    <verse num="10" />
+    <text>for the sexually immoral, for homosexuals, for slave-traders, for liars, for perjurers, and for any other thing contrary to the sound doctrine.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-1TI">
+    <verse num="11" />
+    <text>This sound doctrine conforms to the Good News of the glory of the blessed God, and it was entrusted to me.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-1TI">
+    <verse num="12" />
+    <text>And I thank him who enabled me, Christ Jesus our Lord, because he counted me faithful, appointing me to service;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-1TI">
+    <verse num="13" />
+    <text>Even though before I was a a blasphemer, a persecutor, and insolent, I was shown mercy because I did it ignorantly, in unbelief.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-1TI">
+    <verse num="14" />
+    <text>The grace of our Lord abounded exceedingly with faith and love which is in Christ Jesus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-1TI">
+    <verse num="15" />
+    <text>The saying is faithful and worthy of all acceptance, that Christ Jesus came into the world to save sinners; of whom I am chief.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-1TI">
+    <verse num="16" />
+    <text>However, for this cause I obtained mercy, that in me first, Jesus Christ might display all his patience, for an example of those who were going to believe in him for eternal life.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1TI">
+    <verse num="17" />
+    <text>Now to the King eternal, immortal, invisible, to God who alone is wise, be honor and glory forever and ever. Amen.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-1TI">
+    <verse num="18" />
+    <text>This instruction I commit to you, my child Timothy, according to the prophecies which were once made about you. So that by following them you may fight the good fight.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-1TI">
+    <verse num="19" />
+    <text>Keep hold of faith and a good conscience. Some, having thrust these away, have shipwrecked their faith.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-1TI">
+    <verse num="20" />
+    <text>This happened to Hymenaeus and Alexander; whom I delivered to Satan, that they might be taught not to blaspheme.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="1TI" initialStartVerse="0" characterId="BC-1TI">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1TI">
+    <verse num="1" />
+    <text>I exhort therefore, first of all, that petitions, prayers, intercessions, and givings of thanks, be made for all men:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-1TI">
+    <verse num="2" />
+    <text>for kings and all who are in high places; that we may lead a tranquil and quiet life in all godliness and reverence.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-1TI">
+    <verse num="3" />
+    <text>For this is good and acceptable in the sight of God our Savior;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1TI">
+    <verse num="4" />
+    <text>who desires all people to be saved and come to full knowledge of the truth.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1TI">
+    <verse num="5" />
+    <text>For there is one God, and one mediator between God and men, the man Christ Jesus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-1TI">
+    <verse num="6" />
+    <text>He gave himself as a ransom for all. God made this known to the world at the right time.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1TI">
+    <verse num="7" />
+    <text>For this purpose, I was appointed a preacher and an apostle. (I am telling the truth in Christ, not lying), a teacher of the Gentiles in faith and truth.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1TI">
+    <verse num="8" />
+    <text>I desire therefore that the men in every place pray, lifting up holy hands without anger and doubting.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1TI">
+    <verse num="9" />
+    <text>In the same way, that women also adorn themselves in decent clothing, with modesty and propriety; not just with braided hair, gold, pearls, or expensive clothing;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1TI">
+    <verse num="10" />
+    <text>but with good works appropriate for women who profess to worship God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1TI">
+    <verse num="11" />
+    <text>Let a woman learn in quietness with all subjection.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1TI">
+    <verse num="12" />
+    <text>I don’t permit a woman to teach, nor to exercise authority over a man, but to be in quietness.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1TI">
+    <verse num="13" />
+    <text>For Adam was first formed, then Eve.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1TI">
+    <verse num="14" />
+    <text>Adam wasn’t deceived, but the woman, being deceived, has fallen into disobedience.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1TI">
+    <verse num="15" />
+    <text>But she will be saved through her childbearing, if they continue in faith, love, and sanctification with sobriety.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="1TI" initialStartVerse="0" characterId="BC-1TI">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1TI">
+    <verse num="1" />
+    <text>This is a faithful saying: if a man seeks the office of an overseer, he desires a good work.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1TI">
+    <verse num="2" />
+    <text>The overseer therefore must be without reproach, the husband of one wife, temperate, sensible, modest, hospitable, good at teaching;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-1TI">
+    <verse num="3" />
+    <text>not a drinker, not violent, not greedy for money, but gentle, not quarrelsome, not covetous;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1TI">
+    <verse num="4" />
+    <text>one who rules his own house well, having children in subjection with all reverence;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1TI">
+    <verse num="5" />
+    <text>(If a man doesn’t know how to rule his own house, how will he take care of the assembly of God?)</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1TI">
+    <verse num="6" />
+    <text>He must not be a new convert, lest being puffed up he fall into the same condemnation as the devil.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-1TI">
+    <verse num="7" />
+    <text>Moreover he must have good testimony from those who are outside, to avoid falling into reproach and the snare of the devil.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-1TI">
+    <verse num="8" />
+    <text>Servants, in the same way, must be reverent, not double-tongued, not addicted to much wine, not greedy for money;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1TI">
+    <verse num="9" />
+    <text>They must hold the mystery of the faith in a pure conscience.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1TI">
+    <verse num="10" />
+    <text>Let them also first be tested; then let them serve if they are blameless.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-1TI">
+    <verse num="11" />
+    <text>Their wives in the same way must be reverent, not slanderers, temperate, faithful in all things.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-1TI">
+    <verse num="12" />
+    <text>Let servants be husbands of one wife, ruling their children and their own houses well.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1TI">
+    <verse num="13" />
+    <text>For those who have served well gain for themselves a good standing, and great boldness in the faith which is in Christ Jesus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1TI">
+    <verse num="14" />
+    <text>These things I write to you, hoping to come to you shortly;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-1TI">
+    <verse num="15" />
+    <text>but if I wait long, I want you to know how men ought to behave themselves in God’s house. It is the assembly of the living God, the pillar and ground of the truth.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-1TI">
+    <verse num="16" />
+    <text>Without controversy, the mystery of godliness is great: God was revealed in the flesh, justified in the spirit, seen by angels, preached among the nations, believed on in the world, and received up in glory.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="1TI" initialStartVerse="0" characterId="BC-1TI">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1TI">
+    <verse num="1" />
+    <text>But the Spirit says expressly that in later times some will fall away from the faith, paying attention to seducing spirits and doctrines of demons.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-1TI">
+    <verse num="2" />
+    <text>Such teachings come through hypocritical liars, whose consciences have been seared as with a hot iron.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1TI">
+    <verse num="3" />
+    <text>They will forbid marriage and command you to abstain from foods. Things which God created to be received with thanksgiving by those who believe and know the truth.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1TI">
+    <verse num="4" />
+    <text>For every creature of God is good, and nothing is to be rejected, if it is received with thanksgiving.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-1TI">
+    <verse num="5" />
+    <text>For it is sanctified through the word of God and prayer.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1TI">
+    <verse num="6" />
+    <text>If you instruct the brothers of these things, you will be a good servant of Christ Jesus. You will be nourished in the words of the faith, and of the good doctrine which you have followed.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-1TI">
+    <verse num="7" />
+    <text>But refuse profane and old wives’ fables. Exercise yourself toward godliness.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1TI">
+    <verse num="8" />
+    <text>For bodily exercise has some value, but godliness has value in all things, having the promise of the life which is now, and of that which is to come.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1TI">
+    <verse num="9" />
+    <text>This saying is faithful and worthy of all acceptance.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-1TI">
+    <verse num="10" />
+    <text>For to this end we both labor and suffer reproach, because we have set our trust in the living God. He is the Savior of all men, especially of those who believe.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-1TI">
+    <verse num="11" />
+    <text>Command and teach these things.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1TI">
+    <verse num="12" />
+    <text>Let no man despise your youth; but be an example to those who believe, in word, in your way of life, in love, in spirit, in faith, and in purity.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1TI">
+    <verse num="13" />
+    <text>Until I come, pay attention to reading, to exhortation, and to teaching.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1TI">
+    <verse num="14" />
+    <text>Don’t neglect the gift that is in you, which was given to you by prophecy, with the laying on of the hands of the elders.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1TI">
+    <verse num="15" />
+    <text>Be diligent in these things. Give yourself wholly to them, that your progress may be revealed to all.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-1TI">
+    <verse num="16" />
+    <text>Pay attention to yourself, and to your teaching. Continue in these things, for in doing this you will save both yourself and those who hear you.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="1TI" initialStartVerse="0" characterId="BC-1TI">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1TI">
+    <verse num="1" />
+    <text>Don’t rebuke an older man, but exhort him as a father; the younger men as brothers;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-1TI">
+    <verse num="2" />
+    <text>the elder women as mothers; the younger as sisters, in all purity.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-1TI">
+    <verse num="3" />
+    <text>Honor widows who are widows indeed.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1TI">
+    <verse num="4" />
+    <text>But if any widow has children or grandchildren, let them learn first to show piety towards their own family. They should first repay their parents, for this is acceptable in the sight of God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-1TI">
+    <verse num="5" />
+    <text>Now she who is a widow indeed, and desolate, has her hope set on God, and continues in petitions and prayers night and day.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1TI">
+    <verse num="6" />
+    <text>But she who gives herself to pleasure is dead while she lives.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-1TI">
+    <verse num="7" />
+    <text>Also command these things, that they may be without reproach.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-1TI">
+    <verse num="8" />
+    <text>But if anyone doesn’t provide for his own, and especially his own household, he has denied the faith, and is worse than an unbeliever.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1TI">
+    <verse num="9" />
+    <text>Let no one be enrolled as a widow under sixty years old, having been the wife of one man.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1TI">
+    <verse num="10" />
+    <text>She must be known for doing good works, if she has brought up children, if she has been hospitable to strangers, if she has washed the saints’ feet, if she has relieved the afflicted, and if she has diligently followed every good work.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-1TI">
+    <verse num="11" />
+    <text>But refuse younger widows, for when they have grown wanton against Christ, they desire to marry.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1TI">
+    <verse num="12" />
+    <text>Thus they bring judgement on themselves because they have rejected their first pledge.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1TI">
+    <verse num="13" />
+    <text>Besides, they also learn to be idle, going about from house to house. Not only idle, but also gossips and busybodies, saying things which they ought not.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-1TI">
+    <verse num="14" />
+    <text>I desire therefore that the younger widows marry, bear children, rule the household, and give no occasion to the adversary for insulting.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-1TI">
+    <verse num="15" />
+    <text>For already some have turned aside after Satan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1TI">
+    <verse num="16" />
+    <text>If any man or woman who believes has widows, let them relieve them. Don’t let the assembly be burdened; that it might relieve those who are widows indeed.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-1TI">
+    <verse num="17" />
+    <text>Let the elders who rule well be counted worthy of double honor, especially those who labor in the word and in teaching. </text>
+    <verse num="18" />
+    <text>For the Scripture says,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="scripture">
+    <text>“You shall not muzzle the ox when it treads out the grain.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-1TI">
+    <text>And,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="scripture">
+    <text>“The laborer is worthy of his wages.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-1TI">
+    <verse num="19" />
+    <text>Don’t receive an accusation against an elder, except at the word of two or three witnesses.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-1TI">
+    <verse num="20" />
+    <text>Those who sin, reprove in the sight of all, that the rest also may be in fear.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-1TI">
+    <verse num="21" />
+    <text>I command you in the sight of God, and Lord Christ Jesus, and the chosen angels. Observe these things without prejudice, doing nothing by partiality.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-1TI">
+    <verse num="22" />
+    <text>Lay hands hastily on no one, neither be a participant in other men’s sins. Keep yourself pure.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="23" characterId="narrator-1TI">
+    <verse num="23" />
+    <text>Be no longer a drinker of water only, but use a little wine for your stomach’s sake and your frequent infirmities.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="narrator-1TI">
+    <verse num="24" />
+    <text>Some men’s sins are evident, preceding them to judgment, and some also follow later.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-1TI">
+    <verse num="25" />
+    <text>In the same way also there are good works that are obvious, and those that are otherwise can’t be hidden.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="6" book="1TI" initialStartVerse="0" characterId="BC-1TI">
+    <text>6</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-1TI">
+    <verse num="1" />
+    <text>Let as many as are bondservants under the yoke count their own masters worthy of all honor, that the name of God and the doctrine not be blasphemed.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-1TI">
+    <verse num="2" />
+    <text>Those who have believing masters, let them not despise them, because they are brothers, but rather let them serve them. Those who partake of the benefit are believing and beloved. Teach and exhort these things.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-1TI">
+    <verse num="3" />
+    <text>If anyone teaches a different doctrine, and doesn’t consent to sound words, the words of our Lord Jesus Christ, and to the doctrine which is according to godliness,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-1TI">
+    <verse num="4" />
+    <text>he is conceited, knowing nothing, but obsessed with arguments, disputes, and word battles, from which come envy, strife, insulting, evil suspicions,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-1TI">
+    <verse num="5" />
+    <text>and constant friction of people of corrupt minds, and destitute of the truth, who suppose that gain is godliness. Withdraw yourself from such.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-1TI">
+    <verse num="6" />
+    <text>But godliness with contentment is great gain.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-1TI">
+    <verse num="7" />
+    <text>For we brought nothing into the world, and we certainly can’t carry anything out.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-1TI">
+    <verse num="8" />
+    <text>But having food and clothing, we will be content with that.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-1TI">
+    <verse num="9" />
+    <text>But those who are determined to be rich fall into a temptation and a snare and many foolish and harmful lusts, such as drown men in ruin and destruction.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-1TI">
+    <verse num="10" />
+    <text>For the love of money is a root of all evil. Some have been led astray from the faith in their greed, and have pierced themselves through with many sorrows.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-1TI">
+    <verse num="11" />
+    <text>But you, man of God, flee these things, and follow after righteousness, godliness, faith, love, patience, and gentleness.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-1TI">
+    <verse num="12" />
+    <text>Fight the good fight of faith. Lay hold of the eternal life to which you were called, and you confessed the good confession in the sight of many witnesses.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-1TI">
+    <verse num="13" />
+    <text>I command you before God, who gives life to all things, and before Christ Jesus, who before Pontius Pilate testified the good confession.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-1TI">
+    <verse num="14" />
+    <text>Keep the commandment without spot, blameless, until the appearing of our Lord Jesus Christ;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-1TI">
+    <verse num="15" />
+    <text>At the right time we will be shown that God is the blessed and only Ruler, the King of kings, and Lord of lords;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-1TI">
+    <verse num="16" />
+    <text>He alone has immortality, dwelling in unapproachable light; whom no man has seen, nor can see: to whom be honor and eternal power. Amen.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-1TI">
+    <verse num="17" />
+    <text>Charge those who are rich in this present world. They should not be haughty, nor have their hope set on the uncertainty of riches, but on the living God, who richly provides us with everything to enjoy.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-1TI">
+    <verse num="18" />
+    <text>Tell them to do good and to be rich in good works, and to be generous and willing to share.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-1TI">
+    <verse num="19" />
+    <text>In this way they will lay up in store for themselves a good foundation against the time to come, that they may lay hold of eternal life.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="narrator-1TI">
+    <verse num="20" />
+    <text>Timothy, guard that which is committed to you, turning away from the empty chatter and oppositions of what is falsely called knowledge,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="21" characterId="narrator-1TI">
+    <verse num="21" />
+    <text>Some people have gone after much learning and have erred concerning the faith. Grace be with you. Amen.</text>
+  </block>
+  <UnappliedSplits />
+</book>

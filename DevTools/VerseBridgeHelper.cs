@@ -1,13 +1,14 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Text;
-using Glyssen.Character;
+using GlyssenEngine.Character;
 
 namespace DevTools
 {
 	public class VerseBridgeHelper
 	{
-		public const string TAB = "\t";
+		public const string kTab = "\t";
 
 		/// <summary>
 		/// CAREFUL!!!
@@ -20,12 +21,12 @@ namespace DevTools
 			var allQuoteInfo = ControlCharacterVerseData.Singleton.GetAllQuoteInfo();
 
 			var sb = new StringBuilder();
-			foreach (Glyssen.Character.CharacterVerse cv in allQuoteInfo)
+			foreach (GlyssenEngine.Character.CharacterVerse cv in allQuoteInfo.Distinct().OrderBy(cv => cv.BcvRef))
 			{
-				sb.Append(cv.BookCode).Append(TAB)
-					.Append(cv.Chapter).Append(TAB).Append(cv.Verse).Append(TAB).Append(cv.Character).Append(TAB)
-					.Append(cv.Delivery).Append(TAB).Append(cv.Alias).Append(TAB)
-					.Append(cv.QuoteType).Append(TAB).Append(cv.DefaultCharacter).Append(TAB).Append(cv.ParallelPassageReferences)
+				sb.Append(cv.BookCode).Append(kTab)
+					.Append(cv.Chapter).Append(kTab).Append(cv.Verse).Append(kTab).Append(cv.Character).Append(kTab)
+					.Append(cv.Delivery).Append(kTab).Append(cv.Alias).Append(kTab)
+					.Append(cv.QuoteType).Append(kTab).Append(cv.DefaultCharacter).Append(kTab).Append(cv.ParallelPassageReferences)
 					.Append(Environment.NewLine);
 			}
 

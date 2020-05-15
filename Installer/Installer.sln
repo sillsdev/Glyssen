@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29409.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Installer", "Installer.wixproj", "{AE2C52BC-6B66-4F8B-8B50-2CBA58A8207D}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Glyssen Bootstrap Installer", "Bootstrapper\Glyssen Bootstrap Installer.wixproj", "{49C79B83-8C2D-48B2-B30E-5581745C387D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE2C52BC-6B66-4F8B-8B50-2CBA58A8207D}.Debug|x64.ActiveCfg = Debug|x64
+		{AE2C52BC-6B66-4F8B-8B50-2CBA58A8207D}.Debug|x64.Build.0 = Debug|x64
+		{AE2C52BC-6B66-4F8B-8B50-2CBA58A8207D}.Release|x64.ActiveCfg = Release|x64
+		{AE2C52BC-6B66-4F8B-8B50-2CBA58A8207D}.Release|x64.Build.0 = Release|x64
+		{49C79B83-8C2D-48B2-B30E-5581745C387D}.Debug|x64.ActiveCfg = Debug|x64
+		{49C79B83-8C2D-48B2-B30E-5581745C387D}.Debug|x64.Build.0 = Debug|x64
+		{49C79B83-8C2D-48B2-B30E-5581745C387D}.Release|x64.ActiveCfg = Release|x64
+		{49C79B83-8C2D-48B2-B30E-5581745C387D}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {68D180FE-931C-4D2F-8A44-CE30B29E34D6}
+	EndGlobalSection
+EndGlobal
