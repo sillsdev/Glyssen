@@ -106,6 +106,11 @@ namespace Glyssen.RefTextDevUtilities
 		static ReferenceTextUtility()
 		{
 			InitializeQuoteDetectionRegexes();
+			if (ProjectBase.Reader == null)
+			{
+				var persistenceImpl = new PersistenceImplementation();
+				ProjectBase.Reader = ReferenceTextProxy.Reader = persistenceImpl;
+			}
 			s_existingEnglish = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 			DifferencesToIgnore = Ignore.Default;
 		}
