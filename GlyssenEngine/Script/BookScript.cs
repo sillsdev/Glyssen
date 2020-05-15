@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
@@ -37,17 +38,14 @@ namespace GlyssenEngine.Script
 			OnBlocksReset();
 		}
 
-		public static BookScript Deserialize(string fileName, ScrVers versification, out Exception error)
+		/// <summary>
+		/// Gets a BookScript object representing the data in the reader (or null if the reader is null).
+		/// Note: This method will take care of disposing the TextReader object.
+		/// </summary>
+		public static BookScript Deserialize(TextReader reader, ScrVers versification)
 		{
-			var newBook = XmlSerializationHelper.DeserializeFromFile<BookScript>(fileName, out error);
-			newBook.Initialize(versification);
-			return newBook;
-		}
-
-		public static BookScript Deserialize(string fileName, ScrVers versification)
-		{
-			var newBook = XmlSerializationHelper.DeserializeFromFile<BookScript>(fileName);
-			newBook.Initialize(versification);
+			var newBook = XmlSerializationHelper.Deserialize<BookScript>(reader);
+			newBook?.Initialize(versification);
 			return newBook;
 		}
 
@@ -555,7 +553,7 @@ namespace GlyssenEngine.Script
 				AddOverrideInfo(info);
 		}
 
-		public void ApplyUserDecisions(BookScript sourceBookScript, ReferenceText referenceTextToReapply = null)
+		public void ApplyUserDecisions(BookScript sourceBookScript, ReferenceText referenceTextToReapply = null, IReadOnlyCollection<string> reportingClauses = null)
 		{
 			var blockComparer = new SplitBlockComparer();
 
@@ -567,13 +565,13 @@ namespace GlyssenEngine.Script
 
 			ApplyUserSplits(sourceBookScript, blockComparer);
 			if (referenceTextToReapply != null)
-				ApplyReferenceBlockMatches(sourceBookScript, referenceTextToReapply, blockComparer);
+				ApplyReferenceBlockMatches(sourceBookScript, referenceTextToReapply, reportingClauses, blockComparer);
 			ApplyUserAssignments(sourceBookScript);
 			CleanUpMultiBlockQuotes();
 		}
 
 		private void ApplyReferenceBlockMatches(BookScript sourceBookScript, ReferenceText referenceTextToReapply,
-			SplitBlockComparer blockComparer)
+			IReadOnlyCollection<string> reportingClauses, SplitBlockComparer blockComparer)
 		{
 			var sourceBlocks = sourceBookScript.GetScriptBlocks();
 			for (int iSrc = 0; iSrc < sourceBlocks.Count; iSrc++)
@@ -625,17 +623,17 @@ namespace GlyssenEngine.Script
 				}
 				else if (!sourceBlocks.Skip(iSrc).Take(targetMatchup.CorrelatedBlocks.Count).SequenceEqual(targetMatchup.CorrelatedBlocks, blockComparer))
 					continue;
-				var sourceMatchup = referenceTextToReapply.GetBlocksForVerseMatchedToReferenceText(sourceBookScript, iSrc,
+				var sourceMatchup = referenceTextToReapply.GetBlocksForVerseMatchedToReferenceText(sourceBookScript, iSrc, reportingClauses,
 					(uint)targetMatchup.CorrelatedBlocks.Count, false);
 				if (sourceMatchup.CountOfBlocksAddedBySplitting != 0)
 				{
 					Debug.Fail("Something unexpected happened. Logic above should guarantee that unsplit source matched split target.");
 					continue;
 				}
-				if (!sourceMatchup.AllScriptureBlocksMatch)
+				if (!sourceMatchup.AllScriptureBlocksMatch || sourceMatchup.CorrelatedBlocks.Any(b => b.CharacterIsUnclear))
 				{
 					// Something has apparently changed (in the reference text or in the parser?) that causes the target matchup
-					// to now contain some blocks than were not orginally matched up when the source blocks were aligned.
+					// to now contain some blocks than were not originally matched up when the source blocks were aligned.
 					continue;
 				}
 

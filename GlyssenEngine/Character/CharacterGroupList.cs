@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
 using SIL.ObjectModel;
@@ -79,9 +80,15 @@ namespace GlyssenEngine.Character
 			XmlSerializationHelper.SerializeToFile(filename, this);
 		}
 
-		public static CharacterGroupList LoadCharacterGroupListFromFile(string filename, Project project)
+		/// <summary>
+		/// Gets a voice actor list representing the data (or a new list if null).
+		/// Note: This method will take care of disposing the TextReader object.
+		/// </summary>
+		public static CharacterGroupList LoadCharacterGroupList(TextReader data, Project project)
 		{
-			var list = XmlSerializationHelper.DeserializeFromFile<CharacterGroupList>(filename);
+			if (data == null)
+				return new CharacterGroupList();
+			var list = XmlSerializationHelper.Deserialize<CharacterGroupList>(data);
 			foreach (var characterGroup in list.CharacterGroups)
 				characterGroup.Initialize(project);
 			return list;

@@ -79,7 +79,7 @@ namespace GlyssenEngine.Character
 			if (Any())
 				return;
 
-			LoadData(TabDelimitedCharacterVerseData);
+			LoadData(TabDelimitedCharacterVerseData.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None));
 
 			if (!Any())
 				throw new ApplicationException("No character verse data available!");

@@ -22,7 +22,7 @@ namespace GlyssenEngineTests.Character
 		public void OneTimeTearDown()
 		{
 			m_project = null;
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		private static string GetUiStringForCharacterGender(CharacterGender characterGender)

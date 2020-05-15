@@ -5,21 +5,21 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Windows.Forms;
 using DesktopAnalytics;
-using Gecko;
 using Glyssen.Dialogs;
 using Glyssen.Properties;
 using Glyssen.Shared;
 using Glyssen.Utilities;
 using GlyssenEngine;
 using GlyssenEngine.Utilities;
+using GlyssenFileBasedPersistence;
 using L10NSharp;
 using L10NSharp.UI;
 using Paratext.Data;
 using Paratext.Data.Users;
 using PtxUtils;
+using PtxUtils.Progress;
 using SIL;
 using SIL.IO;
 using SIL.Reporting;
@@ -84,6 +84,8 @@ namespace Glyssen
 			Logger.Init();
 			Trace.Listeners.Add(new LogFileTraceListener());
 
+			GlyssenVersificationTable.Initialize();
+			ProgressUtils.Implementation = new ProgressUtilsImpl();
 			Alert.Implementation = new AlertImpl(); // Do this before calling Initialize, just in case Initialize tries to display an alert.
 			if (ParatextInfo.IsParatextInstalled)
 			{
@@ -162,7 +164,7 @@ namespace Glyssen
 
 				var oldPgBaseFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
 					GlyssenInfo.Company, kOldProductName);
-				var baseDataFolder = GlyssenInfo.BaseDataFolder;
+				var baseDataFolder = ProjectRepository.ProjectsBaseFolder;
 				if (Directory.Exists(oldPgBaseFolder) && !Directory.Exists(baseDataFolder))
 					Directory.Move(oldPgBaseFolder, baseDataFolder);
 
@@ -235,6 +237,11 @@ namespace Glyssen
 					return DialogResult.Yes == MessageBox.Show(msg, GlyssenInfo.Product, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
 				}
 
+				Project.DefaultRecordingProjectNameSuffix = " " + LocalizationManager.GetString("Project.RecordingProjectDefaultSuffix", "Audio",
+					"This must not contain any illegal file path characters!").Trim(FileSystemUtils.TrimCharacters);
+				var persistenceImpl = new PersistenceImplementation();
+				ProjectBase.Reader = ReferenceTextProxy.Reader = persistenceImpl;
+				Project.Writer = persistenceImpl;
 				var upgradeInfo = DataMigrator.UpgradeToCurrentDataFormatVersion(HandleMissingBundleNeededForUpgrade,
 					HandleProjectPathChanged, ConfirmSafeAudioAudioReplacements);
 				if (upgradeInfo != null)
@@ -263,7 +270,7 @@ namespace Glyssen
 
 				try
 				{
-					Application.Run(new MainForm(args));
+					Application.Run(new MainForm(persistenceImpl, args));
 				}
 				finally
 				{
@@ -354,7 +361,7 @@ namespace Glyssen
 		/// <returns>The number of running Glyssen instances</returns>
 		public static int GetRunningGlyssenProcessCount()
 		{
-			return Process.GetProcesses().Count(p => p.ProcessName.ToLowerInvariant().Contains("glyssen"));
+			return Process.GetProcesses().Select(p => p.ProcessName.ToLowerInvariant()).Count(n => n.Contains("glyssen") && !n.Contains("installer"));
 		}
 	}
 }

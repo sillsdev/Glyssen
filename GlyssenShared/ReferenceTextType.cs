@@ -17,4 +17,12 @@
 		//TokPisin,
 		Custom
 	}
+
+	public static class ReferenceTextTypeExtensions
+	{
+		public static bool IsStandard(this ReferenceTextType type)
+		{
+			return (type != ReferenceTextType.Custom && type != ReferenceTextType.Unknown);
+		}
+	}
 }

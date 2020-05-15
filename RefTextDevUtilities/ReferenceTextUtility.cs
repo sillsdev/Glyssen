@@ -11,6 +11,7 @@ using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
 using GlyssenEngine.Script;
+using GlyssenFileBasedPersistence;
 using OfficeOpenXml;
 using SIL.Reflection;
 using SIL.Scripture;
@@ -26,7 +27,7 @@ namespace Glyssen.RefTextDevUtilities
 		public const string kDirectorGuideOTInput = @"..\..\DevTools\Resources\DIRECTOR_GUIDE_OT.xlsx";
 		public const string kOutputDirDistfiles = @"..\..\DistFiles\reference_texts";
 
-		public static string ProprietaryRefTextTempBaseFolder => Path.Combine(GlyssenInfo.BaseDataFolder, "Newly Generated Reference Texts");
+		public static string ProprietaryRefTextTempBaseFolder => Path.Combine(ProjectRepository.ProjectsBaseFolder, "Newly Generated Reference Texts");
 
 		private const string kBookHeader = "Book";
 		private const string kBookHeaderAlt = "Bk";
@@ -105,6 +106,11 @@ namespace Glyssen.RefTextDevUtilities
 		static ReferenceTextUtility()
 		{
 			InitializeQuoteDetectionRegexes();
+			if (ProjectBase.Reader == null)
+			{
+				var persistenceImpl = new PersistenceImplementation();
+				ProjectBase.Reader = ReferenceTextProxy.Reader = persistenceImpl;
+			}
 			s_existingEnglish = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 			DifferencesToIgnore = Ignore.Default;
 		}

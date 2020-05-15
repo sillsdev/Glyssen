@@ -5,6 +5,7 @@ using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.Script;
+using GlyssenSharedTests;
 using NUnit.Framework;
 using SIL.Scripture;
 
@@ -16,7 +17,7 @@ namespace GlyssenEngineTests.Script
 		[TearDown]
 		public void Teardown()
 		{
-			TestReferenceText.DeleteTempCustomReferenceProjectFolder();
+			TestReferenceText.ForgetCustomReferenceTexts();
 		}
 
 		[TestCase(0)]
@@ -439,7 +440,7 @@ namespace GlyssenEngineTests.Script
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus. ");
 			var narrator = vernacularBlocks[2].CharacterId;
 			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
-			var matchup = new BlockMatchup(vernBook, 1, null, i => true, TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMAT));
+			var matchup = new BlockMatchup(vernBook, 1, null, i => true, TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMAT));
 			matchup.CorrelatedBlocks[0].SetMatchedReferenceBlock(
 				ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“This is verse two,” ", true));
 
@@ -1505,15 +1506,15 @@ namespace GlyssenEngineTests.Script
 			Assert.AreEqual("", matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
 		}
 
-		[TestCase(ReferenceTextType.Custom, TestReferenceText.TestReferenceTextResource.AzeriJUD, "dedi.")]
-		[TestCase(ReferenceTextType.Custom, TestReferenceText.TestReferenceTextResource.FrenchMAT, "il a dit.")]
+		[TestCase(ReferenceTextType.Custom, TestReferenceTextResource.AzeriJUD, "dedi.")]
+		[TestCase(ReferenceTextType.Custom, TestReferenceTextResource.FrenchMAT, "il a dit.")]
 		//[TestCase(ReferenceTextType.Indonesian, "katanya.")]
 		//[TestCase(ReferenceTextType.Portuguese, "disse.")]
-		[TestCase(ReferenceTextType.Custom, TestReferenceText.TestReferenceTextResource.SpanishMAT, "dijo.")]
+		[TestCase(ReferenceTextType.Custom, TestReferenceTextResource.SpanishMAT, "dijo.")]
 		//[TestCase(ReferenceTextType.TokPisin, "i bin tok.")]
 		[TestCase(ReferenceTextType.Russian, null, "сказал.")]
 		public void InsertHeSaidText_NonEnglishPrimary_SingleRow_TextSetAndCallbackCalled(ReferenceTextType type,
-			TestReferenceText.TestReferenceTextResource customLanguageBook, string expectedText)
+			TestReferenceTextResource customLanguageBook, string expectedText)
 		{
 			ReferenceText rt = type == ReferenceTextType.Custom ? TestReferenceText.CreateCustomReferenceText(customLanguageBook) :
 				ReferenceText.GetStandardReferenceText(type);
@@ -1594,7 +1595,7 @@ namespace GlyssenEngineTests.Script
 			refEmptySpanishRefTextBlock.SetMatchedReferenceBlock(refPeterSaidBlock);
 			vernPeterSaidBlock.SetMatchedReferenceBlock(refEmptySpanishRefTextBlock);
 			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
-			ReferenceText rt = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.SpanishMAT);
+			ReferenceText rt = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.SpanishMAT);
 			var matchup = new BlockMatchup(vernBook, 0, null, i => true, rt);
 
 			var callbacks = new List<Tuple<int, int, string>>();
@@ -1734,7 +1735,7 @@ namespace GlyssenEngineTests.Script
 				"Luego sucedió la próxima cosa.").CharacterId;
 
 			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
-			ReferenceText rt = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);//TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.SpanishMAT);
+			ReferenceText rt = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 			vernacularBlocks[0].SetMatchedReferenceBlock("After these things, Jesus taught them, saying: ");
 			vernacularBlocks[1].SetMatchedReferenceBlock("“Uncle, you are verse two,” ");
 			vernacularBlocks.Last().SetMatchedReferenceBlock("Then it came about that the next thing happened.");
@@ -1765,6 +1766,107 @@ namespace GlyssenEngineTests.Script
 			Assert.AreEqual("", matchup.CorrelatedBlocks[4].GetPrimaryReferenceText());
 			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[4].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, matchup.CorrelatedBlocks[4].MultiBlockQuote);
+		}
+
+		[Test]
+		public void HeSaidBlocks_NoBlocksCorrespondToHeSaid_Empty()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Después de estas cosas, Jesús les enseño, diciendo: ", true));
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“Tio estas verso du,” "));
+			var vernJesusSaidBlock = ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kUnexpectedCharacter, "diris Jesuo. Etcetera. ");
+			vernJesusSaidBlock.MultiBlockQuote = MultiBlockQuote.Start;
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnexpectedCharacter, 3, "This is actually spoken by the narrator but was originally parsed as quoted speech. "));
+			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnexpectedCharacter, 4, "And this is the rest of the narrator's mumblings."));
+			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
+			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "Luego sucedió la próxima cosa.");
+
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
+			ReferenceText rt = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, rt, (uint)vernacularBlocks.Count);
+			matchup.MatchAllBlocks();
+
+			Assert.IsFalse(matchup.HeSaidBlocks.Any());
+		}
+
+		[Test]
+		public void HeSaidBlocks_BlockIsMatchedToHeSaidButNotApplied_Empty()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Después de estas cosas, Jesús les enseño, diciendo: ", true));
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“Tio estas verso du,” "));
+			var vernJesusSaidBlock = ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kUnexpectedCharacter, "diris Jesuo. Etcetera. ");
+			vernJesusSaidBlock.MultiBlockQuote = MultiBlockQuote.Start;
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnexpectedCharacter, 3, "This is actually spoken by the narrator but was originally parsed as quoted speech. "));
+			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnexpectedCharacter, 4, "And this is the rest of the narrator's mumblings."));
+			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
+			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "Luego sucedió la próxima cosa.");
+
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
+			ReferenceText rt = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, rt, (uint)vernacularBlocks.Count);
+			matchup.MatchAllBlocks();
+			matchup.SetReferenceText(2, rt.HeSaidText);
+
+			Assert.IsFalse(matchup.HeSaidBlocks.Any());
+		}
+
+		[Test]
+		public void HeSaidBlocks_BlockIsMatchedToHeSaidAndApplied_ReturnsHeSaidBlock()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Después de estas cosas, Jesús les enseño, diciendo: ", true));
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“Tio estas verso du,” "));
+			var vernJesusSaidBlock = ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kUnexpectedCharacter, "diris Jesuo. Etcetera. ");
+			vernJesusSaidBlock.MultiBlockQuote = MultiBlockQuote.Start;
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "This is actually spoken by the narrator but was originally parsed as quoted speech. "));
+			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(4, "And this is the rest of the narrator's mumblings."));
+			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
+			var narrator = ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "Luego sucedió la próxima cosa.").CharacterId;
+
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
+			ReferenceText rt = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, rt, (uint)vernacularBlocks.Count);
+			matchup.MatchAllBlocks();
+			matchup.SetReferenceText(2, rt.HeSaidText);
+			matchup.CorrelatedBlocks[2].CharacterId = narrator;
+			matchup.Apply();
+
+			Assert.AreEqual("diris Jesuo. Etcetera. ", matchup.HeSaidBlocks.Single().GetText(true));
+		}
+
+		[Test]
+		public void HeSaidBlocks_TwoBlocksMatchHeSaidButOnlyOneIsAssignedToNarrator_ReturnsOnlyTheHeSaidBlockSpokenByTheNarrator()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Jesús les contó lo que dijo aquel hombre: ", true));
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“\u2014Ya no quiero seguir en cuarentena, "));
+			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Start;
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kUnexpectedCharacter, "dijo.", "qm");
+			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 3, "“Sin embargo, la cuarentena seguía,”"));
+			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
+			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "recounted Jesus.");
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(4, "Luego sucedió la próxima cosa."));
+
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
+			ReferenceText rt = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, rt, (uint)vernacularBlocks.Count);
+			matchup.MatchAllBlocks();
+			matchup.SetReferenceText(2, rt.HeSaidText);
+			matchup.CorrelatedBlocks[2].CharacterId = "Jesus";
+			matchup.InsertHeSaidText(4, (i, i1, arg3) => { });
+			
+			matchup.Apply();
+
+			Assert.AreEqual("recounted Jesus.", matchup.HeSaidBlocks.Single().GetText(true));
 		}
 
 		[TestCase(1)]

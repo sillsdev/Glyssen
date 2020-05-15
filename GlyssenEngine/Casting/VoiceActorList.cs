@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
 using SIL.Xml;
@@ -25,14 +26,18 @@ namespace GlyssenEngine.Casting
 		public int ActiveFemaleAdultActorCount { get { return ActiveActors.Count(a => a.Gender == ActorGender.Female && a.Age != ActorAge.Child); } }
 		public int ActiveChildActorCount { get { return ActiveActors.Count(a => a.Age == ActorAge.Child); } }
 
-		public void SaveToFile(string filename)
+		public void Save(TextWriter textWriter)
 		{
-			XmlSerializationHelper.SerializeToFile(filename, this);
+			XmlSerializationHelper.Serialize(textWriter, this, out _);
 		}
 
-		public static VoiceActorList LoadVoiceActorListFromFile(string filename)
+		/// <summary>
+		/// Gets a voice actor list representing the data (or a new list if null).
+		/// Note: This method will take care of disposing the TextReader object.
+		/// </summary>
+		public static VoiceActorList LoadVoiceActorList(TextReader data)
 		{
-			return XmlSerializationHelper.DeserializeFromFile<VoiceActorList>(filename);
+			return XmlSerializationHelper.Deserialize<VoiceActorList>(data) ?? new VoiceActorList();
 		}
 
 		public VoiceActor GetVoiceActorById(int voiceActorId)

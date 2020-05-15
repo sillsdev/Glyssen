@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
 using Glyssen.Shared;
@@ -229,7 +230,7 @@ namespace GlyssenEngine.Bundle
 		}
 
 		/// <summary>
-		/// This is not part of the original DBL metadata. This data is now stored as part of the "langauge" data.
+		/// This is not part of the original DBL metadata. This data is now stored as part of the "language" data.
 		/// </summary>
 		[XmlElement("fontSizeInPoints")]
 		[DefaultValue(default(int))]
@@ -256,6 +257,14 @@ namespace GlyssenEngine.Bundle
 				if (sourceProjectBook != null)
 					book.IncludeInScript = sourceProjectBook.IncludeInScript;
 			}
+		}
+
+		public static GlyssenDblTextMetadata Load(TextReader reader, string metadataResourceIdentifier)
+		{
+			var metadata = Load<GlyssenDblTextMetadata>(reader, metadataResourceIdentifier, out var exception);
+			if (exception != null)
+				throw exception;
+			return metadata;
 		}
 	}
 

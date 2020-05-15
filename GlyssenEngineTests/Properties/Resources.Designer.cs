@@ -61,122 +61,6 @@ namespace GlyssenEngineTests.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] azeri {
-            get {
-                object obj = ResourceManager.GetObject("azeri", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;book id=&quot;JUD&quot; singlevoice=&quot;false&quot; pageheader=&quot;YӘHUDA&quot;&gt;
-        ///  &lt;block style=&quot;mt&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-JUD&quot; matchesReferenceText=&quot;true&quot;&gt;
-        ///    &lt;ReferenceBlocks style=&quot;mt&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-JUD&quot;&gt;
-        ///      &lt;text&gt;JUDE&lt;/text&gt;
-        ///    &lt;/ReferenceBlocks&gt;
-        ///    &lt;text&gt;YӘHUDANIN MӘKTUBU&lt;/text&gt;
-        ///  &lt;/block&gt;
-        ///  &lt;block style=&quot;c&quot; paragraphStart=&quot;true&quot; chapter=&quot;1&quot; book=&quot;JUD&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-JUD&quot; matchesReferenceT [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string AzeriJUDRefText {
-            get {
-                return ResourceManager.GetString("AzeriJUDRefText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;book id=&quot;REV&quot; singlevoice=&quot;false&quot; pageheader=&quot;VӘHY&quot;&gt;
-        ///  &lt;block style=&quot;mt&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-REV&quot; matchesReferenceText=&quot;true&quot;&gt;
-        ///    &lt;ReferenceBlocks style=&quot;mt&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-REV&quot;&gt;
-        ///      &lt;text&gt;REVELATION&lt;/text&gt;
-        ///    &lt;/ReferenceBlocks&gt;
-        ///    &lt;text&gt;YӘHYAYA NAZİL OLAN&lt;/text&gt;
-        ///  &lt;/block&gt;
-        ///  &lt;block style=&quot;c&quot; paragraphStart=&quot;true&quot; chapter=&quot;1&quot; book=&quot;REV&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-REV&quot; matchesRefer [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string AzeriREVRefText {
-            get {
-                return ResourceManager.GetString("AzeriREVRefText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] english {
-            get {
-                object obj = ResourceManager.GetObject("english", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to # Versification  &quot;English&quot;
-        ///# Version=1.9
-        ///#
-        ///# modifications by Reinier de Blois 13/March/2012
-        ///# modified mappings Psalms by adding verse #0 to the mappings
-        ///# many of the subscripts that are part of verses 1,2 in the original text end up as verse #0 in English translations
-        ///
-        ///# modifications by Studge 26/June/2009
-        ///# book definitions are for all books printed in any English of Spanish Bible
-        ///# this includes books for Protestant, Catholic and Protestant-Catholic-EasternOrthodox Interconfessional editions        /// [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string EnglishVersification {
-            get {
-                return ResourceManager.GetString("EnglishVersification", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] french {
-            get {
-                object obj = ResourceManager.GetObject("french", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;book id=&quot;MAT&quot; singlevoice=&quot;false&quot; pageheader=&quot;MATTHIEU CHAPITRE&quot;&gt;
-        ///  &lt;block style=&quot;mt&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-MAT&quot; matchesReferenceText=&quot;true&quot;&gt;
-        ///    &lt;ReferenceBlocks style=&quot;mt&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-MAT&quot;&gt;
-        ///      &lt;text&gt;MATTHEW&lt;/text&gt;
-        ///    &lt;/ReferenceBlocks&gt;
-        ///    &lt;text&gt;MATTHIEU&lt;/text&gt;
-        ///  &lt;/block&gt;
-        ///  &lt;block style=&quot;c&quot; paragraphStart=&quot;true&quot; chapter=&quot;1&quot; book=&quot;MAT&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-MAT&quot; matchesRefer [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string FrenchMATRefText {
-            get {
-                return ResourceManager.GetString("FrenchMATRefText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;book id=&quot;MRK&quot; singlevoice=&quot;false&quot; pageheader=&quot;MARC CHAPITRE&quot;&gt;
-        ///  &lt;block style=&quot;mt&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-MRK&quot; matchesReferenceText=&quot;true&quot;&gt;
-        ///    &lt;ReferenceBlocks style=&quot;mt&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-MRK&quot;&gt;
-        ///      &lt;text&gt;MARK&lt;/text&gt;
-        ///    &lt;/ReferenceBlocks&gt;
-        ///    &lt;text&gt;MARC&lt;/text&gt;
-        ///  &lt;/block&gt;
-        ///  &lt;block style=&quot;c&quot; paragraphStart=&quot;true&quot; chapter=&quot;1&quot; book=&quot;MRK&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-MRK&quot; matchesReferenceText=&quot;t [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string FrenchMRKRefText {
-            get {
-                return ResourceManager.GetString("FrenchMRKRefText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to # Versification  &quot;Original&quot; 
         ///# Version=1.200
         ///# (not a very good name but I have not heard a better suggestion)
@@ -215,33 +99,6 @@ namespace GlyssenEngineTests.Properties {
         internal static string RussianOrthodoxVersification {
             get {
                 return ResourceManager.GetString("RussianOrthodoxVersification", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] spanish {
-            get {
-                object obj = ResourceManager.GetObject("spanish", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;book id=&quot;MAT&quot; singlevoice=&quot;false&quot; pageheader=&quot;SAN MATEO&quot;&gt;
-        ///  &lt;block style=&quot;mt&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-MAT&quot; matchesReferenceText=&quot;true&quot;&gt;
-        ///    &lt;ReferenceBlocks style=&quot;mt&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-MAT&quot;&gt;
-        ///      &lt;text&gt;MATTHEW&lt;/text&gt;
-        ///    &lt;/ReferenceBlocks&gt;
-        ///    &lt;text&gt;SAN ... MATEO&lt;/text&gt;
-        ///  &lt;/block&gt;
-        ///  &lt;block style=&quot;c&quot; paragraphStart=&quot;true&quot; chapter=&quot;1&quot; book=&quot;MAT&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-MAT&quot; matchesReferenc [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string SpanishMATRefText {
-            get {
-                return ResourceManager.GetString("SpanishMATRefText", resourceCulture);
             }
         }
         
@@ -733,25 +590,6 @@ namespace GlyssenEngineTests.Properties {
         internal static string TestPHM {
             get {
                 return ResourceManager.GetString("TestPHM", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;book id=&quot;JUD&quot; singlevoice=&quot;false&quot; pageheader=&quot;JUDE&quot;&gt;
-        ///  &lt;block style=&quot;mt&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-JUD&quot;&gt;
-        ///    &lt;text&gt;JUDE&lt;/text&gt;
-        ///  &lt;/block&gt;
-        ///  &lt;block style=&quot;c&quot; paragraphStart=&quot;true&quot; chapter=&quot;1&quot; book=&quot;JUD&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-JUD&quot;&gt;
-        ///    &lt;text&gt;1&lt;/text&gt;
-        ///  &lt;/block&gt;
-        ///  &lt;block style=&quot;p&quot; paragraphStart=&quot;true&quot; chapter=&quot;1&quot; initialStartVerse=&quot;1&quot; characterId=&quot;narrator-JUD&quot;&gt;
-        ///    &lt;verse num=&quot;1&quot; /&gt;
-        ///    &lt;text&gt;Jude, a servant of Jesus Ch [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string TestReferenceTextJUD {
-            get {
-                return ResourceManager.GetString("TestReferenceTextJUD", resourceCulture);
             }
         }
         

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Glyssen.Shared;
+using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
@@ -14,7 +15,7 @@ using SIL.Reporting;
 using SIL.Scripture;
 using SIL.Xml;
 
-namespace GlyssenEngine
+namespace GlyssenFileBasedPersistence
 {
 	public static class DataMigrator
 	{
@@ -50,7 +51,7 @@ namespace GlyssenEngine
 			switch (info.DataVersion)
 			{
 				case 0:
-					foreach (var publicationFolder in Project.AllPublicationFolders)
+					foreach (var publicationFolder in ProjectRepository.AllPublicationFolders)
 					{
 						var filesToMove = Directory.GetFiles(publicationFolder);
 						if (!filesToMove.Any())
@@ -74,7 +75,7 @@ namespace GlyssenEngine
 								else
 									recordingProjectName = metadata.Id;
 							}
-							recordingProjectName = Project.GetDefaultRecordingProjectName(recordingProjectName);
+							recordingProjectName = Project.GetDefaultRecordingProjectName(recordingProjectName, metadata.Language.Iso);
 							var recordingProjectFolder = Path.Combine(publicationFolder, recordingProjectName);
 							Directory.CreateDirectory(recordingProjectFolder);
 							foreach (var file in filesToMove)
@@ -84,7 +85,8 @@ namespace GlyssenEngine
 					}
 					goto case 1;
 				case 1:
-					foreach (var recordingProjectFolder in Project.AllRecordingProjectFolders.ToList())
+					var sampleProjectFilePath = ProjectRepository.GetProjectFilePath(SampleProject.Stub);
+					foreach (var recordingProjectFolder in ProjectRepository.AllRecordingProjectFolders.ToList())
 					{
 						var versificationPath = Path.Combine(recordingProjectFolder, DblBundleFileUtils.kVersificationFileName);
 						if (!File.Exists(versificationPath))
@@ -93,9 +95,9 @@ namespace GlyssenEngine
 
 							if (projectFilePath != null)
 							{
-								if (projectFilePath.Equals(SampleProject.SampleProjectFilePath, StringComparison.OrdinalIgnoreCase))
+								if (projectFilePath.Equals(sampleProjectFilePath, StringComparison.OrdinalIgnoreCase))
 								{
-									File.WriteAllText(versificationPath, Resources.EnglishVersification);
+									File.WriteAllText(versificationPath, Project.EnglishVersification);
 								}
 								else
 								{
@@ -105,10 +107,14 @@ namespace GlyssenEngine
 
 									var bundle = new GlyssenBundle(origBundlePath);
 									var errorlogPath = Path.Combine(recordingProjectFolder, "errorlog.txt");
-									bundle.CopyVersificationFile(versificationPath);
 									try
 									{
-										ProjectBase.LoadVersification(versificationPath);
+										using (var versificationReader = bundle.GetVersification())
+										{
+											var versTableImpl = ((GlyssenVersificationTable)Versification.Table.Implementation);
+											versTableImpl.VersificationLineExceptionHandling = GlyssenVersificationTable.InvalidVersificationLineExceptionHandling.Throw;
+											versTableImpl.Load(versificationReader, origBundlePath, ProjectBase.DefaultCustomVersificationName);
+										}
 									}
 									catch (InvalidVersificationLineException ex)
 									{
@@ -129,9 +135,9 @@ namespace GlyssenEngine
 					}
 					goto case 2;
 				case 2:
-					foreach (var pgProjFile in Project.AllRecordingProjectFolders.SelectMany(d => Directory.GetFiles(d, "*" + kOldProjectExtension)))
+					foreach (var pgProjFile in ProjectRepository.AllRecordingProjectFolders.SelectMany(d => Directory.GetFiles(d, "*" + kOldProjectExtension)))
 					{
-						var newName = Path.ChangeExtension(pgProjFile, Constants.kProjectFileExtension);
+						var newName = Path.ChangeExtension(pgProjFile, ProjectRepository.kProjectFileExtension);
 						File.Move(pgProjFile, newName);
 						handleProjectPathChanged(pgProjFile, newName);
 					}
@@ -139,7 +145,7 @@ namespace GlyssenEngine
 				case 3:
 					try
 					{
-						RobustIO.DeleteDirectory(Path.GetDirectoryName(SampleProject.SampleProjectFilePath) + " Audio", true);
+						RobustIO.DeleteDirectory(Path.GetDirectoryName(ProjectRepository.GetProjectFolderPath(SampleProject.Stub)) + " Audio", true);
 					}
 					catch (IOException e)
 					{
@@ -147,7 +153,7 @@ namespace GlyssenEngine
 					}
 					var safeReplacements = new List<Tuple<string, string>>();
 					var unsafeReplacements = new List<Tuple<string, string>>();
-					foreach (var folder in Project.AllRecordingProjectFolders.Where(d => d.EndsWith(" Audio Audio")))
+					foreach (var folder in ProjectRepository.AllRecordingProjectFolders.Where(d => d.EndsWith(" Audio Audio")))
 					{
 						// Because of the way this bug (PG-1192) worked, the most likely thing is that the "correct"
 						// version of the project will have been initially created but then all the actual work will
@@ -166,7 +172,7 @@ namespace GlyssenEngine
 						var correctProjectFolder = Path.Combine(baseFolder, correctProjectName);
 						if (Directory.Exists(correctProjectFolder))
 						{
-							var glyssenProjFilename = langCode + Constants.kProjectFileExtension;
+							var glyssenProjFilename = langCode + ProjectRepository.kProjectFileExtension;
 							var incorrectProjectFilePath = Path.Combine(folder, glyssenProjFilename);
 							var correctProjectFilePath = Path.Combine(correctProjectFolder, glyssenProjFilename);
 							var finfoIncorrectProject = new FileInfo(incorrectProjectFilePath);
@@ -192,7 +198,7 @@ namespace GlyssenEngine
 									try
 									{
 										// This bug/fix predates "live" Paratext projects, so there is definitely no need for a Paratext loading assistant.
-										var projToBackUp = Project.Load(correctProjectFilePath, handleMissingBundleNeededForUpgrade, null);
+										var projToBackUp = Project.Load(ProjectRepository.LoadProject(correctProjectFilePath), handleMissingBundleNeededForUpgrade, null);
 										projToBackUp.CreateBackup("Overwritten by migration 3-4");
 									}
 									catch (Exception e)

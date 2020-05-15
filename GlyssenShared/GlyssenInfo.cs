@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.Collections.Generic;
 
 namespace Glyssen.Shared
 {
@@ -33,8 +32,5 @@ namespace Glyssen.Shared
 			get => s_product ?? kProduct;
 			set => s_product = value;
 		}
-
-		public static string BaseDataFolder => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-			Company, Product);
 	}
 }

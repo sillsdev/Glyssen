@@ -16,14 +16,21 @@ namespace GlyssenEngine.Character
 	{
 		private readonly ScrVers m_versification;
 
-		public ProjectCharacterVerseData(string fullPath, ScrVers versification)
+		public ProjectCharacterVerseData(TextReader reader, ScrVers versification)
 		{
 			Debug.Assert(versification != null);
 			m_versification = versification;
-			if (File.Exists(fullPath))
-				LoadData(File.ReadAllText(fullPath));
-			else
-				LoadData("");
+			LoadData(GetData(reader));
+		}
+
+		private IEnumerable<string> GetData(TextReader reader)
+		{
+			if (reader != null)
+			{
+				string line;
+				while ((line = reader.ReadLine()) != null)
+					yield return line;
+			}
 		}
 
 		public virtual bool AddEntriesFor(int bookNumber, Block block)
@@ -118,10 +125,10 @@ namespace GlyssenEngine.Character
 			return null;
 		}
 
-		public void WriteToFile(string fullPath)
+		public void Write(TextWriter textWriter)
 		{
 			RemoveDataAlsoInControlFile();
-			File.WriteAllText(fullPath, ToTabDelimited());
+			textWriter.Write(ToTabDelimited());
 		}
 
 		private string ToTabDelimited()

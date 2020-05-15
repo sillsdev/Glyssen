@@ -74,6 +74,8 @@
 	</Target>
 	
 	<Target Name="Installer" DependsOnTargets="SetInstallerVersionNumber; MakeWixForDistFiles; MakeWixForXulRunner; Build ">
+	
+		<Message Text="Making Installer Version: $(GitVersion_MajorMinorPatch)" Importance="high" />
 
 		<!-- set the version number in the installer configuration program.	Perhaps there's a way to just send in the variables rather than this brute-force
 			changing of the script, but I haven't figured that out. -->
@@ -81,20 +83,25 @@
 		<FileUpdate File="$(RootDir)\Installer\Installer.wxs" Regex='Property_ProductVersion = ".*"'
 			ReplacementText ="Property_ProductVersion = &quot;$(GitVersion_MajorMinorPatch)&quot;" />
 
-		<Message Text="Making Installer Version: $(GitVersion_MajorMinorPatch)" Importance="high" />
-
-		<MSBuild Projects="$(RootDir)\Installer\Installer.wixproj"/>
+		<FileUpdate File="$(RootDir)\Installer\Bootstrapper\Glyssen Bootstrap Installer.wxs" Regex='Property_ProductVersion = ".*"'
+			ReplacementText ="Property_ProductVersion = &quot;$(GitVersion_MajorMinorPatch)&quot;" />
+		
+		<MSBuild
+			Projects="$(RootDir)\Installer\Installer.sln"
+			Targets="Rebuild"
+			Properties="Configuration=$(Configuration)" />
+		<Message Text="Build Complete"/>
 
 		<!-- remove an existing one with the same name, if necessary -->
 		<Delete Files="$(InstallerFileDestName)" TreatErrorsAsWarnings="false" />
 
-		<Copy SourceFiles="$(RootDir)\output\installer\GlyssenInstaller.msi"
+		<Copy SourceFiles="$(RootDir)\output\installer\GlyssenInstaller.exe"
 			DestinationFiles="$(InstallerFileDestName)"
 		/>
 		<Message Text="Copied installer to $(InstallerFileDestName)" Importance="high"/>
 
 		<!-- remove the installer which has no version number (wouldn't need this if the copy above was a move, instead) -->
-		<Delete Files="$(RootDir)\output\installer\GlyssenInstaller.msi" TreatErrorsAsWarnings="false" />
+		<Delete Files="$(RootDir)\output\installer\GlyssenInstaller.exe" TreatErrorsAsWarnings="false" />
 
 		<!-- copy it so we aren't modifying the original, which then is a pain on dev machines -->
 		<Copy SourceFiles ="$(RootDir)\installer\template.download_info"
@@ -147,12 +154,12 @@
 	<!-- These targets are designed to be additional steps on TeamCity after running target Installer. Pick the appropriate one
 	depending on whether your project's output MUST be signed or it's only nice if it is. For example, a continuous build
 	might use SignIfPossible, while a Publication build must use SignInstaller.-->
-	<Target Name="SignInstaller" DependsOnTargets="SetInstallerVersionNumber">
+	<Target Name="SignInstaller" DependsOnTargets="SetInstallerVersionNumber; Installer">
 		<Exec Command='sign "$(InstallerFileDestName)"'></Exec>
 		<Message Text="Signed installer at $(InstallerFileDestName)" Importance="high"/>
 	</Target>
 
-	<Target Name="SignIfPossible" DependsOnTargets="SetInstallerVersionNumber">
+	<Target Name="SignIfPossible" DependsOnTargets="SetInstallerVersionNumber; Installer">
 		<Exec Command='sign "$(InstallerFileDestName)"' ContinueOnError="true"></Exec>
 	</Target>
 
@@ -182,11 +189,5 @@
 			<Output TaskParameter="OutputFilePath" ItemName="Compile" />
 		</MakeWixForDirTree>
 	</Target>
-
-<Target Name="Upload" DependsOnTargets="Build" >
-	<Message Text="Attempting rsync of GlyssenInstaller.$(GitVersion_MajorMinorPatch).*" Importance="high"/>
-	<Exec Command ='"c:\program files\cwRsync\bin\rsync.exe" -vzlt --chmod=Dug=rwx,Fu=rw,go=r --stats --rsync-path="sudo -u vu2004 rsync" -e"\"c:\program files\cwRsync\bin\ssh\" -oUserKnownHostsFile=C:\BuildAgent\conf\known_hosts -oIdentityFile=/cygdrive/c/BuildAgent/conf/bob.key -l root"  "../output/installer/GlyssenInstaller.$(GitVersion_MajorMinorPatch).msi" root@software.sil.org:/var/www/virtual/software.sil.org/htdocs/downloads/r/glyssen/' />
-	<Exec Command ='"c:\program files\cwRsync\bin\rsync.exe" -vzlt --chmod=Dug=rwx,Fu=rw,go=r --stats --rsync-path="sudo -u vu2004 rsync" -e"\"c:\program files\cwRsync\bin\ssh\" -oUserKnownHostsFile=C:\BuildAgent\conf\known_hosts -oIdentityFile=/cygdrive/c/BuildAgent/conf/bob.key -l root"  "../output/installer/GlyssenInstaller.$(GitVersion_MajorMinorPatch).download_info" root@software.sil.org:/var/www/virtual/software.sil.org/htdocs/downloads/r/glyssen/' />
-</Target>
 
 </Project>
