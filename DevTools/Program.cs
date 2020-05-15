@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Text.RegularExpressions;
 using Glyssen.RefTextDevUtilities;
 using Glyssen.Shared;
 using GlyssenEngine;
@@ -25,52 +27,67 @@ namespace DevTools
 			Console.WriteLine("12) Obfuscate proprietary reference texts to make testing resources (output in GlyssenTests/Resources/temporary)");
 			Console.WriteLine("13) Generate reference text book title and chapter label summary");
 			Console.WriteLine("14) Create new English reference text (see comments in the Mode enum in ReferenceTextUtility). May append OT or NT.");
+			Console.WriteLine("15) Exit without doing anything.");
 
-			string selection = Console.ReadLine();
+			int command = -1;
+			string option = null;
+
+			do
+			{
+				var selection = Console.ReadLine();
+				var match = new Regex("\\d+").Match(selection);
+				if (match.Success && Int32.TryParse(match.Value, out command))
+				{
+					option = selection.Substring(match.Length);
+					if (command >= 8 && command <= 14)
+						ReferenceTextUtility.OnMessageRaised += (msg, error) => { Console.WriteLine(msg); };
+				}
+
+				if (command >= 1 && command <= 15)
+					break;
+				Console.WriteLine("Invalid option");
+
+			} while (true);
+
 			string outputType = "errors";
 			bool waitForUserToSeeOutput = false;
 
-			ReferenceTextUtility.OnMessageRaised += (msg, error) => { Console.WriteLine(msg); };
-
 			try
 			{
-				switch (selection)
+				switch (command)
 				{
-					case "1": TermTranslator.Processor.Process(); break;
-					case "2": VerseBridgeHelper.RemoveAllVerseBridges(); break;
-					case "3": FCBH.Processor.Process(); break;
-					case "4": CharacterDetailProcessing.GenerateReferences(); break;
-					case "5": BiblicalTerms.Processor.Process(); break;
-					case "6": CharacterListProcessing.Process(); break;
-					case "7": CharacterDetailProcessing.GetAllRangesOfThreeOrMoreConsecutiveVersesWithTheSameSingleCharacterNotMarkedAsImplicit(); break;
-					case "8":
+					case 1: TermTranslator.Processor.Process(); break;
+					case 2: VerseBridgeHelper.RemoveAllVerseBridges(); break;
+					case 3: FCBH.Processor.Process(); break;
+					case 4: CharacterDetailProcessing.GenerateReferences(); break;
+					case 5: BiblicalTerms.Processor.Process(); break;
+					case 6: CharacterListProcessing.Process(); break;
+					case 7: CharacterDetailProcessing.GetAllRangesOfThreeOrMoreConsecutiveVersesWithTheSameSingleCharacterNotMarkedAsImplicit(); break;
+					case 8:
 						DiffDirectorGuide();
 						outputType = "differences";
 						waitForUserToSeeOutput = true;
 						break;
-					case "9":
+					case 9:
 						ReferenceTextUtility.ProcessReferenceTextDataFromFile(ReferenceTextUtility.Mode.Generate);
 						waitForUserToSeeOutput = true;
 						break;
-					case "10": ReferenceTextUtility.LinkToEnglish();
+					case 10: ReferenceTextUtility.LinkToEnglish();
 						waitForUserToSeeOutput = ReferenceTextUtility.ErrorsOccurred;
 						break;
-					case "11":
+					case 11:
 						ReferenceTextUtility.ProcessReferenceTextDataFromFile(ReferenceTextUtility.Mode.CreateCharacterMapping, ReferenceTextProxy.GetOrCreate(ReferenceTextType.English));
 						waitForUserToSeeOutput = true;
 						break;
-					case "12": ReferenceTextUtility.ObfuscateProprietaryReferenceTextsToMakeTestingResources();
+					case 12: ReferenceTextUtility.ObfuscateProprietaryReferenceTextsToMakeTestingResources();
 						break;
-					case "13":
+					case 13:
 						ReferenceTextUtility.ProcessReferenceTextDataFromFile(ReferenceTextUtility.Mode.CreateBookTitleAndChapterLabelSummary);
 						waitForUserToSeeOutput = ReferenceTextUtility.ErrorsOccurred;
 						break;
-					case "14":
-					case "14NT":
-					case "14OT":
-						var testamentStr = selection.Replace("14", String.Empty);
+					case 14:
 						ReferenceTextUtility.Testament testament;
-						switch (testamentStr)
+						switch (option)
 						{
 							case "NT": testament = ReferenceTextUtility.Testament.NT; break;
 							case "OT": testament = ReferenceTextUtility.Testament.OT; break;
@@ -80,6 +97,8 @@ namespace DevTools
 						outputType = "output";
 						waitForUserToSeeOutput = true;
 						break;
+					default:
+						return;
 				}
 			}
 			catch (Exception e)

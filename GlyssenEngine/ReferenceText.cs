@@ -24,13 +24,16 @@ namespace GlyssenEngine
 		static ReferenceText()
 		{
 			s_instantiatedReferenceTexts = new Dictionary<IReferenceTextProxy, ReferenceText>();
-			Project.Writer.OnProjectDeleted += delegate(object sender, IProject project)
+			if (Project.Writer != null) // Can be null in dev tools
 			{
-				if (project is IReferenceTextProject refText && refText.Type == ReferenceTextType.Custom)
+				Project.Writer.OnProjectDeleted += delegate(object sender, IProject project)
 				{
-					s_instantiatedReferenceTexts.RemoveAll(r => r.Key.Type == ReferenceTextType.Custom && r.Key.Name == project.Name);
-				}
-			};
+					if (project is IReferenceTextProject refText && refText.Type == ReferenceTextType.Custom)
+					{
+						s_instantiatedReferenceTexts.RemoveAll(r => r.Key.Type == ReferenceTextType.Custom && r.Key.Name == project.Name);
+					}
+				};
+			}
 		}
 
 		public static ReferenceText GetStandardReferenceText(ReferenceTextType referenceTextType)
