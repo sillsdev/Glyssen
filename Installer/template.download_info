@@ -8,6 +8,6 @@
   "stability": "release",
   "file": "GlyssenInstaller._VERSION_.exe",
   "md5": "",
-  "type": "msi",
+  "type": "exe",
   "build": ""
 }
