@@ -55,6 +55,7 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <OutputPath>..\output\installer\</OutputPath>
     <IntermediateOutputPath>wixobj\$(Platform)\$(Configuration)</IntermediateOutputPath>
+    <SignOutput>True</SignOutput>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
     <OutputPath>..\output\installer\</OutputPath>

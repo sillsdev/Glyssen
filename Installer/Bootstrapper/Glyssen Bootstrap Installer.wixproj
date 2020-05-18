@@ -9,6 +9,9 @@
     <OutputName>GlyssenInstaller</OutputName>
     <OutputType>Bundle</OutputType>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <SignOutput>True</SignOutput>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
     <OutputPath>..\..\output\installer\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
