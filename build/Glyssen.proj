@@ -15,105 +15,98 @@
 		<RestartBuild Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')">false</RestartBuild>
 	</PropertyGroup>
 
-  <UsingTask TaskName="StampAssemblies"
-    AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
-    Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
-  <UsingTask TaskName="MakeWixForDirTree"
-    AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
-    Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
-  <UsingTask TaskName="Split"
-    AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
-    Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
-  <UsingTask TaskName="FileUpdate"
-    AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
-    Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
-  <UsingTask TaskName="NUnit3" AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll" />
-  <Import Project="../.nuget/NuGet.targets" />
+	<UsingTask TaskName="StampAssemblies"
+		AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
+		Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
+	<UsingTask TaskName="MakeWixForDirTree"
+		AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
+		Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
+	<UsingTask TaskName="Split"
+		AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
+		Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
+	<UsingTask TaskName="FileUpdate"
+		AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
+		Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
+	<UsingTask TaskName="NUnit3" AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll" />
+  
+	<Import Project="../.nuget/NuGet.targets" />
 
-  <Target Name="RestoreBuildTasks" DependsOnTargets="CheckPrerequisites">
-    <Message Text="Calling nuget restore" />
-    <Exec Command='$(NuGetCommand) restore ../$(Solution)' />
-    <Exec Command='$(NuGetCommand) install SIL.BuildTasks -excludeVersion -version 1.0.2 -source "$(PackageSources)" -solutionDirectory "$(SolutionDir)."' />
-    <Message Text="RestartBuild=$(RestartBuild)"/>
-    <MSBuild Projects="$(MSBuildProjectFullPath)" Targets="BuildInternal"
-      Properties="Configuration=$(Configuration)" Condition="$(RestartBuild)" />
-  </Target>
+	<Target Name="RestoreBuildTasks" DependsOnTargets="CheckPrerequisites">
+		<Message Text="Calling nuget restore" />
+		<Exec Command='$(NuGetCommand) restore ../$(Solution)' />
+		<Exec Command='$(NuGetCommand) install SIL.BuildTasks -excludeVersion -version 1.0.2 -source "$(PackageSources)" -solutionDirectory "$(SolutionDir)."' />
+		<Message Text="RestartBuild=$(RestartBuild)"/>
+		<MSBuild Projects="$(MSBuildProjectFullPath)" Targets="BuildInternal" Properties="Configuration=$(Configuration)" Condition="$(RestartBuild)" />
+	</Target>
 
 	<Target Name="VersionNumbers">
-	<Message Text="BUILD_NUMBER: $(BUILD_NUMBER)" Importance="high"/>
+		<Message Text="BUILD_NUMBER: $(BUILD_NUMBER)" Importance="high"/>
 
-	<Split Input="$(BUILD_NUMBER)" Delimiter="." OutputSubString="2">
-		<Output TaskParameter="ReturnValue" PropertyName="BuildCounter" />
-	</Split>
-	<Split Input="$(BUILD_NUMBER)" Delimiter="." OutputSubString="3">
-		<Output TaskParameter="ReturnValue" PropertyName="BuildHash" />
-	</Split>
+		<Split Input="$(BUILD_NUMBER)" Delimiter="." OutputSubString="2">
+			<Output TaskParameter="ReturnValue" PropertyName="BuildCounter" />
+		</Split>
+		<Split Input="$(BUILD_NUMBER)" Delimiter="." OutputSubString="3">
+			<Output TaskParameter="ReturnValue" PropertyName="BuildHash" />
+		</Split>
 
-	<Message Text="BuildCounter: $(BuildCounter)" Importance="high"/>
-	<Message Text="BuildHash: $(BuildHash)" Importance="high"/>
+		<Message Text="BuildCounter: $(BuildCounter)" Importance="high"/>
+		<Message Text="BuildHash: $(BuildHash)" Importance="high"/>
 
-	<!-- For now, mimicking Bloom's strategy of updating the version number here (not on TeamCity, not in the assemblies). -->
-	<CreateProperty Value="1.3.$(BuildCounter)">
-		<Output PropertyName="Version" TaskParameter="Value"/>
-	</CreateProperty>
-	<CreateProperty Value="$(Version).$(BuildHash)">
-		<Output PropertyName="FullVersion" TaskParameter="Value"/>
-	</CreateProperty>
-	<CreateProperty Value="GlyssenInstaller.$(Version).exe" Condition=" '$(Label)' == '' ">
-		<Output PropertyName="InstallerFileName" TaskParameter="Value"/>
-	</CreateProperty>
-	<CreateProperty Value="GlyssenInstaller.$(Version).$(Label).exe" Condition=" '$(Label)' != '' ">
-		<Output PropertyName="InstallerFileName" TaskParameter="Value"/>
-	</CreateProperty>
-	<Message Text="Version: $(Version)" Importance="high"/>
-	<Message Text="FullVersion: $(FullVersion)" Importance="high"/>
+		<!-- For now, mimicking Bloom's strategy of updating the version number here (not on TeamCity, not in the assemblies). -->
+		<PropertyGroup>
+			<Version>1.3.$(BuildCounter)</Version>
+			<FullVersion>$(Version).$(BuildHash)</FullVersion>
+			<InstallerPathWithVersion Condition=" '$(Label)' == '' ">$(RootDir)\output\installer\GlyssenInstaller.$(Version).exe</InstallerPathWithVersion>
+			<InstallerPathWithVersion Condition=" '$(Label)' != '' ">$(RootDir)\output\installer\GlyssenInstaller.$(Version).$(Label).exe</InstallerPathWithVersion>
+		</PropertyGroup>
+
+		<Message Text="Version: $(Version)" Importance="high"/>
+		<Message Text="FullVersion: $(FullVersion)" Importance="high"/>
 	</Target>
 
 	<!-- Reference Text Utility version numbers -->
 	<Target Name="RTUVersionNumbers">
-	<Message Text="Reference Text Utility BUILD_NUMBER: $(BUILD_NUMBER)" Importance="high"/>
+		<Message Text="Reference Text Utility BUILD_NUMBER: $(BUILD_NUMBER)" Importance="high"/>
 
-	<Split Input="$(BUILD_NUMBER)" Delimiter="." OutputSubString="2">
-		<Output TaskParameter="ReturnValue" PropertyName="RTUBuildCounter" />
-	</Split>
-	<Split Input="$(BUILD_NUMBER)" Delimiter="." OutputSubString="3">
-		<Output TaskParameter="ReturnValue" PropertyName="RTUBuildHash" />
-	</Split>
+		<Split Input="$(BUILD_NUMBER)" Delimiter="." OutputSubString="2">
+			<Output TaskParameter="ReturnValue" PropertyName="RTUBuildCounter" />
+		</Split>
+		<Split Input="$(BUILD_NUMBER)" Delimiter="." OutputSubString="3">
+			<Output TaskParameter="ReturnValue" PropertyName="RTUBuildHash" />
+		</Split>
 
-	<Message Text="Reference Text Utility BuildCounter: $(RTUBuildCounter)" Importance="high"/>
-	<Message Text="Reference Text Utility BuildHash: $(RTUBuildHash)" Importance="high"/>
+		<Message Text="Reference Text Utility BuildCounter: $(RTUBuildCounter)" Importance="high"/>
+		<Message Text="Reference Text Utility BuildHash: $(RTUBuildHash)" Importance="high"/>
 
-	<!-- For now, mimicking Bloom's strategy of updating the version number here (not on TeamCity, not in the assemblies). -->
-	<CreateProperty Value="1.0.$(RTUBuildCounter)">
-		<Output PropertyName="RTUVersion" TaskParameter="Value"/>
-	</CreateProperty>
-	<CreateProperty Value="$(RTUVersion).$(RTUBuildHash)">
-		<Output PropertyName="RTUFullVersion" TaskParameter="Value"/>
-	</CreateProperty>
-	<CreateProperty Value="GlyssenRefTextUtilInstaller.$(RTUVersion).msi">
-		<Output PropertyName="RTUInstallerFileName" TaskParameter="Value"/>
-	</CreateProperty>
-	<Message Text="Reference Text Utility Version: $(RTUVersion)" Importance="high"/>
-	<Message Text="Reference Text Utility FullVersion: $(RTUFullVersion)" Importance="high"/>
+		<!-- For now, mimicking Bloom's strategy of updating the version number here (not on TeamCity, not in the assemblies). -->
+	
+		<PropertyGroup>
+			<RTUVersion>1.0.$(RTUBuildCounter)</RTUVersion>
+			<RTUFullVersion>$(RTUVersion).$(RTUBuildHash)</RTUFullVersion>
+			<RTUInstallerFileName>GlyssenRefTextUtilInstaller.$(RTUVersion).msi</RTUInstallerFileName>
+		</PropertyGroup>
+	
+		<Message Text="Reference Text Utility Version: $(RTUVersion)" Importance="high"/>
+		<Message Text="Reference Text Utility FullVersion: $(RTUFullVersion)" Importance="high"/>
 	</Target>
 
 	<Target Name="SetAssemblyVersion" DependsOnTargets="VersionNumbers">
-	<ItemGroup>
-		<AssemblyInfoFiles Include="$(RootDir)/**/AssemblyInfo.cs"/>
-	</ItemGroup>
-	<StampAssemblies Version="$(Version)" InputAssemblyPaths="@(AssemblyInfoFiles)" />
+		<ItemGroup>
+			<AssemblyInfoFiles Include="$(RootDir)/**/AssemblyInfo.cs"/>
+		</ItemGroup>
+		<StampAssemblies Version="$(Version)" InputAssemblyPaths="@(AssemblyInfoFiles)" />
 	</Target>
 
-  <Target Name="Build">
-    <CallTarget Targets="RestoreBuildTasks"/>
-    <CallTarget Targets="BuildInternal" Condition="!$(RestartBuild)" />
-  </Target>
+	<Target Name="Build">
+		<CallTarget Targets="RestoreBuildTasks"/>
+		<CallTarget Targets="BuildInternal" Condition="!$(RestartBuild)" />
+	</Target>
 
-  <Target Name="BuildInternal" DependsOnTargets="SetAssemblyVersion">
-    <MSBuild Projects="$(RootDir)/$(Solution)"
-      Targets="Rebuild"
-      Properties="Configuration=$(Configuration)" />
-  </Target>
+	<Target Name="BuildInternal" DependsOnTargets="SetAssemblyVersion">
+		<MSBuild Projects="$(RootDir)/$(Solution)"
+			Targets="Rebuild"
+			Properties="Configuration=$(Configuration)" />
+	</Target>
 
 	<Target Name="Test" DependsOnTargets="Build">
 		<!-- Note: the Exclude here is (hopefully) a temporary solution.
@@ -154,12 +147,12 @@
 		<Message Text="Build Complete"/>
 
 		<!-- remove an existing one with the same name, if necessary -->
-		<Delete Files="$(RootDir)\output\installer\$(InstallerFileName)" TreatErrorsAsWarnings="false" />
+		<Delete Files="$(InstallerPathWithVersion)" TreatErrorsAsWarnings="false" />
 
 		<Copy SourceFiles="$(RootDir)\output\installer\GlyssenInstaller.exe"
-			DestinationFiles="$(RootDir)\output\installer\$(InstallerFileName)"
+			DestinationFiles="$(InstallerPathWithVersion)"
 		/>
-		<Message Text="Copied installer to $(RootDir)\output\installer\$(InstallerFileName)" Importance="high"/>
+		<Message Text="Copied installer to $(InstallerPathWithVersion)" Importance="high"/>
 
 		<!-- remove the installer which has no version number (wouldn't need this if the copy above was a move, instead) -->
 		<Delete Files="$(RootDir)\output\installer\GlyssenInstaller.exe" TreatErrorsAsWarnings="false" />
@@ -210,13 +203,19 @@
 	<!-- These targets are designed to be additional steps on TeamCity after running target Installer. Pick the appropriate one
 	depending on whether your project's output MUST be signed or it's only nice if it is. For example, a continuous build
 	might use SignIfPossible, while a Publication build must use SignInstaller.-->
-	<Target Name="SignInstaller" DependsOnTargets="VersionNumbers; Installer">
-		<Exec Command='sign "$(RootDir)\output\installer\$(InstallerFileName)"'></Exec>
-		<Message Text="Signed installer at $(RootDir)\output\installer\$(InstallerFileName)" Importance="high"/>
+	<Target Name="SignInstaller" DependsOnTargets="Installer">
+		<Exec Command='insignia -ib "$(InstallerPathWithVersion)" -o engine.exe'/>
+		<Exec Command='sign engine.exe'/>
+		<Exec Command='insignia -ab engine.exe "$(InstallerPathWithVersion)" -o $(InstallerPathWithVersion)'/>
+		<Exec Command='sign "$(InstallerPathWithVersion)"'/>
+		<Message Text="Signed installer at $(InstallerPathWithVersion)" Importance="high"/>
 	</Target>
 
-	<Target Name="SignIfPossible" DependsOnTargets="VersionNumbers; Installer">
-		<Exec Command='sign "$(RootDir)\output\installer\$(InstallerFileName)"' ContinueOnError="true"></Exec>
+	<Target Name="SignIfPossible" DependsOnTargets="Installer">
+		<Exec Command='insignia -ib "$(InstallerPathWithVersion)" -o engine.exe' ContinueOnError="true"/>
+		<Exec Command='sign engine.exe' ContinueOnError="true"/>
+		<Exec Command='insignia -ab engine.exe "$(InstallerPathWithVersion)" -o $(InstallerPathWithVersion)' ContinueOnError="true"/>
+		<Exec Command='sign "$(InstallerPathWithVersion)"' ContinueOnError="true"/>
 	</Target>
 
 	<Target Name="MakeWixForDistFiles">
