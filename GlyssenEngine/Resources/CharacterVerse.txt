@@ -19316,7 +19316,9 @@ ACT	14	5	Gentiles, Jews, and leaders at Iconium			Indirect
 ACT	14	10	Paul	calling out		Dialogue		
 ACT	14	11	crowd in Lystra	excited		Dialogue		
 ACT	14	12	narrator-ACT			Quotation		
+ACT	14	12	crowd in Lystra			Potential		
 ACT	14	13	narrator-ACT			Quotation		
+ACT	14	13	priest of Jupiter			Potential		
 ACT	14	15	Barnabas/Paul	preaching		Dialogue	Paul	
 ACT	14	16	Barnabas/Paul	preaching		Normal	Paul	
 ACT	14	17	Barnabas/Paul	preaching		Normal	Paul	
