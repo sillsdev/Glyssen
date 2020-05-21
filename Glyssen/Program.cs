@@ -327,7 +327,7 @@ namespace Glyssen
 			string targetTmxFilePath = Path.Combine(GlyssenInfo.Company, GlyssenInfo.Product);
 			string desiredUiLangId = Settings.Default.UserInterfaceLanguage;
 
-			PrimaryLocalizationManager = LocalizationManager.Create(TranslationMemory.Tmx, desiredUiLangId, GlyssenInfo.ApplicationId, Application.ProductName, Application.ProductVersion,
+			PrimaryLocalizationManager = LocalizationManager.Create(TranslationMemory.XLiff, desiredUiLangId, GlyssenInfo.ApplicationId, Application.ProductName, Application.ProductVersion,
 				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress, "Glyssen");
 
 			if (IsNullOrEmpty(desiredUiLangId))
@@ -342,7 +342,7 @@ namespace Glyssen
 						}
 
 			var uiLanguage = LocalizationManager.UILanguageId;
-			LocalizationManager.Create(TranslationMemory.Tmx, uiLanguage, "Palaso", "Palaso", Application.ProductVersion,
+			LocalizationManager.Create(TranslationMemory.XLiff, uiLanguage, "Palaso", "Palaso", Application.ProductVersion,
 				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress,
 				"SIL.Windows.Forms.WritingSystems", "SIL.DblBundle", "SIL.Windows.Forms.DblBundle", "SIL.Windows.Forms.Miscellaneous");
 		}
