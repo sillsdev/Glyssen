@@ -30,4 +30,4 @@ lib/dotnet/MarkdownDeep.dll
 /Glyssen/Firefox/*
 /GlyssenTests/Firefox/*
 **/wixobj/*
-/DistFiles/Palaso.*.xlf
+/DistFiles/localization/Palaso.*.xlf
