@@ -922,6 +922,7 @@ pine trees and cedars of Lebanon	-1	Neuter				ISA 14:8	Tree
 poets	-1					NUM 21:27 <-(2 more)-> NUM 21:30
 Potiphar's wife	1	Female				GEN 39:7 <-(6 more)-> GEN 39:19
 priest	-1	Male				NUM 5:19 <-(5 more)-> JER 23:33
+priest of Jupiter	1	Male				ACT 14:13
 priests	-1	Male				DEU 27:9 <-(35 more)-> ACT 4:1
 prince of Tyre	1	Male				EZK 28:2 & EZK 28:9
 princes of the sea	-1	Male				EZK 26:17 & EZK 26:18	Prince of the Sea
