@@ -661,7 +661,7 @@
 		<XliffFiles Include="$(PkgSIL_libpalaso_l10ns)/content/**/*.xlf"/>
 	</ItemGroup>
 	<Copy SourceFiles="@(XliffFiles)"
-		DestinationFiles="@(XliffFiles->'$(SolutionDir)/DistFiles/%(Filename)%(Extension)')"
+		DestinationFiles="@(XliffFiles->'$(SolutionDir)/DistFiles/localization/%(Filename)%(Extension)')"
 		SkipUnchangedFiles="true"/>
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
