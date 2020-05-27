@@ -401,6 +401,8 @@ namespace GlyssenEngine.Script
 			{
 				var baseBlock = (referenceBlocksToJoin?.FirstOrDefault() ?? this);
 				refBlock = new Block(StyleTag, ChapterNumber, baseBlock.InitialStartVerseNumber, baseBlock.InitialEndVerseNumber);
+				if (CharacterId == null)
+					throw new Exception($"We're about to use a null Character id to try to set the character of the ref block: {ToString(true)}");
 				refBlock.SetCharacterAndDeliveryInfo(this, bookNum, versification);
 				if (referenceBlocksToJoin.Any())
 					refBlock.AppendJoinedBlockElements(referenceBlocksToJoin, referenceLanguageInfo);
