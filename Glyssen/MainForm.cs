@@ -440,6 +440,7 @@ namespace Glyssen
 
 		private void LoadProject(string filePath, Action additionalActionAfterSettingProject = null)
 		{
+			Logger.WriteEvent($"Attempting to load project from {filePath}");
 			bool loadedSuccessfully = LoadAndHandleApplicationExceptions(() =>
 			{
 				SetProject(Project.Load(InstantiateProjectFromMetadata(filePath), HandleMissingBundleNeededForProjectUpgrade, new WinformsParatextProjectLoadingAssistant(ParserUpgradeMessage, false)));
