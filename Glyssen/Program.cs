@@ -20,7 +20,6 @@ using Paratext.Data;
 using Paratext.Data.Users;
 using PtxUtils;
 using PtxUtils.Progress;
-using SIL;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Windows.Forms.i18n;
@@ -208,7 +207,7 @@ namespace Glyssen
 					string fmt;
 					if (safeReplacements.Count == 1)
 					{
-						fmt = Localizer.GetString("DataMigration.ConfirmReplacementOfAudioAudio",
+						fmt = LocalizationManager.GetString("DataMigration.ConfirmReplacementOfAudioAudio",
 							"Doing this will replace the existing project by the same name, which was originally created by {0}. " +
 							"Since none of the blocks in the project to be overwritten have any user decisions recorded, this seems " +
 							"to be safe, but since {0} failed to make a backup, you need to confirm this. If you choose not to confirm " +
@@ -220,7 +219,7 @@ namespace Glyssen
 					}
 					else
 					{
-						fmt = Localizer.GetString("DataMigration.ConfirmReplacementsOfAudioAudio",
+						fmt = LocalizationManager.GetString("DataMigration.ConfirmReplacementsOfAudioAudio",
 							"Doing this will replace the existing projects by the same name, which were originally created by {0}. " +
 							"Since none of the blocks in the projects to be overwritten have any user decisions recorded, this seems " +
 							"to be safe, but since {0} failed to make a backup, you need to confirm this. If you choose not to confirm " +
@@ -322,7 +321,7 @@ namespace Glyssen
 
 		private static void SetUpLocalization()
 		{
-			Localizer.Default = new L10NSharpLocalizer();
+			SIL.Localizer.Default = new L10NSharpLocalizer();
 			string installedStringFileFolder = FileLocationUtilities.GetDirectoryDistributedWithApplication("localization");
 			string targetTmxFilePath = Path.Combine(GlyssenInfo.Company, GlyssenInfo.Product);
 			string desiredUiLangId = Settings.Default.UserInterfaceLanguage;
