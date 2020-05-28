@@ -199,33 +199,6 @@
 		<Delete Files="$(RootDir)\output\RefTextUtilityInstallerinstaller\RefTextUtilityInstaller.msi" TreatErrorsAsWarnings="false" />
 
 	</Target>
-	
-	<!-- See https://wixtoolset.org/documentation/manual/v3/overview/insignia.html -->
-	<Target Name="SignCabs">
-		<PropertyGroup>
-			<IgnoreSigningErrors Condition="'$(IgnoreSigningErrors)' == ''">false</IgnoreSigningErrors>
-		</PropertyGroup>
-		<Exec Command="sign &quot;%(SignCabs.FullPath)&quot;" ContinueOnError="$(IgnoreSigningErrors)"/>
-	</Target>	
-	<Target Name="SignMsi">
-		<PropertyGroup>
-			<IgnoreSigningErrors Condition="'$(IgnoreSigningErrors)' == ''">false</IgnoreSigningErrors>
-		</PropertyGroup>
-		<Exec Command="sign &quot;%(SignMsi.FullPath)&quot;" ContinueOnError="$(IgnoreSigningErrors)"/>
-	</Target>
-	
-	<Target Name="SignBundleEngine">
-		<PropertyGroup>
-			<IgnoreSigningErrors Condition="'$(IgnoreSigningErrors)' == ''">false</IgnoreSigningErrors>
-		</PropertyGroup>
-		<Exec Command="sign &quot;@(SignBundleEngine)&quot;" ContinueOnError="$(IgnoreSigningErrors)"/>
-	</Target>
-	<Target Name="SignBundle">
-		<PropertyGroup>
-			<IgnoreSigningErrors Condition="'$(IgnoreSigningErrors)' == ''">false</IgnoreSigningErrors>
-		</PropertyGroup>
-		<Exec Command="sign &quot;@(SignBundle)&quot;" ContinueOnError="$(IgnoreSigningErrors)"/>
-	</Target>
 
 	<!-- These targets are designed to be additional steps on TeamCity after running target Installer. Pick the appropriate one
 	depending on whether your project's output MUST be signed or it's only nice if it is. For example, a continuous build
