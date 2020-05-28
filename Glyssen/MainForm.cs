@@ -413,6 +413,17 @@ namespace Glyssen
 						{WinFormsErrorAnalytics.kExceptionMsgKey, ex.Message},
 						{"CurrentProjectPath", Settings.Default.CurrentProject},
 					});
+					try
+					{
+						// Attempt to clear this setting so that Glyssen won't be permanently hamstrung.
+						Settings.Default.CurrentProject = null;
+						Settings.Default.Save();
+					}
+					catch (Exception exceptionSavingSettings)
+					{
+						Logger.WriteError("Failed to clear CurrentProject setting. If problem persists, " +
+							"Glyssen will not be able to restart successfully.", exceptionSavingSettings);
+					}
 					throw;
 				}
 			}
