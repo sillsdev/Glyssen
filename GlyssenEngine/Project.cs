@@ -1596,10 +1596,13 @@ namespace GlyssenEngine
 
 		private void QuoteWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
-			Exception innerException;
-			if ((innerException = e.Error?.InnerException) != null)
+			if (e.Error != null)
 			{
-				Debug.WriteLine(innerException.Message + innerException.StackTrace);
+#if DEBUG
+				Exception innerException;
+				if ((innerException = e.Error?.InnerException) != null)
+					Debug.WriteLine(innerException.Message + innerException.StackTrace);
+#endif
 				throw e.Error;
 			}
 
@@ -1714,7 +1717,6 @@ namespace GlyssenEngine
 			m_metadata.LastModified = DateTime.Now;
 			XmlSerializationHelper.Serialize(Writer.GetTextWriter(this, ProjectResource.Metadata), m_projectMetadata, out error);
 		}
-
 
 		public void SaveBook(BookScript book)
 		{
