@@ -46,6 +46,9 @@ back-up plan.)
 
 # Release Notes
 
+## May 13 2019 Glyssen 1.3.8
+When a block is identified as "he said", Glyssen looks for other identical blocks and aligns them automatically.
+
 ## December 2019 Glyssen 1.3.0
 As of this version, Glyssen is now a 64-bit application and will not run on 32-bit versions of Windows.
 
