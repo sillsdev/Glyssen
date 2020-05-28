@@ -15,43 +15,43 @@
 		<RestartBuild Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')">false</RestartBuild>
 	</PropertyGroup>
 
-  <UsingTask TaskName="MakeWixForDirTree"
-    AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
-    Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
-  <UsingTask TaskName="FileUpdate"
-    AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
-    Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
-  <UsingTask TaskName="NUnit3" AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll" />
-  <Import Project="../.nuget/NuGet.targets" />
+	<UsingTask TaskName="MakeWixForDirTree"
+		AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
+		Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
+	<UsingTask TaskName="FileUpdate"
+		AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
+		Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
+	<UsingTask TaskName="NUnit3" AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll" />
+	
+	<Import Project="../.nuget/NuGet.targets" />
 
-  <Target Name="RestoreBuildTasks" DependsOnTargets="CheckPrerequisites">
-    <Message Text="Calling nuget restore" />
-    <Exec Command='$(NuGetCommand) restore ../$(Solution)' />
-    <Exec Command='$(NuGetCommand) install SIL.BuildTasks -excludeVersion -version 1.0.2 -source "$(PackageSources)" -solutionDirectory "$(SolutionDir)."' />
-    <Message Text="RestartBuild=$(RestartBuild)"/>
-    <MSBuild Projects="$(MSBuildProjectFullPath)" Targets="BuildInternal"
-      Properties="Configuration=$(Configuration)" Condition="$(RestartBuild)" />
-  </Target>
+	<Target Name="RestoreBuildTasks" DependsOnTargets="CheckPrerequisites">
+		<Message Text="Calling nuget restore" />
+		<Exec Command='$(NuGetCommand) restore ../$(Solution)' />
+		<Exec Command='$(NuGetCommand) install SIL.BuildTasks -excludeVersion -version 1.0.2 -source "$(PackageSources)" -solutionDirectory "$(SolutionDir)."' />
+		<Message Text="RestartBuild=$(RestartBuild)"/>
+		<MSBuild Projects="$(MSBuildProjectFullPath)" Targets="BuildInternal" Properties="Configuration=$(Configuration)" Condition="$(RestartBuild)" />
+	</Target>
 
 	<Target Name="SetInstallerVersionNumber" DependsOnTargets="Build">
-	<!-- Now using semantic versioning 2.0.0, so version number comes from GitVersion. -->
-	<Message Text="SemVer: $(GitVersion_Semver)" Importance="high"/>
+		<!-- Now using semantic versioning 2.0.0, so version number comes from GitVersion. -->
+		<Message Text="SemVer: $(GitVersion_Semver)" Importance="high"/>
 
-	<CreateProperty Value="$(RootDir)\output\installer\GlyssenInstaller.$(GitVersion_Semver).msi">
-		<Output PropertyName="InstallerFileDestName" TaskParameter="Value"/>
-	</CreateProperty>
-	<Message Text="InstallerFileDestName: $(InstallerFileDestName)" Importance="high"/>
+		<PropertyGroup>
+			<InstallerFileDestName>$(RootDir)\output\installer\GlyssenInstaller.$(GitVersion_Semver).msi</InstallerFileDestName>
+		</PropertyGroup>
+		<Message Text="InstallerFileDestName: $(InstallerFileDestName)" Importance="high"/>
 	</Target>
 
 	<Target Name="Build">
-      <CallTarget Targets="RestoreBuildTasks"/>
-      <CallTarget Targets="BuildInternal" Condition="!$(RestartBuild)" />
+		<CallTarget Targets="RestoreBuildTasks"/>
+		<CallTarget Targets="BuildInternal" Condition="!$(RestartBuild)" />
 	</Target>
 
 	<Target Name="BuildInternal">
-      <MSBuild Projects="$(RootDir)/$(Solution)"
-        Targets="Rebuild"
-        Properties="Configuration=$(Configuration)" />
+		<MSBuild Projects="$(RootDir)/$(Solution)"
+			Targets="Rebuild"
+			Properties="Configuration=$(Configuration)" />
 	</Target>
 
 	<Target Name="Test" DependsOnTargets="Build">
@@ -131,9 +131,9 @@
 
 		<Message Text="Making Reference Text Utility Installer Version: $(GitVersion_MajorMinorPatch)" Importance="high" />
 
-		<CreateProperty 		Value="$(RootDir)\output\RefTextUtilityInstaller\GlyssenRefTextUtilInstaller.$(GitVersion_Semver).msi">	
-			<Output PropertyName="RTUInstallerFileDestName" TaskParameter="Value"/>	
-		</CreateProperty>
+		<PropertyGroup>	
+			<RTUInstallerFileDestName>$(RootDir)\output\RefTextUtilityInstaller\GlyssenRefTextUtilInstaller.$(GitVersion_Semver).msi</RTUInstallerFileDestName>	
+		</PropertyGroup>
 		<Message Text="RTUInstallerFileDestName: $(RTUInstallerFileDestName)" Importance="high"/>
 	
 		<MSBuild Projects="$(RootDir)\Reference Text Utility\Installer\RTUInstaller.wixproj"/>
@@ -142,8 +142,7 @@
 		<Delete Files="$(RTUInstallerFileDestName)" TreatErrorsAsWarnings="false" />
 
 		<Copy SourceFiles="$(RootDir)\output\RefTextUtilityInstaller\GlyssenRefTextUtilInstaller.msi"
-			DestinationFiles="$(RTUInstallerFileDestName)"
-		/>
+			DestinationFiles="$(RTUInstallerFileDestName)"/>
 		<Message Text="Copied installer to $(RTUInstallerFileDestName)" Importance="high"/>
 
 		<!-- remove the installer which has no version number (wouldn't need this if the copy above was a move, instead) -->
@@ -154,13 +153,13 @@
 	<!-- These targets are designed to be additional steps on TeamCity after running target Installer. Pick the appropriate one
 	depending on whether your project's output MUST be signed or it's only nice if it is. For example, a continuous build
 	might use SignIfPossible, while a Publication build must use SignInstaller.-->
-	<Target Name="SignInstaller" DependsOnTargets="SetInstallerVersionNumber; Installer">
-		<Exec Command='sign "$(InstallerFileDestName)"'></Exec>
+	<Target Name="SignInstaller" DependsOnTargets="Installer">
+		<Exec Command='sign "$(InstallerFileDestName)"'/>
 		<Message Text="Signed installer at $(InstallerFileDestName)" Importance="high"/>
 	</Target>
 
-	<Target Name="SignIfPossible" DependsOnTargets="SetInstallerVersionNumber; Installer">
-		<Exec Command='sign "$(InstallerFileDestName)"' ContinueOnError="true"></Exec>
+	<Target Name="SignIfPossible" DependsOnTargets="Installer">
+		<Exec Command='sign "$(InstallerFileDestName)"' ContinueOnError="true"/>
 	</Target>
 
 	<Target Name="MakeWixForDistFiles">
