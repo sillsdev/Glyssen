@@ -584,7 +584,7 @@
       <Version>59.1.7</Version>
     </PackageReference>
     <PackageReference Include="L10NSharp">
-      <Version>4.0.3</Version>
+      <Version>4.1.0-beta0032</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.CSharp">
       <Version>4.7.0</Version>
@@ -657,12 +657,10 @@
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
   <Target Name="AfterBuild">
-  	<ItemGroup>
-		<XliffFiles Include="$(PkgSIL_libpalaso_l10ns)/content/**/*.xlf"/>
-	</ItemGroup>
-	<Copy SourceFiles="@(XliffFiles)"
-		DestinationFiles="@(XliffFiles->'$(SolutionDir)/DistFiles/localization/%(Filename)%(Extension)')"
-		SkipUnchangedFiles="true"/>
+    <ItemGroup>
+      <XliffFiles Include="$(PkgSIL_libpalaso_l10ns)/content/**/*.xlf" />
+    </ItemGroup>
+    <Copy SourceFiles="@(XliffFiles)" DestinationFiles="@(XliffFiles->'$(SolutionDir)/DistFiles/localization/%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

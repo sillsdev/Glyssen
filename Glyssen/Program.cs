@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Dialogs;
@@ -343,6 +344,9 @@ namespace Glyssen
 			var uiLanguage = LocalizationManager.UILanguageId;
 			LocalizationManager.Create(TranslationMemory.XLiff, uiLanguage, "Palaso", "Palaso", Application.ProductVersion,
 				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress,
+				typeof(SIL.Localizer)
+					.GetMethods(BindingFlags.Static | BindingFlags.Public)
+					.Where(m => m.Name == "GetString"),
 				"SIL.Windows.Forms.WritingSystems", "SIL.DblBundle", "SIL.Windows.Forms.DblBundle", "SIL.Windows.Forms.Miscellaneous");
 		}
 
