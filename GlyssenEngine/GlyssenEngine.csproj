@@ -27,6 +27,7 @@ See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>..\output\Release\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
