@@ -39,12 +39,12 @@ namespace GlyssenEngine.Paratext
 			get
 			{
 				UnderlyingScrText.SetBooksPresent(); // This ensures list is up-to-date wrt the file system.
-				return UnderlyingScrText.JoinedBooksPresentSet.SelectedBookNumbers.Where(Canon.IsCanonical);
+				return UnderlyingScrText.BooksPresentSet.SelectedBookNumbers.Where(Canon.IsCanonical);
 			}
 		}
 
 		public string LanguageIso3Code => UnderlyingScrText.Language.LanguageId.Iso6393Code;
-		public string ProjectFullName => UnderlyingScrText.JoinedFullName;
+		public string ProjectFullName => UnderlyingScrText.FullName;
 		// REVIEW (PG-63): In all cases where FailedChecksBooks is accessed, analyze whether UserCanEditProject should be
 		// taken into account. Maybe FailedChecksBooks should always return an empty list when !UserCanEditProject.
 		public IEnumerable<string> FailedChecksBooks => m_bookInfo.FailedChecksBooks;
@@ -179,7 +179,7 @@ namespace GlyssenEngine.Paratext
 						Versification = Versification.Name,
 						Identification = new DblMetadataIdentification
 						{
-							Name = UnderlyingScrText.JoinedFullName,
+							Name = UnderlyingScrText.FullName,
 							SystemIds = new HashSet<DblMetadataSystemId>(new[]
 							{
 								new DblMetadataSystemId {Type = "paratext", Id = UnderlyingScrText.Settings.Guid}
