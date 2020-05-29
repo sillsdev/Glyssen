@@ -1391,7 +1391,7 @@ namespace Glyssen.Dialogs
 
 		private void HandleMoveReferenceTextUpOrDown_Click(object sender, EventArgs e)
 		{
-			bool down = (sender == m_btnMoveReferenceTextDown || (sender as ToolStripButton)?.Name == m_RefTextContextMenuItemMoveDown.Name);
+			bool down = sender == m_btnMoveReferenceTextDown || (sender is ToolStripMenuItem toolStripMenu) && toolStripMenu.Name.EndsWith("Down");
 			var currentRowIndex = m_dataGridReferenceText.CurrentCellAddress.Y;
 			var rowA = m_dataGridReferenceText.Rows[down ? currentRowIndex : currentRowIndex - 1];
 			var rowB = m_dataGridReferenceText.Rows[rowA.Index + 1];
