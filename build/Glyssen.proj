@@ -22,7 +22,7 @@
 		AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
 		Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
 	<UsingTask TaskName="NUnit3" AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll" />
-	
+
 	<Import Project="../.nuget/NuGet.targets" />
 
 	<Target Name="RestoreBuildTasks" DependsOnTargets="CheckPrerequisites">
@@ -154,12 +154,15 @@
 	depending on whether your project's output MUST be signed or it's only nice if it is. For example, a continuous build
 	might use SignIfPossible, while a Publication build must use SignInstaller.-->
 	<Target Name="SignInstaller" DependsOnTargets="Installer">
-		<Exec Command='sign "$(InstallerFileDestName)"'/>
-		<Message Text="Signed installer at $(InstallerFileDestName)" Importance="high"/>
+		<PropertyGroup>
+			<IgnoreSigningErrors>false</IgnoreSigningErrors>
+		</PropertyGroup>
 	</Target>
 
 	<Target Name="SignIfPossible" DependsOnTargets="Installer">
-		<Exec Command='sign "$(InstallerFileDestName)"' ContinueOnError="true"/>
+		<PropertyGroup>
+			<IgnoreSigningErrors>true</IgnoreSigningErrors>
+		</PropertyGroup>
 	</Target>
 
 	<Target Name="MakeWixForDistFiles">

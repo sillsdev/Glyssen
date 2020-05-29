@@ -391,7 +391,7 @@ namespace GlyssenFileBasedPersistence
 		}
 
 		private TextReader GetReader(string fullPath) =>
-			RobustFile.Exists(fullPath) ? new StreamReader(new FileStream(fullPath, FileMode.Open)) : null;
+			RobustFile.Exists(fullPath) ? new StreamReader(new FileStream(fullPath, FileMode.Open, FileAccess.Read)) : null;
 
 		#endregion
 		
