@@ -929,5 +929,40 @@ namespace GlyssenEngine.ViewModels
 			}
 			return currentCharacters.FirstOrDefault(item => item.CharacterId == CurrentBlock.CharacterId);
 		}
+
+		public void GetRowIndicesForMovingReferenceText(bool down, int currentRowIndex, out int iPreceding, out int iFollowing)
+		{
+			if (down)
+			{
+				iPreceding = currentRowIndex;
+				iFollowing = iPreceding + 1;
+				FindScriptureRowAtOrBelow(ref iFollowing);
+			}
+			else
+			{
+				iFollowing = currentRowIndex;
+				iPreceding = iFollowing - 1;
+				FindScriptureRowAtOrAbove(ref iPreceding);
+			}
+		}
+
+		public bool FindScriptureRowAtOrBelow(ref int i)
+		{
+			while (i < CurrentReferenceTextMatchup.CorrelatedBlocks.Count &&
+				CurrentReferenceTextMatchup.CorrelatedBlocks[i].CharacterIs(CurrentBookId, CharacterVerseData.StandardCharacter.ExtraBiblical))
+			{
+				i++;
+			}
+
+			return i < CurrentReferenceTextMatchup.CorrelatedBlocks.Count;
+		}
+
+		public bool FindScriptureRowAtOrAbove(ref int i)
+		{
+			while (i >= 0 && CurrentReferenceTextMatchup.CorrelatedBlocks[i].CharacterIs(CurrentBookId, CharacterVerseData.StandardCharacter.ExtraBiblical))
+				i--;
+
+			return i >= 0;
+		}
 	}
 }
