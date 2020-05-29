@@ -333,7 +333,7 @@ namespace Glyssen
 
 			m_lblFilesAreHere.Visible = false;
 
-			m_exportMenu.Enabled = false;
+			m_shareMenu.Enabled = false;
 		}
 
 		private void HandleOpenProject_Click(object sender, EventArgs e)
