@@ -1388,13 +1388,16 @@ namespace Glyssen.Dialogs
 			m_btnMoveReferenceTextUp.Enabled = e.RowIndex != 0;
 			m_menuInsertIntoSelectedRowOnly.Enabled = GetColumnsIntoWhichHeSaidCanBeInserted(m_dataGridReferenceText.Rows[e.RowIndex]).Any();
 		}
+		private void HandleMoveReferenceTextDown_Click(object sender, EventArgs e) => MoveReferenceText(true);
 
-		private void HandleMoveReferenceTextUpOrDown_Click(object sender, EventArgs e)
+		private void HandleMoveReferenceTextUp_Click(object sender, EventArgs e) => MoveReferenceText(false);
+
+		private void MoveReferenceText(bool down)
 		{
-			bool down = (sender == m_btnMoveReferenceTextDown || (sender as ToolStripButton)?.Name == m_RefTextContextMenuItemMoveDown.Name);
 			var currentRowIndex = m_dataGridReferenceText.CurrentCellAddress.Y;
-			var rowA = m_dataGridReferenceText.Rows[down ? currentRowIndex : currentRowIndex - 1];
-			var rowB = m_dataGridReferenceText.Rows[rowA.Index + 1];
+			m_viewModel.GetRowIndicesForMovingReferenceText(down, currentRowIndex, out int iPreceding, out int iFollowing);
+			var rowA = m_dataGridReferenceText.Rows[iPreceding];
+			var rowB = m_dataGridReferenceText.Rows[iFollowing];
 			if (colPrimary.Visible)
 				SwapRefText(rowA, rowB, colPrimary.Index);
 			SwapRefText(rowA, rowB, colEnglish.Index);
@@ -1406,10 +1409,10 @@ namespace Glyssen.Dialogs
 					SwapValues(rowA, rowB, colDelivery.Index);
 			}
 
-			int iCol = 0;
+			var iCol = 0;
 			while (!m_dataGridReferenceText.Columns[iCol].Visible)
 				iCol++;
-			m_dataGridReferenceText.CurrentCell = m_dataGridReferenceText.Rows[currentRowIndex + (down ? 1 : -1)].Cells[iCol];
+			m_dataGridReferenceText.CurrentCell = m_dataGridReferenceText.Rows[down ? iFollowing : iPreceding].Cells[iCol];
 		}
 
 		private void SwapValues(DataGridViewRow rowA, DataGridViewRow rowB, int columnIndex)
@@ -1905,18 +1908,21 @@ namespace Glyssen.Dialogs
 
 		private DataGridViewCell GetSplitTextDestination()
 		{
-			var rowIndex = m_dataGridReferenceText.CurrentCellAddress.Y;
 			var colIndex = m_dataGridReferenceText.CurrentCellAddress.X;
-			if (rowIndex < m_dataGridReferenceText.RowCount - 1)
+
+			var rowIndex = m_dataGridReferenceText.CurrentCellAddress.Y + 1;
+			if (m_viewModel.TryFindScriptureRowAtOrBelow(ref rowIndex))
 			{
-				var cellBelow = m_dataGridReferenceText.Rows[rowIndex + 1].Cells[colIndex];
-				if (String.IsNullOrEmpty(cellBelow.Value as String))
+				var cellBelow = m_dataGridReferenceText.Rows[rowIndex].Cells[colIndex];
+				if (IsNullOrEmpty(cellBelow.Value as String))
 					return cellBelow;
 			}
-			if (rowIndex > 0)
+
+			rowIndex = m_dataGridReferenceText.CurrentCellAddress.Y - 1;
+			if (m_viewModel.TryFindScriptureRowAtOrAbove(ref rowIndex))
 			{
-				var cellAbove = m_dataGridReferenceText.Rows[rowIndex - 1].Cells[colIndex];
-				if (String.IsNullOrEmpty(cellAbove.Value as String))
+				var cellAbove = m_dataGridReferenceText.Rows[rowIndex].Cells[colIndex];
+				if (IsNullOrEmpty(cellAbove.Value as String))
 					return cellAbove;
 			}
 			return null;

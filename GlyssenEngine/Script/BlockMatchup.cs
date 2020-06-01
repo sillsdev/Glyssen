@@ -489,5 +489,10 @@ namespace GlyssenEngine.Script
 					block.ReferenceBlocks.Single().SetMatchedReferenceBlock(m_referenceLanguageInfo.BackingReferenceLanguage.HeSaidText);
 			}
 		}
+
+		public override string ToString()
+		{
+			return $"Matchup for {OriginalBlocks.FirstOrDefault()?.ToString(true, BookId)} and {OriginalBlockCount} following blocks.";
+		}
 	}
 }

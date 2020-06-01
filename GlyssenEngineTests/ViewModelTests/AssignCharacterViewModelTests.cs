@@ -2021,6 +2021,138 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
 		}
 
+		[TestCase(true, -1)]
+		[TestCase(false, -1)]
+		[TestCase(true, 5)]
+		[TestCase(false, 5)]
+		public void GetRowIndicesForMovingReferenceText_CurrentRowOutOfRange_ThrowsArgumentOutOfRangeException(bool down, int currentRow)
+		{
+			FindRefInMark(9, 21);
+			m_model.SetMode(m_model.Mode, true);
+			Assert.AreEqual(5, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count, "SETUP conditions not met");
+
+			Assert.Throws<ArgumentOutOfRangeException>(() =>
+				m_model.GetRowIndicesForMovingReferenceText(down, currentRow, out _, out int _));
+		}
+
+		[TestCase(false, 0)]
+		[TestCase(true, 4)]
+		public void GetRowIndicesForMovingReferenceText_CurrentRowOutOfRange_ThrowsArgumentException(bool down, int currentRow)
+		{
+			FindRefInMark(9, 21);
+			m_model.SetMode(m_model.Mode, true);
+			Assert.AreEqual(5, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count, "SETUP conditions not met");
+
+			Assert.Throws<ArgumentException>(() =>
+				m_model.GetRowIndicesForMovingReferenceText(down, currentRow, out _, out int _));
+		}
+
+		[Test]
+		public void GetRowIndicesForMovingReferenceText_ImpossibleCaseWhereMatchupStartsWithSectionHead_ThrowsInvalidOperationException()
+		{
+			FindRefInMark(9, 21);
+			m_model.SetMode(m_model.Mode, true);
+			m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[0].CharacterId =
+				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical);
+
+			Assert.Throws<InvalidOperationException>(() =>
+				m_model.GetRowIndicesForMovingReferenceText(false, 1, out _, out int _));
+		}
+
+		[Test]
+		public void GetRowIndicesForMovingReferenceText_ImpossibleCaseWhereMatchupEndsWithSectionHead_ThrowsInvalidOperationException()
+		{
+			FindRefInMark(9, 21);
+			m_model.SetMode(m_model.Mode, true);
+			var lastBlockIndex = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count - 1;
+			m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[lastBlockIndex].CharacterId =
+				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical);
+
+			Assert.Throws<InvalidOperationException>(() =>
+				m_model.GetRowIndicesForMovingReferenceText(true, lastBlockIndex - 1, out _, out int _));
+		}
+
+		[TestCase(true, 0, 0, 1)]
+		[TestCase(false, 1, 0, 1)]
+		[TestCase(true, 3, 3, 4)]
+		[TestCase(false, 4, 3, 4)]
+		public void GetRowIndicesForMovingReferenceText_CurrentMatchupDoesNotHaveSectionHead_GetsContiguousRows(
+			bool down, int currentRow, int expectedPreceding, int expectedFollowing)
+		{
+			FindRefInMark(9, 21);
+			m_model.SetMode(m_model.Mode, true);
+			Assert.AreEqual(5, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count, "SETUP conditions not met");
+
+			m_model.GetRowIndicesForMovingReferenceText(down, currentRow, out int iPreceding, out int iFollowing);
+			Assert.AreEqual(expectedPreceding, iPreceding);
+			Assert.AreEqual(expectedFollowing, iFollowing);
+		}
+
+		[TestCase(true, 0, 1, 0, 2)]
+		[TestCase(false, 2, 1, 0, 2)]
+		[TestCase(true, 2, 3, 2, 4)]
+		[TestCase(false, 4, 3, 2, 4)]
+		public void GetRowIndicesForMovingReferenceText_CurrentMatchupHasSectionHead_GetsScriptureRow(
+			bool down, int currentRow, int iRowToMakeSectionHead, int expectedPreceding, int expectedFollowing)
+		{
+			FindRefInMark(9, 21);
+			m_model.SetMode(m_model.Mode, true);
+			Assert.AreEqual(5, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count, "SETUP conditions not met");
+			m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[iRowToMakeSectionHead].CharacterId =
+				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical);
+
+			m_model.GetRowIndicesForMovingReferenceText(down, currentRow, out int iPreceding, out int iFollowing);
+			Assert.AreEqual(expectedPreceding, iPreceding);
+			Assert.AreEqual(expectedFollowing, iFollowing);
+		}
+
+		[TestCase(1)]
+		[TestCase(3)]
+		public void TryFindScriptureRowAtOrBelow_PassedRowIsSectionHead_GetsNextScripture(int row)
+		{
+			FindRefInMark(9, 21);
+			m_model.SetMode(m_model.Mode, true);
+			Assert.AreEqual(5, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count, "SETUP conditions not met");
+			m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[row].CharacterId =
+				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical);
+
+			int expected = row + 1;
+			Assert.True(m_model.TryFindScriptureRowAtOrBelow(ref row));
+			Assert.AreEqual(expected, row);
+		}
+
+		[Test]
+		public void TryFindScriptureRowAtOrBelow_PassedRowAndFollowingRowAreSectionHead_GetsNextScripture()
+		{
+			FindRefInMark(9, 21);
+			m_model.SetMode(m_model.Mode, true);
+			Assert.AreEqual(5, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count, "SETUP conditions not met");
+			int row = 1;
+			m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[row].CharacterId =
+				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical);
+			m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[row + 1].CharacterId =
+				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical);
+
+			Assert.True(m_model.TryFindScriptureRowAtOrBelow(ref row));
+			Assert.AreEqual(3, row);
+		}
+
+		[Test]
+		public void TryFindScriptureRowAtOrAbove_PassedRowAndPrecedingRowAreSectionHead_GetsPrevScripture()
+		{
+			FindRefInMark(9, 21);
+			m_model.SetMode(m_model.Mode, true);
+			Assert.AreEqual(5, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count, "SETUP conditions not met");
+			int row = 3;
+			m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[row].CharacterId =
+				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical);
+			m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[row - 1].CharacterId =
+				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical);
+
+			Assert.True(m_model.TryFindScriptureRowAtOrAbove(ref row));
+			Assert.AreEqual(1, row);
+		}
+
 		private void FindRefInMark(int chapter, int verse)
 		{
 			BlockNavigatorViewModelTests.FindRefInMark(m_model, chapter, verse);
