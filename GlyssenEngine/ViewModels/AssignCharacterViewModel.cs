@@ -981,7 +981,8 @@ namespace GlyssenEngine.ViewModels
 
 		public bool TryFindScriptureRowAtOrAbove(ref int i)
 		{
-			while (i >= 0 && CurrentReferenceTextMatchup.CorrelatedBlocks[i].CharacterIs(CurrentBookId, CharacterVerseData.StandardCharacter.ExtraBiblical))
+			// See comment in TryFindScriptureRowAtOrBelow
+			while (i >= 0 && !CurrentReferenceTextMatchup.CorrelatedBlocks[i].IsScripture)
 				i--;
 
 			return i >= 0;
