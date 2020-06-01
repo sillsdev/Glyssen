@@ -1226,7 +1226,7 @@ namespace Glyssen.Dialogs
 			this.m_CharacterOrDeliveryContextMenuItemMoveUp.Size = new System.Drawing.Size(218, 22);
 			this.m_CharacterOrDeliveryContextMenuItemMoveUp.Text = "Move Line Up";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_CharacterOrDeliveryContextMenuItemMoveUp, false);
-			this.m_CharacterOrDeliveryContextMenuItemMoveUp.Click += new System.EventHandler(this.HandleMoveReferenceTextUpOrDown_Click);
+			this.m_CharacterOrDeliveryContextMenuItemMoveUp.Click += new System.EventHandler(this.HandleMoveReferenceTextUp_Click);
 			// 
 			// m_CharacterOrDeliveryContextMenuItemMoveDown
 			// 
@@ -1240,7 +1240,7 @@ namespace Glyssen.Dialogs
 			this.m_CharacterOrDeliveryContextMenuItemMoveDown.Size = new System.Drawing.Size(218, 22);
 			this.m_CharacterOrDeliveryContextMenuItemMoveDown.Text = "Move Line Down";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_CharacterOrDeliveryContextMenuItemMoveDown, false);
-			this.m_CharacterOrDeliveryContextMenuItemMoveDown.Click += new System.EventHandler(this.HandleMoveReferenceTextUpOrDown_Click);
+			this.m_CharacterOrDeliveryContextMenuItemMoveDown.Click += new System.EventHandler(this.HandleMoveReferenceTextDown_Click);
 			// 
 			// colPrimary
 			// 
@@ -1321,7 +1321,7 @@ namespace Glyssen.Dialogs
 			this.m_RefTextContextMenuItemMoveUp.Size = new System.Drawing.Size(163, 22);
 			this.m_RefTextContextMenuItemMoveUp.Text = "Move Line Up";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_RefTextContextMenuItemMoveUp, false);
-			this.m_RefTextContextMenuItemMoveUp.Click += new System.EventHandler(this.HandleMoveReferenceTextUpOrDown_Click);
+			this.m_RefTextContextMenuItemMoveUp.Click += new System.EventHandler(this.HandleMoveReferenceTextUp_Click);
 			// 
 			// m_RefTextContextMenuItemMoveDown
 			// 
@@ -1334,7 +1334,7 @@ namespace Glyssen.Dialogs
 			this.m_RefTextContextMenuItemMoveDown.Size = new System.Drawing.Size(163, 22);
 			this.m_RefTextContextMenuItemMoveDown.Text = "Move Line Down";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_RefTextContextMenuItemMoveDown, false);
-			this.m_RefTextContextMenuItemMoveDown.Click += new System.EventHandler(this.HandleMoveReferenceTextUpOrDown_Click);
+			this.m_RefTextContextMenuItemMoveDown.Click += new System.EventHandler(this.HandleMoveReferenceTextDown_Click);
 			// 
 			// colEnglish
 			// 
@@ -1433,7 +1433,7 @@ namespace Glyssen.Dialogs
 			this.m_btnMoveReferenceTextUp.Text = "Move Up";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnMoveReferenceTextUp, false);
 			this.m_btnMoveReferenceTextUp.UseVisualStyleBackColor = true;
-			this.m_btnMoveReferenceTextUp.Click += new System.EventHandler(this.HandleMoveReferenceTextUpOrDown_Click);
+			this.m_btnMoveReferenceTextUp.Click += new System.EventHandler(this.HandleMoveReferenceTextUp_Click);
 			this.m_btnMoveReferenceTextUp.MouseEnter += new System.EventHandler(this.HandleMouseEnterButtonThatAffectsEntireGridRow);
 			this.m_btnMoveReferenceTextUp.MouseLeave += new System.EventHandler(this.HandleMouseLeaveButtonThatAffectsEntireGridRow);
 			// 
@@ -1453,7 +1453,7 @@ namespace Glyssen.Dialogs
 			this.m_btnMoveReferenceTextDown.Text = "Move Down";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnMoveReferenceTextDown, false);
 			this.m_btnMoveReferenceTextDown.UseVisualStyleBackColor = true;
-			this.m_btnMoveReferenceTextDown.Click += new System.EventHandler(this.HandleMoveReferenceTextUpOrDown_Click);
+			this.m_btnMoveReferenceTextDown.Click += new System.EventHandler(this.HandleMoveReferenceTextDown_Click);
 			this.m_btnMoveReferenceTextDown.MouseEnter += new System.EventHandler(this.HandleMouseEnterButtonThatAffectsEntireGridRow);
 			this.m_btnMoveReferenceTextDown.MouseLeave += new System.EventHandler(this.HandleMouseLeaveButtonThatAffectsEntireGridRow);
 			// 
