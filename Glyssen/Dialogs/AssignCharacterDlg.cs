@@ -1909,7 +1909,7 @@ namespace Glyssen.Dialogs
 			var colIndex = m_dataGridReferenceText.CurrentCellAddress.X;
 
 			var rowIndex = m_dataGridReferenceText.CurrentCellAddress.Y + 1;
-			if (m_viewModel.FindScriptureRowAtOrBelow(ref rowIndex))
+			if (m_viewModel.TryFindScriptureRowAtOrBelow(ref rowIndex))
 			{
 				var cellBelow = m_dataGridReferenceText.Rows[rowIndex].Cells[colIndex];
 				if (IsNullOrEmpty(cellBelow.Value as String))
@@ -1917,7 +1917,7 @@ namespace Glyssen.Dialogs
 			}
 
 			rowIndex = m_dataGridReferenceText.CurrentCellAddress.Y - 1;
-			if (m_viewModel.FindScriptureRowAtOrAbove(ref rowIndex))
+			if (m_viewModel.TryFindScriptureRowAtOrAbove(ref rowIndex))
 			{
 				var cellAbove = m_dataGridReferenceText.Rows[rowIndex].Cells[colIndex];
 				if (IsNullOrEmpty(cellAbove.Value as String))

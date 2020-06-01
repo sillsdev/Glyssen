@@ -736,10 +736,7 @@ namespace GlyssenEngine.Script
 		/// character/delivery changed. Book titles, chapters, and section heads have characters assigned
 		/// programmatically and cannot be changed.)
 		/// </summary>
-		public bool IsScripture
-		{
-			get { return !CharacterVerseData.IsCharacterExtraBiblical(CharacterId); }
-		}
+		public bool IsScripture => !CharacterVerseData.IsCharacterExtraBiblical(CharacterId);
 
 		public bool CharacterIs(string bookId, CharacterVerseData.StandardCharacter standardCharacterType)
 		{
