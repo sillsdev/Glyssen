@@ -929,5 +929,63 @@ namespace GlyssenEngine.ViewModels
 			}
 			return currentCharacters.FirstOrDefault(item => item.CharacterId == CurrentBlock.CharacterId);
 		}
+
+		public void GetRowIndicesForMovingReferenceText(bool down, int currentRowIndex, out int iPreceding, out int iFollowing)
+		{
+			if (currentRowIndex < 0 || currentRowIndex >= CurrentReferenceTextMatchup.CorrelatedBlocks.Count)
+			{
+				throw new ArgumentOutOfRangeException(nameof(currentRowIndex),
+					"Index must correspond to a correlated block in the current reference text matchup.");
+			}
+
+			if (down)
+			{
+				if (currentRowIndex == CurrentReferenceTextMatchup.CorrelatedBlocks.Count -1 )
+				{
+					throw new ArgumentException(nameof(currentRowIndex),
+						"When searching downward, index must not correspond to the last correlated block in the current reference text matchup.");
+				}
+				iPreceding = currentRowIndex;
+				iFollowing = iPreceding + 1;
+				if (!TryFindScriptureRowAtOrBelow(ref iFollowing))
+					throw new InvalidOperationException($"Current Matchup is invalid: {CurrentReferenceTextMatchup}");
+			}
+			else
+			{
+				if (currentRowIndex == 0)
+				{
+					throw new ArgumentException(nameof(currentRowIndex),
+						"When searching upward, index must not correspond to the first correlated block in the current reference text matchup.");
+				}
+
+				iFollowing = currentRowIndex;
+				iPreceding = iFollowing - 1;
+				if (!TryFindScriptureRowAtOrAbove(ref iPreceding))
+					throw new InvalidOperationException($"Current Matchup is invalid: {CurrentReferenceTextMatchup}");
+			}
+		}
+
+		public bool TryFindScriptureRowAtOrBelow(ref int i)
+		{
+			var count = CurrentReferenceTextMatchup.CorrelatedBlocks.Count;
+			// Since the only non-Scripture block that can ever exist in a matchup is a
+			// section head, all we really need to do is:
+			// CurrentReferenceTextMatchup.CorrelatedBlocks[i].CharacterIs(CurrentBookId, CharacterVerseData.StandardCharacter.ExtraBiblical))
+			// But since we don't expect this to be performance-critical, we'll use the
+			// ultra-safe, shorter, and more readable IsScripture.
+			while (i < count && !CurrentReferenceTextMatchup.CorrelatedBlocks[i].IsScripture)
+				i++;
+
+			return i < CurrentReferenceTextMatchup.CorrelatedBlocks.Count;
+		}
+
+		public bool TryFindScriptureRowAtOrAbove(ref int i)
+		{
+			// See comment in TryFindScriptureRowAtOrBelow
+			while (i >= 0 && !CurrentReferenceTextMatchup.CorrelatedBlocks[i].IsScripture)
+				i--;
+
+			return i >= 0;
+		}
 	}
 }
