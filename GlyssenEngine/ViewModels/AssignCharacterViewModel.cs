@@ -940,6 +940,11 @@ namespace GlyssenEngine.ViewModels
 
 			if (down)
 			{
+				if (currentRowIndex == CurrentReferenceTextMatchup.CorrelatedBlocks.Count -1 )
+				{
+					throw new ArgumentException(nameof(currentRowIndex),
+						"When searching downward, index must not correspond to the last correlated block in the current reference text matchup.");
+				}
 				iPreceding = currentRowIndex;
 				iFollowing = iPreceding + 1;
 				if (!TryFindScriptureRowAtOrBelow(ref iFollowing))
@@ -947,6 +952,12 @@ namespace GlyssenEngine.ViewModels
 			}
 			else
 			{
+				if (currentRowIndex == 0)
+				{
+					throw new ArgumentException(nameof(currentRowIndex),
+						"When searching upward, index must not correspond to the first correlated block in the current reference text matchup.");
+				}
+
 				iFollowing = currentRowIndex;
 				iPreceding = iFollowing - 1;
 				if (!TryFindScriptureRowAtOrAbove(ref iPreceding))
