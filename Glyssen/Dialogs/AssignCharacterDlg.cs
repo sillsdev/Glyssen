@@ -1388,10 +1388,12 @@ namespace Glyssen.Dialogs
 			m_btnMoveReferenceTextUp.Enabled = e.RowIndex != 0;
 			m_menuInsertIntoSelectedRowOnly.Enabled = GetColumnsIntoWhichHeSaidCanBeInserted(m_dataGridReferenceText.Rows[e.RowIndex]).Any();
 		}
+		private void HandleMoveReferenceTextDown_Click(object sender, EventArgs e) => MoveReferenceText(true);
 
-		private void HandleMoveReferenceTextUpOrDown_Click(object sender, EventArgs e)
+		private void HandleMoveReferenceTextUp_Click(object sender, EventArgs e) => MoveReferenceText(false);
+
+		private void MoveReferenceText(bool down)
 		{
-			bool down = (sender == m_btnMoveReferenceTextDown || (sender as ToolStripButton)?.Name == m_RefTextContextMenuItemMoveDown.Name);
 			var currentRowIndex = m_dataGridReferenceText.CurrentCellAddress.Y;
 			m_viewModel.GetRowIndicesForMovingReferenceText(down, currentRowIndex, out int iPreceding, out int iFollowing);
 			var rowA = m_dataGridReferenceText.Rows[iPreceding];
@@ -1407,7 +1409,7 @@ namespace Glyssen.Dialogs
 					SwapValues(rowA, rowB, colDelivery.Index);
 			}
 
-			int iCol = 0;
+			var iCol = 0;
 			while (!m_dataGridReferenceText.Columns[iCol].Visible)
 				iCol++;
 			m_dataGridReferenceText.CurrentCell = m_dataGridReferenceText.Rows[down ? iFollowing : iPreceding].Cells[iCol];
