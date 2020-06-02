@@ -20,7 +20,7 @@ See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutputPath>..\output\Release\</OutputPath>
+    <OutputPath>..\output\Debug\</OutputPath>
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
