@@ -350,7 +350,7 @@ namespace Glyssen
 				typeof(SIL.Localizer)
 					.GetMethods(BindingFlags.Static | BindingFlags.Public)
 					.Where(m => m.Name == "GetString"),
-				"SIL.Windows.Forms.WritingSystems", "SIL.DblBundle", "SIL.Windows.Forms.DblBundle", "SIL.Windows.Forms.Miscellaneous");
+				"SIL.Windows.Forms.*", "SIL.DblBundle");
 		}
 
 		/// <summary>

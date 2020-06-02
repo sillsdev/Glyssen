@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns:sil="http://sil.org/software/XLiff" version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en" product-version="1.2.0.0" original="Glyssen.dll" datatype="plaintext">
+  <file source-language="en" product-version="0.0.0.0" original="Glyssen.dll" datatype="plaintext">
 	  <body>
       <trans-unit id="Common.BookName.1CH" sil:dynamic="true">
         <source xml:lang="en">1 Chronicles</source>
