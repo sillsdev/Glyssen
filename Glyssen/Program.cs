@@ -328,7 +328,10 @@ namespace Glyssen
 			string desiredUiLangId = Settings.Default.UserInterfaceLanguage;
 
 			PrimaryLocalizationManager = LocalizationManager.Create(TranslationMemory.XLiff, desiredUiLangId, GlyssenInfo.ApplicationId, Application.ProductName, Application.ProductVersion,
-				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress, "Glyssen");
+				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress,
+				typeof(SIL.Localizer)
+					.GetMethods(BindingFlags.Static | BindingFlags.Public)
+					.Where(m => m.Name == "GetString"), "Glyssen");
 
 			if (IsNullOrEmpty(desiredUiLangId))
 				if (LocalizationManager.GetUILanguages(true).Count() > 1)
