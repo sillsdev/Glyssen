@@ -46,7 +46,7 @@ back-up plan.)
 
 # Release Notes
 
-## May 13 2019 Glyssen 1.3.8
+## May 27 2020 Glyssen 1.3.11
 When a block is identified as "he said", Glyssen looks for other identical blocks and aligns them automatically.
 
 ## December 2019 Glyssen 1.3.0

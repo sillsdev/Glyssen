@@ -91,7 +91,7 @@ namespace Glyssen.Utilities
             {
                 BeforeUIThreadSynchronization(Thread.CurrentThread, EventArgs.Empty);
                 // Wait for the UI Thread
-                if (Progress.ExhaustiveDebugging)
+                if (Progress.ExhaustiveDebugging.Enabled)
                     ErrorUtils.LogStackTrace("Invoking the UI thread");
                 m_uiSynchronizationContext.Send(delegate
                 {
@@ -138,7 +138,7 @@ namespace Glyssen.Utilities
 
             SendOrPostCallback cb = state =>
             {
-                if (Progress.ExhaustiveDebugging)
+                if (Progress.ExhaustiveDebugging.Enabled)
                     ErrorUtils.LogStackTrace("Invoking the UI thread Later. Post-invoke.");
 
                 if (m_runningInvokeLaterOnUIThreadAction)
@@ -171,7 +171,7 @@ namespace Glyssen.Utilities
                 m_postponedInvokeLaterOnUIThreadActions.Clear();
             };
 
-            if (Progress.ExhaustiveDebugging)
+            if (Progress.ExhaustiveDebugging.Enabled)
                 ErrorUtils.LogStackTrace("Invoking the UI thread Later. Pre-invoke.");
 
             m_uiSynchronizationContext.Post(cb, action);
@@ -186,13 +186,13 @@ namespace Glyssen.Utilities
                 return;
             }
 
-            if (Progress.ExhaustiveDebugging)
+            if (Progress.ExhaustiveDebugging.Enabled)
                 ErrorUtils.LogStackTrace("Invoking the UI thread Later. Pre-invoke.");
 
             m_uiSynchronizationContext.Post(state =>
             {
                 Debug.Assert(Thread.CurrentThread == m_uiSynchronizationThread, "Invoked on wrong thread");
-                if (Progress.ExhaustiveDebugging)
+                if (Progress.ExhaustiveDebugging.Enabled)
                     ErrorUtils.LogStackTrace("Invoking the UI thread Later. Post-invoke.");
                 action();
             }, null);

@@ -2,36 +2,46 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <Platforms>AnyCPU;x64</Platforms>
+    <Platforms>x64</Platforms>
+    <Company>FCBH-SIL</Company>
+    <Copyright>Copyright © 2014-2020 Faith Comes By Hearing and SIL International</Copyright>
     <RootNamespace>Glyssen.Shared</RootNamespace>
+    <PackageLicenseFile></PackageLicenseFile>
     <Authors>SIL International, Faith Comes By Hearing</Authors>
-    <PackageProjectUrl>https://software.sil.org/glyssen/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/sillsdev/glyssen/</RepositoryUrl>
+    <PackageProjectUrl>https://software.sil.org/glyssen/</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>..\output\Debug\</OutputPath>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\glyssen.snk</AssemblyOriginatorKeyFile>	<AppendToReleaseNotesProperty><![CDATA[
+See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.md]]>
+    </AppendToReleaseNotesProperty>
+	<Description>Interfaces and low-level classes needed by all products that work with Glyssen projects</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutputPath>..\output\Debug\</OutputPath>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>..\output\Release\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutputPath>..\output\Release\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="GitVersionTask" Version="5.1.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="SIL.Core" Version="8.0.0-beta0091" />
     <PackageReference Include="SIL.DblBundle" Version="8.0.0-beta0085" />
     <PackageReference Include="SIL.Scripture" Version="8.0.0-beta0091" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="SIL.ReleaseTasks" Version="2.2.0" />
   </ItemGroup>
 
 </Project>

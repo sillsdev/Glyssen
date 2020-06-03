@@ -6,7 +6,7 @@
   <PropertyGroup>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
     <ProjectGuid>{82A5F002-6E73-49AF-9B98-80C8086C77EE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -17,25 +17,6 @@
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x86</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>..\output\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>x86</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\output\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
@@ -60,13 +41,13 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\glyssen.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AtkSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
-      <HintPath>..\packages\AtkSharp-signed.3.22.24.37\lib\netstandard2.0\AtkSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="CairoSharp, Version=3.22.24.37, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
-      <HintPath>..\packages\CairoSharp-signed.3.22.24.37\lib\netstandard2.0\CairoSharp.dll</HintPath>
-    </Reference>
     <Reference Include="DialogAdapters, Version=0.1.6.21495, Culture=neutral, PublicKeyToken=7dc842182b0626dc, processorArchitecture=MSIL">
       <HintPath>..\packages\DialogAdapters.0.1.6.21495\lib\net45\DialogAdapters.dll</HintPath>
     </Reference>
@@ -76,23 +57,11 @@
     <Reference Include="Enchant.Net, Version=1.4.0.0, Culture=neutral, PublicKeyToken=ae135aeb3d479ab9, processorArchitecture=MSIL">
       <HintPath>..\packages\Enchant.Net.1.4.2\lib\net461\Enchant.Net.dll</HintPath>
     </Reference>
-    <Reference Include="GdkSharp, Version=3.22.24.37, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
-      <HintPath>..\packages\GdkSharp-signed.3.22.24.37\lib\netstandard2.0\GdkSharp.dll</HintPath>
-    </Reference>
     <Reference Include="Geckofx-Core, Version=60.0.44.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=MSIL">
       <HintPath>..\packages\Geckofx60.64.60.0.44\lib\net45\Geckofx-Core.dll</HintPath>
     </Reference>
     <Reference Include="Geckofx-Winforms, Version=60.0.44.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=MSIL">
       <HintPath>..\packages\Geckofx60.64.60.0.44\lib\net45\Geckofx-Winforms.dll</HintPath>
-    </Reference>
-    <Reference Include="GioSharp, Version=3.22.24.37, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
-      <HintPath>..\packages\GioSharp-signed.3.22.24.37\lib\netstandard2.0\GioSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="GLibSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
-      <HintPath>..\packages\GLibSharp-signed.3.22.24.37\lib\netstandard2.0\GLibSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="GtkSharp, Version=3.22.24.37, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
-      <HintPath>..\packages\GtkSharp-signed.3.22.24.37\lib\netstandard2.0\GtkSharp.dll</HintPath>
     </Reference>
     <Reference Include="ibusdotnet, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c9ab93f7b23223fb, processorArchitecture=MSIL">
       <HintPath>..\packages\ibusdotnet.2.0.1\lib\net461\ibusdotnet.dll</HintPath>
@@ -131,17 +100,14 @@
     <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="PangoSharp, Version=3.22.24.37, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
-      <HintPath>..\packages\PangoSharp-signed.3.22.24.37\lib\netstandard2.0\PangoSharp.dll</HintPath>
+    <Reference Include="Paratext.LexicalContracts, Version=9.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ParatextData.9.1.5-beta\lib\netstandard2.0\Paratext.LexicalContracts.dll</HintPath>
     </Reference>
-    <Reference Include="Paratext.LexicalContracts, Version=9.1.1.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ParatextData.9.1.1-beta\lib\netstandard2.0\Paratext.LexicalContracts.dll</HintPath>
+    <Reference Include="ParatextData, Version=9.1.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\ParatextData.9.1.5-beta\lib\netstandard2.0\ParatextData.dll</HintPath>
     </Reference>
-    <Reference Include="ParatextData, Version=9.1.1.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ParatextData.9.1.1-beta\lib\netstandard2.0\ParatextData.dll</HintPath>
-    </Reference>
-    <Reference Include="PtxUtils, Version=9.1.1.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ParatextData.9.1.1-beta\lib\netstandard2.0\PtxUtils.dll</HintPath>
+    <Reference Include="PtxUtils, Version=9.1.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\ParatextData.9.1.5-beta\lib\netstandard2.0\PtxUtils.dll</HintPath>
     </Reference>
     <Reference Include="Rhino.Mocks">
       <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
@@ -332,6 +298,7 @@
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Firefox\omni.ja" />
+    <None Include="glyssen.snk" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -388,13 +355,7 @@
     <Content Include="Firefox\qipcap64.dll" />
     <Content Include="Firefox\softokn3.dll" />
     <Content Include="Firefox\xul.dll" />
-    <Content Include="icu32\icudt54.dll" />
-    <Content Include="icu32\icuin54.dll" />
-    <Content Include="icu32\icuuc54.dll" />
     <None Include="icu4c.readme.txt" />
-    <Content Include="icu64\icudt54.dll" />
-    <Content Include="icu64\icuin54.dll" />
-    <Content Include="icu64\icuuc54.dll" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
