@@ -7147,7 +7147,7 @@
       <trans-unit id="ReferenceText.MultipleLoadErrors">
         <source xml:lang="en">The following reference texts could not be loaded: {0}</source>
         <note>ID: ReferenceText.MultipleLoadErrors</note>
-        <target xml:lang="es-ES" state="translated">No se pudieran cargar los siguientes textos de referencia: {0}, {1}</target>
+        <target xml:lang="es-ES" state="translated">No se pudieran cargar los siguientes textos de referencia: {0}</target>
       </trans-unit>
       <trans-unit id="ReferenceText.NoReferenceTextsLoaded">
         <source xml:lang="en">No reference texts could be loaded. There might be a problem with your {0} installation. See InnerException for more details.</source>
