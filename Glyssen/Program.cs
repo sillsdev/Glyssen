@@ -327,6 +327,8 @@ namespace Glyssen
 			string relativeSettingPathForLocalizationFolder = Path.Combine(GlyssenInfo.Company, GlyssenInfo.Product);
 			string desiredUiLangId = Settings.Default.UserInterfaceLanguage;
 
+			// ENHANCE: Create a separate LM for GlyssenEngine, so we can generate a nuget package
+			// with the localized strings (similar to what we do for libpalaso and chorus).
 			PrimaryLocalizationManager = LocalizationManager.Create(TranslationMemory.XLiff, desiredUiLangId, GlyssenInfo.ApplicationId, Application.ProductName, Application.ProductVersion,
 				installedStringFileFolder, relativeSettingPathForLocalizationFolder, Resources.glyssenIcon, IssuesEmailAddress,
 				typeof(SIL.Localizer)

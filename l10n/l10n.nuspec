@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>SIL.GlyssenEngine.l10n</id>
+        <version>$version$</version>
+		<!-- This is not yet being used. For now the GlyssenEngine strings are jumbled together with the other Glyssen strings. -->
+        <description>These are the xlif localizations of the GlyssenEngine library.</description>
+        <authors>SIL</authors>
+		<license type="expression">MIT</license>
+		<projectUrl>https://github.com/sillsdev/glyssen</projectUrl>
+		<copyright>Copyright © 2020 SIL International</copyright>
+    </metadata>
+	<files>
+	  <file src="GlyssenengineL10n\**\GlyssenEngine.*.xlf" target="content" />
+    </files>
+</package>
