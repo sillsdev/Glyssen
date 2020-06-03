@@ -14,7 +14,7 @@ using GlyssenEngine.Utilities;
 using GlyssenEngine.ViewModels;
 using GlyssenFileBasedPersistence;
 using L10NSharp;
-using L10NSharp.TMXUtils;
+using L10NSharp.XLiffUtils;
 using L10NSharp.UI;
 using SIL.IO;
 using SIL.Reporting;
@@ -66,7 +66,7 @@ namespace Glyssen.Dialogs
 			if (books.All(book => string.IsNullOrEmpty(book.MainTitle)))
 				RemoveItemFromBookMarkerCombo(ChapterAnnouncement.MainTitle1);
 
-			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
 			SetViewModel(model, wsViewModel);
 			HandleStringsLocalized();
 		}

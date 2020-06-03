@@ -1,7 +1,7 @@
 ﻿using Glyssen.Controls;
 using Glyssen.Utilities;
 using L10NSharp.UI;
-using L10NSharp.TMXUtils;
+using L10NSharp.XLiffUtils;
 
 namespace Glyssen.Dialogs
 {
@@ -23,7 +23,7 @@ namespace Glyssen.Dialogs
 				m_dataGridReferenceText.DataError -= HandleDataGridViewDataError;
 
 				m_viewModel.CurrentBlockChanged -= LoadBlock;
-				LocalizeItemDlg<TMXDocument>.StringsLocalized -= HandleStringsLocalized;
+				LocalizeItemDlg<XLiffDocument>.StringsLocalized -= HandleStringsLocalized;
 				m_viewModel.AssignedBlocksIncremented -= m_viewModel_AssignedBlocksIncremented;
 				m_viewModel.CurrentBlockMatchupChanged -= LoadBlockMatchup;
 				m_viewModel.UiFontSizeChanged -= SetFontsFromViewModel;

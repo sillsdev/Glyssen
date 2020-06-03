@@ -7172,5 +7172,6 @@
         <note>Describes a writing system</note>
         <target xml:lang="es-ES" state="translated">De derecha a izquierda</target>
       </trans-unit>
-  </body>
-</tmx>
+    </body>
+  </file>
+</xliff>

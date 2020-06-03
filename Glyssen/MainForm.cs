@@ -31,7 +31,7 @@ using SIL.Reporting;
 using SIL.Windows.Forms;
 using SIL.Windows.Forms.Miscellaneous;
 using Ionic.Zip;
-using L10NSharp.TMXUtils;
+using L10NSharp.XLiffUtils;
 using NetSparkle;
 using Paratext.Data;
 using SIL.Scripture;
@@ -77,7 +77,7 @@ namespace Glyssen
 			m_uiLanguageMenu.ToolTipText = LocalizationManager.GetString("MainForm.UILanguage", "User-interface Language");
 
 			HandleStringsLocalized();
-			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized; // Don't need to unsubscribe since this object will be around as long as the program is running.
+			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized; // Don't need to unsubscribe since this object will be around as long as the program is running.
 
 			m_lastExportLocationLink.Text = Empty;
 

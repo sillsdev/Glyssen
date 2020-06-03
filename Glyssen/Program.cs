@@ -324,11 +324,11 @@ namespace Glyssen
 		{
 			SIL.Localizer.Default = new L10NSharpLocalizer();
 			string installedStringFileFolder = FileLocationUtilities.GetDirectoryDistributedWithApplication("localization");
-			string targetTmxFilePath = Path.Combine(GlyssenInfo.Company, GlyssenInfo.Product);
+			string relativeSettingPathForLocalizationFolder = Path.Combine(GlyssenInfo.Company, GlyssenInfo.Product);
 			string desiredUiLangId = Settings.Default.UserInterfaceLanguage;
 
 			PrimaryLocalizationManager = LocalizationManager.Create(TranslationMemory.XLiff, desiredUiLangId, GlyssenInfo.ApplicationId, Application.ProductName, Application.ProductVersion,
-				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress,
+				installedStringFileFolder, relativeSettingPathForLocalizationFolder, Resources.glyssenIcon, IssuesEmailAddress,
 				typeof(SIL.Localizer)
 					.GetMethods(BindingFlags.Static | BindingFlags.Public)
 					.Where(m => m.Name == "GetString"), "Glyssen");
@@ -346,7 +346,7 @@ namespace Glyssen
 
 			var uiLanguage = LocalizationManager.UILanguageId;
 			LocalizationManager.Create(TranslationMemory.XLiff, uiLanguage, "Palaso", "Palaso", Application.ProductVersion,
-				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress,
+				installedStringFileFolder, relativeSettingPathForLocalizationFolder, Resources.glyssenIcon, IssuesEmailAddress,
 				typeof(SIL.Localizer)
 					.GetMethods(BindingFlags.Static | BindingFlags.Public)
 					.Where(m => m.Name == "GetString"),

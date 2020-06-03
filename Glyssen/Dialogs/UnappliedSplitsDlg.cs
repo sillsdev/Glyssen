@@ -1,4 +1,4 @@
-﻿using L10NSharp.TMXUtils;
+﻿using L10NSharp.XLiffUtils;
 using L10NSharp.UI;
 using System;
 using System.Drawing;
@@ -28,7 +28,7 @@ namespace Glyssen.Dialogs
 			InitializeComponent();
 
 			HandleStringsLocalized();
-			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
 
 			m_browser.Disposed += Browser_Disposed;
 		}
