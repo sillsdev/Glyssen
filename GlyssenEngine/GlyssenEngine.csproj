@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Platforms>x64</Platforms>
+    <OutputPath>..\output\$(Configuration)\</OutputPath>
+	<PackageOutputPath>../output</PackageOutputPath>
     <Authors>SIL International, Faith Comes By Hearing</Authors>
     <Company>FCBH-SIL</Company>
     <Copyright>Copyright © 2014-2020 Faith Comes By Hearing and SIL International</Copyright>
@@ -10,9 +12,14 @@
     <RepositoryUrl>https://github.com/sillsdev/glyssen/</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageProjectUrl>https://software.sil.org/glyssen/</PackageProjectUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>..\glyssen.snk</AssemblyOriginatorKeyFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
 	<AppendToReleaseNotesProperty><![CDATA[
 See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.md]]>
     </AppendToReleaseNotesProperty>
