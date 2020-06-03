@@ -1,0 +1,1 @@
+c:\projects\l10nsharp\output\Debug\ExtractXliff.exe -n Glyssen -x ..\DistFiles\localization\.xlf -v -g -m SIL.Localizer.GetString -m SIL.Localizer.Localize -o Glyssen.dll c:\projects\libpalaso\output\debug\SIL.*.dll
