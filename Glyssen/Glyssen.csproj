@@ -64,7 +64,6 @@
     <AssemblyOriginatorKeyFile>..\glyssen.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration" />
@@ -538,6 +537,12 @@
     <PackageReference Include="Analytics">
       <Version>2.0.2</Version>
     </PackageReference>
+    <PackageReference Include="AtkSharp-signed">
+      <Version>3.22.24.37</Version>
+    </PackageReference>
+    <PackageReference Include="CairoSharp-signed">
+      <Version>3.22.24.37</Version>
+    </PackageReference>
     <PackageReference Include="DesktopAnalytics">
       <Version>1.2.4.11</Version>
     </PackageReference>
@@ -547,10 +552,16 @@
     <PackageReference Include="EPPlus">
       <Version>4.0.5</Version>
     </PackageReference>
+    <PackageReference Include="GdkSharp-signed">
+      <Version>3.22.24.37</Version>
+    </PackageReference>
     <PackageReference Include="Geckofx60.64">
       <Version>60.0.44</Version>
     </PackageReference>
-    <PackageReference Include="GtkSharp">
+    <PackageReference Include="GioSharp-signed">
+      <Version>3.22.24.37</Version>
+    </PackageReference>
+    <PackageReference Include="GtkSharp-signed">
       <Version>3.22.24.37</Version>
     </PackageReference>
     <PackageReference Include="icu.net">
@@ -582,6 +593,9 @@
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="PangoSharp-signed">
+      <Version>3.22.24.37</Version>
     </PackageReference>
     <PackageReference Include="ParatextData">
       <Version>9.1.5-beta</Version>

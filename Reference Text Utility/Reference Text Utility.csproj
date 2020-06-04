@@ -42,11 +42,29 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DialogAdapters, Version=0.1.6.21495, Culture=neutral, PublicKeyToken=7dc842182b0626dc, processorArchitecture=MSIL">
+    <Reference Include="AtkSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AtkSharp-signed.3.22.24.37\lib\netstandard2.0\AtkSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="CairoSharp, Version=3.22.24.37, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
+      <HintPath>..\packages\CairoSharp-signed.3.22.24.37\lib\netstandard2.0\CairoSharp.dll</HintPath>
+    </Reference>
+     <Reference Include="DialogAdapters, Version=0.1.6.21495, Culture=neutral, PublicKeyToken=7dc842182b0626dc, processorArchitecture=MSIL">
       <HintPath>..\packages\DialogAdapters.0.1.6.21495\lib\net45\DialogAdapters.dll</HintPath>
     </Reference>
     <Reference Include="Enchant.Net, Version=1.4.0.0, Culture=neutral, PublicKeyToken=ae135aeb3d479ab9, processorArchitecture=MSIL">
       <HintPath>..\packages\Enchant.Net.1.4.2\lib\net461\Enchant.Net.dll</HintPath>
+    </Reference>
+	<Reference Include="GdkSharp, Version=3.22.24.37, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
+      <HintPath>..\packages\GdkSharp-signed.3.22.24.37\lib\netstandard2.0\GdkSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="GioSharp, Version=3.22.24.37, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
+      <HintPath>..\packages\GioSharp-signed.3.22.24.37\lib\netstandard2.0\GioSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="GLibSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
+      <HintPath>..\packages\GLibSharp-signed.3.22.24.37\lib\netstandard2.0\GLibSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="GtkSharp, Version=3.22.24.37, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
+      <HintPath>..\packages\GtkSharp-signed.3.22.24.37\lib\netstandard2.0\GtkSharp.dll</HintPath>
     </Reference>
     <Reference Include="icu.net, Version=2.6.0.0, Culture=neutral, PublicKeyToken=416fdd914afa6b66, processorArchitecture=MSIL">
       <HintPath>..\packages\icu.net.2.6.0\lib\net451\icu.net.dll</HintPath>
@@ -68,6 +86,9 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+	<Reference Include="PangoSharp, Version=3.22.24.37, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
+      <HintPath>..\packages\PangoSharp-signed.3.22.24.37\lib\netstandard2.0\PangoSharp.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
       <HintPath>..\packages\SIL.Core.8.0.0-beta0091\lib\net461\SIL.Core.dll</HintPath>
