@@ -2,6 +2,22 @@
 <xliff xmlns:sil="http://sil.org/software/XLiff" version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" product-version="0.0.0.0" original="Glyssen.dll" datatype="plaintext">
 	  <body>
+      <trans-unit id="CharacterName.Standard.Fmt.BookOrChapter">
+        <source xml:lang="en">book title or chapter ({0})</source>
+        <note>ID: CharacterName.Standard.Fmt.BookOrChapter</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Standard.Fmt.Introduction">
+        <source xml:lang="en">introduction ({0})</source>
+        <note>ID: CharacterName.Standard.Fmt.Introduction</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Standard.Fmt.Narrator">
+        <source xml:lang="en">narrator ({0})</source>
+        <note>ID: CharacterName.Standard.Fmt.Narrator</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Standard.Fmt.SectionHead">
+        <source xml:lang="en">section head ({0})</source>
+        <note>ID: CharacterName.Standard.Fmt.SectionHead</note>
+      </trans-unit>
       <trans-unit id="Common.BookName.1CH" sil:dynamic="true">
         <source xml:lang="en">1 Chronicles</source>
         <note>ID: Common.BookName.1CH</note>
@@ -5885,6 +5901,77 @@
       <trans-unit id="CharacterName.Zophar the Naamathite" sil:dynamic="true">
         <source xml:lang="en">Zophar the Naamathite</source>
         <note>ID: CharacterName.Zophar the Naamathite</note>
+      </trans-unit>
+      <trans-unit id="DialogBoxes.OpenProjectDlg.CantAccessParatext">
+        <source xml:lang="en">There was a problem accessing {0} data files.</source>
+        <note>ID: DialogBoxes.OpenProjectDlg.CantAccessParatext</note>
+        <note>Param: "Paratext" (product name)</note>
+      </trans-unit>
+      <trans-unit id="DialogBoxes.OpenProjectDlg.ParatextError">
+        <source xml:lang="en">The error was: {0}</source>
+        <note>ID: DialogBoxes.OpenProjectDlg.ParatextError</note>
+      </trans-unit>
+      <trans-unit id="DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.Generic">
+        <source xml:lang="en">Project: {0}\nError message: {1}</source>
+        <note>ID: DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.Generic</note>
+        <note>Param 0: Paratext project name; Param 1: error details</note>
+      </trans-unit>
+      <trans-unit id="DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.GlyssenVersionOutdated">
+        <source xml:lang="en">To read this project, a version of {0} compatible with {1} {2} is required.</source>
+        <note>ID: DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.GlyssenVersionOutdated</note>
+        <note>Param 0: "Glyssen" (product name); Param 1: "Paratext" (product name); Param 2: Paratext version number</note>
+      </trans-unit>
+      <trans-unit id="DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.ProjectOutdated">
+        <source xml:lang="en">The project administrator needs to update it by opening it with {0} {1} or later. Alternatively, you might be able to revert to an older version of {2}.</source>
+        <note>ID: DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.ProjectOutdated</note>
+        <note>Param 0: "Paratext" (product name); Param 1: Paratext version number; Param 2: "Glyssen" (product name)</note>
+      </trans-unit>
+      <trans-unit id="DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.UnknownProjectType">
+        <source xml:lang="en">This project has a project type ({0}) that is not supported.</source>
+        <note>ID: DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.UnknownProjectType</note>
+        <note>Param 0: Paratext project type</note>
+      </trans-unit>
+      <trans-unit id="DialogBoxes.OpenProjectDlg.ParatextProjectLoadErrors">
+        <source xml:lang="en">The following {0} project load errors occurred:</source>
+        <note>ID: DialogBoxes.OpenProjectDlg.ParatextProjectLoadErrors</note>
+        <note>Param 0: "Paratext" (product name)</note>
+      </trans-unit>
+      <trans-unit id="Project.ParatextProjectMetadataChangedMsg">
+        <source xml:lang="en">The settings of the {0} project {1} no longer appear to correspond to the {2} project. This is an unusual situation. If you do not understand how this happened, please contact support.</source>
+        <note>ID: Project.ParatextProjectMetadataChangedMsg</note>
+        <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier); Param 2: Product name (e.g., "Glyssen")</note>
+      </trans-unit>
+      <trans-unit id="VersificationLoadErrorType.DuplicateExcludedVerse">
+        <source xml:lang="en">Duplicate excluded verse in line:</source>
+        <note>ID: VersificationLoadErrorType.DuplicateExcludedVerse</note>
+      </trans-unit>
+      <trans-unit id="VersificationLoadErrorType.DuplicateSegment">
+        <source xml:lang="en">Duplicate verse segment in line:</source>
+        <note>ID: VersificationLoadErrorType.DuplicateSegment</note>
+      </trans-unit>
+      <trans-unit id="VersificationLoadErrorType.InvalidManyToOneMap">
+        <source xml:lang="en">Must map to or from a single verse in line:</source>
+        <note>ID: VersificationLoadErrorType.InvalidManyToOneMap</note>
+      </trans-unit>
+      <trans-unit id="VersificationLoadErrorType.InvalidSyntax">
+        <source xml:lang="en">Invalid syntax:</source>
+        <note>ID: VersificationLoadErrorType.InvalidSyntax</note>
+      </trans-unit>
+      <trans-unit id="VersificationLoadErrorType.MissingName">
+        <source xml:lang="en">Versification file must contain a name line</source>
+        <note>ID: VersificationLoadErrorType.MissingName</note>
+      </trans-unit>
+      <trans-unit id="VersificationLoadErrorType.NoSegmentsDefined">
+        <source xml:lang="en">No segments defined:</source>
+        <note>ID: VersificationLoadErrorType.NoSegmentsDefined</note>
+      </trans-unit>
+      <trans-unit id="VersificationLoadErrorType.UnexpectedErrorType">
+        <source xml:lang="en">Unexpected error type:</source>
+        <note>ID: VersificationLoadErrorType.UnexpectedErrorType</note>
+      </trans-unit>
+      <trans-unit id="VersificationLoadErrorType.UnspecifiedSegmentLocation">
+        <source xml:lang="en">Special '-' segment must be first segment in line:</source>
+        <note>ID: VersificationLoadErrorType.UnspecifiedSegmentLocation</note>
       </trans-unit>
     </body>
   </file>

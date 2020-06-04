@@ -17,8 +17,16 @@
 	<MSBuild Projects="..\build\Glyssen.proj" Targets="Build" />
 	<!-- ENHANCE: Extract GlyssenEngine strings separately, so we can generate a nuget package
 		with the localized strings (similar to what we do for libpalaso and chorus) -->
-	<!-- NOTE: SIL.Core.dll has to be included even though it does not contain any
-		localizable strings because it has the Localizer.GetString methods. -->
+	<!-- NOTES: 1) SIL.Core.dll has to be included even though it does not contain any
+		localizable strings because it has the Localizer.GetString methods.
+		2) Some of the strings will not be able to be harvested whenever
+		ParatextData depends on an older version of SIL.Scripture than GlyssenEngine.
+		Binding redirects in don't work for loading .Net Standard DLLs by reflection;
+		therefore, any classes in GlyssenEngine that depend on SIL.Scripture will not
+		be able to be loaded, and any GetString calls in those classes will be skipped.
+		Unfortunately, these will need to be added manually to the checked-in
+		Glyssen.en.xlf file (in distFiles) in order for those strings to be localizable.
+		This can also affect strings in Glyssen.exe. -->
 	<Exec Command="&quot;$(PkgL10NSharp_ExtractXliff)\tools\ExtractXliff.exe&quot; -n Glyssen -o Glyssen.dll -b ..\DistFiles\localization\Glyssen.en.xlf -x Glyssen.en.xlf -p $(GitVersion_NuGetVersion) -m SIL.Localizer.GetString -m SIL.Localizer.Localize ../output/$(Configuration)/SIL.Core.dll ../output/$(Configuration)/Glyssen.exe ../output/$(Configuration)/GlyssenShared.dll ../output/$(Configuration)/GlyssenEngine.dll ../output/$(Configuration)/GlyssenFileBasedPersistence.dll" />
 	<!-- <Exec Command="overcrowdin updatefiles" /> -->
   </Target>
