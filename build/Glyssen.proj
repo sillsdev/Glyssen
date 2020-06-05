@@ -1,9 +1,10 @@
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Test">
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build;Pack">
 	<PropertyGroup>
 		<RootDir Condition="'$(teamcity_version)' == ''">$(MSBuildProjectDirectory)\..</RootDir>
 		<RootDir Condition="'$(teamcity_version)' != ''">$(teamcity_build_checkoutDir)</RootDir>
 		<BUILD_NUMBER Condition="'$(BUILD_NUMBER)'==''">0.0.0.0</BUILD_NUMBER>
 		<Solution>Glyssen.sln</Solution>
+		<SolutionPath>$(RootDir)/$(Solution)</SolutionPath>
 		<ApplicationName>Glyssen</ApplicationName>
 		<Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
 		<useNUnit-x86 Condition="'$(OS)'=='Windows_NT'">true</useNUnit-x86>
@@ -192,4 +193,10 @@
 		</MakeWixForDirTree>
 	</Target>
 
+	<Target Name="Pack" DependsOnTargets="RestorePackages">
+		<MSBuild
+			Projects="$(SolutionPath)"
+			Targets="pack"
+			Properties="Configuration=$(Configuration);ContinuousIntegrationBuild=$(ContinuousIntegrationBuild);DeterministicSourcePaths=$(DeterministicSourcePaths)" />
+	</Target>
 </Project>
