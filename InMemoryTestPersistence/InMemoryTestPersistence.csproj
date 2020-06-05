@@ -4,6 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Platforms>x64</Platforms>
 	<OutputPath>..\output\$(Configuration)\</OutputPath>
+	<IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
