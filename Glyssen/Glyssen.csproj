@@ -574,7 +574,7 @@
       <Version>59.1.7</Version>
     </PackageReference>
     <PackageReference Include="L10NSharp">
-      <Version>4.1.0-beta0032</Version>
+      <Version>4.1.0-beta0039</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.CSharp">
       <Version>4.7.0</Version>
@@ -649,7 +649,8 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
-  <Target Name="Pack" /> <!-- Do not need/want a nuget package for this project. -->
+  <!-- Do not need/want a nuget package for this project. -->
+  <Target Name="Pack" />
   <Target Name="AfterBuild">
     <ItemGroup>
       <XliffFiles Include="$(PkgSIL_libpalaso_l10ns)/content/**/*.xlf" />
