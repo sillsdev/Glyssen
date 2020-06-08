@@ -9,7 +9,7 @@ using Glyssen.Utilities;
 using GlyssenEngine.Casting;
 using GlyssenEngine.ViewModels;
 using L10NSharp;
-using L10NSharp.TMXUtils;
+using L10NSharp.XLiffUtils;
 using L10NSharp.UI;
 using SIL.Reporting;
 
@@ -70,7 +70,7 @@ namespace Glyssen.Controls
 			Cameo.ToolTipText = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.CameoTooltip",
 				"Distinguished actor to play minor character role.");
 
-			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
 		}
 
 		private void HandleStringsLocalized()

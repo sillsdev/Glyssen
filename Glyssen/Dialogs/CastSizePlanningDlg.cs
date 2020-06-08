@@ -8,7 +8,7 @@ using GlyssenEngine.Bundle;
 using GlyssenEngine.Utilities;
 using GlyssenEngine.ViewModels;
 using L10NSharp;
-using L10NSharp.TMXUtils;
+using L10NSharp.XLiffUtils;
 using L10NSharp.UI;
 
 namespace Glyssen.Dialogs
@@ -29,7 +29,7 @@ namespace Glyssen.Dialogs
 			m_castSizePlanningOptions.SetViewModel(m_viewModel);
 
 			HandleStringsLocalized();
-			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
 
 			m_tableLayoutStartingOver.Visible = m_viewModel.Project.CharacterGroupListPreviouslyGenerated;
 			m_maleNarrators.Maximum = m_viewModel.MaximumNarratorsValue;

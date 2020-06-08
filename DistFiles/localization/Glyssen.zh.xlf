@@ -1,0 +1,2275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns:sil="http://sil.org/software/XLiff" xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" product-version="1.2.0.0" original="Glyssen.dll" datatype="plaintext" target-language="zh-TW">
+    <body>
+      <trans-unit id="CharacterName.Aaron" sil:dynamic="true">
+        <source xml:lang="en">Aaron</source>
+        <note>ID: CharacterName.Aaron</note>
+        <target xml:lang="zh-TW" state="translated">亞倫</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Abigail" sil:dynamic="true">
+        <source xml:lang="en">Abigail</source>
+        <note>ID: CharacterName.Abigail</note>
+        <target xml:lang="zh-TW" state="translated">《現》愛比該</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Abijah, king of Judah" sil:dynamic="true">
+        <source xml:lang="en">Abijah, king of Judah</source>
+        <note>ID: CharacterName.Abijah, king of Judah</note>
+        <target xml:lang="zh-TW" state="translated">亞比雅, 王 ***of*** 猶大</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Abimelech" sil:dynamic="true">
+        <source xml:lang="en">Abimelech</source>
+        <note>ID: CharacterName.Abimelech</note>
+        <target xml:lang="zh-TW" state="translated">亞比米勒</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Abimelech and Phicol" sil:dynamic="true">
+        <source xml:lang="en">Abimelech and Phicol</source>
+        <note>ID: CharacterName.Abimelech and Phicol</note>
+        <target xml:lang="zh-TW" state="translated">亞比米勒 ***and*** 非各</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Abimelech, king of Gerar" sil:dynamic="true">
+        <source xml:lang="en">Abimelech, king of Gerar</source>
+        <note>ID: CharacterName.Abimelech, king of Gerar</note>
+        <target xml:lang="zh-TW" state="translated">亞比米勒, 王 ***of*** 基拉耳</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Abimelech, king of the Philistines" sil:dynamic="true">
+        <source xml:lang="en">Abimelech, king of the Philistines</source>
+        <note>ID: CharacterName.Abimelech, king of the Philistines</note>
+        <target xml:lang="zh-TW" state="translated">亞比米勒, 王 ***of*** ***the*** ***Philistines***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Abimelech, king of the Philistines (in Gerar)" sil:dynamic="true">
+        <source xml:lang="en">Abimelech, king of the Philistines (in Gerar)</source>
+        <note>ID: CharacterName.Abimelech, king of the Philistines (in Gerar)</note>
+        <target xml:lang="zh-TW" state="translated">亞比米勒, 王 ***of*** ***the*** ***Philistines*** ***(in*** 基拉耳)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Abimelech, son of Gideon (Jerubbaal)" sil:dynamic="true">
+        <source xml:lang="en">Abimelech, son of Gideon (Jerubbaal)</source>
+        <note>ID: CharacterName.Abimelech, son of Gideon (Jerubbaal)</note>
+        <target xml:lang="zh-TW" state="translated">亞比米勒, ***son*** ***of*** 基甸 (《現》耶路‧巴力)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Abiram" sil:dynamic="true">
+        <source xml:lang="en">Abiram</source>
+        <note>ID: CharacterName.Abiram</note>
+        <target xml:lang="zh-TW" state="translated">亞比蘭</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Abishai, Joab's brother" sil:dynamic="true">
+        <source xml:lang="en">Abishai, Joab's brother</source>
+        <note>ID: CharacterName.Abishai, Joab's brother</note>
+        <target xml:lang="zh-TW" state="translated">亞比篩, ***Joab's*** ***brother***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Abner, commander of Saul's army" sil:dynamic="true">
+        <source xml:lang="en">Abner, commander of Saul's army</source>
+        <note>ID: CharacterName.Abner, commander of Saul's army</note>
+        <target xml:lang="zh-TW" state="translated">押尼珥, ***commander*** ***of*** ***Saul's*** ***army***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Abraham (Abram)" sil:dynamic="true">
+        <source xml:lang="en">Abraham (Abram)</source>
+        <note>ID: CharacterName.Abraham (Abram)</note>
+        <target xml:lang="zh-TW" state="translated">亞伯拉罕 (亞伯蘭)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Absalom, son of David" sil:dynamic="true">
+        <source xml:lang="en">Absalom, son of David</source>
+        <note>ID: CharacterName.Absalom, son of David</note>
+        <target xml:lang="zh-TW" state="translated">押沙龍, ***son*** ***of*** 大衛</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Achan" sil:dynamic="true">
+        <source xml:lang="en">Achan</source>
+        <note>ID: CharacterName.Achan</note>
+        <target xml:lang="zh-TW" state="translated">亞干</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Achish, king of Gath" sil:dynamic="true">
+        <source xml:lang="en">Achish, king of Gath</source>
+        <note>ID: CharacterName.Achish, king of Gath</note>
+        <target xml:lang="zh-TW" state="translated">亞吉, 王 ***of*** 迦特</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Achsah, Caleb's daughter" sil:dynamic="true">
+        <source xml:lang="en">Achsah, Caleb's daughter</source>
+        <note>ID: CharacterName.Achsah, Caleb's daughter</note>
+        <target xml:lang="zh-TW" state="translated">押撒, ***Caleb's*** ***daughter***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Adam" sil:dynamic="true">
+        <source xml:lang="en">Adam</source>
+        <note>ID: CharacterName.Adam</note>
+        <target xml:lang="zh-TW" state="translated">亞當</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Adoni-Bezek" sil:dynamic="true">
+        <source xml:lang="en">Adoni-Bezek</source>
+        <note>ID: CharacterName.Adoni-Bezek</note>
+        <target xml:lang="zh-TW" state="translated">亞多尼‧比色</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Adonijah, son of David" sil:dynamic="true">
+        <source xml:lang="en">Adonijah, son of David</source>
+        <note>ID: CharacterName.Adonijah, son of David</note>
+        <target xml:lang="zh-TW" state="translated">亞多尼雅, ***son*** ***of*** 大衛</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Adoni-Zedek, king of Jerusalem" sil:dynamic="true">
+        <source xml:lang="en">Adoni-Zedek, king of Jerusalem</source>
+        <note>ID: CharacterName.Adoni-Zedek, king of Jerusalem</note>
+        <target xml:lang="zh-TW" state="translated">亞多尼‧洗德, 王 ***of*** 耶路撒冷</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Agabus the prophet" sil:dynamic="true">
+        <source xml:lang="en">Agabus the prophet</source>
+        <note>ID: CharacterName.Agabus the prophet</note>
+        <target xml:lang="zh-TW" state="translated">亞迦布 ***the*** 先知</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Agag, king of the Amalekites" sil:dynamic="true">
+        <source xml:lang="en">Agag, king of the Amalekites</source>
+        <note>ID: CharacterName.Agag, king of the Amalekites</note>
+        <target xml:lang="zh-TW" state="translated">亞甲, 王 ***of*** ***the*** ***Amalekites***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Agur" sil:dynamic="true">
+        <source xml:lang="en">Agur</source>
+        <note>ID: CharacterName.Agur</note>
+        <target xml:lang="zh-TW" state="translated">亞古珥</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ahab, king of Israel" sil:dynamic="true">
+        <source xml:lang="en">Ahab, king of Israel</source>
+        <note>ID: CharacterName.Ahab, king of Israel</note>
+        <target xml:lang="zh-TW" state="translated">亞哈, 王 ***of*** 《現》以色列</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ahaz, king of Judah" sil:dynamic="true">
+        <source xml:lang="en">Ahaz, king of Judah</source>
+        <note>ID: CharacterName.Ahaz, king of Judah</note>
+        <target xml:lang="zh-TW" state="translated">亞哈斯, 王 ***of*** 猶大</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ahaziah, king of Israel" sil:dynamic="true">
+        <source xml:lang="en">Ahaziah, king of Israel</source>
+        <note>ID: CharacterName.Ahaziah, king of Israel</note>
+        <target xml:lang="zh-TW" state="translated">亞哈謝, 王 ***of*** 《現》以色列</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ahijah the priest" sil:dynamic="true">
+        <source xml:lang="en">Ahijah the priest</source>
+        <note>ID: CharacterName.Ahijah the priest</note>
+        <target xml:lang="zh-TW" state="translated">亞希亞 ***the*** 祭司</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ahijah the prophet" sil:dynamic="true">
+        <source xml:lang="en">Ahijah the prophet</source>
+        <note>ID: CharacterName.Ahijah the prophet</note>
+        <target xml:lang="zh-TW" state="translated">亞希亞 ***the*** 先知</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ahimaaz (messenger)" sil:dynamic="true">
+        <source xml:lang="en">Ahimaaz (messenger)</source>
+        <note>ID: CharacterName.Ahimaaz (messenger)</note>
+        <target xml:lang="zh-TW" state="translated">亞希瑪斯 ***(messenger)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ahimelech the priest (son of Ahitub)" sil:dynamic="true">
+        <source xml:lang="en">Ahimelech the priest (son of Ahitub)</source>
+        <note>ID: CharacterName.Ahimelech the priest (son of Ahitub)</note>
+        <target xml:lang="zh-TW" state="translated">亞希米勒 ***the*** 祭司 ***(son*** ***of*** 亞希突)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ahithophel" sil:dynamic="true">
+        <source xml:lang="en">Ahithophel</source>
+        <note>ID: CharacterName.Ahithophel</note>
+        <target xml:lang="zh-TW" state="translated">亞希多弗</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.altar" sil:dynamic="true">
+        <source xml:lang="en">altar</source>
+        <note>ID: CharacterName.altar</note>
+        <target xml:lang="zh-TW" state="translated">＜陽＞祭壇</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Amasa" sil:dynamic="true">
+        <source xml:lang="en">Amasa</source>
+        <note>ID: CharacterName.Amasa</note>
+        <target xml:lang="zh-TW" state="translated">亞瑪撒</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Amasa)" sil:dynamic="true">
+        <source xml:lang="en">Amasa)</source>
+        <note>ID: CharacterName.Amasa)</note>
+        <target xml:lang="zh-TW" state="translated">亞瑪撒)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Amasai, chief of thirty" sil:dynamic="true">
+        <source xml:lang="en">Amasai, chief of thirty</source>
+        <note>ID: CharacterName.Amasai, chief of thirty</note>
+        <target xml:lang="zh-TW" state="translated">亞瑪賽, ***chief*** ***of*** ***thirty***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Amaziah, king of Judah" sil:dynamic="true">
+        <source xml:lang="en">Amaziah, king of Judah</source>
+        <note>ID: CharacterName.Amaziah, king of Judah</note>
+        <target xml:lang="zh-TW" state="translated">亞瑪謝, 王 ***of*** 猶大</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Amaziah, priest of Bethel" sil:dynamic="true">
+        <source xml:lang="en">Amaziah, priest of Bethel</source>
+        <note>ID: CharacterName.Amaziah, priest of Bethel</note>
+        <target xml:lang="zh-TW" state="translated">亞瑪謝, 祭司 ***of*** 伯特利</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ammonite nobles" sil:dynamic="true">
+        <source xml:lang="en">Ammonite nobles</source>
+        <note>ID: CharacterName.Ammonite nobles</note>
+        <target xml:lang="zh-TW" state="translated">亞捫 ***nobles***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Amnon, son of David" sil:dynamic="true">
+        <source xml:lang="en">Amnon, son of David</source>
+        <note>ID: CharacterName.Amnon, son of David</note>
+        <target xml:lang="zh-TW" state="translated">暗嫩, ***son*** ***of*** 大衛</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Amos" sil:dynamic="true">
+        <source xml:lang="en">Amos</source>
+        <note>ID: CharacterName.Amos</note>
+        <target xml:lang="zh-TW" state="translated">阿摩司</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ananias (Annas), the high priest (father-in-law of Caiaphas)" sil:dynamic="true">
+        <source xml:lang="en">Ananias (Annas), the high priest (father-in-law of Caiaphas)</source>
+        <note>ID: CharacterName.Ananias (Annas), the high priest (father-in-law of Caiaphas)</note>
+        <target xml:lang="zh-TW" state="translated">亞拿尼亞 ***(Annas),*** ***the*** ＜形＞高的；驕傲的，高傲的；ἐν ὑψηλοῖς 在天上 祭司 ***(father-in-law*** ***of*** 該亞法)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ananias of Damascus" sil:dynamic="true">
+        <source xml:lang="en">Ananias of Damascus</source>
+        <note>ID: CharacterName.Ananias of Damascus</note>
+        <target xml:lang="zh-TW" state="translated">亞拿尼亞 ***of*** 大馬士革</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ananias of Jerusalem" sil:dynamic="true">
+        <source xml:lang="en">Ananias of Jerusalem</source>
+        <note>ID: CharacterName.Ananias of Jerusalem</note>
+        <target xml:lang="zh-TW" state="translated">亞拿尼亞 ***of*** 耶路撒冷</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ananias, the high priest" sil:dynamic="true">
+        <source xml:lang="en">Ananias, the high priest</source>
+        <note>ID: CharacterName.Ananias, the high priest</note>
+        <target xml:lang="zh-TW" state="translated">亞拿尼亞, ***the*** ＜形＞高的；驕傲的，高傲的；ἐν ὑψηλοῖς 在天上 祭司</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Andrew" sil:dynamic="true">
+        <source xml:lang="en">Andrew</source>
+        <note>ID: CharacterName.Andrew</note>
+        <target xml:lang="zh-TW" state="translated">安得烈</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Andrew, Simon Peter's brother" sil:dynamic="true">
+        <source xml:lang="en">Andrew, Simon Peter's brother</source>
+        <note>ID: CharacterName.Andrew, Simon Peter's brother</note>
+        <target xml:lang="zh-TW" state="translated">安得烈, 西門 ***Peter's*** ***brother***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.angel" sil:dynamic="true">
+        <source xml:lang="en">angel</source>
+        <note>ID: CharacterName.angel</note>
+        <target xml:lang="zh-TW" state="translated">＜陽＞天使；使者</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Anna, prophetess" sil:dynamic="true">
+        <source xml:lang="en">Anna, prophetess</source>
+        <note>ID: CharacterName.Anna, prophetess</note>
+        <target xml:lang="zh-TW" state="translated">安娜, ＜陰＞女先知</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Annas, high priest" sil:dynamic="true">
+        <source xml:lang="en">Annas, high priest</source>
+        <note>ID: CharacterName.Annas, high priest</note>
+        <target xml:lang="zh-TW" state="translated">亞那, ＜形＞高的；驕傲的，高傲的；ἐν ὑψηλοῖς 在天上 祭司</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Apollos" sil:dynamic="true">
+        <source xml:lang="en">Apollos</source>
+        <note>ID: CharacterName.Apollos</note>
+        <target xml:lang="zh-TW" state="translated">亞波羅</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Araunah, the Jebusite" sil:dynamic="true">
+        <source xml:lang="en">Araunah, the Jebusite</source>
+        <note>ID: CharacterName.Araunah, the Jebusite</note>
+        <target xml:lang="zh-TW" state="translated">亞勞拿, ***the*** 耶布斯人</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Artaxerxes, king of Persia" sil:dynamic="true">
+        <source xml:lang="en">Artaxerxes, king of Persia</source>
+        <note>ID: CharacterName.Artaxerxes, king of Persia</note>
+        <target xml:lang="zh-TW" state="translated">亞達薛西, 王 ***of*** ***Persia***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Asa, king of Judah" sil:dynamic="true">
+        <source xml:lang="en">Asa, king of Judah</source>
+        <note>ID: CharacterName.Asa, king of Judah</note>
+        <target xml:lang="zh-TW" state="translated">亞撒, 王 ***of*** 猶大</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Asahel, brother of Joab" sil:dynamic="true">
+        <source xml:lang="en">Asahel, brother of Joab</source>
+        <note>ID: CharacterName.Asahel, brother of Joab</note>
+        <target xml:lang="zh-TW" state="translated">亞撒黑, ***brother*** ***of*** 約押</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Asaph" sil:dynamic="true">
+        <source xml:lang="en">Asaph</source>
+        <note>ID: CharacterName.Asaph</note>
+        <target xml:lang="zh-TW" state="translated">亞薩</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.astrologers" sil:dynamic="true">
+        <source xml:lang="en">astrologers</source>
+        <note>ID: CharacterName.astrologers</note>
+        <target xml:lang="zh-TW" state="translated">占星者</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Athaliah" sil:dynamic="true">
+        <source xml:lang="en">Athaliah</source>
+        <note>ID: CharacterName.Athaliah</note>
+        <target xml:lang="zh-TW" state="translated">亞她利雅</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Athaliah, mother of Ahaziah (Queen)" sil:dynamic="true">
+        <source xml:lang="en">Athaliah, mother of Ahaziah (Queen)</source>
+        <note>ID: CharacterName.Athaliah, mother of Ahaziah (Queen)</note>
+        <target xml:lang="zh-TW" state="translated">亞她利雅, ***mother*** ***of*** 亞哈謝 ***(Queen)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Athaliah, queen" sil:dynamic="true">
+        <source xml:lang="en">Athaliah, queen</source>
+        <note>ID: CharacterName.Athaliah, queen</note>
+        <target xml:lang="zh-TW" state="translated">亞她利雅, 王后／主母</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Azariah the chief priest" sil:dynamic="true">
+        <source xml:lang="en">Azariah the chief priest</source>
+        <note>ID: CharacterName.Azariah the chief priest</note>
+        <target xml:lang="zh-TW" state="translated">《現》耶撒利雅 ***the*** ***chief*** 祭司</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Azariah the chief priest (during reign of Hezekiah)" sil:dynamic="true">
+        <source xml:lang="en">Azariah the chief priest (during reign of Hezekiah)</source>
+        <note>ID: CharacterName.Azariah the chief priest (during reign of Hezekiah)</note>
+        <target xml:lang="zh-TW" state="translated">《現》耶撒利雅 ***the*** ***chief*** 祭司 ***(during*** ***reign*** ***of*** 希西家)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Azariah the priest" sil:dynamic="true">
+        <source xml:lang="en">Azariah the priest</source>
+        <note>ID: CharacterName.Azariah the priest</note>
+        <target xml:lang="zh-TW" state="translated">《現》耶撒利雅 ***the*** 祭司</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Azariah the priest (during reign of Uzziah)" sil:dynamic="true">
+        <source xml:lang="en">Azariah the priest (during reign of Uzziah)</source>
+        <note>ID: CharacterName.Azariah the priest (during reign of Uzziah)</note>
+        <target xml:lang="zh-TW" state="translated">《現》耶撒利雅 ***the*** 祭司 ***(during*** ***reign*** ***of*** 烏西雅)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Azariah, Johanan and all the arrogant men" sil:dynamic="true">
+        <source xml:lang="en">Azariah, Johanan and all the arrogant men</source>
+        <note>ID: CharacterName.Azariah, Johanan and all the arrogant men</note>
+        <target xml:lang="zh-TW" state="translated">《現》耶撒利雅, 約哈難 ***and*** ***all*** ***the*** ***arrogant*** ***men***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Azariah, son of Hoshaiah" sil:dynamic="true">
+        <source xml:lang="en">Azariah, son of Hoshaiah</source>
+        <note>ID: CharacterName.Azariah, son of Hoshaiah</note>
+        <target xml:lang="zh-TW" state="translated">《現》耶撒利雅, ***son*** ***of*** 何沙雅</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Azariah, son of Jehohanan" sil:dynamic="true">
+        <source xml:lang="en">Azariah, son of Jehohanan</source>
+        <note>ID: CharacterName.Azariah, son of Jehohanan</note>
+        <target xml:lang="zh-TW" state="translated">《現》耶撒利雅, ***son*** ***of*** 約哈難</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Azariah, son of Oded" sil:dynamic="true">
+        <source xml:lang="en">Azariah, son of Oded</source>
+        <note>ID: CharacterName.Azariah, son of Oded</note>
+        <target xml:lang="zh-TW" state="translated">《現》耶撒利雅, ***son*** ***of*** 俄德</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Baanah" sil:dynamic="true">
+        <source xml:lang="en">Baanah</source>
+        <note>ID: CharacterName.Baanah</note>
+        <target xml:lang="zh-TW" state="translated">巴拿</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Babylon" sil:dynamic="true">
+        <source xml:lang="en">Babylon</source>
+        <note>ID: CharacterName.Babylon</note>
+        <target xml:lang="zh-TW" state="translated">巴比倫</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Balaam" sil:dynamic="true">
+        <source xml:lang="en">Balaam</source>
+        <note>ID: CharacterName.Balaam</note>
+        <target xml:lang="zh-TW" state="translated">巴蘭</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Balaam (Spirit of God upon him)" sil:dynamic="true">
+        <source xml:lang="en">Balaam (Spirit of God upon him)</source>
+        <note>ID: CharacterName.Balaam (Spirit of God upon him)</note>
+        <target xml:lang="zh-TW" state="translated">巴蘭 ***(Spirit*** ***of*** ***God*** ***upon*** ***him)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Balak" sil:dynamic="true">
+        <source xml:lang="en">Balak</source>
+        <note>ID: CharacterName.Balak</note>
+        <target xml:lang="zh-TW" state="translated">巴勒</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Barak" sil:dynamic="true">
+        <source xml:lang="en">Barak</source>
+        <note>ID: CharacterName.Barak</note>
+        <target xml:lang="zh-TW" state="translated">巴拉</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Barnabas" sil:dynamic="true">
+        <source xml:lang="en">Barnabas</source>
+        <note>ID: CharacterName.Barnabas</note>
+        <target xml:lang="zh-TW" state="translated">巴拿巴</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Bartimaeus (a blind man)" sil:dynamic="true">
+        <source xml:lang="en">Bartimaeus (a blind man)</source>
+        <note>ID: CharacterName.Bartimaeus (a blind man)</note>
+        <target xml:lang="zh-TW" state="translated">巴底買 ***(a*** ***blind*** ***man)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Baruch" sil:dynamic="true">
+        <source xml:lang="en">Baruch</source>
+        <note>ID: CharacterName.Baruch</note>
+        <target xml:lang="zh-TW" state="translated">巴錄</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Barzillai" sil:dynamic="true">
+        <source xml:lang="en">Barzillai</source>
+        <note>ID: CharacterName.Barzillai</note>
+        <target xml:lang="zh-TW" state="translated">巴西萊</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Barzillai (old)" sil:dynamic="true">
+        <source xml:lang="en">Barzillai (old)</source>
+        <note>ID: CharacterName.Barzillai (old)</note>
+        <target xml:lang="zh-TW" state="translated">巴西萊 ***(old)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Bathsheba" sil:dynamic="true">
+        <source xml:lang="en">Bathsheba</source>
+        <note>ID: CharacterName.Bathsheba</note>
+        <target xml:lang="zh-TW" state="translated">《現》拔示芭</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Benaiah, son of Jehoiada" sil:dynamic="true">
+        <source xml:lang="en">Benaiah, son of Jehoiada</source>
+        <note>ID: CharacterName.Benaiah, son of Jehoiada</note>
+        <target xml:lang="zh-TW" state="translated">比拿雅, ***son*** ***of*** 耶何耶大</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ben-Hadad, king of Aram" sil:dynamic="true">
+        <source xml:lang="en">Ben-Hadad, king of Aram</source>
+        <note>ID: CharacterName.Ben-Hadad, king of Aram</note>
+        <target xml:lang="zh-TW" state="translated">便‧哈達, 王 ***of*** 亞蘭</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Benjamin" sil:dynamic="true">
+        <source xml:lang="en">Benjamin</source>
+        <note>ID: CharacterName.Benjamin</note>
+        <target xml:lang="zh-TW" state="translated">便雅憫</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Bera, king of Sodom" sil:dynamic="true">
+        <source xml:lang="en">Bera, king of Sodom</source>
+        <note>ID: CharacterName.Bera, king of Sodom</note>
+        <target xml:lang="zh-TW" state="translated">比拉, 王 ***of*** 所多瑪</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Berekiah" sil:dynamic="true">
+        <source xml:lang="en">Berekiah</source>
+        <note>ID: CharacterName.Berekiah</note>
+        <target xml:lang="zh-TW" state="translated">比利家</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Bernice" sil:dynamic="true">
+        <source xml:lang="en">Bernice</source>
+        <note>ID: CharacterName.Bernice</note>
+        <target xml:lang="zh-TW" state="translated">《現》貝妮絲</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Bethlehem, elders of" sil:dynamic="true">
+        <source xml:lang="en">Bethlehem, elders of</source>
+        <note>ID: CharacterName.Bethlehem, elders of</note>
+        <target xml:lang="zh-TW" state="translated">伯利恆, ***elders*** ***of***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Bethuel, Rebekah's father" sil:dynamic="true">
+        <source xml:lang="en">Bethuel, Rebekah's father</source>
+        <note>ID: CharacterName.Bethuel, Rebekah's father</note>
+        <target xml:lang="zh-TW" state="translated">彼土利, ***Rebekah's*** ***father***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Bildad the Shuhite" sil:dynamic="true">
+        <source xml:lang="en">Bildad the Shuhite</source>
+        <note>ID: CharacterName.Bildad the Shuhite</note>
+        <target xml:lang="zh-TW" state="translated">比勒達 ***the*** 書亞人</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Birsha, king of Gomorrah" sil:dynamic="true">
+        <source xml:lang="en">Birsha, king of Gomorrah</source>
+        <note>ID: CharacterName.Birsha, king of Gomorrah</note>
+        <target xml:lang="zh-TW" state="translated">比沙, 王 ***of*** 蛾摩拉</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Boaz" sil:dynamic="true">
+        <source xml:lang="en">Boaz</source>
+        <note>ID: CharacterName.Boaz</note>
+        <target xml:lang="zh-TW" state="translated">波阿斯</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Caiaphas, the high priest" sil:dynamic="true">
+        <source xml:lang="en">Caiaphas, the high priest</source>
+        <note>ID: CharacterName.Caiaphas, the high priest</note>
+        <target xml:lang="zh-TW" state="translated">該亞法, ***the*** ＜形＞高的；驕傲的，高傲的；ἐν ὑψηλοῖς 在天上 祭司</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Cain" sil:dynamic="true">
+        <source xml:lang="en">Cain</source>
+        <note>ID: CharacterName.Cain</note>
+        <target xml:lang="zh-TW" state="translated">該隱</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Caleb" sil:dynamic="true">
+        <source xml:lang="en">Caleb</source>
+        <note>ID: CharacterName.Caleb</note>
+        <target xml:lang="zh-TW" state="translated">迦勒</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Canaanite (Syrophoenician) mother of possessed girl" sil:dynamic="true">
+        <source xml:lang="en">Canaanite (Syrophoenician) mother of possessed girl</source>
+        <note>ID: CharacterName.Canaanite (Syrophoenician) mother of possessed girl</note>
+        <target xml:lang="zh-TW" state="translated">迦南人 (《現》敘利亞) ***mother*** ***of*** ***possessed*** ***girl***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Claudius" sil:dynamic="true">
+        <source xml:lang="en">Claudius</source>
+        <note>ID: CharacterName.Claudius</note>
+        <target xml:lang="zh-TW" state="translated">克勞第</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Cleopas" sil:dynamic="true">
+        <source xml:lang="en">Cleopas</source>
+        <note>ID: CharacterName.Cleopas</note>
+        <target xml:lang="zh-TW" state="translated">革流巴</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Cleopas and his companion (on road to Emmaus)" sil:dynamic="true">
+        <source xml:lang="en">Cleopas and his companion (on road to Emmaus)</source>
+        <note>ID: CharacterName.Cleopas and his companion (on road to Emmaus)</note>
+        <target xml:lang="zh-TW" state="translated">革流巴 ***and*** ***his*** ***companion*** ***(on*** ***road*** ***to*** 以馬忤斯)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Cleopas' companion (on road to Emmaus)" sil:dynamic="true">
+        <source xml:lang="en">Cleopas' companion (on road to Emmaus)</source>
+        <note>ID: CharacterName.Cleopas' companion (on road to Emmaus)</note>
+        <target xml:lang="zh-TW" state="translated">革流巴' ***companion*** ***(on*** ***road*** ***to*** 以馬忤斯)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Cornelius" sil:dynamic="true">
+        <source xml:lang="en">Cornelius</source>
+        <note>ID: CharacterName.Cornelius</note>
+        <target xml:lang="zh-TW" state="translated">哥尼流</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.council of elders" sil:dynamic="true">
+        <source xml:lang="en">council of elders</source>
+        <note>ID: CharacterName.council of elders</note>
+        <target xml:lang="zh-TW" state="translated">＜中＞長老團</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Cretan prophet" sil:dynamic="true">
+        <source xml:lang="en">Cretan prophet</source>
+        <note>ID: CharacterName.Cretan prophet</note>
+        <target xml:lang="zh-TW" state="translated">克里特人 先知</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Cyrus, king of Persia" sil:dynamic="true">
+        <source xml:lang="en">Cyrus, king of Persia</source>
+        <note>ID: CharacterName.Cyrus, king of Persia</note>
+        <target xml:lang="zh-TW" state="translated">塞魯士, 王 ***of*** ***Persia***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Dan" sil:dynamic="true">
+        <source xml:lang="en">Dan</source>
+        <note>ID: CharacterName.Dan</note>
+        <target xml:lang="zh-TW" state="translated">但</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Daniel" sil:dynamic="true">
+        <source xml:lang="en">Daniel</source>
+        <note>ID: CharacterName.Daniel</note>
+        <target xml:lang="zh-TW" state="translated">但以理</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Dathan" sil:dynamic="true">
+        <source xml:lang="en">Dathan</source>
+        <note>ID: CharacterName.Dathan</note>
+        <target xml:lang="zh-TW" state="translated">大坍</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.David" sil:dynamic="true">
+        <source xml:lang="en">David</source>
+        <note>ID: CharacterName.David</note>
+        <target xml:lang="zh-TW" state="translated">大衛</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.David (old)" sil:dynamic="true">
+        <source xml:lang="en">David (old)</source>
+        <note>ID: CharacterName.David (old)</note>
+        <target xml:lang="zh-TW" state="translated">大衛 ***(old)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.David, king" sil:dynamic="true">
+        <source xml:lang="en">David, king</source>
+        <note>ID: CharacterName.David, king</note>
+        <target xml:lang="zh-TW" state="translated">大衛, 王</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Deborah" sil:dynamic="true">
+        <source xml:lang="en">Deborah</source>
+        <note>ID: CharacterName.Deborah</note>
+        <target xml:lang="zh-TW" state="translated">底波拉</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Deborah, prophetess" sil:dynamic="true">
+        <source xml:lang="en">Deborah, prophetess</source>
+        <note>ID: CharacterName.Deborah, prophetess</note>
+        <target xml:lang="zh-TW" state="translated">底波拉, ＜陰＞女先知</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Delaiah" sil:dynamic="true">
+        <source xml:lang="en">Delaiah</source>
+        <note>ID: CharacterName.Delaiah</note>
+        <target xml:lang="zh-TW" state="translated">第萊雅</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Delilah" sil:dynamic="true">
+        <source xml:lang="en">Delilah</source>
+        <note>ID: CharacterName.Delilah</note>
+        <target xml:lang="zh-TW" state="translated">《現》黛利拉</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Demetrius the silversmith" sil:dynamic="true">
+        <source xml:lang="en">Demetrius the silversmith</source>
+        <note>ID: CharacterName.Demetrius the silversmith</note>
+        <target xml:lang="zh-TW" state="translated">《現》底米特 ***the*** ***silversmith***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Doeg the Edomite" sil:dynamic="true">
+        <source xml:lang="en">Doeg the Edomite</source>
+        <note>ID: CharacterName.Doeg the Edomite</note>
+        <target xml:lang="zh-TW" state="translated">多益 ***the*** 以東</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Edom" sil:dynamic="true">
+        <source xml:lang="en">Edom</source>
+        <note>ID: CharacterName.Edom</note>
+        <target xml:lang="zh-TW" state="translated">以東</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Eglon, king of Moab" sil:dynamic="true">
+        <source xml:lang="en">Eglon, king of Moab</source>
+        <note>ID: CharacterName.Eglon, king of Moab</note>
+        <target xml:lang="zh-TW" state="translated">伊磯倫, 王 ***of*** 摩押</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Egyptian (slave of Amalekite)" sil:dynamic="true">
+        <source xml:lang="en">Egyptian (slave of Amalekite)</source>
+        <note>ID: CharacterName.Egyptian (slave of Amalekite)</note>
+        <target xml:lang="zh-TW" state="translated">埃及 ***(slave*** ***of*** 亞瑪力人)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ehud, Israelite deliverer" sil:dynamic="true">
+        <source xml:lang="en">Ehud, Israelite deliverer</source>
+        <note>ID: CharacterName.Ehud, Israelite deliverer</note>
+        <target xml:lang="zh-TW" state="translated">以笏, 以色列 ***deliverer***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ekron, people of" sil:dynamic="true">
+        <source xml:lang="en">Ekron, people of</source>
+        <note>ID: CharacterName.Ekron, people of</note>
+        <target xml:lang="zh-TW" state="translated">以革倫, ＜陽＞人民，百姓，民間；群眾；國家；猶太人或教會，常稱為：上帝的子民 ***of***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Eleazar the priest, son of Aaron" sil:dynamic="true">
+        <source xml:lang="en">Eleazar the priest, son of Aaron</source>
+        <note>ID: CharacterName.Eleazar the priest, son of Aaron</note>
+        <target xml:lang="zh-TW" state="translated">以利亞撒 ***the*** 祭司, ***son*** ***of*** 亞倫</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Eli (very old)" sil:dynamic="true">
+        <source xml:lang="en">Eli (very old)</source>
+        <note>ID: CharacterName.Eli (very old)</note>
+        <target xml:lang="zh-TW" state="translated">以利 ***(very*** ***old)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Eliab, David's brother" sil:dynamic="true">
+        <source xml:lang="en">Eliab, David's brother</source>
+        <note>ID: CharacterName.Eliab, David's brother</note>
+        <target xml:lang="zh-TW" state="translated">以利押, ***David's*** ***brother***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Eliakim" sil:dynamic="true">
+        <source xml:lang="en">Eliakim</source>
+        <note>ID: CharacterName.Eliakim</note>
+        <target xml:lang="zh-TW" state="translated">以利亞敬</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Eliezer, prophet of the Lord" sil:dynamic="true">
+        <source xml:lang="en">Eliezer, prophet of the Lord</source>
+        <note>ID: CharacterName.Eliezer, prophet of the Lord</note>
+        <target xml:lang="zh-TW" state="translated">以利以謝, 先知 ***of*** ***the*** ***Lord***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Elihu, son of Barakel" sil:dynamic="true">
+        <source xml:lang="en">Elihu, son of Barakel</source>
+        <note>ID: CharacterName.Elihu, son of Barakel</note>
+        <target xml:lang="zh-TW" state="translated">以利戶, ***son*** ***of*** ***Barakel***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Elijah" sil:dynamic="true">
+        <source xml:lang="en">Elijah</source>
+        <note>ID: CharacterName.Elijah</note>
+        <target xml:lang="zh-TW" state="translated">以利亞</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Eliphaz the Temanite" sil:dynamic="true">
+        <source xml:lang="en">Eliphaz the Temanite</source>
+        <note>ID: CharacterName.Eliphaz the Temanite</note>
+        <target xml:lang="zh-TW" state="translated">以利法 ***the*** 《現》提幔人</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Elisha" sil:dynamic="true">
+        <source xml:lang="en">Elisha</source>
+        <note>ID: CharacterName.Elisha</note>
+        <target xml:lang="zh-TW" state="translated">以利沙</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Elisha (had said)" sil:dynamic="true">
+        <source xml:lang="en">Elisha (had said)</source>
+        <note>ID: CharacterName.Elisha (had said)</note>
+        <target xml:lang="zh-TW" state="translated">以利沙 ***(had*** ***said)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Elisha (old)" sil:dynamic="true">
+        <source xml:lang="en">Elisha (old)</source>
+        <note>ID: CharacterName.Elisha (old)</note>
+        <target xml:lang="zh-TW" state="translated">以利沙 ***(old)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Elishama" sil:dynamic="true">
+        <source xml:lang="en">Elishama</source>
+        <note>ID: CharacterName.Elishama</note>
+        <target xml:lang="zh-TW" state="translated">以利沙瑪</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Elizabeth" sil:dynamic="true">
+        <source xml:lang="en">Elizabeth</source>
+        <note>ID: CharacterName.Elizabeth</note>
+        <target xml:lang="zh-TW" state="translated">伊利莎白</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Elkanah" sil:dynamic="true">
+        <source xml:lang="en">Elkanah</source>
+        <note>ID: CharacterName.Elkanah</note>
+        <target xml:lang="zh-TW" state="translated">以利加拿</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Elnathan" sil:dynamic="true">
+        <source xml:lang="en">Elnathan</source>
+        <note>ID: CharacterName.Elnathan</note>
+        <target xml:lang="zh-TW" state="translated">以利拿單</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Elymas" sil:dynamic="true">
+        <source xml:lang="en">Elymas</source>
+        <note>ID: CharacterName.Elymas</note>
+        <target xml:lang="zh-TW" state="translated">以呂馬</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.enemy" sil:dynamic="true">
+        <source xml:lang="en">enemy</source>
+        <note>ID: CharacterName.enemy</note>
+        <target xml:lang="zh-TW" state="translated">＜形＞敵人，仇敵；被憎恨的</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Enoch" sil:dynamic="true">
+        <source xml:lang="en">Enoch</source>
+        <note>ID: CharacterName.Enoch</note>
+        <target xml:lang="zh-TW" state="translated">以諾</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ephraim" sil:dynamic="true">
+        <source xml:lang="en">Ephraim</source>
+        <note>ID: CharacterName.Ephraim</note>
+        <target xml:lang="zh-TW" state="translated">以法蓮
+色列</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ephraim, men of" sil:dynamic="true">
+        <source xml:lang="en">Ephraim, men of</source>
+        <note>ID: CharacterName.Ephraim, men of</note>
+        <target xml:lang="zh-TW" state="translated">以法蓮
+色列, ***men*** ***of***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ephraim, survivor of" sil:dynamic="true">
+        <source xml:lang="en">Ephraim, survivor of</source>
+        <note>ID: CharacterName.Ephraim, survivor of</note>
+        <target xml:lang="zh-TW" state="translated">以法蓮
+色列, ***survivor*** ***of***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ephron the Hittite" sil:dynamic="true">
+        <source xml:lang="en">Ephron the Hittite</source>
+        <note>ID: CharacterName.Ephron the Hittite</note>
+        <target xml:lang="zh-TW" state="translated">以弗崙 ***the*** 赫人</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Esau" sil:dynamic="true">
+        <source xml:lang="en">Esau</source>
+        <note>ID: CharacterName.Esau</note>
+        <target xml:lang="zh-TW" state="translated">以掃</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Esther, queen" sil:dynamic="true">
+        <source xml:lang="en">Esther, queen</source>
+        <note>ID: CharacterName.Esther, queen</note>
+        <target xml:lang="zh-TW" state="translated">以斯帖, 王后／主母</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ethiopian officer of Queen Candace" sil:dynamic="true">
+        <source xml:lang="en">Ethiopian officer of Queen Candace</source>
+        <note>ID: CharacterName.Ethiopian officer of Queen Candace</note>
+        <target xml:lang="zh-TW" state="translated">衣索匹亞人 ***officer*** ***of*** ***Queen*** 甘大基</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Eve" sil:dynamic="true">
+        <source xml:lang="en">Eve</source>
+        <note>ID: CharacterName.Eve</note>
+        <target xml:lang="zh-TW" state="translated">夏娃</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ezekiel" sil:dynamic="true">
+        <source xml:lang="en">Ezekiel</source>
+        <note>ID: CharacterName.Ezekiel</note>
+        <target xml:lang="zh-TW" state="translated">以西結</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ezekiel (in vision)" sil:dynamic="true">
+        <source xml:lang="en">Ezekiel (in vision)</source>
+        <note>ID: CharacterName.Ezekiel (in vision)</note>
+        <target xml:lang="zh-TW" state="translated">以西結 ***(in*** 異象／默示／鏡子)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Felix, governor of Judea" sil:dynamic="true">
+        <source xml:lang="en">Felix, governor of Judea</source>
+        <note>ID: CharacterName.Felix, governor of Judea</note>
+        <target xml:lang="zh-TW" state="translated">腓力斯, ***governor*** ***of*** 猶太</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Festus" sil:dynamic="true">
+        <source xml:lang="en">Festus</source>
+        <note>ID: CharacterName.Festus</note>
+        <target xml:lang="zh-TW" state="translated">非斯都</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Festus, governor of Judea" sil:dynamic="true">
+        <source xml:lang="en">Festus, governor of Judea</source>
+        <note>ID: CharacterName.Festus, governor of Judea</note>
+        <target xml:lang="zh-TW" state="translated">非斯都, ***governor*** ***of*** 猶太</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.fool" sil:dynamic="true">
+        <source xml:lang="en">fool</source>
+        <note>ID: CharacterName.fool</note>
+        <target xml:lang="zh-TW" state="translated">愚妄／無知</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Gaal, son of Ebed" sil:dynamic="true">
+        <source xml:lang="en">Gaal, son of Ebed</source>
+        <note>ID: CharacterName.Gaal, son of Ebed</note>
+        <target xml:lang="zh-TW" state="translated">迦勒, ***son*** ***of*** 以別</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Gabriel" sil:dynamic="true">
+        <source xml:lang="en">Gabriel</source>
+        <note>ID: CharacterName.Gabriel</note>
+        <target xml:lang="zh-TW" state="translated">加百列</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Gabriel (angel)" sil:dynamic="true">
+        <source xml:lang="en">Gabriel (angel)</source>
+        <note>ID: CharacterName.Gabriel (angel)</note>
+        <target xml:lang="zh-TW" state="translated">加百列 (＜陽＞天使；使者)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Gadarene (or Gerasenes) people" sil:dynamic="true">
+        <source xml:lang="en">Gadarene (or Gerasenes) people</source>
+        <note>ID: CharacterName.Gadarene (or Gerasenes) people</note>
+        <target xml:lang="zh-TW" state="translated">加大拉人 ***(or*** ***Gerasenes)*** ＜陽＞人民，百姓，民間；群眾；國家；猶太人或教會，常稱為：上帝的子民</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Gallio, proconsul of Achaia" sil:dynamic="true">
+        <source xml:lang="en">Gallio, proconsul of Achaia</source>
+        <note>ID: CharacterName.Gallio, proconsul of Achaia</note>
+        <target xml:lang="zh-TW" state="translated">迦流, ***proconsul*** ***of*** 亞該亞</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Gamaliel" sil:dynamic="true">
+        <source xml:lang="en">Gamaliel</source>
+        <note>ID: CharacterName.Gamaliel</note>
+        <target xml:lang="zh-TW" state="translated">迦瑪列</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Gamaliel, a Pharisee on Sanhedrin" sil:dynamic="true">
+        <source xml:lang="en">Gamaliel, a Pharisee on Sanhedrin</source>
+        <note>ID: CharacterName.Gamaliel, a Pharisee on Sanhedrin</note>
+        <target xml:lang="zh-TW" state="translated">迦瑪列, ***a*** 法利賽人 ***on*** ***Sanhedrin***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Gaza, people of (wicked)" sil:dynamic="true">
+        <source xml:lang="en">Gaza, people of (wicked)</source>
+        <note>ID: CharacterName.Gaza, people of (wicked)</note>
+        <target xml:lang="zh-TW" state="translated">迦薩, ＜陽＞人民，百姓，民間；群眾；國家；猶太人或教會，常稱為：上帝的子民 ***of*** ***(wicked)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Gedaliah, governor of Judah" sil:dynamic="true">
+        <source xml:lang="en">Gedaliah, governor of Judah</source>
+        <note>ID: CharacterName.Gedaliah, governor of Judah</note>
+        <target xml:lang="zh-TW" state="translated">基大利, ***governor*** ***of*** 猶大</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Gedaliah, son of Pashur" sil:dynamic="true">
+        <source xml:lang="en">Gedaliah, son of Pashur</source>
+        <note>ID: CharacterName.Gedaliah, son of Pashur</note>
+        <target xml:lang="zh-TW" state="translated">基大利, ***son*** ***of*** ***Pashur***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Gehazi" sil:dynamic="true">
+        <source xml:lang="en">Gehazi</source>
+        <note>ID: CharacterName.Gehazi</note>
+        <target xml:lang="zh-TW" state="translated">基哈西</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Gehazi, servant of Elisha" sil:dynamic="true">
+        <source xml:lang="en">Gehazi, servant of Elisha</source>
+        <note>ID: CharacterName.Gehazi, servant of Elisha</note>
+        <target xml:lang="zh-TW" state="translated">基哈西, ＜陽＞僕人 ***of*** 以利沙</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Gemariah" sil:dynamic="true">
+        <source xml:lang="en">Gemariah</source>
+        <note>ID: CharacterName.Gemariah</note>
+        <target xml:lang="zh-TW" state="translated">基瑪利</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Gemariah, son of Hilkiah" sil:dynamic="true">
+        <source xml:lang="en">Gemariah, son of Hilkiah</source>
+        <note>ID: CharacterName.Gemariah, son of Hilkiah</note>
+        <target xml:lang="zh-TW" state="translated">基瑪利, ***son*** ***of*** 希勒家</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Gemariah, son of Shaphan" sil:dynamic="true">
+        <source xml:lang="en">Gemariah, son of Shaphan</source>
+        <note>ID: CharacterName.Gemariah, son of Shaphan</note>
+        <target xml:lang="zh-TW" state="translated">基瑪利, ***son*** ***of*** 沙番</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Gideon (Jerubbaal)" sil:dynamic="true">
+        <source xml:lang="en">Gideon (Jerubbaal)</source>
+        <note>ID: CharacterName.Gideon (Jerubbaal)</note>
+        <target xml:lang="zh-TW" state="translated">基甸 (《現》耶路‧巴力)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Gilead, elders of" sil:dynamic="true">
+        <source xml:lang="en">Gilead, elders of</source>
+        <note>ID: CharacterName.Gilead, elders of</note>
+        <target xml:lang="zh-TW" state="translated">基列, ***elders*** ***of***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Gilead, leaders of" sil:dynamic="true">
+        <source xml:lang="en">Gilead, leaders of</source>
+        <note>ID: CharacterName.Gilead, leaders of</note>
+        <target xml:lang="zh-TW" state="translated">基列, ***leaders*** ***of***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Gilead, men of" sil:dynamic="true">
+        <source xml:lang="en">Gilead, men of</source>
+        <note>ID: CharacterName.Gilead, men of</note>
+        <target xml:lang="zh-TW" state="translated">基列, ***men*** ***of***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Goliath, Philistine champion" sil:dynamic="true">
+        <source xml:lang="en">Goliath, Philistine champion</source>
+        <note>ID: CharacterName.Goliath, Philistine champion</note>
+        <target xml:lang="zh-TW" state="translated">歌利亞, 非利士 ***champion***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Habakkuk" sil:dynamic="true">
+        <source xml:lang="en">Habakkuk</source>
+        <note>ID: CharacterName.Habakkuk</note>
+        <target xml:lang="zh-TW" state="translated">哈巴谷</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Hadad the Edomite" sil:dynamic="true">
+        <source xml:lang="en">Hadad the Edomite</source>
+        <note>ID: CharacterName.Hadad the Edomite</note>
+        <target xml:lang="zh-TW" state="translated">哈達 ***the*** 以東</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Hagar, Sarai's maid" sil:dynamic="true">
+        <source xml:lang="en">Hagar, Sarai's maid</source>
+        <note>ID: CharacterName.Hagar, Sarai's maid</note>
+        <target xml:lang="zh-TW" state="translated">夏甲, ***Sarai's*** ***maid***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Haman, highest noble to Xerxes, king" sil:dynamic="true">
+        <source xml:lang="en">Haman, highest noble to Xerxes, king</source>
+        <note>ID: CharacterName.Haman, highest noble to Xerxes, king</note>
+        <target xml:lang="zh-TW" state="translated">哈曼, ***highest*** ***noble*** ***to*** ***Xerxes,*** 王</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Hamor, Hivite ruler" sil:dynamic="true">
+        <source xml:lang="en">Hamor, Hivite ruler</source>
+        <note>ID: CharacterName.Hamor, Hivite ruler</note>
+        <target xml:lang="zh-TW" state="translated">哈抹, 希未人 ＜陰＞起初，首先，根源，第一因；統制的勢力，執政者</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Hanamel (Jeremiah's cousin)" sil:dynamic="true">
+        <source xml:lang="en">Hanamel (Jeremiah's cousin)</source>
+        <note>ID: CharacterName.Hanamel (Jeremiah's cousin)</note>
+        <target xml:lang="zh-TW" state="translated">《現》哈拿默 ***(Jeremiah's*** ***cousin)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Hanani" sil:dynamic="true">
+        <source xml:lang="en">Hanani</source>
+        <note>ID: CharacterName.Hanani</note>
+        <target xml:lang="zh-TW" state="translated">哈拿尼</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Hanani the seer" sil:dynamic="true">
+        <source xml:lang="en">Hanani the seer</source>
+        <note>ID: CharacterName.Hanani the seer</note>
+        <target xml:lang="zh-TW" state="translated">哈拿尼 ***the*** ***seer***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Hanani, brother of Nehemiah" sil:dynamic="true">
+        <source xml:lang="en">Hanani, brother of Nehemiah</source>
+        <note>ID: CharacterName.Hanani, brother of Nehemiah</note>
+        <target xml:lang="zh-TW" state="translated">哈拿尼, ***brother*** ***of*** 尼希米</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Hananiah, false prophet" sil:dynamic="true">
+        <source xml:lang="en">Hananiah, false prophet</source>
+        <note>ID: CharacterName.Hananiah, false prophet</note>
+        <target xml:lang="zh-TW" state="translated">哈拿尼雅, ***false*** 先知</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Hannah" sil:dynamic="true">
+        <source xml:lang="en">Hannah</source>
+        <note>ID: CharacterName.Hannah</note>
+        <target xml:lang="zh-TW" state="translated">《現》哈娜</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Hazael of Aram" sil:dynamic="true">
+        <source xml:lang="en">Hazael of Aram</source>
+        <note>ID: CharacterName.Hazael of Aram</note>
+        <target xml:lang="zh-TW" state="translated">哈薛 ***of*** 亞蘭</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Heman, Jeduthun and the rest of those chosen to give thanks" sil:dynamic="true">
+        <source xml:lang="en">Heman, Jeduthun and the rest of those chosen to give thanks</source>
+        <note>ID: CharacterName.Heman, Jeduthun and the rest of those chosen to give thanks</note>
+        <target xml:lang="zh-TW" state="translated">希幔, 耶杜頓 ***and*** ***the*** ***rest*** ***of*** ***those*** ***chosen*** ***to*** ***give*** ***thanks***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Herod Antipas (the tetrarch)" sil:dynamic="true">
+        <source xml:lang="en">Herod Antipas (the tetrarch)</source>
+        <note>ID: CharacterName.Herod Antipas (the tetrarch)</note>
+        <target xml:lang="zh-TW" state="translated">希律 安提帕 ***(the*** ***tetrarch)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Herod the Great" sil:dynamic="true">
+        <source xml:lang="en">Herod the Great</source>
+        <note>ID: CharacterName.Herod the Great</note>
+        <target xml:lang="zh-TW" state="translated">希律 ***the*** ***Great***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Herodians" sil:dynamic="true">
+        <source xml:lang="en">Herodians</source>
+        <note>ID: CharacterName.Herodians</note>
+        <target xml:lang="zh-TW" state="translated">希律黨</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Herodias" sil:dynamic="true">
+        <source xml:lang="en">Herodias</source>
+        <note>ID: CharacterName.Herodias</note>
+        <target xml:lang="zh-TW" state="translated">希羅底</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Herodias' daughter" sil:dynamic="true">
+        <source xml:lang="en">Herodias' daughter</source>
+        <note>ID: CharacterName.Herodias' daughter</note>
+        <target xml:lang="zh-TW" state="translated">希羅底' ***daughter***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Hezekiah, king of Judah" sil:dynamic="true">
+        <source xml:lang="en">Hezekiah, king of Judah</source>
+        <note>ID: CharacterName.Hezekiah, king of Judah</note>
+        <target xml:lang="zh-TW" state="translated">希西家, 王 ***of*** 猶大</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Hilkiah, high priest" sil:dynamic="true">
+        <source xml:lang="en">Hilkiah, high priest</source>
+        <note>ID: CharacterName.Hilkiah, high priest</note>
+        <target xml:lang="zh-TW" state="translated">希勒家, ＜形＞高的；驕傲的，高傲的；ἐν ὑψηλοῖς 在天上 祭司</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Hirah, the Adullamite" sil:dynamic="true">
+        <source xml:lang="en">Hirah, the Adullamite</source>
+        <note>ID: CharacterName.Hirah, the Adullamite</note>
+        <target xml:lang="zh-TW" state="translated">希拉, ***the*** 亞杜蘭人</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Hobab, Moses brother-in-law" sil:dynamic="true">
+        <source xml:lang="en">Hobab, Moses brother-in-law</source>
+        <note>ID: CharacterName.Hobab, Moses brother-in-law</note>
+        <target xml:lang="zh-TW" state="translated">何巴, ***Moses*** ***brother-in-law***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Hoglah" sil:dynamic="true">
+        <source xml:lang="en">Hoglah</source>
+        <note>ID: CharacterName.Hoglah</note>
+        <target xml:lang="zh-TW" state="translated">曷拉</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Hosea" sil:dynamic="true">
+        <source xml:lang="en">Hosea</source>
+        <note>ID: CharacterName.Hosea</note>
+        <target xml:lang="zh-TW" state="translated">何西阿</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Huldah, prophetess" sil:dynamic="true">
+        <source xml:lang="en">Huldah, prophetess</source>
+        <note>ID: CharacterName.Huldah, prophetess</note>
+        <target xml:lang="zh-TW" state="translated">戶勒大, ＜陰＞女先知</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Hushai, David's friend" sil:dynamic="true">
+        <source xml:lang="en">Hushai, David's friend</source>
+        <note>ID: CharacterName.Hushai, David's friend</note>
+        <target xml:lang="zh-TW" state="translated">戶篩, ***David's*** ＜陽＞朋友</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Irijah, captain of the guard of Judah" sil:dynamic="true">
+        <source xml:lang="en">Irijah, captain of the guard of Judah</source>
+        <note>ID: CharacterName.Irijah, captain of the guard of Judah</note>
+        <target xml:lang="zh-TW" state="translated">伊利雅, ***captain*** ***of*** ***the*** ***guard*** ***of*** 猶大</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Isaac" sil:dynamic="true">
+        <source xml:lang="en">Isaac</source>
+        <note>ID: CharacterName.Isaac</note>
+        <target xml:lang="zh-TW" state="translated">以撒</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Isaac (old)" sil:dynamic="true">
+        <source xml:lang="en">Isaac (old)</source>
+        <note>ID: CharacterName.Isaac (old)</note>
+        <target xml:lang="zh-TW" state="translated">以撒 ***(old)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Isaiah" sil:dynamic="true">
+        <source xml:lang="en">Isaiah</source>
+        <note>ID: CharacterName.Isaiah</note>
+        <target xml:lang="zh-TW" state="translated">以賽亞</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Isaiah the prophet" sil:dynamic="true">
+        <source xml:lang="en">Isaiah the prophet</source>
+        <note>ID: CharacterName.Isaiah the prophet</note>
+        <target xml:lang="zh-TW" state="translated">以賽亞 ***the*** 先知</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ish-Bosheth, son of Saul" sil:dynamic="true">
+        <source xml:lang="en">Ish-Bosheth, son of Saul</source>
+        <note>ID: CharacterName.Ish-Bosheth, son of Saul</note>
+        <target xml:lang="zh-TW" state="translated">伊施波設, ***son*** ***of*** 掃羅</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ishmael, son of Nethaniah (murderer)" sil:dynamic="true">
+        <source xml:lang="en">Ishmael, son of Nethaniah (murderer)</source>
+        <note>ID: CharacterName.Ishmael, son of Nethaniah (murderer)</note>
+        <target xml:lang="zh-TW" state="translated">以實瑪利, ***son*** ***of*** 尼探雅 ***(murderer)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Israel" sil:dynamic="true">
+        <source xml:lang="en">Israel</source>
+        <note>ID: CharacterName.Israel</note>
+        <target xml:lang="zh-TW" state="translated">《現》以色列</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Israel, all" sil:dynamic="true">
+        <source xml:lang="en">Israel, all</source>
+        <note>ID: CharacterName.Israel, all</note>
+        <target xml:lang="zh-TW" state="translated">《現》以色列, ***all***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Israel, all the men of" sil:dynamic="true">
+        <source xml:lang="en">Israel, all the men of</source>
+        <note>ID: CharacterName.Israel, all the men of</note>
+        <target xml:lang="zh-TW" state="translated">《現》以色列, ***all*** ***the*** ***men*** ***of***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Israel, all the tribes" sil:dynamic="true">
+        <source xml:lang="en">Israel, all the tribes</source>
+        <note>ID: CharacterName.Israel, all the tribes</note>
+        <target xml:lang="zh-TW" state="translated">《現》以色列, ***all*** ***the*** ***tribes***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Israel, leaders of" sil:dynamic="true">
+        <source xml:lang="en">Israel, leaders of</source>
+        <note>ID: CharacterName.Israel, leaders of</note>
+        <target xml:lang="zh-TW" state="translated">《現》以色列, ***leaders*** ***of***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Israel, men of" sil:dynamic="true">
+        <source xml:lang="en">Israel, men of</source>
+        <note>ID: CharacterName.Israel, men of</note>
+        <target xml:lang="zh-TW" state="translated">《現》以色列, ***men*** ***of***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Israel, the people of" sil:dynamic="true">
+        <source xml:lang="en">Israel, the people of</source>
+        <note>ID: CharacterName.Israel, the people of</note>
+        <target xml:lang="zh-TW" state="translated">《現》以色列, ***the*** ＜陽＞人民，百姓，民間；群眾；國家；猶太人或教會，常稱為：上帝的子民 ***of***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Israelite army commanding officers" sil:dynamic="true">
+        <source xml:lang="en">Israelite army commanding officers</source>
+        <note>ID: CharacterName.Israelite army commanding officers</note>
+        <target xml:lang="zh-TW" state="translated">以色列 ***army*** ***commanding*** ***officers***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Israelite assembly" sil:dynamic="true">
+        <source xml:lang="en">Israelite assembly</source>
+        <note>ID: CharacterName.Israelite assembly</note>
+        <target xml:lang="zh-TW" state="translated">以色列 ***assembly***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Israelite assembly, elders of" sil:dynamic="true">
+        <source xml:lang="en">Israelite assembly, elders of</source>
+        <note>ID: CharacterName.Israelite assembly, elders of</note>
+        <target xml:lang="zh-TW" state="translated">以色列 ***assembly,*** ***elders*** ***of***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Israelite community" sil:dynamic="true">
+        <source xml:lang="en">Israelite community</source>
+        <note>ID: CharacterName.Israelite community</note>
+        <target xml:lang="zh-TW" state="translated">以色列 ***community***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Israelite community, whole" sil:dynamic="true">
+        <source xml:lang="en">Israelite community, whole</source>
+        <note>ID: CharacterName.Israelite community, whole</note>
+        <target xml:lang="zh-TW" state="translated">以色列 ***community,*** ***whole***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Israelite fighting men" sil:dynamic="true">
+        <source xml:lang="en">Israelite fighting men</source>
+        <note>ID: CharacterName.Israelite fighting men</note>
+        <target xml:lang="zh-TW" state="translated">以色列 ***fighting*** ***men***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Israelite foremen" sil:dynamic="true">
+        <source xml:lang="en">Israelite foremen</source>
+        <note>ID: CharacterName.Israelite foremen</note>
+        <target xml:lang="zh-TW" state="translated">以色列 ***foremen***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Israelite officers" sil:dynamic="true">
+        <source xml:lang="en">Israelite officers</source>
+        <note>ID: CharacterName.Israelite officers</note>
+        <target xml:lang="zh-TW" state="translated">以色列 ***officers***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Israelite people, the" sil:dynamic="true">
+        <source xml:lang="en">Israelite people, the</source>
+        <note>ID: CharacterName.Israelite people, the</note>
+        <target xml:lang="zh-TW" state="translated">以色列 ＜陽＞人民，百姓，民間；群眾；國家；猶太人或教會，常稱為：上帝的子民, ***the***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Israelite soldier in Saul's army" sil:dynamic="true">
+        <source xml:lang="en">Israelite soldier in Saul's army</source>
+        <note>ID: CharacterName.Israelite soldier in Saul's army</note>
+        <target xml:lang="zh-TW" state="translated">以色列 ***soldier*** ***in*** ***Saul's*** ***army***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Israelite spies from house of Joseph" sil:dynamic="true">
+        <source xml:lang="en">Israelite spies from house of Joseph</source>
+        <note>ID: CharacterName.Israelite spies from house of Joseph</note>
+        <target xml:lang="zh-TW" state="translated">以色列 ***spies*** ***from*** ***house*** ***of*** 《現》以色列人</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Israelite spies from Joshua, two men" sil:dynamic="true">
+        <source xml:lang="en">Israelite spies from Joshua, two men</source>
+        <note>ID: CharacterName.Israelite spies from Joshua, two men</note>
+        <target xml:lang="zh-TW" state="translated">以色列 ***spies*** ***from*** 約書亞, ***two*** ***men***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Israelite spies Joshua sent to Ai" sil:dynamic="true">
+        <source xml:lang="en">Israelite spies Joshua sent to Ai</source>
+        <note>ID: CharacterName.Israelite spies Joshua sent to Ai</note>
+        <target xml:lang="zh-TW" state="translated">以色列 ***spies*** 約書亞 ***sent*** ***to*** 艾</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ittai" sil:dynamic="true">
+        <source xml:lang="en">Ittai</source>
+        <note>ID: CharacterName.Ittai</note>
+        <target xml:lang="zh-TW" state="translated">以太</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jabez" sil:dynamic="true">
+        <source xml:lang="en">Jabez</source>
+        <note>ID: CharacterName.Jabez</note>
+        <target xml:lang="zh-TW" state="translated">雅比斯</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jacob (Israel)" sil:dynamic="true">
+        <source xml:lang="en">Jacob (Israel)</source>
+        <note>ID: CharacterName.Jacob (Israel)</note>
+        <target xml:lang="zh-TW" state="translated">雅各 (《現》以色列)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jael" sil:dynamic="true">
+        <source xml:lang="en">Jael</source>
+        <note>ID: CharacterName.Jael</note>
+        <target xml:lang="zh-TW" state="translated">雅億</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jahaziel (Spirit of the Lord on)" sil:dynamic="true">
+        <source xml:lang="en">Jahaziel (Spirit of the Lord on)</source>
+        <note>ID: CharacterName.Jahaziel (Spirit of the Lord on)</note>
+        <target xml:lang="zh-TW" state="translated">雅哈悉 ***(Spirit*** ***of*** ***the*** ***Lord*** ***on)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jairus (synagogue leader)" sil:dynamic="true">
+        <source xml:lang="en">Jairus (synagogue leader)</source>
+        <note>ID: CharacterName.Jairus (synagogue leader)</note>
+        <target xml:lang="zh-TW" state="translated">《現》葉魯 ***(synagogue*** ***leader)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.James" sil:dynamic="true">
+        <source xml:lang="en">James</source>
+        <note>ID: CharacterName.James</note>
+        <target xml:lang="zh-TW" state="translated">雅各</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.James, the disciple" sil:dynamic="true">
+        <source xml:lang="en">James, the disciple</source>
+        <note>ID: CharacterName.James, the disciple</note>
+        <target xml:lang="zh-TW" state="translated">雅各, ***the*** ＜陽＞門徒，學生，追隨者</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jehizkiah" sil:dynamic="true">
+        <source xml:lang="en">Jehizkiah</source>
+        <note>ID: CharacterName.Jehizkiah</note>
+        <target xml:lang="zh-TW" state="translated">希西家</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jehoash, king of Israel" sil:dynamic="true">
+        <source xml:lang="en">Jehoash, king of Israel</source>
+        <note>ID: CharacterName.Jehoash, king of Israel</note>
+        <target xml:lang="zh-TW" state="translated">約阿施, 王 ***of*** 《現》以色列</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jehoiada the priest" sil:dynamic="true">
+        <source xml:lang="en">Jehoiada the priest</source>
+        <note>ID: CharacterName.Jehoiada the priest</note>
+        <target xml:lang="zh-TW" state="translated">耶何耶大 ***the*** 祭司</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jehonadab, son of Recab" sil:dynamic="true">
+        <source xml:lang="en">Jehonadab, son of Recab</source>
+        <note>ID: CharacterName.Jehonadab, son of Recab</note>
+        <target xml:lang="zh-TW" state="translated">約拿達, ***son*** ***of*** ***Recab***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jehoshaphat, king of Judah" sil:dynamic="true">
+        <source xml:lang="en">Jehoshaphat, king of Judah</source>
+        <note>ID: CharacterName.Jehoshaphat, king of Judah</note>
+        <target xml:lang="zh-TW" state="translated">約沙法, 王 ***of*** 猶大</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jehu, son of Hanani" sil:dynamic="true">
+        <source xml:lang="en">Jehu, son of Hanani</source>
+        <note>ID: CharacterName.Jehu, son of Hanani</note>
+        <target xml:lang="zh-TW" state="translated">耶戶, ***son*** ***of*** 哈拿尼</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jehu, son of Nimshi" sil:dynamic="true">
+        <source xml:lang="en">Jehu, son of Nimshi</source>
+        <note>ID: CharacterName.Jehu, son of Nimshi</note>
+        <target xml:lang="zh-TW" state="translated">耶戶, ***son*** ***of*** 寧示</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jehucal" sil:dynamic="true">
+        <source xml:lang="en">Jehucal</source>
+        <note>ID: CharacterName.Jehucal</note>
+        <target xml:lang="zh-TW" state="translated">猶甲</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jephthah" sil:dynamic="true">
+        <source xml:lang="en">Jephthah</source>
+        <note>ID: CharacterName.Jephthah</note>
+        <target xml:lang="zh-TW" state="translated">耶弗他</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jeremiah" sil:dynamic="true">
+        <source xml:lang="en">Jeremiah</source>
+        <note>ID: CharacterName.Jeremiah</note>
+        <target xml:lang="zh-TW" state="translated">耶利米</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jeremiah (the LORD says)" sil:dynamic="true">
+        <source xml:lang="en">Jeremiah (the LORD says)</source>
+        <note>ID: CharacterName.Jeremiah (the LORD says)</note>
+        <target xml:lang="zh-TW" state="translated">耶利米 ***(the*** ***LORD*** ***says)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jeremiah quoting the prophets" sil:dynamic="true">
+        <source xml:lang="en">Jeremiah quoting the prophets</source>
+        <note>ID: CharacterName.Jeremiah quoting the prophets</note>
+        <target xml:lang="zh-TW" state="translated">耶利米 ***quoting*** ***the*** ***prophets***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jeremiah quoting the wicked who live in the land" sil:dynamic="true">
+        <source xml:lang="en">Jeremiah quoting the wicked who live in the land</source>
+        <note>ID: CharacterName.Jeremiah quoting the wicked who live in the land</note>
+        <target xml:lang="zh-TW" state="translated">耶利米 ***quoting*** ***the*** ***wicked*** ***who*** ＜動＞度日子，生活 ***in*** ***the*** ***land***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jeroboam" sil:dynamic="true">
+        <source xml:lang="en">Jeroboam</source>
+        <note>ID: CharacterName.Jeroboam</note>
+        <target xml:lang="zh-TW" state="translated">耶羅波安</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jeroboam, king of Israel" sil:dynamic="true">
+        <source xml:lang="en">Jeroboam, king of Israel</source>
+        <note>ID: CharacterName.Jeroboam, king of Israel</note>
+        <target xml:lang="zh-TW" state="translated">耶羅波安, 王 ***of*** 《現》以色列</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jeshua" sil:dynamic="true">
+        <source xml:lang="en">Jeshua</source>
+        <note>ID: CharacterName.Jeshua</note>
+        <target xml:lang="zh-TW" state="translated">耶書亞</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jesse" sil:dynamic="true">
+        <source xml:lang="en">Jesse</source>
+        <note>ID: CharacterName.Jesse</note>
+        <target xml:lang="zh-TW" state="translated">耶西</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jesus" sil:dynamic="true">
+        <source xml:lang="en">Jesus</source>
+        <note>ID: CharacterName.Jesus</note>
+        <target xml:lang="zh-TW" state="translated">耶穌</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jesus (child)" sil:dynamic="true">
+        <source xml:lang="en">Jesus (child)</source>
+        <note>ID: CharacterName.Jesus (child)</note>
+        <target xml:lang="zh-TW" state="translated">耶穌 ***(child)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jesus (in vision)" sil:dynamic="true">
+        <source xml:lang="en">Jesus (in vision)</source>
+        <note>ID: CharacterName.Jesus (in vision)</note>
+        <target xml:lang="zh-TW" state="translated">耶穌 ***(in*** 異象／默示／鏡子)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jesus (the Lord)" sil:dynamic="true">
+        <source xml:lang="en">Jesus (the Lord)</source>
+        <note>ID: CharacterName.Jesus (the Lord)</note>
+        <target xml:lang="zh-TW" state="translated">耶穌 ***(the*** ***Lord)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jesus' brothers" sil:dynamic="true">
+        <source xml:lang="en">Jesus' brothers</source>
+        <note>ID: CharacterName.Jesus' brothers</note>
+        <target xml:lang="zh-TW" state="translated">耶穌' ***brothers***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jesus' disciples" sil:dynamic="true">
+        <source xml:lang="en">Jesus' disciples</source>
+        <note>ID: CharacterName.Jesus' disciples</note>
+        <target xml:lang="zh-TW" state="translated">耶穌' ***disciples***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jesus' family" sil:dynamic="true">
+        <source xml:lang="en">Jesus' family</source>
+        <note>ID: CharacterName.Jesus' family</note>
+        <target xml:lang="zh-TW" state="translated">耶穌' ***family***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jesus in 2 John" sil:dynamic="true">
+        <source xml:lang="en">Jesus in 2 John</source>
+        <note>ID: CharacterName.Jesus in 2 John</note>
+        <target xml:lang="zh-TW" state="translated">耶穌 ***in*** ***2*** 約翰</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jesus' mother and brothers" sil:dynamic="true">
+        <source xml:lang="en">Jesus' mother and brothers</source>
+        <note>ID: CharacterName.Jesus' mother and brothers</note>
+        <target xml:lang="zh-TW" state="translated">耶穌' ***mother*** ***and*** ***brothers***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jethro (Reuel), Moses' father-in-law" sil:dynamic="true">
+        <source xml:lang="en">Jethro (Reuel), Moses' father-in-law</source>
+        <note>ID: CharacterName.Jethro (Reuel), Moses' father-in-law</note>
+        <target xml:lang="zh-TW" state="translated">《現》葉特羅 ***(Reuel),*** ***Moses'*** ***father-in-law***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jethro (Reuel)'s daughters" sil:dynamic="true">
+        <source xml:lang="en">Jethro (Reuel)'s daughters</source>
+        <note>ID: CharacterName.Jethro (Reuel)'s daughters</note>
+        <target xml:lang="zh-TW" state="translated">《現》葉特羅 ***(Reuel)'s*** ***daughters***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jewish leaders" sil:dynamic="true">
+        <source xml:lang="en">Jewish leaders</source>
+        <note>ID: CharacterName.Jewish leaders</note>
+        <target xml:lang="zh-TW" state="translated">猶太人 ***leaders***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jezebel" sil:dynamic="true">
+        <source xml:lang="en">Jezebel</source>
+        <note>ID: CharacterName.Jezebel</note>
+        <target xml:lang="zh-TW" state="translated">《現》耶洗碧</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Joab" sil:dynamic="true">
+        <source xml:lang="en">Joab</source>
+        <note>ID: CharacterName.Joab</note>
+        <target xml:lang="zh-TW" state="translated">約押</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Joah" sil:dynamic="true">
+        <source xml:lang="en">Joah</source>
+        <note>ID: CharacterName.Joah</note>
+        <target xml:lang="zh-TW" state="translated">約亞</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Joash, father of Gideon (Jerubbaal)" sil:dynamic="true">
+        <source xml:lang="en">Joash, father of Gideon (Jerubbaal)</source>
+        <note>ID: CharacterName.Joash, father of Gideon (Jerubbaal)</note>
+        <target xml:lang="zh-TW" state="translated">約阿施, ***father*** ***of*** 基甸 (《現》耶路‧巴力)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Joash, king of Judah" sil:dynamic="true">
+        <source xml:lang="en">Joash, king of Judah</source>
+        <note>ID: CharacterName.Joash, king of Judah</note>
+        <target xml:lang="zh-TW" state="translated">約阿施, 王 ***of*** 猶大</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Job" sil:dynamic="true">
+        <source xml:lang="en">Job</source>
+        <note>ID: CharacterName.Job</note>
+        <target xml:lang="zh-TW" state="translated">約伯</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Joel saying what the priests should say" sil:dynamic="true">
+        <source xml:lang="en">Joel saying what the priests should say</source>
+        <note>ID: CharacterName.Joel saying what the priests should say</note>
+        <target xml:lang="zh-TW" state="translated">約珥 說 ***what*** ***the*** ***priests*** ***should*** ***say***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Johanan" sil:dynamic="true">
+        <source xml:lang="en">Johanan</source>
+        <note>ID: CharacterName.Johanan</note>
+        <target xml:lang="zh-TW" state="translated">約哈難</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.John" sil:dynamic="true">
+        <source xml:lang="en">John</source>
+        <note>ID: CharacterName.John</note>
+        <target xml:lang="zh-TW" state="translated">約翰</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.John (disciple whom Jesus loved)" sil:dynamic="true">
+        <source xml:lang="en">John (disciple whom Jesus loved)</source>
+        <note>ID: CharacterName.John (disciple whom Jesus loved)</note>
+        <target xml:lang="zh-TW" state="translated">約翰 (＜陽＞門徒，學生，追隨者 ***whom*** 耶穌 ***loved)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.John (sons of Zebedee)" sil:dynamic="true">
+        <source xml:lang="en">John (sons of Zebedee)</source>
+        <note>ID: CharacterName.John (sons of Zebedee)</note>
+        <target xml:lang="zh-TW" state="translated">約翰 ***(sons*** ***of*** 西庇太)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.John (who had asked the Lord who was going to betray Him)" sil:dynamic="true">
+        <source xml:lang="en">John (who had asked the Lord who was going to betray Him)</source>
+        <note>ID: CharacterName.John (who had asked the Lord who was going to betray Him)</note>
+        <target xml:lang="zh-TW" state="translated">約翰 ***(who*** ***had*** ***asked*** ***the*** ***Lord*** ***who*** ***was*** ***going*** ***to*** ***betray*** ***Him)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.John the Baptist" sil:dynamic="true">
+        <source xml:lang="en">John the Baptist</source>
+        <note>ID: CharacterName.John the Baptist</note>
+        <target xml:lang="zh-TW" state="translated">約翰 ***the*** ＜陽＞施洗者</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.John)" sil:dynamic="true">
+        <source xml:lang="en">John)</source>
+        <note>ID: CharacterName.John)</note>
+        <target xml:lang="zh-TW" state="translated">約翰)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.John, Alexander, and other men of the high priest's family" sil:dynamic="true">
+        <source xml:lang="en">John, Alexander, and other men of the high priest's family</source>
+        <note>ID: CharacterName.John, Alexander, and other men of the high priest's family</note>
+        <target xml:lang="zh-TW" state="translated">約翰, 亞歷山大, ***and*** ***other*** ***men*** ***of*** ***the*** ＜形＞高的；驕傲的，高傲的；ἐν ὑψηλοῖς 在天上 ***priest's*** ***family***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jonah" sil:dynamic="true">
+        <source xml:lang="en">Jonah</source>
+        <note>ID: CharacterName.Jonah</note>
+        <target xml:lang="zh-TW" state="translated">約拿</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jonathan" sil:dynamic="true">
+        <source xml:lang="en">Jonathan</source>
+        <note>ID: CharacterName.Jonathan</note>
+        <target xml:lang="zh-TW" state="translated">約拿單</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jonathan, son of Abiathar" sil:dynamic="true">
+        <source xml:lang="en">Jonathan, son of Abiathar</source>
+        <note>ID: CharacterName.Jonathan, son of Abiathar</note>
+        <target xml:lang="zh-TW" state="translated">約拿單, ***son*** ***of*** 亞比亞他</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Joram, king of Israel" sil:dynamic="true">
+        <source xml:lang="en">Joram, king of Israel</source>
+        <note>ID: CharacterName.Joram, king of Israel</note>
+        <target xml:lang="zh-TW" state="translated">約蘭, 王 ***of*** 《現》以色列</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Joseph" sil:dynamic="true">
+        <source xml:lang="en">Joseph</source>
+        <note>ID: CharacterName.Joseph</note>
+        <target xml:lang="zh-TW" state="translated">《現》以色列人</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Joseph of Arimathea" sil:dynamic="true">
+        <source xml:lang="en">Joseph of Arimathea</source>
+        <note>ID: CharacterName.Joseph of Arimathea</note>
+        <target xml:lang="zh-TW" state="translated">《現》以色列人 ***of*** 亞利馬太</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Joseph, people of" sil:dynamic="true">
+        <source xml:lang="en">Joseph, people of</source>
+        <note>ID: CharacterName.Joseph, people of</note>
+        <target xml:lang="zh-TW" state="translated">《現》以色列人, ＜陽＞人民，百姓，民間；群眾；國家；猶太人或教會，常稱為：上帝的子民 ***of***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Joshua" sil:dynamic="true">
+        <source xml:lang="en">Joshua</source>
+        <note>ID: CharacterName.Joshua</note>
+        <target xml:lang="zh-TW" state="translated">約書亞</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Joshua (old)" sil:dynamic="true">
+        <source xml:lang="en">Joshua (old)</source>
+        <note>ID: CharacterName.Joshua (old)</note>
+        <target xml:lang="zh-TW" state="translated">約書亞 ***(old)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Josiah, king of Judah" sil:dynamic="true">
+        <source xml:lang="en">Josiah, king of Judah</source>
+        <note>ID: CharacterName.Josiah, king of Judah</note>
+        <target xml:lang="zh-TW" state="translated">約西亞, 王 ***of*** 猶大</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jotham, son of Gideon (Jerubbaal)" sil:dynamic="true">
+        <source xml:lang="en">Jotham, son of Gideon (Jerubbaal)</source>
+        <note>ID: CharacterName.Jotham, son of Gideon (Jerubbaal)</note>
+        <target xml:lang="zh-TW" state="translated">約坦, ***son*** ***of*** 基甸 (《現》耶路‧巴力)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Judah" sil:dynamic="true">
+        <source xml:lang="en">Judah</source>
+        <note>ID: CharacterName.Judah</note>
+        <target xml:lang="zh-TW" state="translated">猶大</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Judah, all" sil:dynamic="true">
+        <source xml:lang="en">Judah, all</source>
+        <note>ID: CharacterName.Judah, all</note>
+        <target xml:lang="zh-TW" state="translated">猶大, ***all***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Judah, men of" sil:dynamic="true">
+        <source xml:lang="en">Judah, men of</source>
+        <note>ID: CharacterName.Judah, men of</note>
+        <target xml:lang="zh-TW" state="translated">猶大, ***men*** ***of***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Judah, people in" sil:dynamic="true">
+        <source xml:lang="en">Judah, people in</source>
+        <note>ID: CharacterName.Judah, people in</note>
+        <target xml:lang="zh-TW" state="translated">猶大, ＜陽＞人民，百姓，民間；群眾；國家；猶太人或教會，常稱為：上帝的子民 ***in***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Judah, remnant of" sil:dynamic="true">
+        <source xml:lang="en">Judah, remnant of</source>
+        <note>ID: CharacterName.Judah, remnant of</note>
+        <target xml:lang="zh-TW" state="translated">猶大, ***remnant*** ***of***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Judas Iscariot" sil:dynamic="true">
+        <source xml:lang="en">Judas Iscariot</source>
+        <note>ID: CharacterName.Judas Iscariot</note>
+        <target xml:lang="zh-TW" state="translated">猶大 加略人</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Judas, apostle (not Judas Iscariot)" sil:dynamic="true">
+        <source xml:lang="en">Judas, apostle (not Judas Iscariot)</source>
+        <note>ID: CharacterName.Judas, apostle (not Judas Iscariot)</note>
+        <target xml:lang="zh-TW" state="translated">猶大, ***apostle*** ***(not*** 猶大 加略人)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.king" sil:dynamic="true">
+        <source xml:lang="en">king</source>
+        <note>ID: CharacterName.king</note>
+        <target xml:lang="zh-TW" state="translated">王</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Kish, father of Saul" sil:dynamic="true">
+        <source xml:lang="en">Kish, father of Saul</source>
+        <note>ID: CharacterName.Kish, father of Saul</note>
+        <target xml:lang="zh-TW" state="translated">基士, ***father*** ***of*** 掃羅</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Korah" sil:dynamic="true">
+        <source xml:lang="en">Korah</source>
+        <note>ID: CharacterName.Korah</note>
+        <target xml:lang="zh-TW" state="translated">可拉</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Laban" sil:dynamic="true">
+        <source xml:lang="en">Laban</source>
+        <note>ID: CharacterName.Laban</note>
+        <target xml:lang="zh-TW" state="translated">拉班</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Lamech (descendent of Cain)" sil:dynamic="true">
+        <source xml:lang="en">Lamech (descendent of Cain)</source>
+        <note>ID: CharacterName.Lamech (descendent of Cain)</note>
+        <target xml:lang="zh-TW" state="translated">拉麥 ***(descendent*** ***of*** 該隱)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Lamech (descendent of Seth)" sil:dynamic="true">
+        <source xml:lang="en">Lamech (descendent of Seth)</source>
+        <note>ID: CharacterName.Lamech (descendent of Seth)</note>
+        <target xml:lang="zh-TW" state="translated">拉麥 ***(descendent*** ***of*** 塞特)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Leah" sil:dynamic="true">
+        <source xml:lang="en">Leah</source>
+        <note>ID: CharacterName.Leah</note>
+        <target xml:lang="zh-TW" state="translated">《現》麗亞</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Lot" sil:dynamic="true">
+        <source xml:lang="en">Lot</source>
+        <note>ID: CharacterName.Lot</note>
+        <target xml:lang="zh-TW" state="translated">羅得</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Lydia" sil:dynamic="true">
+        <source xml:lang="en">Lydia</source>
+        <note>ID: CharacterName.Lydia</note>
+        <target xml:lang="zh-TW" state="translated">呂底亞</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Macedonian" sil:dynamic="true">
+        <source xml:lang="en">Macedonian</source>
+        <note>ID: CharacterName.Macedonian</note>
+        <target xml:lang="zh-TW" state="translated">馬其頓人</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Mahlah" sil:dynamic="true">
+        <source xml:lang="en">Mahlah</source>
+        <note>ID: CharacterName.Mahlah</note>
+        <target xml:lang="zh-TW" state="translated">瑪拉</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Malta islanders" sil:dynamic="true">
+        <source xml:lang="en">Malta islanders</source>
+        <note>ID: CharacterName.Malta islanders</note>
+        <target xml:lang="zh-TW" state="translated">馬耳他 ***islanders***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Manoah, father of Samson" sil:dynamic="true">
+        <source xml:lang="en">Manoah, father of Samson</source>
+        <note>ID: CharacterName.Manoah, father of Samson</note>
+        <target xml:lang="zh-TW" state="translated">瑪挪亞, ***father*** ***of*** 參孫</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Martha" sil:dynamic="true">
+        <source xml:lang="en">Martha</source>
+        <note>ID: CharacterName.Martha</note>
+        <target xml:lang="zh-TW" state="translated">馬大</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Mary Magdalene" sil:dynamic="true">
+        <source xml:lang="en">Mary Magdalene</source>
+        <note>ID: CharacterName.Mary Magdalene</note>
+        <target xml:lang="zh-TW" state="translated">馬利亞 抹大拉</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Mary mother of James" sil:dynamic="true">
+        <source xml:lang="en">Mary mother of James</source>
+        <note>ID: CharacterName.Mary mother of James</note>
+        <target xml:lang="zh-TW" state="translated">馬利亞 ***mother*** ***of*** 雅各</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Mary, Jesus' mother" sil:dynamic="true">
+        <source xml:lang="en">Mary, Jesus' mother</source>
+        <note>ID: CharacterName.Mary, Jesus' mother</note>
+        <target xml:lang="zh-TW" state="translated">馬利亞, 耶穌' ***mother***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Mary, sister of Martha" sil:dynamic="true">
+        <source xml:lang="en">Mary, sister of Martha</source>
+        <note>ID: CharacterName.Mary, sister of Martha</note>
+        <target xml:lang="zh-TW" state="translated">馬利亞, ***sister*** ***of*** 馬大</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Melchizedek, king of Salem (priest of God Most High)" sil:dynamic="true">
+        <source xml:lang="en">Melchizedek, king of Salem (priest of God Most High)</source>
+        <note>ID: CharacterName.Melchizedek, king of Salem (priest of God Most High)</note>
+        <target xml:lang="zh-TW" state="translated">麥基洗德, 王 ***of*** 《現》耶路撒冷 (祭司 ***of*** ***God*** ***Most*** ***High)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Memucan, noble advisor to Xerxes, king" sil:dynamic="true">
+        <source xml:lang="en">Memucan, noble advisor to Xerxes, king</source>
+        <note>ID: CharacterName.Memucan, noble advisor to Xerxes, king</note>
+        <target xml:lang="zh-TW" state="translated">《現》米慕干, ***noble*** ***advisor*** ***to*** ***Xerxes,*** 王</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Mephibosheth, son of Jonathan" sil:dynamic="true">
+        <source xml:lang="en">Mephibosheth, son of Jonathan</source>
+        <note>ID: CharacterName.Mephibosheth, son of Jonathan</note>
+        <target xml:lang="zh-TW" state="translated">米非波設, ***son*** ***of*** 約拿單</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Micah" sil:dynamic="true">
+        <source xml:lang="en">Micah</source>
+        <note>ID: CharacterName.Micah</note>
+        <target xml:lang="zh-TW" state="translated">米迦</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Micaiah, prophet of the LORD" sil:dynamic="true">
+        <source xml:lang="en">Micaiah, prophet of the LORD</source>
+        <note>ID: CharacterName.Micaiah, prophet of the LORD</note>
+        <target xml:lang="zh-TW" state="translated">米該亞, 先知 ***of*** ***the*** ***LORD***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Michael, archangel" sil:dynamic="true">
+        <source xml:lang="en">Michael, archangel</source>
+        <note>ID: CharacterName.Michael, archangel</note>
+        <target xml:lang="zh-TW" state="translated">米迦勒, ***archangel***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Michal, David's wife" sil:dynamic="true">
+        <source xml:lang="en">Michal, David's wife</source>
+        <note>ID: CharacterName.Michal, David's wife</note>
+        <target xml:lang="zh-TW" state="translated">《現》米甲, ***David's*** ***wife***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Midianite soldier who had a dream" sil:dynamic="true">
+        <source xml:lang="en">Midianite soldier who had a dream</source>
+        <note>ID: CharacterName.Midianite soldier who had a dream</note>
+        <target xml:lang="zh-TW" state="translated">米甸 ***soldier*** ***who*** ***had*** ***a*** ***dream***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Midianite soldier who interprets dream" sil:dynamic="true">
+        <source xml:lang="en">Midianite soldier who interprets dream</source>
+        <note>ID: CharacterName.Midianite soldier who interprets dream</note>
+        <target xml:lang="zh-TW" state="translated">米甸 ***soldier*** ***who*** ***interprets*** ***dream***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Milcah" sil:dynamic="true">
+        <source xml:lang="en">Milcah</source>
+        <note>ID: CharacterName.Milcah</note>
+        <target xml:lang="zh-TW" state="translated">密迦</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Miriam" sil:dynamic="true">
+        <source xml:lang="en">Miriam</source>
+        <note>ID: CharacterName.Miriam</note>
+        <target xml:lang="zh-TW" state="translated">《現》美莉安</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Miriam (young)" sil:dynamic="true">
+        <source xml:lang="en">Miriam (young)</source>
+        <note>ID: CharacterName.Miriam (young)</note>
+        <target xml:lang="zh-TW" state="translated">《現》美莉安 ***(young)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Moabite officials" sil:dynamic="true">
+        <source xml:lang="en">Moabite officials</source>
+        <note>ID: CharacterName.Moabite officials</note>
+        <target xml:lang="zh-TW" state="translated">摩押人 ***officials***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Moabite officials, more distinguished" sil:dynamic="true">
+        <source xml:lang="en">Moabite officials, more distinguished</source>
+        <note>ID: CharacterName.Moabite officials, more distinguished</note>
+        <target xml:lang="zh-TW" state="translated">摩押人 ***officials,*** ***more*** ***distinguished***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Mordecai, cousin of Esther" sil:dynamic="true">
+        <source xml:lang="en">Mordecai, cousin of Esther</source>
+        <note>ID: CharacterName.Mordecai, cousin of Esther</note>
+        <target xml:lang="zh-TW" state="translated">末底改, ***cousin*** ***of*** 以斯帖</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Naaman" sil:dynamic="true">
+        <source xml:lang="en">Naaman</source>
+        <note>ID: CharacterName.Naaman</note>
+        <target xml:lang="zh-TW" state="translated">乃幔</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Nabal" sil:dynamic="true">
+        <source xml:lang="en">Nabal</source>
+        <note>ID: CharacterName.Nabal</note>
+        <target xml:lang="zh-TW" state="translated">《現》拿霸</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Naboth" sil:dynamic="true">
+        <source xml:lang="en">Naboth</source>
+        <note>ID: CharacterName.Naboth</note>
+        <target xml:lang="zh-TW" state="translated">拿伯</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Nahash the Ammonite" sil:dynamic="true">
+        <source xml:lang="en">Nahash the Ammonite</source>
+        <note>ID: CharacterName.Nahash the Ammonite</note>
+        <target xml:lang="zh-TW" state="translated">拿轄 ***the*** 亞捫</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Naomi" sil:dynamic="true">
+        <source xml:lang="en">Naomi</source>
+        <note>ID: CharacterName.Naomi</note>
+        <target xml:lang="zh-TW" state="translated">《現》拿娥美</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Nathan" sil:dynamic="true">
+        <source xml:lang="en">Nathan</source>
+        <note>ID: CharacterName.Nathan</note>
+        <target xml:lang="zh-TW" state="translated">拿單</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Nathan the prophet" sil:dynamic="true">
+        <source xml:lang="en">Nathan the prophet</source>
+        <note>ID: CharacterName.Nathan the prophet</note>
+        <target xml:lang="zh-TW" state="translated">拿單 ***the*** 先知</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Nathanael" sil:dynamic="true">
+        <source xml:lang="en">Nathanael</source>
+        <note>ID: CharacterName.Nathanael</note>
+        <target xml:lang="zh-TW" state="translated">拿但業</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Nebuzaradan" sil:dynamic="true">
+        <source xml:lang="en">Nebuzaradan</source>
+        <note>ID: CharacterName.Nebuzaradan</note>
+        <target xml:lang="zh-TW" state="translated">尼布撒拉旦</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Neco, king of Egypt" sil:dynamic="true">
+        <source xml:lang="en">Neco, king of Egypt</source>
+        <note>ID: CharacterName.Neco, king of Egypt</note>
+        <target xml:lang="zh-TW" state="translated">尼哥, 王 ***of*** 埃及</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Nehemiah" sil:dynamic="true">
+        <source xml:lang="en">Nehemiah</source>
+        <note>ID: CharacterName.Nehemiah</note>
+        <target xml:lang="zh-TW" state="translated">尼希米</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Nehemiah (with Ezra and Levites) - see v. 10" sil:dynamic="true">
+        <source xml:lang="en">Nehemiah (with Ezra and Levites) - see v. 10</source>
+        <note>ID: CharacterName.Nehemiah (with Ezra and Levites) - see v. 10</note>
+        <target xml:lang="zh-TW" state="translated">尼希米 ***(with*** ***Ezra*** ***and*** ***Levites)*** ***-*** ***see*** ***v.*** ***10***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Nicodemus" sil:dynamic="true">
+        <source xml:lang="en">Nicodemus</source>
+        <note>ID: CharacterName.Nicodemus</note>
+        <target xml:lang="zh-TW" state="translated">尼哥德慕</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Nineveh" sil:dynamic="true">
+        <source xml:lang="en">Nineveh</source>
+        <note>ID: CharacterName.Nineveh</note>
+        <target xml:lang="zh-TW" state="translated">尼尼微</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Nineveh, the city of revelry" sil:dynamic="true">
+        <source xml:lang="en">Nineveh, the city of revelry</source>
+        <note>ID: CharacterName.Nineveh, the city of revelry</note>
+        <target xml:lang="zh-TW" state="translated">尼尼微, ***the*** ***city*** ***of*** ***revelry***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Noah" sil:dynamic="true">
+        <source xml:lang="en">Noah</source>
+        <note>ID: CharacterName.Noah</note>
+        <target xml:lang="zh-TW" state="translated">挪亞</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Obadiah, manager of Ahab's palace" sil:dynamic="true">
+        <source xml:lang="en">Obadiah, manager of Ahab's palace</source>
+        <note>ID: CharacterName.Obadiah, manager of Ahab's palace</note>
+        <target xml:lang="zh-TW" state="translated">俄巴底亞, ***manager*** ***of*** ***Ahab's*** 皇宮</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Oded, prophet of the Lord" sil:dynamic="true">
+        <source xml:lang="en">Oded, prophet of the Lord</source>
+        <note>ID: CharacterName.Oded, prophet of the Lord</note>
+        <target xml:lang="zh-TW" state="translated">俄德, 先知 ***of*** ***the*** ***Lord***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.On" sil:dynamic="true">
+        <source xml:lang="en">On</source>
+        <note>ID: CharacterName.On</note>
+        <target xml:lang="zh-TW" state="translated">《現》安</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Orpah" sil:dynamic="true">
+        <source xml:lang="en">Orpah</source>
+        <note>ID: CharacterName.Orpah</note>
+        <target xml:lang="zh-TW" state="translated">《現》娥珥巴</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Paul" sil:dynamic="true">
+        <source xml:lang="en">Paul</source>
+        <note>ID: CharacterName.Paul</note>
+        <target xml:lang="zh-TW" state="translated">保羅</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Paul (Saul)" sil:dynamic="true">
+        <source xml:lang="en">Paul (Saul)</source>
+        <note>ID: CharacterName.Paul (Saul)</note>
+        <target xml:lang="zh-TW" state="translated">保羅 (掃羅)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Paul and Silas" sil:dynamic="true">
+        <source xml:lang="en">Paul and Silas</source>
+        <note>ID: CharacterName.Paul and Silas</note>
+        <target xml:lang="zh-TW" state="translated">保羅 ***and*** 西拉</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.people" sil:dynamic="true">
+        <source xml:lang="en">people</source>
+        <note>ID: CharacterName.people</note>
+        <target xml:lang="zh-TW" state="translated">＜陽＞人民，百姓，民間；群眾；國家；猶太人或教會，常稱為：上帝的子民</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Peter" sil:dynamic="true">
+        <source xml:lang="en">Peter</source>
+        <note>ID: CharacterName.Peter</note>
+        <target xml:lang="zh-TW" state="translated">彼得</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Peter (Cephas)" sil:dynamic="true">
+        <source xml:lang="en">Peter (Cephas)</source>
+        <note>ID: CharacterName.Peter (Cephas)</note>
+        <target xml:lang="zh-TW" state="translated">彼得 (《現》磯法)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Peter (Simon)" sil:dynamic="true">
+        <source xml:lang="en">Peter (Simon)</source>
+        <note>ID: CharacterName.Peter (Simon)</note>
+        <target xml:lang="zh-TW" state="translated">彼得 (西門)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Peter (Simon) and companions" sil:dynamic="true">
+        <source xml:lang="en">Peter (Simon) and companions</source>
+        <note>ID: CharacterName.Peter (Simon) and companions</note>
+        <target xml:lang="zh-TW" state="translated">彼得 (西門) ***and*** ***companions***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Peter (Simon), with Eleven" sil:dynamic="true">
+        <source xml:lang="en">Peter (Simon), with Eleven</source>
+        <note>ID: CharacterName.Peter (Simon), with Eleven</note>
+        <target xml:lang="zh-TW" state="translated">彼得 ***(Simon),*** ***with*** ***Eleven***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Peter and John's own people (church in Jerusalem)" sil:dynamic="true">
+        <source xml:lang="en">Peter and John's own people (church in Jerusalem)</source>
+        <note>ID: CharacterName.Peter and John's own people (church in Jerusalem)</note>
+        <target xml:lang="zh-TW" state="translated">彼得 ***and*** ***John's*** ***own*** ＜陽＞人民，百姓，民間；群眾；國家；猶太人或教會，常稱為：上帝的子民 ***(church*** ***in*** 耶路撒冷)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Pharisee" sil:dynamic="true">
+        <source xml:lang="en">Pharisee</source>
+        <note>ID: CharacterName.Pharisee</note>
+        <target xml:lang="zh-TW" state="translated">法利賽人</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Pharisee (expert in religious law)" sil:dynamic="true">
+        <source xml:lang="en">Pharisee (expert in religious law)</source>
+        <note>ID: CharacterName.Pharisee (expert in religious law)</note>
+        <target xml:lang="zh-TW" state="translated">法利賽人 ***(expert*** ***in*** ***religious*** ＜陽＞法律；條例，法則)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Pharisee (Simon)" sil:dynamic="true">
+        <source xml:lang="en">Pharisee (Simon)</source>
+        <note>ID: CharacterName.Pharisee (Simon)</note>
+        <target xml:lang="zh-TW" state="translated">法利賽人 (西門)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Phicol" sil:dynamic="true">
+        <source xml:lang="en">Phicol</source>
+        <note>ID: CharacterName.Phicol</note>
+        <target xml:lang="zh-TW" state="translated">非各</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Philip" sil:dynamic="true">
+        <source xml:lang="en">Philip</source>
+        <note>ID: CharacterName.Philip</note>
+        <target xml:lang="zh-TW" state="translated">腓力</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Philip the apostle" sil:dynamic="true">
+        <source xml:lang="en">Philip the apostle</source>
+        <note>ID: CharacterName.Philip the apostle</note>
+        <target xml:lang="zh-TW" state="translated">腓力 ***the*** ***apostle***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Philip the evangelist" sil:dynamic="true">
+        <source xml:lang="en">Philip the evangelist</source>
+        <note>ID: CharacterName.Philip the evangelist</note>
+        <target xml:lang="zh-TW" state="translated">腓力 ***the*** ***evangelist***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Philistine commanders" sil:dynamic="true">
+        <source xml:lang="en">Philistine commanders</source>
+        <note>ID: CharacterName.Philistine commanders</note>
+        <target xml:lang="zh-TW" state="translated">非利士 ***commanders***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Philistine priests and fortune tellers" sil:dynamic="true">
+        <source xml:lang="en">Philistine priests and fortune tellers</source>
+        <note>ID: CharacterName.Philistine priests and fortune tellers</note>
+        <target xml:lang="zh-TW" state="translated">非利士 ***priests*** ***and*** ***fortune*** ***tellers***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Philistine rulers" sil:dynamic="true">
+        <source xml:lang="en">Philistine rulers</source>
+        <note>ID: CharacterName.Philistine rulers</note>
+        <target xml:lang="zh-TW" state="translated">非利士 ***rulers***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Pilate" sil:dynamic="true">
+        <source xml:lang="en">Pilate</source>
+        <note>ID: CharacterName.Pilate</note>
+        <target xml:lang="zh-TW" state="translated">彼拉多</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.priest" sil:dynamic="true">
+        <source xml:lang="en">priest</source>
+        <note>ID: CharacterName.priest</note>
+        <target xml:lang="zh-TW" state="translated">祭司</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.proclamation" sil:dynamic="true">
+        <source xml:lang="en">proclamation</source>
+        <note>ID: CharacterName.proclamation</note>
+        <target xml:lang="zh-TW" state="translated">＜中＞所講的道，信息，宣道</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.prophet" sil:dynamic="true">
+        <source xml:lang="en">prophet</source>
+        <note>ID: CharacterName.prophet</note>
+        <target xml:lang="zh-TW" state="translated">先知</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Puah (midwife)" sil:dynamic="true">
+        <source xml:lang="en">Puah (midwife)</source>
+        <note>ID: CharacterName.Puah (midwife)</note>
+        <target xml:lang="zh-TW" state="translated">普瓦 ***(midwife)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Rachel" sil:dynamic="true">
+        <source xml:lang="en">Rachel</source>
+        <note>ID: CharacterName.Rachel</note>
+        <target xml:lang="zh-TW" state="translated">《現》蕾潔</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Rahab" sil:dynamic="true">
+        <source xml:lang="en">Rahab</source>
+        <note>ID: CharacterName.Rahab</note>
+        <target xml:lang="zh-TW" state="translated">喇合</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Rebekah" sil:dynamic="true">
+        <source xml:lang="en">Rebekah</source>
+        <note>ID: CharacterName.Rebekah</note>
+        <target xml:lang="zh-TW" state="translated">《現》麗百加</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Regem-Melech" sil:dynamic="true">
+        <source xml:lang="en">Regem-Melech</source>
+        <note>ID: CharacterName.Regem-Melech</note>
+        <target xml:lang="zh-TW" state="translated">利堅‧米勒</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Rehoboam, king" sil:dynamic="true">
+        <source xml:lang="en">Rehoboam, king</source>
+        <note>ID: CharacterName.Rehoboam, king</note>
+        <target xml:lang="zh-TW" state="translated">羅波安, 王</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Reuben" sil:dynamic="true">
+        <source xml:lang="en">Reuben</source>
+        <note>ID: CharacterName.Reuben</note>
+        <target xml:lang="zh-TW" state="translated">呂便</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Rhoda" sil:dynamic="true">
+        <source xml:lang="en">Rhoda</source>
+        <note>ID: CharacterName.Rhoda</note>
+        <target xml:lang="zh-TW" state="translated">羅大</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.ruler" sil:dynamic="true">
+        <source xml:lang="en">ruler</source>
+        <note>ID: CharacterName.ruler</note>
+        <target xml:lang="zh-TW" state="translated">＜陰＞起初，首先，根源，第一因；統制的勢力，執政者</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ruth" sil:dynamic="true">
+        <source xml:lang="en">Ruth</source>
+        <note>ID: CharacterName.Ruth</note>
+        <target xml:lang="zh-TW" state="translated">路得</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Salome" sil:dynamic="true">
+        <source xml:lang="en">Salome</source>
+        <note>ID: CharacterName.Salome</note>
+        <target xml:lang="zh-TW" state="translated">撒羅米</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Samaria, people of" sil:dynamic="true">
+        <source xml:lang="en">Samaria, people of</source>
+        <note>ID: CharacterName.Samaria, people of</note>
+        <target xml:lang="zh-TW" state="translated">撒馬利亞, ＜陽＞人民，百姓，民間；群眾；國家；猶太人或教會，常稱為：上帝的子民 ***of***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Samson" sil:dynamic="true">
+        <source xml:lang="en">Samson</source>
+        <note>ID: CharacterName.Samson</note>
+        <target xml:lang="zh-TW" state="translated">參孫</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Samuel" sil:dynamic="true">
+        <source xml:lang="en">Samuel</source>
+        <note>ID: CharacterName.Samuel</note>
+        <target xml:lang="zh-TW" state="translated">撒母耳</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Samuel (boy)" sil:dynamic="true">
+        <source xml:lang="en">Samuel (boy)</source>
+        <note>ID: CharacterName.Samuel (boy)</note>
+        <target xml:lang="zh-TW" state="translated">撒母耳 ***(boy)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Samuel (dead)" sil:dynamic="true">
+        <source xml:lang="en">Samuel (dead)</source>
+        <note>ID: CharacterName.Samuel (dead)</note>
+        <target xml:lang="zh-TW" state="translated">撒母耳 ***(dead)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Sanballat" sil:dynamic="true">
+        <source xml:lang="en">Sanballat</source>
+        <note>ID: CharacterName.Sanballat</note>
+        <target xml:lang="zh-TW" state="translated">參巴拉</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Sanballat the Horonite" sil:dynamic="true">
+        <source xml:lang="en">Sanballat the Horonite</source>
+        <note>ID: CharacterName.Sanballat the Horonite</note>
+        <target xml:lang="zh-TW" state="translated">參巴拉 ***the*** 和倫人</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Sapphira, wife of Ananias of Jerusalem" sil:dynamic="true">
+        <source xml:lang="en">Sapphira, wife of Ananias of Jerusalem</source>
+        <note>ID: CharacterName.Sapphira, wife of Ananias of Jerusalem</note>
+        <target xml:lang="zh-TW" state="translated">撒非喇, ***wife*** ***of*** 亞拿尼亞 ***of*** 耶路撒冷</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Sarah (Sarai)" sil:dynamic="true">
+        <source xml:lang="en">Sarah (Sarai)</source>
+        <note>ID: CharacterName.Sarah (Sarai)</note>
+        <target xml:lang="zh-TW" state="translated">《現》莎拉 (《現》莎萊)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Sarah (Sarai) (old)" sil:dynamic="true">
+        <source xml:lang="en">Sarah (Sarai) (old)</source>
+        <note>ID: CharacterName.Sarah (Sarai) (old)</note>
+        <target xml:lang="zh-TW" state="translated">《現》莎拉 (《現》莎萊) ***(old)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Satan (Devil)" sil:dynamic="true">
+        <source xml:lang="en">Satan (Devil)</source>
+        <note>ID: CharacterName.Satan (Devil)</note>
+        <target xml:lang="zh-TW" state="translated">＜陽＞魔鬼撒但，《思》撒殫 ***(Devil)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Saul" sil:dynamic="true">
+        <source xml:lang="en">Saul</source>
+        <note>ID: CharacterName.Saul</note>
+        <target xml:lang="zh-TW" state="translated">掃羅</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Saul (Paul)" sil:dynamic="true">
+        <source xml:lang="en">Saul (Paul)</source>
+        <note>ID: CharacterName.Saul (Paul)</note>
+        <target xml:lang="zh-TW" state="translated">掃羅 (保羅)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Saul (via messenger)" sil:dynamic="true">
+        <source xml:lang="en">Saul (via messenger)</source>
+        <note>ID: CharacterName.Saul (via messenger)</note>
+        <target xml:lang="zh-TW" state="translated">掃羅 ***(via*** ***messenger)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Seraiah" sil:dynamic="true">
+        <source xml:lang="en">Seraiah</source>
+        <note>ID: CharacterName.Seraiah</note>
+        <target xml:lang="zh-TW" state="translated">西萊雅</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Shaphan, secretary" sil:dynamic="true">
+        <source xml:lang="en">Shaphan, secretary</source>
+        <note>ID: CharacterName.Shaphan, secretary</note>
+        <target xml:lang="zh-TW" state="translated">沙番, ***secretary***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Sharezer" sil:dynamic="true">
+        <source xml:lang="en">Sharezer</source>
+        <note>ID: CharacterName.Sharezer</note>
+        <target xml:lang="zh-TW" state="translated">沙利色</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Sheba, son of Bicri" sil:dynamic="true">
+        <source xml:lang="en">Sheba, son of Bicri</source>
+        <note>ID: CharacterName.Sheba, son of Bicri</note>
+        <target xml:lang="zh-TW" state="translated">示巴, ***son*** ***of*** ***Bicri***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Shecaniah, son of Jehiel" sil:dynamic="true">
+        <source xml:lang="en">Shecaniah, son of Jehiel</source>
+        <note>ID: CharacterName.Shecaniah, son of Jehiel</note>
+        <target xml:lang="zh-TW" state="translated">示迦尼, ***son*** ***of*** 耶歇</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Shechem, son of Hamor" sil:dynamic="true">
+        <source xml:lang="en">Shechem, son of Hamor</source>
+        <note>ID: CharacterName.Shechem, son of Hamor</note>
+        <target xml:lang="zh-TW" state="translated">示劍, ***son*** ***of*** 哈抹</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Shemaiah" sil:dynamic="true">
+        <source xml:lang="en">Shemaiah</source>
+        <note>ID: CharacterName.Shemaiah</note>
+        <target xml:lang="zh-TW" state="translated">示瑪雅</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Shemaiah, son of Delaiah, false prophet" sil:dynamic="true">
+        <source xml:lang="en">Shemaiah, son of Delaiah, false prophet</source>
+        <note>ID: CharacterName.Shemaiah, son of Delaiah, false prophet</note>
+        <target xml:lang="zh-TW" state="translated">示瑪雅, ***son*** ***of*** 第萊雅, ***false*** 先知</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Shemeber, king of Zeboiim" sil:dynamic="true">
+        <source xml:lang="en">Shemeber, king of Zeboiim</source>
+        <note>ID: CharacterName.Shemeber, king of Zeboiim</note>
+        <target xml:lang="zh-TW" state="translated">善以別, 王 ***of*** 《現》洗遍</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Shephatiah" sil:dynamic="true">
+        <source xml:lang="en">Shephatiah</source>
+        <note>ID: CharacterName.Shephatiah</note>
+        <target xml:lang="zh-TW" state="translated">示法提雅</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Shethar-Bozenai" sil:dynamic="true">
+        <source xml:lang="en">Shethar-Bozenai</source>
+        <note>ID: CharacterName.Shethar-Bozenai</note>
+        <target xml:lang="zh-TW" state="translated">示他‧波斯乃</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Shimei" sil:dynamic="true">
+        <source xml:lang="en">Shimei</source>
+        <note>ID: CharacterName.Shimei</note>
+        <target xml:lang="zh-TW" state="translated">示每</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Shinab, king of Admah" sil:dynamic="true">
+        <source xml:lang="en">Shinab, king of Admah</source>
+        <note>ID: CharacterName.Shinab, king of Admah</note>
+        <target xml:lang="zh-TW" state="translated">示納, 王 ***of*** 押瑪</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Shiphrah (midwife)" sil:dynamic="true">
+        <source xml:lang="en">Shiphrah (midwife)</source>
+        <note>ID: CharacterName.Shiphrah (midwife)</note>
+        <target xml:lang="zh-TW" state="translated">施弗拉 ***(midwife)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Shobi" sil:dynamic="true">
+        <source xml:lang="en">Shobi</source>
+        <note>ID: CharacterName.Shobi</note>
+        <target xml:lang="zh-TW" state="translated">朔比</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Shua (Judah's wife)" sil:dynamic="true">
+        <source xml:lang="en">Shua (Judah's wife)</source>
+        <note>ID: CharacterName.Shua (Judah's wife)</note>
+        <target xml:lang="zh-TW" state="translated">書亞 ***(Judah's*** ***wife)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Shunammite woman" sil:dynamic="true">
+        <source xml:lang="en">Shunammite woman</source>
+        <note>ID: CharacterName.Shunammite woman</note>
+        <target xml:lang="zh-TW" state="translated">書念婦人 ***woman***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Silas" sil:dynamic="true">
+        <source xml:lang="en">Silas</source>
+        <note>ID: CharacterName.Silas</note>
+        <target xml:lang="zh-TW" state="translated">西拉</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Simeon" sil:dynamic="true">
+        <source xml:lang="en">Simeon</source>
+        <note>ID: CharacterName.Simeon</note>
+        <target xml:lang="zh-TW" state="translated">《現》西緬</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Simeon, devout man in Jerusalem" sil:dynamic="true">
+        <source xml:lang="en">Simeon, devout man in Jerusalem</source>
+        <note>ID: CharacterName.Simeon, devout man in Jerusalem</note>
+        <target xml:lang="zh-TW" state="translated">《現》西緬, ***devout*** ***man*** ***in*** 耶路撒冷</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Simon, sorcerer" sil:dynamic="true">
+        <source xml:lang="en">Simon, sorcerer</source>
+        <note>ID: CharacterName.Simon, sorcerer</note>
+        <target xml:lang="zh-TW" state="translated">西門, ***sorcerer***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Sisera" sil:dynamic="true">
+        <source xml:lang="en">Sisera</source>
+        <note>ID: CharacterName.Sisera</note>
+        <target xml:lang="zh-TW" state="translated">西西拉</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Solomon, king" sil:dynamic="true">
+        <source xml:lang="en">Solomon, king</source>
+        <note>ID: CharacterName.Solomon, king</note>
+        <target xml:lang="zh-TW" state="translated">所羅門, 王</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Stephen" sil:dynamic="true">
+        <source xml:lang="en">Stephen</source>
+        <note>ID: CharacterName.Stephen</note>
+        <target xml:lang="zh-TW" state="translated">司提反</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.synagogue ruler" sil:dynamic="true">
+        <source xml:lang="en">synagogue ruler</source>
+        <note>ID: CharacterName.synagogue ruler</note>
+        <target xml:lang="zh-TW" state="translated">＜陽＞會堂主管</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Tamar, daughter of David" sil:dynamic="true">
+        <source xml:lang="en">Tamar, daughter of David</source>
+        <note>ID: CharacterName.Tamar, daughter of David</note>
+        <target xml:lang="zh-TW" state="translated">《現》塔瑪, ***daughter*** ***of*** 大衛</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Tamar, daughter-in-law of Judah" sil:dynamic="true">
+        <source xml:lang="en">Tamar, daughter-in-law of Judah</source>
+        <note>ID: CharacterName.Tamar, daughter-in-law of Judah</note>
+        <target xml:lang="zh-TW" state="translated">《現》塔瑪, ***daughter-in-law*** ***of*** 猶大</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Tattenai, governor" sil:dynamic="true">
+        <source xml:lang="en">Tattenai, governor</source>
+        <note>ID: CharacterName.Tattenai, governor</note>
+        <target xml:lang="zh-TW" state="translated">達乃, ***governor***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Tempter" sil:dynamic="true">
+        <source xml:lang="en">Tempter</source>
+        <note>ID: CharacterName.Tempter</note>
+        <target xml:lang="zh-TW" state="translated">那試探人的</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Tertius" sil:dynamic="true">
+        <source xml:lang="en">Tertius</source>
+        <note>ID: CharacterName.Tertius</note>
+        <target xml:lang="zh-TW" state="translated">德提</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Tertullus, lawyer" sil:dynamic="true">
+        <source xml:lang="en">Tertullus, lawyer</source>
+        <note>ID: CharacterName.Tertullus, lawyer</note>
+        <target xml:lang="zh-TW" state="translated">帖土羅, ***lawyer***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Thomas" sil:dynamic="true">
+        <source xml:lang="en">Thomas</source>
+        <note>ID: CharacterName.Thomas</note>
+        <target xml:lang="zh-TW" state="translated">多馬</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Tirzah, daughters of Zelophehad" sil:dynamic="true">
+        <source xml:lang="en">Tirzah, daughters of Zelophehad</source>
+        <note>ID: CharacterName.Tirzah, daughters of Zelophehad</note>
+        <target xml:lang="zh-TW" state="translated">得撒, ***daughters*** ***of*** 西羅非哈</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Titus" sil:dynamic="true">
+        <source xml:lang="en">Titus</source>
+        <note>ID: CharacterName.Titus</note>
+        <target xml:lang="zh-TW" state="translated">提多</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Tobiah the Ammonite" sil:dynamic="true">
+        <source xml:lang="en">Tobiah the Ammonite</source>
+        <note>ID: CharacterName.Tobiah the Ammonite</note>
+        <target xml:lang="zh-TW" state="translated">多比雅 ***the*** 亞捫</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Tobiah the Ammonite official" sil:dynamic="true">
+        <source xml:lang="en">Tobiah the Ammonite official</source>
+        <note>ID: CharacterName.Tobiah the Ammonite official</note>
+        <target xml:lang="zh-TW" state="translated">多比雅 ***the*** 亞捫 ***official***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Uriah" sil:dynamic="true">
+        <source xml:lang="en">Uriah</source>
+        <note>ID: CharacterName.Uriah</note>
+        <target xml:lang="zh-TW" state="translated">烏利亞</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.worshipers" sil:dynamic="true">
+        <source xml:lang="en">worshipers</source>
+        <note>ID: CharacterName.worshipers</note>
+        <target xml:lang="zh-TW" state="translated">＜陽＞敬拜者</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Zalmunna" sil:dynamic="true">
+        <source xml:lang="en">Zalmunna</source>
+        <note>ID: CharacterName.Zalmunna</note>
+        <target xml:lang="zh-TW" state="translated">撒慕拿</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Zebah" sil:dynamic="true">
+        <source xml:lang="en">Zebah</source>
+        <note>ID: CharacterName.Zebah</note>
+        <target xml:lang="zh-TW" state="translated">西巴</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Zebul, governor of Shechem" sil:dynamic="true">
+        <source xml:lang="en">Zebul, governor of Shechem</source>
+        <note>ID: CharacterName.Zebul, governor of Shechem</note>
+        <target xml:lang="zh-TW" state="translated">西布勒, ***governor*** ***of*** 示劍</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Zechariah" sil:dynamic="true">
+        <source xml:lang="en">Zechariah</source>
+        <note>ID: CharacterName.Zechariah</note>
+        <target xml:lang="zh-TW" state="translated">撒迦利雅</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Zechariah (in vision)" sil:dynamic="true">
+        <source xml:lang="en">Zechariah (in vision)</source>
+        <note>ID: CharacterName.Zechariah (in vision)</note>
+        <target xml:lang="zh-TW" state="translated">撒迦利雅 ***(in*** 異象／默示／鏡子)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Zechariah (the LORD says)" sil:dynamic="true">
+        <source xml:lang="en">Zechariah (the LORD says)</source>
+        <note>ID: CharacterName.Zechariah (the LORD says)</note>
+        <target xml:lang="zh-TW" state="translated">撒迦利雅 ***(the*** ***LORD*** ***says)***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Zechariah, son of Jehoiada the priest" sil:dynamic="true">
+        <source xml:lang="en">Zechariah, son of Jehoiada the priest</source>
+        <note>ID: CharacterName.Zechariah, son of Jehoiada the priest</note>
+        <target xml:lang="zh-TW" state="translated">撒迦利雅, ***son*** ***of*** 耶何耶大 ***the*** 祭司</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Zedekiah" sil:dynamic="true">
+        <source xml:lang="en">Zedekiah</source>
+        <note>ID: CharacterName.Zedekiah</note>
+        <target xml:lang="zh-TW" state="translated">西底家</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Zedekiah, king of Judah" sil:dynamic="true">
+        <source xml:lang="en">Zedekiah, king of Judah</source>
+        <note>ID: CharacterName.Zedekiah, king of Judah</note>
+        <target xml:lang="zh-TW" state="translated">西底家, 王 ***of*** 猶大</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Zedekiah, son of Hananiah" sil:dynamic="true">
+        <source xml:lang="en">Zedekiah, son of Hananiah</source>
+        <note>ID: CharacterName.Zedekiah, son of Hananiah</note>
+        <target xml:lang="zh-TW" state="translated">西底家, ***son*** ***of*** 哈拿尼雅</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Zedekiah, son of Kenaanah, false prophet" sil:dynamic="true">
+        <source xml:lang="en">Zedekiah, son of Kenaanah, false prophet</source>
+        <note>ID: CharacterName.Zedekiah, son of Kenaanah, false prophet</note>
+        <target xml:lang="zh-TW" state="translated">西底家, ***son*** ***of*** ***Kenaanah,*** ***false*** 先知</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Zephaniah, priest" sil:dynamic="true">
+        <source xml:lang="en">Zephaniah, priest</source>
+        <note>ID: CharacterName.Zephaniah, priest</note>
+        <target xml:lang="zh-TW" state="translated">西番雅, 祭司</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Zeresh, wife of Haman" sil:dynamic="true">
+        <source xml:lang="en">Zeresh, wife of Haman</source>
+        <note>ID: CharacterName.Zeresh, wife of Haman</note>
+        <target xml:lang="zh-TW" state="translated">細利斯, ***wife*** ***of*** 哈曼</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ziba, servant of Saul's household" sil:dynamic="true">
+        <source xml:lang="en">Ziba, servant of Saul's household</source>
+        <note>ID: CharacterName.Ziba, servant of Saul's household</note>
+        <target xml:lang="zh-TW" state="translated">洗巴, ＜陽＞僕人 ***of*** ***Saul's*** ***household***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Zion" sil:dynamic="true">
+        <source xml:lang="en">Zion</source>
+        <note>ID: CharacterName.Zion</note>
+        <target xml:lang="zh-TW" state="translated">《現》錫安</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ziphites" sil:dynamic="true">
+        <source xml:lang="en">Ziphites</source>
+        <note>ID: CharacterName.Ziphites</note>
+        <target xml:lang="zh-TW" state="translated">西弗</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Zipporah, Moses' wife" sil:dynamic="true">
+        <source xml:lang="en">Zipporah, Moses' wife</source>
+        <note>ID: CharacterName.Zipporah, Moses' wife</note>
+        <target xml:lang="zh-TW" state="translated">西坡拉, ***Moses'*** ***wife***</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Zophar the Naamathite" sil:dynamic="true">
+        <source xml:lang="en">Zophar the Naamathite</source>
+        <note>ID: CharacterName.Zophar the Naamathite</note>
+        <target xml:lang="zh-TW" state="translated">瑣法 ***the*** 拿瑪人</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

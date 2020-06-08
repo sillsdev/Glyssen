@@ -30,4 +30,5 @@ lib/dotnet/MarkdownDeep.dll
 /Glyssen/Firefox/*
 /GlyssenTests/Firefox/*
 **/wixobj/*
+/DistFiles/localization/Palaso.*.xlf
 /build/engine.exe

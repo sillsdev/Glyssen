@@ -15,7 +15,7 @@ using GlyssenEngine.Paratext;
 using GlyssenEngine.Quote;
 using GlyssenEngine.Script;
 using L10NSharp;
-using L10NSharp.TMXUtils;
+using L10NSharp.XLiffUtils;
 using L10NSharp.UI;
 using SIL.ObjectModel;
 using SIL.Scripture;
@@ -89,7 +89,7 @@ namespace Glyssen.Dialogs
 			try
 			{
 				HandleStringsLocalized();
-				LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
+				LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
 
 				SetFilterControlsFromMode();
 

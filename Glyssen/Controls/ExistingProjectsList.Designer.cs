@@ -1,4 +1,4 @@
-﻿using L10NSharp.TMXUtils;
+﻿using L10NSharp.XLiffUtils;
 using L10NSharp.UI;
 
 namespace Glyssen.Controls
@@ -18,7 +18,7 @@ namespace Glyssen.Controls
 		{
 			if (disposing)
 			{
-				LocalizeItemDlg<TMXDocument>.StringsLocalized -= HandleStringsLocalized;
+				LocalizeItemDlg<XLiffDocument>.StringsLocalized -= HandleStringsLocalized;
 
 				if (components != null)
 					components.Dispose();
