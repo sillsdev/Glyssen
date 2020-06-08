@@ -59,6 +59,22 @@ namespace GlyssenEngine
 			return referenceText;
 		}
 
+		private enum FcbhTestament
+		{
+			OT,
+			NT
+		}
+
+		private static string GetEnglishVersion(FcbhTestament testament)
+		{
+			var type = "fcbh" + testament;
+			return GetStandardReferenceText(ReferenceTextType.English).m_metadata
+				.Identification.SystemIds.FirstOrDefault(sysId => sysId.Type == type)?.Id;
+		}
+
+		public static string EnglishOTVersion => GetEnglishVersion(FcbhTestament.OT);
+		public static string EnglishNTVersion => GetEnglishVersion(FcbhTestament.NT);
+
 		public ReferenceTextType Type => m_referenceTextType;
 		
 		public override string Name => Type == ReferenceTextType.Custom ? LanguageName ?? m_metadata.Name : Type.ToString();
