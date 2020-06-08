@@ -2,18 +2,28 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Platforms>AnyCPU;x64</Platforms>
+    <Platforms>x64</Platforms>
+    <OutputPath>..\output\$(Configuration)\</OutputPath>
+	<PackageOutputPath>../output</PackageOutputPath>
     <Authors>SIL International, Faith Comes By Hearing</Authors>
     <Company>FCBH-SIL</Company>
-    <Description>Glyssen "business logic" layer used for working with projects to create audio Bible scripts.</Description>
-    <PackageProjectUrl>https://software.sil.org/glyssen/</PackageProjectUrl>
     <Copyright>Copyright © 2014-2020 Faith Comes By Hearing and SIL International</Copyright>
+    <Description>Glyssen "business logic" layer used for working with projects to create audio Bible scripts.</Description>
     <RepositoryUrl>https://github.com/sillsdev/glyssen/</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>..\output\Debug\</OutputPath>
+    <PackageProjectUrl>https://software.sil.org/glyssen/</PackageProjectUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\glyssen.snk</AssemblyOriginatorKeyFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+	<AppendToReleaseNotesProperty><![CDATA[
+See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.md]]>
+    </AppendToReleaseNotesProperty>
+	<Description>Library for working with Glyssen project data, including scripts and casting</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -21,12 +31,9 @@
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>..\output\Release\</OutputPath>
-  </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutputPath>..\output\Release\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
@@ -51,13 +58,22 @@
 
   <ItemGroup>
     <PackageReference Include="DotNetZip" Version="1.13.4" />
+    <PackageReference Include="GitVersionTask" Version="5.1.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="icu.net" Version="2.6.0" />
     <PackageReference Include="Microsoft.DotNet.PlatformAbstractions" Version="3.1.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="3.1.0" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="ParatextData" Version="9.1.1-beta" />
+    <PackageReference Include="ParatextData" Version="9.1.5-beta" />
     <PackageReference Include="SIL.Core" Version="8.0.0-beta0091" />
     <PackageReference Include="SIL.DblBundle" Version="8.0.0-beta0085" />
+    <PackageReference Include="SIL.ReleaseTasks" Version="2.2.0" />
     <PackageReference Include="SIL.Scripture" Version="8.0.0-beta0091" />
     <PackageReference Include="SIL.WritingSystems" Version="8.0.0-beta0085" />
     <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
@@ -81,18 +97,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
-      <_Parameter1>ControlDataIntegrityTests</_Parameter1>
-    </AssemblyAttribute>
-    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
-      <_Parameter1>GlyssenTests</_Parameter1>
-    </AssemblyAttribute>
-    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
-      <_Parameter1>GlyssenEngineTests</_Parameter1>
-    </AssemblyAttribute>
   </ItemGroup>
 
   <ItemGroup>

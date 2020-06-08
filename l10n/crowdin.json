@@ -1,0 +1,11 @@
+{
+  "project_identifier": "glyssen",
+  "api_key_env": "CROWDIN_GLYSSEN_KEY",
+  "base_path": ".",
+  "files": [
+    {
+      "source": "Glyssen.en.xlf",
+      "translation": "%local%/Glyssen.%locale%.xlf",
+    }
+  ]
+}

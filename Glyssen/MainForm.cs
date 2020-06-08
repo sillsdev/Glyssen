@@ -31,7 +31,7 @@ using SIL.Reporting;
 using SIL.Windows.Forms;
 using SIL.Windows.Forms.Miscellaneous;
 using Ionic.Zip;
-using L10NSharp.TMXUtils;
+using L10NSharp.XLiffUtils;
 using NetSparkle;
 using Paratext.Data;
 using SIL.Scripture;
@@ -77,7 +77,7 @@ namespace Glyssen
 			m_uiLanguageMenu.ToolTipText = LocalizationManager.GetString("MainForm.UILanguage", "User-interface Language");
 
 			HandleStringsLocalized();
-			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized; // Don't need to unsubscribe since this object will be around as long as the program is running.
+			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized; // Don't need to unsubscribe since this object will be around as long as the program is running.
 
 			m_lastExportLocationLink.Text = Empty;
 
@@ -333,7 +333,7 @@ namespace Glyssen
 
 			m_lblFilesAreHere.Visible = false;
 
-			m_exportMenu.Enabled = false;
+			m_shareMenu.Enabled = false;
 		}
 
 		private void HandleOpenProject_Click(object sender, EventArgs e)
@@ -413,6 +413,17 @@ namespace Glyssen
 						{WinFormsErrorAnalytics.kExceptionMsgKey, ex.Message},
 						{"CurrentProjectPath", Settings.Default.CurrentProject},
 					});
+					try
+					{
+						// Attempt to clear this setting so that Glyssen won't be permanently hamstrung.
+						Settings.Default.CurrentProject = null;
+						Settings.Default.Save();
+					}
+					catch (Exception exceptionSavingSettings)
+					{
+						Logger.WriteError("Failed to clear CurrentProject setting. If problem persists, " +
+							"Glyssen will not be able to restart successfully.", exceptionSavingSettings);
+					}
 					throw;
 				}
 			}
@@ -440,6 +451,7 @@ namespace Glyssen
 
 		private void LoadProject(string filePath, Action additionalActionAfterSettingProject = null)
 		{
+			Logger.WriteEvent($"Attempting to load project from {filePath}");
 			bool loadedSuccessfully = LoadAndHandleApplicationExceptions(() =>
 			{
 				SetProject(Project.Load(InstantiateProjectFromMetadata(filePath), HandleMissingBundleNeededForProjectUpgrade, new WinformsParatextProjectLoadingAssistant(ParserUpgradeMessage, false)));
@@ -980,7 +992,10 @@ namespace Glyssen
 					item.Select();
 					m_uiLanguageMenu.Text = ((L10NCultureInfo)item.Tag).NativeName;
 				});
-				if (languageId == Settings.Default.UserInterfaceLanguage)
+				// Typically, the default UI language will be the same as the one returned by the LM,
+				// but if the user chose a generic locale in a previous version of Glyssen and that has
+				// be replaced by a country-specific locale, there won't be a match on the generic ID.
+				if (languageId == Settings.Default.UserInterfaceLanguage || languageId == LocalizationManager.UILanguageId)
 				{
 					m_uiLanguageMenu.Text = ((L10NCultureInfo)item.Tag).NativeName;
 				}

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -8,7 +7,6 @@ using GlyssenEngine.Casting;
 using GlyssenEngine.Character;
 using GlyssenEngine.Rules;
 using GlyssenEngine.UndoActions;
-using GlyssenEngine.Utilities;
 using SIL;
 using SIL.Extensions;
 using SIL.Reporting;
@@ -193,7 +191,7 @@ namespace GlyssenEngine.ViewModels
 
 			if (destGroup == null && !sourceGroup.IsVoiceActorAssigned && sourceGroup.CharacterIds.SetEquals(characterIds))
 			{
-				return null; // Moving all characetrs from an unassigned group to a new group would accomplish nothing.
+				return null; // Moving all characters from an unassigned group to a new group would accomplish nothing.
 			}
 			return sourceGroup;
 		}

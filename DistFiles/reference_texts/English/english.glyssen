@@ -14,6 +14,8 @@
   <identification>
     <name>World English Bible (WEB)</name>
     <nameLocal />
+    <systemId type="fcbhOT">001</systemId>
+    <systemId type="fcbhNT">100</systemId>
     <systemId type="gbc" />
     <systemId type="tms" />
     <systemId type="reap" />
