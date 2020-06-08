@@ -992,7 +992,10 @@ namespace Glyssen
 					item.Select();
 					m_uiLanguageMenu.Text = ((L10NCultureInfo)item.Tag).NativeName;
 				});
-				if (languageId == Settings.Default.UserInterfaceLanguage)
+				// Typically, the default UI language will be the same as the one returned by the LM,
+				// but if the user chose a generic locale in a previous version of Glyssen and that has
+				// be replaced by a country-specific locale, there won't be a match on the generic ID.
+				if (languageId == Settings.Default.UserInterfaceLanguage || languageId == LocalizationManager.UILanguageId)
 				{
 					m_uiLanguageMenu.Text = ((L10NCultureInfo)item.Tag).NativeName;
 				}
