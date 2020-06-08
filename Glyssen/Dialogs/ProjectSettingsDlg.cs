@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Glyssen.Shared;
+using Glyssen.Shared.Bundle;
 using Glyssen.Utilities;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
@@ -619,29 +620,33 @@ namespace Glyssen.Dialogs
 			m_linkRefTextAttribution.Links.Clear();
 			if (m_ReferenceText.SelectedItem is KeyValuePair<string, ReferenceTextProxy>)
 			{
-				var metadata = ((KeyValuePair<string, ReferenceTextProxy>) m_ReferenceText.SelectedItem).Value.Metadata;
-				if (metadata == null)
-					return;
-				var copyright = metadata.Copyright;
-				if (copyright == null || copyright.Statement == null)
-					return;
+				var refTextProxy = ((KeyValuePair<string, ReferenceTextProxy>)m_ReferenceText.SelectedItem).Value;
+				var metadata = refTextProxy.Metadata;
+				SetReferenceTextCopyrightInfo(metadata);
+				var referenceText = ReferenceText.GetReferenceText(refTextProxy);
+				m_labelWarningReferenceTextDoesNotCoverAllBooks.Visible =
+					!m_model.Project.AvailableBooks.Select(b => b.Code).All(bookId =>
+						referenceText.HasContentForBook(bookId));
+			}
+		}
 
-				var copyrightInternalNodes = copyright.Statement.InternalNodes;
-				if (copyrightInternalNodes != null)
+		private void SetReferenceTextCopyrightInfo(GlyssenDblTextMetadataBase metadata)
+		{
+			var copyrightInternalNodes = metadata?.Copyright?.Statement?.InternalNodes;
+			if (copyrightInternalNodes == null)
+				return;
+
+			m_linkRefTextAttribution.Text = string.Join(Environment.NewLine, copyrightInternalNodes.Select(n => n.InnerText));
+			const string kHttpPrefix = "http://";
+			var linkStart = m_linkRefTextAttribution.Text.IndexOf(kHttpPrefix, StringComparison.Ordinal);
+			if (linkStart >= 0)
+			{
+				var linkExtent = m_linkRefTextAttribution.Text.LastIndexOf("/", StringComparison.Ordinal) - linkStart;
+				if (linkExtent > 0)
 				{
-					m_linkRefTextAttribution.Text = string.Join(Environment.NewLine, copyrightInternalNodes.Select(n => n.InnerText));
-				}
-				const string kHttpPrefix = "http://";
-				var linkStart = m_linkRefTextAttribution.Text.IndexOf(kHttpPrefix, StringComparison.Ordinal);
-				if (linkStart >= 0)
-				{
-					var linkExtent = m_linkRefTextAttribution.Text.LastIndexOf("/", StringComparison.Ordinal) - linkStart;
-					if (linkExtent > 0)
-					{
-						//m_linkRefTextAttribution.LinkArea = new LinkArea(linkStart, linkExtent);
-						m_linkRefTextAttribution.Links.Add(linkStart, linkExtent,
-							m_linkRefTextAttribution.Text.Substring(linkStart, linkExtent));
-					}
+					//m_linkRefTextAttribution.LinkArea = new LinkArea(linkStart, linkExtent);
+					m_linkRefTextAttribution.Links.Add(linkStart, linkExtent,
+						m_linkRefTextAttribution.Text.Substring(linkStart, linkExtent));
 				}
 			}
 		}
