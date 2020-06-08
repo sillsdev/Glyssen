@@ -9,7 +9,7 @@ using Glyssen.Shared;
 using GlyssenEngine.Export;
 using GlyssenEngine.Utilities;
 using L10NSharp;
-using L10NSharp.TMXUtils;
+using L10NSharp.XLiffUtils;
 using L10NSharp.UI;
 
 namespace Glyssen.Dialogs
@@ -33,7 +33,7 @@ namespace Glyssen.Dialogs
 				HideControlsThatRequireVoiceActors();
 
 			HandleStringsLocalized();
-			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
 
 			m_lblFileName.Text = m_viewModel.FullFileName;
 

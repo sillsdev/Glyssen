@@ -17,7 +17,7 @@ using GlyssenEngine.Character;
 using GlyssenEngine.Export;
 using GlyssenEngine.ViewModels;
 using L10NSharp;
-using L10NSharp.TMXUtils;
+using L10NSharp.XLiffUtils;
 using L10NSharp.UI;
 using SIL.Reporting;
 using SIL.Extensions;
@@ -80,7 +80,7 @@ namespace Glyssen.Dialogs
 			m_characterDetailsGrid.MultiSelect = true;
 
 			HandleStringsLocalized();
-			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
 
 			m_findCharacterBackgroundWorker = new BackgroundWorker { WorkerSupportsCancellation = true };
 			m_findCharacterBackgroundWorker.DoWork += FindCharacter;

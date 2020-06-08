@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 using Glyssen.Controls;
-using L10NSharp.TMXUtils;
+using L10NSharp.XLiffUtils;
 
 namespace Glyssen.Dialogs
 {
@@ -19,7 +19,7 @@ namespace Glyssen.Dialogs
 		{
 			if (disposing)
 			{
-				L10NSharp.UI.LocalizeItemDlg<TMXDocument>.StringsLocalized -= HandleStringsLocalized;
+				L10NSharp.UI.LocalizeItemDlg<XLiffDocument>.StringsLocalized -= HandleStringsLocalized;
 
 				if (m_hyperlinkFont != null)
 					m_hyperlinkFont.Dispose();

@@ -1,11 +1,12 @@
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build;Pack">
 	<PropertyGroup>
 		<RootDir Condition="'$(teamcity_version)' == ''">$(MSBuildProjectDirectory)\..</RootDir>
 		<RootDir Condition="'$(teamcity_version)' != ''">$(teamcity_build_checkoutDir)</RootDir>
 		<BUILD_NUMBER Condition="'$(BUILD_NUMBER)'==''">0.0.0.0</BUILD_NUMBER>
 		<Solution>Glyssen.sln</Solution>
+		<SolutionPath>$(RootDir)/$(Solution)</SolutionPath>
 		<ApplicationName>Glyssen</ApplicationName>
-		<Configuration>Release</Configuration>
+		<Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
 		<useNUnit-x86 Condition="'$(OS)'=='Windows_NT'">true</useNUnit-x86>
 		<useNUnit-x86 Condition="'$(OS)'!='Windows_NT'">false</useNUnit-x86>
 		<ExtraExcludeCategories Condition="'$(teamcity_version)' != ''">SkipOnTeamCity,$(ExtraExcludeCategories)</ExtraExcludeCategories>
@@ -15,105 +16,44 @@
 		<RestartBuild Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')">false</RestartBuild>
 	</PropertyGroup>
 
-  <UsingTask TaskName="StampAssemblies"
-    AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
-    Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
-  <UsingTask TaskName="MakeWixForDirTree"
-    AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
-    Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
-  <UsingTask TaskName="Split"
-    AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
-    Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
-  <UsingTask TaskName="FileUpdate"
-    AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
-    Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
-  <UsingTask TaskName="NUnit3" AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll" />
-  <Import Project="../.nuget/NuGet.targets" />
+	<UsingTask TaskName="MakeWixForDirTree"
+		AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
+		Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
+	<UsingTask TaskName="FileUpdate"
+		AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
+		Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
+	<UsingTask TaskName="NUnit3" AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll" />
 
-  <Target Name="RestoreBuildTasks" DependsOnTargets="CheckPrerequisites">
-    <Message Text="Calling nuget restore" />
-    <Exec Command='$(NuGetCommand) restore ../$(Solution)' />
-    <Exec Command='$(NuGetCommand) install SIL.BuildTasks -excludeVersion -version 1.0.2 -source "$(PackageSources)" -solutionDirectory "$(SolutionDir)."' />
-    <Message Text="RestartBuild=$(RestartBuild)"/>
-    <MSBuild Projects="$(MSBuildProjectFullPath)" Targets="BuildInternal"
-      Properties="Configuration=$(Configuration)" Condition="$(RestartBuild)" />
-  </Target>
+	<Import Project="../.nuget/NuGet.targets" />
 
-	<Target Name="VersionNumbers">
-	<Message Text="BUILD_NUMBER: $(BUILD_NUMBER)" Importance="high"/>
-
-	<Split Input="$(BUILD_NUMBER)" Delimiter="." OutputSubString="2">
-		<Output TaskParameter="ReturnValue" PropertyName="BuildCounter" />
-	</Split>
-	<Split Input="$(BUILD_NUMBER)" Delimiter="." OutputSubString="3">
-		<Output TaskParameter="ReturnValue" PropertyName="BuildHash" />
-	</Split>
-
-	<Message Text="BuildCounter: $(BuildCounter)" Importance="high"/>
-	<Message Text="BuildHash: $(BuildHash)" Importance="high"/>
-
-	<!-- For now, mimicking Bloom's strategy of updating the version number here (not on TeamCity, not in the assemblies). -->
-	<CreateProperty Value="1.3.$(BuildCounter)">
-		<Output PropertyName="Version" TaskParameter="Value"/>
-	</CreateProperty>
-	<CreateProperty Value="$(Version).$(BuildHash)">
-		<Output PropertyName="FullVersion" TaskParameter="Value"/>
-	</CreateProperty>
-	<CreateProperty Value="GlyssenInstaller.$(Version).exe" Condition=" '$(Label)' == '' ">
-		<Output PropertyName="InstallerFileName" TaskParameter="Value"/>
-	</CreateProperty>
-	<CreateProperty Value="GlyssenInstaller.$(Version).$(Label).exe" Condition=" '$(Label)' != '' ">
-		<Output PropertyName="InstallerFileName" TaskParameter="Value"/>
-	</CreateProperty>
-	<Message Text="Version: $(Version)" Importance="high"/>
-	<Message Text="FullVersion: $(FullVersion)" Importance="high"/>
+	<Target Name="RestoreBuildTasks" DependsOnTargets="CheckPrerequisites">
+		<Message Text="Calling nuget restore" />
+		<Exec Command='$(NuGetCommand) restore ../$(Solution)' />
+		<Exec Command='$(NuGetCommand) install SIL.BuildTasks -excludeVersion -version 1.0.2 -source "$(PackageSources)" -solutionDirectory "$(SolutionDir)."' />
+		<Message Text="RestartBuild=$(RestartBuild)"/>
+		<MSBuild Projects="$(MSBuildProjectFullPath)" Targets="BuildInternal" Properties="Configuration=$(Configuration)" Condition="$(RestartBuild)" />
 	</Target>
 
-	<!-- Reference Text Utility version numbers -->
-	<Target Name="RTUVersionNumbers">
-	<Message Text="Reference Text Utility BUILD_NUMBER: $(BUILD_NUMBER)" Importance="high"/>
+	<Target Name="SetInstallerVersionNumber" DependsOnTargets="Build">
+		<!-- Now using semantic versioning 2.0.0, so version number comes from GitVersion. -->
+		<Message Text="SemVer: $(GitVersion_Semver)" Importance="high"/>
 
-	<Split Input="$(BUILD_NUMBER)" Delimiter="." OutputSubString="2">
-		<Output TaskParameter="ReturnValue" PropertyName="RTUBuildCounter" />
-	</Split>
-	<Split Input="$(BUILD_NUMBER)" Delimiter="." OutputSubString="3">
-		<Output TaskParameter="ReturnValue" PropertyName="RTUBuildHash" />
-	</Split>
-
-	<Message Text="Reference Text Utility BuildCounter: $(RTUBuildCounter)" Importance="high"/>
-	<Message Text="Reference Text Utility BuildHash: $(RTUBuildHash)" Importance="high"/>
-
-	<!-- For now, mimicking Bloom's strategy of updating the version number here (not on TeamCity, not in the assemblies). -->
-	<CreateProperty Value="1.0.$(RTUBuildCounter)">
-		<Output PropertyName="RTUVersion" TaskParameter="Value"/>
-	</CreateProperty>
-	<CreateProperty Value="$(RTUVersion).$(RTUBuildHash)">
-		<Output PropertyName="RTUFullVersion" TaskParameter="Value"/>
-	</CreateProperty>
-	<CreateProperty Value="GlyssenRefTextUtilInstaller.$(RTUVersion).msi">
-		<Output PropertyName="RTUInstallerFileName" TaskParameter="Value"/>
-	</CreateProperty>
-	<Message Text="Reference Text Utility Version: $(RTUVersion)" Importance="high"/>
-	<Message Text="Reference Text Utility FullVersion: $(RTUFullVersion)" Importance="high"/>
+		<PropertyGroup>
+			<InstallerFileDestName>$(RootDir)\output\installer\GlyssenInstaller.$(GitVersion_Semver).msi</InstallerFileDestName>
+		</PropertyGroup>
+		<Message Text="InstallerFileDestName: $(InstallerFileDestName)" Importance="high"/>
 	</Target>
 
-	<Target Name="SetAssemblyVersion" DependsOnTargets="VersionNumbers">
-	<ItemGroup>
-		<AssemblyInfoFiles Include="$(RootDir)/**/AssemblyInfo.cs"/>
-	</ItemGroup>
-	<StampAssemblies Version="$(Version)" InputAssemblyPaths="@(AssemblyInfoFiles)" />
+	<Target Name="Build">
+		<CallTarget Targets="RestoreBuildTasks"/>
+		<CallTarget Targets="BuildInternal" Condition="!$(RestartBuild)" />
 	</Target>
 
-  <Target Name="Build">
-    <CallTarget Targets="RestoreBuildTasks"/>
-    <CallTarget Targets="BuildInternal" Condition="!$(RestartBuild)" />
-  </Target>
-
-  <Target Name="BuildInternal" DependsOnTargets="SetAssemblyVersion">
-    <MSBuild Projects="$(RootDir)/$(Solution)"
-      Targets="Rebuild"
-      Properties="Configuration=$(Configuration)" />
-  </Target>
+	<Target Name="BuildInternal">
+		<MSBuild Projects="$(RootDir)/$(Solution)"
+			Targets="Rebuild"
+			Properties="Configuration=$(Configuration)" />
+	</Target>
 
 	<Target Name="Test" DependsOnTargets="Build">
 		<!-- Note: the Exclude here is (hopefully) a temporary solution.
@@ -134,19 +74,19 @@
 			Force32Bit="false" />
 	</Target>
 	
-	<Target Name="Installer" DependsOnTargets="VersionNumbers; MakeWixForDistFiles; MakeWixForXulRunner; Build ">
+	<Target Name="Installer" DependsOnTargets="SetInstallerVersionNumber; MakeWixForDistFiles; MakeWixForXulRunner; Build ">
+	
+		<Message Text="Making Installer Version: $(GitVersion_MajorMinorPatch)" Importance="high" />
 
 		<!-- set the version number in the installer configuration program.	Perhaps there's a way to just send in the variables rather than this brute-force
 			changing of the script, but I haven't figured that out. -->
 
 		<FileUpdate File="$(RootDir)\Installer\Installer.wxs" Regex='Property_ProductVersion = ".*"'
-			ReplacementText ="Property_ProductVersion = &quot;$(Version)&quot;" />
+			ReplacementText ="Property_ProductVersion = &quot;$(GitVersion_MajorMinorPatch)&quot;" />
 
 		<FileUpdate File="$(RootDir)\Installer\Bootstrapper\Glyssen Bootstrap Installer.wxs" Regex='Property_ProductVersion = ".*"'
-			ReplacementText ="Property_ProductVersion = &quot;$(Version)&quot;" />
-			
-		<Message Text="Making Installer Version: $(Version)" Importance="high" />
-
+			ReplacementText ="Property_ProductVersion = &quot;$(GitVersion_MajorMinorPatch)&quot;" />
+		
 		<MSBuild
 			Projects="$(RootDir)\Installer\Installer.sln"
 			Targets="Rebuild"
@@ -154,69 +94,76 @@
 		<Message Text="Build Complete"/>
 
 		<!-- remove an existing one with the same name, if necessary -->
-		<Delete Files="$(RootDir)\output\installer\$(InstallerFileName)" TreatErrorsAsWarnings="false" />
+		<Delete Files="$(InstallerFileDestName)" TreatErrorsAsWarnings="false" />
 
 		<Copy SourceFiles="$(RootDir)\output\installer\GlyssenInstaller.exe"
-			DestinationFiles="$(RootDir)\output\installer\$(InstallerFileName)"
+			DestinationFiles="$(InstallerFileDestName)"
 		/>
-		<Message Text="Copied installer to $(RootDir)\output\installer\$(InstallerFileName)" Importance="high"/>
+		<Message Text="Copied installer to $(InstallerFileDestName)" Importance="high"/>
 
 		<!-- remove the installer which has no version number (wouldn't need this if the copy above was a move, instead) -->
 		<Delete Files="$(RootDir)\output\installer\GlyssenInstaller.exe" TreatErrorsAsWarnings="false" />
 
 		<!-- copy it so we aren't modifying the original, which then is a pain on dev machines -->
 		<Copy SourceFiles ="$(RootDir)\installer\template.download_info"
-			DestinationFiles ="$(RootDir)\output\installer\GlyssenInstaller.$(Version).download_info"/>
+			DestinationFiles ="$(RootDir)\output\installer\GlyssenInstaller.$(GitVersion_MajorMinorPatch).download_info"/>
 
 		<!-- appcast.xml is used as part of the update notification system -->
 		<Copy SourceFiles ="$(RootDir)\installer\appcast.xml"
 			DestinationFolder ="$(RootDir)\output\installer"/>
 
-		<FileUpdate File="$(RootDir)\output\installer\GlyssenInstaller.$(Version).download_info"
+		<FileUpdate File="$(RootDir)\output\installer\GlyssenInstaller.$(GitVersion_MajorMinorPatch).download_info"
 			DatePlaceHolder='_DATE_'
 			DateFormat='yyyy-MM-dd'
 			Regex='_VERSION_'
-			ReplacementText ="$(Version)" />
+			ReplacementText ="$(GitVersion_MajorMinorPatch)" />
 
 		<FileUpdate File="$(RootDir)\output\installer\appcast.xml"
 			DatePlaceholder='DEV_RELEASE_DATE'
 			Regex='DEV_VERSION_NUMBER'
-			ReplacementText ="$(Version)" />
+			ReplacementText ="$(GitVersion_MajorMinorPatch)" />
 
 	</Target>
 
-	<Target Name="ReferenceTextUtilityInstaller" DependsOnTargets="RTUVersionNumbers; Build ">
+	<Target Name="ReferenceTextUtilityInstaller" DependsOnTargets="Build ">
 
 		<FileUpdate File="$(RootDir)\Reference Text Utility\Installer\RTUInstaller.wxs" Regex='Property_ProductVersion = ".*"'
-			ReplacementText ="Property_ProductVersion = &quot;$(RTUVersion)&quot;" />
+			ReplacementText ="Property_ProductVersion = &quot;$(GitVersion_MajorMinorPatch)&quot;" />
 
-		<Message Text="Making Installer Version: $(RTUVersion)" Importance="high" />
+		<Message Text="Making Reference Text Utility Installer Version: $(GitVersion_MajorMinorPatch)" Importance="high" />
 
+		<PropertyGroup>	
+			<RTUInstallerFileDestName>$(RootDir)\output\RefTextUtilityInstaller\GlyssenRefTextUtilInstaller.$(GitVersion_Semver).msi</RTUInstallerFileDestName>	
+		</PropertyGroup>
+		<Message Text="RTUInstallerFileDestName: $(RTUInstallerFileDestName)" Importance="high"/>
+	
 		<MSBuild Projects="$(RootDir)\Reference Text Utility\Installer\RTUInstaller.wixproj"/>
 
 		<!-- remove an existing one with the same name, if necessary -->
-		<Delete Files="$(RootDir)\output\RefTextUtilityInstaller\$(RTUInstallerFileName)" TreatErrorsAsWarnings="false" />
+		<Delete Files="$(RTUInstallerFileDestName)" TreatErrorsAsWarnings="false" />
 
 		<Copy SourceFiles="$(RootDir)\output\RefTextUtilityInstaller\GlyssenRefTextUtilInstaller.msi"
-			DestinationFiles="$(RootDir)\output\RefTextUtilityInstaller\$(RTUInstallerFileName)"
-		/>
-		<Message Text="Copied installer to $(RootDir)\output\RefTextUtilityInstaller\$(RTUInstallerFileName)" Importance="high"/>
+			DestinationFiles="$(RTUInstallerFileDestName)"/>
+		<Message Text="Copied installer to $(RTUInstallerFileDestName)" Importance="high"/>
 
 		<!-- remove the installer which has no version number (wouldn't need this if the copy above was a move, instead) -->
-		<Delete Files="$(RootDir)\output\RefTextUtilityInstallerinstaller\RefTextUtilityInstaller.msi" TreatErrorsAsWarnings="false" />
+		<Delete Files="$(RootDir)\output\RefTextUtilityInstaller\RefTextUtilityInstaller.msi" TreatErrorsAsWarnings="false" />
 
 	</Target>
 
 	<!-- These targets are designed to be additional steps on TeamCity after running target Installer. Pick the appropriate one
 	depending on whether your project's output MUST be signed or it's only nice if it is. For example, a continuous build
 	might use SignIfPossible, while a Publication build must use SignInstaller.-->
-	<Target Name="SignInstaller" DependsOnTargets="VersionNumbers; Installer">
-		<Exec Command='sign "$(RootDir)\output\installer\$(InstallerFileName)"'></Exec>
-		<Message Text="Signed installer at $(RootDir)\output\installer\$(InstallerFileName)" Importance="high"/>
+	<Target Name="SignInstaller" DependsOnTargets="Installer">
+		<PropertyGroup>
+			<IgnoreSigningErrors>false</IgnoreSigningErrors>
+		</PropertyGroup>
 	</Target>
 
-	<Target Name="SignIfPossible" DependsOnTargets="VersionNumbers; Installer">
-		<Exec Command='sign "$(RootDir)\output\installer\$(InstallerFileName)"' ContinueOnError="true"></Exec>
+	<Target Name="SignIfPossible" DependsOnTargets="Installer">
+		<PropertyGroup>
+			<IgnoreSigningErrors>true</IgnoreSigningErrors>
+		</PropertyGroup>
 	</Target>
 
 	<Target Name="MakeWixForDistFiles">
@@ -246,4 +193,10 @@
 		</MakeWixForDirTree>
 	</Target>
 
+	<Target Name="Pack" DependsOnTargets="RestorePackages">
+		<MSBuild
+			Projects="$(SolutionPath)"
+			Targets="pack"
+			Properties="Configuration=$(Configuration);ContinuousIntegrationBuild=$(ContinuousIntegrationBuild);DeterministicSourcePaths=$(DeterministicSourcePaths)" />
+	</Target>
 </Project>

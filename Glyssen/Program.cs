@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Dialogs;
@@ -20,7 +21,6 @@ using Paratext.Data;
 using Paratext.Data.Users;
 using PtxUtils;
 using PtxUtils.Progress;
-using SIL;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Windows.Forms.i18n;
@@ -208,7 +208,7 @@ namespace Glyssen
 					string fmt;
 					if (safeReplacements.Count == 1)
 					{
-						fmt = Localizer.GetString("DataMigration.ConfirmReplacementOfAudioAudio",
+						fmt = LocalizationManager.GetString("DataMigration.ConfirmReplacementOfAudioAudio",
 							"Doing this will replace the existing project by the same name, which was originally created by {0}. " +
 							"Since none of the blocks in the project to be overwritten have any user decisions recorded, this seems " +
 							"to be safe, but since {0} failed to make a backup, you need to confirm this. If you choose not to confirm " +
@@ -220,7 +220,7 @@ namespace Glyssen
 					}
 					else
 					{
-						fmt = Localizer.GetString("DataMigration.ConfirmReplacementsOfAudioAudio",
+						fmt = LocalizationManager.GetString("DataMigration.ConfirmReplacementsOfAudioAudio",
 							"Doing this will replace the existing projects by the same name, which were originally created by {0}. " +
 							"Since none of the blocks in the projects to be overwritten have any user decisions recorded, this seems " +
 							"to be safe, but since {0} failed to make a backup, you need to confirm this. If you choose not to confirm " +
@@ -322,13 +322,18 @@ namespace Glyssen
 
 		private static void SetUpLocalization()
 		{
-			Localizer.Default = new L10NSharpLocalizer();
+			SIL.Localizer.Default = new L10NSharpLocalizer();
 			string installedStringFileFolder = FileLocationUtilities.GetDirectoryDistributedWithApplication("localization");
-			string targetTmxFilePath = Path.Combine(GlyssenInfo.Company, GlyssenInfo.Product);
+			string relativeSettingPathForLocalizationFolder = Path.Combine(GlyssenInfo.Company, GlyssenInfo.Product);
 			string desiredUiLangId = Settings.Default.UserInterfaceLanguage;
 
-			PrimaryLocalizationManager = LocalizationManager.Create(TranslationMemory.Tmx, desiredUiLangId, GlyssenInfo.ApplicationId, Application.ProductName, Application.ProductVersion,
-				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress, "Glyssen");
+			// ENHANCE: Create a separate LM for GlyssenEngine, so we can generate a nuget package
+			// with the localized strings (similar to what we do for libpalaso and chorus).
+			PrimaryLocalizationManager = LocalizationManager.Create(TranslationMemory.XLiff, desiredUiLangId, GlyssenInfo.ApplicationId, Application.ProductName, Application.ProductVersion,
+				installedStringFileFolder, relativeSettingPathForLocalizationFolder, Resources.glyssenIcon, IssuesEmailAddress,
+				typeof(SIL.Localizer)
+					.GetMethods(BindingFlags.Static | BindingFlags.Public)
+					.Where(m => m.Name == "GetString"), "Glyssen");
 
 			if (IsNullOrEmpty(desiredUiLangId))
 				if (LocalizationManager.GetUILanguages(true).Count() > 1)
@@ -342,9 +347,12 @@ namespace Glyssen
 						}
 
 			var uiLanguage = LocalizationManager.UILanguageId;
-			LocalizationManager.Create(TranslationMemory.Tmx, uiLanguage, "Palaso", "Palaso", Application.ProductVersion,
-				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress,
-				"SIL.Windows.Forms.WritingSystems", "SIL.DblBundle", "SIL.Windows.Forms.DblBundle", "SIL.Windows.Forms.Miscellaneous");
+			LocalizationManager.Create(TranslationMemory.XLiff, uiLanguage, "Palaso", "Palaso", Application.ProductVersion,
+				installedStringFileFolder, relativeSettingPathForLocalizationFolder, Resources.glyssenIcon, IssuesEmailAddress,
+				typeof(SIL.Localizer)
+					.GetMethods(BindingFlags.Static | BindingFlags.Public)
+					.Where(m => m.Name == "GetString"),
+				"SIL.Windows.Forms.*", "SIL.DblBundle");
 		}
 
 		/// <summary>

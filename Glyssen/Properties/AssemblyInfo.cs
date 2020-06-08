@@ -22,16 +22,6 @@ using System.Runtime.InteropServices;
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("9d085745-b884-40e5-9663-4fa8ca17c32d")]
 
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version
-//      Build Number
-//      Revision
-//
-// The version numbers here get overridden by StampAssemblies during the build.
-// the major/minor version numbers come from the Glyssen.proj file and the build
-// number comes from the BuildCounter on TeamCity.
 [assembly: AssemblyVersion("1.2.0.0")]
 [assembly: AssemblyFileVersion("1.2.0.0")]
 [assembly: InternalsVisibleTo("GlyssenTests")]

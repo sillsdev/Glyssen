@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using Glyssen.Shared;
 using Glyssen.Utilities;
 using GlyssenEngine.Export;
-using L10NSharp.TMXUtils;
+using L10NSharp.XLiffUtils;
 using L10NSharp.UI;
 using SIL;
 
@@ -19,7 +19,7 @@ namespace Glyssen.Dialogs
 			m_viewModel = viewModel;
 
 			HandleStringsLocalized();
-			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
 		}
 
 		private void HandleStringsLocalized()

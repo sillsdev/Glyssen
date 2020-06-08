@@ -10,8 +10,8 @@ using GlyssenEngine.Bundle;
 using GlyssenEngine.Paratext;
 using GlyssenFileBasedPersistence;
 using L10NSharp;
-using L10NSharp.TMXUtils;
 using L10NSharp.UI;
+using L10NSharp.XLiffUtils;
 using Paratext.Data;
 using SIL.DblBundle;
 using SIL.Extensions;
@@ -44,7 +44,7 @@ namespace Glyssen.Controls
 		public ExistingProjectsList()
 		{
 			InitializeComponent();
-			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
 			HandleStringsLocalized();
 		}
 

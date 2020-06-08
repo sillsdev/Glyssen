@@ -2,16 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <PlatformTarget>x64</PlatformTarget>
-    <OutputPath>..\output\Debug\</OutputPath>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <PlatformTarget>x64</PlatformTarget>
-    <OutputPath>..\output\Release\</OutputPath>
+    <Platforms>x64</Platforms>
+	<OutputPath>..\output\$(Configuration)\</OutputPath>
+	<IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>

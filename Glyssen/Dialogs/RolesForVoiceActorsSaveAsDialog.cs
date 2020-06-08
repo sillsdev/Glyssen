@@ -6,7 +6,7 @@ using Glyssen.Properties;
 using Glyssen.Shared;
 using GlyssenEngine.Export;
 using L10NSharp;
-using L10NSharp.TMXUtils;
+using L10NSharp.XLiffUtils;
 using L10NSharp.UI;
 using SIL.IO;
 using SIL.Reporting;
@@ -23,7 +23,7 @@ namespace Glyssen.Dialogs
 		public RolesForVoiceActorsSaveAsDialog(ProjectExporter projectExporter)
 		{
 			HandleStringsLocalized();
-			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
 
 			m_projectExporter = projectExporter;
 
