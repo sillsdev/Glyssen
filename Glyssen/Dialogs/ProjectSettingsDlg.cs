@@ -148,6 +148,9 @@ namespace Glyssen.Dialogs
 
 		private void LoadReferenceTextOptions()
 		{
+			m_labelOTVersion.Text = ReferenceText.EnglishOTVersion;
+			m_labelNTVersion.Text = ReferenceText.EnglishNTVersion;
+
 			var dataSource = new Dictionary<string, ReferenceTextProxy>();
 			foreach (var refTextId in ReferenceTextProxy.AllAvailable)
 			{
