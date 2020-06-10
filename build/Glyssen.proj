@@ -39,7 +39,7 @@
 		<Message Text="SemVer: $(GitVersion_Semver)" Importance="high"/>
 
 		<PropertyGroup>
-			<InstallerFileDestName>$(RootDir)\output\installer\GlyssenInstaller.$(GitVersion_Semver).msi</InstallerFileDestName>
+			<InstallerFileDestName>$(RootDir)\output\installer\GlyssenInstaller.$(GitVersion_Semver).exe</InstallerFileDestName>
 		</PropertyGroup>
 		<Message Text="InstallerFileDestName: $(InstallerFileDestName)" Importance="high"/>
 	</Target>
