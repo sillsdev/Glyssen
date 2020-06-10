@@ -17,6 +17,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 
+## [1.3.11] - 2020-05-27
+
+### Added
+
+- When a block is aligned to "He said" in the reference text, Glyssen automatically scans other blocks to align any others with the same text.
+
 ## [1.3.6] - 2020-03-04
 
 ### Changed
