@@ -327,7 +327,6 @@ namespace Glyssen
 			string installedStringFileFolder = FileLocationUtilities.GetDirectoryDistributedWithApplication("localization");
 			string relativeSettingPathForLocalizationFolder = Path.Combine(GlyssenInfo.Company, GlyssenInfo.Product);
 			string desiredUiLangId = Settings.Default.UserInterfaceLanguage;
-			Application.ProductVersion.IndexOf(c => !Char.IsDigit(c) && c != '.');
 			var version = Application.ProductVersion.Substring(0, Application.ProductVersion.IndexOf(c => !Char.IsDigit(c) && c != '.'));
 
 			// ENHANCE: Create a separate LM for GlyssenEngine, so we can generate a nuget package
