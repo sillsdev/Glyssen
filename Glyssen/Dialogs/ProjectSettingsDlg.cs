@@ -149,9 +149,7 @@ namespace Glyssen.Dialogs
 
 		private void LoadReferenceTextOptions()
 		{
-			m_labelOTVersion.Text = ReferenceText.EnglishOTVersion;
-			m_labelNTVersion.Text = ReferenceText.EnglishNTVersion;
-
+			var currentSelection = SelectedReferenceText;
 			var dataSource = new Dictionary<string, ReferenceTextProxy>();
 			foreach (var refTextId in ReferenceTextProxy.AllAvailable)
 			{
@@ -173,6 +171,8 @@ namespace Glyssen.Dialogs
 			m_ReferenceText.DataSource = new BindingSource(dataSource, null);
 			m_ReferenceText.ValueMember = "Value";
 			m_ReferenceText.DisplayMember = "Key";
+
+			SelectCurrentReferenceText(currentSelection ?? m_model.Project.ReferenceTextProxy);
 		}
 
 		private void ProjectSettingsDlg_Load(object sender, EventArgs e)
@@ -241,18 +241,23 @@ namespace Glyssen.Dialogs
 			m_chkChapterOneAnnouncements.Checked = !m_model.SkipChapterAnnouncementForFirstChapter;
 			m_chkAnnounceChaptersForSingleChapterBooks.Checked = !m_model.SkipChapterAnnouncementForSingleChapterBooks;
 
+			SelectCurrentReferenceText(m_model.Project.ReferenceTextProxy);
+
+			m_bookIntro.SelectedValue = m_model.Project.DramatizationPreferences.BookIntroductionsDramatization;
+			m_sectionHeadings.SelectedValue = m_model.Project.DramatizationPreferences.SectionHeadDramatization;
+			m_titleChapters.SelectedValue = m_model.Project.DramatizationPreferences.BookTitleAndChapterDramatization;
+		}
+
+		private void SelectCurrentReferenceText(ReferenceTextProxy currentReferenceText)
+		{
 			foreach (KeyValuePair<string, ReferenceTextProxy> kvp in m_ReferenceText.Items)
 			{
-				if (kvp.Value == m_model.Project.ReferenceTextProxy)
+				if (kvp.Value == currentReferenceText)
 				{
 					m_ReferenceText.SelectedItem = kvp;
 					break;
 				}
 			}
-
-			m_bookIntro.SelectedValue = m_model.Project.DramatizationPreferences.BookIntroductionsDramatization;
-			m_sectionHeadings.SelectedValue = m_model.Project.DramatizationPreferences.SectionHeadDramatization;
-			m_titleChapters.SelectedValue = m_model.Project.DramatizationPreferences.BookTitleAndChapterDramatization;
 		}
 
 		private string RecordingProjectName
@@ -378,7 +383,7 @@ namespace Glyssen.Dialogs
             m_model.AudioStockNumber = AudioStockNumber;
 			m_model.ChapterAnnouncementStyle = ChapterAnnouncementStyle;
 			m_model.SkipChapterAnnouncementForFirstChapter = !m_chkChapterOneAnnouncements.Checked;
-			m_model.Project.ReferenceTextProxy = ((KeyValuePair<string, ReferenceTextProxy>)m_ReferenceText.SelectedItem).Value;
+			m_model.Project.ReferenceTextProxy = SelectedReferenceText;
 
 			m_model.Project.DramatizationPreferences.BookIntroductionsDramatization = (ExtraBiblicalMaterialSpeakerOption)m_bookIntro.SelectedValue;
 			m_model.Project.DramatizationPreferences.SectionHeadDramatization = (ExtraBiblicalMaterialSpeakerOption)m_sectionHeadings.SelectedValue;
@@ -388,6 +393,8 @@ namespace Glyssen.Dialogs
 			DialogResult = DialogResult.OK;
 			Close();
 		}
+
+		private ReferenceTextProxy SelectedReferenceText => ((KeyValuePair<string, ReferenceTextProxy>?)m_ReferenceText.SelectedItem)?.Value;
 
 		private void HandleCancelButtonClick(object sender, EventArgs e)
 		{
@@ -627,6 +634,9 @@ namespace Glyssen.Dialogs
 				m_labelWarningReferenceTextDoesNotCoverAllBooks.Visible =
 					!m_model.Project.AvailableBooks.Select(b => b.Code).All(bookId =>
 						referenceText.HasContentForBook(bookId));
+
+				m_labelOTVersion.Text = referenceText.EnglishOTVersion;
+				m_labelNTVersion.Text = referenceText.EnglishNTVersion;
 			}
 		}
 

@@ -65,15 +65,14 @@ namespace GlyssenEngine
 			NT
 		}
 
-		private static string GetEnglishVersion(FcbhTestament testament)
+		private string GetEnglishVersion(FcbhTestament testament)
 		{
 			var type = "fcbh" + testament;
-			return GetStandardReferenceText(ReferenceTextType.English).m_metadata
-				.Identification.SystemIds.FirstOrDefault(sysId => sysId.Type == type)?.Id;
+			return m_metadata?.Identification?.SystemIds?.FirstOrDefault(sysId => sysId.Type == type)?.Id;
 		}
 
-		public static string EnglishOTVersion => GetEnglishVersion(FcbhTestament.OT);
-		public static string EnglishNTVersion => GetEnglishVersion(FcbhTestament.NT);
+		public string EnglishOTVersion => GetEnglishVersion(FcbhTestament.OT);
+		public string EnglishNTVersion => GetEnglishVersion(FcbhTestament.NT);
 
 		public ReferenceTextType Type => m_referenceTextType;
 		
