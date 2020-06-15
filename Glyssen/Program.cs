@@ -27,6 +27,7 @@ using SIL.Reporting;
 using SIL.Windows.Forms.i18n;
 using SIL.Windows.Forms.Reporting;
 using SIL.WritingSystems;
+using static System.Char;
 using static System.String;
 using Resources = Glyssen.Properties.Resources;
 
@@ -327,7 +328,10 @@ namespace Glyssen
 			string installedStringFileFolder = FileLocationUtilities.GetDirectoryDistributedWithApplication("localization");
 			string relativeSettingPathForLocalizationFolder = Path.Combine(GlyssenInfo.Company, GlyssenInfo.Product);
 			string desiredUiLangId = Settings.Default.UserInterfaceLanguage;
-			var version = Application.ProductVersion.Substring(0, Application.ProductVersion.IndexOf(c => !Char.IsDigit(c) && c != '.'));
+			var assembly = Assembly.GetEntryAssembly();
+			var versionField = assembly?.GetType("GitVersionInformation")?.GetField("MajorMinorPatch");
+			var version = versionField?.GetValue(null) as string ??
+				Application.ProductVersion.Substring(0, Application.ProductVersion.IndexOf(c => !IsDigit(c) && c != '.'));
 
 			// ENHANCE: Create a separate LM for GlyssenEngine, so we can generate a nuget package
 			// with the localized strings (similar to what we do for libpalaso and chorus).

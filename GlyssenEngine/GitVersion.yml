@@ -1,0 +1,2 @@
+# This overrides the assembly versioning scheme 
+assembly-versioning-scheme: MajorMinor
