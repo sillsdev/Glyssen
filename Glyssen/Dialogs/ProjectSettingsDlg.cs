@@ -149,6 +149,11 @@ namespace Glyssen.Dialogs
 
 		private void LoadReferenceTextOptions()
 		{
+			// Saving the selection (if any) here is required to deal with the (rare) case where
+			// the user does on-the-fly localization. When there is an existing selection that
+			// differs from the one that was set when we came into this dialog and we reset the
+			// data source, the selection gets lost. So we need to remember which one was selected
+			// and restore it below.
 			var currentSelection = SelectedReferenceText;
 			var dataSource = new Dictionary<string, ReferenceTextProxy>();
 			foreach (var refTextId in ReferenceTextProxy.AllAvailable)
