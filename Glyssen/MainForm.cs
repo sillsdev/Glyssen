@@ -1107,7 +1107,7 @@ namespace Glyssen
 					Analytics.Track("UpdateProjectFromParatextData", new Dictionary<string, string>
 					{
 						{"language", m_project.LanguageIsoCode},
-						{"paratextPojectName", m_project.ParatextProjectName},
+						{"paratextProjectName", m_project.ParatextProjectName},
 						{"projectID", m_project.Id},
 						{"recordingProjectName", m_project.Name},
 					});
