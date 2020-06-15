@@ -21,11 +21,13 @@ using Paratext.Data;
 using Paratext.Data.Users;
 using PtxUtils;
 using PtxUtils.Progress;
+using SIL.Extensions;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Windows.Forms.i18n;
 using SIL.Windows.Forms.Reporting;
 using SIL.WritingSystems;
+using static System.Char;
 using static System.String;
 using Resources = Glyssen.Properties.Resources;
 
@@ -326,10 +328,14 @@ namespace Glyssen
 			string installedStringFileFolder = FileLocationUtilities.GetDirectoryDistributedWithApplication("localization");
 			string relativeSettingPathForLocalizationFolder = Path.Combine(GlyssenInfo.Company, GlyssenInfo.Product);
 			string desiredUiLangId = Settings.Default.UserInterfaceLanguage;
+			var assembly = Assembly.GetEntryAssembly();
+			var versionField = assembly?.GetType("GitVersionInformation")?.GetField("MajorMinorPatch");
+			var version = versionField?.GetValue(null) as string ??
+				Application.ProductVersion.Substring(0, Application.ProductVersion.IndexOf(c => !IsDigit(c) && c != '.'));
 
 			// ENHANCE: Create a separate LM for GlyssenEngine, so we can generate a nuget package
 			// with the localized strings (similar to what we do for libpalaso and chorus).
-			PrimaryLocalizationManager = LocalizationManager.Create(TranslationMemory.XLiff, desiredUiLangId, GlyssenInfo.ApplicationId, Application.ProductName, Application.ProductVersion,
+			PrimaryLocalizationManager = LocalizationManager.Create(TranslationMemory.XLiff, desiredUiLangId, GlyssenInfo.ApplicationId, Application.ProductName, version,
 				installedStringFileFolder, relativeSettingPathForLocalizationFolder, Resources.glyssenIcon, IssuesEmailAddress,
 				typeof(SIL.Localizer)
 					.GetMethods(BindingFlags.Static | BindingFlags.Public)
@@ -347,7 +353,7 @@ namespace Glyssen
 						}
 
 			var uiLanguage = LocalizationManager.UILanguageId;
-			LocalizationManager.Create(TranslationMemory.XLiff, uiLanguage, "Palaso", "Palaso", Application.ProductVersion,
+			LocalizationManager.Create(TranslationMemory.XLiff, uiLanguage, "Palaso", "Palaso", version,
 				installedStringFileFolder, relativeSettingPathForLocalizationFolder, Resources.glyssenIcon, IssuesEmailAddress,
 				typeof(SIL.Localizer)
 					.GetMethods(BindingFlags.Static | BindingFlags.Public)

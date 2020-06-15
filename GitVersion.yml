@@ -1,4 +1,4 @@
-assembly-versioning-scheme: MajorMinor
+assembly-versioning-scheme: MajorMinorPatch
 assembly-file-versioning-format: '{Major}.{Minor}.{Patch}.{env:GITVERSION_BUILD_NUMBER ?? 0}'
 mode: ContinuousDeployment
 branches:
