@@ -17,6 +17,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 
+## [1.3.13] - 2020-06-15
+
+### Changed
+
+- Switch localization to use XLIFF format instead of TMX. More (albeit minimal) UI languages available. Translations can be done via crowdin.com.
+
 ## [1.3.11] - 2020-05-27
 
 ### Added

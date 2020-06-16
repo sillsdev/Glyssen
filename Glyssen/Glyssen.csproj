@@ -603,7 +603,7 @@
       <Version>3.22.24.37</Version>
     </PackageReference>
     <PackageReference Include="ParatextData">
-      <Version>9.1.5-beta</Version>
+      <Version>9.1.7-beta</Version>
     </PackageReference>
     <PackageReference Include="SIL.Core">
       <Version>8.0.0-beta0091</Version>
