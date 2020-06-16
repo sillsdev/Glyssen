@@ -35,5 +35,4 @@
   <File Id="ProgramDir.localization.Glyssen.pt.xlf" Guid="fa8a5c5e-521f-470f-abee-6446f23c572c" />
   <File Id="ProgramDir.localization.Glyssen.zh_CN.xlf" Guid="8b2ae800-ad03-49e0-98f0-bbe996e0d2d4" />
   <File Id="ProgramDir.localization.Glyssen.zh.xlf" Guid="206e6832-ef48-4db2-acf3-8378ac9b26eb" />
-  <File Id="ProgramDir.localization.Palaso.es.tmx" Guid="02d261b1-8a6e-4cbe-b062-23433a75b0c4" />
 </InstallerMetadata>
