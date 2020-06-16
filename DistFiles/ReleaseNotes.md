@@ -46,6 +46,9 @@ back-up plan.)
 
 # Release Notes
 
+## June 16 2020 Glyssen 1.3.13
+Switched localization to use XLIFF format instead of TMX. More (albeit minimal) UI languages available. Translations can be done via crowdin.com.
+
 ## May 27 2020 Glyssen 1.3.11
 When a block is identified as "he said", Glyssen looks for other identical blocks and aligns them automatically.
 
