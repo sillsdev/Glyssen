@@ -30,4 +30,10 @@
   <File Id="ProgramDir.localization.Palaso.vi.xlf" Guid="083d8489-9c76-431e-864b-0052d8f5e4b9" />
   <File Id="ProgramDir.localization.Palaso.zh_CN.xlf" Guid="5e191a57-2122-4699-b4b2-f8f3a12b2215" />
   <File Id="ProgramDir.localization.Palaso.zh.xlf" Guid="5f478b46-55ea-4f23-9298-828635e857cf" />
+  <File Id="ProgramDir.localization.Glyssen.es.xlf" Guid="f81fba6b-30af-42ed-b3b9-0d3f0157f3a4" />
+  <File Id="ProgramDir.localization.Glyssen.fr.xlf" Guid="c1db036b-a8f1-4a81-96be-f8442ea9a10b" />
+  <File Id="ProgramDir.localization.Glyssen.pt.xlf" Guid="fa8a5c5e-521f-470f-abee-6446f23c572c" />
+  <File Id="ProgramDir.localization.Glyssen.zh_CN.xlf" Guid="8b2ae800-ad03-49e0-98f0-bbe996e0d2d4" />
+  <File Id="ProgramDir.localization.Glyssen.zh.xlf" Guid="206e6832-ef48-4db2-acf3-8378ac9b26eb" />
+  <File Id="ProgramDir.localization.Palaso.es.tmx" Guid="02d261b1-8a6e-4cbe-b062-23433a75b0c4" />
 </InstallerMetadata>
