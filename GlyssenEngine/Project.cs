@@ -1239,7 +1239,9 @@ namespace GlyssenEngine
 		public static void SetHiddenFlag(GlyssenDblTextMetadata metadata, string projectName, bool hidden)
 		{
 			metadata.Inactive = hidden;
-			new Project(metadata, projectName).Save();
+			new Project(metadata, projectName).SaveProjectMetadata(out var error);
+			if (error != null)
+				throw error;
 			// TODO: preserve WritingSystemRecoveryInProcess flag
 		}
 
@@ -1714,7 +1716,7 @@ namespace GlyssenEngine
 
 		private void SaveProjectMetadata(out Exception error)
 		{
-			m_metadata.LastModified = DateTime.Now;
+			m_projectMetadata.LastModified = DateTime.Now;
 			XmlSerializationHelper.Serialize(Writer.GetTextWriter(this, ProjectResource.Metadata), m_projectMetadata, out error);
 		}
 
