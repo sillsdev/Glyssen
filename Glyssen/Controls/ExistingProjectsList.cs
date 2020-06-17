@@ -145,10 +145,16 @@ namespace Glyssen.Controls
 			{
 				try
 				{
-					using (var reader = new StreamReader(new FileStream(SelectedProject, FileMode.Open)))
+					GlyssenDblTextMetadata metadata;
+					using (var stream = new FileStream(SelectedProject, FileMode.Open))
 					{
-						Project.SetHiddenFlag(GlyssenDblTextMetadata.Load(reader, SelectedProject), ProjectRepository.GetProjectName(SelectedProject), inactive);
+						using (var reader = new StreamReader(stream))
+						{
+							metadata = GlyssenDblTextMetadata.Load(reader, SelectedProject);
+						}
 					}
+
+					Project.SetHiddenFlag(metadata, ProjectRepository.GetProjectName(SelectedProject), inactive);
 				}
 				catch (Exception exception)
 				{
