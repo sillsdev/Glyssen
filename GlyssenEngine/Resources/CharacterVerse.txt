@@ -16484,7 +16484,7 @@ MAT	27	26	Pilate			Indirect
 MAT	27	29	soldiers, Roman	mocking		Dialogue		
 MAT	27	32	soldiers, Roman	giving orders		Indirect		
 MAT	27	33	narrator-MAT			Quotation		
-MAT	27	35	scripture			Quotation	David	
+MAT	27	35	scripture			Potential	David	
 MAT	27	37	sign on the cross			Quotation		
 MAT	27	39	passers by	mocking		Potential		
 MAT	27	40	passers by	mocking		Dialogue		
