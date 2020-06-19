@@ -921,6 +921,7 @@ namespace GlyssenEngine.Script
 		}
 
 		public bool IsFollowOnParagraphStyle => s_regexFollowOnParagraphStyles.IsMatch(StyleTag);
+		public bool IsSimpleBridge => InitialEndVerseNumber != 0 && !CoversMoreThanOneVerse;
 
 		internal Block SplitBlock(string verseToSplit, int characterOffsetToSplit)
 		{
