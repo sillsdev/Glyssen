@@ -19987,8 +19987,8 @@ HEB	3	11	scripture			Quotation
 HEB	3	13	narrator-HEB			Quotation		
 HEB	3	15	scripture			Quotation		
 HEB	3	15	narrator-HEB			Quotation		
-HEB	3	18	scripture			Quotation	God	
-HEB	3	18	narrator-HEB			Quotation		
+HEB	3	18	scripture			Potential	God	
+HEB	3	18	narrator-HEB			Potential		
 HEB	4	3	scripture			Quotation	God	
 HEB	4	4	scripture			Quotation	God	
 HEB	4	5	scripture			Quotation	God	
