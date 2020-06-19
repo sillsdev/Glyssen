@@ -4097,6 +4097,32 @@ namespace GlyssenEngineTests
 			Assert.IsTrue(matchup16V35.OriginalBlocks.Select(b => b.GetText(true)).SequenceEqual(matchup17V1.OriginalBlocks.Select(b => b.GetText(true))));
 		}
 
+		/// <summary>
+		/// PG-1020/PG-1032: Handle case of well-aligned blocks with single quote where vern has verse bridge
+		/// </summary>
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_VernBridgeWithSingleQuoteThatMatchesQuoteInRefText_RefBlocksCombineToMatch()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(20, "Haxuya ba, ", true, 17, initialEndVerseNumber:21));
+			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Hatumingaim haringindi sanga te. Ahatumia: Mastat. Bila balau, ahatum ba longgalo! Bila na bimbia ila.”");
+			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
+
+			var referenceBlocks = new List<Block>();
+			referenceBlocks.Add(CreateNarratorBlockForVerse(20, "He said to them, ", true, 17));
+			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "“Because of your unbelief. If you have faith, nothing will be impossible. ");
+			referenceBlocks.Add(CreateBlockForVerse("Jesus", 21, "But this kind leaves only by prayer and fasting.”", chapter:17));
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
+			var result = matchup.CorrelatedBlocks;
+			Assert.AreEqual(2, result.Count);
+			Assert.IsTrue(vernacularBlocks.Select(b => b.GetText(true)).SequenceEqual(result.Select(b => b.GetText(true))));
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result.First().ReferenceBlocks.Single().GetText(true));
+			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
+			Assert.AreEqual(referenceBlocks[1].GetText(true) + referenceBlocks[2].GetText(true), result.Last().ReferenceBlocks.Single().GetText(true));
+		}
+
 		#region private helper methods
 		private Block NewChapterBlock(string bookId, int chapterNum, string text = null)
 		{

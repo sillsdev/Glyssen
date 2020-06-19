@@ -267,6 +267,88 @@ namespace GlyssenEngineTests.Script
 			Assert.IsFalse(block.IsFollowOnParagraphStyle);
 		}
 
+		[TestCase(3, 4)]
+		[TestCase(6, 10)]
+		public void IsSimpleBridge_StartsWithBridgeAndHasNoOtherVerses_ReturnsTrue(int bridgeStartVerse, int bridgeEndVerse)
+		{
+			var block = new Block("p", 1, bridgeStartVerse, bridgeEndVerse)
+				{ BlockElements = new List<BlockElement>() };
+			block.BlockElements.Add(new Verse($"{bridgeStartVerse}-{bridgeEndVerse}"));
+			block.BlockElements.Add(new ScriptText("This is the text of the only verse "));
+			block.BlockElements.Add(new Sound {UserSpecifiesLocation = true, EffectName = "Warbling noise"});
+			block.BlockElements.Add(new ScriptText("in this block."));
+			Assert.IsFalse(block.CoversMoreThanOneVerse);
+			// SUT
+			Assert.IsTrue(block.IsSimpleBridge);
+		}
+
+		[TestCase(3, 4)]
+		[TestCase(6, 10)]
+		public void IsSimpleBridge_ContinuesVerseBridgeStartedInPreviousBlockAndHasNoOtherVerses_ReturnsTrue(int bridgeStartVerse, int bridgeEndVerse)
+		{
+			var block = new Block("p", 1, bridgeStartVerse, bridgeEndVerse)
+				{ BlockElements = new List<BlockElement>() };
+			block.BlockElements.Add(new ScriptText("“This is the thing spoken by the guy whose reporting clause was in the previous block.”"));
+			Assert.IsFalse(block.CoversMoreThanOneVerse);
+			// SUT
+			Assert.IsTrue(block.IsSimpleBridge);
+		}
+
+		[TestCase(3)]
+		[TestCase(6)]
+		public void IsSimpleBridge_StartsWithSingleVerseAndHasNoOtherVerses_ReturnsFalse(int verse)
+		{
+			var block = new Block("p", 1, verse)
+				{ BlockElements = new List<BlockElement>() };
+			block.BlockElements.Add(new Verse($"{verse}"));
+			block.BlockElements.Add(new ScriptText("This is the text of the only verse in this block."));
+			Assert.IsFalse(block.CoversMoreThanOneVerse,
+				"Note: Even if the block covers only a single verse, it is not a simple bridge if that verse is not a verse bridge.");
+			// SUT
+			Assert.IsFalse(block.IsSimpleBridge);
+		}
+
+		[TestCase(3, 4)]
+		[TestCase(6, 10)]
+		public void IsSimpleBridge_StartsWithBridgeButHasAnotherVerse_ReturnsFalse(int bridgeStartVerse, int bridgeEndVerse)
+		{
+			var block = new Block("p", 1, bridgeStartVerse, bridgeEndVerse)
+				{ BlockElements = new List<BlockElement>() };
+			block.BlockElements.Add(new Verse($"{bridgeStartVerse}-{bridgeEndVerse}"));
+			block.BlockElements.Add(new ScriptText("This is the text of the verse bridge."));
+			block.BlockElements.Add(new Verse($"{bridgeEndVerse + 1}"));
+			block.BlockElements.Add(new ScriptText("This is the next verse."));
+			Assert.IsTrue(block.CoversMoreThanOneVerse, "If block covers more than one verse, then it is not a simple bridge.");
+			/// SUT
+			Assert.IsFalse(block.IsSimpleBridge);
+		}
+
+		[TestCase(3, 4)]
+		[TestCase(6, 10)]
+		public void IsSimpleBridge_ContinuesVerseBridgeStartedInPreviousBlockButHasAnotherVerse_ReturnsFalse(int bridgeStartVerse, int bridgeEndVerse)
+		{
+			var block = new Block("p", 1, bridgeStartVerse, bridgeEndVerse)
+				{ BlockElements = new List<BlockElement>() };
+			block.BlockElements.Add(new ScriptText("“This is the thing spoken by the guy whose reporting clause was in the previous block.”"));
+			block.BlockElements.Add(new Verse($"{bridgeEndVerse + 1}"));
+			block.BlockElements.Add(new ScriptText("This is the next verse."));
+			Assert.IsTrue(block.CoversMoreThanOneVerse, "If block covers more than one verse, then it is not a simple bridge.");
+			// SUT
+			Assert.IsFalse(block.IsSimpleBridge);
+		}
+
+		[TestCase(3)]
+		[TestCase(6)]
+		public void CoversMoreThanOneVerse_StartsWithTextOfPreviousVerseButHasAnotherVerses_ReturnsTrue(int prevVerse)
+		{
+			var block = new Block("p", 1, prevVerse)
+				{ BlockElements = new List<BlockElement>() };
+			block.BlockElements.Add(new ScriptText("rest of the text of the verse started in the previous block. "));
+			block.BlockElements.Add(new Verse($"{prevVerse + 1}"));
+			block.BlockElements.Add(new ScriptText("This is the text of the verse started in this block."));
+			Assert.IsTrue(block.CoversMoreThanOneVerse);
+		}
+
 		[Test]
 		public void CombineBlocks_DoesNotModifyBlocks()
 		{

@@ -536,6 +536,41 @@ namespace GlyssenEngine
 								vernBlockList[iVernBlock].SetUnmatchedReferenceBlocks(new[] {refBlockInVerseChunk});
 						}
 					}
+					// Consider case where the vernacular uses a verse bridge for verses that have
+					// a quote, but would otherwise align neatly with the reference text. (This
+					// conditional is hard to read and not terribly efficient, but it will short-
+					// circuit quickly in most cases.)
+					// Note: I originally wrote this logic to use BlocksHaveCompatibleCharacters,
+					// but I was concerned about the rare case where the reference text had two
+					// different speakers, but the vernacular only had one (the other being
+					// rendered as indirect speech). This could cause a "match" where the lines
+					// from the two different speakers are combined.
+					else if (numberOfVernBlocksInVerseChunk == 2 &&
+						vernBlockInVerseChunk.IsSimpleBridge &&
+						BlocksStartWithSameVerse(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification) &&
+						vernBlockInVerseChunk.CharacterId == refBlockInVerseChunk.CharacterId &&
+						BlocksEndWithSameVerse(bookNum, vernBlockList[indexOfVernVerseStart + 1],
+							refBlockList[indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - 1], vernacularVersification) &&
+						vernBlockList[indexOfVernVerseStart + 1].CharacterId ==
+						refBlockList[indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - 1].CharacterId &&
+						refBlockList.Skip(indexOfRefVerseStart + 1).Take(numberOfRefBlocksInVerseChunk - 2).All(b =>
+							vernBlockInVerseChunk.CharacterId == b.CharacterId ||
+							vernBlockList[indexOfVernVerseStart + 1].CharacterId ==  b.CharacterId))
+					{
+						// Note that this logic introduces the faint possibility of changing the order of
+						// reference text blocks to achieve a match. At the time of this writing, there are
+						// no tests for this case. It's probably very unlikely, but if it were ever to occur,
+						// it would likely be desirable.
+						vernBlockInVerseChunk.SetMatchedReferenceBlock(bookNum, vernacularVersification, this,
+							refBlockList.Skip(indexOfRefVerseStart).Take(numberOfRefBlocksInVerseChunk)
+								.Where(b => vernBlockInVerseChunk.CharacterId == b.CharacterId).ToList());
+						var otherVernBlockInVerseChunk = vernBlockList[indexOfVernVerseStart + 1];
+						otherVernBlockInVerseChunk.SetMatchedReferenceBlock(bookNum, vernacularVersification, this,
+							refBlockList.Skip(indexOfRefVerseStart).Take(numberOfRefBlocksInVerseChunk)
+								.Where(b => otherVernBlockInVerseChunk.CharacterId == b.CharacterId).ToList());
+						i++;
+						iRefBlock = indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - 1;
+					}
 					else
 					{
 						iVernBlock = indexOfVernVerseStart + i;
@@ -695,22 +730,20 @@ namespace GlyssenEngine
 			return false;
 		}
 
-		private bool BlocksMatch(int bookNum, Block vernBlock, Block refBlock, ScrVers vernacularVersification)
-		{
-			var vernInitStartVerse = vernBlock.StartRef(bookNum, vernacularVersification);
-			var refInitStartVerse = refBlock.StartRef(bookNum, Versification);
-			return vernInitStartVerse.CompareTo(refInitStartVerse) == 0 &&
-				// ENHANCE: In passages where there is a narrator override, narrator should be considered a "match" with the override character
-				(vernBlock.CharacterId == refBlock.CharacterId || (vernBlock.CharacterIsUnclear && !refBlock.CharacterIsStandard)) &&
-				BlocksEndWithSameVerse(bookNum, vernBlock, refBlock, vernacularVersification);
-		}
+		private bool BlocksMatch(int bookNum, Block vernBlock, Block refBlock, ScrVers vernacularVersification) =>
+			BlocksStartWithSameVerse(bookNum, vernBlock, refBlock, vernacularVersification) &&
+			BlocksHaveCompatibleCharacters(vernBlock, refBlock) &&
+			BlocksEndWithSameVerse(bookNum, vernBlock, refBlock, vernacularVersification);
 
-		private bool BlocksEndWithSameVerse(int bookNum, Block vernBlock, Block refBlock, ScrVers vernacularVersification)
-		{
-			var lastVernVerse = vernBlock.EndRef(bookNum, vernacularVersification);
-			var lastRefVerse = refBlock.EndRef(bookNum, Versification);
-			return lastVernVerse.CompareTo(lastRefVerse) == 0;
-		}
+		private bool BlocksStartWithSameVerse(int bookNum, Block vernBlock, Block refBlock, ScrVers vernacularVersification) =>
+			vernBlock.StartRef(bookNum, vernacularVersification).CompareTo(refBlock.StartRef(bookNum, Versification)) == 0;
+
+		// ENHANCE: In passages where there is a narrator override, narrator should be considered a "match" with the override character
+		private bool BlocksHaveCompatibleCharacters(Block vernBlock, Block refBlock) =>
+			vernBlock.CharacterId == refBlock.CharacterId || (vernBlock.CharacterIsUnclear && !refBlock.CharacterIsStandard);
+
+		private bool BlocksEndWithSameVerse(int bookNum, Block vernBlock, Block refBlock, ScrVers vernacularVersification) =>
+			vernBlock.EndRef(bookNum, vernacularVersification).CompareTo(refBlock.EndRef(bookNum, Versification)) == 0;
 
 		private static void FindAllScriptureBlocksThroughVerse(IReadOnlyList<Block> blockList, VerseRef endVerse, ref int i, ScrVers versification)
 		{
