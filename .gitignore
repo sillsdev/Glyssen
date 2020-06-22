@@ -32,3 +32,4 @@ lib/dotnet/MarkdownDeep.dll
 **/wixobj/*
 /DistFiles/localization/Palaso.*.xlf
 /build/engine.exe
+/VesselTest/Resources/*
