@@ -15,7 +15,6 @@ using GlyssenEngine.Script;
 using GlyssenEngineTests.Script;
 using InMemoryTestPersistence;
 using NUnit.Framework;
-using SIL.IO;
 using SIL.Reflection;
 using SIL.Reporting;
 using SIL.Scripture;
@@ -36,11 +35,7 @@ namespace GlyssenEngineTests
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetailOct2015;
 
-			using (TempFile tempFile = new TempFile())
-			{
-				File.WriteAllText(tempFile.Path, Resources.TestVersification);
-				m_vernVersification = Versification.Table.Implementation.Load(tempFile.Path);
-			}
+			m_vernVersification = Versification.Table.Implementation.Load(new StringReader(Resources.TestVersification), "Resources.TestVersification", "Test");
 		}
 
 		[TearDown]
@@ -1779,14 +1774,17 @@ namespace GlyssenEngineTests
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerse.kScriptureCharacter, 23, "Jadi omátám. Dená’ pun antang diam di kampong Nasaret di da’erah Galilea nyén...", false, 2));
 			vernacularBlocks.Add(NewChapterBlock("MAT", 3));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Vern-This is just needed because it is illegal to end with a chapter number.", true, 3));
 
 			var indonesianReferenceBlocks = new List<Block>();
 			indonesianReferenceBlocks.Add(CreateBlockForVerse(CharacterVerse.kScriptureCharacter, 23, "<<Orang Nazaret.>>", false, 2));
 			indonesianReferenceBlocks.Add(NewChapterBlock("MAT", 3));
+			indonesianReferenceBlocks.Add(CreateNarratorBlockForVerse(1, "Indo-This is just needed because it is illegal to end with a chapter number.", true, 3));
 
 			var englishReferenceBlocks = new List<Block>();
 			englishReferenceBlocks.Add(CreateBlockForVerse(CharacterVerse.kScriptureCharacter, 23, "“He will be called a Nazarene.”", false, 2));
 			englishReferenceBlocks.Add(NewChapterBlock("MAT", 3, "Matthew 3"));
+			englishReferenceBlocks.Add(CreateNarratorBlockForVerse(1, "Eng-This is just needed because it is illegal to end with a chapter number.", true, 3));
 
 			for (int i = 0; i < englishReferenceBlocks.Count; i++)
 				indonesianReferenceBlocks[i].SetMatchedReferenceBlock(englishReferenceBlocks[i]);
@@ -1800,7 +1798,7 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(2, result.Count);
+			Assert.AreEqual(3, result.Count);
 			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
 
 			Assert.AreEqual("Matthew 3", result[1].ReferenceBlocks.Single().GetPrimaryReferenceText());
@@ -2303,6 +2301,53 @@ namespace GlyssenEngineTests
 				Assert.AreEqual("“Behold the majesty of God!” But while all were marveling", result[2].ReferenceBlocks[0].GetText(true));
 				Assert.AreEqual("“Behold the majesty of God!” But while all were marveling", result[2].GetPrimaryReferenceText());
 			}
+		}
+
+		// PG-1374 Note: Skipping a verse (v. 1 in this case) is of course really unlikely, and it
+		// would be the "perfect storm" if it happened to occur at a place where the versifications
+		// mismatched and the reference text had two verses combined in a single block. Although I
+		// have not seen this case in the wild, I noticed (in the course of tracking down the real
+		// problem reported in this issue) that the code failed to account for versification in
+		// this case, so I have added the test cases for it and fixed the logic accordingly.
+		[TestCase(true, true)]
+		[TestCase(true, false)]
+		[TestCase(false, true)]
+		[TestCase(false, false)]
+		public void ApplyTo_VernVerseAtStartOfChapterMapsToRefBlockWithTwoVersesInPrevChapter_RefBlockSplitToMatch(bool includeV1, bool includeSectionHead)
+		{
+			var customVersification = Versification.Table.Implementation.Load(new StringReader(
+					"# Versification  \"Custom\"\r\n" +
+					"JOB 1:22 2:13 3:26 4:21 5:27 6:30 7:21 8:22 9:35 10:22 11:20 12:25 13:28 14:22 15:35 16:22 17:16 18:21 19:29 20:29 21:34 22:30 23:17 24:25 25:6 26:14 27:23 28:28 29:25 30:31 31:40 32:22 33:33 34:37 35:16 36:33 37:24 38:38 39:38 40:28 41:25 42:17\r\n" +
+					"JOB 39:1-3 = JOB 38:39-41"),
+				"IndonesianExample", "Custom");
+
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateBlockForVerse("God", 36, "Siapagah yang hikmat di batin? Atau, siapagah pangertian pepada pikiren? ", true, 38)
+				.AddVerse(37, "Siapekah yang menghitung awan hikmat? Siepaka fapat isi kirbot langit, ")
+				.AddVerse(38, "ketika tarcedak jodi keras gumpalan tanah berhekatan?"));
+			vernacularBlocks.Add(NewChapterBlock("JOB", 39));
+			if (includeSectionHead)
+			{ 
+				vernacularBlocks.Add(new Block("s", 39)
+					{
+						CharacterId = CharacterVerseData.GetStandardCharacterId("JOB", CharacterVerseData.StandardCharacter.ExtraBiblical),
+						BlockElements = new List<BlockElement>(new [] {new ScriptText("Habi Ayob Mituntanj")})
+					}
+				);
+			}
+			if (includeV1)
+				vernacularBlocks.Add(CreateBlockForVerse("God", 1, "Dalatah engkau memburu, ateu memoaskan naxsu makan singas cuda ", true, 39));
+			vernacularBlocks.Add(CreateBlockForVerse("God", 2, "ketika mereka meringkuk semak untuk menyergap? ", false, 39));
+			vernacularBlocks.Add(CreateBlockForVerse("God", 3, "Siarakah yong menyediakan, ketika anoknya barteriak kepada Allah tidak aza makanan? ", false, 39));
+
+			var vernBook = new BookScript("JOB", vernacularBlocks, customVersification);
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+
+			refText.ApplyTo(vernBook);
+
+			Assert.That(vernBook.GetScriptBlocks()
+				.Where(b => !b.CharacterIs("JOB", CharacterVerseData.StandardCharacter.ExtraBiblical))
+				.All(b => b.MatchesReferenceText));
 		}
 
 		[Test]
