@@ -74,8 +74,8 @@
     <Reference Include="CairoSharp, Version=3.22.24.37, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
       <HintPath>..\packages\CairoSharp-signed.3.22.24.37\lib\netstandard2.0\CairoSharp.dll</HintPath>
     </Reference>
-    <Reference Include="DialogAdapters, Version=0.1.6.21495, Culture=neutral, PublicKeyToken=7dc842182b0626dc, processorArchitecture=MSIL">
-      <HintPath>..\packages\DialogAdapters.0.1.6.21495\lib\net45\DialogAdapters.dll</HintPath>
+    <Reference Include="DialogAdapters, Version=0.1.9.0, Culture=neutral, PublicKeyToken=7dc842182b0626dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\DialogAdapters.Gtk2.0.1.9\lib\net461\DialogAdapters.dll</HintPath>
     </Reference>
     <Reference Include="DotNetZip, Version=1.13.8.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNetZip.1.13.8\lib\net40\DotNetZip.dll</HintPath>
@@ -157,37 +157,37 @@
       <HintPath>..\packages\SIL.Core.8.0.0-beta0153\lib\net461\SIL.Core.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Core.Desktop, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Core.Desktop.8.0.0-beta0085\lib\net461\SIL.Core.Desktop.dll</HintPath>
+      <HintPath>..\packages\SIL.Core.Desktop.8.0.0-beta0153\lib\net461\SIL.Core.Desktop.dll</HintPath>
     </Reference>
     <Reference Include="SIL.DblBundle, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
       <HintPath>..\packages\SIL.DblBundle.8.0.0-beta0153\lib\net461\SIL.DblBundle.dll</HintPath>
     </Reference>
     <Reference Include="SIL.DblBundle.Tests, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.DblBundle.Tests.8.0.0-beta0085\lib\net461\SIL.DblBundle.Tests.dll</HintPath>
+      <HintPath>..\packages\SIL.DblBundle.Tests.8.0.0-beta0153\lib\net461\SIL.DblBundle.Tests.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Scripture, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
       <HintPath>..\packages\SIL.Scripture.8.0.0-beta0153\lib\net461\SIL.Scripture.dll</HintPath>
     </Reference>
     <Reference Include="SIL.TestUtilities, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.TestUtilities.8.0.0-beta0085\lib\net461\SIL.TestUtilities.dll</HintPath>
+      <HintPath>..\packages\SIL.TestUtilities.8.0.0-beta0153\lib\net461\SIL.TestUtilities.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Windows.Forms, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Windows.Forms.8.0.0-beta0085\lib\net461\SIL.Windows.Forms.dll</HintPath>
+      <HintPath>..\packages\SIL.Windows.Forms.8.0.0-beta0153\lib\net461\SIL.Windows.Forms.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Windows.Forms.DblBundle, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Windows.Forms.DblBundle.8.0.0-beta0033\lib\net461\SIL.Windows.Forms.DblBundle.dll</HintPath>
+      <HintPath>..\packages\SIL.Windows.Forms.DblBundle.8.0.0-beta0153\lib\net461\SIL.Windows.Forms.DblBundle.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Windows.Forms.GeckoBrowserAdapter, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Windows.Forms.GeckoBrowserAdapter.8.0.0-beta0033\lib\net461\SIL.Windows.Forms.GeckoBrowserAdapter.dll</HintPath>
+      <HintPath>..\packages\SIL.Windows.Forms.GeckoBrowserAdapter.8.0.0-beta0153\lib\net461\SIL.Windows.Forms.GeckoBrowserAdapter.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Windows.Forms.Keyboarding, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Windows.Forms.Keyboarding.8.0.0-beta0085\lib\net461\SIL.Windows.Forms.Keyboarding.dll</HintPath>
+      <HintPath>..\packages\SIL.Windows.Forms.Keyboarding.8.0.0-beta0153\lib\net461\SIL.Windows.Forms.Keyboarding.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Windows.Forms.Scripture, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Windows.Forms.Scripture.8.0.0-beta0085\lib\net461\SIL.Windows.Forms.Scripture.dll</HintPath>
+      <HintPath>..\packages\SIL.Windows.Forms.Scripture.8.0.0-beta0153\lib\net461\SIL.Windows.Forms.Scripture.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Windows.Forms.WritingSystems, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Windows.Forms.WritingSystems.8.0.0-beta0085\lib\net461\SIL.Windows.Forms.WritingSystems.dll</HintPath>
+      <HintPath>..\packages\SIL.Windows.Forms.WritingSystems.8.0.0-beta0153\lib\net461\SIL.Windows.Forms.WritingSystems.dll</HintPath>
     </Reference>
     <Reference Include="SIL.WritingSystems, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
       <HintPath>..\packages\SIL.WritingSystems.8.0.0-beta0153\lib\net461\SIL.WritingSystems.dll</HintPath>
@@ -416,6 +416,8 @@
     <Error Condition="!Exists('..\packages\Icu4c.Win.Full.Lib.59.1.15\build\Icu4c.Win.Full.Lib.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Icu4c.Win.Full.Lib.59.1.15\build\Icu4c.Win.Full.Lib.targets'))" />
     <Error Condition="!Exists('..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets'))" />
     <Error Condition="!Exists('..\packages\Geckofx60.64.60.0.44\build\Geckofx60.64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Geckofx60.64.60.0.44\build\Geckofx60.64.targets'))" />
+    <Error Condition="!Exists('..\packages\SIL.Windows.Forms.Keyboarding.8.0.0-beta0153\build\SIL.Windows.Forms.Keyboarding.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SIL.Windows.Forms.Keyboarding.8.0.0-beta0153\build\SIL.Windows.Forms.Keyboarding.targets'))" />
+    <Error Condition="!Exists('..\packages\SIL.Windows.Forms.8.0.0-beta0153\build\SIL.Windows.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SIL.Windows.Forms.8.0.0-beta0153\build\SIL.Windows.Forms.targets'))" />
   </Target>
   <!-- Do not need/want a nuget package for this project. -->
   <Target Name="Pack" />
@@ -425,6 +427,8 @@
   <Import Project="..\packages\Icu4c.Win.Full.Lib.59.1.15\build\Icu4c.Win.Full.Lib.targets" Condition="Exists('..\packages\Icu4c.Win.Full.Lib.59.1.15\build\Icu4c.Win.Full.Lib.targets')" />
   <Import Project="..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets" Condition="Exists('..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets')" />
   <Import Project="..\packages\Geckofx60.64.60.0.44\build\Geckofx60.64.targets" Condition="Exists('..\packages\Geckofx60.64.60.0.44\build\Geckofx60.64.targets')" />
+  <Import Project="..\packages\SIL.Windows.Forms.Keyboarding.8.0.0-beta0153\build\SIL.Windows.Forms.Keyboarding.targets" Condition="Exists('..\packages\SIL.Windows.Forms.Keyboarding.8.0.0-beta0153\build\SIL.Windows.Forms.Keyboarding.targets')" />
+  <Import Project="..\packages\SIL.Windows.Forms.8.0.0-beta0153\build\SIL.Windows.Forms.targets" Condition="Exists('..\packages\SIL.Windows.Forms.8.0.0-beta0153\build\SIL.Windows.Forms.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

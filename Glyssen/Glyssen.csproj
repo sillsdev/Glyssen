@@ -617,7 +617,7 @@
       <Version>8.0.0-beta0153</Version>
     </PackageReference>
     <PackageReference Include="SIL.Core.Desktop">
-      <Version>8.0.0-beta0085</Version>
+      <Version>8.0.0-beta0153</Version>
     </PackageReference>
     <PackageReference Include="SIL.DblBundle">
       <Version>8.0.0-beta0153</Version>
@@ -633,19 +633,19 @@
       <Version>8.0.0-beta0153</Version>
     </PackageReference>
     <PackageReference Include="SIL.Windows.Forms">
-      <Version>8.0.0-beta0085</Version>
+      <Version>8.0.0-beta0153</Version>
     </PackageReference>
     <PackageReference Include="SIL.Windows.Forms.DblBundle">
-      <Version>8.0.0-beta0033</Version>
+      <Version>8.0.0-beta0153</Version>
     </PackageReference>
     <PackageReference Include="SIL.Windows.Forms.GeckoBrowserAdapter">
-      <Version>8.0.0-beta0033</Version>
+      <Version>8.0.0-beta0153</Version>
     </PackageReference>
     <PackageReference Include="SIL.Windows.Forms.Scripture">
-      <Version>8.0.0-beta0085</Version>
+      <Version>8.0.0-beta0153</Version>
     </PackageReference>
     <PackageReference Include="SIL.Windows.Forms.WritingSystems">
-      <Version>8.0.0-beta0085</Version>
+      <Version>8.0.0-beta0153</Version>
     </PackageReference>
     <PackageReference Include="SIL.WritingSystems">
       <Version>8.0.0-beta0153</Version>
