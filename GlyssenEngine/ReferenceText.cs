@@ -822,6 +822,18 @@ namespace GlyssenEngine
 			if (!verseSplitLocations.Any())
 				return false;
 
+			// Since blocks cannot cross chapter breaks, if a split location is at the start of a chapter, typically
+			// both texts will already have a break there. However, if there is a versification difference, the chapter
+			// break location in one may not be the chapter break location in the other. But since verse 0 does not
+			// usually map to anything, changing the versification does not push it back across the chapter divide.
+			// In that case, we FIRST need to back up one verse, THEN change the versification so that if the text
+			// being broken has these two verses combined in a single block, we'll detect this as a valid break location.
+			// NOTE: We used to do all the comparisons without changing the versification and only changed the
+			// versification when we were actually going to make the split, but there didn't seem to be be any reason for
+			// this since the comparisons require the same logic that is used to actually make the versification change.
+			// So changing it up front should generally prove more efficient.
+			// REVIEW: See whether this logic can cause problems in Psalms, where there are places that map verse 0
+			// to verse 1.
 			VerseRef GetAdjustedVerseToSplitAfter(int i)
 			{
 				VerseRef loc = verseSplitLocations[i];
