@@ -77,8 +77,8 @@
     <Reference Include="DialogAdapters, Version=0.1.6.21495, Culture=neutral, PublicKeyToken=7dc842182b0626dc, processorArchitecture=MSIL">
       <HintPath>..\packages\DialogAdapters.0.1.6.21495\lib\net45\DialogAdapters.dll</HintPath>
     </Reference>
-    <Reference Include="DotNetZip, Version=1.13.4.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotNetZip.1.13.4\lib\net40\DotNetZip.dll</HintPath>
+    <Reference Include="DotNetZip, Version=1.13.8.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.13.8\lib\net40\DotNetZip.dll</HintPath>
     </Reference>
     <Reference Include="Enchant.Net, Version=1.4.0.0, Culture=neutral, PublicKeyToken=ae135aeb3d479ab9, processorArchitecture=MSIL">
       <HintPath>..\packages\Enchant.Net.1.4.2\lib\net461\Enchant.Net.dll</HintPath>
@@ -113,11 +113,11 @@
     <Reference Include="MarkdownDeep, Version=1.5.7366.28328, Culture=neutral, PublicKeyToken=a3790ba34fe8597c, processorArchitecture=MSIL">
       <HintPath>..\packages\MarkdownDeep.NET.Patched.1.5.0.2\lib\net35\MarkdownDeep.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.DotNet.PlatformAbstractions, Version=3.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.DotNet.PlatformAbstractions.3.1.0\lib\net45\Microsoft.DotNet.PlatformAbstractions.dll</HintPath>
+    <Reference Include="Microsoft.DotNet.PlatformAbstractions, Version=3.1.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.DotNet.PlatformAbstractions.3.1.5\lib\net45\Microsoft.DotNet.PlatformAbstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Extensions.DependencyModel, Version=3.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Extensions.DependencyModel.3.1.0\lib\net451\Microsoft.Extensions.DependencyModel.dll</HintPath>
+    <Reference Include="Microsoft.Extensions.DependencyModel, Version=3.1.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyModel.3.1.5\lib\net451\Microsoft.Extensions.DependencyModel.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.Win32.Registry, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -141,32 +141,32 @@
     <Reference Include="PangoSharp, Version=3.22.24.37, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
       <HintPath>..\packages\PangoSharp-signed.3.22.24.37\lib\netstandard2.0\PangoSharp.dll</HintPath>
     </Reference>
-    <Reference Include="Paratext.LexicalContracts, Version=9.1.7.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ParatextData.9.1.7-beta\lib\netstandard2.0\Paratext.LexicalContracts.dll</HintPath>
+    <Reference Include="Paratext.LexicalContracts, Version=9.1.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ParatextData.9.1.9-beta\lib\netstandard2.0\Paratext.LexicalContracts.dll</HintPath>
     </Reference>
-    <Reference Include="ParatextData, Version=9.1.7.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ParatextData.9.1.7-beta\lib\netstandard2.0\ParatextData.dll</HintPath>
+    <Reference Include="ParatextData, Version=9.1.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ParatextData.9.1.9-beta\lib\netstandard2.0\ParatextData.dll</HintPath>
     </Reference>
-    <Reference Include="PtxUtils, Version=9.1.7.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ParatextData.9.1.7-beta\lib\netstandard2.0\PtxUtils.dll</HintPath>
+    <Reference Include="PtxUtils, Version=9.1.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ParatextData.9.1.9-beta\lib\netstandard2.0\PtxUtils.dll</HintPath>
     </Reference>
     <Reference Include="Rhino.Mocks">
       <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Core.8.0.0-beta0091\lib\net461\SIL.Core.dll</HintPath>
+      <HintPath>..\packages\SIL.Core.8.0.0-beta0153\lib\net461\SIL.Core.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Core.Desktop, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
       <HintPath>..\packages\SIL.Core.Desktop.8.0.0-beta0085\lib\net461\SIL.Core.Desktop.dll</HintPath>
     </Reference>
     <Reference Include="SIL.DblBundle, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.DblBundle.8.0.0-beta0085\lib\net461\SIL.DblBundle.dll</HintPath>
+      <HintPath>..\packages\SIL.DblBundle.8.0.0-beta0153\lib\net461\SIL.DblBundle.dll</HintPath>
     </Reference>
     <Reference Include="SIL.DblBundle.Tests, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
       <HintPath>..\packages\SIL.DblBundle.Tests.8.0.0-beta0085\lib\net461\SIL.DblBundle.Tests.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Scripture, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Scripture.8.0.0-beta0091\lib\net461\SIL.Scripture.dll</HintPath>
+      <HintPath>..\packages\SIL.Scripture.8.0.0-beta0153\lib\net461\SIL.Scripture.dll</HintPath>
     </Reference>
     <Reference Include="SIL.TestUtilities, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
       <HintPath>..\packages\SIL.TestUtilities.8.0.0-beta0085\lib\net461\SIL.TestUtilities.dll</HintPath>
@@ -190,7 +190,7 @@
       <HintPath>..\packages\SIL.Windows.Forms.WritingSystems.8.0.0-beta0085\lib\net461\SIL.Windows.Forms.WritingSystems.dll</HintPath>
     </Reference>
     <Reference Include="SIL.WritingSystems, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.WritingSystems.8.0.0-beta0085\lib\net461\SIL.WritingSystems.dll</HintPath>
+      <HintPath>..\packages\SIL.WritingSystems.8.0.0-beta0153\lib\net461\SIL.WritingSystems.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.CodeDom, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -308,6 +308,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
