@@ -832,8 +832,16 @@ namespace GlyssenEngine
 			// versification when we were actually going to make the split, but there didn't seem to be be any reason for
 			// this since the comparisons require the same logic that is used to actually make the versification change.
 			// So changing it up front should generally prove more efficient.
-			// REVIEW: See whether this logic can cause problems in Psalms, where there are places that map verse 0
-			// to verse 1.
+			// At first glance, it might seem this logic could cause problems in Psalms, where there are places that map
+			// verse 0 to verse 1, but since these never correspond to places where two Psalms are combined into one
+			// (which obviously wouldn't make sense to do if there were a Hebrew subtitle present), it works out just
+			// fine. If we go back to the previous verse (the last verse in the previous Psalm) and then convert to the
+			// other versification, the conversion does not alter the reference. One of the more interesting places is
+			// at the start of Psalm 11 (in English & Original == Psalm 10 in Russian). Here most versifications put the
+			// Hebrew subtitle together with the text of what is verse 1 in English. But since mappings can't deal with
+			// partial verses, there is no mapping for this chapter in English. If any versification were to combine
+			// this Psalm with the previous one and a block were to have the last verse of that Psalm and the first verse
+			// of this Psalm, it would make for a more interesting case.
 			VerseRef GetAdjustedVerseToSplitAfter(int i)
 			{
 				VerseRef loc = verseSplitLocations[i];

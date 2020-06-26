@@ -2349,6 +2349,59 @@ namespace GlyssenEngineTests
 				.Where(b => !b.CharacterIs("JOB", CharacterVerseData.StandardCharacter.ExtraBiblical))
 				.All(b => b.MatchesReferenceText));
 		}
+		
+		// PG-1374
+		[Test]
+		public void ApplyTo_MappingOfHebrewSubtitlesWhenChaptersDifferInVersification_RefBlockSplitToMatch()
+		{
+			// The following is excerpted from Russian Orthodox (rso.vrs)
+			var customVersification = Versification.Table.Implementation.Load(new StringReader(
+					"# Versification  \"Custom\"\r\n" +
+					"PSA 1:6 2:12 3:9 4:9 5:13 6:11 7:18 8:10 9:39 10:7 11:9 12:6 13:7 14:5 15:11\r\n" +
+					"PSA 9:22 = PSA 10:0\r\n" + // Note: Psalm 10 has no Hebrew subtitle, so there really is no verse 0.
+					"PSA 9:22-39 = PSA 10:1-18\r\n" +
+					"PSA 10:0-7 = PSA 11:0-7\r\n" +
+					"PSA 11:0-9 = PSA 12:0-9"),
+				"IndonesianExample", "Custom");
+
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(22, "Salmo 9-22 (10:1 in English). ", true, 9, "PSA")
+				.AddVerse(23, "Salmo 9-23 (10:2 in English), ")
+				.AddVerse(24, "Salmo 9-24 (10:3 in English), ")
+				.AddVerse(25, "Salmo 9-25 (10:4 in English), ")
+				.AddVerse(26, "Salmo 9-26 (10:5 in English), ")
+				.AddVerse(27, "Salmo 9-27 (10:6 in English), "));
+			AddBlockForVerseInProgress(vernacularBlocks, "man, wicked", "“Can't mess with me. I'm on top and my great grandkids have got it made.”", "q1");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(28, "Salmo 9-28 (10:7 in English). ", true, 9, "PSA")
+				.AddVerse(29, "Salmo 9-29 (10:8 in English), ")
+				.AddVerse(30, "Salmo 9-30 (10:9 in English), ")
+				.AddVerse(31, "Salmo 9-31 (10:10 in English), ")
+				.AddVerse(32, "Salmo 9-32 (10:11 in English), "));
+			AddBlockForVerseInProgress(vernacularBlocks, "man, wicked", "“God can't even see me. I can get away with murder.”", "q1");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(33, "Salmo 9-33 (10:12 in English), ", true, 9, "PSA")
+				.AddVerse(34, "Salmo 9-34 (10:13 in English), "));
+			AddBlockForVerseInProgress(vernacularBlocks, "man, wicked", "“God will never judge me.”", "q1");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(35, "Salmo 9-35 (10:14 in English), ", true, 9, "PSA")
+				.AddVerse(36, "Salmo 9-36 (10:15 in English), ")
+				.AddVerse(37, "Salmo 9-37 (10:16 in English), ")
+				.AddVerse(38, "Salmo 9-38 (10:17 in English), ")
+				.AddVerse(39, "Salmo 9-39 (10:18 in English)."));
+			vernacularBlocks.Add(NewChapterBlock("PSA", 10));
+			// For Psalm 11 in Russian (Psalm 10 in original), the Hebrew subtitle text is included
+			// together with the text that appears as verse 1 in English.
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "For the director of music. Of David. Also, Salmo 10-1, ... how can you say: (11:1 in Original, 11:0-1 in English)", true, 10, "PSA"));
+			AddBlockForVerseInProgress(vernacularBlocks, "someone (hypothetical argument)", "“Fly like a fowl to the high hill”?", "q1");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "Salmo 10-2 (11:2 in Original, 11:2 in English)", true, 10, "PSA"));
+
+			var vernBook = new BookScript("PSA", vernacularBlocks, customVersification);
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+
+			refText.ApplyTo(vernBook);
+
+			Assert.That(vernBook.GetScriptBlocks()
+				.Where(b => !b.CharacterIs("PSA", CharacterVerseData.StandardCharacter.ExtraBiblical) && b.InitialStartVerseNumber != 1)
+				.All(b => b.MatchesReferenceText));
+		}
 
 		[Test]
 		public void GetBooksWithBlocksConnectedToReferenceText_WholeBookOfJude_AppliedCorrectly()
