@@ -309,6 +309,7 @@
     <Compile Include="Utilities\ListExtensionsTests.cs" />
     <Compile Include="Utilities\StringExtensionsTests.cs" />
     <Compile Include="Utilities\VerseBridge.cs" />
+    <Compile Include="VesselTest.cs" />
     <Compile Include="ViewModelTests\AddCharactersToGroupViewModelTests.cs" />
     <Compile Include="ViewModelTests\AssignCharacterViewModelTests.cs" />
     <Compile Include="ViewModelTests\BlockNavigatorViewModelTests.cs" />
