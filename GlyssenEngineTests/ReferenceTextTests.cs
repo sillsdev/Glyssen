@@ -2402,6 +2402,52 @@ namespace GlyssenEngineTests
 				.Where(b => !b.CharacterIs("PSA", CharacterVerseData.StandardCharacter.ExtraBiblical) && b.InitialStartVerseNumber != 1)
 				.All(b => b.MatchesReferenceText));
 		}
+		
+		// PG-1386
+		[Test]
+		public void ApplyTo_MappingSplitsVerseAcrossChapterBreakWhereRefHasFirstTwoVersesInSingleBlock_RefBlockAppliedButNotConsideredAsMatch()
+		{
+			// Note: Standard English vrs has mapping: ISA 64:2-12 = ISA 64:1-11 (i.e., v. 2 in English is actually part of v. 1 in Original)
+
+			// Vernacular	-> Original		-> English
+			// ISA 63:19	-> ISA 63:19	-> ISA 63:19 (no mapping for this verse in English)
+			// ISA 64:1		-> ISA 63:19	-> ISA 64:2
+			// ISA 64:2		-> ISA 64:1		-> ISA 64:2
+			// So this basically means that there is NO VERSE in English that corresponds to ISA 64:1! Both 64:1 and 64:2 map to 64:2
+
+			// Going the other direction:
+			// English		-> Original		-> Vernacular
+			// ISA 63:19	-> ISA 63:19	-> AMBIGUOUS: ISA 63:19 or ISA 64:1!
+			// ISA 64:1		-> ISA 64:1		-> ISA 64:2
+			// ISA 64:2		-> ISA 64:1		-> ISA 64:2 (both go to the same verse!)
+
+			var customVersification = Versification.Table.Implementation.Load(new StringReader(
+					"# Versification  \"Custom\"\r\n" +
+					"ISA 1:31 2:22 3:26 4:6 5:30 6:13 7:25 8:23 9:20 10:34 11:16 12:6 13:22 14:32 15:9 16:14 17:14 18:7 19:25 20:6 21:17 22:25 23:18 24:23 25:12 26:21 27:13 28:29 29:24 30:33 31:9 32:20 33:24 34:17 35:10 36:22 37:38 38:22 39:8 40:31 41:29 42:25 43:28 44:28 45:25 46:13 47:15 48:22 49:26 50:11 51:23 52:15 53:12 54:17 55:13 56:12 57:21 58:14 59:21 60:22 61:11 62:12 63:19 64:12 65:25 66:24\r\n" +
+					"ISA 63:19 = ISA 63:19\r\n" +
+					"ISA 64:1 = ISA 63:19\r\n" +
+					"ISA 64:2-12 = ISA 64:1-11"),
+				"pg1386", "Custom");
+
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(NewChapterBlock("ISA", 63));
+			for (var i = 1; i <= 19; i++)
+				vernacularBlocks.Add(CreateNarratorBlockForVerse(i, $"Isaiah 39:{i}. ", true, 63, "ISA"));
+			vernacularBlocks.Add(NewChapterBlock("ISA", 64));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Koyakkanlah langit lalo terun, sehingga gunung laluh de halapan-Mu — ", true, 64, "ISA")
+				.AddVerse(2, "seperti agi menpalatan semakapi didihkan wir. Bwatlah dikenal dole lawan-Mu, sehinga bangso gametir hadapan-Mu. ")
+				.AddVerse(3, "Ketika elakukan hal yong dasyat, yang sangka, Engkau tirun, dax gungunung leluh hadapan-Mu."));
+
+			var vernBook = new BookScript("ISA", vernacularBlocks, customVersification);
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+
+			refText.ApplyTo(vernBook);
+
+			var firstScrBlockInCh64 = vernBook.GetScriptBlocks().Single(b => b.ChapterNumber == 64 && b.InitialStartVerseNumber == 1);
+			Assert.IsFalse(firstScrBlockInCh64.MatchesReferenceText);
+			Assert.AreEqual(1, firstScrBlockInCh64.ReferenceBlocks.First().InitialStartVerseNumber);
+			Assert.AreEqual(2, firstScrBlockInCh64.ReferenceBlocks.Last().LastVerseNum);
+		}
 
 		[Test]
 		public void GetBooksWithBlocksConnectedToReferenceText_WholeBookOfJude_AppliedCorrectly()
