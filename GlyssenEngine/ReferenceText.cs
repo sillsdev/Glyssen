@@ -423,7 +423,8 @@ namespace GlyssenEngine
 						iRefBlock--;
 						continue;
 					default:
-						if (refInitStartVerse > vernInitStartVerse || currentVernBlock.MatchesReferenceText)
+						if ((refInitStartVerse > vernInitStartVerse && refInitStartVerse > currentVernBlock.EndRef(bookNum, vernacularVersification)) ||
+							currentVernBlock.MatchesReferenceText)
 						{
 							iRefBlock--;
 							continue;
@@ -473,9 +474,19 @@ namespace GlyssenEngine
 					}
 
 					// Since there's only one vernacular block for this verse (or verse bridge), just combine all
-					// ref blocks into one and call it a match.
-					vernBlockList[indexOfVernVerseStart].SetMatchedReferenceBlock(bookNum, vernacularVersification, this,
-						refBlockList.Skip(indexOfRefVerseStart).Take(numberOfRefBlocksInVerseChunk).ToList());
+					// ref blocks into one and call it a match unless the start verses don't match (in which case
+					// we're probably dealing with a mapping that involved a verse split).
+					var correspondingReferenceBlocks = refBlockList.Skip(indexOfRefVerseStart).Take(numberOfRefBlocksInVerseChunk).ToList();
+					if (refInitStartVerse.CompareTo(vernInitStartVerse) == 0)
+					{
+						currentVernBlock.SetMatchedReferenceBlock(bookNum, vernacularVersification, this,
+							correspondingReferenceBlocks);
+					}
+					else
+					{
+						currentVernBlock.SetUnmatchedReferenceBlocks(correspondingReferenceBlocks);
+					}
+
 					continue;
 				}
 
