@@ -201,15 +201,27 @@ namespace GlyssenEngine.ViewModels
 		protected override void RelevantBlocksAdded(BookBlockIndices blocksAdded)
 		{
 			Debug.Assert(blocksAdded.BookIndex == BlockAccessor.GetIndices().BookIndex);
-			for (var i = blocksAdded.BlockIndex; i <= blocksAdded.EffectiveFinalBlockIndex; i++)
+			var completed = IsCurrentBookSingleVoice;
+			if (!completed)
 			{
-				var block = CurrentBook.GetScriptBlocks()[i];
-				if (block.UserConfirmed || IsCurrentBookSingleVoice)
+				for (var i = blocksAdded.BlockIndex; i <= blocksAdded.EffectiveFinalBlockIndex; i++)
 				{
-					CompletedBlockCount++;
-					Debug.Assert(CompletedBlockCount <= RelevantBlockCount);
-					return;
+					var block = CurrentBook.GetScriptBlocks()[i];
+					if (block.UserConfirmed)
+						completed = true;
+					else if (block.CharacterIsUnclear)
+					{
+						// This is not common, but it's possible for one or more blocks in matchup
+						// to be user-confirmed, while others are not. Probably because the user
+						// did some work in non-rainbow mode.
+						return;
+					}
 				}
+			}
+			if (completed)
+			{
+				CompletedBlockCount++;
+				Debug.Assert(CompletedBlockCount <= RelevantBlockCount);
 			}
 		}
 

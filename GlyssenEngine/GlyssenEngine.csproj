@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Platforms>x64</Platforms>
+    <Platforms>x64;AnyCPU</Platforms>
     <OutputPath>..\output\$(Configuration)\</OutputPath>
 	<PackageOutputPath>../output</PackageOutputPath>
     <Authors>SIL International, Faith Comes By Hearing</Authors>
@@ -31,9 +31,19 @@ See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\output\Debug\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutputPath>..\output\Release\</OutputPath>
     <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\output\Release\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
@@ -57,25 +67,25 @@ See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotNetZip" Version="1.13.4" />
+    <PackageReference Include="DotNetZip" Version="1.13.8" />
     <PackageReference Include="GitVersionTask" Version="5.1.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="icu.net" Version="2.6.0" />
-    <PackageReference Include="Microsoft.DotNet.PlatformAbstractions" Version="3.1.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="3.1.0" />
+    <PackageReference Include="Microsoft.DotNet.PlatformAbstractions" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="3.1.5" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="ParatextData" Version="9.1.7-beta" />
-    <PackageReference Include="SIL.Core" Version="8.0.0-beta0091" />
-    <PackageReference Include="SIL.DblBundle" Version="8.0.0-beta0085" />
+    <PackageReference Include="ParatextData" Version="9.1.9-beta" />
+    <PackageReference Include="SIL.Core" Version="8.0.0-beta0153" />
+    <PackageReference Include="SIL.DblBundle" Version="8.0.0-beta0153" />
     <PackageReference Include="SIL.ReleaseTasks" Version="2.2.0" />
-    <PackageReference Include="SIL.Scripture" Version="8.0.0-beta0091" />
-    <PackageReference Include="SIL.WritingSystems" Version="8.0.0-beta0085" />
+    <PackageReference Include="SIL.Scripture" Version="8.0.0-beta0153" />
+    <PackageReference Include="SIL.WritingSystems" Version="8.0.0-beta0153" />
     <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
   </ItemGroup>
@@ -123,6 +133,23 @@ See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.
     <Reference Include="EPPlus">
       <HintPath>..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="../DistFiles/reference_texts/**/???.xml;../DistFiles/reference_texts/**/*.glyssen">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <Pack>true</Pack>
+      <PackagePath>build/reference_texts</PackagePath>
+    </None>
+    <None Include="../DistFiles/sfm/usfm.sty">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <Pack>true</Pack>
+      <PackagePath>build/sfm</PackagePath>
+    </None>
+    <Content Include="GlyssenEngine.targets">
+      <Pack>true</Pack>
+      <PackagePath>build</PackagePath>
+    </Content>
   </ItemGroup>
 
 </Project>

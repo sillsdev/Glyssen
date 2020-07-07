@@ -34,6 +34,7 @@ namespace Glyssen.Shared.Bundle
 		[XmlElement("language")]
 		public override GlyssenDblMetadataLanguage Language
 		{
+			get => base.Language; // This is needed as a work-around to a bug in .net Core XmlSerializer. See https://github.com/dotnet/runtime/issues/38025
 			set
 			{
 				base.Language = value;
