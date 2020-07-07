@@ -432,15 +432,12 @@ namespace GlyssenEngine
 						break;
 				}
 
-				var refLastVerse = currentRefBlock.EndRef(bookNum, Versification);
-
-				while (CharacterVerseData.IsCharacterExtraBiblical(currentRefBlock.CharacterId) || vernInitStartVerse > refLastVerse)
+				while (CharacterVerseData.IsCharacterExtraBiblical(currentRefBlock.CharacterId) || vernInitStartVerse > currentRefBlock.EndRef(bookNum, Versification))
 				{
 					iRefBlock++;
 					if (iRefBlock == refBlockList.Count)
 						return; // couldn't find a ref block to use at all.
 					currentRefBlock = refBlockList[iRefBlock];
-					refLastVerse = currentRefBlock.EndRef(bookNum, Versification);
 				}
 
 				var indexOfVernVerseStart = iVernBlock;
@@ -477,7 +474,7 @@ namespace GlyssenEngine
 					// ref blocks into one and call it a match unless the start verses don't match (in which case
 					// we're probably dealing with a mapping that involved a verse split).
 					var correspondingReferenceBlocks = refBlockList.Skip(indexOfRefVerseStart).Take(numberOfRefBlocksInVerseChunk).ToList();
-					if (refInitStartVerse.CompareTo(vernInitStartVerse) == 0)
+					if (correspondingReferenceBlocks.First().StartRef(bookNum, Versification).CompareTo(vernInitStartVerse) == 0)
 					{
 						currentVernBlock.SetMatchedReferenceBlock(bookNum, vernacularVersification, this,
 							correspondingReferenceBlocks);
