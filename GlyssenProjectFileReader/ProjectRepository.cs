@@ -49,7 +49,7 @@ namespace GlyssenFileBasedPersistence
 
 		public static string DefaultShareFolder => Combine(ProjectsBaseFolder, "share");
 
-		internal static string GetProjectFolderForStandardReferenceText(ReferenceTextType referenceTextType)
+		public static string GetProjectFolderForStandardReferenceText(ReferenceTextType referenceTextType)
 		{
 			if (!referenceTextType.IsStandard())
 				throw new InvalidOperationException("Attempt to get standard reference project folder for a non-standard type.");
