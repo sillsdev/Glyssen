@@ -2035,7 +2035,7 @@ namespace GlyssenEngine
 			}
 			else
 			{
-				var scrTextWrapper = GetParatextScrTextWrapper();
+				var scrTextWrapper = GetLiveParatextDataIfCompatible(null, false);
 				if (scrTextWrapper != null && QuoteSystem != null)
 				{
 					scrTextWrapper.IncludeOverriddenBooksFromProject(copyOfExistingProject);
