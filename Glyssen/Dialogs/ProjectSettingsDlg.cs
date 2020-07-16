@@ -113,7 +113,7 @@ namespace Glyssen.Dialogs
 						m_model.ParatextProjectName,
 						GlyssenInfo.Product,
 						LocalizedUpdateButtonName);
-					MessageBox.Show(msg, Text, MessageBoxButtons.OK);
+					MessageBox.Show(this, msg, Text, MessageBoxButtons.OK);
 				}
 			}
 		}
