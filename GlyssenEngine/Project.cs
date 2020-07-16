@@ -942,7 +942,7 @@ namespace GlyssenEngine
 
 		public ParatextScrTextWrapper GetParatextScrTextWrapper()
 		{
-			return GetLiveParatextDataIfCompatible(null);
+			return GetLiveParatextDataIfCompatible(null, false);
 		}
 
 		public ParatextScrTextWrapper GetLiveParatextDataIfCompatible(IParatextProjectLoadingAssistant loadingAssistant, bool checkForChangesInAvailableBooks = true)
@@ -2035,7 +2035,7 @@ namespace GlyssenEngine
 			}
 			else
 			{
-				var scrTextWrapper = GetLiveParatextDataIfCompatible(null, false);
+				var scrTextWrapper = GetParatextScrTextWrapper();
 				if (scrTextWrapper != null && QuoteSystem != null)
 				{
 					scrTextWrapper.IncludeOverriddenBooksFromProject(copyOfExistingProject);
