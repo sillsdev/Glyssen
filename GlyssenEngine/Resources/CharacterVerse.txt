@@ -1,4 +1,4 @@
-Control File Version	157
+Control File Version	158
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5
 GEN	1	3	God		God (the LORD)	Normal		
@@ -9732,18 +9732,22 @@ ISA	41	1	God		God (the LORD)	Implicit
 ISA	41	2	God		God (the LORD)	Implicit		
 ISA	41	3	God		God (the LORD)	Implicit		
 ISA	41	4	God		God (the LORD)	Implicit		
-ISA	41	5	God		God (the LORD)	Implicit		
-ISA	41	6	God		God (the LORD)	Implicit		
+ISA	41	5	God		God (the LORD)	Normal		
+ISA	41	5	Isaiah			Alternate		
+ISA	41	6	God		God (the LORD)	Normal		
+ISA	41	6	Isaiah			Alternate		
 ISA	41	6	islanders		everyone (islanders or foreigners)	Hypothetical		
-ISA	41	7	God		God (the LORD)	Implicit		
+ISA	41	7	God		God (the LORD)	Normal		
 ISA	41	7	craftsman			Hypothetical		
+ISA	41	7	Isaiah			Alternate		
 ISA	41	8	God		God (the LORD)	Implicit		
-ISA	41	9	God		God (the LORD)	Implicit		
-ISA	41	10	God		God (the LORD)	Implicit		
+ISA	41	9	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
+ISA	41	10	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 ISA	41	11	God		God (the LORD)	Implicit		
 ISA	41	12	God		God (the LORD)	Implicit		
 ISA	41	13	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
-ISA	41	14	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
+ISA	41	14	God		God (the LORD)	Normal		
+ISA	41	14	Isaiah			Potential		
 ISA	41	15	God		God (the LORD)	Implicit		
 ISA	41	16	God		God (the LORD)	Implicit		
 ISA	41	17	God		God (the LORD)	Implicit		
@@ -9751,6 +9755,7 @@ ISA	41	18	God		God (the LORD)	Implicit
 ISA	41	19	God		God (the LORD)	Implicit		
 ISA	41	20	God		God (the LORD)	Implicit		
 ISA	41	21	God		God (the LORD)	Normal		
+ISA	41	21	Isaiah			Potential		
 ISA	41	22	God		God (the LORD)	Implicit		
 ISA	41	23	God		God (the LORD)	Implicit		
 ISA	41	24	God		God (the LORD)	Implicit		
@@ -16484,7 +16489,7 @@ MAT	27	26	Pilate			Indirect
 MAT	27	29	soldiers, Roman	mocking		Dialogue		
 MAT	27	32	soldiers, Roman	giving orders		Indirect		
 MAT	27	33	narrator-MAT			Quotation		
-MAT	27	35	scripture			Quotation	David	
+MAT	27	35	scripture			Potential	David	
 MAT	27	37	sign on the cross			Quotation		
 MAT	27	39	passers by	mocking		Potential		
 MAT	27	40	passers by	mocking		Dialogue		
@@ -19987,8 +19992,8 @@ HEB	3	11	scripture			Quotation
 HEB	3	13	narrator-HEB			Quotation		
 HEB	3	15	scripture			Quotation		
 HEB	3	15	narrator-HEB			Quotation		
-HEB	3	18	scripture			Quotation	God	
-HEB	3	18	narrator-HEB			Quotation		
+HEB	3	18	scripture			Potential	God	
+HEB	3	18	narrator-HEB			Potential		
 HEB	4	3	scripture			Quotation	God	
 HEB	4	4	scripture			Quotation	God	
 HEB	4	5	scripture			Quotation	God	

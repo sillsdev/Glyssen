@@ -14,10 +14,8 @@
   <identification>
     <name>Synodal Translation (1876)</name>
     <nameLocal />
-    <systemId type="gbc" />
-    <systemId type="tms" />
-    <systemId type="reap" />
-    <systemId type="biblica" />
+    <systemId type="fcbhOT"></systemId>
+    <systemId type="fcbhNT">99</systemId>
   </identification>
   <copyright>
     <statement contentType="xhtml">

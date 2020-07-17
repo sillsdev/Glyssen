@@ -29,7 +29,7 @@
 	<Target Name="RestoreBuildTasks" DependsOnTargets="CheckPrerequisites">
 		<Message Text="Calling nuget restore" />
 		<Exec Command='$(NuGetCommand) restore ../$(Solution)' />
-		<Exec Command='$(NuGetCommand) install SIL.BuildTasks -excludeVersion -version 1.0.2 -source "$(PackageSources)" -solutionDirectory "$(SolutionDir)."' />
+		<Exec Command='$(NuGetCommand) install SIL.BuildTasks -excludeVersion -version 2.3.2 -source "$(PackageSources)" -solutionDirectory "$(SolutionDir)."' />
 		<Message Text="RestartBuild=$(RestartBuild)"/>
 		<MSBuild Projects="$(MSBuildProjectFullPath)" Targets="BuildInternal" Properties="Configuration=$(Configuration)" Condition="$(RestartBuild)" />
 	</Target>
@@ -39,7 +39,7 @@
 		<Message Text="SemVer: $(GitVersion_Semver)" Importance="high"/>
 
 		<PropertyGroup>
-			<InstallerFileDestName>$(RootDir)\output\installer\GlyssenInstaller.$(GitVersion_Semver).msi</InstallerFileDestName>
+			<InstallerFileDestName>$(RootDir)\output\installer\GlyssenInstaller.$(GitVersion_Semver).exe</InstallerFileDestName>
 		</PropertyGroup>
 		<Message Text="InstallerFileDestName: $(InstallerFileDestName)" Importance="high"/>
 	</Target>

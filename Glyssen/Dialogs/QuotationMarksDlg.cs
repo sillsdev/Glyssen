@@ -82,7 +82,7 @@ namespace Glyssen.Dialogs
 
 			if (m_project.IsLiveParatextProject && readOnly)
 			{
-				var wrapper = m_project.GetLiveParatextDataIfCompatible(null, false);
+				var wrapper = m_project.GetParatextScrTextWrapper();
 				m_linkOverride.Visible = m_allowOverride = wrapper == null || !wrapper.UserCanEditProject;
 			}
 

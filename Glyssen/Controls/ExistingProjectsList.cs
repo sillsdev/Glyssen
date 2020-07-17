@@ -145,10 +145,18 @@ namespace Glyssen.Controls
 			{
 				try
 				{
-					using (var reader = new StreamReader(new FileStream(SelectedProject, FileMode.Open)))
+					// The file stream for the metadata needs to be closed BEFORE we call SetHiddenFlag because that
+					// will need to open the stream with a write lock to save the modified metadata.
+					GlyssenDblTextMetadata metadata;
+					using (var stream = new FileStream(SelectedProject, FileMode.Open))
 					{
-						Project.SetHiddenFlag(GlyssenDblTextMetadata.Load(reader, SelectedProject), ProjectRepository.GetProjectName(SelectedProject), inactive);
+						using (var reader = new StreamReader(stream))
+						{
+							metadata = GlyssenDblTextMetadata.Load(reader, SelectedProject);
+						}
 					}
+
+					Project.SetHiddenFlag(metadata, ProjectRepository.GetProjectName(SelectedProject), inactive);
 				}
 				catch (Exception exception)
 				{

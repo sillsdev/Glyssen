@@ -1,0 +1,7 @@
+# This overrides the assembly versioning scheme 
+assembly-versioning-scheme: MajorMinor
+# This makes untagged commits on master produce a beta, rather than a release
+branches:
+  master:
+    tag: beta
+    regex: (origin/)?master
