@@ -942,7 +942,7 @@ namespace GlyssenEngine
 
 		public ParatextScrTextWrapper GetParatextScrTextWrapper()
 		{
-			return GetLiveParatextDataIfCompatible(null);
+			return GetLiveParatextDataIfCompatible(null, false);
 		}
 
 		public ParatextScrTextWrapper GetLiveParatextDataIfCompatible(IParatextProjectLoadingAssistant loadingAssistant, bool checkForChangesInAvailableBooks = true)
