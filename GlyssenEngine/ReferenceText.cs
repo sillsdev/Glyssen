@@ -65,15 +65,14 @@ namespace GlyssenEngine
 			NT
 		}
 
-		private static string GetEnglishVersion(FcbhTestament testament)
+		private string GetEnglishVersion(FcbhTestament testament)
 		{
 			var type = "fcbh" + testament;
-			return GetStandardReferenceText(ReferenceTextType.English).m_metadata
-				.Identification.SystemIds.FirstOrDefault(sysId => sysId.Type == type)?.Id;
+			return m_metadata?.Identification?.SystemIds?.FirstOrDefault(sysId => sysId.Type == type)?.Id;
 		}
 
-		public static string EnglishOTVersion => GetEnglishVersion(FcbhTestament.OT);
-		public static string EnglishNTVersion => GetEnglishVersion(FcbhTestament.NT);
+		public string EnglishOTVersion => GetEnglishVersion(FcbhTestament.OT);
+		public string EnglishNTVersion => GetEnglishVersion(FcbhTestament.NT);
 
 		public ReferenceTextType Type => m_referenceTextType;
 		
@@ -399,8 +398,15 @@ namespace GlyssenEngine
 							}
 
 							currentVernBlock.SetMatchedReferenceBlock(refChapterBlock);
-							if (!currentRefBlock.IsChapterAnnouncement && currentRefBlock.ChapterNumber == currentVernBlock.ChapterNumber)
-								iRefBlock--;
+							if (!currentRefBlock.IsChapterAnnouncement)
+							{
+								// Note: It is illegal to have a chapter announcement not followed
+								// by a Scripture block, so using First should never fail.
+								var nextScriptureBlock = vernBlockList.Skip(iVernBlock + 1).First(b => b.IsScripture);
+								if (currentRefBlock.EndRef(bookNum, Versification) >= nextScriptureBlock.StartRef(bookNum, vernacularVersification))
+									iRefBlock--;
+							}
+
 							continue;
 						}
 						goto case CharacterVerseData.StandardCharacter.ExtraBiblical; // Book title
@@ -417,7 +423,8 @@ namespace GlyssenEngine
 						iRefBlock--;
 						continue;
 					default:
-						if (refInitStartVerse.CompareTo(vernInitStartVerse) > 0 || currentVernBlock.MatchesReferenceText)
+						if ((refInitStartVerse > vernInitStartVerse && refInitStartVerse > currentVernBlock.EndRef(bookNum, vernacularVersification)) ||
+							currentVernBlock.MatchesReferenceText)
 						{
 							iRefBlock--;
 							continue;
@@ -425,15 +432,12 @@ namespace GlyssenEngine
 						break;
 				}
 
-				var refLastVerse = currentRefBlock.EndRef(bookNum, Versification);
-
-				while (CharacterVerseData.IsCharacterExtraBiblical(currentRefBlock.CharacterId) || vernInitStartVerse > refLastVerse)
+				while (CharacterVerseData.IsCharacterExtraBiblical(currentRefBlock.CharacterId) || vernInitStartVerse > currentRefBlock.EndRef(bookNum, Versification))
 				{
 					iRefBlock++;
 					if (iRefBlock == refBlockList.Count)
 						return; // couldn't find a ref block to use at all.
 					currentRefBlock = refBlockList[iRefBlock];
-					refLastVerse = currentRefBlock.EndRef(bookNum, Versification);
 				}
 
 				var indexOfVernVerseStart = iVernBlock;
@@ -467,9 +471,19 @@ namespace GlyssenEngine
 					}
 
 					// Since there's only one vernacular block for this verse (or verse bridge), just combine all
-					// ref blocks into one and call it a match.
-					vernBlockList[indexOfVernVerseStart].SetMatchedReferenceBlock(bookNum, vernacularVersification, this,
-						refBlockList.Skip(indexOfRefVerseStart).Take(numberOfRefBlocksInVerseChunk).ToList());
+					// ref blocks into one and call it a match unless the start verses don't match (in which case
+					// we're probably dealing with a mapping that involved a verse split).
+					var correspondingReferenceBlocks = refBlockList.Skip(indexOfRefVerseStart).Take(numberOfRefBlocksInVerseChunk).ToList();
+					if (correspondingReferenceBlocks.First().StartRef(bookNum, Versification).CompareTo(vernInitStartVerse) == 0)
+					{
+						currentVernBlock.SetMatchedReferenceBlock(bookNum, vernacularVersification, this,
+							correspondingReferenceBlocks);
+					}
+					else
+					{
+						currentVernBlock.SetUnmatchedReferenceBlocks(correspondingReferenceBlocks);
+					}
+
 					continue;
 				}
 
@@ -527,7 +541,7 @@ namespace GlyssenEngine
 						BlocksEndWithSameVerse(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification))
 					{
 						Debug.Assert(i == 0);
-						if (allowSplitting && TryMatchBySplittingRefBlock(vernBlockInVerseChunk, refBook, indexOfRefVerseStart))
+						if (allowSplitting && TryMatchBySplittingRefBlock(vernBlockInVerseChunk, refBook, indexOfRefVerseStart, vernacularVersification))
 							iRefBlock++;
 						else
 						{
@@ -536,6 +550,41 @@ namespace GlyssenEngine
 							else
 								vernBlockList[iVernBlock].SetUnmatchedReferenceBlocks(new[] {refBlockInVerseChunk});
 						}
+					}
+					// Consider case where the vernacular uses a verse bridge for verses that have
+					// a quote, but would otherwise align neatly with the reference text. (This
+					// conditional is hard to read and not terribly efficient, but it will short-
+					// circuit quickly in most cases.)
+					// Note: I originally wrote this logic to use BlocksHaveCompatibleCharacters,
+					// but I was concerned about the rare case where the reference text had two
+					// different speakers, but the vernacular only had one (the other being
+					// rendered as indirect speech). This could cause a "match" where the lines
+					// from the two different speakers are combined.
+					else if (numberOfVernBlocksInVerseChunk == 2 &&
+						vernBlockInVerseChunk.IsSimpleBridge &&
+						BlocksStartWithSameVerse(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification) &&
+						vernBlockInVerseChunk.CharacterId == refBlockInVerseChunk.CharacterId &&
+						BlocksEndWithSameVerse(bookNum, vernBlockList[indexOfVernVerseStart + 1],
+							refBlockList[indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - 1], vernacularVersification) &&
+						vernBlockList[indexOfVernVerseStart + 1].CharacterId ==
+						refBlockList[indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - 1].CharacterId &&
+						refBlockList.Skip(indexOfRefVerseStart + 1).Take(numberOfRefBlocksInVerseChunk - 2).All(b =>
+							vernBlockInVerseChunk.CharacterId == b.CharacterId ||
+							vernBlockList[indexOfVernVerseStart + 1].CharacterId ==  b.CharacterId))
+					{
+						// Note that this logic introduces the faint possibility of changing the order of
+						// reference text blocks to achieve a match. At the time of this writing, there are
+						// no tests for this case. It's probably very unlikely, but if it were ever to occur,
+						// it would likely be desirable.
+						vernBlockInVerseChunk.SetMatchedReferenceBlock(bookNum, vernacularVersification, this,
+							refBlockList.Skip(indexOfRefVerseStart).Take(numberOfRefBlocksInVerseChunk)
+								.Where(b => vernBlockInVerseChunk.CharacterId == b.CharacterId).ToList());
+						var otherVernBlockInVerseChunk = vernBlockList[indexOfVernVerseStart + 1];
+						otherVernBlockInVerseChunk.SetMatchedReferenceBlock(bookNum, vernacularVersification, this,
+							refBlockList.Skip(indexOfRefVerseStart).Take(numberOfRefBlocksInVerseChunk)
+								.Where(b => otherVernBlockInVerseChunk.CharacterId == b.CharacterId).ToList());
+						i++;
+						iRefBlock = indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - 1;
 					}
 					else
 					{
@@ -638,7 +687,8 @@ namespace GlyssenEngine
 										// block starts with. (In this case, the ref block didn't get split because the
 										// preceding vern verse was totally missing, but we can split it now and make it match.)
 										if (allowSplitting && remainingRefBlocksList.Count == 1 &&
-											TryMatchBySplittingRefBlock(vernBlockList[iVernBlock], refBook, indexOfRefVerseStart + i))
+											TryMatchBySplittingRefBlock(vernBlockList[iVernBlock], refBook, indexOfRefVerseStart + i,
+												vernacularVersification))
 										{
 											numberOfRefBlocksInVerseChunk++;
 										}
@@ -676,42 +726,46 @@ namespace GlyssenEngine
 		/// of a method that has locked m_modifiedBooks; otherwise, the local call here to lock it could result in deadlock.
 		/// </summary>
 		/// <returns></returns>
-		private bool TryMatchBySplittingRefBlock(Block vernBlock, PortionScript refBook, int iRefBlock)
+		private bool TryMatchBySplittingRefBlock(Block vernBlock, PortionScript refBook, int iRefBlock, ScrVers vernacularVersification)
 		{
-			lock (m_modifiedBooks)
+			lock (m_modifiedBooks) // See comment above
 			{
-				var refBlockList = refBook.GetScriptBlocks();
-				Block refBlock = refBlockList[iRefBlock];
-				if (vernBlock.BlockElements[0] is Verse vernBlockInitStartVerse &&
-					refBlock.BlockElements.Skip(1).OfType<Verse>().Any(v => v.StartVerse == vernBlockInitStartVerse.StartVerse) &&
-					refBook.TrySplitBlockAtEndOfVerse(refBlock, vernBlockInitStartVerse.StartVerse - 1))
+				if (vernBlock.BlockElements[0] is Verse)
 				{
-					m_modifiedBooks.Add(refBook.BookId);
-					var newBlock = refBlockList[iRefBlock + 1];
-					Debug.Assert(newBlock.StartsAtVerseStart && newBlock.InitialStartVerseNumber == vernBlockInitStartVerse.StartVerse);
-					vernBlock.SetMatchedReferenceBlock(newBlock);
-					return true;
+					var vernStartRef = vernBlock.StartRef(refBook.BookNumber, vernacularVersification);
+					vernStartRef.ChangeVersification(refBook.Versification);
+					var refBlockList = refBook.GetScriptBlocks();
+					Block refBlock = refBlockList[iRefBlock];
+					var vernStartVerse = vernStartRef.VerseNum;
+					if (vernStartRef.ChapterNum == refBlock.ChapterNumber &&
+						refBlock.BlockElements.Skip(1).OfType<Verse>().Any(v => v.StartVerse == vernStartVerse) &&
+						refBook.TrySplitBlockAtEndOfVerse(refBlock, vernStartVerse - 1))
+					{
+						m_modifiedBooks.Add(refBook.BookId);
+						var newBlock = refBlockList[iRefBlock + 1];
+						Debug.Assert(newBlock.StartsAtVerseStart && newBlock.InitialStartVerseNumber == vernStartVerse);
+						vernBlock.SetMatchedReferenceBlock(newBlock);
+						return true;
+					}
 				}
 			}
 			return false;
 		}
 
-		private bool BlocksMatch(int bookNum, Block vernBlock, Block refBlock, ScrVers vernacularVersification)
-		{
-			var vernInitStartVerse = vernBlock.StartRef(bookNum, vernacularVersification);
-			var refInitStartVerse = refBlock.StartRef(bookNum, Versification);
-			return vernInitStartVerse.CompareTo(refInitStartVerse) == 0 &&
-				// ENHANCE: In passages where there is a narrator override, narrator should be considered a "match" with the override character
-				(vernBlock.CharacterId == refBlock.CharacterId || (vernBlock.CharacterIsUnclear && !refBlock.CharacterIsStandard)) &&
-				BlocksEndWithSameVerse(bookNum, vernBlock, refBlock, vernacularVersification);
-		}
+		private bool BlocksMatch(int bookNum, Block vernBlock, Block refBlock, ScrVers vernacularVersification) =>
+			BlocksStartWithSameVerse(bookNum, vernBlock, refBlock, vernacularVersification) &&
+			BlocksHaveCompatibleCharacters(vernBlock, refBlock) &&
+			BlocksEndWithSameVerse(bookNum, vernBlock, refBlock, vernacularVersification);
 
-		private bool BlocksEndWithSameVerse(int bookNum, Block vernBlock, Block refBlock, ScrVers vernacularVersification)
-		{
-			var lastVernVerse = vernBlock.EndRef(bookNum, vernacularVersification);
-			var lastRefVerse = refBlock.EndRef(bookNum, Versification);
-			return lastVernVerse.CompareTo(lastRefVerse) == 0;
-		}
+		private bool BlocksStartWithSameVerse(int bookNum, Block vernBlock, Block refBlock, ScrVers vernacularVersification) =>
+			vernBlock.StartRef(bookNum, vernacularVersification).CompareTo(refBlock.StartRef(bookNum, Versification)) == 0;
+
+		// ENHANCE: In passages where there is a narrator override, narrator should be considered a "match" with the override character
+		private bool BlocksHaveCompatibleCharacters(Block vernBlock, Block refBlock) =>
+			vernBlock.CharacterId == refBlock.CharacterId || (vernBlock.CharacterIsUnclear && !refBlock.CharacterIsStandard);
+
+		private bool BlocksEndWithSameVerse(int bookNum, Block vernBlock, Block refBlock, ScrVers vernacularVersification) =>
+			vernBlock.EndRef(bookNum, vernacularVersification).CompareTo(refBlock.EndRef(bookNum, Versification)) == 0;
 
 		private static void FindAllScriptureBlocksThroughVerse(IReadOnlyList<Block> blockList, VerseRef endVerse, ref int i, ScrVers versification)
 		{
@@ -759,7 +813,7 @@ namespace GlyssenEngine
 			foreach (var block in script.GetScriptBlocks())
 			{
 				if (prevBlock != null && block.StartsAtVerseStart)
-					splitLocations.Add(new VerseSplitLocation(bookNum, prevBlock, block, Versification));
+					splitLocations.Add(new VerseSplitLocation(bookNum, prevBlock, block, script.Versification));
 				prevBlock = block;
 			}
 			return splitLocations;
@@ -775,9 +829,43 @@ namespace GlyssenEngine
 		{
 			if (!verseSplitLocations.Any())
 				return false;
+
+			// Since blocks cannot cross chapter breaks, if a split location is at the start of a chapter, typically
+			// both texts will already have a break there. However, if there is a versification difference, the chapter
+			// break location in one may not be the chapter break location in the other. But since verse 0 does not
+			// usually map to anything, changing the versification does not push it back across the chapter divide.
+			// In that case, we FIRST need to back up one verse, THEN change the versification so that if the text
+			// being broken has these two verses combined in a single block, we'll detect this as a valid break location.
+			// NOTE: We used to do all the comparisons without changing the versification and only changed the
+			// versification when we were actually going to make the split, but there didn't seem to be be any reason for
+			// this since the comparisons require the same logic that is used to actually make the versification change.
+			// So changing it up front should generally prove more efficient.
+			// At first glance, it might seem this logic could cause problems in Psalms, where there are places that map
+			// verse 0 to verse 1, but since these never correspond to places where two Psalms are combined into one
+			// (which obviously wouldn't make sense to do if there were a Hebrew subtitle present), it works out just
+			// fine. If we go back to the previous verse (the last verse in the previous Psalm) and then convert to the
+			// other versification, the conversion does not alter the reference. One of the more interesting places is
+			// at the start of Psalm 11 (in English & Original == Psalm 10 in Russian). Here most versifications put the
+			// Hebrew subtitle together with the text of what is verse 1 in English. But since mappings can't deal with
+			// partial verses, there is no mapping for this chapter in English. If any versification were to combine
+			// this Psalm with the previous one and a block were to have the last verse of that Psalm and the first verse
+			// of this Psalm, it would make for a more interesting case.
+			VerseRef GetAdjustedVerseToSplitAfter(int i)
+			{
+				VerseRef loc = verseSplitLocations[i];
+				if (loc.Versification != blocksToSplit.Versification)
+				{
+					if (loc.VerseNum == 0)
+						loc.PreviousVerse();
+					loc.ChangeVersification(blocksToSplit.Versification);
+				}
+
+				return loc;
+			}
+
 			bool splitsMade = false;
 			var iSplit = 0;
-			VerseRef verseToSplitAfter = verseSplitLocations[iSplit];
+			VerseRef verseToSplitAfter = GetAdjustedVerseToSplitAfter(iSplit);
 			var blocks = blocksToSplit.GetScriptBlocks();
 			for (int index = 0; index < blocks.Count; index++)
 			{
@@ -795,7 +883,7 @@ namespace GlyssenEngine
 				{
 					if (iSplit == verseSplitLocations.Count - 1)
 						return splitsMade;
-					verseToSplitAfter = verseSplitLocations[++iSplit];
+					verseToSplitAfter = GetAdjustedVerseToSplitAfter(++iSplit);
 				}
 
 				var lastVerse = block.EndRef(bookNum, blocksToSplit.Versification);
@@ -805,7 +893,6 @@ namespace GlyssenEngine
 				if (initEndVerse.CompareTo(lastVerse) != 0 && lastVerse >= verseSplitLocations[iSplit].Before)
 				{
 					bool invalidSplitLocation = false;
-					verseToSplitAfter.ChangeVersification(blocksToSplit.Versification);
 					if (preventSplittingBlocksAlreadyMatchedToRefText && block.MatchesReferenceText)
 						invalidSplitLocation = blocksToSplit.GetVerseStringToUseForSplittingBlock(block, verseToSplitAfter.VerseNum) == null;
 					else if (blocksToSplit.TrySplitBlockAtEndOfVerse(block, verseToSplitAfter.VerseNum))
@@ -826,7 +913,7 @@ namespace GlyssenEngine
 #endif
 						if (iSplit == verseSplitLocations.Count - 1)
 							break;
-						verseToSplitAfter = verseSplitLocations[++iSplit];
+						verseToSplitAfter = GetAdjustedVerseToSplitAfter(++iSplit);
 						index--;
 					}
 				}

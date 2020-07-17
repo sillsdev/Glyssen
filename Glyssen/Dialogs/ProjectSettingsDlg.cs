@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Glyssen.Shared;
+using Glyssen.Shared.Bundle;
 using Glyssen.Utilities;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
@@ -90,11 +91,11 @@ namespace Glyssen.Dialogs
 					ParatextScrTextWrapper.kParatextProgramName);
 		}
 
-		protected override void OnVisibleChanged(EventArgs e)
+		protected override void OnShown(EventArgs e)
 		{
-			base.OnVisibleChanged(e);
+			base.OnShown(e);
 			var project = m_model.Project;
-			if (IsHandleCreated && Visible && m_model.IsLiveParatextProject &&
+			if (IsHandleCreated && m_model.IsLiveParatextProject &&
 				(project.QuoteSystemStatus & QuoteSystemStatus.ParseReady) != 0)
 			{
 				var paratextProj = project.GetParatextScrTextWrapper();
@@ -112,7 +113,7 @@ namespace Glyssen.Dialogs
 						m_model.ParatextProjectName,
 						GlyssenInfo.Product,
 						LocalizedUpdateButtonName);
-					MessageBox.Show(msg, Text, MessageBoxButtons.OK);
+					MessageBox.Show(this, msg, Text, MessageBoxButtons.OK);
 				}
 			}
 		}
@@ -148,9 +149,12 @@ namespace Glyssen.Dialogs
 
 		private void LoadReferenceTextOptions()
 		{
-			m_labelOTVersion.Text = ReferenceText.EnglishOTVersion;
-			m_labelNTVersion.Text = ReferenceText.EnglishNTVersion;
-
+			// Saving the selection (if any) here is required to deal with the (rare) case where
+			// the user does on-the-fly localization. When there is an existing selection that
+			// differs from the one that was set when we came into this dialog and we reset the
+			// data source, the selection gets lost. So we need to remember which one was selected
+			// and restore it below.
+			var currentSelection = SelectedReferenceText;
 			var dataSource = new Dictionary<string, ReferenceTextProxy>();
 			foreach (var refTextId in ReferenceTextProxy.AllAvailable)
 			{
@@ -172,6 +176,8 @@ namespace Glyssen.Dialogs
 			m_ReferenceText.DataSource = new BindingSource(dataSource, null);
 			m_ReferenceText.ValueMember = "Value";
 			m_ReferenceText.DisplayMember = "Key";
+
+			SelectCurrentReferenceText(currentSelection ?? m_model.Project.ReferenceTextProxy);
 		}
 
 		private void ProjectSettingsDlg_Load(object sender, EventArgs e)
@@ -240,18 +246,23 @@ namespace Glyssen.Dialogs
 			m_chkChapterOneAnnouncements.Checked = !m_model.SkipChapterAnnouncementForFirstChapter;
 			m_chkAnnounceChaptersForSingleChapterBooks.Checked = !m_model.SkipChapterAnnouncementForSingleChapterBooks;
 
+			SelectCurrentReferenceText(m_model.Project.ReferenceTextProxy);
+
+			m_bookIntro.SelectedValue = m_model.Project.DramatizationPreferences.BookIntroductionsDramatization;
+			m_sectionHeadings.SelectedValue = m_model.Project.DramatizationPreferences.SectionHeadDramatization;
+			m_titleChapters.SelectedValue = m_model.Project.DramatizationPreferences.BookTitleAndChapterDramatization;
+		}
+
+		private void SelectCurrentReferenceText(ReferenceTextProxy currentReferenceText)
+		{
 			foreach (KeyValuePair<string, ReferenceTextProxy> kvp in m_ReferenceText.Items)
 			{
-				if (kvp.Value == m_model.Project.ReferenceTextProxy)
+				if (kvp.Value == currentReferenceText)
 				{
 					m_ReferenceText.SelectedItem = kvp;
 					break;
 				}
 			}
-
-			m_bookIntro.SelectedValue = m_model.Project.DramatizationPreferences.BookIntroductionsDramatization;
-			m_sectionHeadings.SelectedValue = m_model.Project.DramatizationPreferences.SectionHeadDramatization;
-			m_titleChapters.SelectedValue = m_model.Project.DramatizationPreferences.BookTitleAndChapterDramatization;
 		}
 
 		private string RecordingProjectName
@@ -377,7 +388,7 @@ namespace Glyssen.Dialogs
             m_model.AudioStockNumber = AudioStockNumber;
 			m_model.ChapterAnnouncementStyle = ChapterAnnouncementStyle;
 			m_model.SkipChapterAnnouncementForFirstChapter = !m_chkChapterOneAnnouncements.Checked;
-			m_model.Project.ReferenceTextProxy = ((KeyValuePair<string, ReferenceTextProxy>)m_ReferenceText.SelectedItem).Value;
+			m_model.Project.ReferenceTextProxy = SelectedReferenceText;
 
 			m_model.Project.DramatizationPreferences.BookIntroductionsDramatization = (ExtraBiblicalMaterialSpeakerOption)m_bookIntro.SelectedValue;
 			m_model.Project.DramatizationPreferences.SectionHeadDramatization = (ExtraBiblicalMaterialSpeakerOption)m_sectionHeadings.SelectedValue;
@@ -387,6 +398,8 @@ namespace Glyssen.Dialogs
 			DialogResult = DialogResult.OK;
 			Close();
 		}
+
+		private ReferenceTextProxy SelectedReferenceText => ((KeyValuePair<string, ReferenceTextProxy>?)m_ReferenceText.SelectedItem)?.Value;
 
 		private void HandleCancelButtonClick(object sender, EventArgs e)
 		{
@@ -619,29 +632,36 @@ namespace Glyssen.Dialogs
 			m_linkRefTextAttribution.Links.Clear();
 			if (m_ReferenceText.SelectedItem is KeyValuePair<string, ReferenceTextProxy>)
 			{
-				var metadata = ((KeyValuePair<string, ReferenceTextProxy>) m_ReferenceText.SelectedItem).Value.Metadata;
-				if (metadata == null)
-					return;
-				var copyright = metadata.Copyright;
-				if (copyright == null || copyright.Statement == null)
-					return;
+				var refTextProxy = ((KeyValuePair<string, ReferenceTextProxy>)m_ReferenceText.SelectedItem).Value;
+				var metadata = refTextProxy.Metadata;
+				SetReferenceTextCopyrightInfo(metadata);
+				var referenceText = ReferenceText.GetReferenceText(refTextProxy);
+				m_labelWarningReferenceTextDoesNotCoverAllBooks.Visible =
+					!m_model.Project.AvailableBooks.Select(b => b.Code).All(bookId =>
+						referenceText.HasContentForBook(bookId));
 
-				var copyrightInternalNodes = copyright.Statement.InternalNodes;
-				if (copyrightInternalNodes != null)
+				m_labelOTVersion.Text = referenceText.EnglishOTVersion;
+				m_labelNTVersion.Text = referenceText.EnglishNTVersion;
+			}
+		}
+
+		private void SetReferenceTextCopyrightInfo(GlyssenDblTextMetadataBase metadata)
+		{
+			var copyrightInternalNodes = metadata?.Copyright?.Statement?.InternalNodes;
+			if (copyrightInternalNodes == null)
+				return;
+
+			m_linkRefTextAttribution.Text = string.Join(Environment.NewLine, copyrightInternalNodes.Select(n => n.InnerText));
+			const string kHttpPrefix = "http://";
+			var linkStart = m_linkRefTextAttribution.Text.IndexOf(kHttpPrefix, StringComparison.Ordinal);
+			if (linkStart >= 0)
+			{
+				var linkExtent = m_linkRefTextAttribution.Text.LastIndexOf("/", StringComparison.Ordinal) - linkStart;
+				if (linkExtent > 0)
 				{
-					m_linkRefTextAttribution.Text = string.Join(Environment.NewLine, copyrightInternalNodes.Select(n => n.InnerText));
-				}
-				const string kHttpPrefix = "http://";
-				var linkStart = m_linkRefTextAttribution.Text.IndexOf(kHttpPrefix, StringComparison.Ordinal);
-				if (linkStart >= 0)
-				{
-					var linkExtent = m_linkRefTextAttribution.Text.LastIndexOf("/", StringComparison.Ordinal) - linkStart;
-					if (linkExtent > 0)
-					{
-						//m_linkRefTextAttribution.LinkArea = new LinkArea(linkStart, linkExtent);
-						m_linkRefTextAttribution.Links.Add(linkStart, linkExtent,
-							m_linkRefTextAttribution.Text.Substring(linkStart, linkExtent));
-					}
+					//m_linkRefTextAttribution.LinkArea = new LinkArea(linkStart, linkExtent);
+					m_linkRefTextAttribution.Links.Add(linkStart, linkExtent,
+						m_linkRefTextAttribution.Text.Substring(linkStart, linkExtent));
 				}
 			}
 		}

@@ -67,7 +67,9 @@ namespace GlyssenFileBasedPersistence
 		public static string GetProjectName(string projectFilePath)
 		{
 			Debug.Assert(GetExtension(projectFilePath) == kProjectFileExtension);
-			var val = GetFileNameWithoutExtension(projectFilePath);
+			var folder = GetDirectoryName(projectFilePath);
+			Debug.Assert(folder != null);
+			var val = GetFileName(folder);
 			Debug.Assert(val != null);
 			return val;
 		}

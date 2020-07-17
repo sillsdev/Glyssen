@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Platforms>x64</Platforms>
+    <Platforms>x64;AnyCPU</Platforms>
     <Company>FCBH-SIL</Company>
     <Copyright>Copyright © 2014-2020 Faith Comes By Hearing and SIL International</Copyright>
     <RootNamespace>Glyssen.Shared</RootNamespace>
@@ -31,9 +31,9 @@ See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="SIL.Core" Version="8.0.0-beta0091" />
-    <PackageReference Include="SIL.DblBundle" Version="8.0.0-beta0085" />
-    <PackageReference Include="SIL.Scripture" Version="8.0.0-beta0091" />
+    <PackageReference Include="SIL.Core" Version="8.0.0-beta0153" />
+    <PackageReference Include="SIL.DblBundle" Version="8.0.0-beta0153" />
+    <PackageReference Include="SIL.Scripture" Version="8.0.0-beta0153" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
