@@ -22,7 +22,7 @@ http://blogs.msdn.com/robmen/archive/2003/10/04/56479.aspx -->
              Version="$(var.Property_ProductVersion)" Manufacturer="FCBH-SIL"
              UpgradeCode="$(var.Property_UpgradeCode)">
 
-    <Package Platform="x64" Compressed="yes" InstallerVersion="200" />
+    <Package Platform="x64" Compressed="yes" InstallerVersion="200" InstallScope="perMachine" />
 
     <!-- changed schedule from afterInstallInitialize, to afterInstallValidate, hopes that upgrades which have some library (e.g. palaso) with a lower version won't leave us
         with no palaso at all, as afterInstallInitialize was doing. But it's not clear whether even this will work, as it depends on when the "costing" happens:
@@ -53,9 +53,6 @@ are trying to support, you're better off using non-advertised shortcuts." -->
 	<Condition Message="Glyssen requires .NET Framework 4.7.2 or later. You need to install Microsoft's free .NET Framework then run this installer again. More information about Glyssen's requirements can be found at https://software.sil.org/glyssen/download/ ">
 		<![CDATA[Installed OR (NETFRAMEWORK45 >= "#461808")]]>
 	</Condition>
-
-    <!--because of bug, this needs to be 1 -->
-    <Property Id ="ALLUSERS">1</Property>
 
     <Directory Id="TARGETDIR" Name="SourceDir">
 
@@ -334,17 +331,16 @@ are trying to support, you're better off using non-advertised shortcuts." -->
     <Property Id="ARPPRODUCTICON" Value="Glyssen.exe" />
     <!-- what you see in add/remove programs control panel -->
 
-
-
     <CustomAction Id="LaunchGlyssen"
                   FileKey="Glyssen.exe"
                   ExeCommand=""
-                  Return="asyncNoWait"/>
+                  Return="asyncNoWait"
+				  Impersonate="yes"/>
 
     <InstallExecuteSequence>
 
       <!--We need the condition here so that we only launch the executable when we make an installation but not when we remove the product-->
-          <Custom Action='LaunchGlyssen' After="InstallFinalize">NOT Installed</Custom>
-        </InstallExecuteSequence>
+      <Custom Action='LaunchGlyssen' After="InstallFinalize">NOT Installed</Custom>
+    </InstallExecuteSequence>
   </Product>
 </Wix>
