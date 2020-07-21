@@ -2,21 +2,20 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing.Text;
+using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Shared;
 using L10NSharp;
 using SIL.Reporting;
-using SIL.Windows.Forms;
 using static System.String;
 
 namespace Glyssen.Utilities
 {
 	public class WinFormsFontRepositoryAdapter : IFontRepository
 	{
-		public bool IsFontInstalled(string fontFamilyIdentifier)
-		{
-			return FontHelper.FontInstalled(fontFamilyIdentifier);
-		}
+		public bool IsFontInstalled(string fontFamilyIdentifier) =>
+			System.Drawing.FontFamily.Families
+				.Any(f => string.Equals(f.Name, fontFamilyIdentifier, StringComparison.OrdinalIgnoreCase));
 
 		public bool DoesTrueTypeFontFileContainFontFamily(string ttfFile, string fontFamilyIdentifier)
 		{
