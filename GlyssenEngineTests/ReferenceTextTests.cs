@@ -4267,6 +4267,43 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(referenceBlocks[1].GetText(true) + referenceBlocks[2].GetText(true), result.Last().ReferenceBlocks.Single().GetText(true));
 		}
 
+		#region PG-1394
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_HeSaidMatchAtStartOfVerse_AlignedAutomaticallyWithVerseNumberPrepended()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.MAT);
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var mat = project.GetBook("MAT");
+
+			var iMat21v33 = mat.GetIndexOfFirstBlockForVerse(21, 33);
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(mat, iMat21v33, new[] {"Jesús Judío-dummaganga sogdebalid:"});
+
+			// VERIFY
+			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
+			Assert.AreEqual(((Verse)matchup.CorrelatedBlocks.First().BlockElements.First()).Number,
+				((Verse)matchup.CorrelatedBlocks.First().ReferenceBlocks.Single().BlockElements.First()).Number);
+		}
+
+		[Test]
+		public void GetBooksWithBlocksConnectedToReferenceText_HeSaidMatchAtStartOfVerse_AlignedAutomaticallyWithVerseNumberPrepended()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.MAT);
+			project.AddNewReportingClauses(new[] {"Jesús Judío-dummaganga sogdebalid:"});
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+
+			var matchedUpMat = refText.GetBooksWithBlocksConnectedToReferenceText(project).Single();
+			var iMat21v33 = matchedUpMat.GetIndexOfFirstBlockForVerse(21, 33);
+			var blocks = matchedUpMat.GetScriptBlocks();
+
+			// VERIFY
+			Assert.IsTrue(blocks[iMat21v33].MatchesReferenceText);
+			Assert.IsTrue(blocks[iMat21v33 + 1].MatchesReferenceText);
+			Assert.AreEqual(((Verse)blocks[iMat21v33].BlockElements.First()).Number,
+				((Verse)blocks[iMat21v33].ReferenceBlocks.Single().BlockElements.First()).Number);
+			Assert.IsFalse(blocks[iMat21v33 + 1].ContainsVerseNumber);
+		}
+		#endregion
+
 		#region private helper methods
 		private Block NewChapterBlock(string bookId, int chapterNum, string text = null)
 		{
