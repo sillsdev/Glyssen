@@ -373,6 +373,25 @@ namespace GlyssenEngine.Script
 
 		public int CountOfSoundsWhereUserSpecifiesLocation => BlockElements.OfType<Sound>().Count(s => s.UserSpecifiesLocation);
 
+		public bool TryMatchToReportingClause(IReadOnlyCollection<string> reportingClauses, IReferenceLanguageInfo referenceLanguageInfo)
+		{
+			if (MatchesReferenceText || !reportingClauses.Contains(BlockElements.OfType<ScriptText>().OnlyOrDefault()?.Content.Trim()))
+				return false;
+
+			var verse = (BlockElements.First() as Verse)?.Number;
+			SetMatchedReferenceBlock(referenceLanguageInfo.HeSaidText);
+			if (verse != null)
+				ReferenceBlocks[0].BlockElements.Insert(0, new Verse(verse));
+			if (referenceLanguageInfo.HasSecondaryReferenceText)
+			{
+				var refBlock = ReferenceBlocks.Single();
+				refBlock.SetMatchedReferenceBlock(referenceLanguageInfo.BackingReferenceLanguage.HeSaidText);
+				if (verse != null)
+					refBlock.ReferenceBlocks[0].BlockElements.Insert(0, new Verse(verse));
+			}
+			return true;
+		}
+
 		public void SetMatchedReferenceBlockFrom(Block sourceBlock)
 		{
 			ReferenceBlocks = new List<Block> {sourceBlock.ReferenceBlocks.Single().Clone(ReferenceBlockCloningBehavior.CloneListAndAllReferenceBlocks)};
