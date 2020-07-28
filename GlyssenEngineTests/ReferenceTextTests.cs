@@ -1,24 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using Glyssen.Shared;
-using GlyssenSharedTests;
+﻿using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Script;
 using GlyssenEngineTests.Script;
+using GlyssenSharedTests;
 using InMemoryTestPersistence;
 using NUnit.Framework;
 using SIL.Reflection;
 using SIL.Reporting;
 using SIL.Scripture;
 using SIL.Xml;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
 using static System.String;
 using Resources = GlyssenEngineTests.Properties.Resources;
 
@@ -4266,6 +4266,29 @@ namespace GlyssenEngineTests
 			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
 			Assert.AreEqual(referenceBlocks[1].GetText(true) + referenceBlocks[2].GetText(true), result.Last().ReferenceBlocks.Single().GetText(true));
 		}
+		
+		#region PG-1393
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_VerseBridgeAtEndOfChapterWithTwoNarratorBlocks_OnlyOneVernBlockAlignsToCombinedRefBlocks()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(20, "Timoteo, cuida bien de no escuchar palabrerías, falsamente llamado " +
+				"“conocimiento de la verdad”; pues algunos se han desviado de la que se te ha confiado fe por creer esa clase de " +
+				"“conocimiento”.", true, 6, "1TI", "p", 21));
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Que el Señor derrame su gracia sobre ustedes.", "1TI");
+			var vernBook = new BookScript("1TI", vernacularBlocks, m_vernVersification);
+
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
+			var result = matchup.CorrelatedBlocks;
+			Assert.AreEqual(2, result.Count);
+			var versesInRefBlock = result.Where(b => b.MatchesReferenceText).Single().ReferenceBlocks.Single().AllVerses;
+			Assert.AreEqual(2, versesInRefBlock.Count);
+			Assert.AreEqual(20, versesInRefBlock.First().StartVerse);
+			Assert.AreEqual(21, versesInRefBlock.Last().StartVerse);
+		}
+		#endregion
 
 		#region private helper methods
 		private Block NewChapterBlock(string bookId, int chapterNum, string text = null)
