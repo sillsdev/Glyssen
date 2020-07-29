@@ -535,17 +535,6 @@ namespace GlyssenEngine
 							break;
 						}
 						vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockInVerseChunk);
-						if (indexOfVernVerseStart + i - 1 >= 0)
-						{
-							var prevBlock = vernBlockList[indexOfVernVerseStart + i - 1];
-							if (prevBlock.MatchesReferenceText &&
-								prevBlock.StartsAtVerseStart &&
-								vernBlockInVerseChunk.ReferenceBlocks.Single().BlockElements[0] is Verse v &&
-								v.Number == prevBlock.InitialVerseNumberOrBridge)
-							{
-								vernBlockInVerseChunk.ReferenceBlocks.Single().BlockElements.RemoveAt(0);
-							}
-						}
 					}
 					else if (numberOfVernBlocksInVerseChunk == 1 && numberOfRefBlocksInVerseChunk == 1 &&
 						BlocksEndWithSameVerse(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification))
@@ -619,7 +608,7 @@ namespace GlyssenEngine
 									vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockInVerseChunk);
 									iLastVernBlockMatchedFromBottomUp = iCurrVernBottomUp;
 								}
-								else if (reportingClauses == null || !TryMatchToReportingClause(vernBlockList, iCurrVernBottomUp, reportingClauses))
+								else if (reportingClauses == null || !TryMatchToReportingClause(bookNum, vernBlockList, iCurrVernBottomUp, reportingClauses, vernacularVersification))
 									break;
 							}
 						}
@@ -637,7 +626,7 @@ namespace GlyssenEngine
 							if (!remainingRefBlocksList.Any())
 							{
 								if (j + i == numberOfVernBlocksInVerseChunk - 1)
-									TryMatchToReportingClause(vernBlockList, iVernBlock, reportingClauses);
+									TryMatchToReportingClause(bookNum, vernBlockList, iVernBlock, reportingClauses, vernacularVersification);
 								// else do nothing (PG-1085)
 							}
 							else if (forceMatch)
@@ -719,26 +708,35 @@ namespace GlyssenEngine
 					iVernBlock = indexOfLastVernVerseInVerseChunk;
 				else if (numberOfVernBlocksInVerseChunk == numberOfRefBlocksInVerseChunk + 1)
 				{
-					if (vernBlockList[indexOfLastVernVerseInVerseChunk].TryMatchToReportingClause(reportingClauses, this))
+					if (vernBlockList[indexOfLastVernVerseInVerseChunk].TryMatchToReportingClause(reportingClauses, this, bookNum, vernacularVersification))
 						iVernBlock = indexOfLastVernVerseInVerseChunk;
 				}
 			}
 		}
 
-		private bool TryMatchToReportingClause(IReadOnlyList<Block> vernBlockList, int iVernBlock, IReadOnlyCollection<string> reportingClauses)
+		private bool TryMatchToReportingClause(int bookNum, IReadOnlyList<Block> vernBlockList, int iVernBlock,
+			IReadOnlyCollection<string> reportingClauses, ScrVers vernacularVersification)
 		{
-			if (reportingClauses == null || !vernBlockList[iVernBlock].TryMatchToReportingClause(reportingClauses, this))
+			if (reportingClauses == null || !vernBlockList[iVernBlock].TryMatchToReportingClause(reportingClauses, this, bookNum, vernacularVersification))
 				return false;
 
+			// At least to date, reference texts do not have verse bridges. If the vernacular were to have a verse bridge
+			// we at least want to find and remove the corresponding verse number at the start of the reference text of
+			// the subsequent block. This could still leave a spurious duplicate verse number later in that reference block
+			// but this should be quite rare.
 			if (vernBlockList[iVernBlock].ReferenceBlocks.Single().BlockElements.First() is Verse v &&
 				vernBlockList.Count > iVernBlock + 1 &&
-				(vernBlockList[iVernBlock + 1].ReferenceBlocks.OnlyOrDefault()?.BlockElements.FirstOrDefault() as Verse)?.Number == v.Number)
+				(vernBlockList[iVernBlock + 1].ReferenceBlocks.OnlyOrDefault()?.BlockElements.FirstOrDefault() as Verse)?.StartVerse == v.StartVerse)
 			{
 				vernBlockList[iVernBlock + 1].ReferenceBlocks[0].BlockElements.RemoveAt(0);
 				if (HasSecondaryReferenceText)
 				{
-					Debug.Assert(vernBlockList[iVernBlock + 1].ReferenceBlocks[0].ReferenceBlocks[0].BlockElements.FirstOrDefault() is Verse);
-					vernBlockList[iVernBlock + 1].ReferenceBlocks[0].ReferenceBlocks[0].BlockElements.RemoveAt(0);
+					// At least to date, all reference texts use the same (English) versification and more-or-less have verse numbers
+					// align. This might not be perfect (in that it could occasionally allow a duplicate verse number to appear in the
+					// reference text where the numbers do not exactly align), but we can safely assume that if there is a verse
+					// number in the secondary reference text, it is the corresponding one and can be removed.
+					if (vernBlockList[iVernBlock + 1].ReferenceBlocks[0].ReferenceBlocks[0].BlockElements.FirstOrDefault() is Verse)
+						vernBlockList[iVernBlock + 1].ReferenceBlocks[0].ReferenceBlocks[0].BlockElements.RemoveAt(0);
 				}
 			}
 			return true;
