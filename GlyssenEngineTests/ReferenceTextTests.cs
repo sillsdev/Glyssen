@@ -4267,6 +4267,97 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(referenceBlocks[1].GetText(true) + referenceBlocks[2].GetText(true), result.Last().ReferenceBlocks.Single().GetText(true));
 		}
 
+		#region PG-1394
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_HeSaidMatchAtStartOfVerse_AlignedAutomaticallyWithVerseNumberPrepended()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.MAT);
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var mat = project.GetBook("MAT");
+
+			var iMat21v33 = mat.GetIndexOfFirstBlockForVerse(21, 33);
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(mat, iMat21v33, new[] {"Jesús Judío-dummaganga sogdebalid:"});
+
+			// VERIFY
+			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
+			var v33 = ((Verse)matchup.CorrelatedBlocks.First().BlockElements.First()).Number;
+			Assert.AreEqual(v33,
+				((Verse)matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().BlockElements.First()).Number);
+			Assert.IsFalse(matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().BlockElements.OfType<Verse>().Any(v => v.Number == v33));
+		}
+
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_HeSaidMatchAtStartOfVerseWithDifferentVersification_AlignedAutomaticallyWithCorrespondingVerseNumberPrepended()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(6, "Continuó: ", false, 32, "GEN"));
+			AddBlockForVerseInProgress(vernacularBlocks, "Jacob (Israel)", "“Tengo animales y gente para tirar para arriba. Vengo en paz.””");
+			var vernBook = new BookScript("GEN", vernacularBlocks, ScrVers.Original);
+
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, new[] {"Continuó:"});
+
+			// VERIFY
+			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
+			Assert.AreEqual("5",
+				((Verse)matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().BlockElements.First()).Number);
+			Assert.IsFalse(matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().BlockElements.OfType<Verse>().Any());
+		}
+
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_HeSaidMatchAtEndOfVerse_AlignedAutomatically()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.MAT);
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var mat = project.GetBook("MAT");
+
+			var iMat8v7 = mat.GetIndexOfFirstBlockForVerse(8, 7);
+			var blocks = mat.GetScriptBlocks();
+			Assert.AreEqual(blocks[iMat8v7].InitialStartVerseNumber, blocks[iMat8v7 + 1].InitialStartVerseNumber,
+				"SETUP check - test data not as expected");
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(blocks[iMat8v7].CharacterId, CharacterVerseData.StandardCharacter.Narrator),
+				"SETUP check - test data not as expected");
+			Assert.IsTrue(blocks[iMat8v7].InitialStartVerseNumber < blocks[iMat8v7 + 2].InitialStartVerseNumber,
+				"SETUP check - test data not as expected");
+			var prevBlock = blocks[iMat8v7 + 1];
+			var heSaidBlock = new Block(prevBlock.StyleTag, prevBlock.ChapterNumber,
+				prevBlock.InitialStartVerseNumber, prevBlock.InitialEndVerseNumber)
+			{
+				CharacterId = blocks[iMat8v7].CharacterId,
+				IsParagraphStart = false,
+				BlockElements = new List<BlockElement>(1)
+			};
+			heSaidBlock.BlockElements.Add(new ScriptText(", pregunto-sogde."));
+			mat.Blocks.Insert(iMat8v7 + 2, heSaidBlock);
+			ReflectionHelper.SetField(mat, "m_blockCount", 0); // It's illegal to change block collection, so we have to do this cheat to tell it it's okay.
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(mat, iMat8v7, new[] {", pregunto-sogde."});
+
+			// VERIFY
+			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
+			Assert.AreEqual(refText.HeSaidText,
+				matchup.CorrelatedBlocks.Last().ReferenceBlocks.Single().GetText(true));
+		}
+
+		[Test]
+		public void GetBooksWithBlocksConnectedToReferenceText_HeSaidMatchAtStartOfVerse_AlignedAutomaticallyWithVerseNumberPrepended()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.MAT);
+			project.AddNewReportingClauses(new[] {"Jesús Judío-dummaganga sogdebalid:"});
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+
+			var matchedUpMat = refText.GetBooksWithBlocksConnectedToReferenceText(project).Single();
+			var iMat21v33 = matchedUpMat.GetIndexOfFirstBlockForVerse(21, 33);
+			var blocks = matchedUpMat.GetScriptBlocks();
+
+			// VERIFY
+			Assert.IsTrue(blocks[iMat21v33].MatchesReferenceText);
+			Assert.IsTrue(blocks[iMat21v33 + 1].MatchesReferenceText);
+			Assert.AreEqual(((Verse)blocks[iMat21v33].BlockElements.First()).Number,
+				((Verse)blocks[iMat21v33].ReferenceBlocks.Single().BlockElements.First()).Number);
+			Assert.IsFalse(blocks[iMat21v33 + 1].ReferenceBlocks.Single().ContainsVerseNumber);
+		}
+		#endregion
+
 		#region private helper methods
 		private Block NewChapterBlock(string bookId, int chapterNum, string text = null)
 		{
