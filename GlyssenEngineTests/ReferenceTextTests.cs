@@ -4283,10 +4283,12 @@ namespace GlyssenEngineTests
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
 			var result = matchup.CorrelatedBlocks;
 			Assert.AreEqual(2, result.Count);
-			var versesInRefBlock = result.Where(b => b.MatchesReferenceText).Single().ReferenceBlocks.Single().AllVerses;
-			Assert.AreEqual(2, versesInRefBlock.Count);
-			Assert.AreEqual(20, versesInRefBlock.First().StartVerse);
-			Assert.AreEqual(21, versesInRefBlock.Last().StartVerse);
+			Assert.IsFalse(result.All(b => b.MatchesReferenceText));
+			var refTextVerses = result.SelectMany(b => b.ReferenceBlocks).SelectMany(r => r.BlockElements.OfType<Verse>()).ToList();
+			Assert.AreEqual(2, refTextVerses.Count);
+			Assert.AreEqual(20, refTextVerses[0].StartVerse);
+			Assert.AreEqual(21, refTextVerses[1].StartVerse);
+
 		}
 		#endregion
 

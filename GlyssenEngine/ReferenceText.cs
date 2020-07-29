@@ -566,6 +566,7 @@ namespace GlyssenEngine
 						vernBlockInVerseChunk.CharacterId == refBlockInVerseChunk.CharacterId &&
 						BlocksEndWithSameVerse(bookNum, vernBlockList[indexOfVernVerseStart + 1],
 							refBlockList[indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - 1], vernacularVersification) &&
+						vernBlockList[indexOfVernVerseStart + 1].CharacterId != vernBlockInVerseChunk.CharacterId && // One of the blocks needs to be a different character
 						vernBlockList[indexOfVernVerseStart + 1].CharacterId ==
 						refBlockList[indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - 1].CharacterId &&
 						refBlockList.Skip(indexOfRefVerseStart + 1).Take(numberOfRefBlocksInVerseChunk - 2).All(b =>

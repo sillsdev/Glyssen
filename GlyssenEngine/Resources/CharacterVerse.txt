@@ -19955,6 +19955,10 @@ COL	4	17	narrator-COL			Quotation
 1TI	3	16	hymn, early creedal			Quotation		
 1TI	4	3	false teachers			Hypothetical		
 1TI	5	18	scripture			Quotation		
+1TI	6	17	narrator-1TI			Quotation		
+1TI	6	17	Timothy			Alternate		
+1TI	6	18	narrator-1TI			Quotation		
+1TI	6	18	Timothy			Alternate		
 1TI	6	20	narrator-1TI			Quotation		
 2TI	2	11	saying, true			Quotation		
 2TI	2	12	saying, true			Quotation		
