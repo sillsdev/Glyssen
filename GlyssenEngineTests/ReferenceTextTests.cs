@@ -4288,7 +4288,6 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(2, refTextVerses.Count);
 			Assert.AreEqual(20, refTextVerses[0].StartVerse);
 			Assert.AreEqual(21, refTextVerses[1].StartVerse);
-
 		}
 		#endregion
 
@@ -4380,6 +4379,29 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(((Verse)blocks[iMat21v33].BlockElements.First()).Number,
 				((Verse)blocks[iMat21v33].ReferenceBlocks.Single().BlockElements.First()).Number);
 			Assert.IsFalse(blocks[iMat21v33 + 1].ReferenceBlocks.Single().ContainsVerseNumber);
+		}
+		#endregion
+
+		#region PG-1395
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_UnmatchedHeSaidAtEndOfVerseWithMultipleSpeakers_AllRefBlocksRetained()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateBlockForVerse("Jesus", 31, "Кьве хцикай бубадин тӀалабун ни кьилиз акъудна?» ", false, 21));
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "«Сад лагьайда», ");
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "– жаваб гана абуру. ");
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "«За квез рикӀивай лугьузва: харж кӀватӀдайбурни ява папар Аллагьдин Пачагьлугъдиз квелай вилик акъатда», ");
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "– лагьана Исади. – ");
+			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
+
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var textOfRefTextBlocks = refText.GetBook("MAT").GetBlocksForVerse(21, 31).Select(r => r.GetText(true)).ToHashSet();
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, new []{"– лагьана ада.", "– лагьана Исади. –", "– минетдалди лагьана ада. –"});
+			var result = matchup.CorrelatedBlocks;
+			Assert.AreEqual(5, result.Count);
+			var textOfMatchedAndUnmatchedRefTextBlocks = result.SelectMany(b => b.ReferenceBlocks).Select(r => r.GetText(true)).ToHashSet();
+			Assert.IsTrue(textOfRefTextBlocks.IsSubsetOf(textOfMatchedAndUnmatchedRefTextBlocks));
 		}
 		#endregion
 

@@ -594,6 +594,7 @@ namespace GlyssenEngine
 
 						int j = 0;
 						var iLastVernBlockMatchedFromBottomUp = -1;
+						var numberOfUnexpectedReportingClausesMatched = 0;
 						if (numberOfVernBlocksInVerseChunk - i >= 2)
 						{
 							// Look from the bottom up
@@ -603,17 +604,23 @@ namespace GlyssenEngine
 								vernBlockInVerseChunk = vernBlockList[iCurrVernBottomUp];
 								if (vernBlockInVerseChunk.MatchesReferenceText)
 									break;
-								refBlockInVerseChunk = refBlockList[indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - j - 1];
+								refBlockInVerseChunk = refBlockList[indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - j - 1 + numberOfUnexpectedReportingClausesMatched];
 								if (BlocksMatch(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification))
 								{
 									vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockInVerseChunk);
 									iLastVernBlockMatchedFromBottomUp = iCurrVernBottomUp;
 								}
-								else if (reportingClauses == null || !TryMatchToReportingClause(bookNum, vernBlockList, iCurrVernBottomUp, reportingClauses, vernacularVersification))
+								else if (reportingClauses != null &&
+									TryMatchToReportingClause(bookNum, vernBlockList, iCurrVernBottomUp, reportingClauses, vernacularVersification))
+								{
+									numberOfUnexpectedReportingClausesMatched++;
+									iLastVernBlockMatchedFromBottomUp = iCurrVernBottomUp;
+								}
+								else
 									break;
 							}
 						}
-						var numberOfUnmatchedRefBlocks = numberOfRefBlocksInVerseChunk - i - j;
+						var numberOfUnmatchedRefBlocks = numberOfRefBlocksInVerseChunk - i - j + numberOfUnexpectedReportingClausesMatched;
 						var remainingRefBlocks = refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfUnmatchedRefBlocks).ToList();
 						if (numberOfVernBlocksInVerseChunk == 1 && numberOfUnmatchedRefBlocks > 1)
 						{
