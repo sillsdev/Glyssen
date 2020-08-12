@@ -683,8 +683,7 @@ namespace GlyssenEngineTests.Export
 				sectionHeadRowForRev1V3.CharacterId);
 
 			//Pause for final verse in chapter (pauses come after verse text)
-			var rowsForRev1V20 = data.Where(d => d.BookId == "REV" && d.ChapterNumber == 1 && d.VerseNumber == 20).ToList();
-			var rowForRev1V20 = rowsForRev1V20.Single();
+			var rowForRev1V20 = data.Single(d => d.BookId == "REV" && d.ChapterNumber == 1 && d.VerseNumber == 20);
 			annotationInfo = " " + string.Format(Pause.kPauseSecondsFormat, "2");
 			Assert.IsTrue(rowForRev1V20.AdditionalReferenceText.EndsWith(annotationInfo));
 			Assert.IsTrue(rowForRev1V20.EnglishReferenceText.EndsWith(annotationInfo));
@@ -692,6 +691,13 @@ namespace GlyssenEngineTests.Export
 				"Lakalatwe abiro gin aye lumalaika pa lwak muye Kricito ma gitye i kabedo abiro mapatpat, doŋ okar-mac abiro-ni gin " +
 				"aye lwak muye Kricito ma gitye i kabedo abiro mapatpat.”",
 				rowForRev1V20.VernacularText);
+
+			// PG-1399: 1-minute pause at end of book
+			var rowForRev22V21 = data.Single(d => d.BookId == "REV" && d.ChapterNumber == 22 && d.VerseNumber >= 21);
+			annotationInfo = " " + Pause.kPauseOneMinute;
+			Assert.IsTrue(rowForRev22V21.AdditionalReferenceText.EndsWith(annotationInfo));
+			Assert.IsTrue(rowForRev22V21.EnglishReferenceText.EndsWith(annotationInfo));
+			Assert.AreEqual("{21}\u00A0Kica pa Rwot Yecu obed ki jo pa Lubaŋa ducu. Amen.", rowForRev22V21.VernacularText);
 		}
 
 		[Test]
