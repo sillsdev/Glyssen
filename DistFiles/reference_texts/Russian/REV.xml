@@ -2997,7 +2997,7 @@
     <verse num="10" />
     <text>стоя издали от страха мучений ее и говоря:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="kings of the earth" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="kings of the earth" delivery="weeping" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="kings of the earth" delivery="weeping">
       <text>“Woe, woe, the great city, Babylon, the strong city! For your judgment has come in one hour.”</text>
     </ReferenceBlocks>
