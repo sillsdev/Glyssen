@@ -174,7 +174,7 @@ namespace GlyssenEngine
 				else
 				{
 					var clone = book.GetCloneWithJoinedBlocks(applyNarratorOverrides);
-					ApplyTo(clone);
+					ApplyTo(clone, project.ReportingClauses);
 					yield return clone;
 				}
 			}
@@ -185,7 +185,7 @@ namespace GlyssenEngine
 			return Books.Any(b => b.BookId == bookId);
 		}
 
-		internal void ApplyTo(BookScript vernacularBook)
+		internal void ApplyTo(BookScript vernacularBook, IReadOnlyCollection<string> reportingClauses = null)
 		{
 			lock (m_modifiedBooks)
 			{
@@ -201,7 +201,8 @@ namespace GlyssenEngine
 				if (MakesSplits(referenceBook, bookNum, verseSplitLocationsBasedOnVern, LanguageName, "vernacular"))
 					m_modifiedBooks.Add(referenceBook.BookId);
 
-				MatchVernBlocksToReferenceTextBlocks(vernacularBook.GetScriptBlocks(), vernacularBook.BookId, vernacularBook.Versification, vernacularBook.SingleVoice);
+				MatchVernBlocksToReferenceTextBlocks(vernacularBook.GetScriptBlocks(), vernacularBook.BookId, vernacularBook.Versification,
+					vernacularBook.SingleVoice, reportingClauses:reportingClauses);
 			}
 		}
 
@@ -253,15 +254,14 @@ namespace GlyssenEngine
 				block => IsOkayToSplitBeforeBlock(vernacularBook, block, verseSplitLocationsBasedOnRef),
 				this, predeterminedBlockCount);
 
-			matchup.MatchHeSaidBlocks(reportingClauses);
-
 			if (!matchup.AllScriptureBlocksMatch)
 			{
 				if (allowSplitting)
 				{
 					lock(m_modifiedBooks)
 					{
-						MatchVernBlocksToReferenceTextBlocks(matchup.CorrelatedBlocks, vernacularBook.BookId, vernacularBook.Versification);
+						MatchVernBlocksToReferenceTextBlocks(matchup.CorrelatedBlocks, vernacularBook.BookId, vernacularBook.Versification,
+							reportingClauses: reportingClauses);
 					}
 				}
 				else
@@ -292,7 +292,7 @@ namespace GlyssenEngine
 		/// achieve better correspondence to the vernacular blocks. IMPORTANT: If this is true, the CALLER is responsible for
 		/// obtaining the lock on m_modifiedBooks.</param>
 		private void MatchVernBlocksToReferenceTextBlocks(IReadOnlyList<Block> vernBlockList, string bookId, ScrVers vernacularVersification,
-			bool forceMatch = false, bool allowSplitting = true)
+			bool forceMatch = false, bool allowSplitting = true, IReadOnlyCollection<string> reportingClauses = null)
 		{
 			Debug.Assert(!allowSplitting || Monitor.IsEntered(m_modifiedBooks), "If allowSplitting is true, caller is responsible for obtaining a lock on m_modifiedBooks.");
 			int bookNum = BCVRef.BookToNumber(bookId);
@@ -351,7 +351,6 @@ namespace GlyssenEngine
 						iRefBlockMemory = -1;
 					}
 				}
-
 
 				var currentRefBlock = refBlockList[iRefBlock];
 				var vernInitStartVerse = currentVernBlock.StartRef(bookNum, vernacularVersification);
@@ -566,6 +565,7 @@ namespace GlyssenEngine
 						vernBlockInVerseChunk.CharacterId == refBlockInVerseChunk.CharacterId &&
 						BlocksEndWithSameVerse(bookNum, vernBlockList[indexOfVernVerseStart + 1],
 							refBlockList[indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - 1], vernacularVersification) &&
+						vernBlockList[indexOfVernVerseStart + 1].CharacterId != vernBlockInVerseChunk.CharacterId && // One of the blocks needs to be a different character
 						vernBlockList[indexOfVernVerseStart + 1].CharacterId ==
 						refBlockList[indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - 1].CharacterId &&
 						refBlockList.Skip(indexOfRefVerseStart + 1).Take(numberOfRefBlocksInVerseChunk - 2).All(b =>
@@ -594,6 +594,7 @@ namespace GlyssenEngine
 
 						int j = 0;
 						var iLastVernBlockMatchedFromBottomUp = -1;
+						var numberOfUnexpectedReportingClausesMatched = 0;
 						if (numberOfVernBlocksInVerseChunk - i >= 2)
 						{
 							// Look from the bottom up
@@ -603,17 +604,23 @@ namespace GlyssenEngine
 								vernBlockInVerseChunk = vernBlockList[iCurrVernBottomUp];
 								if (vernBlockInVerseChunk.MatchesReferenceText)
 									break;
-								refBlockInVerseChunk = refBlockList[indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - j - 1];
+								refBlockInVerseChunk = refBlockList[indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - j - 1 + numberOfUnexpectedReportingClausesMatched];
 								if (BlocksMatch(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification))
 								{
 									vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockInVerseChunk);
+									iLastVernBlockMatchedFromBottomUp = iCurrVernBottomUp;
+								}
+								else if (reportingClauses != null &&
+									TryMatchToReportingClause(bookNum, vernBlockList, iCurrVernBottomUp, reportingClauses, vernacularVersification))
+								{
+									numberOfUnexpectedReportingClausesMatched++;
 									iLastVernBlockMatchedFromBottomUp = iCurrVernBottomUp;
 								}
 								else
 									break;
 							}
 						}
-						var numberOfUnmatchedRefBlocks = numberOfRefBlocksInVerseChunk - i - j;
+						var numberOfUnmatchedRefBlocks = numberOfRefBlocksInVerseChunk - i - j + numberOfUnexpectedReportingClausesMatched;
 						var remainingRefBlocks = refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfUnmatchedRefBlocks).ToList();
 						if (numberOfVernBlocksInVerseChunk == 1 && numberOfUnmatchedRefBlocks > 1)
 						{
@@ -626,7 +633,9 @@ namespace GlyssenEngine
 							var remainingRefBlocksList = remainingRefBlocks.ToList();
 							if (!remainingRefBlocksList.Any())
 							{
-								// do nothing (PG-1085)
+								if (j + i == numberOfVernBlocksInVerseChunk - 1)
+									TryMatchToReportingClause(bookNum, vernBlockList, iVernBlock, reportingClauses, vernacularVersification);
+								// else do nothing (PG-1085)
 							}
 							else if (forceMatch)
 							{
@@ -705,7 +714,40 @@ namespace GlyssenEngine
 				var indexOfLastVernVerseInVerseChunk = indexOfVernVerseStart + numberOfVernBlocksInVerseChunk - 1;
 				if (vernBlockList[indexOfLastVernVerseInVerseChunk].ReferenceBlocks.Any())
 					iVernBlock = indexOfLastVernVerseInVerseChunk;
+				else if (numberOfVernBlocksInVerseChunk == numberOfRefBlocksInVerseChunk + 1)
+				{
+					if (vernBlockList[indexOfLastVernVerseInVerseChunk].TryMatchToReportingClause(reportingClauses, this, bookNum, vernacularVersification))
+						iVernBlock = indexOfLastVernVerseInVerseChunk;
+				}
 			}
+		}
+
+		private bool TryMatchToReportingClause(int bookNum, IReadOnlyList<Block> vernBlockList, int iVernBlock,
+			IReadOnlyCollection<string> reportingClauses, ScrVers vernacularVersification)
+		{
+			if (reportingClauses == null || !vernBlockList[iVernBlock].TryMatchToReportingClause(reportingClauses, this, bookNum, vernacularVersification))
+				return false;
+
+			// At least to date, reference texts do not have verse bridges. If the vernacular were to have a verse bridge
+			// we at least want to find and remove the corresponding verse number at the start of the reference text of
+			// the subsequent block. This could still leave a spurious duplicate verse number later in that reference block
+			// but this should be quite rare.
+			if (vernBlockList[iVernBlock].ReferenceBlocks.Single().BlockElements.First() is Verse v &&
+				vernBlockList.Count > iVernBlock + 1 &&
+				(vernBlockList[iVernBlock + 1].ReferenceBlocks.OnlyOrDefault()?.BlockElements.FirstOrDefault() as Verse)?.StartVerse == v.StartVerse)
+			{
+				vernBlockList[iVernBlock + 1].ReferenceBlocks[0].BlockElements.RemoveAt(0);
+				if (HasSecondaryReferenceText)
+				{
+					// At least to date, all reference texts use the same (English) versification and more-or-less have verse numbers
+					// align. This might not be perfect (in that it could occasionally allow a duplicate verse number to appear in the
+					// reference text where the numbers do not exactly align), but we can safely assume that if there is a verse
+					// number in the secondary reference text, it is the corresponding one and can be removed.
+					if (vernBlockList[iVernBlock + 1].ReferenceBlocks[0].ReferenceBlocks[0].BlockElements.FirstOrDefault() is Verse)
+						vernBlockList[iVernBlock + 1].ReferenceBlocks[0].ReferenceBlocks[0].BlockElements.RemoveAt(0);
+				}
+			}
+			return true;
 		}
 
 		private static void CombineRefBlocksToCreateMatch(List<Block> remainingRefBlocksList, Block vernBlock, bool clone)

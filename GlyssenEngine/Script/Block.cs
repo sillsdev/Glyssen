@@ -373,6 +373,50 @@ namespace GlyssenEngine.Script
 
 		public int CountOfSoundsWhereUserSpecifiesLocation => BlockElements.OfType<Sound>().Count(s => s.UserSpecifiesLocation);
 
+		public bool TryMatchToReportingClause(IReadOnlyCollection<string> reportingClauses, ReferenceText referenceText, int bookNum, ScrVers vernacularVersification)
+		{
+			if (MatchesReferenceText || reportingClauses == null ||
+				!reportingClauses.Contains(BlockElements.OfType<ScriptText>().OnlyOrDefault()?.Content.Trim()))
+			{
+				return false;
+			}
+
+			SetMatchedReferenceBlock(referenceText.HeSaidText);
+			var verse = BlockElements.First() as Verse;
+			string verseNumberToInsert = verse?.Number;
+			// ENHANCE: convert the vernacular verse number into the versification of the reference text(s).
+			if (verse != null)
+			{
+				if (vernacularVersification != referenceText.Versification)
+				{
+					var vernStartVerseRef = new VerseRef(bookNum, ChapterNumber, verse.StartVerse, vernacularVersification);
+					vernStartVerseRef.ChangeVersification(referenceText.Versification);
+					verseNumberToInsert = vernStartVerseRef.Verse;
+					var vernLastVerseOfBridge = verse.LastVerseOfBridge;
+					if (vernLastVerseOfBridge > 0)
+					{
+						var vernEndVerseRef = new VerseRef(bookNum, ChapterNumber, vernLastVerseOfBridge, vernacularVersification);
+						vernEndVerseRef.ChangeVersification(referenceText.Versification);
+						if (vernEndVerseRef.VerseNum != vernStartVerseRef.VerseNum)
+						{
+							// ENHANCE: Handle case where versification difference puts the end verse in a subsequent chapter.
+							verseNumberToInsert += "-" + vernEndVerseRef.Verse;
+						}
+					}
+				}
+				ReferenceBlocks[0].BlockElements.Insert(0, new Verse(verseNumberToInsert));
+			}
+
+			if (referenceText.HasSecondaryReferenceText)
+			{
+				var refBlock = ReferenceBlocks.Single();
+				refBlock.SetMatchedReferenceBlock(referenceText.BackingReferenceLanguage.HeSaidText);
+				if (verse != null)
+					refBlock.ReferenceBlocks[0].BlockElements.Insert(0, new Verse(verseNumberToInsert));
+			}
+			return true;
+		}
+
 		public void SetMatchedReferenceBlockFrom(Block sourceBlock)
 		{
 			ReferenceBlocks = new List<Block> {sourceBlock.ReferenceBlocks.Single().Clone(ReferenceBlockCloningBehavior.CloneListAndAllReferenceBlocks)};

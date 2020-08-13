@@ -477,19 +477,6 @@ namespace GlyssenEngine.Script
 			return !blockIndices.Any(i => CorrelatedBlocks[i].CharacterIsStandard);
 		}
 
-		public void MatchHeSaidBlocks(IReadOnlyCollection<string> reportingClauses)
-		{
-			if (reportingClauses == null || !reportingClauses.Any())
-				return;
-			foreach (var block in CorrelatedBlocks.Where(b => !b.MatchesReferenceText &&
-				reportingClauses.Contains(b.BlockElements.OfType<ScriptText>().OnlyOrDefault()?.Content.Trim())))
-			{
-				block.SetMatchedReferenceBlock(m_referenceLanguageInfo.HeSaidText);
-				if (m_referenceLanguageInfo.HasSecondaryReferenceText)
-					block.ReferenceBlocks.Single().SetMatchedReferenceBlock(m_referenceLanguageInfo.BackingReferenceLanguage.HeSaidText);
-			}
-		}
-
 		public override string ToString()
 		{
 			return $"Matchup for {OriginalBlocks.FirstOrDefault()?.ToString(true, BookId)} and {OriginalBlockCount} following blocks.";

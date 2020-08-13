@@ -208,6 +208,7 @@ namespace Glyssen.Shared
 	public class Pause : ScriptAnnotation
 	{
 		public const string kPauseSecondsFormat = "||| + {0} SECs |||";
+		public const string kPauseOneMinute = "||| + 1 MINUTE |||";
 
 		[XmlAttribute("timeUnits")]
 		[DefaultValue(TimeUnits.Seconds)]
@@ -221,7 +222,7 @@ namespace Glyssen.Shared
 			if (TimeUnits == TimeUnits.Seconds)
 				return string.Format(kPauseSecondsFormat, Time);
 			if (Time == 1.0d)
-				return "||| + 1 MINUTE |||";
+				return kPauseOneMinute;
 			Debug.Fail("No code for displaying this annotation: " + ToString());
 			return string.Empty;
 		}

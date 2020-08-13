@@ -91,11 +91,11 @@ namespace Glyssen.Dialogs
 					ParatextScrTextWrapper.kParatextProgramName);
 		}
 
-		protected override void OnVisibleChanged(EventArgs e)
+		protected override void OnShown(EventArgs e)
 		{
-			base.OnVisibleChanged(e);
+			base.OnShown(e);
 			var project = m_model.Project;
-			if (IsHandleCreated && Visible && m_model.IsLiveParatextProject &&
+			if (IsHandleCreated && m_model.IsLiveParatextProject &&
 				(project.QuoteSystemStatus & QuoteSystemStatus.ParseReady) != 0)
 			{
 				var paratextProj = project.GetParatextScrTextWrapper();
@@ -113,7 +113,7 @@ namespace Glyssen.Dialogs
 						m_model.ParatextProjectName,
 						GlyssenInfo.Product,
 						LocalizedUpdateButtonName);
-					MessageBox.Show(msg, Text, MessageBoxButtons.OK);
+					MessageBox.Show(this, msg, Text, MessageBoxButtons.OK);
 				}
 			}
 		}
