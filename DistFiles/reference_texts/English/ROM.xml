@@ -310,11 +310,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture">
     <verse num="12" />
-    <text>They have all turned aside. They have together become unprofitable. There is no one who does good, no, not, so much as one.”</text>
+    <text>They have all turned away. They have together become unprofitable. There is no one who does good, no, not, so much as one.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="scripture">
     <verse num="13" />
-    <text>“Their throat is an open tomb. With their tongues they have used deceit.” “The poison of vipers is under their lips”;</text>
+    <text>“Their throat is an open tomb. With their tongues they have used deceit.” “The poison of vipers is under their lips.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="scripture">
     <verse num="14" />
@@ -1047,7 +1047,7 @@
     <text>But indeed, O man, who are you to reply against God?</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="20" characterId="scripture">
-    <text>“Will the thing formed ask him who formed it, Why did you make me like this?”</text>
+    <text>“Will the thing formed ask him who formed it, ‘Why did you make me like this?’”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-ROM">
     <verse num="21" />
@@ -1145,11 +1145,12 @@
     <text>“Don’t say in your heart, ‘Who will ascend into heaven?’</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="narrator-ROM">
-    <text>(that is, to bring Christ down);</text>
+    <text>(that is, to bring Christ down); </text>
+    <verse num="7" />
+    <text>or,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="God">
-    <verse num="7" />
-    <text>or, ‘Who will descend into the abyss?’</text>
+    <text>‘Who will descend into the abyss?’</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="narrator-ROM">
     <text>(that is, to bring Christ up from the dead.)”</text>
