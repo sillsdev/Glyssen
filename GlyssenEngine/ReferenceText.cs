@@ -486,10 +486,12 @@ namespace GlyssenEngine
 					continue;
 				}
 
+				var omittedHeSaids = 0;
+
 				for (int i = 0; i < numberOfVernBlocksInVerseChunk && i < numberOfRefBlocksInVerseChunk; i++)
 				{
 					var vernBlockInVerseChunk = vernBlockList[indexOfVernVerseStart + i];
-					var refBlockInVerseChunk = refBlockList[indexOfRefVerseStart + i];
+					var refBlockInVerseChunk = refBlockList[indexOfRefVerseStart + i + omittedHeSaids];
 					if (BlocksMatch(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification))
 					{
 						if (i == numberOfVernBlocksInVerseChunk - 1 && i < numberOfRefBlocksInVerseChunk - 1)
@@ -549,6 +551,14 @@ namespace GlyssenEngine
 							else
 								vernBlockList[iVernBlock].SetUnmatchedReferenceBlocks(new[] {refBlockInVerseChunk});
 						}
+					}
+					else if (vernBlockInVerseChunk.IsQuote &&
+						refBlockInVerseChunk.CharacterIs(bookId, CharacterVerseData.StandardCharacter.Narrator) &&
+						(refBlockInVerseChunk.BlockElements.OnlyOrDefault() as ScriptText)?.Content.ToLowerWithTrailingPunctuationTrimmed() ==
+						HeSaidText.ToLowerWithTrailingPunctuationTrimmed())
+					{
+						i--;
+						omittedHeSaids++;
 					}
 					// Consider case where the vernacular uses a verse bridge for verses that have
 					// a quote, but would otherwise align neatly with the reference text. (This
@@ -620,7 +630,7 @@ namespace GlyssenEngine
 									break;
 							}
 						}
-						var numberOfUnmatchedRefBlocks = numberOfRefBlocksInVerseChunk - i - j + numberOfUnexpectedReportingClausesMatched;
+						var numberOfUnmatchedRefBlocks = numberOfRefBlocksInVerseChunk - i - j + numberOfUnexpectedReportingClausesMatched - omittedHeSaids;
 						var remainingRefBlocks = refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfUnmatchedRefBlocks).ToList();
 						if (numberOfVernBlocksInVerseChunk == 1 && numberOfUnmatchedRefBlocks > 1)
 						{

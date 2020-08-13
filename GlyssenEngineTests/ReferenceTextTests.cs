@@ -19,6 +19,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using GlyssenEngine.Utilities;
 using static System.String;
 using Resources = GlyssenEngineTests.Properties.Resources;
 
@@ -4402,6 +4403,49 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(5, result.Count);
 			var textOfMatchedAndUnmatchedRefTextBlocks = result.SelectMany(b => b.ReferenceBlocks).Select(r => r.GetText(true)).ToHashSet();
 			Assert.IsTrue(textOfRefTextBlocks.IsSubsetOf(textOfMatchedAndUnmatchedRefTextBlocks));
+		}
+		#endregion
+
+		#region PG-1396
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_ReportingClauseComesAfterDialogueInsteadOfBetweenSpeakers_InterveningReportingClauseOmitted()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(40, "Амма Исади, адахъ элкъвена, лагьана: ", false, 7, "LUK"));
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "«Симун! Захъ ваз лугьудай са гаф ава». ");
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "«Лагь, Муаллим», ");
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "– лагьана ада. ");
+			var vernBook = new BookScript("LUK", vernacularBlocks, m_vernVersification);
+
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refTextBlocks = refText.GetBook("LUK").GetBlocksForVerse(7, 40).ToList();
+			Assert.AreEqual(4, refTextBlocks.Count, "SETUP check - expected English reference text to have four blocks for Luke 7:40.");
+			Assert.AreEqual("Jesus", refTextBlocks[1].CharacterId,
+				"SETUP check - expected English reference text to have Jesus speak in second block for Luke 7:40.");
+			Assert.IsTrue(((ScriptText)refTextBlocks[1].BlockElements.Single()).Content.TrimEnd().EndsWith("”"),
+				"SETUP check - expected English reference text to have Jesus' words in quotes for Luke 7:40.");
+			Assert.AreEqual(refText.HeSaidText.ToLowerWithTrailingPunctuationTrimmed(),
+				refTextBlocks[2].GetText(false).ToLowerWithTrailingPunctuationTrimmed(),
+				"SETUP check - expected English reference text to have reporting clause between two speakers");
+			Assert.AreEqual("Pharisee (Simon)", refTextBlocks.Last().CharacterId,
+				"SETUP check - expected English reference text to have Pharisee (Simon) speak in final block for Luke 7:40.");
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, new []{"– лагьана ада."});
+			var result = matchup.CorrelatedBlocks;
+			Assert.AreEqual(4, result.Count);
+			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
+			Assert.AreEqual(refTextBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true),
+				"Expected the first narrator block in the English reference text to be matched to the first block of matchup for Luke 7:40.");
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, result[1].CharacterId,
+				"Speaker not expected to be automatically assigned in Jesus' block of matchup for Luke 7:40.");
+			Assert.AreEqual(refTextBlocks[1].GetText(true), result[1].ReferenceBlocks.Single().GetText(true),
+				"Expected the block with Jesus speaking in the English reference text to be matched to the second block of matchup for Luke 7:40.");
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, result[2].CharacterId,
+				"Speaker not expected to be automatically assigned in Pharisee (Simon)'s block of matchup for Luke 7:40.");
+			Assert.AreEqual(refTextBlocks.Last().GetText(true), result[2].ReferenceBlocks.Single().GetText(true),
+				"Expected the block with Pharisee (Simon) speaking in the English reference text to be matched to the third block of matchup for Luke 7:40.");
+			Assert.AreEqual(refText.HeSaidText, result.Last().ReferenceBlocks.Single().GetText(true),
+				"Expected last block of matchup for Luke 7:40 to match up to a generated \"he said\" block.");
 		}
 		#endregion
 

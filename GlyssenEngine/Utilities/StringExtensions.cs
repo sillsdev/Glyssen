@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using SIL.Unicode;
 
 namespace GlyssenEngine.Utilities
@@ -63,6 +64,12 @@ namespace GlyssenEngine.Utilities
 		{
 			return Path.GetFileName(Path.GetDirectoryName(text));
 		}
+
+		private static readonly Regex s_regexTrimTrailingNonWordforming = new Regex(@"(\w|\s)+\w", RegexOptions.Compiled);
+
+
+		public static string ToLowerWithTrailingPunctuationTrimmed(this string text) =>
+			s_regexTrimTrailingNonWordforming.Match(text).Value.ToLowerInvariant();
 
 		/// <summary>
 		/// Truncates a string such that the resulting length is guaranteed to be no longer than
