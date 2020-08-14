@@ -619,7 +619,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture">
       <verse num="12" />
-      <text>They have all turned aside. They have together become unprofitable. There is no one who does good, no, not, so much as one.”</text>
+      <text>They have all turned away. They have together become unprofitable. There is no one who does good, no, not, so much as one.”</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>все совратились с пути, до одного негодны; нет делающего добро, нет ни одного.”</text>
@@ -627,7 +627,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="scripture">
       <verse num="13" />
-      <text>“Their throat is an open tomb. With their tongues they have used deceit.” “The poison of vipers is under their lips”; </text>
+      <text>“Their throat is an open tomb. With their tongues they have used deceit.” “The poison of vipers is under their lips.”</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>“Гортань их открытый гроб; языком своим обманывают; яд аспидов на губах их.”</text>
@@ -635,7 +635,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="scripture">
       <verse num="14" />
-      <text>“whose mouth is full of cursing and bitterness.”</text>
+      <text>“Their mouth is full of cursing and bitterness.”</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>“Уста их полны злословия и горечи.”</text>
@@ -2094,7 +2094,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="20" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" chapter="9" initialStartVerse="20" characterId="scripture">
-      <text>“Will the thing formed ask him who formed it, Why did you make me like this?”</text>
+      <text>“Will the thing formed ask him who formed it, ‘Why did you make me like this?’”</text>
     </ReferenceBlocks>
     <text>Изделие скажет ли сделавшему его: 'зачем ты меня так сделал?'</text>
   </block>
@@ -2290,17 +2290,19 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="narrator-ROM">
-      <text>(that is, to bring Christ down);</text>
+      <text>(that is, to bring Christ down); </text>
+      <verse num="7" />
+      <text>or,</text>
     </ReferenceBlocks>
-    <text>то есть Христа свести.</text>
+    <text>то есть Христа свести. </text>
+    <verse num="7" />
+    <text>Или</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="God" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="God">
-      <verse num="7" />
-      <text>or, ‘Who will descend into the abyss?’</text>
+      <text>‘Who will descend into the abyss?’</text>
     </ReferenceBlocks>
-    <verse num="7" />
-    <text>Или кто сойдет в бездну?</text>
+    <text>кто сойдет в бездну?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="narrator-ROM">

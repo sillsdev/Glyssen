@@ -1886,9 +1886,9 @@ namespace Glyssen.RefTextDevUtilities
 				return false; // This will have already been reported.
 			// Even when not ignoring (internal) whitespace differences, we probably want to ignore leading
 			// and trailing whitespace differences
-			var existingStr = existingBlock.GetText(true).Trim();
+			var existingStr = existingBlock.GetText(true, true).Trim();
 			var excelStrWithoutAnnotations = s_annotationDelimitedWith3VerticalBarsRegex.Replace(excelStr, "");
-			excelStrWithoutAnnotations = s_annotationInCurlyBracesRegex.Replace(excelStrWithoutAnnotations, "").Trim();
+			excelStrWithoutAnnotations = s_musicOrNonF8SoundAnnotationInCurlyBracesRegex.Replace(excelStrWithoutAnnotations, "").Trim();
 			
 			var indexOfFirstDifference = DiffersAtIndex(excelStrWithoutAnnotations, existingStr);
 			if (indexOfFirstDifference == -1)
@@ -2167,6 +2167,7 @@ namespace Glyssen.RefTextDevUtilities
 		private static string RegexEscapedDoNotCombine => Regex.Escape(Sound.kDoNotCombine) + " ";
 
 		private const string k3Bars = @"\|\|\|";
+		private static readonly Regex s_musicOrNonF8SoundAnnotationInCurlyBracesRegex = new Regex("{(M|S).*?}", RegexOptions.Compiled);
 		private static readonly Regex s_annotationInCurlyBracesRegex = new Regex("{[^0-9]+.*?}", RegexOptions.Compiled);
 		private static readonly Regex s_annotationDelimitedWith3VerticalBarsRegex = new Regex($" {k3Bars}.*?{k3Bars} ?", RegexOptions.Compiled);
 		private static readonly Regex s_anyAnnotationRegex = new Regex($"{RegexEscapedDoNotCombine}{s_annotationInCurlyBracesRegex}|{s_annotationInCurlyBracesRegex}|{s_annotationDelimitedWith3VerticalBarsRegex}", RegexOptions.Compiled);

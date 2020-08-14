@@ -2973,7 +2973,9 @@
       <text>death, mourning, and famine; and she will be utterly burned with fire; for the Lord God who has judged her is strong.”</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>За то в один день придут на нее казни, смерть и плач и голод, и будет сожжена огнем, потому что силен Господь Бог, судящий ее.”</text>
+    <text>“За то в один день придут на нее казни, </text>
+    <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
+    <text>смерть и плач и голод, и будет сожжена огнем, потому что силен Господь Бог, судящий ее.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="9" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="9" characterId="narrator-REV">
@@ -2995,8 +2997,8 @@
     <verse num="10" />
     <text>стоя издали от страха мучений ее и говоря:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="kings of the earth" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="kings of the earth">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="kings of the earth" delivery="weeping" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="kings of the earth" delivery="weeping">
       <text>“Woe, woe, the great city, Babylon, the strong city! For your judgment has come in one hour.”</text>
     </ReferenceBlocks>
     <text>“горе, горе тебе, великий город Вавилон, город крепкий! ибо в один час пришел суд твой.”</text>
