@@ -134,5 +134,22 @@ See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.
       <HintPath>..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
     </Reference>
   </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="../DistFiles/reference_texts/**/???.xml;../DistFiles/reference_texts/**/*.glyssen">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <Pack>true</Pack>
+      <PackagePath>build/reference_texts</PackagePath>
+    </None>
+    <None Include="../DistFiles/sfm/usfm.sty">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <Pack>true</Pack>
+      <PackagePath>build/sfm</PackagePath>
+    </None>
+    <Content Include="GlyssenEngine.targets">
+      <Pack>true</Pack>
+      <PackagePath>build</PackagePath>
+    </Content>
+  </ItemGroup>
 
 </Project>

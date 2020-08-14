@@ -17,6 +17,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 
+## [1.4.0] - 2020-07-08
+
+### Added
+
+- GlyssenEngine nuget package now contains the reference text files and usfm.sty.
+
 ## [1.3.13] - 2020-06-15
 
 ### Changed

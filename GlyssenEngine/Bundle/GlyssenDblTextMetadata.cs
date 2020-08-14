@@ -93,6 +93,7 @@ namespace GlyssenEngine.Bundle
 
 		private string m_originalReleaseBundlePath;
 		private string m_paratextProjectId;
+		private string m_versification;
 
 		// Needed for deserialization
 		public GlyssenDblTextMetadata()
@@ -104,7 +105,11 @@ namespace GlyssenEngine.Bundle
 		/// </summary>
 		[XmlAttribute("versification")]
 		[DefaultValue("English")]
-		public string Versification { get; set; }
+		public string Versification
+		{
+			get => m_versification ?? "English";
+			set => m_versification = value;
+		}
 
 		[XmlAttribute("chapterannouncement")]
 		[DefaultValue(ChapterAnnouncement.PageHeader)]
