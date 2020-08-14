@@ -4518,10 +4518,10 @@
     <text>Mary Magdalene came and told the disciples:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="18" characterId="Mary Magdalene">
-    <text>“I have seen the Lord!”,</text>
+    <text>“I have seen the Lord!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="18" characterId="narrator-JHN">
-    <text>and she told them what he had said to her.</text>
+    <text>And she told them what he had said to her.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="19" characterId="narrator-JHN">
     <verse num="19" />

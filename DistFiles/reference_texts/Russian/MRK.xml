@@ -2744,7 +2744,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="Jesus" delivery="rebuking" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="Jesus" delivery="rebuking">
       <verse num="11" />
-      <text>But you say, ‘If a man tells his father or his mother, “Whatever profit you might have received from me is Corban, that is to say, given to God;”’</text>
+      <text>But you say, ‘If a man tells his father or his mother, “Whatever profit you might have received from me is Corban,”’ that is to say, given to God;</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>А вы говорите: кто скажет отцу или матери: корван, то есть дар Богу то, чем бы ты от меня пользовался,”</text>
@@ -6496,7 +6496,7 @@
     <text>Тогда первосвященник, разодрав одежды свои, сказал:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="63" characterId="Caiaphas, the high priest" delivery="screaming" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="63" characterId="Caiaphas, the high priest" delivery="screaming">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="63" characterId="Caiaphas, the high priest" delivery="indignant">
       <text>“What further need have we of witnesses? </text>
       <verse num="64" />
       <text>You have heard the blasphemy! What do you think?”</text>
@@ -6636,7 +6636,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="72" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="72" characterId="narrator-MRK">
       <verse num="72" />
-      <text>The rooster crowed the second time. Peter remembered the word, how that Jesus said to him, “Before the rooster crows twice, you will deny me three times.”  When he thought about that, he wept.</text>
+      <text>The rooster crowed the second time. Peter remembered the word, how that Jesus said to him, “Before the rooster crows twice, you will deny me three times.” When he thought about that, he wept.</text>
     </ReferenceBlocks>
     <verse num="72" />
     <text>Тогда петух запел во второй раз. И вспомнил Петр слово, сказанное ему Иисусом: “прежде нежели петух пропоет дважды, трижды отречешься от Меня”; и начал плакать.</text>
