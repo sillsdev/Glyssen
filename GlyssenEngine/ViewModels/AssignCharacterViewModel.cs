@@ -10,6 +10,7 @@ using SIL.Scripture;
 using CollectionExtensions = SIL.Extensions.CollectionExtensions;
 using SIL;
 using SIL.Reporting;
+using SIL.Extensions;
 
 namespace GlyssenEngine.ViewModels
 {

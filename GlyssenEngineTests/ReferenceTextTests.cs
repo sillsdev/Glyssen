@@ -202,7 +202,7 @@ namespace GlyssenEngineTests
 			referenceBlocks.Add(CreateNarratorBlockForVerse(3, "I hope you enjoy your flight. "));
 			referenceBlocks.Add(CreateNarratorBlockForVerse(4, "The end. "));
 
-			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks, ReferenceTextType.English);
 
 			refText.ApplyTo(vernBook);
 
@@ -1025,7 +1025,7 @@ namespace GlyssenEngineTests
 			AddNarratorBlockForVerseInProgress(referenceBlocks,
 				"and he touched his ear, and healed him.", "LUK");
 
-			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks, ReferenceTextType.English);
 
 			using (new ErrorReport.NoNonFatalErrorReportExpected())
 				refText.ApplyTo(vernBook);
@@ -1268,7 +1268,7 @@ namespace GlyssenEngineTests
 
 			var orig = Join("", referenceBlocks.Select(r => r.GetText(true)));
 
-			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks, ReferenceTextType.English);
 
 			refText.ApplyTo(vernBook);
 
@@ -2103,7 +2103,7 @@ namespace GlyssenEngineTests
 			referenceBlocks.Add(CreateNarratorBlockForVerse(7, "I hope you enjoy your flight. ", false, 8, "EXO"));
 			referenceBlocks.Add(CreateNarratorBlockForVerse(8, "The end. ", false, 8, "EXO"));
 
-			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks, ReferenceTextType.English);
 
 			refText.ApplyTo(vernBook);
 
@@ -4408,7 +4408,7 @@ namespace GlyssenEngineTests
 
 		#region PG-1396
 		[Test]
-		public void GetBlocksForVerseMatchedToReferenceText_ReportingClauseComesAfterDialogueInsteadOfBetweenSpeakers_InterveningReportingClauseOmitted()
+		public void GetBlocksForVerseMatchedToReferenceText_SimpleReportingClauseComesAfterDialogueInsteadOfBetweenSpeakers_InterveningReportingClauseOmitted()
 		{
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(40, "Амма Исади, адахъ элкъвена, лагьана: ", false, 7, "LUK"));
@@ -4430,7 +4430,7 @@ namespace GlyssenEngineTests
 			Assert.AreEqual("Pharisee (Simon)", refTextBlocks.Last().CharacterId,
 				"SETUP check - expected English reference text to have Pharisee (Simon) speak in final block for Luke 7:40.");
 
-			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, new []{"– лагьана ада."});
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, new []{"– лагьана ада.", "– лагьана Исади. –", "– жаваб гана абуру."});
 			var result = matchup.CorrelatedBlocks;
 			Assert.AreEqual(4, result.Count);
 			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
@@ -4446,6 +4446,84 @@ namespace GlyssenEngineTests
 				"Expected the block with Pharisee (Simon) speaking in the English reference text to be matched to the third block of matchup for Luke 7:40.");
 			Assert.AreEqual(refText.HeSaidText, result.Last().ReferenceBlocks.Single().GetText(true),
 				"Expected last block of matchup for Luke 7:40 to match up to a generated \"he said\" block.");
+		}
+
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_ReportingClauseContainingHeSaidComesAfterSpeechInsteadOfAtStartOfVerse_InterveningReportingClauseOmitted()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateBlockForVerse("Jesus", 18, "«Заз цӀайлапан хьиз цаварай аватай иблис акуна», ", false, 10));
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "– лагьана Исади. – ", "LUK");
+			vernacularBlocks.Add(CreateBlockForVerse("Jesus", 19, "«Ингье, За квез гъуьлягърални... ", false, 10));
+			var vernBook = new BookScript("LUK", vernacularBlocks, m_vernVersification);
+
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refTextBlocks = refText.GetBook("LUK").GetBlocksForVerse(10, 18).ToList();
+			Assert.AreEqual(2, refTextBlocks.Count, "SETUP check - expected English reference text to have two blocks for Luke 10:18.");
+			Assert.AreNotEqual(refTextBlocks[0].StartsAtVerseStart,
+				"SETUP check - expected the first English reference text for Luke 10:18 to start at the beginning of v 18.");
+			var refTextHeSaidLowercase = refText.HeSaidText.ToLowerWithTrailingPunctuationTrimmed();
+			var refTextActualReportingClauseLowercase = refTextBlocks[0].GetText(false).ToLowerWithTrailingPunctuationTrimmed();
+			Assert.AreNotEqual(refTextHeSaidLowercase,
+				refTextActualReportingClauseLowercase,
+				"SETUP check - expected the initial reporting clause in the English reference text to have additional words besides \"he said\".");
+			Assert.IsTrue(refTextActualReportingClauseLowercase.Contains(refTextHeSaidLowercase),
+				"SETUP check - expected the initial reporting clause in the English reference text to contain \"he said\".");
+			Assert.AreEqual("Jesus", refTextBlocks[1].CharacterId,
+				"SETUP check - expected English reference text to have Jesus speak in second block for Luke 10:18.");
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, new []{"– лагьана ада.", "– лагьана Исади. –", "– жаваб гана абуру."});
+			var result = matchup.CorrelatedBlocks;
+			Assert.AreEqual(2, result.Count);
+			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
+			var firstMatchedRefBlock = result[0].ReferenceBlocks.Single();
+			Assert.IsTrue(firstMatchedRefBlock.StartsAtVerseStart && firstMatchedRefBlock.InitialStartVerseNumber == 18,
+				"Expected the matched reference text of the first block to start with v 18.");
+			Assert.AreEqual("Jesus", result[0].CharacterId);
+			Assert.AreEqual("Jesus", firstMatchedRefBlock.CharacterId);
+			Assert.AreEqual(refTextBlocks[1].GetText(false), firstMatchedRefBlock.GetText(false),
+				"Expected the block with Jesus speaking in the English reference text to be matched to the first block of matchup for Luke 10:18.");
+			var lastMatchedRefBlock = result.Last().ReferenceBlocks.Single();
+			Assert.AreEqual(refTextBlocks[0].CharacterId, lastMatchedRefBlock.CharacterId,
+				"Expected last block of matchup for Luke 10:18 to be spoken by the narrator.");
+			Assert.AreEqual(refTextActualReportingClauseLowercase + ".", lastMatchedRefBlock.GetText(true),
+				"Expected last block of matchup for Luke 10:18 to match up to the modified omitted \"he said\" block.");
+		}
+
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_ComplexReportingClauseComesAfterSpeechInsteadOfAtStartOfVerse_InterveningReportingClauseOmitted()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateBlockForVerse("Jesus", 19, "«Чам чпихъ галамай кьван гагьда мехъерин мугьманривай сив хвена акъвазиз жедани?» ", false, 2));
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "– лагьана Исади. – ", "MRK");
+			var vernBook = new BookScript("MRK", vernacularBlocks, m_vernVersification);
+
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refTextBlocks = refText.GetBook("MRK").GetBlocksForVerse(2, 19).ToList();
+			Assert.AreEqual(2, refTextBlocks.Count, "SETUP check - expected English reference text to have two blocks for Mark 2:19.");
+			Assert.AreNotEqual(refTextBlocks[0].StartsAtVerseStart,
+				"SETUP check - expected the first English reference text for Mark 2:19 to start at the beginning of v 19.");
+			Assert.AreEqual("Jesus said to them,", refTextBlocks[0].GetText(false).Trim(),
+				"SETUP check - unexpected initial reporting clause in the English reference text.");
+			Assert.AreEqual("Jesus", refTextBlocks[1].CharacterId,
+				"SETUP check - expected English reference text to have Jesus speak in second block for Mark 2:19.");
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, new []{"– лагьана ада.", "– лагьана Исади. –", "– жаваб гана абуру."});
+			var result = matchup.CorrelatedBlocks;
+			Assert.AreEqual(2, result.Count);
+			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
+			var firstMatchedRefBlock = result[0].ReferenceBlocks.Single();
+			Assert.IsTrue(firstMatchedRefBlock.StartsAtVerseStart && firstMatchedRefBlock.InitialStartVerseNumber == 19,
+				"Expected the matched reference text of the first block to start with v 19.");
+			Assert.AreEqual("Jesus", result[0].CharacterId);
+			Assert.AreEqual("Jesus", firstMatchedRefBlock.CharacterId);
+			Assert.AreEqual(refTextBlocks[1].GetText(false), firstMatchedRefBlock.GetText(false),
+				"Expected the block with Jesus speaking in the English reference text to be matched to the first block of matchup for Mark 2:19.");
+			var lastMatchedRefBlock = result.Last().ReferenceBlocks.Single();
+			Assert.AreEqual(refTextBlocks[0].CharacterId, lastMatchedRefBlock.CharacterId,
+				"Expected last block of matchup for Mark 2:19 to be spoken by the narrator.");
+			Assert.AreEqual("Jesus said to them.", lastMatchedRefBlock.GetText(true),
+				"Expected last block of matchup for Mark 2:19 to match up to a generated \"he said\" block.");
 		}
 		#endregion
 
@@ -4518,8 +4596,8 @@ namespace GlyssenEngineTests
 
 	public class TestReferenceText : ReferenceText
 	{
-		private TestReferenceText(GlyssenDblTextMetadata metadata, BookScript book)
-			: base(metadata, ReferenceTextType.Custom)
+		private TestReferenceText(GlyssenDblTextMetadata metadata, BookScript book, ReferenceTextType type = ReferenceTextType.Custom)
+			: base(metadata, type)
 		{
 			if (Versification != null && book.Versification == null)
 				book.Initialize(Versification);
@@ -4545,9 +4623,9 @@ namespace GlyssenEngineTests
 			}
 		}
 
-		public static TestReferenceText CreateTestReferenceText(string bookId, IList<Block> blocks)
+		public static TestReferenceText CreateTestReferenceText(string bookId, IList<Block> blocks, ReferenceTextType type = ReferenceTextType.Custom)
 		{
-			return new TestReferenceText(NewMetadata, new BookScript(bookId, blocks, ScrVers.English)) { GetBookName = b => "The Gospel According to Thomas" };
+			return new TestReferenceText(NewMetadata, new BookScript(bookId, blocks, ScrVers.English), type) { GetBookName = b => "The Gospel According to Thomas" };
 		}
 
 		public static TestReferenceText CreateTestReferenceText(string bookScriptXml)

@@ -7,7 +7,7 @@
 pushd .
 REM Rather than hard-coding SemVer and MajorMinorPatch, a better long-term solution would be
 REM to install GitVersionTask in Glyssen.proj and import GitVersionTask.props and GitVersionTask.targets. Take a look how it's done in FLExBridge.proj (search for gitversiontask) (https://github.com/ermshiperete/flexbridge/blob/feature/nuget/build/FLExBridge.proj)
-MSbuild /target:Test /property:Configuration="Release" /property:Platform=x64 /property:ExtraExcludeCategories="SkipOnTeamCity" /property:GitVersion_SemVer="1.3.7-local" /property:GitVersion_MajorMinorPatch="1.3.7"
+MSbuild /target:Test /property:Configuration="Release" /property:Platform=x64 /property:ExtraExcludeCategories="SkipOnTeamCity" /property:GitVersion_SemVer="2.0.0-local" /property:GitVersion_MajorMinorPatch="2.0.0"
 popd
 PAUSE
 
