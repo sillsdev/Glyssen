@@ -5370,6 +5370,28 @@ namespace GlyssenEngineTests.Quote
 			Assert.AreEqual(CharacterVerse.kScriptureCharacter, output[5].CharacterId);
 		}
 		#endregion
+
+		[TestCase(19, 10, "6", "narrator-PSA")]
+		[TestCase(40, 7, "8", "Jesus")]
+		public void GetCharacters_ReferenceTextIsNull_ReturnsOnlyOneCharacterForVerse(int book, int chapter, string verse, string expectedCharacter)
+		{
+			var cvRepo = new ParserCharacterRepository(ControlCharacterVerseData.Singleton, null);
+
+			var character = cvRepo.GetCharacters(book, chapter, new Verse(verse));
+
+			Assert.AreEqual(expectedCharacter, character.First().ToString());
+		}
+
+		[Test]
+		public void GetCharacters_ReferenceTextIsNull_ReturnsMultipleCharactersForVerse()
+		{
+			var cvRepo = new ParserCharacterRepository(ControlCharacterVerseData.Singleton, null);
+
+			var character = cvRepo.GetCharacters(45, 2, new Verse("15"));
+
+			Assert.AreEqual("Gentiles", character.First().ToString());
+			Assert.AreEqual("Jews, the 8", character.Last().ToString());
+		}
 	}
 
 	[TestFixture]
