@@ -45,25 +45,30 @@ namespace GlyssenEngine.Quote
 				"narrator overrides. These should be applied only after user has done disambiguation.");
 			var result = m_cvInfo.GetCharacters(bookId, chapter, verses, versification,
 				includeAlternatesAndRareQuotes, includeNarratorOverrides);
-			var hypotheticalsToReplace = result.Where(cv =>
-				{
-					if (cv.QuoteType == QuoteType.Hypothetical)
-					{
-						var refTextBook = m_referenceText.GetBook(bookId);
-						if (refTextBook != null)
-							return !refTextBook.GetBlocksForVerse(chapter,
-								verses.First().StartVerse, verses.Last().EndVerse).Any(b => b.CharacterId == cv.Character);
-						// REVIEW: Should we replace hypotheticals if there is no reference text for this book?
-					}
-					return false;
-				}).Select(c => c.Character).ToList();
-			if (hypotheticalsToReplace.Any())
+			// m_referenceText will never be null for Glyssen users, so the test for null will not effect Glyssen.
+			// At this time, Vessel users never have a reference text, so this test prevents an exception being thrown.
+			// This logic may be changed in the future so that hypothetical speakers can be better handled. 
+			if (m_referenceText != null)
 			{
-				result.Add(new CharacterSpeakingMode(CharacterVerseData.GetStandardCharacterId(BCVRef.NumberToBookCode(bookId), CharacterVerseData.StandardCharacter.Narrator),
-					String.Empty, String.Empty, false, QuoteType.Quotation));
-				result.RemoveAll(e => e.QuoteType == QuoteType.Hypothetical && hypotheticalsToReplace.Contains(e.Character));
+				var hypotheticalsToReplace = result.Where(cv =>
+					{
+						if (cv.QuoteType == QuoteType.Hypothetical)
+						{
+							var refTextBook = m_referenceText.GetBook(bookId);
+							if (refTextBook != null)
+								return !refTextBook.GetBlocksForVerse(chapter,
+									verses.First().StartVerse, verses.Last().EndVerse).Any(b => b.CharacterId == cv.Character);
+							// REVIEW: Should we replace hypotheticals if there is no reference text for this book?
+						}
+						return false;
+					}).Select(c => c.Character).ToList();
+				if (hypotheticalsToReplace.Any())
+				{
+					result.Add(new CharacterSpeakingMode(CharacterVerseData.GetStandardCharacterId(BCVRef.NumberToBookCode(bookId), CharacterVerseData.StandardCharacter.Narrator),
+						String.Empty, String.Empty, false, QuoteType.Quotation));
+					result.RemoveAll(e => e.QuoteType == QuoteType.Hypothetical && hypotheticalsToReplace.Contains(e.Character));
+				}
 			}
-
 			return result;
 		}
 
