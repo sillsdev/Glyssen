@@ -5370,6 +5370,21 @@ namespace GlyssenEngineTests.Quote
 			Assert.AreEqual(CharacterVerse.kScriptureCharacter, output[5].CharacterId);
 		}
 		#endregion
+		
+		[Test]
+		public void Parse_GetCharactersWhenReferenceTestIsMissing()
+		{
+			var cvRepo = new ParserCharacterRepository(ControlCharacterVerseData.Singleton, null);
+
+			var character = cvRepo.GetCharacters(19, 10, new Verse("6"));
+			var character2 = cvRepo.GetCharacters(40, 7, new Verse("8"));
+			var character3 = cvRepo.GetCharacters(45, 2, new Verse("15"));
+
+			Assert.AreEqual("narrator-PSA", character.First().ToString());
+			Assert.AreEqual("Jesus", character2.First().ToString());
+			Assert.AreEqual("Gentiles", character3.First().ToString());
+			Assert.AreEqual("Jews, the 8", character3.Last().ToString());
+		}
 	}
 
 	[TestFixture]
