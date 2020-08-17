@@ -4422,10 +4422,6 @@ namespace GlyssenEngineTests
 		#endregion
 
 		#region PG-1396
-		//private static readonly Regex s_regexTrimTrailingNonWordForming = new Regex(@".*(\w|\s)+\w", RegexOptions.Compiled);
-		//public static string ToLowerWithTrailingPunctuationTrimmed(string text) =>
-		//	s_regexTrimTrailingNonWordForming.Match(text).Value.ToLowerInvariant();
-
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_SimpleReportingClauseComesAfterDialogueInsteadOfBetweenSpeakers_InterveningReportingClauseOmitted()
 		{
