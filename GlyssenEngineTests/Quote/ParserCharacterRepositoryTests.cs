@@ -28,12 +28,8 @@ namespace GlyssenEngineTests.Quote
 			var characters = cvRepo.GetCharacters(45, 2, new Verse("17"));
 
 			Assert.True(characters.Count == 2);
-			var firstCharacter = characters.First().ToString();
-			var lastCharacter = characters.Last().ToString();
-
-			Assert.True(firstCharacter != lastCharacter);
-			Assert.True(firstCharacter == "narrator-ROM" || lastCharacter == "narrator-ROM");
-			Assert.True(firstCharacter == "you (hypothetical)" || lastCharacter == "you (hypothetical)");
+			Assert.That(characters.Any(i => i.Character == "narrator-ROM"));
+			Assert.That(characters.Any(i => i.Character == "you (hypothetical)"));
 		}
 	}
 }
