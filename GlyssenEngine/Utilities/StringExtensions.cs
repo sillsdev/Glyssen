@@ -2,13 +2,22 @@
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using SIL.Unicode;
 
 namespace GlyssenEngine.Utilities
 {
 	public static class StringExtensions
 	{
+		/// <summary>
+		/// Deprecated: use GetOptionalAttributeValue instead.
+		/// </summary>
+		// ENHANCE: Sometime when we're making a breaking change, this can be removed.
+		[Obsolete("Use SIL.Extensions.StringExtensions.Contains instead")]
+		public static bool Contains(this string source, string toCheck, StringComparison comp)
+		{
+			return SIL.Extensions.StringExtensions.Contains(source, toCheck, comp);
+		}
+
 		public static string ReplaceFirst(this string text, string search, string replace)
 		{
 			int pos = text.IndexOf(search);
@@ -59,12 +68,6 @@ namespace GlyssenEngine.Utilities
 		{
 			return Path.GetFileName(Path.GetDirectoryName(text));
 		}
-
-		private static readonly Regex s_regexTrimTrailingNonWordforming = new Regex(@"(\w|\s)+\w", RegexOptions.Compiled);
-
-
-		public static string ToLowerWithTrailingPunctuationTrimmed(this string text) =>
-			s_regexTrimTrailingNonWordforming.Match(text).Value.ToLowerInvariant();
 
 		/// <summary>
 		/// Truncates a string such that the resulting length is guaranteed to be no longer than

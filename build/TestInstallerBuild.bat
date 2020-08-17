@@ -5,7 +5,7 @@
 @echo //call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\vsvars32.bat"
 
 pushd .
-MSbuild /target:SignIfPossible /property:teamcity_build_checkoutDir=..\ /property:Configuration="Release" /property:teamcity_dotnet_nunitlauncher_msbuild_task="notthere" /property:Platform=x64 /property:GitVersion_SemVer="2.0.0-local" /property:GitVersion_MajorMinorPatch="2.0.0"
+MSbuild /target:SignIfPossible /property:teamcity_build_checkoutDir=..\ /property:Configuration="Release" /property:teamcity_dotnet_nunitlauncher_msbuild_task="notthere" /property:Platform=x64 /property:GitVersion_SemVer="1.5.47-local" /property:GitVersion_MajorMinorPatch="1.5.47"
 popd
 PAUSE
 

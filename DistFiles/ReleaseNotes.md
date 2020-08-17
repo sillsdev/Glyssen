@@ -46,7 +46,7 @@ back-up plan.)
 
 # Release Notes
 
-## August 17 2020 Glyssen 2.0.0
+## August 17 2020 Glyssen 1.5.0
 Improved reference text logic when matching to reporting clauses ("he said" blocks) to prevent duplication.
 English and Russian reference texts updated to match v. 101 of the FCBH New Testament Director's Guide.
 

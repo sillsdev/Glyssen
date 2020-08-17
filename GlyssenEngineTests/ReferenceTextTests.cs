@@ -19,7 +19,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using GlyssenEngine.Utilities;
 using static System.String;
 using Resources = GlyssenEngineTests.Properties.Resources;
 
@@ -4423,6 +4422,10 @@ namespace GlyssenEngineTests
 		#endregion
 
 		#region PG-1396
+		//private static readonly Regex s_regexTrimTrailingNonWordForming = new Regex(@".*(\w|\s)+\w", RegexOptions.Compiled);
+		//public static string ToLowerWithTrailingPunctuationTrimmed(string text) =>
+		//	s_regexTrimTrailingNonWordForming.Match(text).Value.ToLowerInvariant();
+
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_SimpleReportingClauseComesAfterDialogueInsteadOfBetweenSpeakers_InterveningReportingClauseOmitted()
 		{
@@ -4440,9 +4443,9 @@ namespace GlyssenEngineTests
 				"SETUP check - expected English reference text to have Jesus speak in second block for Luke 7:40.");
 			Assert.IsTrue(((ScriptText)refTextBlocks[1].BlockElements.Single()).Content.TrimEnd().EndsWith("”"),
 				"SETUP check - expected English reference text to have Jesus' words in quotes for Luke 7:40.");
-			Assert.AreEqual(refText.HeSaidText.ToLowerWithTrailingPunctuationTrimmed(),
-				refTextBlocks[2].GetText(false).ToLowerWithTrailingPunctuationTrimmed(),
-				"SETUP check - expected English reference text to have reporting clause between two speakers");
+			Assert.AreEqual(refText.HeSaidText,
+				refTextBlocks[2].GetText(false).ToLower().Replace(",", "."),
+				"SETUP check - expected English reference text to have leading reporting clause between two speakers");
 			Assert.AreEqual("Pharisee (Simon)", refTextBlocks.Last().CharacterId,
 				"SETUP check - expected English reference text to have Pharisee (Simon) speak in final block for Luke 7:40.");
 
@@ -4478,8 +4481,8 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(2, refTextBlocks.Count, "SETUP check - expected English reference text to have two blocks for Luke 10:18.");
 			Assert.AreNotEqual(refTextBlocks[0].StartsAtVerseStart,
 				"SETUP check - expected the first English reference text for Luke 10:18 to start at the beginning of v 18.");
-			var refTextHeSaidLowercase = refText.HeSaidText.ToLowerWithTrailingPunctuationTrimmed();
-			var refTextActualReportingClauseLowercase = refTextBlocks[0].GetText(false).ToLowerWithTrailingPunctuationTrimmed();
+			var refTextHeSaidLowercase = refText.HeSaidText.ToLower().Trim('.');
+			var refTextActualReportingClauseLowercase = refTextBlocks[0].GetText(false).ToLower();
 			Assert.AreNotEqual(refTextHeSaidLowercase,
 				refTextActualReportingClauseLowercase,
 				"SETUP check - expected the initial reporting clause in the English reference text to have additional words besides \"he said\".");
@@ -4502,7 +4505,7 @@ namespace GlyssenEngineTests
 			var lastMatchedRefBlock = result.Last().ReferenceBlocks.Single();
 			Assert.AreEqual(refTextBlocks[0].CharacterId, lastMatchedRefBlock.CharacterId,
 				"Expected last block of matchup for Luke 10:18 to be spoken by the narrator.");
-			Assert.AreEqual(refTextActualReportingClauseLowercase + ".", lastMatchedRefBlock.GetText(true),
+			Assert.AreEqual(refTextActualReportingClauseLowercase.Replace(",", "."), lastMatchedRefBlock.GetText(true),
 				"Expected last block of matchup for Luke 10:18 to match up to the modified omitted \"he said\" block.");
 		}
 
