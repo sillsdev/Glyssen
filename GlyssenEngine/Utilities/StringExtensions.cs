@@ -8,9 +8,14 @@ namespace GlyssenEngine.Utilities
 {
 	public static class StringExtensions
 	{
+		/// <summary>
+		/// Deprecated: use GetOptionalAttributeValue instead.
+		/// </summary>
+		// ENHANCE: Sometime when we're making a breaking change, this can be removed.
+		[Obsolete("Use SIL.Extensions.StringExtensions.Contains instead")]
 		public static bool Contains(this string source, string toCheck, StringComparison comp)
 		{
-			return source.IndexOf(toCheck, comp) >= 0;
+			return SIL.Extensions.StringExtensions.Contains(source, toCheck, comp);
 		}
 
 		public static string ReplaceFirst(this string text, string search, string replace)
