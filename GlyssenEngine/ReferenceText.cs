@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
@@ -11,6 +13,7 @@ using GlyssenEngine.Utilities;
 using SIL.Extensions;
 using SIL.Reporting;
 using SIL.Scripture;
+using static System.Char;
 
 namespace GlyssenEngine
 {
@@ -151,6 +154,30 @@ namespace GlyssenEngine
 		public string WordSeparator => " ";
 
 		public string HeSaidText => m_metadata.Language.HeSaidText ?? "he said.";
+		private static Regex s_regexEnglishReportingClause = new Regex(@"(?<clause>((?<pronoun>(He)|(She)|(They)) |((\w+ ){1,2}))said\b([^\.\w]*\w+){0,2})[,:]");
+
+		private bool BlockIsOmissibleReportingClause(Block refBlock, out string modifiedOmittedHeSaidText)
+		{
+			modifiedOmittedHeSaidText = null;
+			if (HasSecondaryReferenceText)
+				refBlock = refBlock.ReferenceBlocks.Single();
+			var onlyScriptText = refBlock.BlockElements.OfType<ScriptText>().OnlyOrDefault();
+			if (onlyScriptText == null)
+				return false;
+
+			var match = s_regexEnglishReportingClause.Match(onlyScriptText.Content);
+			if (!match.Success)
+				return false;
+			modifiedOmittedHeSaidText = match.Groups["clause"] + ".";
+			if (match.Groups["pronoun"].Success)
+			{
+				var sb = new StringBuilder(modifiedOmittedHeSaidText);
+				sb[0] = ToLowerInvariant(sb[0]);
+				modifiedOmittedHeSaidText = sb.ToString();
+			}
+
+			return true;
+		}
 
 		/// <summary>
 		/// This gets the included books from the project. As needed, blocks are broken up and matched to
@@ -486,10 +513,14 @@ namespace GlyssenEngine
 					continue;
 				}
 
+				var omittedHeSaids = 0;
+				string verseFromOmittedHeSaidBlockToPrepend = null;
+				string modifiedOmittedHeSaidText = null;
+
 				for (int i = 0; i < numberOfVernBlocksInVerseChunk && i < numberOfRefBlocksInVerseChunk; i++)
 				{
 					var vernBlockInVerseChunk = vernBlockList[indexOfVernVerseStart + i];
-					var refBlockInVerseChunk = refBlockList[indexOfRefVerseStart + i];
+					var refBlockInVerseChunk = refBlockList[indexOfRefVerseStart + i + omittedHeSaids];
 					if (BlocksMatch(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification))
 					{
 						if (i == numberOfVernBlocksInVerseChunk - 1 && i < numberOfRefBlocksInVerseChunk - 1)
@@ -534,7 +565,15 @@ namespace GlyssenEngine
 							}
 							break;
 						}
-						vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockInVerseChunk);
+						if (modifiedOmittedHeSaidText != null && vernBlockInVerseChunk.CharacterIs(bookId, CharacterVerseData.StandardCharacter.Narrator) &&
+							BlockIsOmissibleReportingClause(refBlockInVerseChunk, out var nextModifiedOmittedHeSaidText) &&
+							TryMatchToReportingClause(bookNum, vernBlockList, indexOfVernVerseStart + i, reportingClauses, modifiedOmittedHeSaidText, vernacularVersification))
+						{
+							modifiedOmittedHeSaidText = nextModifiedOmittedHeSaidText;
+							omittedHeSaids++;
+						}
+						else
+							vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockInVerseChunk);
 					}
 					else if (numberOfVernBlocksInVerseChunk == 1 && numberOfRefBlocksInVerseChunk == 1 &&
 						BlocksEndWithSameVerse(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification))
@@ -549,6 +588,15 @@ namespace GlyssenEngine
 							else
 								vernBlockList[iVernBlock].SetUnmatchedReferenceBlocks(new[] {refBlockInVerseChunk});
 						}
+					}
+					else if (vernBlockInVerseChunk.IsQuote &&
+						refBlockInVerseChunk.CharacterIs(bookId, CharacterVerseData.StandardCharacter.Narrator) &&
+						BlockIsOmissibleReportingClause(refBlockInVerseChunk, out modifiedOmittedHeSaidText))
+					{
+						if (refBlockInVerseChunk.StartsAtVerseStart)
+							verseFromOmittedHeSaidBlockToPrepend = refBlockInVerseChunk.BlockElements.OfType<Verse>().Single().Number;
+						i--;
+						omittedHeSaids++;
 					}
 					// Consider case where the vernacular uses a verse bridge for verses that have
 					// a quote, but would otherwise align neatly with the reference text. (This
@@ -611,8 +659,9 @@ namespace GlyssenEngine
 									iLastVernBlockMatchedFromBottomUp = iCurrVernBottomUp;
 								}
 								else if (reportingClauses != null &&
-									TryMatchToReportingClause(bookNum, vernBlockList, iCurrVernBottomUp, reportingClauses, vernacularVersification))
+									TryMatchToReportingClause(bookNum, vernBlockList, iCurrVernBottomUp, reportingClauses, modifiedOmittedHeSaidText, vernacularVersification))
 								{
+									modifiedOmittedHeSaidText = null;
 									numberOfUnexpectedReportingClausesMatched++;
 									iLastVernBlockMatchedFromBottomUp = iCurrVernBottomUp;
 								}
@@ -620,7 +669,7 @@ namespace GlyssenEngine
 									break;
 							}
 						}
-						var numberOfUnmatchedRefBlocks = numberOfRefBlocksInVerseChunk - i - j + numberOfUnexpectedReportingClausesMatched;
+						var numberOfUnmatchedRefBlocks = numberOfRefBlocksInVerseChunk - i - j + numberOfUnexpectedReportingClausesMatched - omittedHeSaids;
 						var remainingRefBlocks = refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfUnmatchedRefBlocks).ToList();
 						if (numberOfVernBlocksInVerseChunk == 1 && numberOfUnmatchedRefBlocks > 1)
 						{
@@ -634,7 +683,9 @@ namespace GlyssenEngine
 							if (!remainingRefBlocksList.Any())
 							{
 								if (j + i == numberOfVernBlocksInVerseChunk - 1)
-									TryMatchToReportingClause(bookNum, vernBlockList, iVernBlock, reportingClauses, vernacularVersification);
+								{
+									TryMatchToReportingClause(bookNum, vernBlockList, iVernBlock, reportingClauses, modifiedOmittedHeSaidText, vernacularVersification);
+								}
 								// else do nothing (PG-1085)
 							}
 							else if (forceMatch)
@@ -710,6 +761,13 @@ namespace GlyssenEngine
 						}
 						break;
 					}
+
+					if (verseFromOmittedHeSaidBlockToPrepend != null && vernBlockInVerseChunk.ReferenceBlocks.Any())
+					{
+						var refBlock = vernBlockInVerseChunk.ReferenceBlocks.First();
+						if (!refBlock.StartsAtVerseStart)
+							refBlock.BlockElements.Insert(0, new Verse(verseFromOmittedHeSaidBlockToPrepend));
+					}
 				}
 				var indexOfLastVernVerseInVerseChunk = indexOfVernVerseStart + numberOfVernBlocksInVerseChunk - 1;
 				if (vernBlockList[indexOfLastVernVerseInVerseChunk].ReferenceBlocks.Any())
@@ -723,10 +781,20 @@ namespace GlyssenEngine
 		}
 
 		private bool TryMatchToReportingClause(int bookNum, IReadOnlyList<Block> vernBlockList, int iVernBlock,
-			IReadOnlyCollection<string> reportingClauses, ScrVers vernacularVersification)
+			IReadOnlyCollection<string> reportingClauses, string omittedEnglishHeSaidText, ScrVers vernacularVersification)
 		{
 			if (reportingClauses == null || !vernBlockList[iVernBlock].TryMatchToReportingClause(reportingClauses, this, bookNum, vernacularVersification))
 				return false;
+
+			if (omittedEnglishHeSaidText != null)
+			{
+				var englishRefBlock = vernBlockList[iVernBlock].ReferenceBlocks.Single();
+				if (HasSecondaryReferenceText)
+				{
+					englishRefBlock = englishRefBlock.ReferenceBlocks.Single();
+				}
+				englishRefBlock.BlockElements.OfType<ScriptText>().Single().Content = omittedEnglishHeSaidText;
+			}
 
 			// At least to date, reference texts do not have verse bridges. If the vernacular were to have a verse bridge
 			// we at least want to find and remove the corresponding verse number at the start of the reference text of
