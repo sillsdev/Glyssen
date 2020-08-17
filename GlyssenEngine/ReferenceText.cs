@@ -565,7 +565,15 @@ namespace GlyssenEngine
 							}
 							break;
 						}
-						vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockInVerseChunk);
+						if (modifiedOmittedHeSaidText != null && vernBlockInVerseChunk.CharacterIs(bookId, CharacterVerseData.StandardCharacter.Narrator) &&
+							BlockIsOmissibleReportingClause(refBlockInVerseChunk, out var nextModifiedOmittedHeSaidText) &&
+							TryMatchToReportingClause(bookNum, vernBlockList, indexOfVernVerseStart + i, reportingClauses, modifiedOmittedHeSaidText, vernacularVersification))
+						{
+							modifiedOmittedHeSaidText = nextModifiedOmittedHeSaidText;
+							omittedHeSaids++;
+						}
+						else
+							vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockInVerseChunk);
 					}
 					else if (numberOfVernBlocksInVerseChunk == 1 && numberOfRefBlocksInVerseChunk == 1 &&
 						BlocksEndWithSameVerse(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification))

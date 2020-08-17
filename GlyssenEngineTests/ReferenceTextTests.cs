@@ -4383,9 +4383,9 @@ namespace GlyssenEngineTests
 		}
 		#endregion
 
-		#region PG-1395
+		#region PG-1395 (modified for PG-1396)
 		[Test]
-		public void GetBlocksForVerseMatchedToReferenceText_UnmatchedHeSaidAtEndOfVerseWithMultipleSpeakers_AllRefBlocksRetained()
+		public void GetBlocksForVerseMatchedToReferenceText_ReportingClausesComeAfterSpeechhLinesInVerseWithMultipleSpeakers_AllBlocksMatchedWithReportingClausesMatchedToModifiedReportingClauses()
 		{
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(CreateBlockForVerse("Jesus", 31, "Кьве хцикай бубадин тӀалабун ни кьилиз акъудна?» ", false, 21));
@@ -4396,13 +4396,29 @@ namespace GlyssenEngineTests
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
 			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
-			var textOfRefTextBlocks = refText.GetBook("MAT").GetBlocksForVerse(21, 31).Select(r => r.GetText(true)).ToHashSet();
+			var refTextBlocks = refText.GetBook("MAT").GetBlocksForVerse(21, 31).ToList();
+			Assert.AreEqual(5, refTextBlocks.Count, "SETUP check - expected English reference text to have five blocks for Matthew 21:31.");
+			Assert.AreEqual("Jesus", refTextBlocks[0].CharacterId,
+				"SETUP check - expected English reference text to have Jesus speak in first block for Luke 7:40.");
+			Assert.IsTrue(refTextBlocks[1].GetText(false).Contains("They said"),
+				"SETUP check - expected English reference text to have reporting clause introducing chief priests/elders");
+			Assert.AreEqual("chief priests/elders", refTextBlocks[2].CharacterId,
+				"SETUP check - expected English reference text to have chief priests/elders speak in response to Jesus' question in Matthew 21:31.");
+			Assert.IsTrue(refTextBlocks[3].GetText(false).Contains("Jesus said"),
+				"SETUP check - expected English reference text to have reporting clause introducing Jesus");
+			Assert.AreEqual("Jesus", refTextBlocks.Last().CharacterId,
+				"SETUP check - expected English reference text to have Jesus speak in final block for Matthew 21:31.");
 
-			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, new []{"– лагьана ада.", "– лагьана Исади. –", "– минетдалди лагьана ада. –"});
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, new []{"– лагьана ада.", "– лагьана Исади. –", "– минетдалди лагьана ада. –", "– жаваб гана абуру."});
 			var result = matchup.CorrelatedBlocks;
 			Assert.AreEqual(5, result.Count);
-			var textOfMatchedAndUnmatchedRefTextBlocks = result.SelectMany(b => b.ReferenceBlocks).Select(r => r.GetText(true)).ToHashSet();
-			Assert.IsTrue(textOfRefTextBlocks.IsSubsetOf(textOfMatchedAndUnmatchedRefTextBlocks));
+			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
+			var textOfMatchedRefTextBlocks = result.SelectMany(b => b.ReferenceBlocks).Select(r => r.GetText(true)).ToList();
+			Assert.AreEqual(refTextBlocks[0].GetText(true), textOfMatchedRefTextBlocks[0]);
+			Assert.AreEqual(refTextBlocks[2].GetText(true), textOfMatchedRefTextBlocks[1]);
+			Assert.AreEqual(refTextBlocks[1].GetText(true).ToLower().Replace(",", "."), textOfMatchedRefTextBlocks[2].ToLower());
+			Assert.AreEqual(refTextBlocks[4].GetText(true), textOfMatchedRefTextBlocks[3]);
+			Assert.AreEqual(refTextBlocks[3].GetText(true).ToLower().Replace(",", "."), textOfMatchedRefTextBlocks[4].ToLower());
 		}
 		#endregion
 
