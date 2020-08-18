@@ -276,6 +276,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Quote\NewTestamentBooksFirstComparerTests.cs" />
+    <Compile Include="Quote\ParserCharacterRepositoryTests.cs" />
     <Compile Include="Quote\QuoteParserTests.cs" />
     <Compile Include="Quote\QuoteSystemGuesserTests.cs" />
     <Compile Include="Quote\QuoteSystemTests.cs" />
