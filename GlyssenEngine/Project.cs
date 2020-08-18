@@ -83,11 +83,6 @@ namespace GlyssenEngine
 
 		public Func<bool> IsOkayToClearExistingRefBlocksWhenChangingReferenceText { get; set; }
 
-
-
-
-
-
 		/// <summary>
 		/// Creates a project and parses it from a Paratext project's Scriptures. 
 		/// </summary>
@@ -101,12 +96,7 @@ namespace GlyssenEngine
 
 			// From the other constructor
 			Writer.SetUpProjectPersistence(glyssenProject);
-			ProcessParatextProjectQuotationRules(paratextProject);
-			if (paratextProject.HasQuotationRulesSet)
-			{
-				glyssenProject.QuoteSystemStatus = QuoteSystemStatus.Obtained;
-				glyssenProject.SetWsQuotationMarksUsingFullySpecifiedContinuers(paratextProject.QuotationMarks);
-			}
+			ProcessParatextProjectQuotationRules(glyssenProject, paratextProject);
 
 			// Sanity Checks
 			if (glyssenProject.m_books.Any())
@@ -145,18 +135,8 @@ namespace GlyssenEngine
 					bookScript.Initialize(Versification);
 				}
 
-				m_books.AddRange(bookScripts);
-				m_projectMetadata.ParserVersion = kParserVersion;
-				if (m_books.All(b => IsNullOrEmpty(b.PageHeader)))
-					ChapterAnnouncementStyle = ChapterAnnouncement.ChapterLabel;
-				UpdateControlFileVersion();
-				RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
-				AddMissingAvailableBooks();
-
-				if (QuoteSystem == null)
-					GuessAtQuoteSystem();
-				else if (IsQuoteSystemReadyForParse)
-					DoQuoteParse(bookScripts.Select(b => b.BookId));
+				ProcessNewProjectBooks(bookScripts);
+				ProcessQuotes(bookScripts);
 			});
 		}
 
@@ -182,12 +162,6 @@ namespace GlyssenEngine
 			throw new ApplicationException($"{initialMessage} Number of BookScripts: {bookScripts.Count}. " +
 				$"BookScripts which are NOT null: {nonNullBookScriptsStr}");
 		}
-
-
-
-
-
-
 
 		/// <exception cref="ProjectNotFoundException">Paratext was unable to access the project (only pertains to
 		/// Glyssen projects that are associated with a live Paratext project)</exception>
@@ -304,17 +278,16 @@ namespace GlyssenEngine
 			this(paratextProject.GlyssenDblTextMetadata, null, false, paratextProject.WritingSystem)
 		{
 			Writer.SetUpProjectPersistence(this);
-			ProcessParatextProjectQuotationRules(paratextProject);
-
+			ProcessParatextProjectQuotationRules(this, paratextProject);
 			ParseAndSetBooks(paratextProject.UsxDocumentsForIncludedBooks, paratextProject.Stylesheet);
 		}
 
-		public static void ProcessParatextProjectQuotationRules(ParatextScrTextWrapper paratextProject)
+		public static void ProcessParatextProjectQuotationRules(Project glyssenProject, ParatextScrTextWrapper paratextProject)
 		{
 			if (paratextProject.HasQuotationRulesSet)
 			{
-				Project.QuoteSystemStatus = QuoteSystemStatus.Obtained;
-				SetWsQuotationMarksUsingFullySpecifiedContinuers(paratextProject.QuotationMarks);
+				glyssenProject.QuoteSystemStatus = QuoteSystemStatus.Obtained;
+				glyssenProject.SetWsQuotationMarksUsingFullySpecifiedContinuers(paratextProject.QuotationMarks);
 			}
 		}
 
@@ -1634,15 +1607,25 @@ namespace GlyssenEngine
 			}
 			else
 			{
-				m_books.AddRange(bookScripts);
-				m_projectMetadata.ParserVersion = kParserVersion;
-				if (m_books.All(b => IsNullOrEmpty(b.PageHeader)))
-					ChapterAnnouncementStyle = ChapterAnnouncement.ChapterLabel;
-				UpdateControlFileVersion();
-				RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
-				AddMissingAvailableBooks();
+				ProcessNewProjectBooks(bookScripts);
 			}
 
+			ProcessQuotes(bookScripts);
+		}
+
+		public void ProcessNewProjectBooks(List<BookScript> bookScripts)
+		{
+			m_books.AddRange(bookScripts);
+			m_projectMetadata.ParserVersion = kParserVersion;
+			if (m_books.All(b => IsNullOrEmpty(b.PageHeader)))
+				ChapterAnnouncementStyle = ChapterAnnouncement.ChapterLabel;
+			UpdateControlFileVersion();
+			RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
+			AddMissingAvailableBooks();
+		}
+
+		public void ProcessQuotes(List<BookScript> bookScripts)
+		{
 			if (QuoteSystem == null)
 				GuessAtQuoteSystem();
 			else if (IsQuoteSystemReadyForParse)
