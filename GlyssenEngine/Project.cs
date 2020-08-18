@@ -83,6 +83,11 @@ namespace GlyssenEngine
 
 		public Func<bool> IsOkayToClearExistingRefBlocksWhenChangingReferenceText { get; set; }
 
+
+
+
+
+
 		/// <summary>
 		/// Creates a project and parses it from a Paratext project's Scriptures. 
 		/// </summary>
@@ -92,25 +97,26 @@ namespace GlyssenEngine
 		public static async Task<Project> CreateAndLoadAsync(ParatextScrTextWrapper paratextProject, Action<int> reportProgressAsPercent)
 		{
 			// Use the constructor that does not launch the ParseAndSetBooks background worker
-			var project = new Project(paratextProject.GlyssenDblTextMetadata, null, false, paratextProject.WritingSystem);
+			var glyssenProject = new Project(paratextProject.GlyssenDblTextMetadata, null, false, paratextProject.WritingSystem);
 
 			// From the other constructor
-			Writer.SetUpProjectPersistence(project);
+			Writer.SetUpProjectPersistence(glyssenProject);
+			ProcessParatextProjectQuotationRules(paratextProject);
 			if (paratextProject.HasQuotationRulesSet)
 			{
-				project.QuoteSystemStatus = QuoteSystemStatus.Obtained;
-				project.SetWsQuotationMarksUsingFullySpecifiedContinuers(paratextProject.QuotationMarks);
+				glyssenProject.QuoteSystemStatus = QuoteSystemStatus.Obtained;
+				glyssenProject.SetWsQuotationMarksUsingFullySpecifiedContinuers(paratextProject.QuotationMarks);
 			}
 
 			// Sanity Checks
-			if (project.m_books.Any())
+			if (glyssenProject.m_books.Any())
 				throw new InvalidOperationException("Project already contains books. If the intention is to replace the existing ones, let's clear the list first. Otherwise, call ParseAndIncludeBooks.");
-			if (project.Versification == null)
+			if (glyssenProject.Versification == null)
 				throw new NullReferenceException("Project is missing versification");
 
 			// Replaces background worker approach with an awaitable
-			await project.ParseAndSetBooksAsync(paratextProject, reportProgressAsPercent);
-			return project;
+			await glyssenProject.ParseAndSetBooksAsync(paratextProject, reportProgressAsPercent);
+			return glyssenProject;
 		}
 
 		/// <summary>
@@ -176,6 +182,12 @@ namespace GlyssenEngine
 			throw new ApplicationException($"{initialMessage} Number of BookScripts: {bookScripts.Count}. " +
 				$"BookScripts which are NOT null: {nonNullBookScriptsStr}");
 		}
+
+
+
+
+
+
 
 		/// <exception cref="ProjectNotFoundException">Paratext was unable to access the project (only pertains to
 		/// Glyssen projects that are associated with a live Paratext project)</exception>
@@ -292,13 +304,18 @@ namespace GlyssenEngine
 			this(paratextProject.GlyssenDblTextMetadata, null, false, paratextProject.WritingSystem)
 		{
 			Writer.SetUpProjectPersistence(this);
-			if (paratextProject.HasQuotationRulesSet)
-			{
-				QuoteSystemStatus = QuoteSystemStatus.Obtained;
-				SetWsQuotationMarksUsingFullySpecifiedContinuers(paratextProject.QuotationMarks);
-			}
+			ProcessParatextProjectQuotationRules(paratextProject);
 
 			ParseAndSetBooks(paratextProject.UsxDocumentsForIncludedBooks, paratextProject.Stylesheet);
+		}
+
+		public static void ProcessParatextProjectQuotationRules(ParatextScrTextWrapper paratextProject)
+		{
+			if (paratextProject.HasQuotationRulesSet)
+			{
+				Project.QuoteSystemStatus = QuoteSystemStatus.Obtained;
+				SetWsQuotationMarksUsingFullySpecifiedContinuers(paratextProject.QuotationMarks);
+			}
 		}
 
 		/// <summary>
