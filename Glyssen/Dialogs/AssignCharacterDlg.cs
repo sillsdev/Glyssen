@@ -524,9 +524,7 @@ namespace Glyssen.Dialogs
 
 		private void SetDeliveryCellValue(DataGridViewRow row, Block correlatedBlock)
 		{
-			var delivery = correlatedBlock.Delivery;
-			if (IsNullOrEmpty(delivery))
-				delivery = correlatedBlock.ReferenceBlocks.Single().Delivery;
+			var delivery = m_viewModel.GetEffectiveDelivery(correlatedBlock);
 			if (IsNullOrEmpty(delivery))
 				delivery = ((AssignCharacterViewModel.Delivery)colDelivery.Items[0]).LocalizedDisplay;
 			row.Cells[colDelivery.Index].Value = delivery;
