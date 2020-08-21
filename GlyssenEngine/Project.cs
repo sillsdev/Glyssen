@@ -531,6 +531,8 @@ namespace GlyssenEngine
 		public bool AddNewReportingClauses(IEnumerable<string> reportingClauses)
 		{
 			var retVal = false;
+			if (m_metadata.Language.ReportingClauses == null)
+				m_metadata.Language.ReportingClauses = new HashSet<string>();
 			foreach (var reportingClause in reportingClauses)
 				retVal |= m_metadata.Language.ReportingClauses.Add(reportingClause);
 			return retVal;
