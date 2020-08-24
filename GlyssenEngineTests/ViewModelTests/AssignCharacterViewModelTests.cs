@@ -174,6 +174,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		[Test]
 		public void GetDeliveriesForCurrentReferenceTextMatchup_BlockSetToProjectSpecificDelivery_ResultIncludesProjectSpecificDelivery()
 		{
+			m_fullProjectRefreshRequired = true;
 			FindRefInMark(10, 49);
 			m_model.SetCharacterAndDelivery(m_model.GetUniqueCharactersForCurrentReference().First(c => c.CharacterId == "Jesus"),
 				new AssignCharacterViewModel.Delivery("ordering"));
@@ -185,6 +186,47 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.AreEqual(1, result.Count(d => d.Text == "encouraging"));
 			Assert.AreEqual(1, result.Count(d => d.Text == "ordering"));
 		}
+
+
+		#region PG-1401
+		[Test]
+		public void GetDeliveriesForCurrentReferenceTextMatchup_BlockReferenceTextSetToNonstandardDelivery_ResultIncludesNonstandardDelivery()
+		{
+			FindRefInMark(10, 49);
+			m_model.SetMode(m_model.Mode, true);
+			var baseList = m_model.GetDeliveriesForCurrentReferenceTextMatchup().ToList();
+			var block = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.First(b => b.MatchesReferenceText &&
+				b.CharacterId != CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator));
+			block.ReferenceBlocks.Single().Delivery = "slurred";
+
+			var result = m_model.GetDeliveriesForCurrentReferenceTextMatchup().ToList();
+			Assert.AreEqual(baseList.Count + 1, result.Count);
+			Assert.IsTrue(result[0].IsNormal);
+			Assert.IsTrue(baseList.All(d => result.Contains(d)));
+			Assert.IsTrue(result.Any(d => d.Text == "slurred"));
+		}
+
+		[Test]
+		public void GetDeliveriesForCurrentReferenceTextMatchup_SecondLevelBlockReferenceTextSetToNonstandardDelivery_ResultIncludesNonstandardDelivery()
+		{
+			m_fullProjectRefreshRequired = true;
+			m_testProject.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Russian);
+			FindRefInMark(10, 49);
+			m_model.SetMode(m_model.Mode, true);
+			var baseList = m_model.GetDeliveriesForCurrentReferenceTextMatchup().ToList();
+			var block = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.First(b => b.MatchesReferenceText &&
+				b.CharacterId != CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator));
+			var refBlock = block.ReferenceBlocks.Single();
+			refBlock.Delivery = null;
+			refBlock.ReferenceBlocks.Single().Delivery = "squealing";
+
+			var result = m_model.GetDeliveriesForCurrentReferenceTextMatchup().ToList();
+			Assert.AreEqual(baseList.Count + 1, result.Count);
+			Assert.IsTrue(result[0].IsNormal);
+			Assert.IsTrue(baseList.All(d => result.Contains(d)));
+			Assert.IsTrue(result.Any(d => d.Text == "squealing"));
+		}
+		#endregion
 
 		[Test]
 		public void GetUniqueCharacters_AmbiguousQuoteNoFilter_GetsAllCharactersInMark()
