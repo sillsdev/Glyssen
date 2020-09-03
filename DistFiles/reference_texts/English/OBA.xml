@@ -15,7 +15,7 @@
     <text>This is what the Lord God says about Edom. We have heard news from God, and an ambassador is sent among the nations, saying,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="1" characterId="ambassador">
-    <text>“Arise, and let's rise up against her in battle.</text>
+    <text>«Arise, and let's rise up against her in battle.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="2" characterId="God">
     <verse num="2" />
@@ -27,7 +27,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>Though you mount on high as the eagle, and though your nest is set among the stars, I will bring you down from there,”</text>
+    <text>Though you mount on high as the eagle, and though your nest is set among the stars, I will bring you down from there,»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="4" characterId="narrator-OBA">
     <text>says God.</text>
@@ -52,7 +52,7 @@
     <text>says God,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="8" characterId="God">
-    <text>“destroy the wise men out of Edom, and understanding out of the mountain of Esau?</text>
+    <text>«destroy the wise men out of Edom, and understanding out of the mountain of Esau?</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="God">
     <verse num="9" />
@@ -92,7 +92,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="18" characterId="God">
     <verse num="18" />
-    <text>The house of Jacob will be a fire, the house of Joseph a flame, and the house of Esau for stubble. They will burn among them, and devour them. There will not be any remaining to the house of Esau.”</text>
+    <text>The house of Jacob will be a fire, the house of Joseph a flame, and the house of Esau for stubble. They will burn among them, and devour them. There will not be any remaining to the house of Esau.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="18" characterId="narrator-OBA">
     <text>Indeed, God has spoken. </text>

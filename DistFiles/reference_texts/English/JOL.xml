@@ -135,13 +135,13 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>“Yet even now,”</text>
+    <text>«Yet even now,»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="11" characterId="narrator-JOL">
     <text>says God,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="12" characterId="God">
-    <text>“turn to me with all your heart, and with fasting, and with weeping, and with mourning.”</text>
+    <text>«turn to me with all your heart, and with fasting, and with weeping, and with mourning.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="13" characterId="narrator-JOL">
     <verse num="13" />
@@ -164,7 +164,7 @@
     <text>Let the priests, the ministers of God, weep between the porch and the altar, and let them say,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="17" characterId="priests" delivery="weeping, pleading">
-    <text>“Spare your people, God, and don’t give your heritage to reproach, that the nations should rule over them. Why should they say among the peoples, ‹Where is their God?› ”</text>
+    <text>«Spare your people, God, and don’t give your heritage to reproach, that the nations should rule over them. Why should they say among the peoples, ‹Where is their God?› »</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="18" characterId="narrator-JOL">
     <verse num="18" />
@@ -173,11 +173,11 @@
     <text>God answered his people,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="19" characterId="God">
-    <text>“Behold, I will send you grain, new wine, and oil, and you will be satisfied with them; and I will no more make you a reproach among the nations.</text>
+    <text>«Behold, I will send you grain, new wine, and oil, and you will be satisfied with them; and I will no more make you a reproach among the nations.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="20" characterId="God">
     <verse num="20" />
-    <text>But I will remove the northern army far away from you, and will drive it into a barren and desolate land, its front into the eastern sea, and its back into the western sea; and its stench will come up, and its bad smell will rise.”</text>
+    <text>But I will remove the northern army far away from you, and will drive it into a barren and desolate land, its front into the eastern sea, and its back into the western sea; and its stench will come up, and its bad smell will rise.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="20" characterId="narrator-JOL">
     <text>Surely he has done great things. </text>
@@ -261,14 +261,14 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>and I will sell your sons and your daughters into the hands of the children of Judah, and they will sell them to the men of Sheba, to a faraway nation, for God has spoken it.”</text>
+    <text>and I will sell your sons and your daughters into the hands of the children of Judah, and they will sell them to the men of Sheba, to a faraway nation, for God has spoken it.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="9" characterId="narrator-JOL">
     <verse num="9" />
     <text>Proclaim this among the nations:</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="9" characterId="you (hypothetical)">
-    <text>“Prepare for war! Stir up the mighty men. Let all the warriors draw near. Let them come up.</text>
+    <text>«Prepare for war! Stir up the mighty men. Let all the warriors draw near. Let them come up.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="10" characterId="you (hypothetical)">
     <verse num="10" />
@@ -276,7 +276,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="11" characterId="you (hypothetical)">
     <verse num="11" />
-    <text>Hurry and come, all you surrounding nations, and gather yourselves together.”</text>
+    <text>Hurry and come, all you surrounding nations, and gather yourselves together.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="11" characterId="narrator-JOL">
     <text>Cause your mighty ones to come down there, God.</text>

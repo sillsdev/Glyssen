@@ -20,7 +20,7 @@
     <text>They said to me,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="3" characterId="Hanani, brother of Nehemiah/Judah, men of">
-    <text>“The remnant who are left of the captivity there in the province are in great affliction and reproach. The wall of Jerusalem also is broken down, and its gates are burned with fire.”</text>
+    <text>«The remnant who are left of the captivity there in the province are in great affliction and reproach. The wall of Jerusalem also is broken down, and its gates are burned with fire.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="4" characterId="narrator-NEH">
     <verse num="4" />
@@ -28,7 +28,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="5" characterId="narrator-NEH" delivery="praying">
     <verse num="5" />
-    <text>and said, “I beg you, God, the God of heaven, the great and awesome God, who keeps covenant and loving kindness with those who love him and keep his commandments:</text>
+    <text>and said, «I beg you, God, the God of heaven, the great and awesome God, who keeps covenant and loving kindness with those who love him and keep his commandments:</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="6" characterId="narrator-NEH" delivery="praying">
     <verse num="6" />
@@ -52,7 +52,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="11" characterId="narrator-NEH" delivery="praying">
     <verse num="11" />
-    <text>Lord, I beg you, let your ear be attentive now to the prayer of your servant, and to the prayer of your servants, who delight to fear your name; and please prosper your servant this day, and grant him mercy in the sight of this man.” Now I was cup bearer to the king.</text>
+    <text>Lord, I beg you, let your ear be attentive now to the prayer of your servant, and to the prayer of your servants, who delight to fear your name; and please prosper your servant this day, and grant him mercy in the sight of this man.» Now I was cup bearer to the king.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="NEH" initialStartVerse="0" characterId="BC-NEH">
     <text>2</text>
@@ -64,7 +64,7 @@
     <text>The king said to me,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="Artaxerxes, king of Persia">
-    <text>“Why is your face sad, since you are not sick? This is nothing else but sorrow of heart.”</text>
+    <text>«Why is your face sad, since you are not sick? This is nothing else but sorrow of heart.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-NEH">
     <text>Then I was very much afraid. </text>
@@ -72,14 +72,14 @@
     <text>I said to the king,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="narrator-NEH" delivery="sad, very afraid, with respect">
-    <text>“Let the king live forever! Why shouldn’t my face be sad, when the city, the place of my fathers’ tombs, lies waste, and its gates have been consumed with fire?”</text>
+    <text>«Let the king live forever! Why shouldn’t my face be sad, when the city, the place of my fathers’ tombs, lies waste, and its gates have been consumed with fire?»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-NEH">
     <verse num="4" />
     <text>Then the king said to me,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="Artaxerxes, king of Persia">
-    <text>“For what do you make request?”</text>
+    <text>«For what do you make request?»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-NEH">
     <text>So I prayed to the God of heaven. </text>
@@ -87,14 +87,14 @@
     <text>I said to the king,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="5" characterId="narrator-NEH">
-    <text>“If it pleases the king, and if your servant has found favor in your sight, that you would send me to Judah, to the city of my fathers’ tombs, that I may build it.”</text>
+    <text>«If it pleases the king, and if your servant has found favor in your sight, that you would send me to Judah, to the city of my fathers’ tombs, that I may build it.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-NEH">
     <verse num="6" />
     <text>The king said to me (the queen was also sitting by him),</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="Artaxerxes, king of Persia">
-    <text>“For how long shall your journey be? And when will you return?”</text>
+    <text>«For how long shall your journey be? And when will you return?»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-NEH">
     <text>So it pleased the king to send me; and I set him a time. </text>
@@ -102,11 +102,11 @@
     <text>Moreover I said to the king,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="7" characterId="narrator-NEH">
-    <text>“If it pleases the king, let letters be given me to the governors beyond the River, that they may let me pass through until I come to Judah;</text>
+    <text>«If it pleases the king, let letters be given me to the governors beyond the River, that they may let me pass through until I come to Judah;</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="8" characterId="narrator-NEH">
     <verse num="8" />
-    <text>and a letter to Asaph the keeper of the king’s forest, that he may give me timber to make beams for the gates of the citadel by the temple, for the wall of the city, and for the house that I shall enter into.”</text>
+    <text>and a letter to Asaph the keeper of the king’s forest, that he may give me timber to make beams for the gates of the citadel by the temple, for the wall of the city, and for the house that I shall enter into.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="8" characterId="narrator-NEH">
     <text>The king granted my requests, because of the good hand of my God on me.</text>
@@ -146,14 +146,14 @@
     <text>Then I said to them,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="17" characterId="narrator-NEH">
-    <text>“You see the evil case that we are in, how Jerusalem lies waste, and its gates are burned with fire. Come, let us build up the wall of Jerusalem, that we won't be disgraced.”</text>
+    <text>«You see the evil case that we are in, how Jerusalem lies waste, and its gates are burned with fire. Come, let us build up the wall of Jerusalem, that we won't be disgraced.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="18" characterId="narrator-NEH">
     <verse num="18" />
     <text>I told them of the hand of my God which was good on me, as also of the king’s words that he had spoken to me. They said,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="18" characterId="Jews, the/priests/nobles and officials (Jewish)">
-    <text>“Let's rise up and build.”</text>
+    <text>«Let's rise up and build.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="18" characterId="narrator-NEH">
     <text>So they strengthened their hands for the good work.</text>
@@ -163,14 +163,14 @@
     <text>But when Sanballat the Horonite, and Tobiah the servant, the Ammonite, and Geshem the Arabian, heard it, they ridiculed us, and despised us, and said,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="19" characterId="Sanballat the Horonite/Tobiah the Ammonite official/Geshem the Arab" delivery="mocking">
-    <text>“What is this thing that you are doing? Will you rebel against the king?”</text>
+    <text>«What is this thing that you are doing? Will you rebel against the king?»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="20" characterId="narrator-NEH">
     <verse num="20" />
     <text>Then answered I them, and said to them,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="20" characterId="narrator-NEH">
-    <text>“The God of heaven will prosper us. Therefore we, his servants, will arise and build; but you have no portion, nor right, nor memorial, in Jerusalem.”</text>
+    <text>«The God of heaven will prosper us. Therefore we, his servants, will arise and build; but you have no portion, nor right, nor memorial, in Jerusalem.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="NEH" initialStartVerse="0" characterId="BC-NEH">
     <text>3</text>
@@ -315,14 +315,14 @@
     <text>He spoke before his brothers and the army of Samaria, and said,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="2" characterId="Sanballat the Horonite" delivery="angry">
-    <text>“What are these feeble Jews doing? Will they fortify themselves? Will they sacrifice? Will they finish in a day? Will they revive the stones out of the heaps of rubbish, since they are burned?”</text>
+    <text>«What are these feeble Jews doing? Will they fortify themselves? Will they sacrifice? Will they finish in a day? Will they revive the stones out of the heaps of rubbish, since they are burned?»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="3" characterId="narrator-NEH">
     <verse num="3" />
     <text>Now Tobiah the Ammonite was by him, and he said,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="3" characterId="Tobiah the Ammonite official" delivery="mocking">
-    <text>“What they are building, if a fox climbed up it, he would break down their stone wall.”</text>
+    <text>«What they are building, if a fox climbed up it, he would break down their stone wall.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="4" characterId="narrator-NEH" delivery="praying">
     <verse num="4" />
@@ -351,21 +351,21 @@
     <text>Judah said,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="10" characterId="Judah, people in">
-    <text>“The strength of the bearers of burdens is fading, and there is much rubbish; so that we are not able to build the wall.”</text>
+    <text>«The strength of the bearers of burdens is fading, and there is much rubbish; so that we are not able to build the wall.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="11" characterId="narrator-NEH">
     <verse num="11" />
     <text>Our adversaries said,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="11" characterId="enemies of Judah and Benjamin" delivery="threatening">
-    <text>“They shall not know, neither see, until we come into the midst of them, and kill them, and cause the work to cease.”</text>
+    <text>«They shall not know, neither see, until we come into the midst of them, and kill them, and cause the work to cease.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="12" characterId="narrator-NEH">
     <verse num="12" />
     <text>It happened that when the Jews who lived by them came, they said to us ten times from all places,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="12" characterId="Jews, the" delivery="desperate">
-    <text>“Wherever you turn, they will attack us.”</text>
+    <text>«Wherever you turn, they will attack us.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="13" characterId="narrator-NEH">
     <verse num="13" />
@@ -376,7 +376,7 @@
     <text>I looked, and rose up, and said to the nobles, and to the rulers, and to the rest of the people,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="14" characterId="narrator-NEH">
-    <text>“Don't be afraid of them! Remember the Lord, who is great and awesome, and fight for your brothers, your sons, and your daughters, your wives, and your houses.”</text>
+    <text>«Don't be afraid of them! Remember the Lord, who is great and awesome, and fight for your brothers, your sons, and your daughters, your wives, and your houses.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="15" characterId="narrator-NEH">
     <verse num="15" />
@@ -396,11 +396,11 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="19" characterId="narrator-NEH">
     <verse num="19" />
-    <text>I said to the nobles, and to the rulers and to the rest of the people, “The work is great and large, and we are separated on the wall, one far from another.</text>
+    <text>I said to the nobles, and to the rulers and to the rest of the people, «The work is great and large, and we are separated on the wall, one far from another.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="20" characterId="narrator-NEH">
     <verse num="20" />
-    <text>Wherever you hear the sound of the trumpet, rally there to us. Our God will fight for us.”</text>
+    <text>Wherever you hear the sound of the trumpet, rally there to us. Our God will fight for us.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="21" characterId="narrator-NEH">
     <verse num="21" />
@@ -408,7 +408,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="22" characterId="narrator-NEH">
     <verse num="22" />
-    <text>Likewise at the same time said I to the people, “Let everyone with his servant lodge within Jerusalem, that in the night they may be a guard to us, and may labor in the day.”</text>
+    <text>Likewise at the same time said I to the people, «Let everyone with his servant lodge within Jerusalem, that in the night they may be a guard to us, and may labor in the day.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="23" characterId="narrator-NEH">
     <verse num="23" />
@@ -424,25 +424,25 @@
     <text>For there were that said,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="2" characterId="men/wives" delivery="desperate">
-    <text>“We, our sons and our daughters, are many. Let us get grain, that we may eat and live.”</text>
+    <text>«We, our sons and our daughters, are many. Let us get grain, that we may eat and live.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="3" characterId="narrator-NEH">
     <verse num="3" />
     <text>Some also there were that said,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="3" characterId="men, other/wives, other" delivery="desperate">
-    <text>“We are mortgaging our fields, and our vineyards, and our houses. Let us get grain, because of the famine.”</text>
+    <text>«We are mortgaging our fields, and our vineyards, and our houses. Let us get grain, because of the famine.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="4" characterId="narrator-NEH">
     <verse num="4" />
     <text>There were also some who said,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="4" characterId="men, still others/wives, still others" delivery="desperate">
-    <text>“We have borrowed money for the king's tribute using our fields and our vineyards as collateral.</text>
+    <text>«We have borrowed money for the king's tribute using our fields and our vineyards as collateral.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="5" characterId="men, still others/wives, still others" delivery="desperate">
     <verse num="5" />
-    <text>Yet now our flesh is as the flesh of our brothers, our children as their children. Behold, we bring into bondage our sons and our daughters to be servants, and some of our daughters have been brought into bondage. Neither is it in our power to help it; for other men have our fields and our vineyards.”</text>
+    <text>Yet now our flesh is as the flesh of our brothers, our children as their children. Behold, we bring into bondage our sons and our daughters to be servants, and some of our daughters have been brought into bondage. Neither is it in our power to help it; for other men have our fields and our vineyards.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="6" characterId="narrator-NEH">
     <verse num="6" />
@@ -450,15 +450,15 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="7" characterId="narrator-NEH">
     <verse num="7" />
-    <text>Then I consulted with myself, and contended with the nobles and the rulers, and said to them, “You exact usury, everyone of his brother.” I held a great assembly against them.</text>
+    <text>Then I consulted with myself, and contended with the nobles and the rulers, and said to them, «You exact usury, everyone of his brother.» I held a great assembly against them.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="8" characterId="narrator-NEH">
     <verse num="8" />
-    <text>I said to them, “We, after our ability, have redeemed our brothers the Jews that were sold to the nations; and would you even sell your brothers, and should they be sold to us?” Then they held their peace, and found never a word.</text>
+    <text>I said to them, «We, after our ability, have redeemed our brothers the Jews that were sold to the nations; and would you even sell your brothers, and should they be sold to us?» Then they held their peace, and found never a word.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="9" characterId="narrator-NEH">
     <verse num="9" />
-    <text>Also I said, “The thing that you do is not good. Ought you not to walk in the fear of our God, because of the reproach of the nations our enemies?</text>
+    <text>Also I said, «The thing that you do is not good. Ought you not to walk in the fear of our God, because of the reproach of the nations our enemies?</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="10" characterId="narrator-NEH">
     <verse num="10" />
@@ -466,22 +466,22 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="11" characterId="narrator-NEH">
     <verse num="11" />
-    <text>Please restore to them, even this day, their fields, their vineyards, their olive groves, and their houses, also the hundredth part of the money, and of the grain, the new wine, and the oil, that you are charging them.” </text>
+    <text>Please restore to them, even this day, their fields, their vineyards, their olive groves, and their houses, also the hundredth part of the money, and of the grain, the new wine, and the oil, that you are charging them.» </text>
     <verse num="12" />
     <text>Then they said,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="12" characterId="nobles and officials (Jewish)">
-    <text>“We will restore them, and will require nothing of them; so will we do, even as you say.”</text>
+    <text>«We will restore them, and will require nothing of them; so will we do, even as you say.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="12" characterId="narrator-NEH">
     <text>Then I called the priests, and took an oath of them, that they would do according to this promise.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="13" characterId="narrator-NEH">
     <verse num="13" />
-    <text>Also I shook out my lap, and said, “So may God shake out every man from his house, and from his labor, that doesn’t perform this promise; even thus be he shaken out, and emptied.” All the assembly said,</text>
+    <text>Also I shook out my lap, and said, «So may God shake out every man from his house, and from his labor, that doesn’t perform this promise; even thus be he shaken out, and emptied.» All the assembly said,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="13" characterId="assembly, whole">
-    <text>“Amen,”</text>
+    <text>«Amen,»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="13" characterId="narrator-NEH">
     <text>and praised God. The people did according to this promise. </text>
@@ -518,7 +518,7 @@
     <text>that Sanballat and Geshem sent to me, saying,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="2" characterId="Sanballat the Horonite/Geshem the Arab" delivery="message, scheming">
-    <text>“Come, let us meet together in one of the villages in the plain of Ono.”</text>
+    <text>«Come, let us meet together in one of the villages in the plain of Ono.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="2" characterId="narrator-NEH">
     <text>But they intended to harm me. </text>
@@ -526,7 +526,7 @@
     <text>I sent messengers to them, saying,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="3" characterId="narrator-NEH" delivery="message">
-    <text>“I am doing a great work, so that I can't come down. Why should the work cease, while I leave it, and come down to you?”</text>
+    <text>«I am doing a great work, so that I can't come down. Why should the work cease, while I leave it, and come down to you?»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="4" characterId="narrator-NEH">
     <verse num="4" />
@@ -539,30 +539,30 @@
     <text>in which was written,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="6" characterId="Sanballat the Horonite" delivery="letter">
-    <text>“It is reported among the nations, and Gashmu says it, that you and the Jews intend to rebel. Because of that, you are building the wall. You would be their king, according to these words.</text>
+    <text>«It is reported among the nations, and Gashmu says it, that you and the Jews intend to rebel. Because of that, you are building the wall. You would be their king, according to these words.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="7" characterId="Sanballat the Horonite" delivery="letter">
     <verse num="7" />
-    <text>You have also appointed prophets to preach of you at Jerusalem, saying, ‹There is a king in Judah!› Now it will be reported to the king according to these words. Come now therefore, and let us take counsel together.”</text>
+    <text>You have also appointed prophets to preach of you at Jerusalem, saying, ‹There is a king in Judah!› Now it will be reported to the king according to these words. Come now therefore, and let us take counsel together.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="8" characterId="narrator-NEH" delivery="message">
     <verse num="8" />
-    <text>Then I sent to him, saying, “There are no such things done as you say, but you imagine them out of your own heart.”</text>
+    <text>Then I sent to him, saying, «There are no such things done as you say, but you imagine them out of your own heart.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="9" characterId="narrator-NEH" delivery="praying">
     <verse num="9" />
-    <text>For they all would have made us afraid, saying, “Their hands will be weakened from the work, that it not be done.” But now, God, strengthen my hands.</text>
+    <text>For they all would have made us afraid, saying, «Their hands will be weakened from the work, that it not be done.» But now, God, strengthen my hands.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="10" characterId="narrator-NEH">
     <verse num="10" />
     <text>I went to the house of Shemaiah the son of Delaiah the son of Mehetabel, who was shut in at his home; and he said,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="10" characterId="Shemaiah, son of Delaiah">
-    <text>“Let us meet together in the house of God, within the temple, and let us shut the doors of the temple; for they will come to kill you; yes, in the night will they come to kill you.”</text>
+    <text>«Let us meet together in the house of God, within the temple, and let us shut the doors of the temple; for they will come to kill you; yes, in the night will they come to kill you.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="11" characterId="narrator-NEH">
     <verse num="11" />
-    <text>I said, “Should such a man as I flee? Who is there that, being such as I, would go into the temple to save his life? I will not go in.”</text>
+    <text>I said, «Should such a man as I flee? Who is there that, being such as I, would go into the temple to save his life? I will not go in.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="12" characterId="narrator-NEH">
     <verse num="12" />
@@ -609,7 +609,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="3" characterId="narrator-NEH">
     <verse num="3" />
-    <text>I said to them, “Don’t let the gates of Jerusalem be opened until the sun is hot; and while they stand guard, let them shut the doors, and you bar them: and appoint watches of the inhabitants of Jerusalem, everyone in his watch, with everyone near his house.”</text>
+    <text>I said to them, «Don’t let the gates of Jerusalem be opened until the sun is hot; and while they stand guard, let them shut the doors, and you bar them: and appoint watches of the inhabitants of Jerusalem, everyone in his watch, with everyone near his house.»</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="4" characterId="narrator-NEH">
     <verse num="4" />
@@ -895,7 +895,7 @@
     <text>and Ezra blessed God, the great God. All the people answered,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="6" characterId="people, all the" delivery="praising">
-    <text>“Amen, Amen,”</text>
+    <text>«Amen, Amen,»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="6" characterId="narrator-NEH">
     <text>with the lifting up of their hands. They bowed their heads, and worshiped God with their faces to the ground.</text>
@@ -913,7 +913,7 @@
     <text>Nehemiah, who was the governor, and Ezra the priest the scribe, and the Levites who taught the people, said to all the people,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="9" characterId="Ezra, priest and teacher">
-    <text>“This day is holy to God your God. Don't mourn, nor weep.”</text>
+    <text>«This day is holy to God your God. Don't mourn, nor weep.»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="9" characterId="narrator-NEH">
     <text>For all the people wept, when they heard the words of the law. </text>
@@ -921,14 +921,14 @@
     <text>Then he said to them,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="10" characterId="Ezra, priest and teacher">
-    <text>“Go your way. Eat the fat, drink the sweet, and send portions to him for whom nothing is prepared; for this day is holy to our Lord. Don't be grieved; for the joy of God is your strength.”</text>
+    <text>«Go your way. Eat the fat, drink the sweet, and send portions to him for whom nothing is prepared; for this day is holy to our Lord. Don't be grieved; for the joy of God is your strength.»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="11" characterId="narrator-NEH">
     <verse num="11" />
     <text>So the Levites stilled all the people, saying,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="11" characterId="Levites">
-    <text>“Hold your peace, for the day is holy; neither be grieved.”</text>
+    <text>«Hold your peace, for the day is holy; neither be grieved.»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="12" characterId="narrator-NEH">
     <verse num="12" />
@@ -947,7 +947,7 @@
     <text>and that they should publish and proclaim in all their cities, and in Jerusalem, saying,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="15" characterId="Ezra, priest and teacher" delivery="proclamation">
-    <text>“Go out to the mountain, and get olive branches, and branches of wild olive, and myrtle branches, and palm branches, and branches of thick trees, to make booths, as it is written.”</text>
+    <text>«Go out to the mountain, and get olive branches, and branches of wild olive, and myrtle branches, and palm branches, and branches of thick trees, to make booths, as it is written.»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="16" characterId="narrator-NEH">
     <verse num="16" />
@@ -985,7 +985,7 @@
     <text>Then the Levites, Jeshua, and Kadmiel, Bani, Hashabneiah, Sherebiah, Hodiah, Shebaniah, and Pethahiah, said,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="5" characterId="Levites" delivery="call to worship">
-    <text>“Stand up and bless God your God from everlasting to everlasting!</text>
+    <text>«Stand up and bless God your God from everlasting to everlasting!</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="5" characterId="Levites" delivery="praying">
     <text>Bessed be your glorious name, which is exalted above all blessing and praise!</text>
@@ -1110,7 +1110,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="38" characterId="Levites">
     <verse num="38" />
-    <text>Yet for all this, we make a sure covenant, and write it; and our princes, our Levites, and our priests, seal to it.”</text>
+    <text>Yet for all this, we make a sure covenant, and write it; and our princes, our Levites, and our priests, seal to it.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="NEH" initialStartVerse="0" characterId="BC-NEH">
     <text>10</text>
@@ -1586,7 +1586,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="11" characterId="narrator-NEH">
     <verse num="11" />
-    <text>Then I contended with the rulers, and said, “Why is the house of God forsaken?” I gathered them together, and set them in their place.</text>
+    <text>Then I contended with the rulers, and said, «Why is the house of God forsaken?» I gathered them together, and set them in their place.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="12" characterId="narrator-NEH">
     <verse num="12" />
@@ -1610,11 +1610,11 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="17" characterId="narrator-NEH">
     <verse num="17" />
-    <text>Then I contended with the nobles of Judah, and said to them, “What evil thing is this that you do, and profane the Sabbath day?</text>
+    <text>Then I contended with the nobles of Judah, and said to them, «What evil thing is this that you do, and profane the Sabbath day?</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="18" characterId="narrator-NEH">
     <verse num="18" />
-    <text>Didn’t your fathers do thus, and didn’t our God bring all this evil on us, and on this city? Yet you bring more wrath on Israel by profaning the Sabbath.”</text>
+    <text>Didn’t your fathers do thus, and didn’t our God bring all this evil on us, and on this city? Yet you bring more wrath on Israel by profaning the Sabbath.»</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="19" characterId="narrator-NEH">
     <verse num="19" />
@@ -1626,7 +1626,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="21" characterId="narrator-NEH">
     <verse num="21" />
-    <text>Then I testified against them, and said to them, “Why do you stay around the wall? If you do so again, I will lay hands on you.” From that time on, they didn’t come on the Sabbath.</text>
+    <text>Then I testified against them, and said to them, «Why do you stay around the wall? If you do so again, I will lay hands on you.» From that time on, they didn’t come on the Sabbath.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="22" characterId="narrator-NEH">
     <verse num="22" />
@@ -1642,7 +1642,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="25" characterId="narrator-NEH">
     <verse num="25" />
-    <text>I contended with them, and cursed them, and struck certain of them, and plucked off their hair, and made them swear by God, saying, “You shall not give your daughters to their sons, nor take their daughters for your sons, or for yourselves.</text>
+    <text>I contended with them, and cursed them, and struck certain of them, and plucked off their hair, and made them swear by God, saying, «You shall not give your daughters to their sons, nor take their daughters for your sons, or for yourselves.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="26" characterId="narrator-NEH">
     <verse num="26" />
@@ -1650,7 +1650,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="27" characterId="narrator-NEH">
     <verse num="27" />
-    <text>Shall we then listen to you to do all this great evil, to trespass against our God in marrying foreign women?”</text>
+    <text>Shall we then listen to you to do all this great evil, to trespass against our God in marrying foreign women?»</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="28" characterId="narrator-NEH">
     <verse num="28" />

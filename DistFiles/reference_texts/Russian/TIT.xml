@@ -110,7 +110,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="Cretan prophet" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="Cretan prophet">
-      <text>“Cretans are always liars, evil beasts, and idle gluttons.”</text>
+      <text>«Cretans are always liars, evil beasts, and idle gluttons.»</text>
     </ReferenceBlocks>
     <text>'Критяне всегда лжецы, злые звери, утробы ленивые'.</text>
   </block>
@@ -243,7 +243,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-TIT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-TIT">
       <verse num="12" />
-      <text>It teaches us to say “No” to ungodliness and worldly lusts, so that we will live soberly, righteously, and godly in this present world.</text>
+      <text>It teaches us to say «No» to ungodliness and worldly lusts, so that we will live soberly, righteously, and godly in this present world.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>научающая нас, чтобы мы, отвергнув нечестие и мирские похоти, целомудренно, праведно и благочестиво жили в нынешнем веке,</text>

@@ -285,7 +285,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-EPH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-EPH">
       <verse num="11" />
-      <text>Therefore remember that once you, the Gentiles in the flesh, who are called “uncircumcision” by that which is called “circumcision,” (in the flesh, made by hands);</text>
+      <text>Therefore remember that once you, the Gentiles in the flesh, who are called «uncircumcision» by that which is called «circumcision,» (in the flesh, made by hands);</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Итак помните, что вы, некогда язычники по плоти, которых называли необрезанными так называемые обрезанные плотским обрезанием, совершаемым руками,</text>
@@ -620,14 +620,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="scripture">
-      <text>“When he ascended on high, he led captivity captive, and gave gifts to men.”</text>
+      <text>«When he ascended on high, he led captivity captive, and gave gifts to men.»</text>
     </ReferenceBlocks>
-    <text>“восшед на высоту, пленил плен и дал дары человекам.”</text>
+    <text>«восшед на высоту, пленил плен и дал дары человекам.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-EPH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-EPH">
       <verse num="9" />
-      <text>Now this, “He ascended,” what is it but that he also first descended into the lower parts of the earth?</text>
+      <text>Now this, «He ascended,» what is it but that he also first descended into the lower parts of the earth?</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>А 'восшел' что означает, как не то, что Он и нисходил прежде в преисподние места земли?</text>
@@ -763,7 +763,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="narrator-EPH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="narrator-EPH">
       <verse num="26" />
-      <text>“Be angry, and don’t sin.” Don’t let the sun go down on your wrath, </text>
+      <text>«Be angry, and don’t sin.» Don’t let the sun go down on your wrath, </text>
       <verse num="27" />
       <text>neither give place to the devil.</text>
     </ReferenceBlocks>
@@ -928,9 +928,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="scripture">
-      <text>“Awake, you who sleep, and arise from the dead, and Christ will shine on you.”</text>
+      <text>«Awake, you who sleep, and arise from the dead, and Christ will shine on you.»</text>
     </ReferenceBlocks>
-    <text>“'встань, спящий, и воскресни из мертвых, и осветит тебя Христос'.”</text>
+    <text>«'встань, спящий, и воскресни из мертвых, и осветит тебя Христос'.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-EPH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-EPH">
@@ -1063,10 +1063,10 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="31" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="31" characterId="scripture">
       <verse num="31" />
-      <text>“For this cause a man will leave his father and mother, and will be joined to his wife. The two will become one flesh.”</text>
+      <text>«For this cause a man will leave his father and mother, and will be joined to his wife. The two will become one flesh.»</text>
     </ReferenceBlocks>
     <verse num="31" />
-    <text>“Посему оставит человек отца своего и мать и прилепится к жене своей, и будут двое одна плоть.”</text>
+    <text>«Посему оставит человек отца своего и мать и прилепится к жене своей, и будут двое одна плоть.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="32" characterId="narrator-EPH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="32" characterId="narrator-EPH">
@@ -1101,10 +1101,10 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="scripture">
       <verse num="2" />
-      <text>“Honor your father and mother,”</text>
+      <text>«Honor your father and mother,»</text>
     </ReferenceBlocks>
     <verse num="2" />
-    <text>“Почитай отца твоего и мать,”</text>
+    <text>«Почитай отца твоего и мать,»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-EPH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-EPH">
@@ -1115,10 +1115,10 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="scripture">
       <verse num="3" />
-      <text>“that it may be well with you, and you may live long on the earth.”</text>
+      <text>«that it may be well with you, and you may live long on the earth.»</text>
     </ReferenceBlocks>
     <verse num="3" />
-    <text>“да будет тебе благо, и будешь долголетен на земле.”</text>
+    <text>«да будет тебе благо, и будешь долголетен на земле.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-EPH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-EPH">

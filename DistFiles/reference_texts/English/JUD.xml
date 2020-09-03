@@ -43,7 +43,7 @@
     <text>But Michael, the archangel, when contending with the devil and arguing about the body of Moses, dared not bring against him an abusive condemnation, but said,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="Michael, archangel">
-    <text>“May the Lord rebuke you!”</text>
+    <text>«May the Lord rebuke you!»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-JUD">
     <verse num="10" />
@@ -66,11 +66,11 @@
     <text>About these also Enoch, the seventh from Adam, prophesied, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="Enoch">
-    <text>“Behold, the Lord came with ten thousands of his holy ones,</text>
+    <text>«Behold, the Lord came with ten thousands of his holy ones,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="Enoch">
     <verse num="15" />
-    <text>to execute judgment on all, and to convict all the ungodly of all their works of ungodliness which they have done in an ungodly way, and of all the hard things which ungodly sinners have spoken against him.”</text>
+    <text>to execute judgment on all, and to convict all the ungodly of all their works of ungodliness which they have done in an ungodly way, and of all the hard things which ungodly sinners have spoken against him.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-JUD">
     <verse num="16" />
@@ -82,7 +82,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-JUD">
     <verse num="18" />
-    <text>They said to you that “In the last time there will be mockers, walking after their own ungodly lusts.”</text>
+    <text>They said to you that «In the last time there will be mockers, walking after their own ungodly lusts.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-JUD">
     <verse num="19" />

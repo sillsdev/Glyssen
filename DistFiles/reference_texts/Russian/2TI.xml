@@ -245,7 +245,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-2TI">
       <verse num="11" />
-      <text>This saying is faithful: “For if we died with him, we will also live with him.</text>
+      <text>This saying is faithful: «For if we died with him, we will also live with him.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Верно слово: если мы с Ним умерли, то с Ним и оживем;</text>
@@ -261,7 +261,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2TI">
       <verse num="13" />
-      <text>If we are faithless, he remains faithful. He can’t deny himself.”</text>
+      <text>If we are faithless, he remains faithful. He can’t deny himself.»</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>если мы неверны, Он пребывает верен, ибо Себя отречься не может.</text>
@@ -316,7 +316,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="scripture">
-      <text>“The Lord knows those who are his,”</text>
+      <text>«The Lord knows those who are his,»</text>
     </ReferenceBlocks>
     <text>'познал Господь Своих';</text>
   </block>
@@ -328,7 +328,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="scripture">
-      <text>“Let every one who names the name of the Lord depart from unrighteousness.”</text>
+      <text>«Let every one who names the name of the Lord depart from unrighteousness.»</text>
     </ReferenceBlocks>
     <text>'да отступит от неправды всякий, исповедующий имя Господа'.</text>
   </block>

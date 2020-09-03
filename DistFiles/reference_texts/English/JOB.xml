@@ -27,7 +27,7 @@
     <text>It was so, when the days of their feasting had run their course, that Job sent and sanctified them, and rose up early in the morning, and offered burnt offerings according to the number of them all. For Job said,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="5" characterId="Job" delivery="thinking">
-    <text>“It may be that my sons have sinned, and renounced God in their hearts.”</text>
+    <text>«It may be that my sons have sinned, and renounced God in their hearts.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="5" characterId="narrator-JOB">
     <text>Job did so continually.</text>
@@ -39,27 +39,27 @@
     <text>God said to Satan,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="7" characterId="God">
-    <text>“Where have you come from?”</text>
+    <text>«Where have you come from?»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="7" characterId="narrator-JOB">
     <text>Then Satan answered God, and said,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="7" characterId="Satan (Devil)">
-    <text>“From going back and forth in the earth, and from walking up and down in it.”</text>
+    <text>«From going back and forth in the earth, and from walking up and down in it.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="8" characterId="narrator-JOB">
     <verse num="8" />
     <text>God said to Satan,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="8" characterId="God">
-    <text>“Have you considered my servant, Job? For there is none like him in the earth, a blameless and an upright man, one who fears God, and turns away from evil.”</text>
+    <text>«Have you considered my servant, Job? For there is none like him in the earth, a blameless and an upright man, one who fears God, and turns away from evil.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="narrator-JOB">
     <verse num="9" />
     <text>Then Satan answered God, and said,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="Satan (Devil)">
-    <text>“Does Job fear God for nothing?</text>
+    <text>«Does Job fear God for nothing?</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="10" characterId="Satan (Devil)">
     <verse num="10" />
@@ -67,14 +67,14 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="11" characterId="Satan (Devil)">
     <verse num="11" />
-    <text>But put forth your hand now, and touch all that he has, and he will renounce you to your face.”</text>
+    <text>But put forth your hand now, and touch all that he has, and he will renounce you to your face.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="12" characterId="narrator-JOB">
     <verse num="12" />
     <text>God said to Satan,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="12" characterId="God">
-    <text>“Behold, all that he has is in your power. Only on himself don't put forth your hand.”</text>
+    <text>«Behold, all that he has is in your power. Only on himself don't put forth your hand.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="12" characterId="narrator-JOB">
     <text>So Satan went forth from the presence of God.</text>
@@ -86,32 +86,32 @@
     <text>that there came a messenger to Job, and said,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="14" characterId="messenger to Job">
-    <text>“The oxen were plowing, and the donkeys feeding beside them, </text>
+    <text>«The oxen were plowing, and the donkeys feeding beside them, </text>
     <verse num="15" />
-    <text>and the Sabeans attacked, and took them away. Yes, they have killed the servants with the edge of the sword, and I alone have escaped to tell you.”</text>
+    <text>and the Sabeans attacked, and took them away. Yes, they have killed the servants with the edge of the sword, and I alone have escaped to tell you.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="16" characterId="narrator-JOB">
     <verse num="16" />
     <text>While he was still speaking, there also came another, and said,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="16" characterId="messenger to Job, another">
-    <text>“The fire of God has fallen from the sky, and has burned up the sheep and the servants, and consumed them, and I alone have escaped to tell you.”</text>
+    <text>«The fire of God has fallen from the sky, and has burned up the sheep and the servants, and consumed them, and I alone have escaped to tell you.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="17" characterId="narrator-JOB">
     <verse num="17" />
     <text>While he was still speaking, there came also another, and said,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="17" characterId="messenger to Job, still another">
-    <text>“The Chaldeans made three bands, and swept down on the camels, and have taken them away, yes, and killed the servants with the edge of the sword; and I alone have escaped to tell you.”</text>
+    <text>«The Chaldeans made three bands, and swept down on the camels, and have taken them away, yes, and killed the servants with the edge of the sword; and I alone have escaped to tell you.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="18" characterId="narrator-JOB">
     <verse num="18" />
     <text>While he was still speaking, there came also another, and said,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="18" characterId="messenger to Job, yet another">
-    <text>“Your sons and your daughters were eating and drinking wine in their eldest brother’s house, </text>
+    <text>«Your sons and your daughters were eating and drinking wine in their eldest brother’s house, </text>
     <verse num="19" />
-    <text>and behold, there came a great wind from the wilderness, and struck the four corners of the house, and it fell on the young men, and they are dead. I alone have escaped to tell you.”</text>
+    <text>and behold, there came a great wind from the wilderness, and struck the four corners of the house, and it fell on the young men, and they are dead. I alone have escaped to tell you.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="20" characterId="narrator-JOB">
     <verse num="20" />
@@ -120,7 +120,7 @@
     <text>He said,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="21" characterId="Job">
-    <text>“Naked I came out of my mother's womb, and naked shall I return there. God gave, and God has taken away. Blessed be the name of God.”</text>
+    <text>«Naked I came out of my mother's womb, and naked shall I return there. God gave, and God has taken away. Blessed be the name of God.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="22" characterId="narrator-JOB">
     <verse num="22" />
@@ -136,38 +136,38 @@
     <text>God said to Satan,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="God">
-    <text>“Where have you come from?”</text>
+    <text>«Where have you come from?»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-JOB">
     <text>Satan answered God, and said,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="Satan (Devil)">
-    <text>“From going back and forth in the earth, and from walking up and down in it.”</text>
+    <text>«From going back and forth in the earth, and from walking up and down in it.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="narrator-JOB">
     <verse num="3" />
     <text>God said to Satan,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="God">
-    <text>“Have you considered my servant Job? For there is none like him in the earth, a blameless and an upright man, one who fears God, and turns away from evil. He still maintains his integrity, although you incited me against him, to ruin him without cause.”</text>
+    <text>«Have you considered my servant Job? For there is none like him in the earth, a blameless and an upright man, one who fears God, and turns away from evil. He still maintains his integrity, although you incited me against him, to ruin him without cause.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-JOB">
     <verse num="4" />
     <text>Satan answered God, and said,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="Satan (Devil)">
-    <text>“Skin for skin. Yes, all that a man has he will give for his life.</text>
+    <text>«Skin for skin. Yes, all that a man has he will give for his life.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="5" characterId="Satan (Devil)">
     <verse num="5" />
-    <text>But put forth your hand now, and touch his bone and his flesh, and he will renounce you to your face.”</text>
+    <text>But put forth your hand now, and touch his bone and his flesh, and he will renounce you to your face.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-JOB">
     <verse num="6" />
     <text>God said to Satan,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="God">
-    <text>“Behold, he is in your hand. Only spare his life.”</text>
+    <text>«Behold, he is in your hand. Only spare his life.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="7" characterId="narrator-JOB">
     <verse num="7" />
@@ -180,14 +180,14 @@
     <text>Then his wife said to him,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="9" characterId="Job's wife">
-    <text>“Do you still maintain your integrity? Renounce God, and die.”</text>
+    <text>«Do you still maintain your integrity? Renounce God, and die.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="10" characterId="narrator-JOB">
     <verse num="10" />
     <text>But he said to her,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="10" characterId="Job">
-    <text>“You speak as one of the foolish women would speak. What? Shall we receive good at the hand of God, and shall we not receive evil?”</text>
+    <text>«You speak as one of the foolish women would speak. What? Shall we receive good at the hand of God, and shall we not receive evil?»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="10" characterId="narrator-JOB">
     <text>In all this Job didn't sin with his lips.</text>
@@ -495,7 +495,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="27" characterId="Eliphaz the Temanite">
     <verse num="27" />
-    <text>Look this, we have searched it, so it is. Hear it, and know it for your good.”</text>
+    <text>Look this, we have searched it, so it is. Hear it, and know it for your good.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="JOB" initialStartVerse="0" characterId="BC-JOB">
     <text>6</text>
@@ -701,7 +701,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="21" characterId="Job">
     <verse num="21" />
-    <text>Why do you not pardon my disobedience, and take away my iniquity? For now shall I lie down in the dust. You will seek me diligently, but I shall not be.”</text>
+    <text>Why do you not pardon my disobedience, and take away my iniquity? For now shall I lie down in the dust. You will seek me diligently, but I shall not be.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="JOB" initialStartVerse="0" characterId="BC-JOB">
     <text>8</text>
@@ -788,7 +788,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="22" characterId="Bildad the Shuhite">
     <verse num="22" />
-    <text>Those who hate you shall be clothed with shame. The tent of the wicked shall be no more.”</text>
+    <text>Those who hate you shall be clothed with shame. The tent of the wicked shall be no more.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="JOB" initialStartVerse="0" characterId="BC-JOB">
     <text>9</text>
@@ -1663,7 +1663,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="16" characterId="Job">
     <verse num="16" />
-    <text>Shall it go down with me to the gates of Sheol, or descend together into the dust?”</text>
+    <text>Shall it go down with me to the gates of Sheol, or descend together into the dust?»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="18" book="JOB" initialStartVerse="0" characterId="BC-JOB">
     <text>18</text>
@@ -1750,7 +1750,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="21" characterId="Bildad the Shuhite">
     <verse num="21" />
-    <text>Surely such are the dwellings of the unrighteous. This is the place of him who doesn’t know God.”</text>
+    <text>Surely such are the dwellings of the unrighteous. This is the place of him who doesn’t know God.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="19" book="JOB" initialStartVerse="0" characterId="BC-JOB">
     <text>19</text>
@@ -1857,7 +1857,7 @@
     <verse num="28" />
     <text>If you say, ‹How we will persecute him!› because the root of the matter is found in me, </text>
     <verse num="29" />
-    <text>be afraid of the sword, for wrath brings the punishments of the sword, that you may know there is a judgment.”</text>
+    <text>be afraid of the sword, for wrath brings the punishments of the sword, that you may know there is a judgment.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="20" book="JOB" initialStartVerse="0" characterId="BC-JOB">
     <text>20</text>
@@ -2466,7 +2466,7 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="14" characterId="Job">
     <verse num="14" />
-    <text>Behold, these are but the outskirts of his ways. How small a whisper do we hear of him! But the thunder of his power who can understand?”</text>
+    <text>Behold, these are but the outskirts of his ways. How small a whisper do we hear of him! But the thunder of his power who can understand?»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="27" book="JOB" initialStartVerse="0" characterId="BC-JOB">
     <text>27</text>
@@ -2662,7 +2662,7 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="28" characterId="Job">
     <verse num="28" />
-    <text>To man he said, ‹Behold, the fear of the Lord, that is wisdom. To depart from evil is understanding.› ”</text>
+    <text>To man he said, ‹Behold, the fear of the Lord, that is wisdom. To depart from evil is understanding.› »</text>
   </block>
   <block style="c" paragraphStart="true" chapter="29" book="JOB" initialStartVerse="0" characterId="BC-JOB">
     <text>29</text>
@@ -3053,7 +3053,7 @@
     <text>Elihu the son of Barachel the Buzite answered,</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="6" characterId="Elihu, son of Barakel">
-    <text>“I am young, and you are very old; Therefore I held back, and didn't dare show you my opinion.</text>
+    <text>«I am young, and you are very old; Therefore I held back, and didn't dare show you my opinion.</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="7" characterId="Elihu, son of Barakel">
     <verse num="7" />
@@ -3446,7 +3446,7 @@
   </block>
   <block style="p" chapter="35" initialStartVerse="16" characterId="Elihu, son of Barakel">
     <verse num="16" />
-    <text>Therefore Job opens his mouth with empty talk, and he multiplies words without knowledge.”</text>
+    <text>Therefore Job opens his mouth with empty talk, and he multiplies words without knowledge.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="36" book="JOB" initialStartVerse="0" characterId="BC-JOB">
     <text>36</text>
@@ -4152,11 +4152,11 @@
     <text>It was so, that after God had spoken these words to Job, God said to Eliphaz the Temanite,</text>
   </block>
   <block style="p" chapter="42" initialStartVerse="7" characterId="God">
-    <text>“My wrath is kindled against you, and against your two friends; for you have not spoken of me the thing that is right, as my servant Job has.</text>
+    <text>«My wrath is kindled against you, and against your two friends; for you have not spoken of me the thing that is right, as my servant Job has.</text>
   </block>
   <block style="p" chapter="42" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>Now therefore, take to yourselves seven bulls and seven rams, and go to my servant Job, and offer up for yourselves a burnt offering; and my servant Job shall pray for you, for I will accept him, that I not deal with you according to your folly. For you have not spoken of me the thing that is right, as my servant Job has.”</text>
+    <text>Now therefore, take to yourselves seven bulls and seven rams, and go to my servant Job, and offer up for yourselves a burnt offering; and my servant Job shall pray for you, for I will accept him, that I not deal with you according to your folly. For you have not spoken of me the thing that is right, as my servant Job has.»</text>
   </block>
   <block style="p" chapter="42" initialStartVerse="9" characterId="narrator-JOB">
     <verse num="9" />

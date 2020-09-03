@@ -84,14 +84,14 @@
     <text>Therefore thus says God:</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="God">
-    <text>“Behold, I am planning against these people a disaster, from which you will not remove your necks, neither will you walk haughtily; for it is an evil time.</text>
+    <text>«Behold, I am planning against these people a disaster, from which you will not remove your necks, neither will you walk haughtily; for it is an evil time.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="God">
     <verse num="4" />
     <text>In that day they will take up a parable against you, and lament with a doleful lamentation, saying,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="people" delivery="lament">
-    <text>We are utterly ruined! My people’s possession is divided up. Indeed he takes it from me and assigns our fields to traitors!› ”</text>
+    <text>We are utterly ruined! My people’s possession is divided up. Indeed he takes it from me and assigns our fields to traitors!› »</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="5" characterId="narrator-MIC">
     <verse num="5" />
@@ -99,20 +99,20 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="false prophets">
     <verse num="6" />
-    <text>“Don’t prophesy!”</text>
+    <text>«Don’t prophesy!»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-MIC">
     <text>They prophesy.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="false prophets">
-    <text>“Don't prophesy about these things. Disgrace won't overtake us.”</text>
+    <text>«Don't prophesy about these things. Disgrace won't overtake us.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="7" characterId="narrator-MIC">
     <verse num="7" />
-    <text>Shall it be said, O house of Jacob: “Is the Spirit of God angry? Are these his doings?</text>
+    <text>Shall it be said, O house of Jacob: «Is the Spirit of God angry? Are these his doings?</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="7" characterId="God">
-    <text>Don't my words do good to him who walks blamelessly?”</text>
+    <text>Don't my words do good to him who walks blamelessly?»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="8" characterId="God">
     <verse num="8" />
@@ -128,7 +128,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="11" characterId="God">
     <verse num="11" />
-    <text>If a man walking in a spirit of falsehood lies: “I will prophesy to you of wine and of strong drink;” he would be the prophet of this people.</text>
+    <text>If a man walking in a spirit of falsehood lies: «I will prophesy to you of wine and of strong drink;» he would be the prophet of this people.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="12" characterId="God">
     <verse num="12" />
@@ -143,7 +143,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="1" characterId="narrator-MIC">
     <verse num="1" />
-    <text>I said, “Please listen, you heads of Jacob, and rulers of the house of Israel: Isn’t it for you to know justice?</text>
+    <text>I said, «Please listen, you heads of Jacob, and rulers of the house of Israel: Isn’t it for you to know justice?</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="2" characterId="narrator-MIC">
     <verse num="2" />
@@ -155,14 +155,14 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="4" characterId="narrator-MIC">
     <verse num="4" />
-    <text>Then they will cry to God, but he will not answer them. Yes, he will hide his face from them at that time, because they made their deeds evil.”</text>
+    <text>Then they will cry to God, but he will not answer them. Yes, he will hide his face from them at that time, because they made their deeds evil.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-MIC">
     <verse num="5" />
     <text>Thus says God</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="God">
-    <text>concerning the prophets who lead my people astray; for those who feed their teeth, they proclaim, “Peace!” and whoever doesn't provide for their mouths, they prepare war against him:</text>
+    <text>concerning the prophets who lead my people astray; for those who feed their teeth, they proclaim, «Peace!» and whoever doesn't provide for their mouths, they prepare war against him:</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="6" characterId="God">
     <verse num="6" />
@@ -189,7 +189,7 @@
     <text>Her leaders judge for bribes, and her priests teach for a price, and her prophets of it tell fortunes for money: yet they lean on God, and say,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="11" characterId="leaders/priests/false prophets">
-    <text>“Isn't God in the midst of us? No disaster will come on us.”</text>
+    <text>«Isn't God in the midst of us? No disaster will come on us.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="12" characterId="narrator-MIC">
     <verse num="12" />
@@ -205,7 +205,7 @@
     <text>Many nations will go and say,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="2" characterId="nations">
-    <text>“Come, and let us go up to the mountain of God, and to the house of the God of Jacob; and he will teach us of his ways, and we will walk in his paths.”</text>
+    <text>«Come, and let us go up to the mountain of God, and to the house of the God of Jacob; and he will teach us of his ways, and we will walk in his paths.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="2" characterId="narrator-MIC">
     <text>For out of Zion will go forth the law, and the word of God from Jerusalem;</text>
@@ -230,11 +230,11 @@
     <text>says God,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="6" characterId="God">
-    <text>“I will assemble that which is lame, and I will gather that which is driven away, and that which I have afflicted;</text>
+    <text>«I will assemble that which is lame, and I will gather that which is driven away, and that which I have afflicted;</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>and I will make that which was lame a remnant, and that which was cast far off a strong nation: and God will reign over them on Mount Zion from then on, even forever.”</text>
+    <text>and I will make that which was lame a remnant, and that which was cast far off a strong nation: and God will reign over them on Mount Zion from then on, even forever.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="8" characterId="God">
     <verse num="8" />
@@ -253,7 +253,7 @@
     <text>Now many nations have assembled against you, that say,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="11" characterId="nations">
-    <text>“Let her be defiled, and let our eye gloat over Zion.”</text>
+    <text>«Let her be defiled, and let our eye gloat over Zion.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="12" characterId="narrator-MIC">
     <verse num="12" />
@@ -310,7 +310,7 @@
     <text>says God,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="10" characterId="God">
-    <text>“That I will cut off your horses out of the midst of you, and will destroy your chariots.</text>
+    <text>«That I will cut off your horses out of the midst of you, and will destroy your chariots.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="11" characterId="God">
     <verse num="11" />
@@ -330,7 +330,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="15" characterId="God">
     <verse num="15" />
-    <text>I will execute vengeance in anger, and wrath on the nations that didn’t listen.”</text>
+    <text>I will execute vengeance in anger, and wrath on the nations that didn’t listen.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="MIC" initialStartVerse="0" characterId="BC-MIC">
     <text>6</text>
@@ -340,7 +340,7 @@
     <text>Listen now to what God says:</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="1" characterId="God">
-    <text>“Arise, plead your case before the mountains, and let the hills hear what you have to say.</text>
+    <text>«Arise, plead your case before the mountains, and let the hills hear what you have to say.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="2" characterId="God">
     <verse num="2" />
@@ -356,7 +356,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>My people, remember now what Balak king of Moab devised, and what Balaam the son of Beor answered him from Shittim to Gilgal, that you may know the righteous acts of God.”</text>
+    <text>My people, remember now what Balak king of Moab devised, and what Balaam the son of Beor answered him from Shittim to Gilgal, that you may know the righteous acts of God.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="6" characterId="narrator-MIC">
     <verse num="6" />
@@ -375,7 +375,7 @@
     <text>God’s voice calls to the city, and wisdom sees your name:</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="9" characterId="God">
-    <text>“Listen to the rod, and he who appointed it.</text>
+    <text>«Listen to the rod, and he who appointed it.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="10" characterId="God">
     <verse num="10" />
@@ -403,7 +403,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="16" characterId="God">
     <verse num="16" />
-    <text>For the statutes of Omri are kept, and all the works of the house of Ahab. You walk in their counsels, that I may make you a ruin, and her inhabitants a hissing; And you will bear the reproach of my people.”</text>
+    <text>For the statutes of Omri are kept, and all the works of the house of Ahab. You walk in their counsels, that I may make you a ruin, and her inhabitants a hissing; And you will bear the reproach of my people.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="MIC" initialStartVerse="0" characterId="BC-MIC">
     <text>7</text>

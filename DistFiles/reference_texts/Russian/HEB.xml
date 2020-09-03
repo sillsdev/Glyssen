@@ -54,9 +54,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="scripture">
-      <text>“You are my Son. Today I have become your father.”</text>
+      <text>«You are my Son. Today I have become your father.»</text>
     </ReferenceBlocks>
-    <text>“Ты Сын Мой, Я ныне родил Тебя?”</text>
+    <text>«Ты Сын Мой, Я ныне родил Тебя?»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-HEB">
@@ -66,9 +66,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="scripture">
-      <text>“I will be to him a Father, and he will be to me a Son.”</text>
+      <text>«I will be to him a Father, and he will be to me a Son.»</text>
     </ReferenceBlocks>
-    <text>“Я буду Ему Отцем, и Он будет Мне Сыном?”</text>
+    <text>«Я буду Ему Отцем, и Он будет Мне Сыном?»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-HEB">
@@ -80,9 +80,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="scripture">
-      <text>“Let all the angels of God worship him.”</text>
+      <text>«Let all the angels of God worship him.»</text>
     </ReferenceBlocks>
-    <text>“и да поклонятся Ему все Ангелы Божии.”</text>
+    <text>«и да поклонятся Ему все Ангелы Божии.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-HEB">
@@ -94,9 +94,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="scripture">
-      <text>“Who makes his angels winds, and his servants a flame of fire.”</text>
+      <text>«Who makes his angels winds, and his servants a flame of fire.»</text>
     </ReferenceBlocks>
-    <text>“Ты творишь Ангелами Своими духов и служителями Своими пламенеющий огонь.”</text>
+    <text>«Ты творишь Ангелами Своими духов и служителями Своими пламенеющий огонь.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-HEB">
@@ -108,17 +108,17 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="scripture">
-      <text>“Your throne, O God, is forever and ever. The scepter of uprightness is the scepter of your Kingdom.</text>
+      <text>«Your throne, O God, is forever and ever. The scepter of uprightness is the scepter of your Kingdom.</text>
     </ReferenceBlocks>
     <text>престол Твой, Боже, в век века; жезл царствия Твоего—жезл правоты.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="scripture">
       <verse num="9" />
-      <text>You have loved righteousness, and hated iniquity; therefore God, your God, has anointed you with the oil of gladness above your fellows.”</text>
+      <text>You have loved righteousness, and hated iniquity; therefore God, your God, has anointed you with the oil of gladness above your fellows.»</text>
     </ReferenceBlocks>
     <verse num="9" />
-    <text>Ты возлюбил правду и возненавидел беззаконие, посему помазал Тебя, Боже, Бог Твой елеем радости более соучастников Твоих.”</text>
+    <text>Ты возлюбил правду и возненавидел беззаконие, посему помазал Тебя, Боже, Бог Твой елеем радости более соучастников Твоих.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-HEB">
@@ -130,7 +130,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="scripture">
-      <text>“You, Lord, in the beginning, laid the foundation of the earth. The heavens are the works of your hands.</text>
+      <text>«You, Lord, in the beginning, laid the foundation of the earth. The heavens are the works of your hands.</text>
     </ReferenceBlocks>
     <text>в начале Ты, Господи, основал землю, и небеса—дело рук Твоих;</text>
   </block>
@@ -145,10 +145,10 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="scripture">
       <verse num="12" />
-      <text>As a mantle, you will roll them up, and they will be changed; but you are the same. Your years will not fail.”</text>
+      <text>As a mantle, you will roll them up, and they will be changed; but you are the same. Your years will not fail.»</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>и как одежду свернешь их, и изменятся; но Ты тот же, и лета Твои не кончатся.”</text>
+    <text>и как одежду свернешь их, и изменятся; но Ты тот же, и лета Твои не кончатся.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-HEB">
@@ -160,9 +160,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="scripture">
-      <text>“Sit at my right hand, until I make your enemies the footstool of your feet?”</text>
+      <text>«Sit at my right hand, until I make your enemies the footstool of your feet?»</text>
     </ReferenceBlocks>
-    <text>“седи одесную Меня, доколе положу врагов Твоих в подножие ног Твоих?”</text>
+    <text>«седи одесную Меня, доколе положу врагов Твоих в подножие ног Твоих?»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-HEB">
@@ -228,9 +228,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="scripture">
-      <text>“What is man, that you think of him? Or the son of man, that you care for him?</text>
+      <text>«What is man, that you think of him? Or the son of man, that you care for him?</text>
     </ReferenceBlocks>
-    <text>“что значит человек, что Ты помнишь его? или сын человеческий, что Ты посещаешь его?</text>
+    <text>«что значит человек, что Ты помнишь его? или сын человеческий, что Ты посещаешь его?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="scripture">
@@ -243,10 +243,10 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture">
       <verse num="8" />
-      <text>You have put all things in subjection under his feet.”</text>
+      <text>You have put all things in subjection under his feet.»</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>все покорил под ноги его.”</text>
+    <text>все покорил под ноги его.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-HEB">
@@ -282,10 +282,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="Jesus">
-      <text>“I will declare your name to my brothers. In the midst of the congregation I will sing your praise.”</text>
+      <text>«I will declare your name to my brothers. In the midst of the congregation I will sing your praise.»</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>“возвещу имя Твое братиям Моим, посреди церкви воспою Тебя.”</text>
+    <text>«возвещу имя Твое братиям Моим, посреди церкви воспою Тебя.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-HEB">
@@ -297,9 +297,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jesus">
-      <text>“I will put my trust in him.”</text>
+      <text>«I will put my trust in him.»</text>
     </ReferenceBlocks>
-    <text>“Я буду уповать на Него.”</text>
+    <text>«Я буду уповать на Него.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-HEB">
@@ -309,9 +309,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jesus">
-      <text>“Behold, here I am with the children whom God has given me.”</text>
+      <text>«Behold, here I am with the children whom God has given me.»</text>
     </ReferenceBlocks>
-    <text>“вот Я и дети, которых дал Мне Бог.”</text>
+    <text>«вот Я и дети, которых дал Мне Бог.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-HEB">
@@ -417,9 +417,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="scripture">
-      <text>“Today if you will hear his voice,</text>
+      <text>«Today if you will hear his voice,</text>
     </ReferenceBlocks>
-    <text>“ныне, когда услышите глас Его,</text>
+    <text>«ныне, когда услышите глас Его,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="scripture">
@@ -440,7 +440,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture">
       <verse num="10" />
-      <text>Therefore I was displeased with that generation, and said, ‘They always err in their heart, but they didn’t know my ways.’</text>
+      <text>Therefore I was displeased with that generation, and said, ‹They always err in their heart, but they didn’t know my ways.›</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Посему Я вознегодовал на оный род и сказал: непрестанно заблуждаются сердцем, не познали они путей Моих;</text>
@@ -448,10 +448,10 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture">
       <verse num="11" />
-      <text>I swore in my wrath, ‘They will not enter into my rest.’”</text>
+      <text>I swore in my wrath, ‹They will not enter into my rest.› »</text>
     </ReferenceBlocks>
     <verse num="11" />
-    <text>посему Я поклялся во гневе Моем, что они не войдут в покой Мой.”</text>
+    <text>посему Я поклялся во гневе Моем, что они не войдут в покой Мой.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-HEB">
@@ -464,7 +464,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-HEB">
       <verse num="13" />
-      <text>Exhort one another day by day, so long as it is called “today,” lest any one of you be hardened by the deceitfulness of sin.</text>
+      <text>Exhort one another day by day, so long as it is called «today,» lest any one of you be hardened by the deceitfulness of sin.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Но наставляйте друг друга каждый день, доколе можно говорить: 'ныне', чтобы кто из вас не ожесточился, обольстившись грехом.</text>
@@ -480,10 +480,10 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-HEB">
       <verse num="15" />
-      <text>while it is said, “Today if you will hear his voice, don't harden your hearts, as in the rebellion.”</text>
+      <text>while it is said, «Today if you will hear his voice, don't harden your hearts, as in the rebellion.»</text>
     </ReferenceBlocks>
     <verse num="15" />
-    <text>доколе говорится: “'ныне, когда услышите глас Его, не ожесточите сердец ваших, как во время ропота'.”</text>
+    <text>доколе говорится: «'ныне, когда услышите глас Его, не ожесточите сердец ваших, как во время ропота'.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-HEB">
@@ -542,26 +542,26 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-HEB">
       <verse num="3" />
-      <text>For we who have believed do enter into that rest, even as he has said, “As I swore in my wrath, they will not enter into my rest” although the works were finished from the foundation of the world.</text>
+      <text>For we who have believed do enter into that rest, even as he has said, «As I swore in my wrath, they will not enter into my rest» although the works were finished from the foundation of the world.</text>
     </ReferenceBlocks>
     <verse num="3" />
-    <text>А входим в покой мы уверовавшие, так как Он сказал: “Я поклялся в гневе Моем, что они не войдут в покой Мой”, хотя дела Его были совершены еще в начале мира.</text>
+    <text>А входим в покой мы уверовавшие, так как Он сказал: «Я поклялся в гневе Моем, что они не войдут в покой Мой», хотя дела Его были совершены еще в начале мира.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-HEB">
       <verse num="4" />
-      <text>For he has said this somewhere about the seventh day, “God rested on the seventh day from all his works”</text>
+      <text>For he has said this somewhere about the seventh day, «God rested on the seventh day from all his works»</text>
     </ReferenceBlocks>
     <verse num="4" />
-    <text>Ибо негде сказано о седьмом дне так: “и почил Бог в день седьмый от всех дел Своих.”</text>
+    <text>Ибо негде сказано о седьмом дне так: «и почил Бог в день седьмый от всех дел Своих.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-HEB">
       <verse num="5" />
-      <text>and in this place again, “They will not enter into my rest.”</text>
+      <text>and in this place again, «They will not enter into my rest.»</text>
     </ReferenceBlocks>
     <verse num="5" />
-    <text>И еще здесь: “не войдут в покой Мой”.</text>
+    <text>И еще здесь: «не войдут в покой Мой».</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-HEB">
@@ -574,10 +574,10 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-HEB">
       <verse num="7" />
-      <text>God again defines a certain day, today, saying through David so long a time afterward (just as has been said), “Today if you will hear his voice, don't harden your hearts.”</text>
+      <text>God again defines a certain day, today, saying through David so long a time afterward (just as has been said), «Today if you will hear his voice, don't harden your hearts.»</text>
     </ReferenceBlocks>
     <verse num="7" />
-    <text>то еще определяет некоторый день, “ныне”, говоря через Давида, после столь долгого времени, как выше сказано: “ныне, когда услышите глас Его, не ожесточите сердец ваших”.</text>
+    <text>то еще определяет некоторый день, «ныне», говоря через Давида, после столь долгого времени, как выше сказано: «ныне, когда услышите глас Его, не ожесточите сердец ваших».</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-HEB">
@@ -699,9 +699,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="scripture">
-      <text>“You are my Son. Today I have become your father.”</text>
+      <text>«You are my Son. Today I have become your father.»</text>
     </ReferenceBlocks>
-    <text>“Ты Сын Мой, Я ныне родил Тебя;”</text>
+    <text>«Ты Сын Мой, Я ныне родил Тебя;»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-HEB">
@@ -713,9 +713,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="scripture">
-      <text>“You are a priest forever, after the order of Melchizedek.”</text>
+      <text>«You are a priest forever, after the order of Melchizedek.»</text>
     </ReferenceBlocks>
-    <text>“Ты священник вовек по чину Мелхиседека.”</text>
+    <text>«Ты священник вовек по чину Мелхиседека.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-HEB">
@@ -897,9 +897,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="scripture">
-      <text>“Surely I will bless you and I will multiply you.”</text>
+      <text>«Surely I will bless you and I will multiply you.»</text>
     </ReferenceBlocks>
-    <text>“истинно благословляя благословлю тебя и размножая размножу тебя.”</text>
+    <text>«истинно благословляя благословлю тебя и размножая размножу тебя.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-HEB">
@@ -1093,9 +1093,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="scripture">
-      <text>“You are a priest forever, according to the order of Melchizedek.”</text>
+      <text>«You are a priest forever, according to the order of Melchizedek.»</text>
     </ReferenceBlocks>
-    <text>“Ты священник вовек по чину Мелхиседека.”</text>
+    <text>«Ты священник вовек по чину Мелхиседека.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="narrator-HEB">
@@ -1131,7 +1131,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="21" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="21" characterId="scripture">
-      <text>“The Lord swore and will not change his mind, ‘You are a priest forever, according to the order of Melchizedek.’”</text>
+      <text>«The Lord swore and will not change his mind, ‹You are a priest forever, according to the order of Melchizedek.› »</text>
     </ReferenceBlocks>
     <text>клялся Господь, и не раскается: Ты священник вовек по чину Мелхиседека, —</text>
   </block>
@@ -1239,9 +1239,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="scripture">
-      <text>“See, you shall make everything according to the pattern that was shown to you on the mountain.”</text>
+      <text>«See, you shall make everything according to the pattern that was shown to you on the mountain.»</text>
     </ReferenceBlocks>
-    <text>“смотри, сказано, сделай все по образу, показанному тебе на горе.”</text>
+    <text>«смотри, сказано, сделай все по образу, показанному тебе на горе.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="6" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="6" characterId="narrator-HEB">
@@ -1269,36 +1269,36 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="scripture">
-      <text>“Behold, the days come,” says the Lord, “that I will make a new covenant with the house of Israel and with the house of Judah.</text>
+      <text>«Behold, the days come,» says the Lord, «that I will make a new covenant with the house of Israel and with the house of Judah.</text>
     </ReferenceBlocks>
-    <text>“вот, наступают дни, говорит Господь, когда Я заключу с домом Израиля и с домом Иуды новый завет,”</text>
+    <text>«вот, наступают дни, говорит Господь, когда Я заключу с домом Израиля и с домом Иуды новый завет,»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="scripture">
       <verse num="9" />
-      <text>It will not be according to the covenant that I made with their fathers, in the day that I took them by the hand to lead them out of the land of Egypt; for they didn’t continue in my covenant, and I disregarded them,” says the Lord.</text>
+      <text>It will not be according to the covenant that I made with their fathers, in the day that I took them by the hand to lead them out of the land of Egypt; for they didn’t continue in my covenant, and I disregarded them,» says the Lord.</text>
     </ReferenceBlocks>
     <verse num="9" />
-    <text>не такой завет, какой Я заключил с отцами их в то время, когда взял их за руку, чтобы вывести их из земли Египетской, потому что они не пребыли в том завете Моем, и Я пренебрег их, говорит Господь.”</text>
+    <text>не такой завет, какой Я заключил с отцами их в то время, когда взял их за руку, чтобы вывести их из земли Египетской, потому что они не пребыли в том завете Моем, и Я пренебрег их, говорит Господь.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture">
       <verse num="10" />
-      <text>“For this is the covenant that I will make with the house of Israel. After those days,” says the Lord;</text>
+      <text>«For this is the covenant that I will make with the house of Israel. After those days,» says the Lord;</text>
     </ReferenceBlocks>
     <verse num="10" />
-    <text>“Вот завет, который завещаю дому Израилеву после тех дней, говорит Господь:”</text>
+    <text>«Вот завет, который завещаю дому Израилеву после тех дней, говорит Господь:»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture">
-      <text>“I will put my laws into their mind, I will also write them on their heart. I will be their God, and they will be my people.</text>
+      <text>«I will put my laws into their mind, I will also write them on their heart. I will be their God, and they will be my people.</text>
     </ReferenceBlocks>
-    <text>“вложу законы Мои в мысли их, и напишу их на сердцах их; и буду их Богом, а они будут Моим народом.</text>
+    <text>«вложу законы Мои в мысли их, и напишу их на сердцах их; и буду их Богом, а они будут Моим народом.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="scripture">
       <verse num="11" />
-      <text>They will not teach every man his fellow citizen, and every man his brother, saying, ‘Know the Lord.’ All will know me, from their least to their greatest.</text>
+      <text>They will not teach every man his fellow citizen, and every man his brother, saying, ‹Know the Lord.› All will know me, from their least to their greatest.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>И не будет учить каждый ближнего своего и каждый брата своего, говоря: познай Господа; потому что все, от малого до большого, будут знать Меня,</text>
@@ -1306,15 +1306,15 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="scripture">
       <verse num="12" />
-      <text>For I will be merciful to their unrighteousness. I will remember their sins and lawless deeds no more.”</text>
+      <text>For I will be merciful to their unrighteousness. I will remember their sins and lawless deeds no more.»</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>потому что Я буду милостив к неправдам их, и грехов их и беззаконий их не воспомяну более.”</text>
+    <text>потому что Я буду милостив к неправдам их, и грехов их и беззаконий их не воспомяну более.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-HEB">
       <verse num="13" />
-      <text>In that he says, “A new covenant,” he has made the first old. But that which is becoming old and grows aged is near to vanishing away.</text>
+      <text>In that he says, «A new covenant,» he has made the first old. But that which is becoming old and grows aged is near to vanishing away.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Говоря 'новый', показал ветхость первого; а ветшающее и стареющее близко к уничтожению.</text>
@@ -1483,9 +1483,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="scripture">
-      <text>“This is the blood of the covenant which God has commanded you.”</text>
+      <text>«This is the blood of the covenant which God has commanded you.»</text>
     </ReferenceBlocks>
-    <text>“это кровь завета, который заповедал вам Бог.”</text>
+    <text>«это кровь завета, который заповедал вам Бог.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-HEB">
@@ -1599,9 +1599,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="scripture">
-      <text>“Sacrifice and offering you didn’t desire, but you prepared a body for me;</text>
+      <text>«Sacrifice and offering you didn’t desire, but you prepared a body for me;</text>
     </ReferenceBlocks>
-    <text>“жертвы и приношения Ты не восхотел, но тело уготовал Мне.</text>
+    <text>«жертвы и приношения Ты не восхотел, но тело уготовал Мне.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="scripture">
@@ -1614,26 +1614,26 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="scripture">
       <verse num="7" />
-      <text>Then I said, ‘Behold, I have come (in the scroll of the book it is written of me) to do your will, O God.’”</text>
+      <text>Then I said, ‹Behold, I have come (in the scroll of the book it is written of me) to do your will, O God.› »</text>
     </ReferenceBlocks>
     <verse num="7" />
-    <text>Тогда Я сказал: вот, иду, как в начале книги написано о Мне, исполнить волю Твою, Боже.”</text>
+    <text>Тогда Я сказал: вот, иду, как в начале книги написано о Мне, исполнить волю Твою, Боже.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-HEB">
       <verse num="8" />
-      <text>Previously saying, “Sacrifices and offerings and whole burnt offerings and sacrifices for sin you didn't desire, neither had pleasure in them” (although the law required them to be made),</text>
+      <text>Previously saying, «Sacrifices and offerings and whole burnt offerings and sacrifices for sin you didn't desire, neither had pleasure in them» (although the law required them to be made),</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>Сказав прежде, “что 'ни жертвы, ни приношения, ни всесожжений, ни жертвы за грех,” которые приносятся по закону, Ты не восхотел и не благоизволил',</text>
+    <text>Сказав прежде, «что 'ни жертвы, ни приношения, ни всесожжений, ни жертвы за грех,» которые приносятся по закону, Ты не восхотел и не благоизволил',</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="narrator-HEB">
       <verse num="9" />
-      <text>then he has said, “Behold, I have come to do your will.” He takes away the first, that he may establish the second.</text>
+      <text>then he has said, «Behold, I have come to do your will.» He takes away the first, that he may establish the second.</text>
     </ReferenceBlocks>
     <verse num="9" />
-    <text>потом прибавил: “'вот, иду исполнить волю Твою, Боже'.” Отменяет первое, чтобы постановить второе.”</text>
+    <text>потом прибавил: «'вот, иду исполнить волю Твою, Боже'.» Отменяет первое, чтобы постановить второе.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="narrator-HEB">
@@ -1686,16 +1686,16 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture">
       <verse num="16" />
-      <text>“This is the covenant that I will make with them:</text>
+      <text>«This is the covenant that I will make with them:</text>
     </ReferenceBlocks>
     <verse num="16" />
-    <text>“Вот завет, который завещаю им после тех дней, говорит Господь:</text>
+    <text>«Вот завет, который завещаю им после тех дней, говорит Господь:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture">
-      <text>‘After those days,’ says the Lord, ‘I will put my laws on their heart, I will also write them on their mind;’”</text>
+      <text>‹After those days,› says the Lord, ‹I will put my laws on their heart, I will also write them on their mind;› »</text>
     </ReferenceBlocks>
-    <text>вложу законы Мои в сердца их, и в мыслях их напишу их,”</text>
+    <text>вложу законы Мои в сердца их, и в мыслях их напишу их,»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-HEB">
@@ -1707,9 +1707,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="scripture">
-      <text>“I will remember their sins and their iniquities no more.”</text>
+      <text>«I will remember their sins and their iniquities no more.»</text>
     </ReferenceBlocks>
-    <text>“и грехов их и беззаконий их не воспомяну более.”</text>
+    <text>«и грехов их и беззаконий их не воспомяну более.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-HEB">
@@ -1817,9 +1817,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="scripture">
-      <text>“Vengeance belongs to me,” says the Lord, “I will repay.”</text>
+      <text>«Vengeance belongs to me,» says the Lord, «I will repay.»</text>
     </ReferenceBlocks>
-    <text>“у Меня отмщение, Я воздам, говорит Господь.”</text>
+    <text>«у Меня отмщение, Я воздам, говорит Господь.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="narrator-HEB">
@@ -1829,9 +1829,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="scripture">
-      <text>“The Lord will judge his people.”</text>
+      <text>«The Lord will judge his people.»</text>
     </ReferenceBlocks>
-    <text>“Господь будет судить народ Свой.”</text>
+    <text>«Господь будет судить народ Свой.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="31" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="31" characterId="narrator-HEB">
@@ -1887,17 +1887,17 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="scripture">
-      <text>“In a very little while, he who comes will come, and will not wait.</text>
+      <text>«In a very little while, he who comes will come, and will not wait.</text>
     </ReferenceBlocks>
-    <text>“еще немного, очень немного, и Грядущий придет и не умедлит.</text>
+    <text>«еще немного, очень немного, и Грядущий придет и не умедлит.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="38" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="38" characterId="scripture">
       <verse num="38" />
-      <text>But the righteous will live by faith. If he shrinks back, my soul has no pleasure in him.”</text>
+      <text>But the righteous will live by faith. If he shrinks back, my soul has no pleasure in him.»</text>
     </ReferenceBlocks>
     <verse num="38" />
-    <text>Праведный верою жив будет; а если кто поколеблется, не благоволит к тому душа Моя.”</text>
+    <text>Праведный верою жив будет; а если кто поколеблется, не благоволит к тому душа Моя.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="39" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="39" characterId="narrator-HEB">
@@ -2059,9 +2059,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="scripture">
-      <text>“In Isaac will your seed be called”</text>
+      <text>«In Isaac will your seed be called»</text>
     </ReferenceBlocks>
-    <text>“в Исааке наречется тебе семя.”</text>
+    <text>«в Исааке наречется тебе семя.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-HEB">
@@ -2287,17 +2287,17 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="scripture">
-      <text>“My son, don’t take lightly the chastening of the Lord, nor faint when you are reproved by him;</text>
+      <text>«My son, don’t take lightly the chastening of the Lord, nor faint when you are reproved by him;</text>
     </ReferenceBlocks>
-    <text>“сын мой! не пренебрегай наказания Господня, и не унывай, когда Он обличает тебя.</text>
+    <text>«сын мой! не пренебрегай наказания Господня, и не унывай, когда Он обличает тебя.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="scripture">
       <verse num="6" />
-      <text>For whom the Lord loves, he chastens, and scourges every son whom he receives.”</text>
+      <text>For whom the Lord loves, he chastens, and scourges every son whom he receives.»</text>
     </ReferenceBlocks>
     <verse num="6" />
-    <text>Ибо Господь, кого любит, того наказывает; бьет же всякого сына, которого принимает.”</text>
+    <text>Ибо Господь, кого любит, того наказывает; бьет же всякого сына, которого принимает.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="narrator-HEB">
@@ -2413,9 +2413,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="scripture">
-      <text>“If even an animal touches the mountain, it shall be stoned,”</text>
+      <text>«If even an animal touches the mountain, it shall be stoned,»</text>
     </ReferenceBlocks>
-    <text>“если и зверь прикоснется к горе, будет побит камнями (или поражен стрелою);”</text>
+    <text>«если и зверь прикоснется к горе, будет побит камнями (или поражен стрелою);»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-HEB">
@@ -2427,9 +2427,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="scripture">
-      <text>“I am terrified and trembling.”</text>
+      <text>«I am terrified and trembling.»</text>
     </ReferenceBlocks>
-    <text>“'я в страхе и трепете'.”</text>
+    <text>«'я в страхе и трепете'.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="22" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="22" characterId="narrator-HEB">
@@ -2473,14 +2473,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="26" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="26" characterId="scripture">
-      <text>“Yet once more I will shake not only the earth, but also the heavens.”</text>
+      <text>«Yet once more I will shake not only the earth, but also the heavens.»</text>
     </ReferenceBlocks>
-    <text>“еще раз поколеблю не только землю, но и небо.”</text>
+    <text>«еще раз поколеблю не только землю, но и небо.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="27" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="27" characterId="narrator-HEB">
       <verse num="27" />
-      <text>This phrase, “Yet once more,” signifies the removing of those things that are shaken, as of things that have been made, that those things which are not shaken may remain.</text>
+      <text>This phrase, «Yet once more,» signifies the removing of those things that are shaken, as of things that have been made, that those things which are not shaken may remain.</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>Слова: 'еще раз' означают изменение колеблемого, как сотворенного, чтобы пребыло непоколебимое.</text>
@@ -2549,9 +2549,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="scripture">
-      <text>“I will in no way leave you, neither will I in any way forsake you.”</text>
+      <text>«I will in no way leave you, neither will I in any way forsake you.»</text>
     </ReferenceBlocks>
-    <text>“не оставлю тебя и не покину тебя,”</text>
+    <text>«не оставлю тебя и не покину тебя,»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-HEB">
@@ -2563,9 +2563,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="scripture">
-      <text>“The Lord is my helper. I will not fear. What can man do to me?”</text>
+      <text>«The Lord is my helper. I will not fear. What can man do to me?»</text>
     </ReferenceBlocks>
-    <text>“Господь мне помощник, и не убоюсь: что сделает мне человек?”</text>
+    <text>«Господь мне помощник, и не убоюсь: что сделает мне человек?»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="narrator-HEB">

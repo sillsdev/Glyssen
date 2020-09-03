@@ -101,14 +101,14 @@ namespace GlyssenEngineTests.Script
 			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
 			var frenchRefText = block.SetMatchedReferenceBlock("{1}\u00A0Jésus ... {2}\u00A0Ils ... demandent: <<Où ... l'adorer.>>");
 			frenchRefText.SetMatchedReferenceBlock("{1}\u00A0Now when Jesus was born in Bethlehem of Judea in the days of King Herod, behold, wise men from the east came to Jerusalem, " +
-				"{2}\u00A0saying, “Where is the one who is born King of the Jews? For we saw his star in the east, and have come to worship him.”");
+				"{2}\u00A0saying, «Where is the one who is born King of the Jews? For we saw his star in the east, and have come to worship him.»");
 			ReferenceText rtSpanish = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.SpanishMAT);
 			Assert.IsTrue(block.ChangeReferenceText("MAT", rtSpanish, ScrVers.English));
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual("{1}\u00A0Jesús ... {2}\u00A0y ... preguntaron: <<¿Dónde ... adorarlo.>>",
 				block.GetPrimaryReferenceText());
 			Assert.AreEqual("{1}\u00A0Now when Jesus was born in Bethlehem of Judea in the days of King Herod, behold, wise men from the east came to Jerusalem, " +
-				"{2}\u00A0saying, “Where is the one who is born King of the Jews? For we saw his star in the east, and have come to worship him.”",
+				"{2}\u00A0saying, «Where is the one who is born King of the Jews? For we saw his star in the east, and have come to worship him.»",
 				block.ReferenceBlocks.Single().GetPrimaryReferenceText());
 		}
 
@@ -181,7 +181,7 @@ namespace GlyssenEngineTests.Script
 			var block = new Block("p", 9, 20);
 			block.BlockElements.Add(new ScriptText("<<Desde cuando le llega asi?>>"));
 			block.CharacterId = "Jesus";
-			block.SetMatchedReferenceBlock("“How long has it been since this has come to him?”");
+			block.SetMatchedReferenceBlock("«How long has it been since this has come to him?»");
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, vernVers));
 			Assert.IsTrue(block.MatchesReferenceText);
@@ -200,7 +200,7 @@ namespace GlyssenEngineTests.Script
 
 			var block = new Block("p", 5, 43).AddVerse(43, "Whatever. ").AddVerse(44, "Cool.");
 			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
-			block.SetMatchedReferenceBlock("{43} He strictly ordered them, saying: “Tell no one about this!” Then he said: “Give her something to eat.” " +
+			block.SetMatchedReferenceBlock("{43} He strictly ordered them, saying: «Tell no one about this!» Then he said: «Give her something to eat.» " +
 				"{1} He went out from there. He came into his own country, and his disciples followed him.");
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, vernVers));

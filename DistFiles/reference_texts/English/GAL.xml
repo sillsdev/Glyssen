@@ -28,19 +28,19 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-GAL">
     <verse num="6" />
-    <text>I marvel that you are so quickly deserting him who called you in the grace of Christ to a different “good news”.</text>
+    <text>I marvel that you are so quickly deserting him who called you in the grace of Christ to a different «good news».</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-GAL">
     <verse num="7" />
-    <text>There isn’t another “good news.” Only there are some who trouble you, and want to pervert the Good News of Christ.</text>
+    <text>There isn’t another «good news.» Only there are some who trouble you, and want to pervert the Good News of Christ.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-GAL">
     <verse num="8" />
-    <text>But even though we, or an angel from heaven, should preach to you any “good news” other than that which we preached to you, let him be cursed.</text>
+    <text>But even though we, or an angel from heaven, should preach to you any «good news» other than that which we preached to you, let him be cursed.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-GAL">
     <verse num="9" />
-    <text>As we have said before, so I now say again: if any man preaches to you any “good news” other than that which you received, let him be cursed.</text>
+    <text>As we have said before, so I now say again: if any man preaches to you any «good news» other than that which you received, let him be cursed.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-GAL">
     <verse num="10" />
@@ -96,7 +96,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-GAL">
     <verse num="23" />
-    <text>They only heard: “He who once persecuted us now preaches the faith that he once tried to destroy.”</text>
+    <text>They only heard: «He who once persecuted us now preaches the faith that he once tried to destroy.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-GAL">
     <verse num="24" />
@@ -159,11 +159,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-GAL">
     <verse num="14" />
-    <text>But when I saw that they didn’t walk uprightly according to the truth of the Good News, I said to Peter before them all, “If you, being a Jew, live as the Gentiles do, and not as the Jews do, why do you compel the Gentiles to live as the Jews do?</text>
+    <text>But when I saw that they didn’t walk uprightly according to the truth of the Good News, I said to Peter before them all, «If you, being a Jew, live as the Gentiles do, and not as the Jews do, why do you compel the Gentiles to live as the Jews do?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-GAL">
     <verse num="15" />
-    <text>“We were born Jews by nature, and not Gentile sinners.</text>
+    <text>«We were born Jews by nature, and not Gentile sinners.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-GAL">
     <verse num="16" />
@@ -187,7 +187,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-GAL">
     <verse num="21" />
-    <text>I don’t make void the grace of God. For if righteousness is through the law, then Christ died for nothing!”</text>
+    <text>I don’t make void the grace of God. For if righteousness is through the law, then Christ died for nothing!»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="GAL" initialStartVerse="0" characterId="BC-GAL">
     <text>3</text>
@@ -217,7 +217,7 @@
     <text>Even as Abraham</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="scripture">
-    <text>“believed God, and it was counted to him for righteousness.”</text>
+    <text>«believed God, and it was counted to him for righteousness.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-GAL">
     <verse num="7" />
@@ -228,7 +228,7 @@
     <text>The Scripture, foreseeing that God would justify the Gentiles by faith, preached the Good News beforehand to Abraham, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="scripture">
-    <text>“In you all the nations will be blessed.”</text>
+    <text>«In you all the nations will be blessed.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-GAL">
     <verse num="9" />
@@ -239,28 +239,28 @@
     <text>For as many as are of the works of the law are under a curse. For it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture">
-    <text>“Cursed is everyone who doesn’t continue in all things that are written in the book of the law, to do them.”</text>
+    <text>«Cursed is everyone who doesn’t continue in all things that are written in the book of the law, to do them.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-GAL">
     <verse num="11" />
     <text>Now that no man is justified by the law before God is evident, for,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture">
-    <text>“The righteous will live by faith.”</text>
+    <text>«The righteous will live by faith.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-GAL">
     <verse num="12" />
     <text>The law is not of faith, but,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture">
-    <text>“The man who does them will live by them.”</text>
+    <text>«The man who does them will live by them.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-GAL">
     <verse num="13" />
     <text>Christ redeemed us from the curse of the law, having become a curse for us. For it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="scripture">
-    <text>“Cursed is everyone who hangs on a tree,”</text>
+    <text>«Cursed is everyone who hangs on a tree,»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-GAL">
     <verse num="14" />
@@ -272,7 +272,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-GAL">
     <verse num="16" />
-    <text>Now the promises were spoken to Abraham and to his seed. He doesn’t say, “To seeds,” as of many, but as of one, “To your seed,” which is Christ.</text>
+    <text>Now the promises were spoken to Abraham and to his seed. He doesn’t say, «To seeds,» as of many, but as of one, «To your seed,» which is Christ.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-GAL">
     <verse num="17" />
@@ -439,7 +439,7 @@
     <text>For it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="27" characterId="scripture">
-    <text>“Rejoice, you barren who don’t bear. Break forth and shout, you that don’t travail. For more are the children of the desolate than of her who has a husband.”</text>
+    <text>«Rejoice, you barren who don’t bear. Break forth and shout, you that don’t travail. For more are the children of the desolate than of her who has a husband.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="narrator-GAL">
     <verse num="28" />
@@ -454,7 +454,7 @@
     <text>However what does the Scripture say?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="30" characterId="scripture">
-    <text>“Throw out the handmaid and her son, for the son of the handmaid will not inherit with the son of the free woman.”</text>
+    <text>«Throw out the handmaid and her son, for the son of the handmaid will not inherit with the son of the free woman.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="narrator-GAL">
     <verse num="31" />
@@ -520,7 +520,7 @@
     <text>For the whole law is fulfilled in one word, in this:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="scripture">
-    <text>“You shall love your neighbor as yourself.”</text>
+    <text>«You shall love your neighbor as yourself.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-GAL">
     <verse num="15" />

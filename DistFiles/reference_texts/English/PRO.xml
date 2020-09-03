@@ -49,7 +49,7 @@
     <text>If they say,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="11" characterId="sinners">
-    <text>“Come with us, Let's lay in wait for blood; let's lurk secretly for the innocent without cause;</text>
+    <text>«Come with us, Let's lay in wait for blood; let's lurk secretly for the innocent without cause;</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="12" characterId="sinners">
     <verse num="12" />
@@ -61,7 +61,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="14" characterId="sinners">
     <verse num="14" />
-    <text>You shall cast your lot among us. We’ll all have one purse.”</text>
+    <text>You shall cast your lot among us. We’ll all have one purse.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="15" characterId="narrator-PRO">
     <verse num="15" />
@@ -323,7 +323,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="28" characterId="narrator-PRO">
     <verse num="28" />
-    <text>Don’t say to your neighbor, “Go, and come again; tomorrow I will give it to you,” when you have it by you.</text>
+    <text>Don’t say to your neighbor, «Go, and come again; tomorrow I will give it to you,» when you have it by you.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="29" characterId="narrator-PRO">
     <verse num="29" />
@@ -365,7 +365,7 @@
     <text>He taught me, and said to me:</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="4" characterId="David">
-    <text>“Let your heart retain my words. Keep my commandments, and live.</text>
+    <text>«Let your heart retain my words. Keep my commandments, and live.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="5" characterId="David">
     <verse num="5" />
@@ -385,7 +385,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="9" characterId="David">
     <verse num="9" />
-    <text>She will give to your head a garland of grace. She will deliver a crown of splendor to you.”</text>
+    <text>She will give to your head a garland of grace. She will deliver a crown of splendor to you.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="10" characterId="narrator-PRO">
     <verse num="10" />
@@ -497,7 +497,7 @@
     <text>and say,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="12" characterId="sons (hypothetical), at end of life">
-    <text>“How I have hated instruction, and my heart despised reproof;</text>
+    <text>«How I have hated instruction, and my heart despised reproof;</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="13" characterId="sons (hypothetical), at end of life">
     <verse num="13" />
@@ -505,7 +505,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="14" characterId="sons (hypothetical), at end of life">
     <verse num="14" />
-    <text>I have come to the brink of utter ruin, in the midst of the gathered assembly.”</text>
+    <text>I have come to the brink of utter ruin, in the midst of the gathered assembly.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="15" characterId="narrator-PRO">
     <verse num="15" />
@@ -683,7 +683,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="4" characterId="narrator-PRO">
     <verse num="4" />
-    <text>Tell wisdom, “You are my sister.” Call understanding your relative,</text>
+    <text>Tell wisdom, «You are my sister.» Call understanding your relative,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="5" characterId="narrator-PRO">
     <verse num="5" />
@@ -904,7 +904,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="36" characterId="Wisdom">
     <verse num="36" />
-    <text>But he who sins against me wrongs his own soul. All those who hate me love death.”</text>
+    <text>But he who sins against me wrongs his own soul. All those who hate me love death.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="PRO" initialStartVerse="0" characterId="BC-PRO">
     <text>9</text>
@@ -2248,7 +2248,7 @@
     <text>Who can say,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="9" characterId="narrator-PRO">
-    <text>“I have made my heart pure. I am clean and without sin?”</text>
+    <text>«I have made my heart pure. I am clean and without sin?»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="10" characterId="narrator-PRO">
     <verse num="10" />
@@ -2300,7 +2300,7 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="22" characterId="narrator-PRO">
     <verse num="22" />
-    <text>Don’t say, “I will pay back evil.” Wait for God, and he will save you.</text>
+    <text>Don’t say, «I will pay back evil.» Wait for God, and he will save you.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="23" characterId="narrator-PRO">
     <verse num="23" />
@@ -2431,7 +2431,7 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="24" characterId="narrator-PRO">
     <verse num="24" />
-    <text>The proud and haughty man, “scoffer” is his name; he works in the arrogance of pride.</text>
+    <text>The proud and haughty man, «scoffer» is his name; he works in the arrogance of pride.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="25" characterId="narrator-PRO">
     <verse num="25" />
@@ -2515,7 +2515,7 @@
     <text>The sluggard says,</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="13" characterId="narrator-PRO">
-    <text>“There is a lion outside! I will be killed in the streets!”</text>
+    <text>«There is a lion outside! I will be killed in the streets!»</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="14" characterId="narrator-PRO">
     <verse num="14" />
@@ -2602,7 +2602,7 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="7" characterId="narrator-PRO">
     <verse num="7" />
-    <text>for as he thinks about the cost, so he is. “Eat and drink!” he says to you, but his heart is not with you.</text>
+    <text>for as he thinks about the cost, so he is. «Eat and drink!» he says to you, but his heart is not with you.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="8" characterId="narrator-PRO">
     <verse num="8" />
@@ -2750,7 +2750,7 @@
     <text>If you say,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="12" characterId="you (hypothetical)">
-    <text>“Behold, we didn't know this;”</text>
+    <text>«Behold, we didn't know this;»</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="12" characterId="narrator-PRO">
     <text>doesn't he who weighs the hearts consider it? He who keeps your soul, doesn't he know it? Shall he not render to every man according to his work?</text>
@@ -2795,7 +2795,7 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="24" characterId="narrator-PRO">
     <verse num="24" />
-    <text>He who says to the wicked, “You are righteous;” peoples shall curse him, and nations shall abhor him--</text>
+    <text>He who says to the wicked, «You are righteous;» peoples shall curse him, and nations shall abhor him--</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="25" characterId="narrator-PRO">
     <verse num="25" />
@@ -2811,7 +2811,7 @@
     <verse num="28" />
     <text>Don’t be a witness against your neighbor without cause. Don’t deceive with your lips. </text>
     <verse num="29" />
-    <text>Don’t say, “I will do to him as he has done to me; I will render to the man according to his work.”</text>
+    <text>Don’t say, «I will do to him as he has done to me; I will render to the man according to his work.»</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="30" characterId="narrator-PRO">
     <verse num="30" />
@@ -2860,7 +2860,7 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="7" characterId="narrator-PRO">
     <verse num="7" />
-    <text>for it is better that it be said to you, “Come up here,” than that you should be put lower in the presence of the prince, whom your eyes have seen.</text>
+    <text>for it is better that it be said to you, «Come up here,» than that you should be put lower in the presence of the prince, whom your eyes have seen.</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="8" characterId="narrator-PRO">
     <verse num="8" />
@@ -2996,7 +2996,7 @@
     <text>The sluggard says,</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="13" characterId="narrator-PRO">
-    <text>“There is a lion in the road! A fierce lion roams the streets!”</text>
+    <text>«There is a lion in the road! A fierce lion roams the streets!»</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="14" characterId="narrator-PRO">
     <verse num="14" />
@@ -3018,7 +3018,7 @@
     <verse num="18" />
     <text>Like a madman who shoots torches, arrows, and death, </text>
     <verse num="19" />
-    <text>is the man who deceives his neighbor and says, “Am I not joking?”</text>
+    <text>is the man who deceives his neighbor and says, «Am I not joking?»</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="20" characterId="narrator-PRO">
     <verse num="20" />
@@ -3256,7 +3256,7 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="24" characterId="narrator-PRO">
     <verse num="24" />
-    <text>Whoever robs his father or his mother, and says, “It’s not wrong.” He is a partner with a destroyer.</text>
+    <text>Whoever robs his father or his mother, and says, «It’s not wrong.» He is a partner with a destroyer.</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="25" characterId="narrator-PRO">
     <verse num="25" />

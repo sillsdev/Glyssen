@@ -46,6 +46,9 @@ back-up plan.)
 
 # Release Notes
 
+## September 3 2020 Glyssen 1.6.0
+Changed English and Russian reference texts to use chevrons instead of curly quotes for improved visibility when scripting.
+
 ## August 17 2020 Glyssen 1.5.0
 Improved reference text logic when matching to reporting clauses ("he said" blocks) to prevent duplication.
 English and Russian reference texts updated to match v. 101 of the FCBH New Testament Director's Guide.
