@@ -742,12 +742,39 @@ namespace GlyssenEngineTests.ViewModelTests
 		}
 
 		[Test]
-		public void AttemptRefBlockMatchup_SetToFalse_ClearsCurrentReferenceTextMatchup()
+		public void AttemptRefBlockMatchup_SetToFalseWithMatchupHavingSubsequentBlockRelevant_ClearsCurrentReferenceTextMatchupAndSetsFirstRelevantBlockInMatchupAsCurrent()
 		{
 			m_model.SetMode(m_model.Mode, true);
 			FindRefInMark(8, 5);
+			Block expectedBlock = null;
+			var markBlocks = m_testProject.IncludedBooks.Single(b => b.BookId == m_model.CurrentBookId).GetScriptBlocks();
+			for (int i = m_model.IndexOfFirstBlockInCurrentGroup; i < m_model.IndexOfLastBlockInCurrentGroup; i++)
+			{
+				if (markBlocks[i].CharacterIsUnclear)
+				{
+					expectedBlock = markBlocks[i];
+					break;
+				}
+			}
+			Assert.IsNotNull(expectedBlock);
 			m_model.SetMode(m_model.Mode, false);
 			Assert.IsNull(m_model.CurrentReferenceTextMatchup);
+			Assert.AreEqual(expectedBlock, m_model.CurrentBlock);
+		}
+
+		[Test]
+		public void AttemptRefBlockMatchup_SetToFalseWithMatchupHavingFirstBlockRelevant_ClearsCurrentReferenceTextMatchupAndSetsFirstBlockInMatchupAsCurrent()
+		{
+			m_model.SetMode(BlocksToDisplay.AllScripture, true);
+			while (m_model.CurrentReferenceTextMatchup.OriginalBlockCount == 1 && m_model.CanNavigateToNextRelevantBlock)
+				m_model.LoadNextRelevantBlock();
+			Assert.That(m_model.CurrentReferenceTextMatchup.OriginalBlockCount > 1,
+				"SETUP error: No suitable block found.");
+
+			var expectedBlock = m_model.IndexOfFirstBlockInCurrentGroup;
+			m_model.SetMode(BlocksToDisplay.AllScripture, false);
+			Assert.IsNull(m_model.CurrentReferenceTextMatchup);
+			Assert.AreEqual(expectedBlock, m_model.CurrentBlockIndexInBook);
 		}
 
 		[Test]
