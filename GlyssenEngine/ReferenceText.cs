@@ -565,7 +565,8 @@ namespace GlyssenEngine
 							}
 							break;
 						}
-						if (modifiedOmittedHeSaidText != null && vernBlockInVerseChunk.CharacterIs(bookId, CharacterVerseData.StandardCharacter.Narrator) &&
+						if (modifiedOmittedHeSaidText != null &&
+							vernBlockInVerseChunk.CharacterIs(bookId, CharacterVerseData.StandardCharacter.Narrator) &&
 							BlockIsOmissibleReportingClause(refBlockInVerseChunk, out var nextModifiedOmittedHeSaidText) &&
 							TryMatchToReportingClause(bookNum, vernBlockList, indexOfVernVerseStart + i, reportingClauses, modifiedOmittedHeSaidText, vernacularVersification))
 						{
@@ -591,11 +592,22 @@ namespace GlyssenEngine
 					}
 					else if (vernBlockInVerseChunk.IsQuote &&
 						refBlockInVerseChunk.CharacterIs(bookId, CharacterVerseData.StandardCharacter.Narrator) &&
-						BlockIsOmissibleReportingClause(refBlockInVerseChunk, out modifiedOmittedHeSaidText))
+						BlockIsOmissibleReportingClause(refBlockInVerseChunk, out var nextModifiedOmittedHeSaidText))
 					{
-						if (refBlockInVerseChunk.StartsAtVerseStart)
-							verseFromOmittedHeSaidBlockToPrepend = refBlockInVerseChunk.BlockElements.OfType<Verse>().Single().Number;
-						i--;
+						// This is a special edge case because the above test for "BlocksMatch" fails when the vern block
+						// is "Needs Review", but if all other conditions for a reporting clause match are satisfied, and
+						// we have a pending omitted he said, we want to match to it.
+						if (modifiedOmittedHeSaidText == null ||
+							vernBlockInVerseChunk.CharacterId != CharacterVerseData.kNeedsReview ||
+							!BlocksStartWithSameVerse(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification) ||
+							!BlocksEndWithSameVerse(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification) ||
+							!TryMatchToReportingClause(bookNum, vernBlockList, indexOfVernVerseStart + i, reportingClauses, modifiedOmittedHeSaidText, vernacularVersification))
+						{
+							if (refBlockInVerseChunk.StartsAtVerseStart)
+								verseFromOmittedHeSaidBlockToPrepend = refBlockInVerseChunk.BlockElements.OfType<Verse>().Single().Number;
+							i--;
+						}
+						modifiedOmittedHeSaidText = nextModifiedOmittedHeSaidText;
 						omittedHeSaids++;
 					}
 					// Consider case where the vernacular uses a verse bridge for verses that have

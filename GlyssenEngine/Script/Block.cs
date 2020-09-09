@@ -380,6 +380,12 @@ namespace GlyssenEngine.Script
 			{
 				return false;
 			}
+			if (!CharacterVerseData.IsCharacterOfType(CharacterId, CharacterVerseData.StandardCharacter.Narrator))
+			{
+				if (CharacterId != CharacterVerseData.kNeedsReview)
+					return false;
+				CharacterId = CharacterVerseData.GetStandardCharacterId(BCVRef.NumberToBookCode(bookNum), CharacterVerseData.StandardCharacter.Narrator);
+			}
 
 			SetMatchedReferenceBlock(referenceText.HeSaidText);
 			var verse = BlockElements.First() as Verse;
