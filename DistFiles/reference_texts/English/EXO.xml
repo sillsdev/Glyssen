@@ -331,7 +331,7 @@
     <text>Moses said to God,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="13" characterId="Moses">
-    <text>«Behold, when I come to the children of Israel, and tell them, 'The God of your fathers has sent me to you;' and they ask me, 'What is his name?' What should I tell them?»</text>
+    <text>«Behold, when I come to the children of Israel, and tell them, ‹The God of your fathers has sent me to you;› and they ask me, ‹What is his name?› What should I tell them?»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="14" characterId="narrator-EXO">
     <verse num="14" />
@@ -351,11 +351,11 @@
     <text>God said moreover to Moses,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="15" characterId="God">
-    <text>«You shall tell the children of Israel this, 'God, the God of your fathers, the God of Abraham, the God of Isaac, and the God of Jacob, has sent me to you.' This is my name forever, and this is my memorial to all generations.</text>
+    <text>«You shall tell the children of Israel this, ‹God, the God of your fathers, the God of Abraham, the God of Isaac, and the God of Jacob, has sent me to you.› This is my name forever, and this is my memorial to all generations.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="16" characterId="God">
     <verse num="16" />
-    <text>Go, and gather the elders of Israel together, and tell them, 'God, the God of your fathers, the God of Abraham, of Isaac, and of Jacob, has appeared to me, saying, «I have surely visited you, and seen that which is done to you in Egypt;</text>
+    <text>Go, and gather the elders of Israel together, and tell them, ‹God, the God of your fathers, the God of Abraham, of Isaac, and of Jacob, has appeared to me, saying, «I have surely visited you, and seen that which is done to you in Egypt;</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="17" characterId="God">
     <verse num="17" />
@@ -363,7 +363,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="18" characterId="God">
     <verse num="18" />
-    <text>They will listen to your voice, and you shall come, you and the elders of Israel, to the king of Egypt, and you shall tell him, 'God, the God of the Hebrews, has met with us. Now please let us go three days' journey into the wilderness, that we may sacrifice to God, our God.'</text>
+    <text>They will listen to your voice, and you shall come, you and the elders of Israel, to the king of Egypt, and you shall tell him, ‹God, the God of the Hebrews, has met with us. Now please let us go three days' journey into the wilderness, that we may sacrifice to God, our God.›</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="19" characterId="God">
     <verse num="19" />
@@ -527,7 +527,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="22" characterId="God">
     <verse num="22" />
-    <text>You shall tell Pharaoh, 'Thus says God, Israel is my son, my firstborn, </text>
+    <text>You shall tell Pharaoh, ‹Thus says God, Israel is my son, my firstborn, </text>
     <verse num="23" />
     <text>and I have said to you, Let my son go, that he may serve me; and you have refused to let him go. Behold, I will kill your son, your firstborn.»</text>
   </block>
@@ -616,7 +616,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="8" characterId="Pharaoh (3rd)">
     <verse num="8" />
-    <text>The number of the bricks, which they made before, you require from them. You shall not diminish anything of it, for they are idle; therefore they cry, saying, 'Let us go and sacrifice to our God.'</text>
+    <text>The number of the bricks, which they made before, you require from them. You shall not diminish anything of it, for they are idle; therefore they cry, saying, ‹Let us go and sacrifice to our God.›</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="9" characterId="Pharaoh (3rd)">
     <verse num="9" />
@@ -627,7 +627,7 @@
     <text>The taskmasters of the people went out, and their officers, and they spoke to the people, saying,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="10" characterId="slave drivers, Egyptian">
-    <text>«This is what Pharaoh says: 'I will not give you straw.</text>
+    <text>«This is what Pharaoh says: ‹I will not give you straw.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="11" characterId="slave drivers, Egyptian">
     <verse num="11" />
@@ -658,14 +658,14 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="16" characterId="Israelite foremen">
     <verse num="16" />
-    <text>No straw is given to your servants, and they tell us, 'Make brick!' and behold, your servants are beaten; but the fault is in your own people.»</text>
+    <text>No straw is given to your servants, and they tell us, ‹Make brick!› and behold, your servants are beaten; but the fault is in your own people.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="17" characterId="narrator-EXO">
     <verse num="17" />
     <text>But he said,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="17" characterId="Pharaoh (3rd)">
-    <text>«You are idle! You are idle! Therefore you say, 'Let us go and sacrifice to God.'</text>
+    <text>«You are idle! You are idle! Therefore you say, ‹Let us go and sacrifice to God.›</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="18" characterId="Pharaoh (3rd)">
     <verse num="18" />
@@ -729,7 +729,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>Therefore tell the children of Israel, 'I am God, and I will bring you out from under the burdens of the Egyptians, and I will rid you out of their bondage, and I will redeem you with an outstretched arm, and with great judgments:</text>
+    <text>Therefore tell the children of Israel, ‹I am God, and I will bring you out from under the burdens of the Egyptians, and I will rid you out of their bondage, and I will redeem you with an outstretched arm, and with great judgments:</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="7" characterId="God">
     <verse num="7" />
@@ -873,7 +873,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="9" characterId="God">
     <verse num="9" />
-    <text>When Pharaoh speaks to you, saying, 'Perform a miracle!' then you shall tell Aaron, 'Take your rod, and cast it down before Pharaoh, that it become a serpent.'</text>
+    <text>When Pharaoh speaks to you, saying, ‹Perform a miracle!› then you shall tell Aaron, ‹Take your rod, and cast it down before Pharaoh, that it become a serpent.›</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="10" characterId="narrator-EXO">
     <verse num="10" />
@@ -902,7 +902,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="16" characterId="God">
     <verse num="16" />
-    <text>You shall tell him, 'God, the God of the Hebrews, has sent me to you, saying, «Let my people go, that they may serve me in the wilderness:» and behold, until now you haven't listened.</text>
+    <text>You shall tell him, ‹God, the God of the Hebrews, has sent me to you, saying, «Let my people go, that they may serve me in the wilderness:» and behold, until now you haven't listened.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="17" characterId="God">
     <verse num="17" />
@@ -951,7 +951,7 @@
     <text>God spoke to Moses,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="1" characterId="God">
-    <text>Go in to Pharaoh, and tell him, «This is what God says, 'Let my people go, that they may serve me.</text>
+    <text>Go in to Pharaoh, and tell him, «This is what God says, ‹Let my people go, that they may serve me.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="2" characterId="God">
     <verse num="2" />
@@ -1051,7 +1051,7 @@
     <text>God said to Moses,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="20" characterId="God">
-    <text>«Rise up early in the morning, and stand before Pharaoh; behold, he comes forth to the water; and tell him, 'This is what God says, «Let my people go, that they may serve me.</text>
+    <text>«Rise up early in the morning, and stand before Pharaoh; behold, he comes forth to the water; and tell him, ‹This is what God says, «Let my people go, that they may serve me.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="21" characterId="God">
     <verse num="21" />
@@ -1119,7 +1119,7 @@
     <text>Then God said to Moses,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="1" characterId="God">
-    <text>«Go in to Pharaoh, and tell him, 'This is what God, the God of the Hebrews, says: «Let my people go, that they may serve me.</text>
+    <text>«Go in to Pharaoh, and tell him, ‹This is what God, the God of the Hebrews, says: «Let my people go, that they may serve me.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="2" characterId="God">
     <verse num="2" />
@@ -1172,7 +1172,7 @@
     <text>God said to Moses,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="13" characterId="God">
-    <text>«Rise up early in the morning, and stand before Pharaoh, and tell him, 'This is what God, the God of the Hebrews, says: «Let my people go, that they may serve me.</text>
+    <text>«Rise up early in the morning, and stand before Pharaoh, and tell him, ‹This is what God, the God of the Hebrews, says: «Let my people go, that they may serve me.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="14" characterId="God">
     <verse num="14" />
@@ -1288,7 +1288,7 @@
     <text>Moses and Aaron went in to Pharaoh, and said to him,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="3" characterId="Moses/Aaron" characterIdOverrideForScript="Aaron">
-    <text>«This is what God, the God of the Hebrews, says: 'How long will you refuse to humble yourself before me? Let my people go, that they may serve me.</text>
+    <text>«This is what God, the God of the Hebrews, says: ‹How long will you refuse to humble yourself before me? Let my people go, that they may serve me.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="4" characterId="Moses/Aaron" characterIdOverrideForScript="Aaron">
     <verse num="4" />
@@ -1444,7 +1444,7 @@
     <text>Moses said,</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="4" characterId="Moses">
-    <text>«This is what God says: 'About midnight I will go out into the midst of Egypt,</text>
+    <text>«This is what God says: ‹About midnight I will go out into the midst of Egypt,</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="5" characterId="Moses">
     <verse num="5" />
@@ -1487,7 +1487,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="3" characterId="God">
     <verse num="3" />
-    <text>Speak to all the congregation of Israel, saying, 'On the tenth day of this month, they shall take to them every man a lamb, according to their fathers' houses, a lamb for a household;</text>
+    <text>Speak to all the congregation of Israel, saying, ‹On the tenth day of this month, they shall take to them every man a lamb, according to their fathers' houses, a lamb for a household;</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="4" characterId="God">
     <verse num="4" />
@@ -1582,7 +1582,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="26" characterId="Moses">
     <verse num="26" />
-    <text>It will happen, when your children ask you, 'What do you mean by this service?'</text>
+    <text>It will happen, when your children ask you, ‹What do you mean by this service?›</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="27" characterId="Moses">
     <verse num="27" />
@@ -1726,7 +1726,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="8" characterId="Moses">
     <verse num="8" />
-    <text>You shall tell your son in that day, saying, 'It is because of that which God did for me when I came forth out of Egypt.'</text>
+    <text>You shall tell your son in that day, saying, ‹It is because of that which God did for me when I came forth out of Egypt.›</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="9" characterId="Moses">
     <verse num="9" />
@@ -1748,11 +1748,11 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="14" characterId="Moses">
     <verse num="14" />
-    <text>It shall be, when your son asks you in time to come, saying, 'What is this?' that you shall tell him, 'By strength of hand God brought us out from Egypt, from the house of bondage;</text>
+    <text>It shall be, when your son asks you in time to come, saying, ‹What is this?› that you shall tell him, ‹By strength of hand God brought us out from Egypt, from the house of bondage;</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="15" characterId="Moses">
     <verse num="15" />
-    <text>and it happened, when Pharaoh would hardly let us go, that God killed all the firstborn in the land of Egypt, both the firstborn of man, and the firstborn of animal. Therefore I sacrifice to God all that opens the womb, being males; but all the firstborn of my sons I redeem.'</text>
+    <text>and it happened, when Pharaoh would hardly let us go, that God killed all the firstborn in the land of Egypt, both the firstborn of man, and the firstborn of animal. Therefore I sacrifice to God all that opens the womb, being males; but all the firstborn of my sons I redeem.›</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="16" characterId="Moses">
     <verse num="16" />
@@ -1801,7 +1801,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="3" characterId="God">
     <verse num="3" />
-    <text>Pharaoh will say of the children of Israel, 'They are entangled in the land. The wilderness has shut them in.'</text>
+    <text>Pharaoh will say of the children of Israel, ‹They are entangled in the land. The wilderness has shut them in.›</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="4" characterId="God">
     <verse num="4" />
@@ -1842,7 +1842,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="12" characterId="Israelites" delivery="terrified">
     <verse num="12" />
-    <text>Isn't this the word that we spoke to you in Egypt, saying, 'Leave us alone, that we may serve the Egyptians?' For it were better for us to serve the Egyptians, than that we should die in the wilderness.»</text>
+    <text>Isn't this the word that we spoke to you in Egypt, saying, ‹Leave us alone, that we may serve the Egyptians?› For it were better for us to serve the Egyptians, than that we should die in the wilderness.»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="13" characterId="narrator-EXO">
     <verse num="13" />
@@ -1972,7 +1972,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="9" characterId="Moses/Israelites" characterIdOverrideForScript="Moses" delivery="sang">
     <verse num="9" />
-    <text>The enemy said, 'I will pursue. I will overtake. I will divide the spoil. My desire shall be satisfied on them. I will draw my sword, my hand shall destroy them.'</text>
+    <text>The enemy said, ‹I will pursue. I will overtake. I will divide the spoil. My desire shall be satisfied on them. I will draw my sword, my hand shall destroy them.›</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="10" characterId="Moses/Israelites" characterIdOverrideForScript="Moses" delivery="sang">
     <verse num="10" />
@@ -2113,7 +2113,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>I have heard the murmurings of the children of Israel. Speak to them, saying, 'At evening you shall eat meat, and in the morning you shall be filled with bread: and you shall know that I am God your God.'</text>
+    <text>I have heard the murmurings of the children of Israel. Speak to them, saying, ‹At evening you shall eat meat, and in the morning you shall be filled with bread: and you shall know that I am God your God.›</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="13" characterId="narrator-EXO">
     <verse num="13" />
@@ -2466,7 +2466,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>'You have seen what I did to the Egyptians, and how I bore you on eagles' wings, and brought you to myself.</text>
+    <text>‹You have seen what I did to the Egyptians, and how I bore you on eagles' wings, and brought you to myself.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="5" characterId="God">
     <verse num="5" />
@@ -2474,7 +2474,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>and you shall be to me a kingdom of priests, and a holy nation.' These are the words which you shall speak to the children of Israel.»</text>
+    <text>and you shall be to me a kingdom of priests, and a holy nation.› These are the words which you shall speak to the children of Israel.»</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="7" characterId="narrator-EXO">
     <verse num="7" />
@@ -2507,11 +2507,11 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>You shall set bounds to the people all around, saying, 'Be careful that you don't go up onto the mountain, or touch its border. Whoever touches the mountain shall be surely put to death.</text>
+    <text>You shall set bounds to the people all around, saying, ‹Be careful that you don't go up onto the mountain, or touch its border. Whoever touches the mountain shall be surely put to death.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>No hand shall touch him, but he shall surely be stoned or shot through; whether it is animal or man, he shall not live.' When the trumpet sounds long, they shall come up to the mountain.»</text>
+    <text>No hand shall touch him, but he shall surely be stoned or shot through; whether it is animal or man, he shall not live.› When the trumpet sounds long, they shall come up to the mountain.»</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="14" characterId="narrator-EXO">
     <verse num="14" />
@@ -2657,7 +2657,7 @@
     <text>God said to Moses,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="22" characterId="God">
-    <text>«This is what you shall tell the children of Israel: 'You yourselves have seen that I have talked with you from heaven.</text>
+    <text>«This is what you shall tell the children of Israel: ‹You yourselves have seen that I have talked with you from heaven.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="23" characterId="God">
     <verse num="23" />
@@ -2673,7 +2673,7 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="26" characterId="God">
     <verse num="26" />
-    <text>Neither shall you go up by steps to my altar, that your nakedness may not be exposed to it.'</text>
+    <text>Neither shall you go up by steps to my altar, that your nakedness may not be exposed to it.›</text>
   </block>
   <block style="c" paragraphStart="true" chapter="21" book="EXO" initialStartVerse="0" characterId="BC-EXO">
     <text>21</text>
@@ -2696,7 +2696,7 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>But if the servant shall plainly say, 'I love my master, my wife, and my children. I will not go out free;'</text>
+    <text>But if the servant shall plainly say, ‹I love my master, my wife, and my children. I will not go out free;›</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="6" characterId="God">
     <verse num="6" />
@@ -2851,7 +2851,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="9" characterId="God">
     <verse num="9" />
-    <text>For every matter of trespass, whether it be for ox, for donkey, for sheep, for clothing, or for any kind of lost thing, about which one says, 'This is mine,' the cause of both parties shall come before God. He whom God condemns shall pay double to his neighbor.</text>
+    <text>For every matter of trespass, whether it be for ox, for donkey, for sheep, for clothing, or for any kind of lost thing, about which one says, ‹This is mine,' the cause of both parties shall come before God. He whom God condemns shall pay double to his neighbor.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="10" characterId="God">
     <verse num="10" />
@@ -3693,7 +3693,7 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="36" characterId="God">
     <verse num="36" />
-    <text>You shall make a plate of pure gold, and engrave on it, like the engravings of a signet, 'HOLY TO God.'</text>
+    <text>You shall make a plate of pure gold, and engrave on it, like the engravings of a signet, ‹HOLY TO God.›</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="37" characterId="God">
     <verse num="37" />
@@ -4029,7 +4029,7 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="31" characterId="God">
     <verse num="31" />
-    <text>You shall speak to the children of Israel, saying, 'This shall be a holy anointing oil to me throughout your generations.</text>
+    <text>You shall speak to the children of Israel, saying, ‹This shall be a holy anointing oil to me throughout your generations.</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="32" characterId="God">
     <verse num="32" />
@@ -4037,7 +4037,7 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="33" characterId="God">
     <verse num="33" />
-    <text>Whoever compounds any like it, or whoever puts any of it on a stranger, he shall be cut off from his people.'</text>
+    <text>Whoever compounds any like it, or whoever puts any of it on a stranger, he shall be cut off from his people.›</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="34" characterId="narrator-EXO">
     <verse num="34" />
@@ -4111,7 +4111,7 @@
   </block>
   <block style="p" chapter="31" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>Speak also to the children of Israel, saying, 'Most certainly you shall keep my Sabbaths: for it is a sign between me and you throughout your generations; that you may know that I am God who sanctifies you.</text>
+    <text>Speak also to the children of Israel, saying, ‹Most certainly you shall keep my Sabbaths: for it is a sign between me and you throughout your generations; that you may know that I am God who sanctifies you.</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="14" characterId="God">
     <verse num="14" />
@@ -4127,7 +4127,7 @@
   </block>
   <block style="p" chapter="31" initialStartVerse="17" characterId="God">
     <verse num="17" />
-    <text>It is a sign between me and the children of Israel forever; for in six days God made heaven and earth, and on the seventh day he rested, and was refreshed.'</text>
+    <text>It is a sign between me and the children of Israel forever; for in six days God made heaven and earth, and on the seventh day he rested, and was refreshed.›</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="18" characterId="narrator-EXO">
     <verse num="18" />
@@ -4203,7 +4203,7 @@
   </block>
   <block style="p" chapter="32" initialStartVerse="12" characterId="Moses">
     <verse num="12" />
-    <text>Why should the Egyptians speak, saying, 'He brought them forth for evil, to kill them in the mountains, and to consume them from the surface of the earth?' Turn from your fierce wrath, and repent of this evil against your people.</text>
+    <text>Why should the Egyptians speak, saying, ‹He brought them forth for evil, to kill them in the mountains, and to consume them from the surface of the earth?› Turn from your fierce wrath, and repent of this evil against your people.</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="13" characterId="Moses">
     <verse num="13" />
@@ -4257,11 +4257,11 @@
   </block>
   <block style="p" chapter="32" initialStartVerse="23" characterId="Aaron">
     <verse num="23" />
-    <text>For they said to me, 'Make us gods, which shall go before us; for as for this Moses, the man who brought us up out of the land of Egypt, we don't know what has become of him.'</text>
+    <text>For they said to me, ‹Make us gods, which shall go before us; for as for this Moses, the man who brought us up out of the land of Egypt, we don't know what has become of him.›</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="24" characterId="Aaron">
     <verse num="24" />
-    <text>I said to them, 'Whoever has any gold, let them take it off:' so they gave it to me; and I threw it into the fire, and out came this calf.»</text>
+    <text>I said to them, ‹Whoever has any gold, let them take it off:' so they gave it to me; and I threw it into the fire, and out came this calf.»</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="25" characterId="narrator-EXO">
     <verse num="25" />
@@ -4330,7 +4330,7 @@
     <text>God spoke to Moses,</text>
   </block>
   <block style="p" chapter="33" initialStartVerse="1" characterId="God">
-    <text>«Depart, go up from here, you and the people that you have brought up out of the land of Egypt, to the land of which I swore to Abraham, to Isaac, and to Jacob, saying, 'I will give it to your seed.'</text>
+    <text>«Depart, go up from here, you and the people that you have brought up out of the land of Egypt, to the land of which I swore to Abraham, to Isaac, and to Jacob, saying, ‹I will give it to your seed.›</text>
   </block>
   <block style="p" chapter="33" initialStartVerse="2" characterId="God">
     <verse num="2" />
@@ -4376,7 +4376,7 @@
     <text>Moses said to God,</text>
   </block>
   <block style="p" chapter="33" initialStartVerse="12" characterId="Moses">
-    <text>«Behold, you tell me, 'Bring up this people:' and you haven't let me know whom you will send with me. Yet you have said, 'I know you by name, and you have also found favor in my sight.'</text>
+    <text>«Behold, you tell me, ‹Bring up this people:' and you haven't let me know whom you will send with me. Yet you have said, ‹I know you by name, and you have also found favor in my sight.›</text>
   </block>
   <block style="p" chapter="33" initialStartVerse="13" characterId="Moses">
     <verse num="13" />
@@ -4678,7 +4678,7 @@
   </block>
   <block style="p" chapter="35" initialStartVerse="19" characterId="Moses">
     <verse num="19" />
-    <text>the finely worked garments, for ministering in the holy place, the holy garments for Aaron the priest, and the garments of his sons, to minister in the priest's office.'</text>
+    <text>the finely worked garments, for ministering in the holy place, the holy garments for Aaron the priest, and the garments of his sons, to minister in the priest's office.›</text>
   </block>
   <block style="p" chapter="35" initialStartVerse="20" characterId="narrator-EXO">
     <verse num="20" />
