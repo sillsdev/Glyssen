@@ -3782,7 +3782,7 @@
       <text>I remembered the word of the Lord, how he said, ‹John indeed baptized in water, but you will be baptized in the Holy Spirit.›</text>
     </ReferenceBlocks>
     <verse num="16" />
-    <text>Тогда вспомнил я слово Господа, как Он говорил: 'Иоанн крестил водою, а вы будете крещены Духом Святым'.</text>
+    <text>Тогда вспомнил я слово Господа, как Он говорил: ‹Иоанн крестил водою, а вы будете крещены Духом Святым›.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="Peter (Simon)" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="Peter (Simon)">
@@ -5130,7 +5130,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="23" characterId="letter from apostles and elders">
       <text>«The apostles, the elders, and the brothers, to the brothers who are of the Gentiles in Antioch, Syria, and Cilicia: greetings.</text>
     </ReferenceBlocks>
-    <text>'Апостолы и пресвитеры и братия—находящимся в Антиохии, Сирии и Киликии братиям из язычников: радоваться.</text>
+    <text>«Апостолы и пресвитеры и братия—находящимся в Антиохии, Сирии и Киликии братиям из язычников: радоваться.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="24" characterId="letter from apostles and elders" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="24" characterId="letter from apostles and elders">
@@ -5178,7 +5178,7 @@
       <text>that you abstain from things sacrificed to idols, from blood, from things strangled, and from sexual immorality, from which if you keep yourselves, it will be well with you. Farewell.»</text>
     </ReferenceBlocks>
     <verse num="29" />
-    <text>воздерживаться от идоложертвенного и крови, и удавленины, и блуда, и не делать другим того, чего себе не хотите. Соблюдая сие, хорошо сделаете. Будьте здравы'.»</text>
+    <text>воздерживаться от идоложертвенного и крови, и удавленины, и блуда, и не делать другим того, чего себе не хотите. Соблюдая сие, хорошо сделаете. Будьте здравы».</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="30" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="30" characterId="narrator-ACT">
@@ -5862,7 +5862,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="Epicurean and Stoic philosophers, some" delivery="superior">
       <text>«What does this babbler want to say?»</text>
     </ReferenceBlocks>
-    <text>«'что хочет сказать этот суеслов?',»</text>
+    <text>«что хочет сказать этот суеслов?»,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="narrator-ACT">
@@ -5874,7 +5874,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="Epicurean and Stoic philosophers, other" delivery="superior">
       <text>«He seems to be advocating foreign deities,»</text>
     </ReferenceBlocks>
-    <text>«'кажется, он проповедует о чужих божествах',»</text>
+    <text>«кажется, он проповедует о чужих божествах»,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="narrator-ACT">
@@ -5932,7 +5932,7 @@
       <text>For as I passed along, and observed the objects of your worship, I found also an altar with this inscription: ‹TO AN UNKNOWN GOD.› What therefore you worship in ignorance, this I announce to you.</text>
     </ReferenceBlocks>
     <verse num="23" />
-    <text>Ибо, проходя и осматривая ваши святыни, я нашел и жертвенник, на котором написано 'неведомому Богу'. Сего-то, Которого вы, не зная, чтите, я проповедую вам.</text>
+    <text>Ибо, проходя и осматривая ваши святыни, я нашел и жертвенник, на котором написано ‹неведомому Богу›. Сего-то, Которого вы, не зная, чтите, я проповедую вам.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="24" characterId="Paul" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="24" characterId="Paul">
@@ -5972,7 +5972,7 @@
       <text>‹For in him we live, and move, and have our being.› As some of your own poets have said, ‹For we are also his offspring.›</text>
     </ReferenceBlocks>
     <verse num="28" />
-    <text>ибо мы Им живем и движемся и существуем, как и некоторые из ваших стихотворцев говорили: 'мы Его и род'.</text>
+    <text>ибо мы Им живем и движемся и существуем, как и некоторые из ваших стихотворцев говорили: ‹мы Его и род›.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="29" characterId="Paul" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="29" characterId="Paul">
@@ -7000,7 +7000,7 @@
       <text>In all things I gave you an example, that so laboring you ought to help the weak. We must remember the words that the Lord Jesus said, ‹It is more blessed to give than to receive.› »</text>
     </ReferenceBlocks>
     <verse num="35" />
-    <text>Во всем показал я вам, что, так трудясь, надобно поддерживать слабых и памятовать слова Господа Иисуса, ибо Он Сам сказал: 'блаженнее давать, нежели принимать'.»</text>
+    <text>Во всем показал я вам, что, так трудясь, надобно поддерживать слабых и памятовать слова Господа Иисуса, ибо Он Сам сказал: ‹блаженнее давать, нежели принимать›.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="36" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="36" characterId="narrator-ACT">
@@ -8048,7 +8048,7 @@
       <text>When I was told that the Jews lay in wait for the man, I sent him to you immediately. I also ordered his accusers to bring their accusations against him before you. Farewell.»</text>
     </ReferenceBlocks>
     <verse num="30" />
-    <text>А как до меня дошло, что Иудеи злоумышляют на этого человека, то я немедленно послал его к тебе, приказав и обвинителям говорить на него перед тобою. Будь здоров'.»</text>
+    <text>А как до меня дошло, что Иудеи злоумышляют на этого человека, то я немедленно послал его к тебе, приказав и обвинителям говорить на него перед тобою. Будь здоров».</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="31" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="31" characterId="narrator-ACT">
@@ -8794,7 +8794,7 @@
       <text>«I said, ‹Who are you, Lord?› He said, ‹I am Jesus, whom you are persecuting.</text>
     </ReferenceBlocks>
     <verse num="15" />
-    <text>«Я сказал: кто Ты, Господи? Он сказал: 'Я Иисус, Которого ты гонишь.</text>
+    <text>«Я сказал: кто Ты, Господи? Он сказал: ‹Я Иисус, Которого ты гонишь.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="16" characterId="Paul" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="16" characterId="Paul">
@@ -8818,7 +8818,7 @@
       <text>You are to open their eyes, that they may turn from darkness to light and from the power of Satan to God. In this way they may receive remission of sins and an inheritance among those who are sanctified by faith in me.›</text>
     </ReferenceBlocks>
     <verse num="18" />
-    <text>открыть глаза им, чтобы они обратились от тьмы к свету и от власти сатаны к Богу, и верою в Меня получили прощение грехов и жребий с освященными'.</text>
+    <text>открыть глаза им, чтобы они обратились от тьмы к свету и от власти сатаны к Богу, и верою в Меня получили прощение грехов и жребий с освященными›.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="19" characterId="Paul" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="19" characterId="Paul">
@@ -9176,7 +9176,7 @@
       <text>He said, ‹Don’t be afraid, Paul. You must stand before Caesar. Behold, God has granted you all those who sail with you.›</text>
     </ReferenceBlocks>
     <verse num="24" />
-    <text>и сказал: 'не бойся, Павел! тебе должно предстать пред кесаря, и вот, Бог даровал тебе всех плывущих с тобою'.</text>
+    <text>и сказал: ‹не бойся, Павел! тебе должно предстать пред кесаря, и вот, Бог даровал тебе всех плывущих с тобою›.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="25" characterId="Paul" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="25" characterId="Paul">

@@ -88,7 +88,7 @@
     <ReferenceBlocks style="p" chapter="1" initialStartVerse="9" characterId="Michael, archangel">
       <text>«May the Lord rebuke you!»</text>
     </ReferenceBlocks>
-    <text>«'да запретит тебе Господь'.»</text>
+    <text>«да запретит тебе Господь».</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-JUD" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-JUD">
@@ -134,7 +134,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="Enoch">
       <text>«Behold, the Lord came with ten thousands of his holy ones,</text>
     </ReferenceBlocks>
-    <text>'се, идет Господь со тьмами святых Ангелов Своих—</text>
+    <text>«се, идет Господь со тьмами святых Ангелов Своих—</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="Enoch" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="Enoch">
@@ -142,7 +142,7 @@
       <text>to execute judgment on all, and to convict all the ungodly of all their works of ungodliness which they have done in an ungodly way, and of all the hard things which ungodly sinners have spoken against him.»</text>
     </ReferenceBlocks>
     <verse num="15" />
-    <text>сотворить суд над всеми и обличить всех между ними нечестивых во всех делах, которые произвело их нечестие, и во всех жестоких словах, которые произносили на Него нечестивые грешники'.»</text>
+    <text>сотворить суд над всеми и обличить всех между ними нечестивых во всех делах, которые произвело их нечестие, и во всех жестоких словах, которые произносили на Него нечестивые грешники».</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-JUD" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-JUD">
