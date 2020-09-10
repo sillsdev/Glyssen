@@ -399,8 +399,7 @@ namespace GlyssenEngine.Script
 		private void InsertHeSaidText(IReferenceLanguageInfo referenceLanguageInfo, int i, Action<int, int, string> handleHeSaidInserted, int level = 0)
 		{
 			var block = CorrelatedBlocks[i];
-			if (block.CharacterIs(BookId, CharacterVerseData.StandardCharacter.Narrator) ||
-				block.CharacterIsUnclear)
+			if (block.IsNarratorOrPotentialNarrator(BookId))
 			{
 				var existingEmptyVerseRefText = block.GetEmptyVerseReferenceTextAtDepth(level);
 				if (existingEmptyVerseRefText != null)
