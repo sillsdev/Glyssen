@@ -4542,6 +4542,43 @@ namespace GlyssenEngineTests
 		}
 		#endregion
 
+		#region PG-1403
+		// There was a bug that caused the reference text to get changed as a side-effect of
+		// applying the "he said" so that a subsequent retrieval of split locations using
+		// GetVerseSplitLocations could give different results, so that a call to
+		// IsOkayToSplitBeforeBlock that had previously returned true would return false.
+		[Test]
+		public void IsOkayToSplitBeforeBlock_CalledAfterGetBlocksForVerseMatchedToReferenceTextThatAutoMatchesHeSaidAtStartOfVerse_ReturnsTrue()
+		{
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(NewChapterBlock("MAT", 6));
+			vernacularBlocks.Add(CreateBlockForVerse("Jesus", 4, "“Thus your beneficial acts will be executed privately and God, who sees all that is hidden, will give you your trophy.”", true, 6));
+			vernacularBlocks.Add(new Block("s", 6, 4)
+			{
+				CharacterId = "extra-MAT",
+				BlockElements = new List<BlockElement> (new BlockElement[] {new ScriptText("What next?") }),
+			});
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(5, "Jesus continued: ", true, 6));
+			AddBlockForVerseInProgress(vernacularBlocks, "Jesus",
+					"“When you pray, don't babble like a pagan, thinking that you can overwhelm God by sheer volume of words.”")
+				.AddVerse(6, "Instead try praying along these lines: ")
+				.AddVerse(7, "Dearest Holy Father, your name is above all others.");
+			var mat = new BookScript("MAT", vernacularBlocks, m_vernVersification);
+
+			var iMat6v5 = mat.GetIndexOfFirstBlockForVerse(6, 5);
+			Assert.IsTrue(refText.IsOkayToSplitBeforeBlock(mat,
+				mat.GetScriptBlocks()[iMat6v5], refText.GetVerseSplitLocations("MAT")));
+
+			refText.GetBlocksForVerseMatchedToReferenceText(mat, iMat6v5, new[] {"Jesus continued:"});
+
+			// VERIFY
+			Assert.IsTrue(refText.IsOkayToSplitBeforeBlock(mat,
+				mat.GetScriptBlocks()[iMat6v5], refText.GetVerseSplitLocations("MAT")));
+		}
+		#endregion
+
 		#region private helper methods
 		private Block NewChapterBlock(string bookId, int chapterNum, string text = null)
 		{
