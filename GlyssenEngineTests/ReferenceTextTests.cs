@@ -4550,7 +4550,10 @@ namespace GlyssenEngineTests
 		[Test]
 		public void IsOkayToSplitBeforeBlock_CalledAfterGetBlocksForVerseMatchedToReferenceTextThatAutoMatchesHeSaidAtStartOfVerse_ReturnsTrue()
 		{
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Russian);
+			var firstRussianBlockForMat6v5 = refText.Books.Single(b => b.BookId == "MAT").GetFirstBlockForVerse(6, 5);
+			var russianTextOfFirstBlockForMat6v5 = firstRussianBlockForMat6v5.GetText(true);
+			var englishTextOfFirstBlockForMat6v5 = firstRussianBlockForMat6v5.ReferenceBlocks.Single().GetText(true);
 
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(NewChapterBlock("MAT", 6));
@@ -4576,6 +4579,11 @@ namespace GlyssenEngineTests
 			// VERIFY
 			Assert.IsTrue(refText.IsOkayToSplitBeforeBlock(mat,
 				mat.GetScriptBlocks()[iMat6v5], refText.GetVerseSplitLocations("MAT")));
+			// Further verify that text of blocks in reference text have not changed:
+			firstRussianBlockForMat6v5 = refText.Books.Single(b => b.BookId == "MAT").GetFirstBlockForVerse(6, 5);
+			Assert.AreEqual(russianTextOfFirstBlockForMat6v5, firstRussianBlockForMat6v5.GetText(true));
+			// This proves that the clone was a deep clone:
+			Assert.AreEqual(englishTextOfFirstBlockForMat6v5, firstRussianBlockForMat6v5.ReferenceBlocks.Single().GetText(true));
 		}
 		#endregion
 
