@@ -49,7 +49,7 @@
     <text>If they say,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="11" characterId="sinners">
-    <text>«Come with us, Let's lay in wait for blood; let's lurk secretly for the innocent without cause;</text>
+    <text>«Come with us, Let’s lay in wait for blood; let’s lurk secretly for the innocent without cause;</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="12" characterId="sinners">
     <verse num="12" />
@@ -2750,10 +2750,10 @@
     <text>If you say,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="12" characterId="you (hypothetical)">
-    <text>«Behold, we didn't know this;»</text>
+    <text>«Behold, we didn’t know this;»</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="12" characterId="narrator-PRO">
-    <text>doesn't he who weighs the hearts consider it? He who keeps your soul, doesn't he know it? Shall he not render to every man according to his work?</text>
+    <text>doesn’t he who weighs the hearts consider it? He who keeps your soul, doesn’t he know it? Shall he not render to every man according to his work?</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="13" characterId="narrator-PRO">
     <verse num="13" />

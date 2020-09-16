@@ -288,7 +288,7 @@
     <text>The serpent said to the woman,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="4" characterId="serpent">
-    <text>«You won't surely die,</text>
+    <text>«You won’t surely die,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="serpent">
     <verse num="5" />
@@ -409,7 +409,7 @@
     <text>The man knew Eve his wife. She conceived, and gave birth to Cain, and said,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="1" characterId="Eve">
-    <text>«I have gotten a man with God's help.»</text>
+    <text>«I have gotten a man with God’s help.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="2" characterId="narrator-GEN">
     <verse num="2" />
@@ -444,7 +444,7 @@
     <text>Cain said to Abel, his brother,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="8" characterId="Cain">
-    <text>«Let's go into the field.»</text>
+    <text>«Let’s go into the field.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="8" characterId="narrator-GEN">
     <text>It happened when they were in the field, that Cain rose up against Abel, his brother, and killed him. </text>
@@ -458,14 +458,14 @@
     <text>He said,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="9" characterId="Cain">
-    <text>«I don't know. Am I my brother's keeper?»</text>
+    <text>«I don’t know. Am I my brother’s keeper?»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="10" characterId="narrator-GEN">
     <verse num="10" />
     <text>God said,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="10" characterId="God">
-    <text>«What have you done? The voice of your brother's blood cries to me from the ground.</text>
+    <text>«What have you done? The voice of your brother’s blood cries to me from the ground.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="11" characterId="God">
     <verse num="11" />
@@ -958,7 +958,7 @@
     <text>God smelled the pleasant aroma. God said in his heart,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="21" characterId="God" delivery="said in his heart">
-    <text>«I will not again curse the ground any more for man's sake, because the imagination of man's heart is evil from his youth; neither will I ever again strike everything living, as I have done.</text>
+    <text>«I will not again curse the ground any more for man’s sake, because the imagination of man’s heart is evil from his youth; neither will I ever again strike everything living, as I have done.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="22" characterId="God">
     <verse num="22" />
@@ -1225,7 +1225,7 @@
     <text>They said one to another,</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="3" characterId="men of Babel">
-    <text>«Come, let's make bricks, and burn them thoroughly.»</text>
+    <text>«Come, let’s make bricks, and burn them thoroughly.»</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="3" characterId="narrator-GEN">
     <text>They had brick for stone, and they used tar for mortar. </text>
@@ -1233,7 +1233,7 @@
     <text>They said,</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="4" characterId="men of Babel">
-    <text>«Come, let's build ourselves a city, and a tower whose top reaches to the sky, and let's make ourselves a name, lest we be scattered abroad on the surface of the whole earth.»</text>
+    <text>«Come, let’s build ourselves a city, and a tower whose top reaches to the sky, and let’s make ourselves a name, lest we be scattered abroad on the surface of the whole earth.»</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="5" characterId="narrator-GEN">
     <verse num="5" />
@@ -1356,7 +1356,7 @@
     <text>Now God said to Abram,</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="1" characterId="God">
-    <text>«Get out of your country, and from your relatives, and from your father's house, to the land that I will show you.</text>
+    <text>«Get out of your country, and from your relatives, and from your father’s house, to the land that I will show you.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="2" characterId="God">
     <verse num="2" />
@@ -1436,7 +1436,7 @@
     <text>Pharaoh called Abram and said,</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="18" characterId="Pharaoh (1st)">
-    <text>«What is this that you have done to me? Why didn't you tell me that she was your wife?</text>
+    <text>«What is this that you have done to me? Why didn’t you tell me that she was your wife?</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="19" characterId="Pharaoh (1st)">
     <verse num="19" />
@@ -1638,7 +1638,7 @@
     <text>After these things the word of God came to Abram in a vision, saying,</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="1" characterId="God">
-    <text>«Don't be afraid, Abram. I am your shield, your exceedingly great reward.»</text>
+    <text>«Don’t be afraid, Abram. I am your shield, your exceedingly great reward.»</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="2" characterId="narrator-GEN">
     <verse num="2" />
@@ -1788,7 +1788,7 @@
     <text>He said,</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="8" characterId="angel of the LORD, the">
-    <text>«Hagar, Sarai's handmaid, where did you come from? Where are you going?»</text>
+    <text>«Hagar, Sarai’s handmaid, where did you come from? Where are you going?»</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="8" characterId="narrator-GEN">
     <text>She said,</text>
@@ -1989,7 +1989,7 @@
     <text>and said,</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="3" characterId="Abraham (Abram)">
-    <text>«My lord, if now I have found favor in your sight, please don't go away from your servant.</text>
+    <text>«My lord, if now I have found favor in your sight, please don’t go away from your servant.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="4" characterId="Abraham (Abram)">
     <verse num="4" />
@@ -2068,7 +2068,7 @@
     <text>Then Sarah denied, saying,</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="15" characterId="Sarah (Sarai) (old)">
-    <text>«I didn't laugh,»</text>
+    <text>«I didn’t laugh,»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="15" characterId="narrator-GEN">
     <text>for she was afraid. He said,</text>
@@ -2154,14 +2154,14 @@
     <text>He said,</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="29" characterId="God">
-    <text>«I will not do it for the forty's sake.»</text>
+    <text>«I will not do it for the forty’s sake.»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="30" characterId="narrator-GEN">
     <verse num="30" />
     <text>He said,</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="30" characterId="Abraham (Abram)">
-    <text>«Oh don't let the Lord be angry, and I will speak. What if there are thirty found there?»</text>
+    <text>«Oh don’t let the Lord be angry, and I will speak. What if there are thirty found there?»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="30" characterId="narrator-GEN">
     <text>He said,</text>
@@ -2180,20 +2180,20 @@
     <text>He said,</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="31" characterId="God">
-    <text>«I will not destroy it for the twenty's sake.»</text>
+    <text>«I will not destroy it for the twenty’s sake.»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="32" characterId="narrator-GEN">
     <verse num="32" />
     <text>He said,</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="32" characterId="Abraham (Abram)">
-    <text>«Oh don't let the Lord be angry, and I will speak just once more. What if ten are found there?»</text>
+    <text>«Oh don’t let the Lord be angry, and I will speak just once more. What if ten are found there?»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="32" characterId="narrator-GEN">
     <text>He said,</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="32" characterId="God">
-    <text>«I will not destroy it for the ten's sake.»</text>
+    <text>«I will not destroy it for the ten’s sake.»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="33" characterId="narrator-GEN">
     <verse num="33" />
@@ -2209,7 +2209,7 @@
     <text>and he said,</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="2" characterId="Lot">
-    <text>«See now, my lords, please turn aside into your servant's house, stay all night, wash your feet, and you can rise up early, and go on your way.»</text>
+    <text>«See now, my lords, please turn aside into your servant’s house, stay all night, wash your feet, and you can rise up early, and go on your way.»</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="2" characterId="narrator-GEN">
     <text>They said,</text>
@@ -2239,7 +2239,7 @@
     <text>He said,</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="7" characterId="Lot">
-    <text>«Please, my brothers, don't act so wickedly.</text>
+    <text>«Please, my brothers, don’t act so wickedly.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="8" characterId="Lot">
     <verse num="8" />
@@ -2304,7 +2304,7 @@
     <text>It came to pass, when they had taken them out, that he said,</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="17" characterId="angels at Sodom, two">
-    <text>«Escape for your life! Don't look behind you, and don't stay anywhere in the plain. Escape to the mountains, lest you be consumed!»</text>
+    <text>«Escape for your life! Don’t look behind you, and don’t stay anywhere in the plain. Escape to the mountains, lest you be consumed!»</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="18" characterId="narrator-GEN">
     <verse num="18" />
@@ -2385,7 +2385,7 @@
     <text>It came to pass on the next day, that the firstborn said to the younger,</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="34" characterId="older daughter of Lot">
-    <text>«Behold, I lay last night with my father. Let us make him drink wine again, tonight. You go in, and lie with him, that we may preserve our father's seed.»</text>
+    <text>«Behold, I lay last night with my father. Let us make him drink wine again, tonight. You go in, and lie with him, that we may preserve our father’s seed.»</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="35" characterId="narrator-GEN">
     <verse num="35" />
@@ -2425,7 +2425,7 @@
     <text>But God came to Abimelech in a dream of the night, and said to him,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="3" characterId="God">
-    <text>«Behold, you are a dead man, because of the woman whom you have taken. For she is a man's wife.»</text>
+    <text>«Behold, you are a dead man, because of the woman whom you have taken. For she is a man’s wife.»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="4" characterId="narrator-GEN">
     <verse num="4" />
@@ -2443,7 +2443,7 @@
     <text>God said to him in the dream,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="6" characterId="God">
-    <text>«Yes, I know that in the integrity of your heart you have done this, and I also withheld you from sinning against me. Therefore I didn't allow you to touch her.</text>
+    <text>«Yes, I know that in the integrity of your heart you have done this, and I also withheld you from sinning against me. Therefore I didn’t allow you to touch her.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="7" characterId="God">
     <verse num="7" />
@@ -2561,7 +2561,7 @@
     <text>God said to Abraham,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="12" characterId="God">
-    <text>«Don't let it be grievous in your sight because of the boy, and because of your handmaid. In all that Sarah says to you, listen to her voice. For from Isaac will your seed be called.</text>
+    <text>«Don’t let it be grievous in your sight because of the boy, and because of your handmaid. In all that Sarah says to you, listen to her voice. For from Isaac will your seed be called.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="13" characterId="God">
     <verse num="13" />
@@ -2580,7 +2580,7 @@
     <text>She went and sat down opposite him, a good way off, about a bow shot away. For she said,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="16" characterId="Hagar, Sarai's maid">
-    <text>«Don't let me see the death of the child.»</text>
+    <text>«Don’t let me see the death of the child.»</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="16" characterId="narrator-GEN">
     <text>She sat over against him, and lifted up her voice, and wept.</text>
@@ -2590,7 +2590,7 @@
     <text>God heard the voice of the boy. The angel of God called to Hagar out of the sky, and said to her,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="17" characterId="angel of the LORD, the">
-    <text>«What ails you, Hagar? Don't be afraid. For God has heard the voice of the boy where he is.</text>
+    <text>«What ails you, Hagar? Don’t be afraid. For God has heard the voice of the boy where he is.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="18" characterId="angel of the LORD, the">
     <verse num="18" />
@@ -2633,7 +2633,7 @@
     <text>Abimelech said,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="26" characterId="Abimelech 1, king of the Philistines (in Gerar)">
-    <text>«I don't know who has done this thing. Neither did you tell me, neither did I hear of it, until today.»</text>
+    <text>«I don’t know who has done this thing. Neither did you tell me, neither did I hear of it, until today.»</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="27" characterId="narrator-GEN">
     <verse num="27" />
@@ -2766,7 +2766,7 @@
     <text>He said,</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="12" characterId="angel of the LORD, the" delivery="calling out">
-    <text>«Don't lay your hand on the boy, neither do anything to him. For now I know that you fear God, since you have not withheld your son, your only son, from me.»</text>
+    <text>«Don’t lay your hand on the boy, neither do anything to him. For now I know that you fear God, since you have not withheld your son, your only son, from me.»</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="13" characterId="narrator-GEN">
     <verse num="13" />
@@ -2777,7 +2777,7 @@
     <text>Abraham called the name of that place God Will Provide. As it is said to this day,</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="14" characterId="Abraham (Abram)">
-    <text>«On God's mountain, it will be provided.»</text>
+    <text>«On God’s mountain, it will be provided.»</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="15" characterId="narrator-GEN">
     <verse num="15" />
@@ -2927,14 +2927,14 @@
     <text>The servant said to him,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="5" characterId="Abraham's chief servant">
-    <text>«What if the woman isn't willing to follow me to this land? Must I bring your son again to the land you came from?»</text>
+    <text>«What if the woman isn’t willing to follow me to this land? Must I bring your son again to the land you came from?»</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="6" characterId="narrator-GEN">
     <verse num="6" />
     <text>Abraham said to him,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="6" characterId="Abraham (Abram)">
-    <text>«Beware that you don't bring my son there again.</text>
+    <text>«Beware that you don’t bring my son there again.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="7" characterId="Abraham (Abram)">
     <verse num="7" />
@@ -3012,7 +3012,7 @@
     <text>and said,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="23" characterId="Abraham's chief servant">
-    <text>«Whose daughter are you? Please tell me. Is there room in your father's house for us to lodge in?»</text>
+    <text>«Whose daughter are you? Please tell me. Is there room in your father’s house for us to lodge in?»</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="24" characterId="narrator-GEN">
     <verse num="24" />
@@ -3035,7 +3035,7 @@
     <text>He said,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="27" characterId="Abraham's chief servant">
-    <text>«Blessed be God, the God of my master Abraham, who has not forsaken his loving kindness and his truth toward my master. As for me, God has led me in the way to the house of my master's relatives.»</text>
+    <text>«Blessed be God, the God of my master Abraham, who has not forsaken his loving kindness and his truth toward my master. As for me, God has led me in the way to the house of my master’s relatives.»</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="28" characterId="narrator-GEN">
     <verse num="28" />
@@ -3143,7 +3143,7 @@
     <text>Then Laban and Bethuel answered,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="50" characterId="Laban/Bethuel, Rebekah's father" characterIdOverrideForScript="Laban">
-    <text>«The thing proceeds from God. We can't speak to you bad or good.</text>
+    <text>«The thing proceeds from God. We can’t speak to you bad or good.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="51" characterId="Laban/Bethuel, Rebekah's father">
     <verse num="51" />
@@ -3176,7 +3176,7 @@
     <text>He said to them,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="56" characterId="Abraham's chief servant">
-    <text>«Don't hinder me, since God has prospered my way. Send me away that I may go to my master.»</text>
+    <text>«Don’t hinder me, since God has prospered my way. Send me away that I may go to my master.»</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="57" characterId="narrator-GEN">
     <verse num="57" />
@@ -3411,7 +3411,7 @@
     <text>God appeared to him, and said,</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="2" characterId="God">
-    <text>«Don't go down into Egypt. Live in the land I will tell you about.</text>
+    <text>«Don’t go down into Egypt. Live in the land I will tell you about.</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="3" characterId="God">
     <verse num="3" />
@@ -3532,7 +3532,7 @@
     <text>God appeared to him the same night, and said,</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="24" characterId="God">
-    <text>«I am the God of Abraham your father. Don't be afraid, for I am with you, and will bless you, and multiply your seed for my servant Abraham's sake.»</text>
+    <text>«I am the God of Abraham your father. Don’t be afraid, for I am with you, and will bless you, and multiply your seed for my servant Abraham’s sake.»</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="25" characterId="narrator-GEN">
     <verse num="25" />
@@ -3604,7 +3604,7 @@
     <text>He said,</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="2" characterId="Isaac (old)">
-    <text>«See now, I am old. I don't know the day of my death.</text>
+    <text>«See now, I am old. I don’t know the day of my death.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="3" characterId="Isaac (old)">
     <verse num="3" />
@@ -3716,7 +3716,7 @@
     <text>Jacob went near to Isaac his father. He felt him, and said,</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="22" characterId="Isaac (old)">
-    <text>«The voice is Jacob's voice, but the hands are the hands of Esau.»</text>
+    <text>«The voice is Jacob’s voice, but the hands are the hands of Esau.»</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="23" characterId="narrator-GEN">
     <verse num="23" />
@@ -3738,7 +3738,7 @@
     <text>He said,</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="25" characterId="Isaac (old)">
-    <text>«Bring it near to me, and I will eat of my son's venison, that my soul may bless you.»</text>
+    <text>«Bring it near to me, and I will eat of my son’s venison, that my soul may bless you.»</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="25" characterId="narrator-GEN">
     <text>He brought it near to him, and he ate. He brought him wine, and he drank. </text>
@@ -3772,7 +3772,7 @@
     <text>He also made savory food, and brought it to his father. He said to his father,</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="31" characterId="Esau">
-    <text>«Let my father arise, and eat of his son's venison, that your soul may bless me.»</text>
+    <text>«Let my father arise, and eat of his son’s venison, that your soul may bless me.»</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="32" characterId="narrator-GEN">
     <verse num="32" />
@@ -3813,13 +3813,13 @@
     <text>He said,</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="36" characterId="Esau">
-    <text>«Isn't he rightly named Jacob? For he has supplanted me these two times. He took away my birthright. See, now he has taken away my blessing.»</text>
+    <text>«Isn’t he rightly named Jacob? For he has supplanted me these two times. He took away my birthright. See, now he has taken away my blessing.»</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="36" characterId="narrator-GEN">
     <text>He said,</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="36" characterId="Esau">
-    <text>«Haven't you reserved a blessing for me?»</text>
+    <text>«Haven’t you reserved a blessing for me?»</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="37" characterId="narrator-GEN">
     <verse num="37" />
@@ -3957,14 +3957,14 @@
     <text>Jacob awakened out of his sleep, and he said,</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="16" characterId="Jacob (Israel)">
-    <text>«Surely God is in this place, and I didn't know it.»</text>
+    <text>«Surely God is in this place, and I didn’t know it.»</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="17" characterId="narrator-GEN">
     <verse num="17" />
     <text>He was afraid, and said,</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="17" characterId="Jacob (Israel)">
-    <text>«How dreadful is this place! This is none other than God's house, and this is the gate of heaven.»</text>
+    <text>«How dreadful is this place! This is none other than God’s house, and this is the gate of heaven.»</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="18" characterId="narrator-GEN">
     <verse num="18" />
@@ -4047,7 +4047,7 @@
     <text>They said,</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="8" characterId="shepherds at well">
-    <text>«We can't, until all the flocks are gathered together, and they roll the stone from the well's mouth. Then we water the sheep.»</text>
+    <text>«We can’t, until all the flocks are gathered together, and they roll the stone from the well’s mouth. Then we water the sheep.»</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="9" characterId="narrator-GEN">
     <verse num="9" />
@@ -4130,7 +4130,7 @@
     <text>It happened in the morning that, behold, it was Leah. He said to Laban,</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="25" characterId="Jacob (Israel)">
-    <text>«What is this you have done to me? Didn't I serve with you for Rachel? Why then have you deceived me?»</text>
+    <text>«What is this you have done to me? Didn’t I serve with you for Rachel? Why then have you deceived me?»</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="26" characterId="narrator-GEN">
     <verse num="26" />
@@ -4207,7 +4207,7 @@
     <text>Jacob’s anger was kindled against Rachel, and he said,</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="2" characterId="Jacob (Israel)">
-    <text>«Am I in God's place, who has withheld from you the fruit of the womb?»</text>
+    <text>«Am I in God’s place, who has withheld from you the fruit of the womb?»</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="3" characterId="narrator-GEN">
     <verse num="3" />
@@ -4273,27 +4273,27 @@
     <text>Reuben went in the days of wheat harvest, and found mandrakes in the field, and brought them to his mother, Leah. Then Rachel said to Leah,</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="14" characterId="Rachel">
-    <text>«Please give me some of your son's mandrakes.»</text>
+    <text>«Please give me some of your son’s mandrakes.»</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="15" characterId="narrator-GEN">
     <verse num="15" />
     <text>She said to her,</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="15" characterId="Leah">
-    <text>«Is it a small matter that you have taken away my husband? Would you take away my son's mandrakes, also?»</text>
+    <text>«Is it a small matter that you have taken away my husband? Would you take away my son’s mandrakes, also?»</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="15" characterId="narrator-GEN">
     <text>Rachel said,</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="15" characterId="Rachel">
-    <text>«Therefore he will lie with you tonight for your son's mandrakes.»</text>
+    <text>«Therefore he will lie with you tonight for your son’s mandrakes.»</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="16" characterId="narrator-GEN">
     <verse num="16" />
     <text>Jacob came from the field in the evening, and Leah went out to meet him, and said,</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="16" characterId="Leah">
-    <text>«You must come in to me; for I have surely hired you with my son's mandrakes.»</text>
+    <text>«You must come in to me; for I have surely hired you with my son’s mandrakes.»</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="16" characterId="narrator-GEN">
     <text>He lay with her that night. </text>
@@ -4444,7 +4444,7 @@
     <text>He heard the words of Laban’s sons, saying,</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="1" characterId="Laban's sons">
-    <text>«Jacob has taken away all that was our father's. From that which was our father's, has he gotten all this wealth.»</text>
+    <text>«Jacob has taken away all that was our father’s. From that which was our father’s, has he gotten all this wealth.»</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="2" characterId="narrator-GEN">
     <verse num="2" />
@@ -4462,7 +4462,7 @@
     <text>and said to them,</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="5" characterId="Jacob (Israel)">
-    <text>«I see the expression on your father's face, that it is not toward me as before; but the God of my father has been with me.</text>
+    <text>«I see the expression on your father’s face, that it is not toward me as before; but the God of my father has been with me.</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="6" characterId="Jacob (Israel)">
     <verse num="6" />
@@ -4501,7 +4501,7 @@
     <text>Rachel and Leah answered him,</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="14" characterId="Rachel/Leah" characterIdOverrideForScript="Rachel">
-    <text>«Is there yet any portion or inheritance for us in our father's house?</text>
+    <text>«Is there yet any portion or inheritance for us in our father’s house?</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="15" characterId="Rachel/Leah" characterIdOverrideForScript="Rachel">
     <verse num="15" />
@@ -4542,7 +4542,7 @@
     <text>God came to Laban, the Syrian, in a dream of the night, and said to him,</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="24" characterId="God">
-    <text>«Take heed to yourself that you don't speak to Jacob either good or bad.»</text>
+    <text>«Take heed to yourself that you don’t speak to Jacob either good or bad.»</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="25" characterId="narrator-GEN">
     <verse num="25" />
@@ -4581,7 +4581,7 @@
     <text>Anyone you find your gods with shall not live. Before our relatives, discern what is yours with me, and take it.»</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="32" characterId="narrator-GEN">
-    <text>For Jacob didn't know that Rachel had stolen them.</text>
+    <text>For Jacob didn’t know that Rachel had stolen them.</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="33" characterId="narrator-GEN">
     <verse num="33" />
@@ -4594,10 +4594,10 @@
     <text>She said to her father,</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="35" characterId="Rachel">
-    <text>«Don't let my lord be angry that I can't rise up before you; for I'm having my period.»</text>
+    <text>«Don’t let my lord be angry that I can’t rise up before you; for I’m having my period.»</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="35" characterId="narrator-GEN">
-    <text>He searched, but didn't find the teraphim.</text>
+    <text>He searched, but didn’t find the teraphim.</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="36" characterId="narrator-GEN">
     <verse num="36" />
@@ -4710,7 +4710,7 @@
     <text>When he saw them, Jacob said,</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="2" characterId="Jacob (Israel)">
-    <text>«This is God's army.»</text>
+    <text>«This is God’s army.»</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="2" characterId="narrator-GEN">
     <text>He called the name of that place Mahanaim.</text>
@@ -4837,7 +4837,7 @@
     <text>Jacob said,</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="26" characterId="Jacob (Israel)">
-    <text>«I won't let you go, unless you bless me.»</text>
+    <text>«I won’t let you go, unless you bless me.»</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="27" characterId="narrator-GEN">
     <verse num="27" />
@@ -5076,7 +5076,7 @@
     <text>and said to them,</text>
   </block>
   <block style="p" chapter="34" initialStartVerse="14" characterId="Simeon/Levi" characterIdOverrideForScript="Simeon">
-    <text>«We can't do this thing, to give our sister to one who is uncircumcised; for that is a reproach to us.</text>
+    <text>«We can’t do this thing, to give our sister to one who is uncircumcised; for that is a reproach to us.</text>
   </block>
   <block style="p" chapter="34" initialStartVerse="15" characterId="Simeon/Levi">
     <verse num="15" />
@@ -5231,7 +5231,7 @@
     <text>When she was in hard labor, the midwife said to her,</text>
   </block>
   <block style="p" chapter="35" initialStartVerse="17" characterId="midwife of Rachel">
-    <text>«Don't be afraid, for now you will have another son.»</text>
+    <text>«Don’t be afraid, for now you will have another son.»</text>
   </block>
   <block style="p" chapter="35" initialStartVerse="18" characterId="narrator-GEN">
     <verse num="18" />
@@ -5509,7 +5509,7 @@
     <text>Israel said to Joseph,</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="13" characterId="Jacob (Israel)">
-    <text>«Aren't your brothers feeding the flock in Shechem? Come, and I will send you to them.»</text>
+    <text>«Aren’t your brothers feeding the flock in Shechem? Come, and I will send you to them.»</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="13" characterId="narrator-GEN">
     <text>He said to him,</text>
@@ -5567,7 +5567,7 @@
     <text>Reuben heard it, and delivered him out of their hand, and said,</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="21" characterId="Reuben">
-    <text>«Let's not take his life.»</text>
+    <text>«Let’s not take his life.»</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="22" characterId="narrator-GEN">
     <verse num="22" />
@@ -5621,14 +5621,14 @@
     <text>They took the coat of many colors, and they brought it to their father, and said,</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="32" characterId="Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher">
-    <text>«We have found this. Examine it, now, whether it is your son's coat or not.»</text>
+    <text>«We have found this. Examine it, now, whether it is your son’s coat or not.»</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="33" characterId="narrator-GEN">
     <verse num="33" />
     <text>He recognized it, and said,</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="33" characterId="Jacob (Israel)">
-    <text>«It is my son's coat. An evil animal has devoured him. Joseph is without doubt torn in pieces.»</text>
+    <text>«It is my son’s coat. An evil animal has devoured him. Joseph is without doubt torn in pieces.»</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="34" characterId="narrator-GEN">
     <verse num="34" />
@@ -5680,7 +5680,7 @@
     <text>Judah said to Onan,</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="8" characterId="Judah">
-    <text>«Go in to your brother's wife, and perform the duty of a husband's brother to her, and raise up seed to your brother.»</text>
+    <text>«Go in to your brother’s wife, and perform the duty of a husband’s brother to her, and raise up seed to your brother.»</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="9" characterId="narrator-GEN">
     <verse num="9" />
@@ -5695,7 +5695,7 @@
     <text>Then Judah said to Tamar, his daughter-in-law,</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="11" characterId="Judah" delivery="thinking">
-    <text>«Remain a widow in your father's house, until Shelah, my son, is grown up;»</text>
+    <text>«Remain a widow in your father’s house, until Shelah, my son, is grown up;»</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="11" characterId="narrator-GEN">
     <text>for he said,</text>
@@ -5704,7 +5704,7 @@
     <text>«Lest he also die, like his brothers.»</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="11" characterId="narrator-GEN">
-    <text>Tamar went and lived in her father's house.</text>
+    <text>Tamar went and lived in her father’s house.</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="12" characterId="narrator-GEN">
     <verse num="12" />
@@ -5731,7 +5731,7 @@
     <text>«Please come, let me come in to you,»</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="16" characterId="narrator-GEN">
-    <text>for he didn't know that she was his daughter-in-law. She said,</text>
+    <text>for he didn’t know that she was his daughter-in-law. She said,</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="16" characterId="Tamar, daughter-in-law of Judah">
     <text>«What will you give me, that you may come in to me?»</text>
@@ -5791,14 +5791,14 @@
     <text>He returned to Judah, and said,</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="22" characterId="Hirah, the Adullamite">
-    <text>«I haven't found her; and also the men of the place said, There has been no prostitute here.»</text>
+    <text>«I haven’t found her; and also the men of the place said, There has been no prostitute here.»</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="23" characterId="narrator-GEN">
     <verse num="23" />
     <text>Judah said,</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="23" characterId="Judah">
-    <text>«Let her keep it, lest we be shamed. Behold, I sent this young goat, and you haven't found her.»</text>
+    <text>«Let her keep it, lest we be shamed. Behold, I sent this young goat, and you haven’t found her.»</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="24" characterId="narrator-GEN">
     <verse num="24" />
@@ -5831,7 +5831,7 @@
     <text>Judah acknowledged them, and said,</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="26" characterId="Judah">
-    <text>«She is more righteous than I, because I didn't give her to Shelah, my son.»</text>
+    <text>«She is more righteous than I, because I didn’t give her to Shelah, my son.»</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="26" characterId="narrator-GEN">
     <text>He knew her again no more. </text>
@@ -5896,7 +5896,7 @@
     <text>But he refused, and said to his master’s wife,</text>
   </block>
   <block style="p" chapter="39" initialStartVerse="8" characterId="Joseph">
-    <text>«Behold, my master doesn't know what is with me in the house, and he has put all that he has into my hand.</text>
+    <text>«Behold, my master doesn’t know what is with me in the house, and he has put all that he has into my hand.</text>
   </block>
   <block style="p" chapter="39" initialStartVerse="9" characterId="Joseph">
     <verse num="9" />
@@ -6015,7 +6015,7 @@
     <text>Joseph said to them,</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="8" characterId="Joseph">
-    <text>«Don't interpretations belong to God? Please tell it to me.»</text>
+    <text>«Don’t interpretations belong to God? Please tell it to me.»</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="9" characterId="narrator-GEN">
     <verse num="9" />
@@ -6157,7 +6157,7 @@
     <text>Joseph answered Pharaoh, saying,</text>
   </block>
   <block style="p" chapter="41" initialStartVerse="16" characterId="Joseph">
-    <text>«It isn't in me. God will give Pharaoh an answer of peace.»</text>
+    <text>«It isn’t in me. God will give Pharaoh an answer of peace.»</text>
   </block>
   <block style="p" chapter="41" initialStartVerse="17" characterId="narrator-GEN">
     <verse num="17" />
@@ -6310,7 +6310,7 @@
     <text>Joseph called the name of the firstborn Manasseh,</text>
   </block>
   <block style="p" chapter="41" initialStartVerse="51" characterId="Joseph">
-    <text>«For, God has made me forget all my toil, and all my father's house.»</text>
+    <text>«For, God has made me forget all my toil, and all my father’s house.»</text>
   </block>
   <block style="p" chapter="41" initialStartVerse="52" characterId="narrator-GEN">
     <verse num="52" />
@@ -6463,7 +6463,7 @@
     <text>They said one to another,</text>
   </block>
   <block style="p" chapter="42" initialStartVerse="21" characterId="Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher">
-    <text>«We are certainly guilty concerning our brother, in that we saw the distress of his soul, when he begged us, and we wouldn't listen. Therefore this distress has come upon us.»</text>
+    <text>«We are certainly guilty concerning our brother, in that we saw the distress of his soul, when he begged us, and we wouldn’t listen. Therefore this distress has come upon us.»</text>
   </block>
   <block style="p" chapter="42" initialStartVerse="22" characterId="narrator-GEN">
     <verse num="22" />
@@ -6541,7 +6541,7 @@
     <text>Reuben spoke to his father, saying,</text>
   </block>
   <block style="p" chapter="42" initialStartVerse="37" characterId="Reuben">
-    <text>«Kill my two sons, if I don't bring him to you. Entrust him to my care, and I will bring him to you again.»</text>
+    <text>«Kill my two sons, if I don’t bring him to you. Entrust him to my care, and I will bring him to you again.»</text>
   </block>
   <block style="p" chapter="42" initialStartVerse="38" characterId="narrator-GEN">
     <verse num="38" />
@@ -6598,7 +6598,7 @@
     <text>Judah said to Israel, his father,</text>
   </block>
   <block style="p" chapter="43" initialStartVerse="8" characterId="Judah">
-    <text>«Send the boy with me, and we'll get up and go, so that we may live, and not die, both we, and you, and also our little ones.</text>
+    <text>«Send the boy with me, and we’ll get up and go, so that we may live, and not die, both we, and you, and also our little ones.</text>
   </block>
   <block style="p" chapter="43" initialStartVerse="9" characterId="Judah">
     <verse num="9" />
@@ -6645,7 +6645,7 @@
     <text>The men were afraid, because they were brought to Joseph’s house; and they said,</text>
   </block>
   <block style="p" chapter="43" initialStartVerse="18" characterId="Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher" delivery="thought">
-    <text>«Because of the money that was returned in our sacks at the first time, we're brought in; that he may seek occasion against us, attack us, and seize us as slaves, along with our donkeys.»</text>
+    <text>«Because of the money that was returned in our sacks at the first time, we’re brought in; that he may seek occasion against us, attack us, and seize us as slaves, along with our donkeys.»</text>
   </block>
   <block style="p" chapter="43" initialStartVerse="19" characterId="narrator-GEN">
     <verse num="19" />
@@ -6669,7 +6669,7 @@
     <text>He said,</text>
   </block>
   <block style="p" chapter="43" initialStartVerse="23" characterId="steward of Joseph's house">
-    <text>«Peace be to you. Don't be afraid. Your God, and the God of your father, has given you treasure in your sacks. I received your money.»</text>
+    <text>«Peace be to you. Don’t be afraid. Your God, and the God of your father, has given you treasure in your sacks. I received your money.»</text>
   </block>
   <block style="p" chapter="43" initialStartVerse="23" characterId="narrator-GEN">
     <text>He brought Simeon out to them.</text>
@@ -6747,7 +6747,7 @@
     <text>He commanded the steward of his house, saying,</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="1" characterId="Joseph">
-    <text>«Fill the men's sacks with food, as much as they can carry, and put each man's money in his sack's mouth.</text>
+    <text>«Fill the men’s sacks with food, as much as they can carry, and put each man’s money in his sack’s mouth.</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="2" characterId="Joseph">
     <verse num="2" />
@@ -6814,14 +6814,14 @@
     <text>Joseph said to them,</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="15" characterId="Joseph">
-    <text>«What deed is this that you have done? Don't you know that such a man as I can indeed divine?»</text>
+    <text>«What deed is this that you have done? Don’t you know that such a man as I can indeed divine?»</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="16" characterId="narrator-GEN">
     <verse num="16" />
     <text>Judah said,</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="16" characterId="Judah">
-    <text>«What will we tell my lord? What will we speak? Or how will we clear ourselves? God has found out the iniquity of your servants. Behold, we are my lord's bondservants, both we, and he also in whose hand the cup is found.»</text>
+    <text>«What will we tell my lord? What will we speak? Or how will we clear ourselves? God has found out the iniquity of your servants. Behold, we are my lord’s bondservants, both we, and he also in whose hand the cup is found.»</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="17" characterId="narrator-GEN">
     <verse num="17" />
@@ -6835,7 +6835,7 @@
     <text>Then Judah came near to him, and said,</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="18" characterId="Judah">
-    <text>«Oh, my lord, please let your servant speak a word in my lord's ears, and don't let your anger burn against your servant; for you are even as Pharaoh.</text>
+    <text>«Oh, my lord, please let your servant speak a word in my lord’s ears, and don’t let your anger burn against your servant; for you are even as Pharaoh.</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="19" characterId="Judah">
     <verse num="19" />
@@ -6986,7 +6986,7 @@
     <text>The report of it was heard in Pharaoh’s house, saying,</text>
   </block>
   <block style="p" chapter="45" initialStartVerse="16" characterId="news to Pharoah's palace">
-    <text>«Joseph's brothers have come.»</text>
+    <text>«Joseph’s brothers have come.»</text>
   </block>
   <block style="p" chapter="45" initialStartVerse="16" characterId="narrator-GEN">
     <text>It pleased Pharaoh well, and his servants. </text>
@@ -7023,7 +7023,7 @@
     <text>So he sent his brothers away, and they departed. He said to them,</text>
   </block>
   <block style="p" chapter="45" initialStartVerse="24" characterId="Joseph">
-    <text>«See that you don't quarrel on the way.»</text>
+    <text>«See that you don’t quarrel on the way.»</text>
   </block>
   <block style="p" chapter="45" initialStartVerse="25" characterId="narrator-GEN">
     <verse num="25" />
@@ -7035,7 +7035,7 @@
     <text>«Joseph is still alive, and he is ruler over all the land of Egypt.»</text>
   </block>
   <block style="p" chapter="45" initialStartVerse="26" characterId="narrator-GEN">
-    <text>His heart fainted, for he didn't believe them.</text>
+    <text>His heart fainted, for he didn’t believe them.</text>
   </block>
   <block style="p" chapter="45" initialStartVerse="27" characterId="narrator-GEN">
     <verse num="27" />
@@ -7071,7 +7071,7 @@
     <text>He said,</text>
   </block>
   <block style="p" chapter="46" initialStartVerse="3" characterId="God">
-    <text>«I am God, the God of your father. Don't be afraid to go down into Egypt, for there I will make of you a great nation.</text>
+    <text>«I am God, the God of your father. Don’t be afraid to go down into Egypt, for there I will make of you a great nation.</text>
   </block>
   <block style="p" chapter="46" initialStartVerse="4" characterId="God">
     <verse num="4" />
@@ -7301,7 +7301,7 @@
     <text>When that year was ended, they came to him the second year, and said to him,</text>
   </block>
   <block style="p" chapter="47" initialStartVerse="18" characterId="Egyptians, all the">
-    <text>«We will not hide from my lord how our money is all spent, and the herds of livestock are my lord's. There is nothing left in the sight of my lord, but our bodies, and our lands.</text>
+    <text>«We will not hide from my lord how our money is all spent, and the herds of livestock are my lord’s. There is nothing left in the sight of my lord, but our bodies, and our lands.</text>
   </block>
   <block style="p" chapter="47" initialStartVerse="19" characterId="Egyptians, all the">
     <verse num="19" />
@@ -7333,7 +7333,7 @@
     <text>They said,</text>
   </block>
   <block style="p" chapter="47" initialStartVerse="25" characterId="Egyptians, all the">
-    <text>«You have saved our lives! Let us find favor in the sight of my lord, and we will be Pharaoh's servants.»</text>
+    <text>«You have saved our lives! Let us find favor in the sight of my lord, and we will be Pharaoh’s servants.»</text>
   </block>
   <block style="p" chapter="47" initialStartVerse="26" characterId="narrator-GEN">
     <verse num="26" />
@@ -7370,7 +7370,7 @@
     <text>«Swear to me,»</text>
   </block>
   <block style="p" chapter="47" initialStartVerse="31" characterId="narrator-GEN">
-    <text>and he swore to him. Israel bowed himself on the bed's head.</text>
+    <text>and he swore to him. Israel bowed himself on the bed’s head.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="48" book="GEN" initialStartVerse="0" characterId="BC-GEN">
     <text>48</text>
@@ -7439,7 +7439,7 @@
     <text>Israel said to Joseph,</text>
   </block>
   <block style="p" chapter="48" initialStartVerse="11" characterId="Jacob (Israel)">
-    <text>«I didn't think I would see your face, and behold, God has let me see your seed also.»</text>
+    <text>«I didn’t think I would see your face, and behold, God has let me see your seed also.»</text>
   </block>
   <block style="p" chapter="48" initialStartVerse="12" characterId="narrator-GEN">
     <verse num="12" />
@@ -7732,7 +7732,7 @@
     <text>Joseph said to them,</text>
   </block>
   <block style="p" chapter="50" initialStartVerse="19" characterId="Joseph">
-    <text>«Don't be afraid, for am I in the place of God?</text>
+    <text>«Don’t be afraid, for am I in the place of God?</text>
   </block>
   <block style="p" chapter="50" initialStartVerse="20" characterId="Joseph">
     <verse num="20" />

@@ -105,14 +105,14 @@
     <text>They prophesy.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="false prophets">
-    <text>«Don't prophesy about these things. Disgrace won't overtake us.»</text>
+    <text>«Don’t prophesy about these things. Disgrace won’t overtake us.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="7" characterId="narrator-MIC">
     <verse num="7" />
     <text>Shall it be said, O house of Jacob: «Is the Spirit of God angry? Are these his doings?</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="7" characterId="God">
-    <text>Don't my words do good to him who walks blamelessly?»</text>
+    <text>Don’t my words do good to him who walks blamelessly?»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="8" characterId="God">
     <verse num="8" />
@@ -162,7 +162,7 @@
     <text>Thus says God</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="God">
-    <text>concerning the prophets who lead my people astray; for those who feed their teeth, they proclaim, «Peace!» and whoever doesn't provide for their mouths, they prepare war against him:</text>
+    <text>concerning the prophets who lead my people astray; for those who feed their teeth, they proclaim, «Peace!» and whoever doesn’t provide for their mouths, they prepare war against him:</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="6" characterId="God">
     <verse num="6" />
@@ -189,7 +189,7 @@
     <text>Her leaders judge for bribes, and her priests teach for a price, and her prophets of it tell fortunes for money: yet they lean on God, and say,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="11" characterId="leaders/priests/false prophets">
-    <text>«Isn't God in the midst of us? No disaster will come on us.»</text>
+    <text>«Isn’t God in the midst of us? No disaster will come on us.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="12" characterId="narrator-MIC">
     <verse num="12" />
