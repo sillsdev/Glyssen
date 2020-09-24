@@ -2094,9 +2094,9 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="20" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" chapter="9" initialStartVerse="20" characterId="scripture">
-      <text>«Will the thing formed ask him who formed it, ‹Why did you make me like this?› »</text>
+      <text>«Will the thing formed ask him who formed it, ‹Why did you make me like this?› »</text>
     </ReferenceBlocks>
-    <text>«Изделие скажет ли сделавшему его: ‹зачем ты меня так сделал?› »</text>
+    <text>«Изделие скажет ли сделавшему его: ‹зачем ты меня так сделал?› »</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-ROM">
@@ -2147,7 +2147,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="scripture">
       <verse num="26" />
-      <text>«It will be that in the place where it was said to them, ‹You are not my people,› There they will be called ‹children of the living God.› »</text>
+      <text>«It will be that in the place where it was said to them, ‹You are not my people,› There they will be called ‹children of the living God.› »</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>«И на том месте, где сказано им: вы не Мой народ, там названы будут сынами Бога живаго.»</text>
@@ -3194,7 +3194,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="11" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="11" characterId="scripture">
-      <text>« ‹As I live,› says the Lord, ‹to me every knee will bow. Every tongue will confess to God.»</text>
+      <text>« ‹As I live,› says the Lord, ‹to me every knee will bow. Every tongue will confess to God.»</text>
     </ReferenceBlocks>
     <text>«живу Я, говорит Господь, предо Мною преклонится всякое колено, и всякий язык будет исповедывать Бога.»</text>
   </block>
