@@ -730,7 +730,12 @@ namespace Glyssen.RefTextDevUtilities
 										if (string.IsNullOrWhiteSpace(text))
 											WriteOutput("No text found between annotations:" + referenceTextRow, true);
 										else
-											newBlock.BlockElements.Add(lastElementInBlock = new ScriptText(text));
+										{
+											// Excel does not handle thin non-breaking spaces well, but when there are
+											// adjacent chevrons facing the same direction, that's what we want.
+											newBlock.BlockElements.Add(lastElementInBlock = new ScriptText(
+												ReplaceInterChevronSpacesWithThinNonBreakingSpaces(text)));
+										}
 									}
 								}
 							}
@@ -814,6 +819,46 @@ namespace Glyssen.RefTextDevUtilities
 			}
 
 			WriteOutput("Done!");
+		}
+
+		private static string ReplaceInterChevronSpacesWithThinNonBreakingSpaces(string text)
+		{
+			var sb = new StringBuilder(text);
+			var prevNonWsCharWasOpeningQuote = false;
+			var prevNonWsCharWasClosingQuote = false;
+			var prevCharWasSpace = false;
+			for (int i = 0; i < sb.Length; i++)
+			{
+				switch (sb[i])
+				{
+					case '«':
+					case '‹':
+						if (prevNonWsCharWasOpeningQuote && prevCharWasSpace)
+							sb[i - 1] = '\u202F';
+						else
+							prevNonWsCharWasOpeningQuote = true;
+						prevNonWsCharWasClosingQuote = false;
+						break;
+					case '»':
+					case '›':
+						if (prevNonWsCharWasClosingQuote && prevCharWasSpace)
+							sb[i - 1] = '\u202F';
+						else
+							prevNonWsCharWasClosingQuote = true;
+						prevNonWsCharWasOpeningQuote = false;
+						break;
+					case ' ':
+						prevCharWasSpace = true;
+						continue;
+					default:
+						prevNonWsCharWasClosingQuote = false;
+						prevNonWsCharWasOpeningQuote = false;
+						break;
+				}
+				prevCharWasSpace = false;
+			}
+
+			return sb.ToString();
 		}
 
 		private static void CheckBlockForMissingF8Annotations(Block block, Block englishRefBlock, ReferenceTextLanguageInfo languageInfo)
