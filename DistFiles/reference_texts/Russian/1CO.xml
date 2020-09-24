@@ -1443,7 +1443,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="narrator-1CO">
       <verse num="5" />
-      <text>For though there are things that are called «gods,» whether in the heavens or on earth; as there are many «gods« and many «lords«;</text>
+      <text>For though there are things that are called «gods,» whether in the heavens or on earth; as there are many «gods» and many «lords»;</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Ибо хотя и есть так называемые боги, или на небе, или на земле, так как есть много богов и господ много, —</text>
@@ -3203,12 +3203,12 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="26" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="26" characterId="narrator-1CO">
       <verse num="26" />
-      <text>The last enemy that will be abolished is death.</text>
+      <text>The last enemy that will be abolished is death. </text>
       <verse num="27" />
       <text>For,</text>
     </ReferenceBlocks>
     <verse num="26" />
-    <text>Последний же враг истребится—смерть,</text>
+    <text>Последний же враг истребится—смерть, </text>
     <verse num="27" />
     <text>потому</text>
   </block>

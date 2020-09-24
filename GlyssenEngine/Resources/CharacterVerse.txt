@@ -18237,6 +18237,7 @@ JHN	4	22	Jesus			Normal
 JHN	4	23	Jesus			Normal		
 JHN	4	24	Jesus			Normal		
 JHN	4	25	woman, Samaritan			Dialogue		
+JHN	4	25	interruption-JHN			Interruption		
 JHN	4	26	Jesus			Dialogue		
 JHN	4	27	narrator-JHN			Quotation		
 JHN	4	29	woman, Samaritan			Dialogue		

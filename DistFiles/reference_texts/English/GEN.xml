@@ -222,9 +222,9 @@
     <text>God commanded the man, saying,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="16" characterId="God">
-    <text>«Of every tree of the garden you may freely eat;</text>
+    <text>«You may freely eat of every tree of the garden; </text>
     <verse num="17" />
-    <text>but of the tree of the knowledge of good and evil, you shall not eat of it; for in the day that you eat of it you will surely die.»</text>
+    <text>but you shall not eat of the tree of the knowledge of good and evil; for in the day that you eat of it, you will surely die.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="18" characterId="narrator-GEN">
     <verse num="18" />

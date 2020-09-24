@@ -779,7 +779,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-MRK">
     <verse num="6" />
-    <text>When he saw Jesus from afar, he ran and bowed down to him,</text>
+    <text>When he saw Jesus from afar, he ran and bowed down to him, </text>
     <verse num="7" />
     <text>and crying out with a loud voice, he said,</text>
   </block>
@@ -872,7 +872,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-MRK">
     <verse num="22" />
-    <text>Behold, one of the rulers of the synagogue, Jairus by name, came; and seeing him, he fell at his feet,</text>
+    <text>Behold, one of the rulers of the synagogue, Jairus by name, came; and seeing him, he fell at his feet, </text>
     <verse num="23" />
     <text>and begged him much, saying,</text>
   </block>
@@ -1003,7 +1003,13 @@
     <text>When the Sabbath had come, he began to teach in the synagogue, and many hearing him were astonished, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed">
-    <text>«Where did this man get these things?» and, «What is the wisdom that is given to this man, that such mighty works come about by his hands?</text>
+    <text>«Where did this man get these things?» </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="Needs Review">
+    <text>and, </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed">
+    <text>«What is the wisdom that is given to this man, that such mighty works come about by his hands?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="men in Nazareth synagogue" delivery="amazed">
     <verse num="3" />
@@ -1358,7 +1364,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="8" characterId="Jesus" delivery="rebuking">
     <verse num="8" />
-    <text>«For you set aside the commandment of God, and hold tightly to the tradition of men--the washing of pitchers and cups, and you do many other such things.»</text>
+    <text>For you set aside the commandment of God, and hold tightly to the tradition of men--the washing of pitchers and cups, and you do many other such things.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="narrator-MRK">
     <verse num="9" />
@@ -2503,7 +2509,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="chief priests/teachers of religious law/elders" delivery="to themselves">
     <verse num="32" />
-    <text>If we should say, ‹From men’»</text>
+    <text>If we should say, ‹From men› »</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="narrator-MRK">
     <text>--they feared the people because they believed that John really was a prophet. </text>
@@ -2791,7 +2797,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="Jesus">
     <verse num="7" />
-    <text>«When you hear of wars and rumors of wars, don’t be troubled. For those must happen, but the end is not yet.</text>
+    <text>When you hear of wars and rumors of wars, don’t be troubled. For those must happen, but the end is not yet.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="8" characterId="Jesus">
     <verse num="8" />
@@ -2811,7 +2817,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="Jesus">
     <verse num="12" />
-    <text>«Brother will deliver up brother to death, and the father his child. Children will rise up against parents, and cause them to be put to death.</text>
+    <text>Brother will deliver up brother to death, and the father his child. Children will rise up against parents, and cause them to be put to death.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="Jesus">
     <verse num="13" />
@@ -2881,7 +2887,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="28" characterId="Jesus">
     <verse num="28" />
-    <text>«Now from the fig tree, learn this parable. When the branch has now become tender, and puts forth its leaves, you know that the summer is near.</text>
+    <text>Now from the fig tree, learn this parable. When the branch has now become tender, and puts forth its leaves, you know that the summer is near.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="29" characterId="Jesus">
     <verse num="29" />
@@ -2905,7 +2911,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="34" characterId="Jesus">
     <verse num="34" />
-    <text>«It is like a man, traveling to another country, having left his house, and given authority to his servants, and to each one his work, and also commanded the doorkeeper to keep watch.</text>
+    <text>It is like a man, traveling to another country, having left his house, and given authority to his servants, and to each one his work, and also commanded the doorkeeper to keep watch.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="35" characterId="Jesus">
     <verse num="35" />
@@ -3192,7 +3198,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="51" characterId="narrator-MRK">
     <verse num="51" />
-    <text>A certain young man followed him, having a linen cloth thrown around himself, over his naked body. The young men grabbed him,</text>
+    <text>A certain young man followed him, having a linen cloth thrown around himself, over his naked body. The young men grabbed him, </text>
     <verse num="52" />
     <text>but he left the linen cloth, and fled from them naked.</text>
   </block>

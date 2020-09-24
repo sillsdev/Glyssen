@@ -1677,7 +1677,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="41" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="41" characterId="narrator-JHN">
       <verse num="41" />
-      <text>Many more believed because of his word.</text>
+      <text>Many more believed because of his word. </text>
       <verse num="42" />
       <text>They said to the woman,</text>
     </ReferenceBlocks>
@@ -5104,7 +5104,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="34" characterId="Jesus">
       <text>«Isn’t it written in your law, ‹I said, you are gods?›</text>
     </ReferenceBlocks>
-    <text>"Не написано ли в законе вашем:« Я сказал: вы боги?</text>
+    <text>«Не написано ли в законе вашем: ‹Я сказал: вы боги?›</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="35" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="35" characterId="Jesus">
@@ -5117,10 +5117,10 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="36" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="36" characterId="Jesus">
       <verse num="36" />
-      <text>God has set me apart for Himself. He sent me into the world. Then how can you say that I am blaspheming because I said, ‹I am the Son of God’?</text>
+      <text>God has set me apart for Himself. He sent me into the world. Then how can you say that I am blaspheming because I said, ‹I am the Son of God?›</text>
     </ReferenceBlocks>
     <verse num="36" />
-    <text>Бог поставил меня на части для себя. Он послал меня в мир. Тогда как вы можете сказать, что я хулы, потому что Я сказал: «Я Сын Божий?</text>
+    <text>Бог поставил меня на части для себя. Он послал меня в мир. Тогда как вы можете сказать, что я хулы, потому что Я сказал: ‹Я Сын Божий›?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="Jesus">

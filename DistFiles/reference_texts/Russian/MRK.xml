@@ -421,7 +421,7 @@
       <text>saying:</text>
     </ReferenceBlocks>
     <verse num="43" />
-    <text>И, посмотрев на него строго, тотчас отослал его</text>
+    <text>И, посмотрев на него строго, тотчас отослал его </text>
     <verse num="44" />
     <text>и сказал ему:</text>
   </block>
@@ -1556,12 +1556,12 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-MRK">
       <verse num="6" />
-      <text>When he saw Jesus from afar, he ran and bowed down to him,</text>
+      <text>When he saw Jesus from afar, he ran and bowed down to him, </text>
       <verse num="7" />
       <text>and crying out with a loud voice, he said,</text>
     </ReferenceBlocks>
     <verse num="6" />
-    <text>увидев же Иисуса издалека, прибежал и поклонился Ему,</text>
+    <text>увидев же Иисуса издалека, прибежал и поклонился Ему, </text>
     <verse num="7" />
     <text>и, вскричав громким голосом, сказал:</text>
   </block>
@@ -1742,12 +1742,12 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-MRK">
       <verse num="22" />
-      <text>Behold, one of the rulers of the synagogue, Jairus by name, came; and seeing him, he fell at his feet,</text>
+      <text>Behold, one of the rulers of the synagogue, Jairus by name, came; and seeing him, he fell at his feet, </text>
       <verse num="23" />
       <text>and begged him much, saying,</text>
     </ReferenceBlocks>
     <verse num="22" />
-    <text>И вот, приходит один из начальников синагоги, по имени Иаир, и, увидев Его, падает к ногам Его</text>
+    <text>И вот, приходит один из начальников синагоги, по имени Иаир, и, увидев Его, падает к ногам Его </text>
     <verse num="23" />
     <text>и усильно просит Его, говоря:</text>
   </block>
@@ -2005,9 +2005,21 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed">
-      <text>«Where did this man get these things?» and, «What is the wisdom that is given to this man, that such mighty works come about by his hands?</text>
+      <text>«Where did this man get these things?» </text>
     </ReferenceBlocks>
-    <text>«откуда у Него это? что за премудрость дана Ему, и как такие чудеса совершаются руками Его?»</text>
+    <text>«откуда у Него это? </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="Needs Review" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="Needs Review">
+      <text>and, </text>
+    </ReferenceBlocks>
+    <text>[и] </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed">
+      <text>«What is the wisdom that is given to this man, that such mighty works come about by his hands?</text>
+    </ReferenceBlocks>
+    <text>что за премудрость дана Ему, и как такие чудеса совершаются руками Его?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="men in Nazareth synagogue" delivery="amazed" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="men in Nazareth synagogue" delivery="amazed">
@@ -5003,7 +5015,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="chief priests/teachers of religious law/elders" delivery="to themselves" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="chief priests/teachers of religious law/elders" delivery="to themselves">
       <verse num="32" />
-      <text>If we should say, ‹From men’»</text>
+      <text>If we should say, ‹From men›»</text>
     </ReferenceBlocks>
     <verse num="32" />
     <text>а сказать: от человеков»</text>
@@ -6380,12 +6392,12 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="51" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="51" characterId="narrator-MRK">
       <verse num="51" />
-      <text>A certain young man followed him, having a linen cloth thrown around himself, over his naked body. The young men grabbed him,</text>
+      <text>A certain young man followed him, having a linen cloth thrown around himself, over his naked body. The young men grabbed him, </text>
       <verse num="52" />
       <text>but he left the linen cloth, and fled from them naked.</text>
     </ReferenceBlocks>
     <verse num="51" />
-    <text>Один юноша, завернувшись по нагому телу в покрывало, следовал за Ним; и воины схватили его.</text>
+    <text>Один юноша, завернувшись по нагому телу в покрывало, следовал за Ним; и воины схватили его. </text>
     <verse num="52" />
     <text>Но он, оставив покрывало, нагой убежал от них.</text>
   </block>

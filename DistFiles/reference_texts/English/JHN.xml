@@ -760,7 +760,7 @@
     <text>The woman said to him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="woman, Samaritan">
-    <text>«I know that Messiah comes,» (he who is called Christ). «When he has come, he will declare to us all things.»</text>
+    <text>«I know that Messiah comes, (he who is called Christ). When he has come, he will declare to us all things.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="narrator-JHN">
     <verse num="26" />
@@ -839,7 +839,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="41" characterId="narrator-JHN">
     <verse num="41" />
-    <text>Many more believed because of his word.</text>
+    <text>Many more believed because of his word. </text>
     <verse num="42" />
     <text>They said to the woman,</text>
   </block>
@@ -1041,7 +1041,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="Jesus">
     <verse num="24" />
-    <text>«Most certainly I tell you, he who hears my word, and believes him who sent me, has eternal life, and doesn’t come into judgment, but has passed out of death into life.</text>
+    <text>Most certainly I tell you, he who hears my word, and believes him who sent me, has eternal life, and doesn’t come into judgment, but has passed out of death into life.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="Jesus">
     <verse num="25" />
@@ -1067,7 +1067,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="31" characterId="Jesus">
     <verse num="31" />
-    <text>«If I testify about myself, my witness is not valid.</text>
+    <text>If I testify about myself, my witness is not valid.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="32" characterId="Jesus">
     <verse num="32" />
@@ -1099,7 +1099,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="39" characterId="Jesus">
     <verse num="39" />
-    <text>«You search the Scriptures, because you think that in them you have eternal life; and these are they which testify about me.</text>
+    <text>You search the Scriptures, because you think that in them you have eternal life; and these are they which testify about me.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="40" characterId="Jesus">
     <verse num="40" />
@@ -1121,7 +1121,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="45" characterId="Jesus">
     <verse num="45" />
-    <text>«Don’t think that I will accuse you to the Father. There is one who accuses you, even Moses, on whom you have set your hope.</text>
+    <text>Don’t think that I will accuse you to the Father. There is one who accuses you, even Moses, on whom you have set your hope.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="46" characterId="Jesus">
     <verse num="46" />
@@ -3021,7 +3021,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="27" characterId="Jesus">
     <verse num="27" />
-    <text>«Now my soul is troubled. What shall I say? ‹Father, save me from this time?› But for this cause I came to this time. </text>
+    <text>Now my soul is troubled. What shall I say? ‹Father, save me from this time?› But for this cause I came to this time. </text>
     <verse num="28" />
     <text>Father, glorify your name!»</text>
   </block>
@@ -3535,7 +3535,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="8" characterId="Jesus">
     <verse num="8" />
-    <text>«In this is my Father glorified, that you bear much fruit; and so you will be my disciples.</text>
+    <text>In this is my Father glorified, that you bear much fruit; and so you will be my disciples.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="9" characterId="Jesus">
     <verse num="9" />
@@ -3551,7 +3551,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="12" characterId="Jesus">
     <verse num="12" />
-    <text>«This is my commandment, that you love one another, even as I have loved you.</text>
+    <text>This is my commandment, that you love one another, even as I have loved you.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="13" characterId="Jesus">
     <verse num="13" />
@@ -3571,7 +3571,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="17" characterId="Jesus">
     <verse num="17" />
-    <text>«I command these things to you, that you may love one another.</text>
+    <text>I command these things to you, that you may love one another.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="18" characterId="Jesus">
     <verse num="18" />
@@ -3607,7 +3607,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="26" characterId="Jesus">
     <verse num="26" />
-    <text>«When the Counselor has come, whom I will send to you from the Father, the Spirit of truth, who proceeds from the Father, he will testify about me.</text>
+    <text>When the Counselor has come, whom I will send to you from the Father, the Spirit of truth, who proceeds from the Father, he will testify about me.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="Jesus">
     <verse num="27" />
@@ -3662,7 +3662,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="12" characterId="Jesus">
     <verse num="12" />
-    <text>«I have yet many things to tell you, but you can’t bear them now.</text>
+    <text>I have yet many things to tell you, but you can’t bear them now.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="13" characterId="Jesus">
     <verse num="13" />
@@ -3715,7 +3715,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="23" characterId="Jesus">
     <verse num="23" />
-    <text>«In that day you will ask me no questions. Most certainly I tell you, whatever you may ask of the Father in my name, he will give it to you.</text>
+    <text>In that day you will ask me no questions. Most certainly I tell you, whatever you may ask of the Father in my name, he will give it to you.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="24" characterId="Jesus">
     <verse num="24" />
