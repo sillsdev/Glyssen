@@ -208,11 +208,10 @@ namespace Glyssen.Shared
 	public class Pause : ScriptAnnotation
 	{
 		public const string kPauseSecondsFormat = "||| + {0} SECs |||";
-		public const string kPauseOneMinute = "||| + 1 MINUTE |||";
 
-		[XmlAttribute("timeUnits")]
-		[DefaultValue(TimeUnits.Seconds)]
-		public TimeUnits TimeUnits { get; set; }
+		//[XmlAttribute("timeUnits")]
+		//[DefaultValue(TimeUnits.Seconds)]
+		public TimeUnits TimeUnits => TimeUnits.Seconds;
 
 		[XmlAttribute("time")]
 		public double Time { get; set; }
@@ -221,8 +220,7 @@ namespace Glyssen.Shared
 		{
 			if (TimeUnits == TimeUnits.Seconds)
 				return string.Format(kPauseSecondsFormat, Time);
-			if (Time == 1.0d)
-				return kPauseOneMinute;
+			// "Minute" was only used for a long pause after Revelation. No longer needed. (See comment on PG-1399)
 			Debug.Fail("No code for displaying this annotation: " + ToString());
 			return string.Empty;
 		}
