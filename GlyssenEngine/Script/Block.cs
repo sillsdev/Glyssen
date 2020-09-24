@@ -808,12 +808,7 @@ namespace GlyssenEngine.Script
 
 		public bool IsNarratorOrPotentialNarrator(string bookId) =>
 			CharacterIs(bookId, CharacterVerseData.StandardCharacter.Narrator) ||
-			CharacterId == CharacterVerseData.kNeedsReview ||
-			// REVIEW: Is this is right? This came from AssignCharacterDlg.GetColumnsIntoWhichHeSaidCanBeInserted.
-			// The other (similar) version of it was in BlockMatchup.InsertHeSaidText. That version also allowed
-			// the ambiguous character. Either way, those characters don't seem like likely candidates for narrator
-			// since Glyssen thought the block was a speaking character.
-			CharacterId == CharacterVerseData.kUnexpectedCharacter;
+			CharacterId == CharacterVerseData.kNeedsReview;
 
 		public bool IsQuoteStart => IsQuote && !IsContinuationOfPreviousBlockQuote;
 
