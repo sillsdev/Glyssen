@@ -1569,4 +1569,4 @@ REV	21	18	0	<Sound startVerse="18" />
 REV	21	27	0	<Pause time="2" />
 REV	22	13	0	<Sound startVerse="13" />
 REV	22	17	0	<Pause time="2" />
-REV	22	21	0	<Pause timeUnits="Minutes" time="1" />
+REV	22	21	0	<Pause time="5" />
