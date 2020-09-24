@@ -816,7 +816,9 @@ namespace GlyssenEngine
 				vernBlockList.Count > iVernBlock + 1 &&
 				(vernBlockList[iVernBlock + 1].ReferenceBlocks.OnlyOrDefault()?.BlockElements.FirstOrDefault() as Verse)?.StartVerse == v.StartVerse)
 			{
-				vernBlockList[iVernBlock + 1].ReferenceBlocks[0].BlockElements.RemoveAt(0);
+				var clone = vernBlockList[iVernBlock + 1].ReferenceBlocks.Single().Clone(Block.ReferenceBlockCloningBehavior.CloneListAndAllReferenceBlocks);
+				clone.BlockElements.RemoveAt(0);
+				vernBlockList[iVernBlock + 1].SetMatchedReferenceBlock(clone);
 				if (HasSecondaryReferenceText)
 				{
 					// At least to date, all reference texts use the same (English) versification and more-or-less have verse numbers
@@ -824,7 +826,10 @@ namespace GlyssenEngine
 					// reference text where the numbers do not exactly align), but we can safely assume that if there is a verse
 					// number in the secondary reference text, it is the corresponding one and can be removed.
 					if (vernBlockList[iVernBlock + 1].ReferenceBlocks[0].ReferenceBlocks[0].BlockElements.FirstOrDefault() is Verse)
+					{
+						// No need to create a clone here. The above cloning should have taken care of that already.
 						vernBlockList[iVernBlock + 1].ReferenceBlocks[0].ReferenceBlocks[0].BlockElements.RemoveAt(0);
+					}
 				}
 			}
 			return true;
