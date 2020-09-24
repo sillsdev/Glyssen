@@ -2200,14 +2200,15 @@ namespace Glyssen.RefTextDevUtilities
 			match = s_pauseRegex.Match(text);
 			if (match.Success)
 			{
-				annotation = new Pause { TimeUnits = TimeUnits.Seconds, Time = double.Parse(match.Groups[1].Value) };
+				annotation = new Pause { Time = double.Parse(match.Groups[1].Value) };
 				return true;
 			}
 			match = s_pauseMinuteRegex.Match(text);
 			if (match.Success)
 			{
-				annotation = new Pause { TimeUnits = TimeUnits.Minutes, Time = double.Parse(match.Groups[1].Value) };
-				return true;
+				throw new ArgumentException("Pauses specified in minutes are no longer supported", "text");
+				//annotation = new Pause { TimeUnits = TimeUnits.Minutes, Time = double.Parse(match.Groups[1].Value) };
+				//return true;
 			}
 
 			match = s_musicEndRegex.Match(text);
