@@ -659,11 +659,12 @@ namespace GlyssenEngineTests.Export
 				rowForVerse12.VernacularText);
 
 			//Pause for final verse in book (pauses come after verse text)
+			var annotationForEndOfBook = " " + string.Format(Pause.kPauseSecondsFormat, "5");
 			var rowsForJude25 = data.Where(d => d.BookId == "JUD" && d.ChapterNumber == 1 && d.VerseNumber == 25).ToList();
 			var rowForJude25 = rowsForJude25.Single();
-			var annotationInfo = " " + string.Format(Pause.kPauseSecondsFormat, "5");
-			Assert.IsTrue(rowForJude25.AdditionalReferenceText.EndsWith(annotationInfo));
-			Assert.IsTrue(rowForJude25.EnglishReferenceText.EndsWith(annotationInfo));
+			
+			Assert.IsTrue(rowForJude25.AdditionalReferenceText.EndsWith(annotationForEndOfBook));
+			Assert.IsTrue(rowForJude25.EnglishReferenceText.EndsWith(annotationForEndOfBook));
 			Assert.AreEqual("{25}\u00A0Deyo, dit, loc ki twer ducu obed bot Lubaŋa acel keken, ma Lalarwa, pi Yecu Kricito Rwotwa, " +
 				"cakke ma peya giketo lobo, nio koni, ki kare ma pe gik. Amen.",
 				rowForJude25.VernacularText);
@@ -673,9 +674,9 @@ namespace GlyssenEngineTests.Export
 			Assert.AreEqual(2, rowsForRev1V3.Count);
 			var rowForRev1V3 = rowsForRev1V3[0];
 			var sectionHeadRowForRev1V3 = rowsForRev1V3[1];
-			annotationInfo = " " + string.Format(Pause.kPauseSecondsFormat, "2");
-			Assert.IsTrue(rowForRev1V3.AdditionalReferenceText.EndsWith(annotationInfo));
-			Assert.IsTrue(rowForRev1V3.EnglishReferenceText.EndsWith(annotationInfo));
+			var annotationForTwoSecondPause = " " + string.Format(Pause.kPauseSecondsFormat, "2");
+			Assert.IsTrue(rowForRev1V3.AdditionalReferenceText.EndsWith(annotationForTwoSecondPause));
+			Assert.IsTrue(rowForRev1V3.EnglishReferenceText.EndsWith(annotationForTwoSecondPause));
 			Assert.AreEqual("{3}\u00A0Ŋat ma kwano lok ma gitito i buk man i nyim lwak tye ki gum, jo ma winyo bene tye ki gum, ki jo ma lubo " +
 				"gin ma gicoyo iye bene tye ki gum, pien kare doŋ cok.",
 				rowForRev1V3.VernacularText);
@@ -684,19 +685,17 @@ namespace GlyssenEngineTests.Export
 
 			//Pause for final verse in chapter (pauses come after verse text)
 			var rowForRev1V20 = data.Single(d => d.BookId == "REV" && d.ChapterNumber == 1 && d.VerseNumber == 20);
-			annotationInfo = " " + string.Format(Pause.kPauseSecondsFormat, "2");
-			Assert.IsTrue(rowForRev1V20.AdditionalReferenceText.EndsWith(annotationInfo));
-			Assert.IsTrue(rowForRev1V20.EnglishReferenceText.EndsWith(annotationInfo));
+			Assert.IsTrue(rowForRev1V20.AdditionalReferenceText.EndsWith(annotationForTwoSecondPause));
+			Assert.IsTrue(rowForRev1V20.EnglishReferenceText.EndsWith(annotationForTwoSecondPause));
 			Assert.AreEqual("{20}\u00A0Koŋ agonnyi tyen lok me muŋ me lakalatwe abiro ma ineno i ciŋa tuŋ lacuc, ki okar-mac abiro me jabu. " +
 				"Lakalatwe abiro gin aye lumalaika pa lwak muye Kricito ma gitye i kabedo abiro mapatpat, doŋ okar-mac abiro-ni gin " +
 				"aye lwak muye Kricito ma gitye i kabedo abiro mapatpat.”",
 				rowForRev1V20.VernacularText);
 
-			// PG-1399: 1-minute pause at end of book
+			// PG-1399: 5-second pause at end of book
 			var rowForRev22V21 = data.Single(d => d.BookId == "REV" && d.ChapterNumber == 22 && d.VerseNumber >= 21);
-			annotationInfo = " " + Pause.kPauseOneMinute;
-			Assert.IsTrue(rowForRev22V21.AdditionalReferenceText.EndsWith(annotationInfo));
-			Assert.IsTrue(rowForRev22V21.EnglishReferenceText.EndsWith(annotationInfo));
+			Assert.IsTrue(rowForRev22V21.AdditionalReferenceText.EndsWith(annotationForEndOfBook));
+			Assert.IsTrue(rowForRev22V21.EnglishReferenceText.EndsWith(annotationForEndOfBook));
 			Assert.AreEqual("{21}\u00A0Kica pa Rwot Yecu obed ki jo pa Lubaŋa ducu. Amen.", rowForRev22V21.VernacularText);
 		}
 
