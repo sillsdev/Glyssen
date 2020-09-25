@@ -317,9 +317,9 @@ namespace GlyssenEngine.ViewModels
 						var indices = new BookBlockIndices(m_temporarilyIncludedBookBlockIndices.BookIndex, m_temporarilyIncludedBookBlockIndices.BlockIndex);
 						for (var iBlock = 0; iBlock < m_temporarilyIncludedBookBlockIndices.MultiBlockCount; iBlock++)
 						{
-							indices.BlockIndex++;
 							if (SetAsCurrentLocationIfRelevant(indices))
 								return; // This can happen, for example if we're switching out of rainbow mode and going from a previously relevant matchup to a single relevant block within it.
+							indices.BlockIndex++;
 						}
 					}
 					if (stayOnCurrentBlock)

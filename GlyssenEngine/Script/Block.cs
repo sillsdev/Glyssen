@@ -373,6 +373,29 @@ namespace GlyssenEngine.Script
 
 		public int CountOfSoundsWhereUserSpecifiesLocation => BlockElements.OfType<Sound>().Count(s => s.UserSpecifiesLocation);
 
+		/// <summary>
+		/// If this block is a narrator block or is marked as "Needs Review" and it has a single
+		/// text element (i.e., covers no more than one verse/bridge) and the text matches on of
+		/// the known reporting clauses for the vernacular, the block will be matched to a newly
+		/// created reference text block (including in the secondary reference language) with
+		/// appropriately corresponding verse number(s) if present in this block, shifted as
+		/// needed by the versification mapping. If this block is marked as "Needs Review", an
+		/// additional side-effect will be that the block's CharacterID is changed to narrator,
+		/// since it is nonsensical to have a reporting clause spoken by any other character.
+		/// </summary>
+		/// <param name="reportingClauses">collection of known reporting clauses (aka, "he said"s)
+		/// for the vernacular</param>
+		/// <param name="referenceText">The primary reference text in use for the project to which
+		/// this block belongs</param>
+		/// <param name="bookNum">The 1-based number of the Scripture book to which this block
+		/// belongs</param>
+		/// <param name="vernacularVersification">The versification in use for the project to which
+		/// this block belongs</param>
+		/// <returns><c>true</c> if the block was found to be a reporting clause; <c>false</c>
+		/// otherwise</returns>
+		/// <remarks>This method should probably not be called on a block that is part of the
+		/// permanent project data (i.e., is not cloned) because it can have side-effects that
+		/// that the user might actually wish to review.</remarks>
 		public bool TryMatchToReportingClause(IReadOnlyCollection<string> reportingClauses, ReferenceText referenceText, int bookNum, ScrVers vernacularVersification)
 		{
 			if (MatchesReferenceText || reportingClauses == null ||
@@ -380,11 +403,21 @@ namespace GlyssenEngine.Script
 			{
 				return false;
 			}
+			if (!CharacterVerseData.IsCharacterOfType(CharacterId, CharacterVerseData.StandardCharacter.Narrator))
+			{
+				if (CharacterId != CharacterVerseData.kNeedsReview)
+					return false;
+				CharacterId = CharacterVerseData.GetStandardCharacterId(BCVRef.NumberToBookCode(bookNum), CharacterVerseData.StandardCharacter.Narrator);
+			}
 
 			SetMatchedReferenceBlock(referenceText.HeSaidText);
 			var verse = BlockElements.First() as Verse;
 			string verseNumberToInsert = verse?.Number;
-			// ENHANCE: convert the vernacular verse number into the versification of the reference text(s).
+			
+			// ENHANCE: Even if no verse number is present, the reference text blocks should have
+			// their InitialStartVerseNumber and InitialEndVerseNumber fields set according to the
+			// versification. (At this time, I don't think those are ever used, so it's not a big
+			// deal.)
 			if (verse != null)
 			{
 				if (vernacularVersification != referenceText.Versification)
@@ -772,6 +805,10 @@ namespace GlyssenEngine.Script
 		{
 			get { return !CharacterVerseData.IsCharacterStandard(CharacterId) || UserConfirmed; }
 		}
+
+		public bool IsNarratorOrPotentialNarrator(string bookId) =>
+			CharacterIs(bookId, CharacterVerseData.StandardCharacter.Narrator) ||
+			CharacterId == CharacterVerseData.kNeedsReview;
 
 		public bool IsQuoteStart => IsQuote && !IsContinuationOfPreviousBlockQuote;
 

@@ -12,7 +12,7 @@ using SIL.Scripture;
 namespace GlyssenEngineTests.Script
 {
 	[TestFixture]
-	class BlockMatchupTests
+	public class BlockMatchupTests
 	{
 		[TearDown]
 		public void Teardown()
@@ -1481,7 +1481,7 @@ namespace GlyssenEngineTests.Script
 		{
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "Este es versiculo dos y tres, ", true, 1, "p", 3));
-			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kUnexpectedCharacter, "dijo Jesus. ");
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kNeedsReview, "dijo Jesus. ");
 			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 			var matchup = new BlockMatchup(vernBook, 0, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
 			matchup.MatchAllBlocks();
@@ -1630,12 +1630,11 @@ namespace GlyssenEngineTests.Script
 			Assert.IsFalse(matchup.CorrelatedBlocks[2].MatchesReferenceText);
 		}
 
-		[TestCase(CharacterVerseData.kUnexpectedCharacter, null)]
-		[TestCase(CharacterVerseData.kAmbiguousCharacter, null)]
-		[TestCase(CharacterVerseData.kUnexpectedCharacter, "Andrew")]
-		[TestCase(CharacterVerseData.kAmbiguousCharacter, "Andrew")]
-		public void InsertHeSaidText_EmptyRowsAreStartOfMultiBlockQuote_HeSaidInsertedIntoEmptyRefTextsAndBlockChainBroken(string origCharacter, string refTextCharacter)
+		[TestCase(null)]
+		[TestCase("Andrew")]
+		public void InsertHeSaidText_EmptyRowsAreStartOfMultiBlockQuote_HeSaidInsertedIntoEmptyRefTextsAndBlockChainBroken(string refTextCharacter)
 		{
+			string origCharacter = CharacterVerseData.kNeedsReview;
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "After these things, Jesus taught them, saying: ", true));
 			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“Tio estas verso du,” "));
@@ -1718,18 +1717,17 @@ namespace GlyssenEngineTests.Script
 			Assert.AreEqual(MultiBlockQuote.None, matchup.CorrelatedBlocks.Last().MultiBlockQuote);
 		}
 
-		[TestCase(CharacterVerseData.kUnexpectedCharacter)]
-		[TestCase(CharacterVerseData.kAmbiguousCharacter)]
-		public void InsertHeSaidText_EmptyRowsAreStartOfMultiBlockQuote_ContBlocksNotAlignedToRefText_HeSaidInsertedIntoEmptyRefTextsAndContBlocksSetToNarrator(string origCharacter)
+		[Test]
+		public void InsertHeSaidText_EmptyRowsAreStartOfMultiBlockQuote_ContBlocksNotAlignedToRefText_HeSaidInsertedIntoEmptyRefTextsAndContBlocksSetToNarrator()
 		{
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Después de estas cosas, Jesús les enseño, diciendo: ", true));
 			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“Tio estas verso du,” "));
-			var vernJesusSaidBlock = ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, origCharacter, "diris Jesuo. Etcetera. ");
+			var vernJesusSaidBlock = ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kNeedsReview, "diris Jesuo. Etcetera. ");
 			vernJesusSaidBlock.MultiBlockQuote = MultiBlockQuote.Start;
-			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(origCharacter, 3, "This is actually spoken by the narrator but was originally parsed as quoted speech. "));
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kNeedsReview, 3, "This is actually spoken by the narrator but was originally parsed as quoted speech. "));
 			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
-			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(origCharacter, 4, "And this is the rest of the narrator's mumblings."));
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kNeedsReview, 4, "And this is the rest of the narrator's mumblings."));
 			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
 			var narrator = ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks,
 				"Luego sucedió la próxima cosa.").CharacterId;
