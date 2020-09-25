@@ -1788,6 +1788,60 @@ namespace GlyssenEngineTests.Script
 			Assert.Null(block.GetNextInterruption(interruptionFinderForQuoteSystemWithLongDashDialogueQuotes));
 		}
 
+		[TestCase(CharacterVerseData.kAmbiguousCharacter)]
+		[TestCase(CharacterVerseData.kUnexpectedCharacter)]
+		public void TryMatchToReportingClause_BlockCharacterIsUnclear_ReturnsFalse(string character)
+		{
+			var block = new Block("p", 1, 2)
+			{
+				CharacterId = character,
+				BookCode = "MAT",
+				BlockElements =
+				{
+					new Verse("2"),
+					new ScriptText("el dijo"),
+				}
+			};
+			Assert.IsFalse(block.TryMatchToReportingClause(new []{"el dijo"}, ReferenceText.GetStandardReferenceText(ReferenceTextType.English),
+				40, ScrVers.English));
+		}
+
+		[Test]
+		public void TryMatchToReportingClause_BlockCharacterIsNarrator_ReturnsTrue()
+		{
+			var block = new Block("p", 1, 2)
+			{
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", StandardCharacter.Narrator),
+				BookCode = "MAT",
+				BlockElements =
+				{
+					new Verse("2"),
+					new ScriptText("el dijo"),
+				}
+			};
+			Assert.IsTrue(block.TryMatchToReportingClause(new []{"el dijo"}, ReferenceText.GetStandardReferenceText(ReferenceTextType.English),
+				40, ScrVers.English));
+		}
+
+		[Test]
+		public void TryMatchToReportingClause_BlockCharacterIsNeedsReview_ReturnsTrue()
+		{
+			var block = new Block("p", 1, 2)
+			{
+				CharacterId = CharacterVerseData.kNeedsReview,
+				BookCode = "MAT",
+				BlockElements =
+				{
+					new Verse("2"),
+					new ScriptText("el dijo"),
+				}
+			};
+			Assert.IsTrue(block.TryMatchToReportingClause(new []{"el dijo"}, ReferenceText.GetStandardReferenceText(ReferenceTextType.English),
+				40, ScrVers.English));
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", StandardCharacter.Narrator),
+				block.CharacterId);
+		}
+
 		private Block GetBlockWithText(string text)
 		{
 			return new Block("p", 1, 1)

@@ -4382,16 +4382,23 @@ namespace GlyssenEngineTests
 		}
 		#endregion
 
-		#region PG-1395 (modified for PG-1396)
-		[Test]
-		public void GetBlocksForVerseMatchedToReferenceText_ReportingClausesComeAfterSpeechhLinesInVerseWithMultipleSpeakers_AllBlocksMatchedWithReportingClausesMatchedToModifiedReportingClauses()
+		#region PG-1395 (modified for PG-1396 and PG-1403)
+		[TestCase(false)]
+		[TestCase(true)]
+		public void GetBlocksForVerseMatchedToReferenceText_ReportingClausesComeAfterSpeechLinesInVerseWithMultipleSpeakers_AllBlocksMatchedWithReportingClausesMatchedToModifiedReportingClauses(
+			bool blockIsNeedsReview)
 		{
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(CreateBlockForVerse("Jesus", 31, "Кьве хцикай бубадин тӀалабун ни кьилиз акъудна?» ", false, 21));
 			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "«Сад лагьайда», ");
-			AddNarratorBlockForVerseInProgress(vernacularBlocks, "– жаваб гана абуру. ");
+			var heSaidBlock = AddNarratorBlockForVerseInProgress(vernacularBlocks, "– жаваб гана абуру. ");
+			var narrator = heSaidBlock.CharacterId;
+			if (blockIsNeedsReview)
+				heSaidBlock.CharacterId = CharacterVerseData.kNeedsReview;
 			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "«За квез рикӀивай лугьузва: харж кӀватӀдайбурни ява папар Аллагьдин Пачагьлугъдиз квелай вилик акъатда», ");
-			AddNarratorBlockForVerseInProgress(vernacularBlocks, "– лагьана Исади. – ");
+			heSaidBlock = AddNarratorBlockForVerseInProgress(vernacularBlocks, "– лагьана Исади. – ");
+			if (blockIsNeedsReview)
+				heSaidBlock.CharacterId = CharacterVerseData.kNeedsReview;
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
 			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
@@ -4416,8 +4423,10 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(refTextBlocks[0].GetText(true), textOfMatchedRefTextBlocks[0]);
 			Assert.AreEqual(refTextBlocks[2].GetText(true), textOfMatchedRefTextBlocks[1]);
 			Assert.AreEqual(refTextBlocks[1].GetText(true).ToLower().Replace(",", "."), textOfMatchedRefTextBlocks[2].ToLower());
+			Assert.AreEqual(narrator, result[2].CharacterId);
 			Assert.AreEqual(refTextBlocks[4].GetText(true), textOfMatchedRefTextBlocks[3]);
 			Assert.AreEqual(refTextBlocks[3].GetText(true).ToLower().Replace(",", "."), textOfMatchedRefTextBlocks[4].ToLower());
+			Assert.AreEqual(narrator, result[4].CharacterId);
 		}
 		#endregion
 
