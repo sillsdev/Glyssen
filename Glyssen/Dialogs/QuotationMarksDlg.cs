@@ -886,6 +886,17 @@ namespace Glyssen.Dialogs
 
 		private void m_linkOverride_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
+			if (m_project.GetParatextScrTextWrapper() == null)
+			{
+				var msg = String.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.ParatextProjectUnavailable",
+						"Overriding the quotation mark settings for this project would require access to the original {0} project {1}, but it is not available on this computer.",
+						"Param 0: \"Paratext\" (product name); " +
+						"Param 1: Paratext project short name (unique project identifier)"),
+					ParatextScrTextWrapper.kParatextProgramName,
+					m_project.ParatextProjectName);
+				MessageBox.Show(msg, Text, MessageBoxButtons.OK);
+				m_linkOverride.Enabled = false;
+			}
 			ReadOnly = false;
 		}
 	}
