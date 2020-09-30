@@ -2359,11 +2359,11 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-ACT">
       <verse num="9" />
-      <text>But there was a certain man, Simon by name, who used to practice sorcery in the city, and amazed the people of Samaria, making himself out to be some great one.</text>
+      <text>But there was a certain man, Simon by name, who used to practice sorcery in the city, and amazed the people of Samaria, making himself out to be some great one. </text>
       <sound soundType="Sfx" effectName="Crowd cheering" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="9" />
-    <text>Находился же в городе некоторый муж, именем Симон, который перед тем волхвовал и изумлял народ Самарийский, выдавая себя за кого-то великого.</text>
+    <text>Находился же в городе некоторый муж, именем Симон, который перед тем волхвовал и изумлял народ Самарийский, выдавая себя за кого-то великого. </text>
     <sound soundType="Sfx" effectName="Crowd cheering" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-ACT" matchesReferenceText="true">
@@ -7737,7 +7737,7 @@
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="2" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="2" characterId="narrator-ACT">
       <verse num="2" />
-      <text>The high priest, Ananias, commanded those who stood by him to </text>
+      <text>The high priest, Ananias, commanded those who stood by him to  </text>
       <sound soundType="Sfx" effectName="Hit" userSpecifiesLocation="true" />
       <text>strike him on the mouth. </text>
       <verse num="3" />

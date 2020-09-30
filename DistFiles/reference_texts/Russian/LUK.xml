@@ -4256,11 +4256,11 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-LUK">
       <verse num="10" />
-      <text>The apostles, when they had returned, told him what things they had done. He took them, and withdrew apart to a deserted place of a city called Bethsaida.</text>
+      <text>The apostles, when they had returned, told him what things they had done. He took them, and withdrew apart to a deserted place of a city called Bethsaida. </text>
       <sound soundType="Sfx" effectName="Crowd" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="10" />
-    <text>Апостолы, возвратившись, рассказали Ему, что они сделали; и Он, взяв их с Собою, удалился особо в пустое место, близ города, называемого Вифсаидою.</text>
+    <text>Апостолы, возвратившись, рассказали Ему, что они сделали; и Он, взяв их с Собою, удалился особо в пустое место, близ города, называемого Вифсаидою. </text>
     <sound soundType="Sfx" effectName="Crowd" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="narrator-LUK" matchesReferenceText="true">

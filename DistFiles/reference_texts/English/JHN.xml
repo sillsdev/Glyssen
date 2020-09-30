@@ -1417,7 +1417,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="58" characterId="Jesus">
     <verse num="58" />
-    <text>This is the bread which came down out of heaven--not as our fathers ate the manna, and died. He who eats this bread will live forever.»</text>
+    <text>This is the bread which came down out of heaven—not as our fathers ate the manna, and died. He who eats this bread will live forever.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="59" characterId="narrator-JHN">
     <verse num="59" />
@@ -2897,7 +2897,7 @@
     <text>Then they sought for Jesus and spoke one with another, as they stood in the temple,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="56" characterId="Jews, the">
-    <text>«What do you think--that he isn’t coming to the feast at all?»</text>
+    <text>«What do you think—that he isn’t coming to the feast at all?»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="57" characterId="narrator-JHN">
     <verse num="57" />
@@ -4037,7 +4037,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="27" characterId="narrator-JHN">
     <verse num="27" />
-    <text>Peter therefore denied it again, and immediately the rooster crowed.</text>
+    <text>Peter therefore denied it again, and immediately the rooster crowed. </text>
     <sound soundType="Sfx" effectName="Rooster crowing" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="28" characterId="narrator-JHN">
@@ -4659,7 +4659,7 @@
     <text>«It’s the Lord!»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="7" characterId="narrator-JHN">
-    <text>So when Simon Peter heard that it was the Lord, he wrapped his coat around him (for he was naked), and threw himself into the sea.</text>
+    <text>So when Simon Peter heard that it was the Lord, he wrapped his coat around him (for he was naked), and threw himself into the sea. </text>
     <sound soundType="Sfx" effectName="Splash and swim" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="8" characterId="narrator-JHN">

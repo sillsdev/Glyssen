@@ -8073,11 +8073,11 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="27" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="27" characterId="narrator-JHN">
       <verse num="27" />
-      <text>Peter therefore denied it again, and immediately the rooster crowed.</text>
+      <text>Peter therefore denied it again, and immediately the rooster crowed. </text>
       <sound soundType="Sfx" effectName="Rooster crowing" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="27" />
-    <text>Петр опять отрекся; и тотчас запел петух.</text>
+    <text>Петр опять отрекся; и тотчас запел петух. </text>
     <sound soundType="Sfx" effectName="Rooster crowing" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="28" characterId="narrator-JHN" matchesReferenceText="true">
@@ -9318,10 +9318,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="7" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="7" characterId="narrator-JHN">
-      <text>So when Simon Peter heard that it was the Lord, he wrapped his coat around him (for he was naked), and threw himself into the sea.</text>
+      <text>So when Simon Peter heard that it was the Lord, he wrapped his coat around him (for he was naked), and threw himself into the sea. </text>
       <sound soundType="Sfx" effectName="Splash and swim" userSpecifiesLocation="true" />
     </ReferenceBlocks>
-    <text>Симон же Петр, услышав, что это Господь, опоясался одеждою, —ибо он был наг, —и бросился в море.</text>
+    <text>Симон же Петр, услышав, что это Господь, опоясался одеждою, —ибо он был наг, —и бросился в море. </text>
     <sound soundType="Sfx" effectName="Splash and swim" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="8" characterId="narrator-JHN" matchesReferenceText="true">

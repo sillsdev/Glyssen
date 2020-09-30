@@ -466,7 +466,7 @@
     <text>«I have made you a father of many nations.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-ROM">
-    <text>Abraham is our father in the sight of God, in whom he believed--The God who gives life to the dead, and calls the things that are not, as though they were.</text>
+    <text>Abraham is our father in the sight of God, in whom he believed—The God who gives life to the dead, and calls the things that are not, as though they were.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-ROM">
     <verse num="18" />
@@ -508,7 +508,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-ROM">
     <verse num="1" />
-    <text>Being therefore justified by faith, we have peace with God through our Lord Jesus Christ;</text>
+    <text>Being therefore justified by faith, we have peace with God through our Lord Jesus Christ; </text>
     <sound startVerse="-999" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-ROM">
@@ -1070,11 +1070,11 @@
     <text>As he says also in Hosea,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="scripture">
-    <text>«I will call them ‹my people,› which were not my people; and her ‹beloved,› who was not beloved.»</text>
+    <text>«I will call them ‹my people,› which were not my people; and her ‹beloved,› who was not beloved.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="scripture">
     <verse num="26" />
-    <text>«It will be that in the place where it was said to them, ‹You are not my people,› There they will be called ‹children of the living God.› »</text>
+    <text>It will be that in the place where it was said to them, ‹You are not my people,› There they will be called ‹children of the living God.› »</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="narrator-ROM">
     <verse num="27" />
@@ -1597,7 +1597,7 @@
     <text>For it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="11" characterId="scripture">
-    <text>« ‹As I live,› says the Lord, ‹to me every knee will bow. Every tongue will confess to God.»</text>
+    <text>«As I live, says the Lord, to me every knee will bow. Every tongue will confess to God.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="12" characterId="narrator-ROM">
     <verse num="12" />

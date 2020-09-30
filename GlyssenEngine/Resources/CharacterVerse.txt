@@ -19903,6 +19903,7 @@ GAL	1	9	narrator-GAL			Quotation
 GAL	1	23	report concerning Paul			Quotation		
 GAL	2	10	James/Peter (Simon)/John		James/Peter (Cephas)/John	Quotation		
 GAL	2	14	narrator-GAL			Quotation		
+# Some translations consider that Paul's self-quote ends with v.14. Others have him speak through v. 21
 GAL	2	15	narrator-GAL			Quotation		
 GAL	2	16	narrator-GAL			Quotation		
 GAL	2	17	narrator-GAL			Quotation		
@@ -20309,7 +20310,7 @@ REV	19	4	twenty-four elders/living creature, first/living creature, second/livin
 REV	19	5	voice from throne			Normal		
 REV	19	6	voice of great crowd, like roar of many waters, loud thunderclaps	shouting		Normal		
 REV	19	7	voice of great crowd, like roar of many waters, loud thunderclaps	shouting		Normal		
-REV	19	8	voice of great crowd, like roar of many waters, loud thunderclaps	shouting		Normal		
+REV	19	8	voice of great crowd, like roar of many waters, loud thunderclaps	shouting		Potential		
 REV	19	9	angel (one of the seven)			Normal		
 REV	19	10	angel (one of the seven)			Normal		
 REV	19	11	narrator-REV			Quotation		

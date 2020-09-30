@@ -2082,7 +2082,7 @@
     <text>He said to them,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="3" characterId="Jesus" delivery="instructing">
-    <text>«Take nothing for your journey--neither staffs, nor wallet, nor bread, nor money; neither have two coats apiece.</text>
+    <text>«Take nothing for your journey—neither staffs, nor wallet, nor bread, nor money; neither have two coats apiece.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="4" characterId="Jesus" delivery="instructing">
     <verse num="4" />
@@ -2128,7 +2128,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-LUK">
     <verse num="10" />
-    <text>The apostles, when they had returned, told him what things they had done. He took them, and withdrew apart to a deserted place of a city called Bethsaida.</text>
+    <text>The apostles, when they had returned, told him what things they had done. He took them, and withdrew apart to a deserted place of a city called Bethsaida. </text>
     <sound soundType="Sfx" effectName="Crowd" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="narrator-LUK">
@@ -3007,7 +3007,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="Jesus">
     <verse num="20" />
-    <text>But God said to him, ‹You foolish one, tonight your soul is required of you. The things which you have prepared--whose will they be?›</text>
+    <text>But God said to him, ‹You foolish one, tonight your soul is required of you. The things which you have prepared—whose will they be?›</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="Jesus">
     <verse num="21" />
@@ -3633,7 +3633,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="31" characterId="Jesus">
     <verse num="31" />
-    <text>«He said to him, ‹Son, you are always with me, and all that is mine is yours.</text>
+    <text>He said to him, ‹Son, you are always with me, and all that is mine is yours.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="Jesus">
     <verse num="32" />
@@ -4058,7 +4058,7 @@
     <text>Jesus asked him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="Jesus">
-    <text>«Why do you call me good? No one is good, except one--God.</text>
+    <text>«Why do you call me good? No one is good, except one—God.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="20" characterId="Jesus">
     <verse num="20" />
@@ -4533,7 +4533,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="19" characterId="narrator-LUK">
     <verse num="19" />
-    <text>The chief priests and the scribes sought to lay hands on him that very hour, but they feared the people--for they knew he had spoken this parable against them.</text>
+    <text>The chief priests and the scribes sought to lay hands on him that very hour, but they feared the people—for they knew he had spoken this parable against them.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="20" characterId="narrator-LUK">
     <verse num="20" />

@@ -1533,7 +1533,7 @@ REV	8	8	0	<Sound startVerse="8" />
 REV	8	12	0	<Sound startVerse="12" />
 REV	8	13	0	<Pause time="2" />
 REV	9	3	0	<Sound soundType="Sfx" startVerse="3" effectName="Locusts" />
-REV	9	9	0	<Sound soundType="Sfx" startVerse="9" effectName="Horses w/music" />
+REV	9	9	0	<Sound soundType="Sfx" startVerse="9" effectName="Horses w/Music" />
 REV	9	19	0	<Sound startVerse="19" />
 REV	9	21	0	<Pause time="2" />
 REV	10	11	0	<Pause time="2" />

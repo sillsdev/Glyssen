@@ -1031,7 +1031,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="35" characterId="Stephen">
     <verse num="35" />
-    <text>This Moses, whom they refused, saying, ‹Who made you a ruler and a judge?›--God has sent him as both a ruler and a deliverer by the hand of the angel who appeared to him in the bush.</text>
+    <text>This Moses, whom they refused, saying, ‹Who made you a ruler and a judge?›—God has sent him as both a ruler and a deliverer by the hand of the angel who appeared to him in the bush.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="36" characterId="Stephen">
     <verse num="36" />
@@ -1180,7 +1180,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-ACT">
     <verse num="9" />
-    <text>But there was a certain man, Simon by name, who used to practice sorcery in the city, and amazed the people of Samaria, making himself out to be some great one.</text>
+    <text>But there was a certain man, Simon by name, who used to practice sorcery in the city, and amazed the people of Samaria, making himself out to be some great one. </text>
     <sound soundType="Sfx" effectName="Crowd cheering" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-ACT">
@@ -1794,7 +1794,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="41" characterId="Peter (Simon)">
     <verse num="41" />
-    <text>He was not seen by all the people, but by witnesses whom God had already chosen -- by us, who ate and drank with him after he rose from the dead.</text>
+    <text>He was not seen by all the people, but by witnesses whom God had already chosen—by us, who ate and drank with him after he rose from the dead.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="42" characterId="Peter (Simon)">
     <verse num="42" />
@@ -4150,7 +4150,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="20" characterId="Paul">
     <verse num="20" />
-    <text>Or else let these men themselves say what injustice they found in me when I stood before the council --</text>
+    <text>Or else let these men themselves say what injustice they found in me when I stood before the council,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="21" characterId="Paul">
     <verse num="21" />

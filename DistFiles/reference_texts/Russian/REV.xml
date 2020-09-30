@@ -1923,11 +1923,11 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-REV">
       <verse num="4" />
-      <text>His tail drew one third of the stars of the sky, and threw them to the earth.</text>
+      <text>His tail drew one third of the stars of the sky, and threw them to the earth. </text>
       <sound userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="4" />
-    <text>Хвост его увлек с неба третью часть звезд и поверг их на землю.</text>
+    <text>Хвост его увлек с неба третью часть звезд и поверг их на землю. </text>
     <sound userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-REV" matchesReferenceText="true">
@@ -2910,7 +2910,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="2" characterId="angel, another, coming down from heaven" delivery="shouting" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="2" characterId="angel, another, coming down from heaven" delivery="shouting">
-      <text>«Fallen, fallen is Babylon the great! She has become a habitation of demons, a prison of every unclean spirit, and a prison of every unclean and hateful bird!</text>
+      <text>«Fallen, fallen is Babylon the great! She has become a habitation of demons, a prison of every unclean spirit, and a prison of every unclean and hateful bird! </text>
       <sound startVerse="-999" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <text>«пал, пал Вавилон, великая блудница, сделался жилищем бесов и пристанищем всякому нечистому духу, пристанищем всякой нечистой и отвратительной птице; </text>
@@ -3230,10 +3230,10 @@
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="7" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="7" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting">
       <verse num="7" />
-      <text>Let us rejoice and be exceedingly glad, and let us give the glory to him. For the marriage of the Lamb has come, and his wife has made herself ready.»</text>
+      <text>Let us rejoice and be exceedingly glad, and let us give the glory to him. For the marriage of the Lamb has come, and his wife has made herself ready.</text>
     </ReferenceBlocks>
     <verse num="7" />
-    <text>Возрадуемся и возвеселимся и воздадим Ему славу; ибо наступил брак Агнца, и жена Его приготовила себя.»</text>
+    <text>Возрадуемся и возвеселимся и воздадим Ему славу; ибо наступил брак Агнца, и жена Его приготовила себя.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting">
@@ -3492,11 +3492,11 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="13" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="13" characterId="narrator-REV">
       <verse num="13" />
-      <text>The sea gave up the dead who were in it. Death and Hades gave up the dead who were in them. They were judged, each one according to his works.</text>
+      <text>The sea gave up the dead who were in it. Death and Hades gave up the dead who were in them. They were judged, each one according to his works. </text>
       <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="13" />
-    <text>Тогда отдало море мертвых, бывших в нем, и смерть и ад отдали мертвых, которые были в них; и судим был каждый по делам своим.</text>
+    <text>Тогда отдало море мертвых, бывших в нем, и смерть и ад отдали мертвых, которые были в них; и судим был каждый по делам своим. </text>
     <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="14" characterId="narrator-REV" matchesReferenceText="true">

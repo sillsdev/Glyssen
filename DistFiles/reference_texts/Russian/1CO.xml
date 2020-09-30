@@ -193,11 +193,11 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-1CO">
       <verse num="23" />
-      <text>But we preach Christ crucified; a stumbling block to Jews, and foolishness to Greeks,</text>
+      <text>But we preach Christ crucified; a stumbling block to Jews, and foolishness to Greeks, </text>
       <sound startVerse="-999" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="23" />
-    <text>а мы проповедуем Христа распятого, для Иудеев соблазн, а для Еллинов безумие,</text>
+    <text>а мы проповедуем Христа распятого, для Иудеев соблазн, а для Еллинов безумие, </text>
     <sound startVerse="-999" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-1CO" matchesReferenceText="true">

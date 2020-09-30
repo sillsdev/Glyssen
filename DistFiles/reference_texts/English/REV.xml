@@ -962,7 +962,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-REV">
     <verse num="4" />
-    <text>His tail drew one third of the stars of the sky, and threw them to the earth.</text>
+    <text>His tail drew one third of the stars of the sky, and threw them to the earth. </text>
     <sound userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-REV">
@@ -1455,7 +1455,7 @@
     <text>He cried with a mighty voice, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="2" characterId="angel, another, coming down from heaven" delivery="shouting">
-    <text>«Fallen, fallen is Babylon the great! She has become a habitation of demons, a prison of every unclean spirit, and a prison of every unclean and hateful bird!</text>
+    <text>«Fallen, fallen is Babylon the great! She has become a habitation of demons, a prison of every unclean spirit, and a prison of every unclean and hateful bird! </text>
     <sound startVerse="-999" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="3" characterId="angel, another, coming down from heaven" delivery="shouting">
@@ -1615,7 +1615,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="7" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting">
     <verse num="7" />
-    <text>Let us rejoice and be exceedingly glad, and let us give the glory to him. For the marriage of the Lamb has come, and his wife has made herself ready.»</text>
+    <text>Let us rejoice and be exceedingly glad, and let us give the glory to him. For the marriage of the Lamb has come, and his wife has made herself ready.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting">
     <verse num="8" />
@@ -1746,7 +1746,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="13" characterId="narrator-REV">
     <verse num="13" />
-    <text>The sea gave up the dead who were in it. Death and Hades gave up the dead who were in them. They were judged, each one according to his works.</text>
+    <text>The sea gave up the dead who were in it. Death and Hades gave up the dead who were in them. They were judged, each one according to his works. </text>
     <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="14" characterId="narrator-REV">

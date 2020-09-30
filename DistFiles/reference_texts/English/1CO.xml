@@ -72,7 +72,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1CO">
     <verse num="17" />
-    <text>For Christ sent me not to baptize, but to preach the Good News--not in wisdom of words, so that the cross of Christ wouldn’t be made void.</text>
+    <text>For Christ sent me not to baptize, but to preach the Good News—not in wisdom of words, so that the cross of Christ wouldn’t be made void.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-1CO">
     <verse num="18" />
@@ -97,7 +97,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-1CO">
     <verse num="23" />
-    <text>But we preach Christ crucified; a stumbling block to Jews, and foolishness to Greeks,</text>
+    <text>But we preach Christ crucified; a stumbling block to Jews, and foolishness to Greeks, </text>
     <sound startVerse="-999" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-1CO">
@@ -579,7 +579,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="narrator-1CO">
     <verse num="10" />
-    <text>But to the married I command--not I, but the Lord--that the wife not leave her husband,</text>
+    <text>But to the married I command—not I, but the Lord—that the wife not leave her husband,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="narrator-1CO">
     <verse num="11" />
@@ -587,7 +587,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="narrator-1CO">
     <verse num="12" />
-    <text>But to the rest I--not the Lord--say, if any brother has an unbelieving wife, and she is content to live with him, let him not leave her.</text>
+    <text>But to the rest I—not the Lord—say, if any brother has an unbelieving wife, and she is content to live with him, let him not leave her.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="narrator-1CO">
     <verse num="13" />
@@ -675,7 +675,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="34" characterId="narrator-1CO">
     <verse num="34" />
-    <text>There is also a difference between a wife and a virgin. The unmarried woman cares about the things of the Lord, that she may be holy both in body and in spirit. But she who is married cares about the things of the world--how she may please her husband.</text>
+    <text>There is also a difference between a wife and a virgin. The unmarried woman cares about the things of the Lord, that she may be holy both in body and in spirit. But she who is married cares about the things of the world—how she may please her husband.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="35" characterId="narrator-1CO">
     <verse num="35" />
@@ -1329,7 +1329,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="narrator-1CO">
     <verse num="13" />
-    <text>But now faith, hope, and love remain--these three. The greatest of these is love.</text>
+    <text>But now faith, hope, and love remain—these three. The greatest of these is love.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>14</text>
@@ -1728,11 +1728,11 @@
     <text>But when this corruptible will have put on incorruption, and this mortal will have put on immortality, then what is written will happen:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="54" characterId="scripture">
-    <text>«Death is swallowed up in victory.»</text>
+    <text>«Death is swallowed up in victory.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="55" characterId="scripture">
     <verse num="55" />
-    <text>«O death, where is your victory? O death where is your sting?»</text>
+    <text>O death, where is your victory? O death where is your sting?»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="56" characterId="narrator-1CO">
     <verse num="56" />
