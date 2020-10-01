@@ -110,7 +110,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="scripture">
       <text>«Your throne, O God, is forever and ever. The scepter of uprightness is the scepter of your Kingdom.</text>
     </ReferenceBlocks>
-    <text>престол Твой, Боже, в век века; жезл царствия Твоего—жезл правоты.</text>
+    <text>«престол Твой, Боже, в век века; жезл царствия Твоего—жезл правоты.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="scripture">
@@ -132,7 +132,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="scripture">
       <text>«You, Lord, in the beginning, laid the foundation of the earth. The heavens are the works of your hands.</text>
     </ReferenceBlocks>
-    <text>в начале Ты, Господи, основал землю, и небеса—дело рук Твоих;</text>
+    <text>«в начале Ты, Господи, основал землю, и небеса—дело рук Твоих;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="scripture">
@@ -790,7 +790,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-HEB">
       <verse num="1" />
-      <text>Therefore leaving the teaching of the first principles of Christ, let us press on to perfection-- Let us not lay again the foundation of repentance from dead works, of faith toward God,</text>
+      <text>Therefore leaving the teaching of the first principles of Christ, let us press on to perfection—not laying again the foundation of repentance from dead works, of faith toward God,</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Посему, оставив начатки учения Христова, поспешим к совершенству; и не станем снова полагать основание обращению от мертвых дел и вере в Бога,</text>
@@ -1269,31 +1269,31 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="scripture">
-      <text>«Behold, the days come,» says the Lord, «that I will make a new covenant with the house of Israel and with the house of Judah.</text>
+      <text>«Behold, the days come, says the Lord, that I will make a new covenant with the house of Israel and with the house of Judah.</text>
     </ReferenceBlocks>
-    <text>«вот, наступают дни, говорит Господь, когда Я заключу с домом Израиля и с домом Иуды новый завет,»</text>
+    <text>«вот, наступают дни, говорит Господь, когда Я заключу с домом Израиля и с домом Иуды новый завет,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="scripture">
       <verse num="9" />
-      <text>It will not be according to the covenant that I made with their fathers, in the day that I took them by the hand to lead them out of the land of Egypt; for they didn’t continue in my covenant, and I disregarded them,» says the Lord.</text>
+      <text>It will not be according to the covenant that I made with their fathers, in the day that I took them by the hand to lead them out of the land of Egypt; for they didn’t continue in my covenant, and I disregarded them, says the Lord.</text>
     </ReferenceBlocks>
     <verse num="9" />
-    <text>не такой завет, какой Я заключил с отцами их в то время, когда взял их за руку, чтобы вывести их из земли Египетской, потому что они не пребыли в том завете Моем, и Я пренебрег их, говорит Господь.»</text>
+    <text>не такой завет, какой Я заключил с отцами их в то время, когда взял их за руку, чтобы вывести их из земли Египетской, потому что они не пребыли в том завете Моем, и Я пренебрег их, говорит Господь.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture">
       <verse num="10" />
-      <text>«For this is the covenant that I will make with the house of Israel. After those days,» says the Lord;</text>
+      <text>For this is the covenant that I will make with the house of Israel. After those days, says the Lord;</text>
     </ReferenceBlocks>
     <verse num="10" />
-    <text>«Вот завет, который завещаю дому Израилеву после тех дней, говорит Господь:»</text>
+    <text>Вот завет, который завещаю дому Израилеву после тех дней, говорит Господь:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture">
-      <text>«I will put my laws into their mind, I will also write them on their heart. I will be their God, and they will be my people.</text>
+      <text>I will put my laws into their mind, I will also write them on their heart. I will be their God, and they will be my people.</text>
     </ReferenceBlocks>
-    <text>«вложу законы Мои в мысли их, и напишу их на сердцах их; и буду их Богом, а они будут Моим народом.</text>
+    <text>вложу законы Мои в мысли их, и напишу их на сердцах их; и буду их Богом, а они будут Моим народом.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="scripture">
@@ -1633,7 +1633,7 @@
       <text>then he has said, «Behold, I have come to do your will.» He takes away the first, that he may establish the second.</text>
     </ReferenceBlocks>
     <verse num="9" />
-    <text>потом прибавил: «вот, иду исполнить волю Твою, Боже». Отменяет первое, чтобы постановить второе.»</text>
+    <text>потом прибавил: «вот, иду исполнить волю Твою, Боже». Отменяет первое, чтобы постановить второе.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="narrator-HEB">
@@ -1817,7 +1817,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="scripture">
-      <text>«Vengeance belongs to me,» says the Lord, «I will repay.»</text>
+      <text>«Vengeance belongs to me, says the Lord, I will repay.»</text>
     </ReferenceBlocks>
     <text>«у Меня отмщение, Я воздам, говорит Господь.»</text>
   </block>

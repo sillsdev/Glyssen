@@ -512,7 +512,6 @@
       <text>but he is a Jew who is one inwardly, and circumcision is that of the heart. It is in the spirit not in the letter; His praise is not from men, but from God.</text>
     </ReferenceBlocks>
     <verse num="29" />
-    <text>но он еврей, который является одним внутри, и то обрезание, которое в сердце. "Это в духе, не в письме, Его похвала не от людей, но от Бога.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
@@ -932,7 +931,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-ROM">
-      <text>Abraham is our father in the sight of God, in whom he believed--The God who gives life to the dead, and calls the things that are not, as though they were.</text>
+      <text>Abraham is our father in the sight of God, in whom he believed—The God who gives life to the dead, and calls the things that are not, as though they were.</text>
     </ReferenceBlocks>
     <text>пред Богом, Которому он поверил, животворящим мертвых и называющим несуществующее, как существующее.</text>
   </block>
@@ -2140,17 +2139,17 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="scripture">
-      <text>«I will call them ‹my people,› which were not my people; and her ‹beloved,› who was not beloved.»</text>
+      <text>«I will call them ‹my people,› which were not my people; and her ‹beloved,› who was not beloved.</text>
     </ReferenceBlocks>
-    <text>«не Мой народ назову Моим народом, и не возлюбленную—возлюбленною.»</text>
+    <text>«не Мой народ назову Моим народом, и не возлюбленную—возлюбленною.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="scripture">
       <verse num="26" />
-      <text>«It will be that in the place where it was said to them, ‹You are not my people,› There they will be called ‹children of the living God.› »</text>
+      <text>It will be that in the place where it was said to them, ‹You are not my people,› There they will be called ‹children of the living God.› »</text>
     </ReferenceBlocks>
     <verse num="26" />
-    <text>«И на том месте, где сказано им: вы не Мой народ, там названы будут сынами Бога живаго.»</text>
+    <text>И на том месте, где сказано им: вы не Мой народ, там названы будут сынами Бога живаго.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="narrator-ROM">
@@ -3194,7 +3193,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="11" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="11" characterId="scripture">
-      <text>« ‹As I live,› says the Lord, ‹to me every knee will bow. Every tongue will confess to God.»</text>
+      <text>«As I live, says the Lord, to me every knee will bow. Every tongue will confess to God.»</text>
     </ReferenceBlocks>
     <text>«живу Я, говорит Господь, предо Мною преклонится всякое колено, и всякий язык будет исповедывать Бога.»</text>
   </block>

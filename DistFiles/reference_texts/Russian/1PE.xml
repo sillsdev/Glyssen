@@ -214,7 +214,7 @@
       <text>but the Lord’s word endures forever.»</text>
     </ReferenceBlocks>
     <verse num="25" />
-    <text>но слово Господне пребывает вовек;</text>
+    <text>но слово Господне пребывает вовек»;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-1PE">
@@ -623,7 +623,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1PE">
       <verse num="21" />
-      <text>This water is a symbol of baptism, which now saves you-- not the putting away of the filth of the flesh, but the answer of a good conscience toward God, through the resurrection of Jesus Christ.</text>
+      <text>This water is a symbol of baptism, which now saves you—not the putting away of the filth of the flesh, but the answer of a good conscience toward God, through the resurrection of Jesus Christ.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Так и нас ныне подобное сему образу крещение, не плотской нечистоты омытие, но обещание Богу доброй совести, спасает воскресением Иисуса Христа,</text>

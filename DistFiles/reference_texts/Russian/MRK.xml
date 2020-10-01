@@ -709,7 +709,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="Jesus">
-      <text>«Did you never read what David did, when he had need, and was hungry--he, and those who were with him?</text>
+      <text>«Did you never read what David did, when he had need, and was hungry—he, and those who were with him?</text>
     </ReferenceBlocks>
     <text>«неужели вы не читали никогда, что сделал Давид, когда имел нужду и взалкал сам и бывшие с ним?</text>
   </block>
@@ -1040,7 +1040,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="30" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="30" characterId="narrator-MRK">
       <verse num="30" />
-      <text>--because they said, «He has an unclean spirit.»</text>
+      <text>—because they said, «He has an unclean spirit.»</text>
     </ReferenceBlocks>
     <verse num="30" />
     <text>Сие сказал Он, потому что говорили: «в Нем нечистый дух.»</text>
@@ -1676,7 +1676,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-MRK">
       <verse num="16" />
-      <text>Those who saw it told the people what had happened to the demon-posessed man -- and about the pigs.</text>
+      <text>Those who saw it told the people what had happened to the demon-posessed man and about the pigs.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Видевшие рассказали им о том, как это произошло с бесноватым, и о свиньях.</text>
