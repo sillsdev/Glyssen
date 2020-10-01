@@ -16689,6 +16689,7 @@ MRK	5	42	Jairus (synagogue leader)/Jairus' wife/disciples	amazed	father and moth
 MRK	5	42	Needs Review			Potential		
 MRK	5	43	Jesus			Indirect		MRK 5.43; LUK 8.55,56
 MRK	6	2	men in Nazareth synagogue	amazed		Dialogue		
+MRK	6	2	Needs Review			Potential		
 MRK	6	3	men in Nazareth synagogue	amazed		Dialogue		
 MRK	6	4	Jesus			Dialogue		
 MRK	6	6	Jesus	amazed		Rare		
@@ -18238,6 +18239,7 @@ JHN	4	23	Jesus			Normal
 JHN	4	24	Jesus			Normal		
 JHN	4	25	woman, Samaritan			Dialogue		
 JHN	4	25	interruption-JHN			Interruption		
+JHN	4	25	Needs Review			Potential		
 JHN	4	26	Jesus			Dialogue		
 JHN	4	27	narrator-JHN			Quotation		
 JHN	4	29	woman, Samaritan			Dialogue		
@@ -19249,10 +19251,10 @@ ACT	11	22	report concerning new believers in Antioch			Rare
 ACT	11	22	disciples		assembly in Jerusalem	Rare		
 ACT	11	22	Needs Review			Potential		
 ACT	11	23	Barnabas			Indirect		
-ACT	11	28	Agabus the prophet			Indirect		
-ACT	11	29	disciples			Indirect		
 ACT	11	26	Barnabas/Paul		Barnabas/Paul (Saul)	Indirect		
 ACT	11	26	narrator-ACT			Quotation		
+ACT	11	28	Agabus the prophet			Indirect		
+ACT	11	29	disciples			Indirect		
 ACT	12	4	King Herod Agrippa II			Rare		
 ACT	12	4	Needs Review			Potential		
 ACT	12	7	angel	commanding	angel of the Lord	Normal		

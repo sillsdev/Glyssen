@@ -125,7 +125,7 @@
 
 	</Target>
 
-	<Target Name="ReferenceTextUtilityInstaller" DependsOnTargets="Build ">
+	<Target Name="ReferenceTextUtilityInstaller" DependsOnTargets="SetInstallerVersionNumber; Build ">
 
 		<FileUpdate File="$(RootDir)\Reference Text Utility\Installer\RTUInstaller.wxs" Regex='Property_ProductVersion = ".*"'
 			ReplacementText ="Property_ProductVersion = &quot;$(GitVersion_MajorMinorPatch)&quot;" />

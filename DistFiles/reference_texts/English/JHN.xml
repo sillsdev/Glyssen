@@ -760,7 +760,7 @@
     <text>The woman said to him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="woman, Samaritan">
-    <text>«I know that Messiah comes, (he who is called Christ). When he has come, he will declare to us all things.»</text>
+    <text>«I know that Messiah comes (he who is called Christ). When he has come, he will declare to us all things.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="narrator-JHN">
     <verse num="26" />
@@ -988,7 +988,7 @@
     <text>Then they asked him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="Jews, the" delivery="angry">
-    <text>«Who is the man who said to you, ‹Take up your mat, and walk’?»</text>
+    <text>«Who is the man who said to you, ‹Take up your mat, and walk›?»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-JHN">
     <verse num="13" />
@@ -1677,7 +1677,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="36" characterId="Jews, the">
     <verse num="36" />
-    <text>What is this word that he said, ‹You will seek me, and won’t find me; and where I am, you can’t come’?»</text>
+    <text>What is this word that he said, ‹You will seek me, and won’t find me; and where I am, you can’t come›?»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="37" characterId="narrator-JHN">
     <verse num="37" />
@@ -2559,7 +2559,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="36" characterId="Jesus">
     <verse num="36" />
-    <text>God has set me apart for Himself. He sent me into the world. Then how can you say that I am blaspheming because I said, ‹I am the Son of God’?</text>
+    <text>God has set me apart for Himself. He sent me into the world. Then how can you say that I am blaspheming because I said, ‹I am the Son of God?›</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="Jesus">
     <verse num="37" />
