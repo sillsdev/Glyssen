@@ -137,7 +137,10 @@
 		</PropertyGroup>
 		<Message Text="RTUInstallerFileDestName: $(RTUInstallerFileDestName)" Importance="high"/>
 	
-		<MSBuild Projects="$(RootDir)\Reference Text Utility\Installer\RTUInstaller.wixproj"/>
+		<MSBuild
+			Projects="$(RootDir)\Reference Text Utility\Installer\RTUInstaller.wixproj"
+			Properties="Configuration=$(Configuration)" />
+		<Message Text="RTUInstaller Build Complete"/>
 
 		<!-- remove an existing one with the same name, if necessary -->
 		<Delete Files="$(RTUInstallerFileDestName)" TreatErrorsAsWarnings="false" />
