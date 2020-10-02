@@ -55,6 +55,8 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <OutputPath>..\..\output\RefTextUtilityInstaller\</OutputPath>
+    <SignOutput>True</SignOutput>
+	<IgnoreSigningErrors Condition="'$(IgnoreSigningErrors)' == ''">true</IgnoreSigningErrors>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="RTUInstaller.wxs" />
@@ -73,4 +75,11 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets" />
 
+  <!-- See https://wixtoolset.org/documentation/manual/v3/overview/insignia.html -->
+  <Target Name="SignCabs">
+	<Exec Command="sign &quot;%(SignCabs.FullPath)&quot;" ContinueOnError="$(IgnoreSigningErrors)"/>
+  </Target>	
+  <Target Name="SignMsi">
+	<Exec Command="sign &quot;%(SignMsi.FullPath)&quot;" ContinueOnError="$(IgnoreSigningErrors)"/>
+  </Target>
 </Project>

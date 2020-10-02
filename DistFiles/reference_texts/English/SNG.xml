@@ -122,7 +122,7 @@
     <text>My beloved spoke, and said to me,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="10" characterId="narrator-SNG">
-    <text>“Rise up, my love, my beautiful one, and come away. </text>
+    <text>«Rise up, my love, my beautiful one, and come away. </text>
     <verse num="11" />
     <text>For, behold, the winter is past. The rain is over and gone.</text>
   </block>
@@ -132,7 +132,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="13" characterId="narrator-SNG">
     <verse num="13" />
-    <text>The fig tree ripens her green figs. The vines are in blossom. They give forth their fragrance. Arise, my love, my beautiful one, and come away.”</text>
+    <text>The fig tree ripens her green figs. The vines are in blossom. They give forth their fragrance. Arise, my love, my beautiful one, and come away.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="14" characterId="narrator-SNG">
     <verse num="14" />
@@ -163,7 +163,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="3" characterId="narrator-SNG">
     <verse num="3" />
-    <text>The watchmen who go about the city found me; “Have you seen him whom my soul loves?”</text>
+    <text>The watchmen who go about the city found me; «Have you seen him whom my soul loves?»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="4" characterId="narrator-SNG">
     <verse num="4" />
@@ -272,7 +272,7 @@
     <text>I was asleep, but my heart was awake. It is the voice of my beloved who knocks:</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="2" characterId="Solomon, king">
-    <text>“Open to me, my sister, my love, my dove, my undefiled; for my head is filled with dew, and my hair with the dampness of the night.”</text>
+    <text>«Open to me, my sister, my love, my dove, my undefiled; for my head is filled with dew, and my hair with the dampness of the night.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="3" characterId="narrator-SNG">
     <verse num="3" />
@@ -422,7 +422,7 @@
     <text>I said,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="8" characterId="narrator-SNG">
-    <text>“I will climb up into the palm tree. I will take hold of its fruit.”</text>
+    <text>«I will climb up into the palm tree. I will take hold of its fruit.»</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="8" characterId="narrator-SNG">
     <text>Let your breasts be like clusters of the vine, the smell of your breath like apples,</text>

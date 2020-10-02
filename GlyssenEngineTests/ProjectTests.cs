@@ -1193,7 +1193,7 @@ namespace GlyssenEngineTests
 				"vern block to exactly one ref block.");
 			Assert.IsFalse(matchup.CorrelatedBlocks.Last().MatchesReferenceText);
 			var englishTextOfLastNarratorBlock = ((ScriptText)matchup.CorrelatedBlocks[3].ReferenceBlocks.Single().BlockElements.Single()).Content;
-			var iQuoteMark = englishTextOfLastNarratorBlock.IndexOf("“", StringComparison.Ordinal);
+			var iQuoteMark = englishTextOfLastNarratorBlock.IndexOf(ReferenceText.kOpenFirstLevelQuote, StringComparison.Ordinal);
 			matchup.SetReferenceText(3, "This is not going to match the corresponding English text in the French test reference text.");
 			matchup.SetReferenceText(4, englishTextOfLastNarratorBlock.Substring(iQuoteMark));
 			matchup.CorrelatedBlocks.Last().SetNonDramaticCharacterId(mark.NarratorCharacterId);

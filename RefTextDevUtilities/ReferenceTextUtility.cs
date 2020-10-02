@@ -447,8 +447,6 @@ namespace Glyssen.RefTextDevUtilities
 					IReadOnlyList<Block> existingRefBlocksForLanguage = null;
 					int skippingBook = 0;
 
-					GetQuoteMarksForLanguage(language, out var openDoubleQuote, out var closeDoubleQuote, out var openQuoteSingle, out var closeQuoteSingle);
-
 					HashSet<int> existingBookNumbersRequired = null;
 					if (mode != Mode.GenerateEnglish && (mode != Mode.Generate || !languageInfo.IsEnglish))
 					{
@@ -568,26 +566,7 @@ namespace Glyssen.RefTextDevUtilities
 
 						var verseNumberFixedText = s_verseNumberInExcelRegex.Replace(originalText, "{$1}\u00A0");
 
-						var modifiedText = verseNumberFixedText.Replace("\n ", " ").Replace('\n', ' ').Replace("«", openDoubleQuote).Replace("»", closeDoubleQuote);
-						// Apparently, at one time this code cleaned up all kinds of unusual quotation marks. Recent versions of the DG are cleaner
-						// so the only thing left to do is to replace double chevrons (above). This code could probably be removed completely, but
-						// I'm leaving it here just in case things ever go backward or we need to process an old version for some reason.
-						//var modifiedText1 = modifiedText;
-						//var modifiedText = s_doubleSingleOpenQuote.Replace(modifiedText1, openDoubleQuote + "\u202F" + openQuoteSingle);
-						//modifiedText = s_singleDoubleOpenQuote.Replace(modifiedText, openQuoteSingle + "\u202F" + openDoubleQuote);
-						//modifiedText = s_doubleSingleCloseQuote.Replace(modifiedText, closeDoubleQuote + "\u202F" + closeQuoteSingle);
-						//modifiedText = s_singleDoubleCloseQuote.Replace(modifiedText, closeQuoteSingle + "\u202F" + closeDoubleQuote);
-						//modifiedText = s_doubleOpenQuote.Replace(modifiedText, openDoubleQuote);
-						//modifiedText = s_doubleCloseQuote.Replace(modifiedText, closeDoubleQuote);
-						//if (modifiedText1 != modifiedText)
-						//	Debug.WriteLine($"{modifiedText1} != {modifiedText}");
-						//modifiedText = s_openDoubleChevrons.Replace(modifiedText, openDoubleQuote);
-						//modifiedText = s_closeDoubleChevrons.Replace(modifiedText, closeDoubleQuote);
-						//var modifiedText2 = modifiedText;
-						//modifiedText = s_singleOpenQuote.Replace(modifiedText, openQuoteSingle);
-						//modifiedText = s_singleCloseQuote.Replace(modifiedText, closeQuoteSingle);
-						//if (modifiedText2 != modifiedText)
-						//	Debug.WriteLine($"{modifiedText2} != {modifiedText}");
+						var modifiedText = verseNumberFixedText.Replace("\n ", " ").Replace('\n', ' ').Replace("_x000D_", "");
 
 						if (languageInfo.IsEnglish) // REVIEW: Do we want to enforce this for all languages?
 							modifiedText = modifiedText.Replace("  ", " ");
@@ -710,7 +689,7 @@ namespace Glyssen.RefTextDevUtilities
 							if (string.IsNullOrWhiteSpace(split))
 							{
 								if (splits.Length == 1)
-									newBlock.BlockElements.Add(new ScriptText(" ")); // Blank row should have already be reported as error.
+									newBlock.BlockElements.Add(new ScriptText(" ")); // Blank row should have already been reported as error.
 								continue;
 							}
 
@@ -751,7 +730,12 @@ namespace Glyssen.RefTextDevUtilities
 										if (string.IsNullOrWhiteSpace(text))
 											WriteOutput("No text found between annotations:" + referenceTextRow, true);
 										else
-											newBlock.BlockElements.Add(lastElementInBlock = new ScriptText(text));
+										{
+											// Excel does not handle thin non-breaking spaces well, but when there are
+											// adjacent chevrons facing the same direction, that's what we want.
+											newBlock.BlockElements.Add(lastElementInBlock = new ScriptText(
+												ReplaceInterChevronSpacesWithThinNonBreakingSpaces(text)));
+										}
 									}
 								}
 							}
@@ -835,6 +819,46 @@ namespace Glyssen.RefTextDevUtilities
 			}
 
 			WriteOutput("Done!");
+		}
+
+		private static string ReplaceInterChevronSpacesWithThinNonBreakingSpaces(string text)
+		{
+			var sb = new StringBuilder(text);
+			var prevNonWsCharWasOpeningQuote = false;
+			var prevNonWsCharWasClosingQuote = false;
+			var prevCharWasSpace = false;
+			for (int i = 0; i < sb.Length; i++)
+			{
+				switch (sb[i])
+				{
+					case '«':
+					case '‹':
+						if (prevNonWsCharWasOpeningQuote && prevCharWasSpace)
+							sb[i - 1] = '\u202F';
+						else
+							prevNonWsCharWasOpeningQuote = true;
+						prevNonWsCharWasClosingQuote = false;
+						break;
+					case '»':
+					case '›':
+						if (prevNonWsCharWasClosingQuote && prevCharWasSpace)
+							sb[i - 1] = '\u202F';
+						else
+							prevNonWsCharWasClosingQuote = true;
+						prevNonWsCharWasOpeningQuote = false;
+						break;
+					case ' ':
+						prevCharWasSpace = true;
+						continue;
+					default:
+						prevNonWsCharWasClosingQuote = false;
+						prevNonWsCharWasOpeningQuote = false;
+						break;
+				}
+				prevCharWasSpace = false;
+			}
+
+			return sb.ToString();
 		}
 
 		private static void CheckBlockForMissingF8Annotations(Block block, Block englishRefBlock, ReferenceTextLanguageInfo languageInfo)
@@ -1743,6 +1767,8 @@ namespace Glyssen.RefTextDevUtilities
 					var verseValue = cells[verseCol + row].Value;
 					if (verseValue == null)
 					{
+						if (row < (5 - rowsToSkip))
+							continue; // Maybe an extra blank row or two before the data starts...
 						WriteOutput($"Stopping at row {row} because verse column contained a null value.");
 						break;
 					}
@@ -2005,34 +2031,6 @@ namespace Glyssen.RefTextDevUtilities
 			return iStartAt;
 		}
 
-		private static void GetQuoteMarksForLanguage(string languageName, out string doubleOpen, out string doubleClose, out string singleOpen, out string singleClose)
-		{
-			doubleOpen = "“";
-			doubleClose = "”";
-			singleOpen = "‘";
-			singleClose = "’";
-			switch (languageName)
-			{
-				case "Azeri":
-					doubleOpen = "\"";
-					doubleClose = "\"";
-					singleOpen = "“";
-					singleClose = "”";
-					break;
-				case "French":
-				case "Spanish":
-					doubleOpen = "«";
-					doubleClose = "»";
-					break;
-				case "TokPisin":
-					doubleOpen = "\"";
-					doubleClose = "\"";
-					singleOpen = "'";
-					singleClose = "'";
-					break;
-			}
-		}
-
 		public static bool LinkToEnglish()
 		{
 			bool errorOccurred = false;
@@ -2041,12 +2039,6 @@ namespace Glyssen.RefTextDevUtilities
 				Console.WriteLine("Processing " +
 					(referenceTextId.Type == ReferenceTextType.Custom ? referenceTextId.CustomIdentifier : referenceTextId.Type.ToString()) +
 					"...");
-
-				string openQuote;
-				string closeQuote;
-				string openQuoteSingle;
-				string closeQuoteSingle;
-				GetQuoteMarksForLanguage(referenceTextId.Name, out openQuote, out closeQuote, out openQuoteSingle, out closeQuoteSingle);
 
 				Console.Write("   ");
 
@@ -2169,7 +2161,7 @@ namespace Glyssen.RefTextDevUtilities
 		private const string k3Bars = @"\|\|\|";
 		private static readonly Regex s_musicOrNonF8SoundAnnotationInCurlyBracesRegex = new Regex("{(M|S).*?}", RegexOptions.Compiled);
 		private static readonly Regex s_annotationInCurlyBracesRegex = new Regex("{[^0-9]+.*?}", RegexOptions.Compiled);
-		private static readonly Regex s_annotationDelimitedWith3VerticalBarsRegex = new Regex($" {k3Bars}.*?{k3Bars} ?", RegexOptions.Compiled);
+		private static readonly Regex s_annotationDelimitedWith3VerticalBarsRegex = new Regex($" {k3Bars}.*?{k3Bars}", RegexOptions.Compiled);
 		private static readonly Regex s_anyAnnotationRegex = new Regex($"{RegexEscapedDoNotCombine}{s_annotationInCurlyBracesRegex}|{s_annotationInCurlyBracesRegex}|{s_annotationDelimitedWith3VerticalBarsRegex}", RegexOptions.Compiled);
 		// For splitting, the regular expression is wrapped in parentheses to tell Split method to include the capturing group as one of the strings in the resulting array.
 		// See explanation here: https://stackoverflow.com/questions/27999449/c-sharp-regex-match-vs-split-for-same-string

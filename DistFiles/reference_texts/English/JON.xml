@@ -31,14 +31,14 @@
     <text>So the shipmaster came to him, and said to him,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="6" characterId="captain of ship to Tarshish">
-    <text>“What do you mean, sleeper? Arise, call on your God! Maybe your God will notice us, so that we won't perish.”</text>
+    <text>«What do you mean, sleeper? Arise, call on your God! Maybe your God will notice us, so that we won’t perish.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="7" characterId="narrator-JON">
     <verse num="7" />
     <text>They all said to each other,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="7" characterId="sailors on ship to Tarshish">
-    <text>“Come, let us cast lots, that we may know who is responsible for this evil that is on us.”</text>
+    <text>«Come, let us cast lots, that we may know who is responsible for this evil that is on us.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="7" characterId="narrator-JON">
     <text>So they cast lots, and the lot fell on Jonah. </text>
@@ -46,21 +46,21 @@
     <text>Then they asked him,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="8" characterId="captain of ship to Tarshish">
-    <text>“Tell us, please, for whose cause this evil is on us. What is your occupation? Where do you come from? What is your country? Of what people are you?”</text>
+    <text>«Tell us, please, for whose cause this evil is on us. What is your occupation? Where do you come from? What is your country? Of what people are you?»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="narrator-JON">
     <verse num="9" />
     <text>He said to them,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="Jonah">
-    <text>“I am a Hebrew, and I fear God, the God of heaven, who has made the sea and the dry land.”</text>
+    <text>«I am a Hebrew, and I fear God, the God of heaven, who has made the sea and the dry land.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="10" characterId="narrator-JON">
     <verse num="10" />
     <text>Then were the men exceedingly afraid, and said to him,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="10" characterId="captain of ship to Tarshish" delivery="fearful">
-    <text>“What is this that you have done?”</text>
+    <text>«What is this that you have done?»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="10" characterId="narrator-JON">
     <text>For the men knew that he was fleeing from the presence of God, because he had told them. </text>
@@ -68,7 +68,7 @@
     <text>Then they said to him,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="11" characterId="captain of ship to Tarshish">
-    <text>“What shall we do to you, that the sea may be calm to us?”</text>
+    <text>«What shall we do to you, that the sea may be calm to us?»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="11" characterId="narrator-JON">
     <text>For the sea grew more and more stormy. </text>
@@ -76,7 +76,7 @@
     <text>He said to them,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="12" characterId="Jonah">
-    <text>“Take me up, and throw me into the sea. Then the sea will be calm for you; for I know that because of me this great storm is on you.”</text>
+    <text>«Take me up, and throw me into the sea. Then the sea will be calm for you; for I know that because of me this great storm is on you.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="13" characterId="narrator-JON">
     <verse num="13" />
@@ -85,7 +85,7 @@
     <text>Therefore they cried to God, and said,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="14" characterId="captain of ship to Tarshish" delivery="praying">
-    <text>“We beg you, God, we beg you, don't let us die for this man's life, and don't lay on us innocent blood; for you, God, have done as it pleased you.”</text>
+    <text>«We beg you, God, we beg you, don’t let us die for this man’s life, and don’t lay on us innocent blood; for you, God, have done as it pleased you.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="15" characterId="narrator-JON">
     <verse num="15" />
@@ -109,7 +109,7 @@
     <text>He said,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="Jonah" delivery="praying">
-    <text>“I called because of my affliction to God. He answered me. Out of the belly of Sheol I cried. You heard my voice.</text>
+    <text>«I called because of my affliction to God. He answered me. Out of the belly of Sheol I cried. You heard my voice.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="Jonah" delivery="praying">
     <verse num="3" />
@@ -163,7 +163,7 @@
     <text>Jonah began to enter into the city a day’s journey, and he cried out, and said,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="4" characterId="Jonah">
-    <text>“In forty days, Nineveh will be overthrown!”</text>
+    <text>«In forty days, Nineveh will be overthrown!»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-JON">
     <verse num="5" />
@@ -178,7 +178,7 @@
     <text>He made a proclamation and published through Nineveh by the decree of the king and his nobles, saying,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="7" characterId="king of Nineveh" delivery="proclamation">
-    <text>“Let neither man nor animal, herd nor flock, taste anything; let them not feed, nor drink water;</text>
+    <text>«Let neither man nor animal, herd nor flock, taste anything; let them not feed, nor drink water;</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="8" characterId="king of Nineveh" delivery="proclamation">
     <verse num="8" />
@@ -186,7 +186,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="9" characterId="king of Nineveh" delivery="proclamation">
     <verse num="9" />
-    <text>Who knows whether God will not turn and relent, and turn away from his fierce anger, so that we might not perish?”</text>
+    <text>Who knows whether God will not turn and relent, and turn away from his fierce anger, so that we might not perish?»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="10" characterId="narrator-JON">
     <verse num="10" />
@@ -202,18 +202,18 @@
     <text>He prayed to God, and said,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="2" characterId="Jonah" delivery="praying">
-    <text>“Please, God, wasn't this what I said when I was still in my own country? Therefore I hurried to flee to Tarshish, for I knew that you are a gracious God, and merciful, slow to anger, and abundant in loving kindness, and you relent of doing harm.</text>
+    <text>«Please, God, wasn’t this what I said when I was still in my own country? Therefore I hurried to flee to Tarshish, for I knew that you are a gracious God, and merciful, slow to anger, and abundant in loving kindness, and you relent of doing harm.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="3" characterId="Jonah" delivery="praying">
     <verse num="3" />
-    <text>Therefore now, God, take, I beg you, my life from me; for it is better for me to die than to live.”</text>
+    <text>Therefore now, God, take, I beg you, my life from me; for it is better for me to die than to live.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="4" characterId="narrator-JON">
     <verse num="4" />
     <text>God said,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="4" characterId="God">
-    <text>“Is it right for you to be angry?”</text>
+    <text>«Is it right for you to be angry?»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="5" characterId="narrator-JON">
     <verse num="5" />
@@ -232,31 +232,31 @@
     <text>It happened, when the sun arose, that God prepared a sultry east wind; and the sun beat on Jonah’s head, so that he fainted, and requested for himself that he might die, and said,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="8" characterId="Jonah">
-    <text>“It is better for me to die than to live.”</text>
+    <text>«It is better for me to die than to live.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="9" characterId="narrator-JON">
     <verse num="9" />
     <text>God said to Jonah,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="9" characterId="God">
-    <text>“Is it right for you to be angry about the vine?”</text>
+    <text>«Is it right for you to be angry about the vine?»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="9" characterId="narrator-JON">
     <text>He said,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="9" characterId="Jonah">
-    <text>“I am right to be angry, even to death.”</text>
+    <text>«I am right to be angry, even to death.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="10" characterId="narrator-JON">
     <verse num="10" />
     <text>God said,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="10" characterId="God">
-    <text>“You have been concerned for the vine, for which you have not labored, neither made it grow; which came up in a night, and perished in a night.</text>
+    <text>«You have been concerned for the vine, for which you have not labored, neither made it grow; which came up in a night, and perished in a night.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="11" characterId="God">
     <verse num="11" />
-    <text>Shouldn’t I be concerned for Nineveh, that great city, in which are more than one hundred twenty thousand persons who can’t discern between their right hand and their left hand; and also much livestock?”</text>
+    <text>Shouldn’t I be concerned for Nineveh, that great city, in which are more than one hundred twenty thousand persons who can’t discern between their right hand and their left hand; and also much livestock?»</text>
   </block>
   <UnappliedSplits />
 </book>

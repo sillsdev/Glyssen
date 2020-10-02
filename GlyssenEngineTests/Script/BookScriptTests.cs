@@ -2181,7 +2181,7 @@ namespace GlyssenEngineTests.Script
 				block.GetText(true));
 			Assert.AreEqual("Jesus", block.CharacterId);
 			Assert.IsTrue(block.MatchesReferenceText);
-			Assert.AreEqual("{30}\u00A0He came to the second, and said the same thing. He answered, ‘I go, sir,’ but he didn’t go.",
+			Assert.AreEqual("{30}\u00A0He came to the second, and said the same thing. He answered, ‹I go, sir,› but he didn’t go.",
 				block.ReferenceBlocks.Single().GetText(true));
 
 			block = targetBlocksAfterApplyingSplit[++iBlock];
