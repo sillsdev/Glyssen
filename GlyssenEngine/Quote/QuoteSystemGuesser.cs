@@ -2,7 +2,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using Glyssen.Shared;
@@ -37,13 +36,13 @@ namespace GlyssenEngine.Quote
 				bestScore = scores[quoteSystem];
 		}
 
-		public static QuoteSystem Guess<T>(ICharacterVerseInfo cvInfo, List<T> bookList, ScrVers versification, out bool certain, BackgroundWorker worker = null) where T : IScrBook
+		public static QuoteSystem Guess<T>(ICharacterVerseInfo cvInfo, List<T> bookList, ScrVers versification, out bool certain, Action<int> reportProgress = null) where T : IScrBook
 		{
 			certain = false;
 			var bookCount = bookList.Count;
 			if (bookCount == 0)
 			{
-				ReportProgressComplete(worker);
+				reportProgress?.Invoke(100);
 				return QuoteSystem.Default;
 			}
 			var scores = QuoteSystem.UniquelyGuessableSystems.ToDictionary(s => s, s => 0);
@@ -73,8 +72,7 @@ namespace GlyssenEngine.Quote
 				var bookNum = bookTuple.Item1;
 				var book = bookTuple.Item2;
 
-				if (worker != null)
-					worker.ReportProgress(MathUtilities.Percent(++booksProcessed, bookCount));
+				reportProgress?.Invoke(MathUtilities.Percent(++booksProcessed, bookCount));
 
 				int versesAnalyzedForCurrentBook = 0;
 				int prevQuoteChapter = -1;
@@ -209,7 +207,7 @@ namespace GlyssenEngine.Quote
 							if (competitors.Count == 1)
 							{
 								certain = true;
-								ReportProgressComplete(worker);
+								reportProgress?.Invoke(100);
 								return competitors[0];
 							}
 
@@ -297,7 +295,7 @@ namespace GlyssenEngine.Quote
 
 									if (competitors.Any())
 									{
-										ReportProgressComplete(worker);
+										reportProgress?.Invoke(100);
 
 										if (competitors.Count == 1)
 											return competitors[0];
@@ -327,7 +325,7 @@ namespace GlyssenEngine.Quote
 #if SHOWTESTINFO
 						Debug.WriteLine("Time-out guessing quote system.");
 #endif
-						ReportProgressComplete(worker);
+						reportProgress?.Invoke(100);
 						return BestGuess(viableSystems, scores, bestScore, foundEndQuote);
 					}
 
@@ -335,7 +333,7 @@ namespace GlyssenEngine.Quote
 					prevQuoteVerse = quote.Verse;
 				}
 			}
-			ReportProgressComplete(worker);
+			reportProgress?.Invoke(100);
 			return BestGuess(viableSystems, scores, bestScore, foundEndQuote);
 		}
 
@@ -427,11 +425,5 @@ namespace GlyssenEngine.Quote
 		//	newSystem.AllLevels.Add(QuoteUtils.GenerateLevel3(newSystem, true));
 		//	return newSystem;
 		//}
-
-		private static void ReportProgressComplete(BackgroundWorker worker)
-		{
-			if (worker != null)
-				worker.ReportProgress(100);
-		}
 	}
 }

@@ -328,7 +328,7 @@ namespace GlyssenEngine
 			if (IsQuoteSystemReadyForParse && ProjectState == ProjectState.NeedsQuoteSystemConfirmation)
 			{
 				m_quoteSystem = system;
-				DoQuoteParse();
+				DoQuoteParseAsync();
 			}
 			else if ((quoteSystemChanged && !quoteSystemBeingSetForFirstTime) ||
 				(QuoteSystemStatus == QuoteSystemStatus.Reviewed &&
@@ -1344,7 +1344,7 @@ namespace GlyssenEngine
 			m_usxPercentComplete = 100;
 			if (QuoteSystem == null)
 			{
-				GuessAtQuoteSystem();
+				GuessAtQuoteSystemAsync();
 				UpdateControlFileVersion();
 				return;
 			}
@@ -1463,55 +1463,38 @@ namespace GlyssenEngine
 			ParseAndIncludeBooks(books, stylesheet);
 		}
 
-		private void ParseAndIncludeBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet, Action<BookScript> postParseAction = null)
+		private async Task ParseAndIncludeBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet, Action<BookScript> postParseAction = null)
 		{
 			if (Versification == null)
 				throw new NullReferenceException("What!!!");
 			ProjectState = ProjectState.Initial | (ProjectState & ProjectState.WritingSystemRecoveryInProcess);
-			var usxWorker = new BackgroundWorker {WorkerReportsProgress = true};
-			usxWorker.DoWork += UsxWorker_DoWork;
-			usxWorker.RunWorkerCompleted += UsxWorker_RunWorkerCompleted;
-			usxWorker.ProgressChanged += UsxWorker_ProgressChanged;
-
-			object[] parameters = {books, stylesheet, postParseAction};
-			usxWorker.RunWorkerAsync(parameters);
+			await Task.Run(() => {UsxParse(books, stylesheet, postParseAction);});
 		}
 
-		private void UsxWorker_DoWork(object sender, DoWorkEventArgs e)
+		private void UsxParse(IEnumerable<UsxDocument> books, IStylesheet stylesheet, Action<BookScript> postParseAction = null)
 		{
-			var parameters = (object[])e.Argument;
-			var books = (IEnumerable<UsxDocument>)parameters[0];
-			var stylesheet = (IStylesheet)parameters[1];
-			var postParseAction = parameters.Length > 2 ? (Action<BookScript>)parameters[2] : null;
-
-			var backgroundWorker = (BackgroundWorker)sender;
-
-			var parsedBooks = UsxParser.ParseBooks(books, stylesheet, i => backgroundWorker.ReportProgress(i));
+			var parsedBooks = UsxParser.ParseBooks(books, stylesheet, i =>
+				{
+					m_usxPercentComplete = i;
+					var pe = new ProgressChangedEventArgs(PercentInitialized, null);
+					OnReport(pe);
+				});
 
 			if (postParseAction != null)
 			{
 				foreach (var book in parsedBooks)
 					postParseAction(book);
 			}
-			e.Result = parsedBooks;
-		}
 
-		private void UsxWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-		{
-			if (e.Error != null)
-				throw e.Error;
-
-			var bookScripts = (List<BookScript>)e.Result;
-
-			foreach (var bookScript in bookScripts)
+			foreach (var bookScript in parsedBooks)
 			{
 				// This code is an attempt to figure out how we are getting null reference exceptions when using the objects in the list (See PG-275 & PG-287)
 				if (bookScript?.BookId == null)
 				{
-					var nonNullBookScripts = bookScripts.Where(b => b != null).Select(b => b.BookId);
+					var nonNullBookScripts = parsedBooks.Where(b => b != null).Select(b => b.BookId);
 					var nonNullBookScriptsStr = Join(";", nonNullBookScripts);
 					var initialMessage = bookScript == null ? "BookScript is null." : "BookScript has null BookId.";
-					throw new ApplicationException($"{initialMessage} Number of BookScripts: {bookScripts.Count}. " +
+					throw new ApplicationException($"{initialMessage} Number of BookScripts: {parsedBooks.Count}. " +
 						$"BookScripts which are NOT null: {nonNullBookScriptsStr}");
 				}
 
@@ -1520,12 +1503,12 @@ namespace GlyssenEngine
 
 			if (m_books.Any())
 			{
-				foreach (var book in bookScripts)
+				foreach (var book in parsedBooks)
 					IncludeExistingBook(book);
 			}
 			else
 			{
-				m_books.AddRange(bookScripts);
+				m_books.AddRange(parsedBooks);
 				m_projectMetadata.ParserVersion = kParserVersion;
 				if (m_books.All(b => IsNullOrEmpty(b.PageHeader)))
 					ChapterAnnouncementStyle = ChapterAnnouncement.ChapterLabel;
@@ -1535,79 +1518,57 @@ namespace GlyssenEngine
 			}
 
 			if (QuoteSystem == null)
-				GuessAtQuoteSystem();
+				GuessAtQuoteSystemAsync();
 			else if (IsQuoteSystemReadyForParse)
-				DoQuoteParse(bookScripts.Select(b => b.BookId));
+				DoQuoteParseAsync(parsedBooks.Select(b => b.BookId));
 		}
 
-		private void UsxWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+		private async Task GuessAtQuoteSystemAsync()
 		{
-			m_usxPercentComplete = e.ProgressPercentage;
-			var pe = new ProgressChangedEventArgs(PercentInitialized, null);
-			OnReport(pe);
+			ProjectState = ProjectState.UsxComplete | (ProjectState & ProjectState.WritingSystemRecoveryInProcess);
+			await Task.Run(GuessAtQuoteSystem);
 		}
 
 		private void GuessAtQuoteSystem()
 		{
-			ProjectState = ProjectState.UsxComplete | (ProjectState & ProjectState.WritingSystemRecoveryInProcess);
-			var guessWorker = new BackgroundWorker {WorkerReportsProgress = true};
-			guessWorker.DoWork += GuessWorker_DoWork;
-			guessWorker.RunWorkerCompleted += GuessWorker_RunWorkerCompleted;
-			guessWorker.ProgressChanged += GuessWorker_ProgressChanged;
-			guessWorker.RunWorkerAsync();
-		}
+			var quoteSystem = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, m_books, Versification, out _,
+				i =>
+				{
+					m_guessPercentComplete = i;
+					var pe = new ProgressChangedEventArgs(PercentInitialized, null);
+					OnReport(pe);
+				});
 
-		private void GuessWorker_DoWork(object sender, DoWorkEventArgs e)
-		{
-			e.Result = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, m_books, Versification, out _,
-				sender as BackgroundWorker);
-		}
-
-		private void GuessWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-		{
-			if (e.Error != null)
-				throw e.Error;
-
-			SetQuoteSystem(QuoteSystemStatus.Guessed, (QuoteSystem)e.Result);
-
+		SetQuoteSystem(QuoteSystemStatus.Guessed, quoteSystem);
 			Save();
 		}
 
-		private void GuessWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
-		{
-			m_guessPercentComplete = e.ProgressPercentage;
-			var pe = new ProgressChangedEventArgs(PercentInitialized, null);
-			OnReport(pe);
-		}
-
-		private void DoQuoteParse(IEnumerable<string> booksToParse = null)
+		private async Task DoQuoteParseAsync(IEnumerable<string> booksToParse = null)
 		{
 			m_projectMetadata.ParserVersion = kParserVersion;
 			ProjectState = ProjectState.Parsing;
-			var quoteWorker = new BackgroundWorker {WorkerReportsProgress = true};
-			quoteWorker.DoWork += QuoteWorker_DoWork;
-			quoteWorker.RunWorkerCompleted += QuoteWorker_RunWorkerCompleted;
-			quoteWorker.ProgressChanged += QuoteWorker_ProgressChanged;
-			object[] parameters = {booksToParse};
-			quoteWorker.RunWorkerAsync(parameters);
+			await Task.Run(() => { DoQuoteParse(booksToParse);});
 		}
 
-		private void QuoteWorker_DoWork(object sender, DoWorkEventArgs e)
+		private void DoQuoteParse(IEnumerable<string> bookIds)
 		{
-			var bookIds = (IEnumerable<string>)((object[])e.Argument)[0];
-			QuoteParser.ParseProject(this, sender as BackgroundWorker, bookIds);
-		}
-
-		private void QuoteWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-		{
-			if (e.Error != null)
+			try
+			{
+				QuoteParser.ParseProject(this, i =>
+				{
+					m_quotePercentComplete = i;
+					var pe = new ProgressChangedEventArgs(PercentInitialized, null);
+					OnReport(pe);
+				}, bookIds);
+			}
+			catch (Exception e)
 			{
 #if DEBUG
 				Exception innerException;
-				if ((innerException = e.Error?.InnerException) != null)
+				if ((innerException = e.InnerException) != null)
 					Debug.WriteLine(innerException.Message + innerException.StackTrace);
 #endif
-				throw e.Error;
+				throw;
 			}
 
 			ProjectState = ProjectState.QuoteParseComplete;
@@ -1626,13 +1587,6 @@ namespace GlyssenEngine
 			Save();
 
 			QuoteParseCompleted?.Invoke(this, new EventArgs());
-		}
-
-		private void QuoteWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
-		{
-			m_quotePercentComplete = e.ProgressPercentage;
-			var pe = new ProgressChangedEventArgs(PercentInitialized, null);
-			OnReport(pe);
 		}
 
 		public int MaxProjectNameLength => Writer.GetMaxProjectNameLength(this);

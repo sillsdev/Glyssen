@@ -186,6 +186,14 @@ namespace Glyssen
 
 		private void FinishSetProjectIfReady(object sender, EventArgs e)
 		{
+			if (InvokeRequired)
+				Invoke(new Action(FinishSetProjectIfReady));
+			else
+				FinishSetProjectIfReady();
+		}
+
+		private void FinishSetProjectIfReady()
+		{
 			if (m_project != null && (m_project.ProjectState & ProjectState.ReadyForUserInteraction) > 0)
 				FinishSetProject();
 			else

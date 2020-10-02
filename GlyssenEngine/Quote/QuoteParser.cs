@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
@@ -21,7 +20,7 @@ namespace GlyssenEngine.Quote
 {
 	public class QuoteParser
 	{
-		public static void ParseProject(Project project, BackgroundWorker projectWorker, IEnumerable<string> bookIdsToParse)
+		public static void ParseProject(Project project, Action<int> reportProgress, IEnumerable<string> bookIdsToParse)
 		{
 			var cvInfo = new ParserCharacterRepository(new CombinedCharacterVerseData(project), project.ReferenceText);
 
@@ -43,10 +42,10 @@ namespace GlyssenEngine.Quote
 			{
 				book.Blocks = new QuoteParser(cvInfo, book.BookId, blocksInBook[book], project.Versification).Parse().ToList();
 				completedProjectBlocks += numBlocksPerBook[book.BookId];
-				projectWorker.ReportProgress(MathUtilities.Percent(completedProjectBlocks, allProjectBlocks, 99));
+				reportProgress(MathUtilities.Percent(completedProjectBlocks, allProjectBlocks, 99));
 			});
 
-			projectWorker.ReportProgress(100);
+			reportProgress(100);
 		}
 
 		public static void SetQuoteSystem(QuoteSystem quoteSystem)
