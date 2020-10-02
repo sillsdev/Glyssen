@@ -526,14 +526,14 @@
     <text>Jabez was more honorable than his brothers: and his mother named him Jabez, saying,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="9" characterId="Jabez's mother">
-    <text>“Because I bore him with sorrow.”</text>
+    <text>«Because I bore him with sorrow.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="10" characterId="narrator-1CH">
     <verse num="10" />
     <text>Jabez called on the God of Israel, saying,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="10" characterId="Jabez">
-    <text>“Oh that you would bless me indeed, and enlarge my border, and that your hand might be with me, and that you would keep me from evil, that it not be to my sorrow!”</text>
+    <text>«Oh that you would bless me indeed, and enlarge my border, and that your hand might be with me, and that you would keep me from evil, that it not be to my sorrow!»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="10" characterId="narrator-1CH">
     <text>God granted him that which he requested.</text>
@@ -1499,7 +1499,7 @@
     <text>Then Saul said to his armor bearer,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="4" characterId="Saul">
-    <text>“Draw your sword, and thrust me through with it, lest these uncircumcised come and abuse me.”</text>
+    <text>«Draw your sword, and thrust me through with it, lest these uncircumcised come and abuse me.»</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="4" characterId="narrator-1CH">
     <text>But his armor bearer would not; for he was terrified. Therefore Saul took his sword, and fell on it.</text>
@@ -1548,11 +1548,11 @@
     <text>Then all Israel gathered themselves to David to Hebron, saying,</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="1" characterId="Israel, all">
-    <text>“Behold, we are your bone and your flesh.</text>
+    <text>«Behold, we are your bone and your flesh.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="2" characterId="Israel, all">
     <verse num="2" />
-    <text>In times past, even when Saul was king, it was you who led out and brought in Israel. God your God said to you, ‹You shall be shepherd of my people Israel, and you shall be prince over my people Israel.› ”</text>
+    <text>In times past, even when Saul was king, it was you who led out and brought in Israel. God your God said to you, ‹You shall be shepherd of my people Israel, and you shall be prince over my people Israel.› »</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="3" characterId="narrator-1CH">
     <verse num="3" />
@@ -1565,7 +1565,7 @@
     <text>The inhabitants of Jebus said to David,</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="5" characterId="Jebusites">
-    <text>“You shall not come in here.”</text>
+    <text>«You shall not come in here.»</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="5" characterId="narrator-1CH">
     <text>Nevertheless David took the stronghold of Zion. The same is the city of David. </text>
@@ -1573,7 +1573,7 @@
     <text>David said,</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="6" characterId="David">
-    <text>“Whoever strikes the Jebusites first shall be chief and captain.”</text>
+    <text>«Whoever strikes the Jebusites first shall be chief and captain.»</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="6" characterId="narrator-1CH">
     <text>Joab the son of Zeruiah went up first, and was made chief.</text>
@@ -1621,7 +1621,7 @@
     <text>David longed, and said,</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="17" characterId="David">
-    <text>“Oh that one would give me water to drink of the well of Bethlehem, which is by the gate!”</text>
+    <text>«Oh that one would give me water to drink of the well of Bethlehem, which is by the gate!»</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="18" characterId="narrator-1CH">
     <verse num="18" />
@@ -1630,7 +1630,7 @@
     <text>and said,</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="19" characterId="David">
-    <text>“My God forbid it me, that I should do this! Shall I drink the blood of these men who have put their lives in jeopardy?”</text>
+    <text>«My God forbid it me, that I should do this! Shall I drink the blood of these men who have put their lives in jeopardy?»</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="19" characterId="narrator-1CH">
     <text>For they risked their lives to bring it. Therefore he would not drink it. The three mighty men did these things.</text>
@@ -1767,14 +1767,14 @@
     <text>David went out to meet them, and answered them,</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="17" characterId="David">
-    <text>“If you have come peaceably to me to help me, my heart shall be knit to you; but if you have come to betray me to my adversaries, since there is no wrong in my hands, may the God of our fathers look thereon, and rebuke it.”</text>
+    <text>«If you have come peaceably to me to help me, my heart shall be knit to you; but if you have come to betray me to my adversaries, since there is no wrong in my hands, may the God of our fathers look thereon, and rebuke it.»</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="18" characterId="narrator-1CH">
     <verse num="18" />
     <text>Then the Spirit came on Amasai, who was chief of the thirty, and he said,</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="18" characterId="Amasai, chief of thirty">
-    <text>“We are yours, David, and on your side, you son of Jesse: peace, peace be to you, and peace be to your helpers; for your God helps you.”</text>
+    <text>«We are yours, David, and on your side, you son of Jesse: peace, peace be to you, and peace be to your helpers; for your God helps you.»</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="18" characterId="narrator-1CH">
     <text>Then David received them, and made them captains of the band.</text>
@@ -1784,7 +1784,7 @@
     <text>Of Manasseh also there fell away some to David, when he came with the Philistines against Saul to battle; but they didn’t help them; for the lords of the Philistines sent him away after consultation, saying,</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="19" characterId="Philistine rulers">
-    <text>“He will fall away to his master Saul to the jeopardy of our heads.”</text>
+    <text>«He will fall away to his master Saul to the jeopardy of our heads.»</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="20" characterId="narrator-1CH">
     <verse num="20" />
@@ -1878,11 +1878,11 @@
     <text>David said to all the assembly of Israel,</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="2" characterId="David">
-    <text>“If it seems good to you, and if it is of God our God, let us send abroad everywhere to our brothers who are left in all the land of Israel, with whom the priests and Levites are in their cities that have suburbs, that they may gather themselves to us;</text>
+    <text>«If it seems good to you, and if it is of God our God, let us send abroad everywhere to our brothers who are left in all the land of Israel, with whom the priests and Levites are in their cities that have suburbs, that they may gather themselves to us;</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="3" characterId="David">
     <verse num="3" />
-    <text>and let us bring again the ark of our God to us. For we didn’t seek it in the days of Saul.”</text>
+    <text>and let us bring again the ark of our God to us. For we didn’t seek it in the days of Saul.»</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="4" characterId="narrator-1CH">
     <verse num="4" />
@@ -1919,7 +1919,7 @@
     <text>David was afraid of God that day, saying,</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="12" characterId="David">
-    <text>“How shall I bring the ark of God home to me?”</text>
+    <text>«How shall I bring the ark of God home to me?»</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="13" characterId="narrator-1CH">
     <verse num="13" />
@@ -1971,13 +1971,13 @@
     <text>David inquired of God, saying,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="10" characterId="David">
-    <text>“Shall I go up against the Philistines? Will you deliver them into my hand?”</text>
+    <text>«Shall I go up against the Philistines? Will you deliver them into my hand?»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="10" characterId="narrator-1CH">
     <text>God said to him,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="10" characterId="God">
-    <text>“Go up; for I will deliver them into your hand.”</text>
+    <text>«Go up; for I will deliver them into your hand.»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="11" characterId="narrator-1CH">
     <verse num="11" />
@@ -2000,11 +2000,11 @@
     <text>David inquired again of God; and God said to him,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="14" characterId="God">
-    <text>“You shall not go up after them. Turn away from them, and come on them over against the mulberry trees.</text>
+    <text>«You shall not go up after them. Turn away from them, and come on them over against the mulberry trees.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="15" characterId="God">
     <verse num="15" />
-    <text>It shall be, when you hear the sound of marching in the tops of the mulberry trees, that then you shall go out to battle; for God has gone out before you to strike the army of the Philistines.”</text>
+    <text>It shall be, when you hear the sound of marching in the tops of the mulberry trees, that then you shall go out to battle; for God has gone out before you to strike the army of the Philistines.»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="16" characterId="narrator-1CH">
     <verse num="16" />
@@ -2024,7 +2024,7 @@
     <text>Then David said,</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="2" characterId="David">
-    <text>“No one ought to carry the ark of God but the Levites. For God has chosen them to carry the ark of God, and to minister to him forever.”</text>
+    <text>«No one ought to carry the ark of God but the Levites. For God has chosen them to carry the ark of God, and to minister to him forever.»</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="3" characterId="narrator-1CH">
     <verse num="3" />
@@ -2065,11 +2065,11 @@
     <text>and said to them,</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="12" characterId="David">
-    <text>“You are the heads of the fathers’ houses of the Levites. Sanctify yourselves, both you and your brothers, that you may bring up the ark of God, the God of Israel, to the place that I have prepared for it.</text>
+    <text>«You are the heads of the fathers’ houses of the Levites. Sanctify yourselves, both you and your brothers, that you may bring up the ark of God, the God of Israel, to the place that I have prepared for it.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="13" characterId="David">
     <verse num="13" />
-    <text>For because you didn’t carry it at first, God our God made broke out against us, because we didn’t seek him according to the ordinance.”</text>
+    <text>For because you didn’t carry it at first, God our God made broke out against us, because we didn’t seek him according to the ordinance.»</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="14" characterId="narrator-1CH">
     <verse num="14" />
@@ -2202,7 +2202,7 @@
     <verse num="17" />
     <text>He confirmed the same to Jacob for a statute, and to Israel for an everlasting covenant, </text>
     <verse num="18" />
-    <text>saying, “I will give you the land of Canaan, The lot of your inheritance,”</text>
+    <text>saying, «I will give you the land of Canaan, The lot of your inheritance,»</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="19" characterId="David" delivery="psalm">
     <verse num="19" />
@@ -2252,7 +2252,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="31" characterId="David" delivery="psalm">
     <verse num="31" />
-    <text>Let the heavens be glad, and let the earth rejoice! Let them say among the nations, “God reigns!”</text>
+    <text>Let the heavens be glad, and let the earth rejoice! Let them say among the nations, «God reigns!»</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="32" characterId="David" delivery="psalm">
     <verse num="32" />
@@ -2266,7 +2266,7 @@
     <verse num="34" />
     <text>Oh give thanks to God, for he is good, for his loving kindness endures forever. </text>
     <verse num="35" />
-    <text>Say, “Save us, God of our salvation! Gather us together and deliver us from the nations, to give thanks to your holy name, to triumph in your praise.”</text>
+    <text>Say, «Save us, God of our salvation! Gather us together and deliver us from the nations, to give thanks to your holy name, to triumph in your praise.»</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="36" characterId="David" delivery="psalm">
     <verse num="36" />
@@ -2276,7 +2276,7 @@
     <text>All the people said,</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="36" characterId="people, all the">
-    <text>“Amen, and praise God.”</text>
+    <text>«Amen, and praise God.»</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="37" characterId="narrator-1CH">
     <verse num="37" />
@@ -2312,14 +2312,14 @@
     <text>It happened, when David lived in his house, that David said to Nathan the prophet,</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="1" characterId="David">
-    <text>“Behold, I dwell in a house of cedar, but the ark of the covenant of God is under curtains.”</text>
+    <text>«Behold, I dwell in a house of cedar, but the ark of the covenant of God is under curtains.»</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="2" characterId="narrator-1CH">
     <verse num="2" />
     <text>Nathan said to David,</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="2" characterId="Nathan">
-    <text>“Do all that is in your heart; for God is with you.”</text>
+    <text>«Do all that is in your heart; for God is with you.»</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="3" characterId="narrator-1CH">
     <verse num="3" />
@@ -2327,7 +2327,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>“Go and tell David my servant, ‹Thus says God, You shall not build me a house to dwell in;</text>
+    <text>«Go and tell David my servant, ‹Thus says God, «You shall not build me a house to dwell in;</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="5" characterId="God">
     <verse num="5" />
@@ -2335,11 +2335,11 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>In all places in which I have walked with all Israel, did I speak a word with any of the judges of Israel, whom I commanded to be shepherd of my people, saying, “Why have you not built me a house of cedar?” ›</text>
+    <text>In all places in which I have walked with all Israel, did I speak a word with any of the judges of Israel, whom I commanded to be shepherd of my people, saying, ‹Why have you not built me a house of cedar?› » ›</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>Now therefore, you shall tell my servant David, ‹Thus says God of Armies, I took you from the sheep pen, from following the sheep, that you should be prince over my people Israel.</text>
+    <text>«Now therefore, you shall tell my servant David, ‹Thus says God of Armies, «I took you from the sheep pen, from following the sheep, that you should be prince over my people Israel.</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="8" characterId="God">
     <verse num="8" />
@@ -2365,7 +2365,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="14" characterId="God">
     <verse num="14" />
-    <text>but I will settle him in my house and in my kingdom forever. His throne shall be established forever.› ”</text>
+    <text>but I will settle him in my house and in my kingdom forever. His throne shall be established forever.» › »</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="15" characterId="narrator-1CH">
     <verse num="15" />
@@ -2374,7 +2374,7 @@
     <text>Then David the king went in, and sat before God; and he said,</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="16" characterId="David">
-    <text>“Who am I, God, and what is my house, that you have brought me thus far?</text>
+    <text>«Who am I, God, and what is my house, that you have brought me thus far?</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="17" characterId="David">
     <verse num="17" />
@@ -2418,7 +2418,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="27" characterId="David">
     <verse num="27" />
-    <text>Now it has pleased you to bless the house of your servant, that it may continue forever before you; for you, God, have blessed, and it is blessed forever.”</text>
+    <text>Now it has pleased you to bless the house of your servant, that it may continue forever before you; for you, God, have blessed, and it is blessed forever.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="18" book="1CH" initialStartVerse="0" characterId="BC-1CH">
     <text>18</text>
@@ -2499,7 +2499,7 @@
     <text>David said,</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="2" characterId="David" delivery="thought">
-    <text>“I will show kindness to Hanun the son of Nahash, because his father showed kindness to me.”</text>
+    <text>«I will show kindness to Hanun the son of Nahash, because his father showed kindness to me.»</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="2" characterId="narrator-1CH">
     <text>So David sent messengers to comfort him concerning his father. David’s servants came into the land of the children of Ammon to Hanun, to comfort him. </text>
@@ -2507,7 +2507,7 @@
     <text>But the princes of the children of Ammon said to Hanun,</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="3" characterId="Ammonite nobles">
-    <text>“Do you think that David honors your father, in that he has sent comforters to you? Haven't his servants come to you to search, to overthrow, and to spy out the land?”</text>
+    <text>«Do you think that David honors your father, in that he has sent comforters to you? Haven’t his servants come to you to search, to overthrow, and to spy out the land?»</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="4" characterId="narrator-1CH">
     <verse num="4" />
@@ -2518,7 +2518,7 @@
     <text>Then there went certain persons, and told David how the men were served. He sent to meet them; for the men were greatly ashamed. The king said,</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="5" characterId="David">
-    <text>“Stay at Jericho until your beards have grown, and then return.”</text>
+    <text>«Stay at Jericho until your beards have grown, and then return.»</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="6" characterId="narrator-1CH">
     <verse num="6" />
@@ -2547,11 +2547,11 @@
     <text>He said,</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="12" characterId="Joab">
-    <text>“If the Syrians are too strong for me, then you are to help me; but if the children of Ammon are too strong for you, then I will help you.</text>
+    <text>«If the Syrians are too strong for me, then you are to help me; but if the children of Ammon are too strong for you, then I will help you.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="13" characterId="Joab">
     <verse num="13" />
-    <text>Be courageous, and let us be strong for our people, and for the cities of our God. May God do that which seems good to him.”</text>
+    <text>Be courageous, and let us be strong for our people, and for the cities of our God. May God do that which seems good to him.»</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="14" characterId="narrator-1CH">
     <verse num="14" />
@@ -2622,14 +2622,14 @@
     <text>David said to Joab and to the princes of the people,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="2" characterId="David">
-    <text>“Go, number Israel from Beersheba even to Dan; and bring me word, that I may know the sum of them.”</text>
+    <text>«Go, number Israel from Beersheba even to Dan; and bring me word, that I may know the sum of them.»</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="3" characterId="narrator-1CH">
     <verse num="3" />
     <text>Joab said,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="3" characterId="Joab">
-    <text>“May God make his people a hundred times as many as they are. But, my lord the king, aren't they all my lord's servants? Why does my lord require this thing? Why will he be a cause of guilt to Israel?”</text>
+    <text>«May God make his people a hundred times as many as they are. But, my lord the king, aren’t they all my lord’s servants? Why does my lord require this thing? Why will he be a cause of guilt to Israel?»</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="4" characterId="narrator-1CH">
     <verse num="4" />
@@ -2650,29 +2650,29 @@
     <text>David said to God,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="8" characterId="David">
-    <text>“I have sinned greatly, in that I have done this thing. But now, put away, I beg you, the iniquity of your servant; for I have done very foolishly.”</text>
+    <text>«I have sinned greatly, in that I have done this thing. But now, put away, I beg you, the iniquity of your servant; for I have done very foolishly.»</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="9" characterId="narrator-1CH">
     <verse num="9" />
     <text>God spoke to Gad, David’s seer, saying, </text>
     <verse num="10" />
-    <text>Go and speak to David, saying, ‹Thus says God, I offer you three things. Choose one of them, that I may do it to you.”</text>
+    <text>Go and speak to David, saying, ‹Thus says God, I offer you three things. Choose one of them, that I may do it to you.»</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="11" characterId="narrator-1CH">
     <verse num="11" />
     <text>So Gad came to David, and said to him,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="11" characterId="Gad the prophet, David's seer">
-    <text>“Thus says God, ‹Take your choice: </text>
+    <text>«Thus says God, ‹Take your choice: </text>
     <verse num="12" />
-    <text>either three years of famine; or three months to be consumed before your foes, while the sword of your enemies overtakes you; or else three days the sword of God, even pestilence in the land, and the angel of God destroying throughout all the borders of Israel. Now therefore consider what answer I shall return to him who sent me.› ”</text>
+    <text>either three years of famine; or three months to be consumed before your foes, while the sword of your enemies overtakes you; or else three days the sword of God, even pestilence in the land, and the angel of God destroying throughout all the borders of Israel. Now therefore consider what answer I shall return to him who sent me.› »</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="13" characterId="narrator-1CH">
     <verse num="13" />
     <text>David said to Gad,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="13" characterId="David">
-    <text>“I am in distress. Let me fall, I pray, into the hand of God; for his mercies are very great. Let me not fall into the hand of man.”</text>
+    <text>«I am in distress. Let me fall, I pray, into the hand of God; for his mercies are very great. Let me not fall into the hand of man.»</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="14" characterId="narrator-1CH">
     <verse num="14" />
@@ -2683,7 +2683,7 @@
     <text>God sent an angel to Jerusalem to destroy it. As he was about to destroy, God saw, and he relented of the disaster, and said to the destroying angel,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="15" characterId="God">
-    <text>“It is enough; now stay your hand.”</text>
+    <text>«It is enough; now stay your hand.»</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="15" characterId="narrator-1CH">
     <text>The angel of God was standing by the threshing floor of Ornan the Jebusite.</text>
@@ -2695,7 +2695,7 @@
     <text>David said to God,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="17" characterId="David">
-    <text>“Isn't it I who commanded the people to be numbered? It is even I who have sinned and done very wickedly; but these sheep, what have they done? Please let your hand, O God my God, be against me, and against my father's house; but not against your people, that they should be plagued.”</text>
+    <text>«Isn’t it I who commanded the people to be numbered? It is even I who have sinned and done very wickedly; but these sheep, what have they done? Please let your hand, O God my God, be against me, and against my father’s house; but not against your people, that they should be plagued.»</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="18" characterId="narrator-1CH">
     <verse num="18" />
@@ -2716,21 +2716,21 @@
     <text>Then David said to Ornan,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="22" characterId="David">
-    <text>“Give me the place of this threshing floor, that I may build thereon an altar to God. You shall sell it to me for the full price, that the plague may be stopped from afflicting the people.”</text>
+    <text>«Give me the place of this threshing floor, that I may build thereon an altar to God. You shall sell it to me for the full price, that the plague may be stopped from afflicting the people.»</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="23" characterId="narrator-1CH">
     <verse num="23" />
     <text>Ornan said to David,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="23" characterId="Araunah, the Jebusite">
-    <text>“Take it for yourself, and let my lord the king do that which is good in his eyes. Behold, I give the oxen for burnt offerings, and the threshing instruments for wood, and the wheat for the meal offering. I give it all.”</text>
+    <text>«Take it for yourself, and let my lord the king do that which is good in his eyes. Behold, I give the oxen for burnt offerings, and the threshing instruments for wood, and the wheat for the meal offering. I give it all.»</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="24" characterId="narrator-1CH">
     <verse num="24" />
     <text>King David said to Ornan,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="24" characterId="David">
-    <text>“No; but I will most certainly buy it for the full price. For I will not take that which is yours for God, nor offer a burnt offering without cost.”</text>
+    <text>«No; but I will most certainly buy it for the full price. For I will not take that which is yours for God, nor offer a burnt offering without cost.»</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="25" characterId="narrator-1CH">
     <verse num="25" />
@@ -2764,7 +2764,7 @@
     <text>Then David said,</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="1" characterId="David">
-    <text>“This is the house of God, and this is the altar of burnt offering for Israel.”</text>
+    <text>«This is the house of God, and this is the altar of burnt offering for Israel.»</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="2" characterId="narrator-1CH">
     <verse num="2" />
@@ -2781,7 +2781,7 @@
     <text>David said,</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="5" characterId="David">
-    <text>“Solomon my son is young and tender, and the house that is to be built for God must be exceedingly magnificent, of fame and of glory throughout all countries. I will therefore make preparation for it.”</text>
+    <text>«Solomon my son is young and tender, and the house that is to be built for God must be exceedingly magnificent, of fame and of glory throughout all countries. I will therefore make preparation for it.»</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="5" characterId="narrator-1CH">
     <text>So David prepared abundantly before his death.</text>
@@ -2793,7 +2793,7 @@
     <text>David said to Solomon his son,</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="7" characterId="David">
-    <text>“As for me, it was in my heart to build a house to the name of God my God.</text>
+    <text>«As for me, it was in my heart to build a house to the name of God my God.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="8" characterId="David">
     <verse num="8" />
@@ -2827,7 +2827,7 @@
     <verse num="15" />
     <text>There are also workmen with you in abundance, cutters and workers of stone and timber, and all kinds of men who are skillful in every kind of work: </text>
     <verse num="16" />
-    <text>of the gold, the silver, and the brass, and the iron, there is no number. Arise and be doing, and may God be with you.”</text>
+    <text>of the gold, the silver, and the brass, and the iron, there is no number. Arise and be doing, and may God be with you.»</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="17" characterId="narrator-1CH">
     <verse num="17" />
@@ -2859,11 +2859,11 @@
     <text>David said,</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="4" characterId="David">
-    <text>“Of these, twenty-four thousand were to oversee the work of the house of God; six thousand were officers and judges;</text>
+    <text>«Of these, twenty-four thousand were to oversee the work of the house of God; six thousand were officers and judges;</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="5" characterId="David">
     <verse num="5" />
-    <text>four thousand were doorkeepers; and four thousand praised God with the instruments which I made, for giving praise.”</text>
+    <text>four thousand were doorkeepers; and four thousand praised God with the instruments which I made, for giving praise.»</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="6" characterId="narrator-1CH">
     <verse num="6" />
@@ -2944,11 +2944,11 @@
     <text>For David said,</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="25" characterId="David">
-    <text>“God, the God of Israel, has given rest to his people; and he dwells in Jerusalem forever.</text>
+    <text>«God, the God of Israel, has given rest to his people; and he dwells in Jerusalem forever.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="26" characterId="David">
     <verse num="26" />
-    <text>Also the Levites will no longer need to carry the tabernacle and all its vessels for its service.”</text>
+    <text>Also the Levites will no longer need to carry the tabernacle and all its vessels for its service.»</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="27" characterId="narrator-1CH">
     <verse num="27" />
@@ -3490,7 +3490,7 @@
     <text>Then David the king stood up on his feet, and said,</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="2" characterId="David">
-    <text>“Hear me, my brothers, and my people! As for me, it was in my heart to build a house of rest for the ark of the covenant of God, and for the footstool of our God; and I had prepared for the building.</text>
+    <text>«Hear me, my brothers, and my people! As for me, it was in my heart to build a house of rest for the ark of the covenant of God, and for the footstool of our God; and I had prepared for the building.</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="3" characterId="David">
     <verse num="3" />
@@ -3522,7 +3522,7 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="10" characterId="David">
     <verse num="10" />
-    <text>Take heed now; for God has chosen you to build a house for the sanctuary. Be strong, and do it.”</text>
+    <text>Take heed now; for God has chosen you to build a house for the sanctuary. Be strong, and do it.»</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="11" characterId="narrator-1CH">
     <verse num="11" />
@@ -3559,18 +3559,18 @@
     <text>All this, said David,</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="19" characterId="David">
-    <text>“I have been made to understand in writing from the hand of God, even all the works of this pattern.”</text>
+    <text>«I have been made to understand in writing from the hand of God, even all the works of this pattern.»</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="20" characterId="narrator-1CH">
     <verse num="20" />
     <text>David said to Solomon his son,</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="20" characterId="David">
-    <text>“Be strong and courageous, and do it. Don't be afraid, nor be dismayed; for God, even my God, is with you. He will not fail you, nor forsake you, until all the work for the service of the house of God is finished.</text>
+    <text>«Be strong and courageous, and do it. Don’t be afraid, nor be dismayed; for God, even my God, is with you. He will not fail you, nor forsake you, until all the work for the service of the house of God is finished.</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="21" characterId="David">
     <verse num="21" />
-    <text>Behold, there are the divisions of the priests and the Levites, for all the service of the house of God. There shall be with you in all kinds of work every willing man who has skill, for any kind of service. Also the captains and all the people will be entirely at your command.”</text>
+    <text>Behold, there are the divisions of the priests and the Levites, for all the service of the house of God. There shall be with you in all kinds of work every willing man who has skill, for any kind of service. Also the captains and all the people will be entirely at your command.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="29" book="1CH" initialStartVerse="0" characterId="BC-1CH">
     <text>29</text>
@@ -3580,7 +3580,7 @@
     <text>David the king said to all the assembly,</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="1" characterId="David">
-    <text>“Solomon my son, whom alone God has chosen, is yet young and tender, and the work is great; for the palace is not for man, but for God.</text>
+    <text>«Solomon my son, whom alone God has chosen, is yet young and tender, and the work is great; for the palace is not for man, but for God.</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="2" characterId="David">
     <verse num="2" />
@@ -3596,7 +3596,7 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="5" characterId="David">
     <verse num="5" />
-    <text>of gold for the things of gold, and of silver for the things of silver, and for all kinds of work to be made by the hands of artificers. Who then offers willingly to consecrate himself this day to God?”</text>
+    <text>of gold for the things of gold, and of silver for the things of silver, and for all kinds of work to be made by the hands of artificers. Who then offers willingly to consecrate himself this day to God?»</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="6" characterId="narrator-1CH">
     <verse num="6" />
@@ -3619,7 +3619,7 @@
     <text>Therefore David blessed God before all the assembly; and David said,</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="10" characterId="David">
-    <text>“You are blessed, God, the God of Israel our father, forever and ever.</text>
+    <text>«You are blessed, God, the God of Israel our father, forever and ever.</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="11" characterId="David">
     <verse num="11" />
@@ -3655,14 +3655,14 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="19" characterId="David">
     <verse num="19" />
-    <text>and give to Solomon my son a perfect heart, to keep your commandments, your testimonies, and your statutes, and to do all these things, and to build the palace, for which I have made provision.”</text>
+    <text>and give to Solomon my son a perfect heart, to keep your commandments, your testimonies, and your statutes, and to do all these things, and to build the palace, for which I have made provision.»</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="20" characterId="narrator-1CH">
     <verse num="20" />
     <text>David said to all the assembly,</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="20" characterId="David">
-    <text>“Now bless God your God!”</text>
+    <text>«Now bless God your God!»</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="20" characterId="narrator-1CH">
     <text>All the assembly blessed God, the God of their fathers, and bowed down their heads and prostrated themselves before God and the king.</text>

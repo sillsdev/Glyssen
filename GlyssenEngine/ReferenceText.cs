@@ -19,6 +19,7 @@ namespace GlyssenEngine
 {
 	public class ReferenceText : ProjectBase, IReferenceLanguageInfo, IReferenceTextProject
 	{
+		internal const string kOpenFirstLevelQuote = "«";
 		protected readonly ReferenceTextType m_referenceTextType;
 		private readonly HashSet<string> m_modifiedBooks = new HashSet<string>();
 

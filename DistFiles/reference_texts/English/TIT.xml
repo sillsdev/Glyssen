@@ -55,7 +55,7 @@
     <text>One of them, a prophet of their own, said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="Cretan prophet">
-    <text>“Cretans are always liars, evil beasts, and idle gluttons.”</text>
+    <text>«Cretans are always liars, evil beasts, and idle gluttons.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-TIT">
     <verse num="13" />
@@ -122,7 +122,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-TIT">
     <verse num="12" />
-    <text>It teaches us to say “No” to ungodliness and worldly lusts, so that we will live soberly, righteously, and godly in this present world.</text>
+    <text>It teaches us to say «No» to ungodliness and worldly lusts, so that we will live soberly, righteously, and godly in this present world.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-TIT">
     <verse num="13" />

@@ -139,7 +139,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>The children are impudent and stiff-hearted: I am sending you to them; and you shall tell them, ‘This is what the Lord God says.’</text>
+    <text>The children are impudent and stiff-hearted: I am sending you to them; and you shall tell them, ‹This is what the Lord God says.›</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="5" characterId="God">
     <verse num="5" />
@@ -219,7 +219,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="11" characterId="God">
     <verse num="11" />
-    <text>Go to them of the captivity, to the children of your people, and speak to them, and tell them, ‘This is what the Lord God says,’ whether they will hear, or whether they will forbear.</text>
+    <text>Go to them of the captivity, to the children of your people, and speak to them, and tell them, ‹This is what the Lord God says,› whether they will hear, or whether they will forbear.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="12" characterId="narrator-EZK">
     <verse num="12" />
@@ -290,7 +290,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="27" characterId="Holy Spirit, the">
     <verse num="27" />
-    <text>But when I speak with you, I will open your mouth, and you shall tell them, ‘This is what the Lord God says.’ He who hears, let him hear; and he who refuses, let him refuse: for they are a rebellious house.</text>
+    <text>But when I speak with you, I will open your mouth, and you shall tell them, ‹This is what the Lord God says.› He who hears, let him hear; and he who refuses, let him refuse: for they are a rebellious house.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="EZK" initialStartVerse="0" characterId="BC-EZK">
     <text>4</text>
@@ -357,7 +357,7 @@
     <text>Then he said to me,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="15" characterId="God">
-    <text>Behold, I have given you cow's dung for man's dung, and you shall prepare your bread thereon.</text>
+    <text>Behold, I have given you cow’s dung for man’s dung, and you shall prepare your bread thereon.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="16" characterId="narrator-EZK">
     <verse num="16" />
@@ -582,7 +582,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="15" characterId="God">
     <verse num="15" />
-    <text>“ ‘The sword is outside, and the pestilence and the famine within. He who is in the field will die by the sword. He who is in the city will be devoured by famine and pestilence.</text>
+    <text>« ‹The sword is outside, and the pestilence and the famine within. He who is in the field will die by the sword. He who is in the city will be devoured by famine and pestilence.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="16" characterId="God">
     <verse num="16" />
@@ -614,7 +614,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="23" characterId="God">
     <verse num="23" />
-    <text>“ ‘Make chains, for the land is full of bloody crimes, and the city is full of violence.</text>
+    <text>« ‹Make chains, for the land is full of bloody crimes, and the city is full of violence.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="24" characterId="God">
     <verse num="24" />
@@ -630,7 +630,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="27" characterId="God">
     <verse num="27" />
-    <text>The king will mourn, and the prince will be clothed with desolation. The hands of the people of the land will be troubled. I will do to them after their way, and according to their own judgments I will judge them. Then they will know that I am God.’ ”
+    <text>The king will mourn, and the prince will be clothed with desolation. The hands of the people of the land will be troubled. I will do to them after their way, and according to their own judgments I will judge them. Then they will know that I am God.› »
 </text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="EZK" initialStartVerse="0" characterId="BC-EZK">
@@ -663,7 +663,7 @@
     <text>He said to me,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="6" characterId="God">
-    <text>“Son of man, do you see what they do? Even the great abominations that the house of Israel commit here, that I should go far off from my sanctuary? But you will again see yet other great abominations.”</text>
+    <text>«Son of man, do you see what they do? Even the great abominations that the house of Israel commit here, that I should go far off from my sanctuary? But you will again see yet other great abominations.»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="7" characterId="narrator-EZK">
     <verse num="7" />
@@ -695,14 +695,14 @@
     <text>Then he said to me,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="12" characterId="God">
-    <text>Son of man, have you seen what the elders of the house of Israel do in the dark, every man in his rooms of imagery? for they say, God doesn't see us; God has forsaken the land.</text>
+    <text>Son of man, have you seen what the elders of the house of Israel do in the dark, every man in his rooms of imagery? for they say, God doesn’t see us; God has forsaken the land.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="13" characterId="narrator-EZK">
     <verse num="13" />
     <text>He said also to me,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="13" characterId="God">
-    <text>“You will again see more of the great abominations which they do.”</text>
+    <text>«You will again see more of the great abominations which they do.»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="14" characterId="narrator-EZK">
     <verse num="14" />
@@ -711,7 +711,7 @@
     <text>Then he said to me,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="15" characterId="God">
-    <text>“Have you seen this, son of man? You will again see yet greater abominations than these.”</text>
+    <text>«Have you seen this, son of man? You will again see yet greater abominations than these.»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="16" characterId="narrator-EZK">
     <verse num="16" />
@@ -724,7 +724,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="18" characterId="God">
     <verse num="18" />
-    <text>Therefore I will also deal in wrath. My eye won’t spare, neither will I have pity. Though they cry in my ears with a loud voice, yet I will not hear them.”</text>
+    <text>Therefore I will also deal in wrath. My eye won’t spare, neither will I have pity. Though they cry in my ears with a loud voice, yet I will not hear them.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="EZK" initialStartVerse="0" characterId="BC-EZK">
     <text>9</text>
@@ -754,7 +754,7 @@
     <text>To the others he said in my hearing,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="5" characterId="God">
-    <text>Go through the city after him, and strike: don't let your eye spare, neither have pity;</text>
+    <text>Go through the city after him, and strike: don’t let your eye spare, neither have pity;</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="6" characterId="God">
     <verse num="6" />
@@ -779,11 +779,11 @@
     <text>Then he said to me,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="9" characterId="God">
-    <text>“The iniquity of the house of Israel and Judah is exceedingly great, and the land is full of blood, and the city full of perversion; for they say, ‘God has forsaken the land, and God doesn’t see.’</text>
+    <text>«The iniquity of the house of Israel and Judah is exceedingly great, and the land is full of blood, and the city full of perversion; for they say, ‹God has forsaken the land, and God doesn’t see.›</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="10" characterId="God">
     <verse num="10" />
-    <text>As for me also, my eye won’t spare, neither will I have pity, but I will bring their way on their head.”</text>
+    <text>As for me also, my eye won’t spare, neither will I have pity, but I will bring their way on their head.»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="11" characterId="narrator-EZK">
     <verse num="11" />
@@ -927,18 +927,18 @@
     <text>Therefore the Lord God says:</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="7" characterId="God">
-    <text>“Your slain whom you have laid in the middle of it, they are the meat, and this is the cauldron; but you will be brought out of the middle of it.</text>
+    <text>«Your slain whom you have laid in the middle of it, they are the meat, and this is the cauldron; but you will be brought out of the middle of it.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>You have feared the sword; and I will bring the sword on you,”</text>
+    <text>You have feared the sword; and I will bring the sword on you,»</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="8" characterId="narrator-EZK">
     <text>says the Lord God.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="9" characterId="God">
     <verse num="9" />
-    <text>“I will bring you out of the middle of it, and deliver you into the hands of strangers, and will execute judgments among you.</text>
+    <text>«I will bring you out of the middle of it, and deliver you into the hands of strangers, and will execute judgments among you.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="10" characterId="God">
     <verse num="10" />
@@ -950,11 +950,11 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>You will know that I am God, for you have not walked in my statutes. You have not executed my ordinances, but have done after the ordinances of the nations that are around you.” ’ ”</text>
+    <text>You will know that I am God, for you have not walked in my statutes. You have not executed my ordinances, but have done after the ordinances of the nations that are around you.» › »</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="13" characterId="narrator-EZK">
     <verse num="13" />
-    <text>When I prophesied, Pelatiah the son of Benaiah died. Then I fell down on my face, and cried with a loud voice, and said, “Ah, Lord God! Will you make a full end of the remnant of Israel?”</text>
+    <text>When I prophesied, Pelatiah the son of Benaiah died. Then I fell down on my face, and cried with a loud voice, and said, «Ah, Lord God! Will you make a full end of the remnant of Israel?»</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="14" characterId="narrator-EZK">
     <verse num="14" />
@@ -1036,7 +1036,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>In their sight you shall bear it on your shoulder, and carry it out in the dark. You shall cover your face, so that you don’t see the land, for I have set you for a sign to the house of Israel.”</text>
+    <text>In their sight you shall bear it on your shoulder, and carry it out in the dark. You shall cover your face, so that you don’t see the land, for I have set you for a sign to the house of Israel.»</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="7" characterId="narrator-EZK">
     <verse num="7" />
@@ -1048,10 +1048,10 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="9" characterId="God">
     <verse num="9" />
-    <text>“Son of man, hasn’t the house of Israel, the rebellious house, said to you,</text>
+    <text>«Son of man, hasn’t the house of Israel, the rebellious house, said to you,</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="9" characterId="Israel, men of">
-    <text>‘What are you doing?’</text>
+    <text>‹What are you doing?›</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="10" characterId="God">
     <verse num="10" />
@@ -1066,7 +1066,7 @@
     <text>Say,</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="11" characterId="narrator-EZK">
-    <text>‘I am your sign. As I have done, so will it be done to them. They will go into exile, into captivity.</text>
+    <text>‹I am your sign. As I have done, so will it be done to them. They will go into exile, into captivity.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="12" characterId="God">
     <verse num="12" />
@@ -1106,7 +1106,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="20" characterId="God">
     <verse num="20" />
-    <text>The cities that are inhabited will be laid waste, and the land will be a desolation. Then you will know that I am God.” ’ ”</text>
+    <text>The cities that are inhabited will be laid waste, and the land will be a desolation. Then you will know that I am God.» › »</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="21" characterId="narrator-EZK">
     <verse num="21" />
@@ -1122,7 +1122,7 @@
     <text>The Lord God says:</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="23" characterId="God">
-    <text>“I will make this proverb to cease, and they will no more use it as a proverb in Israel;” ’ but tell them, ‘ “The days are at hand, and the fulfillment of every vision.</text>
+    <text>«I will make this proverb to cease, and they will no more use it as a proverb in Israel;» › but tell them, ‹ «The days are at hand, and the fulfillment of every vision.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="24" characterId="God">
     <verse num="24" />
@@ -1130,7 +1130,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="25" characterId="God">
     <verse num="25" />
-    <text>For I am God. I will speak, and the word that I speak will be performed. It will be no more deferred; for in your days, rebellious house, I will speak the word and will perform it,”</text>
+    <text>For I am God. I will speak, and the word that I speak will be performed. It will be no more deferred; for in your days, rebellious house, I will speak the word and will perform it,»</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="25" characterId="narrator-EZK">
     <text>says the Lord God. </text>
@@ -1285,35 +1285,35 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="3" characterId="God">
     <verse num="3" />
-    <text>“Son of man, these men have taken their idols into their heart, and put the stumbling block of their iniquity before their face. Should I be inquired of at all by them?</text>
+    <text>«Son of man, these men have taken their idols into their heart, and put the stumbling block of their iniquity before their face. Should I be inquired of at all by them?</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="4" characterId="God">
     <verse num="4" />
     <text>Therefore speak to them and tell them,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="4" characterId="Ezekiel">
-    <text>‘The Lord God says:</text>
+    <text>‹The Lord God says:</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="4" characterId="God">
-    <text>“Every man of the house of Israel who takes his idols into his heart, and puts the stumbling block of his iniquity before his face then comes to the prophet, I God will answer him there according to the multitude of his idols,</text>
+    <text>«Every man of the house of Israel who takes his idols into his heart, and puts the stumbling block of his iniquity before his face then comes to the prophet, I God will answer him there according to the multitude of his idols,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>that I may take the house of Israel in their own heart, because they are all estranged from me through their idols.”’</text>
+    <text>that I may take the house of Israel in their own heart, because they are all estranged from me through their idols.» ›</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>“Therefore tell the house of Israel,</text>
+    <text>«Therefore tell the house of Israel,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="6" characterId="Ezekiel">
-    <text>‘The Lord God says:</text>
+    <text>‹The Lord God says:</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="6" characterId="God">
-    <text>“Return, and turn yourselves from your idols! Turn away your faces from all your abominations.</text>
+    <text>«Return, and turn yourselves from your idols! Turn away your faces from all your abominations.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>“‘“For everyone of the house of Israel, or of the strangers who live in Israel, who separates himself from me and takes his idols into his heart, and puts the stumbling block of his iniquity before his face, and comes to the prophet to inquire for himself of me, I God will answer him by myself.</text>
+    <text>« ‹ «For everyone of the house of Israel, or of the strangers who live in Israel, who separates himself from me and takes his idols into his heart, and puts the stumbling block of his iniquity before his face, and comes to the prophet to inquire for himself of me, I God will answer him by myself.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="8" characterId="God">
     <verse num="8" />
@@ -1321,7 +1321,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="9" characterId="God">
     <verse num="9" />
-    <text>“‘“If the prophet is deceived and speaks a word, I, God, have deceived that prophet, and I will stretch out my hand on him, and will destroy him from among my people Israel.</text>
+    <text>« ‹ «If the prophet is deceived and speaks a word, I, God, have deceived that prophet, and I will stretch out my hand on him, and will destroy him from among my people Israel.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="10" characterId="God">
     <verse num="10" />
@@ -1329,61 +1329,61 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="11" characterId="God">
     <verse num="11" />
-    <text>that the house of Israel may no more go astray from me, neither defile themselves any more with all their transgressions; but that they may be my people, and I may be their God,”</text>
+    <text>that the house of Israel may no more go astray from me, neither defile themselves any more with all their transgressions; but that they may be my people, and I may be their God,»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="11" characterId="narrator-EZK">
-    <text>says the Lord God.’ ” </text>
+    <text>says the Lord God.› » </text>
     <verse num="12" />
     <text>God’s word came to me, saying,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>“Son of man, when a land sins against me by committing a trespass, and I stretch out my hand on it, and break the staff of its bread and send famine on it, and cut off from it man and animal—</text>
+    <text>«Son of man, when a land sins against me by committing a trespass, and I stretch out my hand on it, and break the staff of its bread and send famine on it, and cut off from it man and animal—</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="14" characterId="God">
     <verse num="14" />
-    <text>though these three men, Noah, Daniel, and Job, were in it, they would deliver only their own souls by their righteousness,”</text>
+    <text>though these three men, Noah, Daniel, and Job, were in it, they would deliver only their own souls by their righteousness,»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="14" characterId="narrator-EZK">
     <text>says the Lord God.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="15" characterId="God">
     <verse num="15" />
-    <text>“If I cause evil animals to pass through the land, and they ravage it and it is made desolate, so that no man may pass through because of the animals— </text>
+    <text>«If I cause evil animals to pass through the land, and they ravage it and it is made desolate, so that no man may pass through because of the animals— </text>
     <verse num="16" />
-    <text>though these three men were in it, as I live,”</text>
+    <text>though these three men were in it, as I live,»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="16" characterId="narrator-EZK">
     <text>says the Lord God,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="16" characterId="God">
-    <text>“they would deliver neither sons nor daughters. They only would be delivered, but the land would be desolate.</text>
+    <text>«they would deliver neither sons nor daughters. They only would be delivered, but the land would be desolate.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="17" characterId="God">
     <verse num="17" />
-    <text>“Or if I bring a sword on that land, and say, ‘Sword, go through the land, so that I cut off from it man and animal’— </text>
+    <text>«Or if I bring a sword on that land, and say, ‹Sword, go through the land, so that I cut off from it man and animal’— </text>
     <verse num="18" />
-    <text>though these three men were in it, as I live,”</text>
+    <text>though these three men were in it, as I live,»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="18" characterId="narrator-EZK">
     <text>says the Lord God,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="18" characterId="God">
-    <text>“they would deliver neither sons nor daughters, but they only would be delivered themselves.</text>
+    <text>«they would deliver neither sons nor daughters, but they only would be delivered themselves.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="19" characterId="God">
     <verse num="19" />
-    <text>“Or if I send a pestilence into that land, and pour out my wrath on it in blood, to cut off from it man and animal—</text>
+    <text>«Or if I send a pestilence into that land, and pour out my wrath on it in blood, to cut off from it man and animal—</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="20" characterId="God">
     <verse num="20" />
-    <text>though Noah, Daniel, and Job, were in it, as I live,”</text>
+    <text>though Noah, Daniel, and Job, were in it, as I live,»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="20" characterId="narrator-EZK">
     <text>says the Lord God,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="20" characterId="God">
-    <text>“they would deliver neither son nor daughter; they would deliver only their own souls by their righteousness.”</text>
+    <text>«they would deliver neither son nor daughter; they would deliver only their own souls by their righteousness.»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="21" characterId="narrator-EZK">
     <verse num="21" />
@@ -1453,7 +1453,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>Son of man, cause Jerusalem to know her abominations;</text>
+    <text>Son of man, cause Jerusalem to know her abominations; </text>
     <verse num="3" />
     <text>and say,</text>
   </block>
@@ -2291,11 +2291,11 @@
   <block style="p" chapter="20" initialStartVerse="44" characterId="narrator-EZK">
     <text>says the Lord God. </text>
     <verse num="45" />
-    <text>God's word came to me, saying,</text>
+    <text>God’s word came to me, saying,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="46" characterId="God">
     <verse num="46" />
-    <text>“Son of man, set your face toward the south, and preach toward the south, and prophesy against the forest of the field in the South.</text>
+    <text>«Son of man, set your face toward the south, and preach toward the south, and prophesy against the forest of the field in the South.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="47" characterId="God">
     <verse num="47" />
@@ -2305,15 +2305,15 @@
     <text>‹Hear God’s word: The Lord God says,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="47" characterId="God">
-    <text>“Behold, I will kindle a fire in you, and it will devour every green tree in you, and every dry tree. The burning flame will not be quenched, and all faces from the south to the north will be burned by it.</text>
+    <text>«Behold, I will kindle a fire in you, and it will devour every green tree in you, and every dry tree. The burning flame will not be quenched, and all faces from the south to the north will be burned by it.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="48" characterId="God">
     <verse num="48" />
-    <text>All flesh will see that I, God, have kindled it. It will not be quenched.” › ”</text>
+    <text>All flesh will see that I, God, have kindled it. It will not be quenched.» › »</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="49" characterId="narrator-EZK">
     <verse num="49" />
-    <text>Then I said, “Ah Lord God! They say of me, ‹Isn’t he a speaker of parables?› ”</text>
+    <text>Then I said, «Ah Lord God! They say of me, ‹Isn’t he a speaker of parables?› »</text>
   </block>
   <block style="c" paragraphStart="true" chapter="21" book="EZK" initialStartVerse="0" characterId="BC-EZK">
     <text>21</text>
@@ -2448,7 +2448,7 @@
     <text>The Lord God says concerning the children of Ammon, and concerning their reproach;</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="28" characterId="God">
-    <text>“A sword! A sword is drawn! It is polished for the slaughter, to cause it to devour, that it may be as lightning;</text>
+    <text>«A sword! A sword is drawn! It is polished for the slaughter, to cause it to devour, that it may be as lightning;</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="29" characterId="God">
     <verse num="29" />
@@ -2589,7 +2589,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="28" characterId="God">
     <verse num="28" />
-    <text>Her prophets have plastered for them with whitewash, seeing false visions, and divining lies to them, saying, ‘The Lord God says,’ when God has not spoken.</text>
+    <text>Her prophets have plastered for them with whitewash, seeing false visions, and divining lies to them, saying, ‹The Lord God says,› when God has not spoken.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="29" characterId="God">
     <verse num="29" />
@@ -2743,7 +2743,7 @@
     <text>The Lord God says:</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="32" characterId="God">
-    <text>You will drink of your sister's cup, which is deep and large; you will be ridiculed and held in derision; it contains much.</text>
+    <text>You will drink of your sister’s cup, which is deep and large; you will be ridiculed and held in derision; it contains much.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="33" characterId="God">
     <verse num="33" />
@@ -2909,21 +2909,21 @@
     <text>The people asked me,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="19" characterId="people">
-    <text>“Won’t you tell us what these things mean to us, that you act like this?”</text>
+    <text>«Won’t you tell us what these things mean to us, that you act like this?»</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="20" characterId="narrator-EZK">
     <verse num="20" />
-    <text>Then I said to them, “God’s word came to me, saying,</text>
+    <text>Then I said to them, «God’s word came to me, saying,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="21" characterId="God">
     <verse num="21" />
     <text>Speak to the house of Israel,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="21" characterId="Ezekiel">
-    <text>“The Lord God says:</text>
+    <text>«The Lord God says:</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="21" characterId="God">
-    <text>‘Behold, I will profane my sanctuary, the pride of your power, the desire of your eyes, and that which your soul pities; and your sons and your daughters whom you have left behind will fall by the sword.</text>
+    <text>‹Behold, I will profane my sanctuary, the pride of your power, the desire of your eyes, and that which your soul pities; and your sons and your daughters whom you have left behind will fall by the sword.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="22" characterId="God">
     <verse num="22" />
@@ -2935,11 +2935,11 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="24" characterId="God">
     <verse num="24" />
-    <text>Thus Ezekiel will be a sign to you; according to all that he has done, you will do. When this comes, then you will know that I am the Lord God.’”’”</text>
+    <text>Thus Ezekiel will be a sign to you; according to all that he has done, you will do. When this comes, then you will know that I am the Lord God.› » › »</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="25" characterId="God">
     <verse num="25" />
-    <text>“You, son of man, shouldn’t it be in the day when I take from them their strength, the joy of their glory, the desire of their eyes, and that whereupon they set their hear—their sons and their daughters— </text>
+    <text>«You, son of man, shouldn’t it be in the day when I take from them their strength, the joy of their glory, the desire of their eyes, and that whereupon they set their hear—their sons and their daughters— </text>
     <verse num="26" />
     <text>that in that day he who escapes will come to you, to cause you to hear it with your ears?</text>
   </block>
@@ -2983,7 +2983,7 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>therefore, behold, I have stretched out my hand on you, and will deliver you for a plunder to the nations. I will cut you off from the peoples, and I will cause you to perish out of the countries. I will destroy you. Then you will know that I am God.”</text>
+    <text>therefore, behold, I have stretched out my hand on you, and will deliver you for a plunder to the nations. I will cut you off from the peoples, and I will cause you to perish out of the countries. I will destroy you. Then you will know that I am God.»</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="8" characterId="narrator-EZK">
     <verse num="8" />
@@ -3074,7 +3074,7 @@
     <text>says the Lord God.</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="5" characterId="God">
-    <text>‘She will become plunder for the nations. </text>
+    <text>‹She will become plunder for the nations. </text>
     <verse num="6" />
     <text>Her daughters who are in the field will be slain with the sword. Then they will know that I am God.</text>
   </block>
@@ -3119,7 +3119,7 @@
     <text>The Lord God says to Tyre:</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="15" characterId="God">
-    <text>‘Won’t the islands shake at the sound of your fall, when the wounded groan, when the slaughter is made within you?</text>
+    <text>‹Won’t the islands shake at the sound of your fall, when the wounded groan, when the slaughter is made within you?</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="16" characterId="God">
     <verse num="16" />
@@ -3130,7 +3130,7 @@
     <text>They will take up a lamentation over you, and tell you,</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="17" characterId="princes of the sea" delivery="lament">
-    <text>“How you are destroyed, who were inhabited by seafaring men, the renowned city, who was strong in the sea, she and her inhabitants, who caused their terror to be on all who lived there!”</text>
+    <text>«How you are destroyed, who were inhabited by seafaring men, the renowned city, who was strong in the sea, she and her inhabitants, who caused their terror to be on all who lived there!»</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="18" characterId="God" delivery="lament">
     <verse num="18" />
@@ -3149,7 +3149,7 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="21" characterId="God" delivery="prophecy">
     <verse num="21" />
-    <text>I will make you a terror, and you will no more have any being. Though you are sought for, yet you will never be found again,’</text>
+    <text>I will make you a terror, and you will no more have any being. Though you are sought for, yet you will never be found again,›</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="21" characterId="narrator-EZK">
     <text>says the Lord God.</text>
@@ -3476,14 +3476,14 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>When they took hold of you by your hand, you broke, and tore all their shoulders; and when they leaned on you, you broke, and paralyzed all of their thighs.”</text>
+    <text>When they took hold of you by your hand, you broke, and tore all their shoulders; and when they leaned on you, you broke, and paralyzed all of their thighs.»</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="8" characterId="narrator-EZK">
     <verse num="8" />
     <text>Therefore the Lord God says:</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="8" characterId="God">
-    <text>“Behold, I will bring a sword on you, and will cut off man and animal from you.</text>
+    <text>«Behold, I will bring a sword on you, and will cut off man and animal from you.</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="9" characterId="God">
     <verse num="9" />
@@ -3499,14 +3499,14 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>I will make the land of Egypt a desolation in the midst of the countries that are desolate; and her cities among the cities that are laid waste shall be a desolation forty years; and I will scatter the Egyptians among the nations, and will disperse them through the countries.”</text>
+    <text>I will make the land of Egypt a desolation in the midst of the countries that are desolate; and her cities among the cities that are laid waste shall be a desolation forty years; and I will scatter the Egyptians among the nations, and will disperse them through the countries.»</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="13" characterId="narrator-EZK">
     <verse num="13" />
     <text>For the Lord God says:</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="13" characterId="God">
-    <text>“At the end of forty years will I gather the Egyptians from the peoples where they were scattered;</text>
+    <text>«At the end of forty years will I gather the Egyptians from the peoples where they were scattered;</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="14" characterId="God">
     <verse num="14" />
@@ -3518,7 +3518,7 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="16" characterId="God">
     <verse num="16" />
-    <text>It shall be no more the confidence of the house of Israel, bringing iniquity to memory, when they turn to look after them: and they shall know that I am the Lord God.”</text>
+    <text>It shall be no more the confidence of the house of Israel, bringing iniquity to memory, when they turn to look after them: and they shall know that I am the Lord God.»</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="17" characterId="narrator-EZK">
     <verse num="17" />
@@ -3533,11 +3533,11 @@
     <text>Therefore the Lord God says:</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="19" characterId="God">
-    <text>‘Behold, I will give the land of Egypt to Nebuchadnezzar king of Babylon. He will carry off her multitude, take her plunder, and take her prey. That will be the wages for his army.</text>
+    <text>‹Behold, I will give the land of Egypt to Nebuchadnezzar king of Babylon. He will carry off her multitude, take her plunder, and take her prey. That will be the wages for his army.</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="20" characterId="God">
     <verse num="20" />
-    <text>I have given him the land of Egypt as his payment for which he served, because they worked for me,’ says the Lord God.</text>
+    <text>I have given him the land of Egypt as his payment for which he served, because they worked for me,› says the Lord God.</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="21" characterId="God">
     <verse num="21" />
@@ -3558,7 +3558,7 @@
     <text>The Lord God says:</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="2" characterId="God">
-    <text>“Wail, ‘Alas for the day!’ </text>
+    <text>«Wail, ‹Alas for the day!› </text>
     <verse num="3" />
     <text>For the day is near, even the day of God is near; it shall be a day of clouds, a time of the nations.</text>
   </block>
@@ -4091,7 +4091,7 @@
     <text>The Lord God says:</text>
   </block>
   <block style="p" chapter="34" initialStartVerse="2" characterId="God">
-    <text>Woe to the shepherds of Israel who feed themselves! Shouldn't the shepherds feed the sheep?</text>
+    <text>Woe to the shepherds of Israel who feed themselves! Shouldn’t the shepherds feed the sheep?</text>
   </block>
   <block style="p" chapter="34" initialStartVerse="3" characterId="God">
     <verse num="3" />
@@ -4121,7 +4121,7 @@
     <text>says the Lord God,</text>
   </block>
   <block style="p" chapter="34" initialStartVerse="8" characterId="God">
-    <text>surely because my sheep became a prey, and my sheep became food to all the animals of the field, because there was no shepherd, neither did my shepherds search for my sheep, but the shepherds fed themselves, and didn't feed my sheep;</text>
+    <text>surely because my sheep became a prey, and my sheep became food to all the animals of the field, because there was no shepherd, neither did my shepherds search for my sheep, but the shepherds fed themselves, and didn’t feed my sheep;</text>
   </block>
   <block style="p" chapter="34" initialStartVerse="9" characterId="narrator-EZK">
     <verse num="9" />
@@ -4250,7 +4250,7 @@
     <text>The Lord God says:</text>
   </block>
   <block style="p" chapter="35" initialStartVerse="3" characterId="God">
-    <text>“Behold, I am against you, Mount Seir, and I will stretch out my hand against you. I will make you a desolation and an astonishment.</text>
+    <text>«Behold, I am against you, Mount Seir, and I will stretch out my hand against you. I will make you a desolation and an astonishment.</text>
   </block>
   <block style="p" chapter="35" initialStartVerse="4" characterId="God">
     <verse num="4" />
@@ -4258,15 +4258,15 @@
   </block>
   <block style="p" chapter="35" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>“‘“Because you have had a perpetual hostility, and have given over the children of Israel to the power of the sword in the time of their calamity, in the time of the iniquity of the end, </text>
+    <text>« ‹ «Because you have had a perpetual hostility, and have given over the children of Israel to the power of the sword in the time of their calamity, in the time of the iniquity of the end, </text>
     <verse num="6" />
-    <text>therefore, as I live,”</text>
+    <text>therefore, as I live,»</text>
   </block>
   <block style="p" chapter="35" initialStartVerse="6" characterId="narrator-EZK">
     <text>says the Lord God,</text>
   </block>
   <block style="p" chapter="35" initialStartVerse="6" characterId="God">
-    <text>“I will prepare you for blood, and blood will pursue you. Since you have not hated blood, therefore blood will pursue you.</text>
+    <text>«I will prepare you for blood, and blood will pursue you. Since you have not hated blood, therefore blood will pursue you.</text>
   </block>
   <block style="p" chapter="35" initialStartVerse="7" characterId="God">
     <verse num="7" />
@@ -4383,7 +4383,7 @@
   </block>
   <block style="p" chapter="36" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>Yes, I will cause men to walk on you, even my people Israel. They will possess you, and you will be their inheritance, and you will never again bereave them of their children.”</text>
+    <text>Yes, I will cause men to walk on you, even my people Israel. They will possess you, and you will be their inheritance, and you will never again bereave them of their children.»</text>
   </block>
   <block style="p" chapter="36" initialStartVerse="13" characterId="narrator-EZK">
     <verse num="13" />
@@ -4715,18 +4715,18 @@
     <text>and you shall say,</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="11" characterId="Gog">
-    <text>‘I will go up to the land of unwalled villages. I will go to those who are at rest, who dwell securely, all of them dwelling without walls, and having neither bars nor gates,</text>
+    <text>‹I will go up to the land of unwalled villages. I will go to those who are at rest, who dwell securely, all of them dwelling without walls, and having neither bars nor gates,</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="12" characterId="Gog" delivery="plotting evil">
     <verse num="12" />
-    <text>to take the plunder and to take prey; to turn your hand against the waste places that are inhabited, and against the people who are gathered out of the nations, who have gotten livestock and goods, who dwell in the middle of the earth.’</text>
+    <text>to take the plunder and to take prey; to turn your hand against the waste places that are inhabited, and against the people who are gathered out of the nations, who have gotten livestock and goods, who dwell in the middle of the earth.›</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="13" characterId="God">
     <verse num="13" />
     <text>Sheba, Dedan, and the merchants of Tarshish, with all its young lions, will ask you,</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="13" characterId="Sheba, Dedan, and the merchants of Tarshish">
-    <text>‘Have you come to take the plunder? Have you assembled your company to take the prey, to carry away silver and gold, to take away livestock and goods, to take great plunder?’ ” ’</text>
+    <text>‹Have you come to take the plunder? Have you assembled your company to take the prey, to carry away silver and gold, to take away livestock and goods, to take great plunder?› » ›</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="14" characterId="God">
     <verse num="14" />
@@ -4779,7 +4779,7 @@
     <text>says the Lord God:</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="21" characterId="God">
-    <text>every man's sword shall be against his brother.</text>
+    <text>every man’s sword shall be against his brother.</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="22" characterId="God">
     <verse num="22" />
@@ -4879,7 +4879,7 @@
   </block>
   <block style="p" chapter="39" initialStartVerse="17" characterId="God">
     <verse num="17" />
-    <text>“You, son of man, the Lord God says: ‹Speak to the birds of every sort, and to every animal of the field, “Assemble yourselves, and come; gather yourselves on every side to my sacrifice that I sacrifice for you, even a great sacrifice on the mountains of Israel, that you may eat meat and drink blood.</text>
+    <text>«You, son of man, the Lord God says: ‹Speak to the birds of every sort, and to every animal of the field, «Assemble yourselves, and come; gather yourselves on every side to my sacrifice that I sacrifice for you, even a great sacrifice on the mountains of Israel, that you may eat meat and drink blood.</text>
   </block>
   <block style="p" chapter="39" initialStartVerse="18" characterId="God">
     <verse num="18" />
@@ -5403,7 +5403,7 @@
     <text>He said to me,</text>
   </block>
   <block style="p" chapter="43" initialStartVerse="18" characterId="God">
-    <text>“Son of man, the Lord Yahweh says: ‹These are the ordinances of the altar in the day when they make it, to offer burnt offerings on it, and to sprinkle blood on it.</text>
+    <text>«Son of man, the Lord Yahweh says: ‹These are the ordinances of the altar in the day when they make it, to offer burnt offerings on it, and to sprinkle blood on it.</text>
   </block>
   <block style="p" chapter="43" initialStartVerse="19" characterId="God">
     <verse num="19" />
@@ -5630,7 +5630,7 @@
     <text>The Lord God says:</text>
   </block>
   <block style="p" chapter="45" initialStartVerse="9" characterId="God">
-    <text>“Enough you, princes of Israel! Remove violence and plunder, and execute justice and righteousness! Stop dispossessing my people!” says the Lord God.</text>
+    <text>«Enough you, princes of Israel! Remove violence and plunder, and execute justice and righteousness! Stop dispossessing my people!» says the Lord God.</text>
   </block>
   <block style="p" chapter="45" initialStartVerse="10" characterId="God">
     <verse num="10" />

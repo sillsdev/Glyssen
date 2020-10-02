@@ -4446,7 +4446,7 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(4, refTextBlocks.Count, "SETUP check - expected English reference text to have four blocks for Luke 7:40.");
 			Assert.AreEqual("Jesus", refTextBlocks[1].CharacterId,
 				"SETUP check - expected English reference text to have Jesus speak in second block for Luke 7:40.");
-			Assert.IsTrue(((ScriptText)refTextBlocks[1].BlockElements.Single()).Content.TrimEnd().EndsWith("”"),
+			Assert.IsTrue(((ScriptText)refTextBlocks[1].BlockElements.Single()).Content.TrimEnd().EndsWith("»"),
 				"SETUP check - expected English reference text to have Jesus' words in quotes for Luke 7:40.");
 			Assert.AreEqual(refText.HeSaidText,
 				refTextBlocks[2].GetText(false).ToLower().Replace(",", "."),

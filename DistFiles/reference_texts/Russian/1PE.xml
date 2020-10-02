@@ -138,9 +138,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="scripture">
-      <text>“You shall be holy; for I am holy.”</text>
+      <text>«You shall be holy; for I am holy.»</text>
     </ReferenceBlocks>
-    <text>“будьте святы, потому что Я свят.”</text>
+    <text>«будьте святы, потому что Я свят.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1PE">
@@ -204,17 +204,17 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="scripture">
-      <text>“All flesh is like grass, and all of man’s glory like the flower in the grass. The grass withers, and its flower falls;</text>
+      <text>«All flesh is like grass, and all of man’s glory like the flower in the grass. The grass withers, and its flower falls;</text>
     </ReferenceBlocks>
     <text>как трава, и всякая слава человеческая—как цвет на траве: засохла трава, и цвет ее опал;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="scripture">
       <verse num="25" />
-      <text>but the Lord’s word endures forever.”</text>
+      <text>but the Lord’s word endures forever.»</text>
     </ReferenceBlocks>
     <verse num="25" />
-    <text>но слово Господне пребывает вовек;”</text>
+    <text>но слово Господне пребывает вовек»;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-1PE">
@@ -247,7 +247,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-1PE">
       <verse num="3" />
-      <text>For as the Scriptures say: “You have discovered for yourself that the Lord is good.”</text>
+      <text>For as the Scriptures say: «You have discovered for yourself that the Lord is good.»</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>ибо вы вкусили, что благ Господь.</text>
@@ -278,9 +278,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="scripture">
-      <text>“Behold, I lay in Zion a chief cornerstone, chosen, and precious: He who believes in him will not be disappointed.”</text>
+      <text>«Behold, I lay in Zion a chief cornerstone, chosen, and precious: He who believes in him will not be disappointed.»</text>
     </ReferenceBlocks>
-    <text>“вот, Я полагаю в Сионе камень краеугольный, избранный, драгоценный; и верующий в Него не постыдится.”</text>
+    <text>«вот, Я полагаю в Сионе камень краеугольный, избранный, драгоценный; и верующий в Него не постыдится.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1PE">
@@ -292,9 +292,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="scripture">
-      <text>“The stone which the builders rejected, has become the chief cornerstone,”</text>
+      <text>«The stone which the builders rejected, has become the chief cornerstone,»</text>
     </ReferenceBlocks>
-    <text>“а для неверующих камень, который отвергли строители, но который сделался главою угла,”</text>
+    <text>«а для неверующих камень, который отвергли строители, но который сделался главою угла,»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1PE">
@@ -306,9 +306,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture">
-      <text>“a stone of stumbling, and a rock of offense.”</text>
+      <text>«a stone of stumbling, and a rock of offense.»</text>
     </ReferenceBlocks>
-    <text>“камень претыкания и камень соблазна,”</text>
+    <text>«камень претыкания и камень соблазна,»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1PE">
@@ -423,10 +423,10 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture">
       <verse num="22" />
-      <text>“who did not sin, neither was deceit found in his mouth.”</text>
+      <text>«who did not sin, neither was deceit found in his mouth.»</text>
     </ReferenceBlocks>
     <verse num="22" />
-    <text>“Он не сделал никакого греха, и не было лести в устах Его.”</text>
+    <text>«Он не сделал никакого греха, и не было лести в устах Его.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1PE">
@@ -536,9 +536,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture">
-      <text>“He who would love life, and see good days, let him keep his tongue from evil, and his lips from speaking deceit.</text>
+      <text>«He who would love life, and see good days, let him keep his tongue from evil, and his lips from speaking deceit.</text>
     </ReferenceBlocks>
-    <text>“кто любит жизнь и хочет видеть добрые дни, тот удерживай язык свой от зла и уста свои от лукавых речей;</text>
+    <text>«кто любит жизнь и хочет видеть добрые дни, тот удерживай язык свой от зла и уста свои от лукавых речей;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture">
@@ -551,10 +551,10 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture">
       <verse num="12" />
-      <text>For the eyes of the Lord are on the righteous, and his ears open to their prayer; but the face of the Lord is against those who do evil.”</text>
+      <text>For the eyes of the Lord are on the righteous, and his ears open to their prayer; but the face of the Lord is against those who do evil.»</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>потому что очи Господа обращены к праведным и уши Его к молитве их, но лице Господне против делающих зло, (чтобы истребить их с земли).”</text>
+    <text>потому что очи Господа обращены к праведным и уши Его к молитве их, но лице Господне против делающих зло, (чтобы истребить их с земли).»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1PE">
@@ -567,7 +567,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1PE">
       <verse num="14" />
-      <text>But even if you should suffer for righteousness’ sake, you are blessed. “Don’t fear what they fear, neither be troubled.”</text>
+      <text>But even if you should suffer for righteousness’ sake, you are blessed. «Don’t fear what they fear, neither be troubled.»</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Но если и страдаете за правду, то вы блаженны; а страха их не бойтесь и не смущайтесь.</text>
@@ -623,7 +623,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1PE">
       <verse num="21" />
-      <text>This water is a symbol of baptism, which now saves you-- not the putting away of the filth of the flesh, but the answer of a good conscience toward God, through the resurrection of Jesus Christ.</text>
+      <text>This water is a symbol of baptism, which now saves you—not the putting away of the filth of the flesh, but the answer of a good conscience toward God, through the resurrection of Jesus Christ.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Так и нас ныне подобное сему образу крещение, не плотской нечистоты омытие, но обещание Богу доброй совести, спасает воскресением Иисуса Христа,</text>
@@ -842,9 +842,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="scripture">
-      <text>“God resists the proud, but gives grace to the humble.”</text>
+      <text>«God resists the proud, but gives grace to the humble.»</text>
     </ReferenceBlocks>
-    <text>“что Бог гордым противится, а смиренным дает благодать.”</text>
+    <text>«что Бог гордым противится, а смиренным дает благодать.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1PE">
