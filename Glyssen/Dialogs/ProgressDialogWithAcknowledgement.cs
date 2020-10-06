@@ -5,29 +5,30 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using L10NSharp;
 using SIL.Progress;
 using SIL.Reporting;
+using Timer = System.Windows.Forms.Timer;
 
 namespace Glyssen.Dialogs
 {
 	/// <summary>
-	/// Provides a progress dialog which forces the user to acknowledge is complete by clicking OK
+	/// Provides a progress dialog which forces the user to acknowledge completion by clicking OK
 	/// </summary>
-	public class ProgressDialogWithAcknowledgement : Form
+	public class ProgressDialogWithAcknowledgement : Form, IProgress<ProgressChangedEventArgs>
 	{
 		public delegate void ProgressCallback(int progress);
 
 		private Label m_statusLabel;
 		private ProgressBar m_progressBar;
 		private Label m_progressLabel;
-		private Timer m_showWindowIfTakingLongTimeTimer;
 		private Timer m_progressTimer;
 		private Label m_overviewLabel;
 		private DateTime m_startTime;
-		private BackgroundWorker m_backgroundWorker;
-		private ProgressState m_progressState;
+		private CancellationTokenSource m_cancellationTokenSource;
 		private TableLayoutPanel m_tableLayout;
 		private bool m_workerStarted;
 		private Button m_okButton;
@@ -92,14 +93,8 @@ namespace Glyssen.Dialogs
 		/// </summary>
 		public string StatusText
 		{
-			get
-			{
-				return m_statusLabel.Text;
-			}
-			set
-			{
-				m_statusLabel.Text = value;
-			}
+			get => m_statusLabel.Text;
+			set => m_statusLabel.Text = value;
 		}
 
 		/// <summary>
@@ -107,49 +102,27 @@ namespace Glyssen.Dialogs
 		/// </summary>
 		public string Overview
 		{
-			get
-			{
-				return m_overviewLabel.Text;
-			}
-			set
-			{
-				m_overviewLabel.Text = value;
-			}
+			get => m_overviewLabel.Text;
+			set => m_overviewLabel.Text = value;
 		}
 
 		/// <summary>
 		/// Get / set the minimum range of the progress bar
 		/// </summary>
-		public int ProgressRangeMinimum
+		private int ProgressRangeMinimum
 		{
-			get
-			{
-				return m_progressBar.Minimum;
-			}
-			set
-			{
-				if (m_backgroundWorker == null)
-				{
-					m_progressBar.Minimum = value;
-				}
-			}
+			get => m_progressBar.Minimum;
+			set => m_progressBar.Minimum = value;
 		}
 
 		/// <summary>
 		/// Get / set the maximum range of the progress bar
 		/// </summary>
-		public int ProgressRangeMaximum
+		private int ProgressRangeMaximum
 		{
-			get
-			{
-				return m_progressBar.Maximum;
-			}
+			get => m_progressBar.Maximum;
 			set
 			{
-				if (m_backgroundWorker != null)
-				{
-					return;
-				}
 				if (InvokeRequired)
 				{
 					Invoke(new ProgressCallback(SetMaximumCrossThread), value);
@@ -171,10 +144,7 @@ namespace Glyssen.Dialogs
 		/// </summary>
 		public int Progress
 		{
-			get
-			{
-				return m_progressBar.Value;
-			}
+			get => m_progressBar.Value;
 			set
 			{
 				/* these were causing weird, hard to debug (because of threads)
@@ -203,12 +173,10 @@ namespace Glyssen.Dialogs
 		/// </summary>
 		public bool CanCancel
 		{
-			get
-			{
-				return m_cancelButton.Enabled || m_cancelLink.Enabled;
-			}
+			get => m_cancellationTokenSource != null;
 			set
 			{
+				m_cancellationTokenSource = value ? new CancellationTokenSource() : null;
 				if (ReplaceCancelButtonWithLink)
 				{
 					m_cancelLink.Enabled = value;
@@ -222,69 +190,84 @@ namespace Glyssen.Dialogs
 			}
 		}
 
+		private CancellationToken CancellationToken => m_cancellationTokenSource?.Token ?? new CancellationToken(false);
+
 		/// <summary>
-		/// If this is set before showing, the dialog will run the worker and respond
-		/// to its events
+		/// This should be an abstract, but abstract dialogs are hard to work with in Designer.
+		/// Override this in subclass to have the dialog kick off the work when shown.
 		/// </summary>
-		public BackgroundWorker BackgroundWorker
+		protected virtual void DoWork(CancellationToken cancellationToken)
 		{
-			get
-			{
-				return m_backgroundWorker;
-			}
-			set
-			{
-				m_backgroundWorker = value;
-				m_progressBar.Minimum = 0;
-				m_progressBar.Maximum = 100;
-			}
+			
 		}
 
-		public ProgressState ProgressStateResult
-		{
-			get
-			{
-				return m_progressState;
-			}
-		}
+		///// <summary>
+		///// If this is set before showing, the dialog will run the worker and respond
+		///// to its events
+		///// </summary>
+		//public BackgroundWorker BackgroundWorker
+		//{
+		//	get
+		//	{
+		//		return m_backgroundWorker;
+		//	}
+		//	set
+		//	{
+		//		m_backgroundWorker = value;
+		//		m_progressBar.Minimum = 0;
+		//		m_progressBar.Maximum = 100;
+		//	}
+		//}
+
+		//public ProgressState ProgressStateResult
+		//{
+		//	get
+		//	{
+		//		return m_progressState;
+		//	}
+		//}
 
 		/// <summary>
 		/// Gets or sets the manner in which progress should be indicated on the progress bar.
 		/// </summary>
-		public ProgressBarStyle BarStyle { get { return m_progressBar.Style; } set { m_progressBar.Style = value; } }
-
-		/// <summary>
-		/// Optional; one will be created (of some class or subclass) if you don't set it.
-		/// E.g. dlg.ProgressState = new BackgroundWorkerState(dlg.BackgroundWorker);
-		/// Also, you can use the getter to gain access to the progressstate, in order to add arguments
-		/// which the worker method can get at.
-		/// </summary>
-		public ProgressState ProgressState
+		public ProgressBarStyle BarStyle
 		{
-			get
-			{
-				if(m_progressState ==null)
-				{
-					if(m_backgroundWorker == null)
-					{
-						throw new ArgumentException("You must set BackgroundWorker before accessing this property.");
-					}
-					ProgressState = new BackgroundWorkerState(m_backgroundWorker);
-				}
-				return m_progressState;
-			}
-
-			set
-			{
-				if (m_progressState!=null)
-				{
-					CancelRequested -= m_progressState.CancelRequested;
-				}
-				m_progressState = value;
-				CancelRequested += m_progressState.CancelRequested;
-				m_progressState.TotalNumberOfStepsChanged += OnTotalNumberOfStepsChanged;
-			}
+			get => m_progressBar.Style;
+			set => m_progressBar.Style = value;
 		}
+
+		///// <summary>
+		///// Optional; one will be created (of some class or subclass) if you don't set it.
+		///// E.g. dlg.ProgressState = new BackgroundWorkerState(dlg.BackgroundWorker);
+		///// Also, you can use the getter to gain access to the ProgressState, in order to add arguments
+		///// which the worker method can get at.
+		///// </summary>
+		//public ProgressState ProgressState
+		//{
+		//	get
+		//	{
+		//		if (m_progressState ==null)
+		//		{
+		//			if(m_backgroundWorker == null)
+		//			{
+		//				throw new ArgumentException("You must set BackgroundWorker before accessing this property.");
+		//			}
+		//			ProgressState = new BackgroundWorkerState(m_backgroundWorker);
+		//		}
+		//		return m_progressState;
+		//	}
+
+		//	set
+		//	{
+		//		if (m_progressState!=null)
+		//		{
+		//			CancelRequested -= m_progressState.CancelRequested;
+		//		}
+		//		m_progressState = value;
+		//		CancelRequested += m_progressState.CancelRequested;
+		//		m_progressState.TotalNumberOfStepsChanged += OnTotalNumberOfStepsChanged;
+		//	}
+		//}
 
 		public string CancelLinkText
 		{
@@ -310,39 +293,7 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		protected virtual void OnBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-		{
-			if(e.Cancelled || (ProgressStateResult != null && ProgressStateResult.Cancel))
-			{
-				DialogResult = DialogResult.Cancel;
-			}
-			else if (ProgressStateResult != null && (ProgressStateResult.State == ProgressState.StateValue.StoppedWithError
-													 || ProgressStateResult.ExceptionThatWasEncountered != null))
-			{
-				//this dialog really can't know whether this was an unexpected exception or not
-				//so don't do this:  Reporting.ErrorReporter.ReportException(ProgressStateResult.ExceptionThatWasEncountered, this, false);
-				DialogResult = DialogResult.Abort;//not really matching semantics
-			   // _progressState.State = ProgressState.StateValue.StoppedWithError;
-			}
-			else
-			{
-				DialogResult = DialogResult.None;
-				m_progressBar.Maximum = 1;
-				m_progressBar.Value = 1;
-				m_progressBar.Style = ProgressBarStyle.Blocks;
-
-				m_progressLabel.Text = ProgressLabelTextWhenComplete;
-
-				AcceptButton = m_okButton;
-
-				m_okButton.Text = OkButtonText ?? LocalizationManager.GetString("Common.OK", "OK");
-				m_okButton.DialogResult = DialogResult.OK;
-				m_okButton.Enabled = true;
-				m_okButton.Visible = true;
-			}
-		}
-
-		void OnBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+		public void Report(ProgressChangedEventArgs e)
 		{
 			ProgressState state = e.UserState as ProgressState;
 			if (state != null)
@@ -350,8 +301,7 @@ namespace Glyssen.Dialogs
 				StatusText = state.StatusLabel;
 			}
 
-			if (state == null
-				|| state is BackgroundWorkerState)
+			if (state == null || state is BackgroundWorkerState)
 			{
 				Progress = e.ProgressPercentage;
 			}
@@ -371,13 +321,11 @@ namespace Glyssen.Dialogs
 		/// Raises the cancelled event
 		/// </summary>
 		/// <param name="e">Event data</param>
-		protected virtual void OnCancelled( EventArgs e )
+		private void OnCancelled( EventArgs e )
 		{
-			EventHandler cancelled = CancelRequested;
-			if( cancelled != null )
-			{
-				cancelled( this, e );
-			}
+			DialogResult = DialogResult.Cancel;
+			m_cancellationTokenSource.Cancel();
+			CancelRequested?.Invoke(this, e);
 		}
 
 		/// <summary>
@@ -385,14 +333,9 @@ namespace Glyssen.Dialogs
 		/// </summary>
 		protected override void Dispose( bool disposing )
 		{
-			if( disposing )
-			{
-				if (m_showWindowIfTakingLongTimeTimer != null)
-				{
-					m_showWindowIfTakingLongTimeTimer.Stop();
-				}
-			}
-			base.Dispose( disposing );
+			if (disposing)
+				components.Dispose();
+			base.Dispose(disposing);
 		}
 
 		#region Windows Form Designer generated code
@@ -406,7 +349,6 @@ namespace Glyssen.Dialogs
 			this.m_statusLabel = new System.Windows.Forms.Label();
 			this.m_progressBar = new System.Windows.Forms.ProgressBar();
 			this.m_progressLabel = new System.Windows.Forms.Label();
-			this.m_showWindowIfTakingLongTimeTimer = new System.Windows.Forms.Timer(this.components);
 			this.m_progressTimer = new System.Windows.Forms.Timer(this.components);
 			this.m_overviewLabel = new System.Windows.Forms.Label();
 			this.m_tableLayout = new System.Windows.Forms.TableLayoutPanel();
@@ -485,14 +427,8 @@ namespace Glyssen.Dialogs
 			this.m_progressLabel.UseMnemonic = false;
 			this.m_glyssenColorPalette.SetUsePaletteColors(this.m_progressLabel, true);
 			// 
-			// m_showWindowIfTakingLongTimeTimer
-			// 
-			this.m_showWindowIfTakingLongTimeTimer.Interval = 2000;
-			this.m_showWindowIfTakingLongTimeTimer.Tick += new System.EventHandler(this.OnTakingLongTimeTimerClick);
-			// 
 			// m_progressTimer
 			// 
-			this.m_progressTimer.Enabled = true;
 			this.m_progressTimer.Interval = 1000;
 			this.m_progressTimer.Tick += new System.EventHandler(this.progressTimer_Tick);
 			// 
@@ -666,8 +602,6 @@ namespace Glyssen.Dialogs
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Palaso";
 			this.m_glyssenColorPalette.SetUsePaletteColors(this, true);
-			this.Load += new System.EventHandler(this.ProgressDialog_Load);
-			this.Shown += new System.EventHandler(this.ProgressDialog_Shown);
 			this.m_tableLayout.ResumeLayout(false);
 			this.m_tableLayout.PerformLayout();
 			this.m_buttonPanel.ResumeLayout(false);
@@ -680,33 +614,14 @@ namespace Glyssen.Dialogs
 		}
 		#endregion
 
-
-		private void OnTakingLongTimeTimerClick(object sender, EventArgs e)
-		{
-			// Show the window now the timer has elapsed, and stop the timer
-			m_showWindowIfTakingLongTimeTimer.Stop();
-			if (!Visible)
-			{
-				Show();
-			}
-		}
-
 		private void OnCancelButton_Click(object sender, EventArgs e)
 		{
-			m_showWindowIfTakingLongTimeTimer.Stop();
-
-			//Debug.WriteLine("Dialog:OnCancelButton_Click");
-
 			// Prevent further cancellation
 			m_cancelButton.Enabled = false;
 			m_progressTimer.Stop();
 			m_progressLabel.Text =  LocalizationManager.GetString("DialogBoxes.ProgressDialogWithAcknowledgement.Canceling", "Canceling...");
 			// Tell people we're canceling
-			OnCancelled( e );
-			if (m_backgroundWorker != null && m_backgroundWorker.WorkerSupportsCancellation)
-			{
-				m_backgroundWorker.CancelAsync();
-			}
+			OnCancelled(e);
 		}
 
 		private void progressTimer_Tick(object sender, EventArgs e)
@@ -744,90 +659,61 @@ namespace Glyssen.Dialogs
 			{
 				return string.Format(CultureInfo.CurrentUICulture, "{0} day {1} hour", span.Days, span.Hours);
 			}
-			else if( span.TotalHours > 1 )
+			if( span.TotalHours > 1 )
 			{
 				return string.Format(CultureInfo.CurrentUICulture, "{0} hour {1} minutes", span.Hours, span.Minutes);
 			}
-			else if( span.TotalMinutes > 1 )
+			if( span.TotalMinutes > 1 )
 			{
 				return string.Format(CultureInfo.CurrentUICulture, "{0} minutes {1} seconds", span.Minutes, span.Seconds);
 			}
 			return string.Format( CultureInfo.CurrentUICulture, "{0} seconds", span.Seconds );
 		}
 
-		public void OnNumberOfStepsCompletedChanged(object sender, EventArgs e)
+		private async Task OnStartWorker()
 		{
-			Progress = ((ProgressState) sender).NumberOfStepsCompleted;
-			//in case there is no event pump showing us (mono-threaded)
-			progressTimer_Tick(this, null);
-			Refresh();
-		}
-
-		public void OnTotalNumberOfStepsChanged(object sender, EventArgs e)
-		{
-			if (InvokeRequired)
-			{
-				Invoke(new ProgressCallback(UpdateTotal), ((ProgressState)sender).TotalNumberOfSteps);
-			}
-			else
-			{
-				UpdateTotal(((ProgressState) sender).TotalNumberOfSteps);
-			}
-		}
-
-		private void UpdateTotal(int steps)
-		{
-			m_startTime = DateTime.Now;
-			ProgressRangeMaximum = steps;
-			Refresh();
-		}
-
-		public void OnStatusLabelChanged(object sender, EventArgs e)
-		{
-			StatusText = ((ProgressState)sender).StatusLabel;
-			Refresh();
-		}
-
-		private void OnStartWorker(object sender, EventArgs e)
-		{
+			if (m_workerStarted)
+				return;
 			m_workerStarted = true;
-			//Debug.WriteLine("Dialog:StartWorker");
+			m_progressTimer.Enabled = true;
 
-			if (m_backgroundWorker != null)
+			try
 			{
-				 //BW uses percentages (unless it's using our custom ProgressState in the UserState member)
+				// Progress is reported as percentage
 				ProgressRangeMinimum = 0;
 				ProgressRangeMaximum = 100;
+				await Task.Run(() => { DoWork(CancellationToken); }, CancellationToken);
 
-				//if the actual task can't take cancelling, the caller of this should set CanCancel to false;
-				m_backgroundWorker.WorkerSupportsCancellation = CanCancel;
+				DialogResult = DialogResult.None;
+				m_progressBar.Maximum = 1;
+				m_progressBar.Value = 1;
+				m_progressBar.Style = ProgressBarStyle.Blocks;
 
-				m_backgroundWorker.ProgressChanged += OnBackgroundWorker_ProgressChanged;
-				m_backgroundWorker.RunWorkerCompleted += OnBackgroundWorker_RunWorkerCompleted;
-				m_backgroundWorker.RunWorkerAsync(ProgressState);
+				m_progressLabel.Text = ProgressLabelTextWhenComplete;
+
+				AcceptButton = m_okButton;
+
+				m_okButton.Text = OkButtonText ?? LocalizationManager.GetString("Common.OK", "OK");
+				m_okButton.DialogResult = DialogResult.OK;
+				m_okButton.Enabled = true;
+				m_okButton.Visible = true;
+				m_okButton.Visible = true;
+			}
+			catch (Exception exception)
+			{
+				Console.WriteLine(exception);
+				// This dialog really can't know whether this was an unexpected exception or not,
+				// so don't do this:
+				// Reporting.ErrorReporter.ReportException(ProgressStateResult.ExceptionThatWasEncountered, this, false);
+				DialogResult = DialogResult.Abort; //not really matching semantics
+				Close();
 			}
 		}
 
-		//This is here, in addition to the OnShown handler, because of a weird bug where a certain,
-		//completely unrelated test (which doesn't use this class at all) can cause tests using this to
-		//fail because the OnShown event is never fired.
-		//I don't know why the orginal code we copied this from was using onshown instead of onload,
-		//but it may have something to do with its "delay show" feature (which I couldn't get to work,
-		//but which would be a terrific thing to have)
-		private void ProgressDialog_Load(object sender, EventArgs e)
+		protected override async void OnActivated(EventArgs e)
 		{
-			if(!m_workerStarted)
-			{
-				OnStartWorker(this, null);
-			}
-		}
-
-		private void ProgressDialog_Shown(object sender, EventArgs e)
-		{
-			if(!m_workerStarted)
-			{
-				OnStartWorker(this, null);
-			}
+			base.OnActivated(e);
+			await OnStartWorker();
 		}
 
 		private void OnCancelLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
@@ -13,10 +15,12 @@ namespace Glyssen.Dialogs
 {
 	class GenerateGroupsProgressDialog : ProgressDialogWithAcknowledgement
 	{
+		private readonly CharacterGroupGenerator m_generator;
 		private readonly string m_sizeInfo;
 
-		public GenerateGroupsProgressDialog(Project project, DoWorkEventHandler doWorkEventHandler, bool firstRun, bool replaceCancelButtonWithLink = false)
+		public GenerateGroupsProgressDialog(Project project, CharacterGroupGenerator generator, bool firstRun, bool replaceCancelButtonWithLink = false)
 		{
+			m_generator = generator;
 			InitializeComponent();
 
 			Text = LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Title", "Generating Groups");
@@ -60,18 +64,18 @@ namespace Glyssen.Dialogs
 			ProgressLabelTextWhenComplete = LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Complete",
 				"Group generation is complete.");
 			BarStyle = ProgressBarStyle.Marquee;
-			BackgroundWorker worker = new BackgroundWorker();
-			worker.WorkerSupportsCancellation = true;
-			worker.DoWork += doWorkEventHandler;
-			BackgroundWorker = worker;
 		}
 
-		protected override void OnBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+		protected override void DoWork(CancellationToken cancellationToken)
 		{
-			if (e.Error != null)
+			try
+			{
+				m_generator.GenerateCharacterGroups(cancellationToken);
+			}
+			catch
 			{
 				if (!CanCancel)
-					throw e.Error;
+					throw;
 				var msg = LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.GenerationFailed",
 					"New character groups could not be generated to satisfy the project settings for the current cast size. ({0})",
 					"Parameter is a statement about the number of voice actors or planned cast size.");
@@ -79,8 +83,6 @@ namespace Glyssen.Dialogs
 				DialogResult = DialogResult.Cancel;
 				Close();
 			}
-			else
-				base.OnBackgroundWorker_RunWorkerCompleted(sender, e);
 		}
 
 		private void InitializeComponent()
@@ -100,11 +102,10 @@ namespace Glyssen.Dialogs
 			if (forceMatchToActors)
 				project.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.MatchVoiceActorList;
 			bool saveGroups = false;
-			using (var progressDialog = new GenerateGroupsProgressDialog(project, OnGenerateGroupsWorkerDoWork, firstGroupGenerationRun, cancelLink))
-			{
-				var generator = new CharacterGroupGenerator(project, ghostCastSize, progressDialog.BackgroundWorker);
-				progressDialog.ProgressState.Arguments = generator;
 
+			var generator = new CharacterGroupGenerator(project, ghostCastSize);
+			using (var progressDialog = new GenerateGroupsProgressDialog(project, generator, firstGroupGenerationRun, cancelLink))
+			{
 				if (progressDialog.ShowDialog() == DialogResult.OK && generator.GeneratedGroups != null)
 				{
 					var assignedBefore = project.CharacterGroupList.CountVoiceActorsAssigned();
@@ -123,12 +124,6 @@ namespace Glyssen.Dialogs
 					project.CharacterGroupGenerationPreferences.CastSizeOption = castSizeOption;
 			}
 			project.Save(saveGroups);
-		}
-
-		private static void OnGenerateGroupsWorkerDoWork(object s, DoWorkEventArgs e)
-		{
-			var generator = (CharacterGroupGenerator)((ProgressState)e.Argument).Arguments;
-			generator.GenerateCharacterGroups();
 		}
 	}
 }
