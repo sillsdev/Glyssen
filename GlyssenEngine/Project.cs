@@ -194,7 +194,7 @@ namespace GlyssenEngine
 			PopulateAndParseBooks(bundle);
 		}
 
-		public Project(ParatextScrTextWrapper paratextProject) :
+		public Project(ParatextScrTextWrapper paratextProject, Action<Exception> exceptionHandler = null) :
 			this(paratextProject.GlyssenDblTextMetadata, null, false, paratextProject.WritingSystem)
 		{
 			Writer.SetUpProjectPersistence(this);
@@ -204,7 +204,7 @@ namespace GlyssenEngine
 				SetWsQuotationMarksUsingFullySpecifiedContinuers(paratextProject.QuotationMarks);
 			}
 
-			ParseAndSetBooks(paratextProject.UsxDocumentsForIncludedBooks, paratextProject.Stylesheet);
+			ParseAndSetBooks(paratextProject.UsxDocumentsForIncludedBooks, paratextProject.Stylesheet, exceptionHandler);
 		}
 
 		/// <summary>
@@ -1440,7 +1440,7 @@ namespace GlyssenEngine
 			m_books.Insert(i, book);
 		}
 
-		public void IncludeBooksFromParatext(ParatextScrTextWrapper wrapper, ISet<int> bookNumbers, Action<BookScript> postParseAction)
+		public async Task IncludeBooksFromParatext(ParatextScrTextWrapper wrapper, ISet<int> bookNumbers, Action<BookScript> postParseAction)
 		{
 			wrapper.IncludeBooks(bookNumbers.Select(BCVRef.NumberToBookCode));
 			var usxBookInfoList = wrapper.GetUsxDocumentsForIncludedParatextBooks(bookNumbers);
@@ -1453,25 +1453,49 @@ namespace GlyssenEngine
 				postParseAction?.Invoke(book);
 			}
 
-			ParseAndIncludeBooks(usxBookInfoList, wrapper.Stylesheet, EnhancedPostParseAction);
+			await ParseAndIncludeBooks(usxBookInfoList, wrapper.Stylesheet, null, EnhancedPostParseAction);
 		}
 
-		private void ParseAndSetBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet)
+		private async Task ParseAndSetBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet, Action<Exception> exceptionHandler = null)
 		{
 			if (m_books.Any())
 				throw new InvalidOperationException("Project already contains books. If the intention is to replace the existing ones, let's clear the list first. Otherwise, call ParseAndIncludeBooks.");
-			ParseAndIncludeBooks(books, stylesheet);
+			await ParseAndIncludeBooks(books, stylesheet, exceptionHandler);
 		}
 
-		private async Task ParseAndIncludeBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet, Action<BookScript> postParseAction = null)
+		private async Task ParseAndIncludeBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet,
+			Action<Exception> exceptionHandler/* = null*/, Action<BookScript> postParseAction = null)
 		{
 			if (Versification == null)
 				throw new NullReferenceException("What!!!");
 			ProjectState = ProjectState.Initial | (ProjectState & ProjectState.WritingSystemRecoveryInProcess);
-			await Task.Run(() => {UsxParse(books, stylesheet, postParseAction);});
+			List<BookScript> parsedBooks = null;
+			try
+			{
+				await Task.Run(() =>
+				{
+					parsedBooks = UsxParse(books, stylesheet, postParseAction);
+				});
+
+				await Task.Run(() =>
+				{
+					if (QuoteSystem == null)
+						GuessAtQuoteSystem();
+					else if (IsQuoteSystemReadyForParse)
+						DoQuoteParse(parsedBooks.Select(b => b.BookId));
+				});
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e);
+				if (exceptionHandler == null)
+					ErrorReport.ReportFatalException(e);
+				else
+					exceptionHandler(e);
+			}
 		}
 
-		private void UsxParse(IEnumerable<UsxDocument> books, IStylesheet stylesheet, Action<BookScript> postParseAction = null)
+		private List<BookScript> UsxParse(IEnumerable<UsxDocument> books, IStylesheet stylesheet, Action<BookScript> postParseAction = null)
 		{
 			var parsedBooks = UsxParser.ParseBooks(books, stylesheet, i =>
 				{
@@ -1517,20 +1541,17 @@ namespace GlyssenEngine
 				AddMissingAvailableBooks();
 			}
 
-			if (QuoteSystem == null)
-				GuessAtQuoteSystemAsync();
-			else if (IsQuoteSystemReadyForParse)
-				DoQuoteParseAsync(parsedBooks.Select(b => b.BookId));
+			return parsedBooks;
 		}
 
 		private async Task GuessAtQuoteSystemAsync()
 		{
-			ProjectState = ProjectState.UsxComplete | (ProjectState & ProjectState.WritingSystemRecoveryInProcess);
 			await Task.Run(GuessAtQuoteSystem);
 		}
 
 		private void GuessAtQuoteSystem()
 		{
+			ProjectState = ProjectState.UsxComplete | (ProjectState & ProjectState.WritingSystemRecoveryInProcess);
 			var quoteSystem = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, m_books, Versification, out _,
 				i =>
 				{
@@ -1539,19 +1560,19 @@ namespace GlyssenEngine
 					OnReport(pe);
 				});
 
-		SetQuoteSystem(QuoteSystemStatus.Guessed, quoteSystem);
+			SetQuoteSystem(QuoteSystemStatus.Guessed, quoteSystem);
 			Save();
 		}
 
 		private async Task DoQuoteParseAsync(IEnumerable<string> booksToParse = null)
 		{
-			m_projectMetadata.ParserVersion = kParserVersion;
-			ProjectState = ProjectState.Parsing;
 			await Task.Run(() => { DoQuoteParse(booksToParse);});
 		}
 
 		private void DoQuoteParse(IEnumerable<string> bookIds)
 		{
+			m_projectMetadata.ParserVersion = kParserVersion;
+			ProjectState = ProjectState.Parsing;
 			try
 			{
 				QuoteParser.ParseProject(this, i =>
