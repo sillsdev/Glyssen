@@ -4598,7 +4598,7 @@ namespace GlyssenEngineTests
 
 		#region PG-1408
 		[Test]
-		public void GetBlocksForVerseMatchedToReferenceText_ClosingDashAtStartOfParagraphNotIdentifiedAsDialogueCloser_NoPartOfReferenceTextDuplicatedNorOmitted()
+		public void GetBlocksForVerseMatchedToReferenceText_ClosingDashAtStartOfLongHeSaidParagraphNotIdentifiedAsDialogueCloser_NoPartOfReferenceTextDuplicatedNorOmitted()
 		{
 			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 			var refTextJhn = refText.GetBook("JHN");
@@ -4638,7 +4638,6 @@ namespace GlyssenEngineTests
 			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(35, "ꞌBa Jesús kitsure:", true, 12, "JHN"));
-			var narrator = vernacularBlocks.Single().CharacterId;
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "—Tu ngichuba nixtjin kꞌuejñajin ngisanu ndiꞌu. Ngatꞌa xi ña jñu tsuꞌba bi be ñá fi. ")
 				.AddVerse(36, "Ngatjamakjainnu ngatꞌare ndiꞌu yejerañu tjin ngisanu, tuxi tseꞌe ndiꞌu ku̱anñu");
 			// The following is supposed to be spoken by the narrator, but the "closing" dash at the start of the
@@ -4649,6 +4648,72 @@ namespace GlyssenEngineTests
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
 			return matchup;
+		}
+
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_ClosingDashAtStartOfShortHeSaidParagraphNotIdentifiedAsDialogueCloser_NoPartOfReferenceTextDuplicatedNorOmitted()
+		{
+			var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refTextMrk = refText.GetBook("MRK");
+			var refTextBlocksForMrk15V14 = refTextMrk.GetBlocksForVerse(15, 14).ToList();
+			Assert.AreEqual(4, refTextBlocksForMrk15V14.Count, "SETUP check - expected English reference text to have two blocks for Mark 15:14.");
+			Assert.AreEqual(narrator, refTextBlocksForMrk15V14[0].CharacterId,
+				"SETUP check - expected English reference text to have narrator speak in first block for Mark 15:14.");
+			Assert.AreEqual("Pilate", refTextBlocksForMrk15V14[1].CharacterId,
+				"SETUP check - expected English reference text to have Pilate speak in second block for Mark 15:14.");
+			Assert.AreEqual(narrator, refTextBlocksForMrk15V14[2].CharacterId,
+				"SETUP check - expected English reference text to have narrator speak in third block for Mark 15:14.");
+			Assert.AreEqual("crowd before Pilate", refTextBlocksForMrk15V14[3].CharacterId,
+				"SETUP check - expected English reference text to have the crowd before Pilate speak in last block for Mark 15:14.");
+			Assert.AreEqual(14, refTextBlocksForMrk15V14.Last().LastVerseNum,
+				"SETUP check - expected English reference text to have have a block break between Mark 15:14 and v. 15.");
+
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 14,
+				"—Tunga ¿mé= kjua xi chꞌotjin xi kitsaꞌen kui?", true, 15));
+			// The following is supposed to be spoken by the narrator, but the "closing" dash at the start of the
+			// paragraph is treated as an opener.
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter,
+				"—kitsingojo Pilato.");
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Tunga xutankjiun ngisa ꞌñu kiskiꞌndaya ꞌba kitsu:", "MRK");
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter,
+				"—¡Tjatꞌai kru!");
+			var vernBook = new BookScript("MRK", vernacularBlocks, refText.Versification);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
+			var result = matchup.CorrelatedBlocks;
+
+			Assert.AreEqual(4, result.Count);
+			Assert.AreEqual("14", ((Verse)result[0].BlockElements[0]).Number);
+			Assert.IsFalse(result.Take(2).All(b => b.MatchesReferenceText),
+				"One or both of the first two blocks should not match the reference text.");
+			Assert.IsTrue(result[2].MatchesReferenceText);
+			Assert.IsTrue(result[3].MatchesReferenceText);
+
+			var allReferenceBlocks = result.SelectMany(b => b.ReferenceBlocks).ToList();
+			Assert.AreEqual(4, allReferenceBlocks.Count,
+				"There should be no extra or missing reference blocks");
+
+			var blockComparer = new BlockComparer();
+
+			Assert.AreEqual(4, allReferenceBlocks.Distinct(blockComparer).Count(),
+				"There should be no duplicate reference blocks");
+
+			var indexOfPrevRefBlockInOriginalList = -1;
+			foreach (var nonHeSaidRefBlock in refTextBlocksForMrk15V14.Skip(1))
+			{
+				var indexOfThisBlockInOriginalList = refTextBlocksForMrk15V14.FindIndex(b => blockComparer.Equals(b, nonHeSaidRefBlock));
+				Assert.IsTrue(indexOfThisBlockInOriginalList >= 0,
+					$"Reference block {nonHeSaidRefBlock} missing. With the possible exception of" +
+					$" the \"he said\" block for Pilate, all reference blocks should be in the" +
+					$" list of blocks corresponding to a vernacular block.");
+				Assert.IsTrue(indexOfThisBlockInOriginalList >= indexOfPrevRefBlockInOriginalList,
+					$"Reference block {nonHeSaidRefBlock} out of order. With the possible exception" +
+					$" of the \"he said\" block for Pilate, all reference blocks should be in the" +
+					$" same relative order as their occur in the reference text.");
+				indexOfPrevRefBlockInOriginalList = indexOfThisBlockInOriginalList;
+			}
 		}
 		#endregion
 

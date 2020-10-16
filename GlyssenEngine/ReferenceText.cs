@@ -665,8 +665,10 @@ namespace GlyssenEngine
 								vernBlockInVerseChunk = vernBlockList[iCurrVernBottomUp];
 								if (vernBlockInVerseChunk.MatchesReferenceText)
 									break;
+
 								refBlockInVerseChunk = refBlockList[indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - j - 1 + numberOfUnexpectedReportingClausesMatched];
-								if (BlocksMatch(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification))
+								if ((iCurrVernBottomUp > i || omittedHeSaids == 0) && // PG-1408: Don't match two different vern blocks to the same ref block
+									BlocksMatch(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification))
 								{
 									vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockInVerseChunk);
 									iLastVernBlockMatchedFromBottomUp = iCurrVernBottomUp;
@@ -679,7 +681,14 @@ namespace GlyssenEngine
 									iLastVernBlockMatchedFromBottomUp = iCurrVernBottomUp;
 								}
 								else
+								{
+									if (omittedHeSaids > 0 && modifiedOmittedHeSaidText != null)
+									{
+										// TODO: This needs to be UNmatched:
+										vernBlockInVerseChunk.SetMatchedReferenceBlock(modifiedOmittedHeSaidText);
+									}
 									break;
+								}
 							}
 						}
 						var numberOfUnmatchedRefBlocks = numberOfRefBlocksInVerseChunk - i - j + numberOfUnexpectedReportingClausesMatched - omittedHeSaids;
