@@ -155,7 +155,7 @@ namespace GlyssenEngine
 		public string WordSeparator => " ";
 
 		public string HeSaidText => m_metadata.Language.HeSaidText ?? "he said.";
-		private static Regex s_regexEnglishReportingClause = new Regex(@"(?<clause>((?<pronoun>(He)|(She)|(They)) |((\w+ ){1,2}))said\b([^\.\w]*\w+){0,2})[,:]");
+		private static Regex s_regexEnglishReportingClause = new Regex(@"(?<clause>((?<pronoun>(He)|(She)|(They)) |((\w+ ){1,2}))said\b([^\.\w]*\w+){0,2})[,:]\s*$");
 
 		private bool BlockIsOmissibleReportingClause(Block refBlock, out string modifiedOmittedHeSaidText)
 		{

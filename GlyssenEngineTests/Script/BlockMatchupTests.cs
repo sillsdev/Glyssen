@@ -468,6 +468,31 @@ namespace GlyssenEngineTests.Script
 			Assert.AreEqual("said Jesus. To which Matthew replied, “We knew that.”", matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().GetPrimaryReferenceText());
 		}
 
+		#region PG-1408
+		/// <summary>
+		/// This covers the special case where a vernacular block is misinterpreted as a quote
+		/// block because it starts with a dialogue dash that was actually intended to be a closer
+		/// for the previous speech. It could be argued that this case should be handled by the
+		/// quote parser since it might be able to correctly detect the case where the preceding
+		/// block already has a character speaking and then a dash occurs at the start of a new
+		/// paragraph in a verse where only one character is known to speak. However, because
+		/// the final determination depends on the matchup to the reference text, doing it in
+		/// MatchAllBlocks is more likely to produce a reliable result. Arguably, this logic
+		/// should only apply when the user has indicated that the dialogue dash serves as both
+		/// an opener and a closer.
+		/// </summary>
+		[TestCase("—", ExpectedResult = true)] // the real dialogue character (in the actual text)
+		[TestCase("-", ExpectedResult = false)] // any other character
+		public bool MatchAllBlocks_MismatchedDialogueDashAtStartOfParagraphCorrespondsToSingleNarratorRefBlock_VernBlockCharacterSetToNarrator(string dialogueChar)
+		{
+			var matchup = ReferenceTextTests.GetBlockMatchupForJohn12V35And36ForPg1408();
+			matchup.MatchAllBlocks(dialogueChar);
+			var lastBlock = matchup.CorrelatedBlocks.Last();
+			// In the case where the block starts with the dialogue quote, we expect the last block's character ID to be changed to narrator
+			return lastBlock.ReferenceBlocks.Single().CharacterId == lastBlock.CharacterId;
+		}
+		#endregion
+
 		[TestCase(0)]
 		[TestCase(1)]
 		[TestCase(2)]

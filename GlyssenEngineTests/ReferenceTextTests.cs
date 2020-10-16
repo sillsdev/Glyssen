@@ -4596,6 +4596,62 @@ namespace GlyssenEngineTests
 		}
 		#endregion
 
+		#region PG-1408
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_ClosingDashAtStartOfParagraphNotIdentifiedAsDialogueCloser_NoPartOfReferenceTextDuplicatedNorOmitted()
+		{
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refTextJhn = refText.GetBook("JHN");
+			var refTextBlocksForJhn12V35 = refTextJhn.GetBlocksForVerse(12, 35).ToList();
+			Assert.AreEqual(2, refTextBlocksForJhn12V35.Count, "SETUP check - expected English reference text to have two blocks for John 12:35.");
+			Assert.AreEqual("Jesus", refTextBlocksForJhn12V35[1].CharacterId,
+				"SETUP check - expected English reference text to have Jesus speak in second block for John 12:35.");
+			Assert.AreEqual(35, refTextBlocksForJhn12V35[1].LastVerseNum,
+				"SETUP check - expected English reference text to have have a block break between John 12:35 and v. 36.");
+			var refTextBlocksForJhn12V36 = refTextJhn.GetBlocksForVerse(12, 36).ToList();
+			Assert.AreEqual(2, refTextBlocksForJhn12V36.Count, "SETUP check - expected English reference text to have two blocks for John 12:36.");
+			Assert.AreEqual("Jesus", refTextBlocksForJhn12V36[0].CharacterId,
+				"SETUP check - expected English reference text to have Jesus speak in the first block for John 12:36.");
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(refTextBlocksForJhn12V36[1].CharacterId,
+				CharacterVerseData.StandardCharacter.Narrator),
+				"SETUP check - expected English reference text to have the narrator speak in the second block for John 12:36.");
+
+			var matchup = GetBlockMatchupForJohn12V35And36ForPg1408();
+			var result = matchup.CorrelatedBlocks;
+			Assert.AreEqual(4, result.Count);
+			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.IsTrue(result[1].MatchesReferenceText);
+			Assert.IsTrue(result[2].MatchesReferenceText);
+			Assert.IsFalse(result[3].MatchesReferenceText);
+			Assert.AreEqual(refTextBlocksForJhn12V35[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true),
+				"Expected the first narrator block in the English reference text for John 12:35 to be matched to the first block of matchup.");
+			Assert.AreEqual(refTextBlocksForJhn12V35[1].GetText(true), result[1].ReferenceBlocks.Single().GetText(true),
+				"Expected the second block (Jesus) in the English reference text for John 12:35 to be matched to the second block of matchup.");
+			Assert.AreEqual(refTextBlocksForJhn12V36[0].GetText(true), result[2].ReferenceBlocks.Single().GetText(true),
+				"Expected the first block (Jesus) in the English reference text for John 12:36 to be matched to the third block of matchup.");
+			Assert.AreEqual(refTextBlocksForJhn12V36[1].GetText(true), result[3].ReferenceBlocks.Single().GetText(true),
+				"Expected the second block (narrator) in the English reference text for John 12:36 to be correlated (but not matched) to the last block of matchup.");
+		}
+
+		internal static BlockMatchup GetBlockMatchupForJohn12V35And36ForPg1408()
+		{
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(35, "ꞌBa Jesús kitsure:", true, 12, "JHN"));
+			var narrator = vernacularBlocks.Single().CharacterId;
+			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "—Tu ngichuba nixtjin kꞌuejñajin ngisanu ndiꞌu. Ngatꞌa xi ña jñu tsuꞌba bi be ñá fi. ")
+				.AddVerse(36, "Ngatjamakjainnu ngatꞌare ndiꞌu yejerañu tjin ngisanu, tuxi tseꞌe ndiꞌu ku̱anñu");
+			// The following is supposed to be spoken by the narrator, but the "closing" dash at the start of the
+			// paragraph is treated as an opener.
+			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "—kitsu Jesús, ꞌba ꞌbatsaꞌen ꞌetju ꞌba tsikꞌejñaꞌmore xutankjiun.")
+				.IsParagraphStart = true;
+			var vernBook = new BookScript("JHN", vernacularBlocks, refText.Versification);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
+			return matchup;
+		}
+		#endregion
+
 		#region private helper methods
 		private Block NewChapterBlock(string bookId, int chapterNum, string text = null)
 		{
