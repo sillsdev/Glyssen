@@ -511,30 +511,37 @@ namespace GlyssenEngine.Script
 			return refBlock;
 		}
 
-		public Block SetUnmatchedNarratorReferenceBlock(string plainTextWithNoVerseNumbers, string bookId)
+		internal Block SetUnmatchedNarratorReferenceBlock(string plainTextWithNoVerseNumbers, string bookId)
 		{
 			var refBlock = GetEmptyReferenceBlock((InitialVerseNumberBridgeFromBlock)this);
 			refBlock.CharacterId = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
-			//if (StartsAtVerseStart)
-			//{
-			//	// TODO: Deal with versification difference
-			//	refBlock.BlockElements.Add(new Verse(BlockElements.OfType<Verse>().ToString()));
-			//}
 
 			refBlock.BlockElements.Add(new ScriptText(plainTextWithNoVerseNumbers));
-			//if (!refBlock.StartsAtVerseStart && refBlock.InitialEndVerseNumber > 0)
-			//{
-			//	// If we don't have a preceding ref block that can be used to imply the starting verse number/bridge
-			//	// for this ref block, we at least want to prevent it from looking like it starts at or before the
-			//	// first verse number it actually contains, so we infer that it starts at the preceding verse. This
-			//	// is not a common scenario, and it is really somewhat of a guess as to what is actually happening.
-			//	var firstVerseInRefBlock = refBlock.BlockElements.OfType<Verse>().FirstOrDefault();
-			//	if (firstVerseInRefBlock != null && firstVerseInRefBlock.StartVerse <= refBlock.InitialEndVerseNumber)
-			//		refBlock.InitialEndVerseNumber = firstVerseInRefBlock.StartVerse - 1;
-			//}
 			SetUnmatchedReferenceBlocks(new [] {refBlock});
 
 			return refBlock;
+		}
+
+		internal void RemoveVerseNumbers(IEnumerable<Verse> verseNumbersToRemove)
+		{
+			var numbersToRemove = verseNumbersToRemove.ToList();
+			if (numbersToRemove.Any())
+			{
+				for (var e = BlockElements.Count - 1; e >= 0; e--)
+				{
+					var verse = BlockElements[e] as Verse;
+					if (verse != null && numbersToRemove.Any(v => v.Number == verse.Number))
+					{
+						BlockElements.RemoveAt(e);
+						if (e > 0 && BlockElements[e - 1] is ScriptText toKeep && BlockElements[e] is ScriptText toMerge)
+						{
+							toKeep.Content += toMerge.Content;
+							BlockElements.RemoveAt(e);
+						}
+						e--; // Preceding one can't be a verse, so we can skip it.
+					}
+				}
+			}
 		}
 
 		public void SetUnmatchedReferenceBlocks(IEnumerable<Block> referenceBlocks)

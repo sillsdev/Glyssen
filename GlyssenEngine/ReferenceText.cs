@@ -514,14 +514,13 @@ namespace GlyssenEngine
 					continue;
 				}
 
-				var omittedHeSaidIndices = new List<int>(2);
+				var omittedHeSaids = new List<Tuple<int, string>>(2);
 				string verseFromOmittedHeSaidBlockToPrepend = null;
-				string modifiedOmittedHeSaidText = null;
 
 				for (int i = 0; i < numberOfVernBlocksInVerseChunk && i < numberOfRefBlocksInVerseChunk; i++)
 				{
 					var vernBlockInVerseChunk = vernBlockList[indexOfVernVerseStart + i];
-					var currRefBlockIndex = indexOfRefVerseStart + i + omittedHeSaidIndices.Count;
+					var currRefBlockIndex = indexOfRefVerseStart + i + omittedHeSaids.Count;
 					var refBlockInVerseChunk = refBlockList[currRefBlockIndex];
 					if (BlocksMatch(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification))
 					{
@@ -567,13 +566,12 @@ namespace GlyssenEngine
 							}
 							break;
 						}
-						if (modifiedOmittedHeSaidText != null &&
+						if (omittedHeSaids.Any() &&
 							vernBlockInVerseChunk.CharacterIs(bookId, CharacterVerseData.StandardCharacter.Narrator) &&
 							BlockIsOmissibleReportingClause(refBlockInVerseChunk, out var nextModifiedOmittedHeSaidText) &&
-							TryMatchToReportingClause(bookNum, vernBlockList, indexOfVernVerseStart + i, reportingClauses, modifiedOmittedHeSaidText, vernacularVersification))
+							TryMatchToReportingClause(bookNum, vernBlockList, indexOfVernVerseStart + i, reportingClauses, omittedHeSaids, vernacularVersification))
 						{
-							modifiedOmittedHeSaidText = nextModifiedOmittedHeSaidText;
-							omittedHeSaidIndices.Add(currRefBlockIndex);
+							omittedHeSaids.Add(new Tuple<int, string>(currRefBlockIndex, nextModifiedOmittedHeSaidText));
 						}
 						else
 							vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockInVerseChunk);
@@ -599,18 +597,17 @@ namespace GlyssenEngine
 						// This is a special edge case because the above test for "BlocksMatch" fails when the vern block
 						// is "Needs Review", but if all other conditions for a reporting clause match are satisfied, and
 						// we have a pending omitted he said, we want to match to it.
-						if (modifiedOmittedHeSaidText == null ||
+						if (!omittedHeSaids.Any() ||
 							vernBlockInVerseChunk.CharacterId != CharacterVerseData.kNeedsReview ||
 							!BlocksStartWithSameVerse(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification) ||
 							!BlocksEndWithSameVerse(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification) ||
-							!TryMatchToReportingClause(bookNum, vernBlockList, indexOfVernVerseStart + i, reportingClauses, modifiedOmittedHeSaidText, vernacularVersification))
+							!TryMatchToReportingClause(bookNum, vernBlockList, indexOfVernVerseStart + i, reportingClauses, omittedHeSaids, vernacularVersification))
 						{
 							if (refBlockInVerseChunk.StartsAtVerseStart)
 								verseFromOmittedHeSaidBlockToPrepend = refBlockInVerseChunk.BlockElements.OfType<Verse>().Single().Number;
 							i--;
 						}
-						modifiedOmittedHeSaidText = nextModifiedOmittedHeSaidText;
-						omittedHeSaidIndices.Add(currRefBlockIndex);
+						omittedHeSaids.Add(new Tuple<int, string>(currRefBlockIndex, nextModifiedOmittedHeSaidText));
 					}
 					// Consider case where the vernacular uses a verse bridge for verses that have
 					// a quote, but would otherwise align neatly with the reference text. (This
@@ -654,10 +651,10 @@ namespace GlyssenEngine
 						if (vernBlockList[iVernBlock].CharacterIs(bookId, CharacterVerseData.StandardCharacter.ExtraBiblical))
 							iVernBlock++;
 
-						int j = 0;
+						var j = 0;
 						var iLastVernBlockMatchedFromBottomUp = -1;
 						var numberOfUnexpectedReportingClausesMatched = 0;
-						if (numberOfVernBlocksInVerseChunk - i >= 2)
+						if (numberOfVernBlocksInVerseChunk - i + omittedHeSaids.Count >= 2)
 						{
 							// Look from the bottom up
 							for (; j < numberOfVernBlocksInVerseChunk && j + i < numberOfRefBlocksInVerseChunk; j++)
@@ -667,33 +664,53 @@ namespace GlyssenEngine
 								if (vernBlockInVerseChunk.MatchesReferenceText)
 									break;
 
-								refBlockInVerseChunk = refBlockList[indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - j - 1 + numberOfUnexpectedReportingClausesMatched];
-								if ((iCurrVernBottomUp > i || omittedHeSaidIndices.Count == 0) && // PG-1408: Don't match two different vern blocks to the same ref block
+								var currBottomUpRefBlockIndex = indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - j
+									- 1 + numberOfUnexpectedReportingClausesMatched;
+								refBlockInVerseChunk = refBlockList[currBottomUpRefBlockIndex];
+								if ((iCurrVernBottomUp > i || omittedHeSaids.Count == 0) && // PG-1408: Don't match two different vern blocks to the same ref block
 									BlocksMatch(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification))
 								{
 									vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockInVerseChunk);
 									iLastVernBlockMatchedFromBottomUp = iCurrVernBottomUp;
 								}
 								else if (reportingClauses != null &&
-									TryMatchToReportingClause(bookNum, vernBlockList, iCurrVernBottomUp, reportingClauses, modifiedOmittedHeSaidText, vernacularVersification))
+									TryMatchToReportingClause(bookNum, vernBlockList, iCurrVernBottomUp, reportingClauses, omittedHeSaids, vernacularVersification))
 								{
-									modifiedOmittedHeSaidText = null;
 									numberOfUnexpectedReportingClausesMatched++;
 									iLastVernBlockMatchedFromBottomUp = iCurrVernBottomUp;
 								}
 								else
 								{
-									if (omittedHeSaidIndices.Any() && modifiedOmittedHeSaidText != null)
+									if (omittedHeSaids.Any())
 									{
-										var iLastOmittedHeSaid = omittedHeSaidIndices.Count - 1;
-										vernBlockInVerseChunk.SetUnmatchedNarratorReferenceBlock(modifiedOmittedHeSaidText, bookId)
-											.SetMatchedReferenceBlock(refBlockList[omittedHeSaidIndices[iLastOmittedHeSaid]]);
+										var iLastOmittedHeSaid = omittedHeSaids.Count - 1;
+										// Since modifiedOmittedHeSaidText is always the English one, the order in
+										// which they get hooked up depends on whether or not this (the primary
+										// reference text) is English or not.
+										if (HasSecondaryReferenceText)
+										{
+											var clonedRefBlock = refBlockList[omittedHeSaids[iLastOmittedHeSaid].Item1]
+												.Clone(Block.ReferenceBlockCloningBehavior.SetToNewEmptyList);
+											clonedRefBlock.RemoveVerseNumbers(vernBlockList.Skip(indexOfVernVerseStart)
+												.Take(i).SelectMany(vb => vb.BlockElements).OfType<Verse>());
+											vernBlockInVerseChunk.SetUnmatchedReferenceBlocks(
+												new [] {clonedRefBlock});
+											clonedRefBlock.SetMatchedReferenceBlock(omittedHeSaids[iLastOmittedHeSaid].Item2);
+										}
+										else
+										{
+											vernBlockInVerseChunk.SetUnmatchedNarratorReferenceBlock(
+												omittedHeSaids[iLastOmittedHeSaid].Item2, bookId);
+										}
+
+										omittedHeSaids.RemoveAt(iLastOmittedHeSaid);
 									}
-									break;
+									else
+										break;
 								}
 							}
 						}
-						var numberOfUnmatchedRefBlocks = numberOfRefBlocksInVerseChunk - i - j + numberOfUnexpectedReportingClausesMatched - omittedHeSaidIndices.Count;
+						var numberOfUnmatchedRefBlocks = numberOfRefBlocksInVerseChunk - i - j;
 						var remainingRefBlocks = refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfUnmatchedRefBlocks).ToList();
 						if (numberOfVernBlocksInVerseChunk == 1 && numberOfUnmatchedRefBlocks > 1)
 						{
@@ -708,7 +725,8 @@ namespace GlyssenEngine
 							{
 								if (j + i == numberOfVernBlocksInVerseChunk - 1)
 								{
-									TryMatchToReportingClause(bookNum, vernBlockList, iVernBlock, reportingClauses, modifiedOmittedHeSaidText, vernacularVersification);
+									TryMatchToReportingClause(bookNum, vernBlockList, iVernBlock, reportingClauses,
+										omittedHeSaids, vernacularVersification);
 								}
 								// else do nothing (PG-1085)
 							}
@@ -790,7 +808,15 @@ namespace GlyssenEngine
 					{
 						var refBlock = vernBlockInVerseChunk.ReferenceBlocks.First();
 						if (!refBlock.StartsAtVerseStart)
+						{
 							refBlock.BlockElements.Insert(0, new Verse(verseFromOmittedHeSaidBlockToPrepend));
+							if (HasSecondaryReferenceText && refBlock.MatchesReferenceText)
+							{
+								var englishRefBlock = refBlock.ReferenceBlocks[0];
+								if (!englishRefBlock.StartsAtVerseStart)
+									englishRefBlock.BlockElements.Insert(0, new Verse(verseFromOmittedHeSaidBlockToPrepend));
+							}
+						}
 					}
 				}
 				var indexOfLastVernVerseInVerseChunk = indexOfVernVerseStart + numberOfVernBlocksInVerseChunk - 1;
@@ -805,11 +831,12 @@ namespace GlyssenEngine
 		}
 
 		private bool TryMatchToReportingClause(int bookNum, IReadOnlyList<Block> vernBlockList, int iVernBlock,
-			IReadOnlyCollection<string> reportingClauses, string omittedEnglishHeSaidText, ScrVers vernacularVersification)
+			IReadOnlyCollection<string> reportingClauses, List<Tuple<int, string>> omittedHeSaids, ScrVers vernacularVersification)
 		{
 			if (reportingClauses == null || !vernBlockList[iVernBlock].TryMatchToReportingClause(reportingClauses, this, bookNum, vernacularVersification))
 				return false;
 
+			var omittedEnglishHeSaidText = omittedHeSaids.LastOrDefault()?.Item2;
 			if (omittedEnglishHeSaidText != null)
 			{
 				var englishRefBlock = vernBlockList[iVernBlock].ReferenceBlocks.Single();
@@ -818,6 +845,7 @@ namespace GlyssenEngine
 					englishRefBlock = englishRefBlock.ReferenceBlocks.Single();
 				}
 				englishRefBlock.BlockElements.OfType<ScriptText>().Single().Content = omittedEnglishHeSaidText;
+				omittedHeSaids.RemoveAt(omittedHeSaids.Count - 1);
 			}
 
 			// At least to date, reference texts do not have verse bridges. If the vernacular were to have a verse bridge
