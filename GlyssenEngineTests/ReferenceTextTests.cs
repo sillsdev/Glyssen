@@ -4660,17 +4660,17 @@ namespace GlyssenEngineTests
 			var refText = ReferenceText.GetStandardReferenceText(type);
 			var refTextMrk = refText.GetBook("MRK");
 			var refTextBlocksForMrk15V14 = refTextMrk.GetBlocksForVerse(15, 14).ToList();
-			Assert.AreEqual(4, refTextBlocksForMrk15V14.Count, "SETUP check - expected English reference text to have two blocks for Mark 15:14.");
+			Assert.AreEqual(4, refTextBlocksForMrk15V14.Count, "SETUP check - expected reference text to have four blocks for Mark 15:14.");
 			Assert.AreEqual(narrator, refTextBlocksForMrk15V14[0].CharacterId,
-				"SETUP check - expected English reference text to have narrator speak in first block for Mark 15:14.");
+				"SETUP check - expected reference text to have narrator speak in first block for Mark 15:14.");
 			Assert.AreEqual("Pilate", refTextBlocksForMrk15V14[1].CharacterId,
-				"SETUP check - expected English reference text to have Pilate speak in second block for Mark 15:14.");
+				"SETUP check - expected reference text to have Pilate speak in second block for Mark 15:14.");
 			Assert.AreEqual(narrator, refTextBlocksForMrk15V14[2].CharacterId,
-				"SETUP check - expected English reference text to have narrator speak in third block for Mark 15:14.");
+				"SETUP check - expected reference text to have narrator speak in third block for Mark 15:14.");
 			Assert.AreEqual("crowd before Pilate", refTextBlocksForMrk15V14[3].CharacterId,
-				"SETUP check - expected English reference text to have the crowd before Pilate speak in last block for Mark 15:14.");
+				"SETUP check - expected reference text to have the crowd before Pilate speak in last block for Mark 15:14.");
 			Assert.AreEqual(14, refTextBlocksForMrk15V14.Last().LastVerseNum,
-				"SETUP check - expected English reference text to have have a block break between Mark 15:14 and v. 15.");
+				"SETUP check - expected reference text to have have a block break between Mark 15:14 and v. 15.");
 
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 14,
@@ -4734,11 +4734,8 @@ namespace GlyssenEngineTests
 
 			if (refText.HasSecondaryReferenceText)
 			{
-				var t = allReferenceBlocks.Select(b => b.ReferenceBlocks.Single());
-				var u = t.Single(b => b.StartsAtVerseStart);
-				var v = u.BlockElements.OfType<Verse>();
-				var w = v.Single();
-				Assert.AreEqual(14, w.AllVerseNumbers.Single());
+				Assert.AreEqual(14, allReferenceBlocks.Select(b => b.ReferenceBlocks.Single()).Single(b => b.StartsAtVerseStart)
+					.BlockElements.OfType<Verse>().Single().AllVerseNumbers.Single());
 
 				var firstRefBlock = allReferenceBlocks[0];
 				Assert.IsTrue(firstRefBlock.MatchesReferenceText);
@@ -4746,6 +4743,90 @@ namespace GlyssenEngineTests
 				Assert.AreEqual(firstRefBlock.StartsAtVerseStart, secondaryRefBlock.StartsAtVerseStart);
 				Assert.AreEqual(firstRefBlock.InitialStartVerseNumber, secondaryRefBlock.InitialStartVerseNumber);
 				Assert.AreEqual(firstRefBlock.LastVerseNum, secondaryRefBlock.LastVerseNum);
+			}
+		}
+
+		[TestCase(ReferenceTextType.English)]
+		[TestCase(ReferenceTextType.Russian)]
+		public void GetBlocksForVerseMatchedToReferenceText_ClosingDashAtStartOfShortHeSaidParagraphNotIdentifiedAsDialogueCloserInSameOrderAsRefText_UnmodifiedRefBlocksAlignedWithOneUnmatched(
+			ReferenceTextType type)
+		{
+			var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			var refText = ReferenceText.GetStandardReferenceText(type);
+			var refTextMrk = refText.GetBook("MRK");
+			var refTextBlocksForMrk10V39And40 = refTextMrk.GetBlocksForVerse(10, 39).ToList();
+			Assert.AreEqual(4, refTextBlocksForMrk10V39And40.Count, "SETUP check - expected reference text to have four blocks for Mark 10:39.");
+			Assert.AreEqual(narrator, refTextBlocksForMrk10V39And40[0].CharacterId,
+				"SETUP check - expected reference text to have narrator speak in first block for Mark 10:39.");
+			Assert.AreEqual("James, the disciple/John", refTextBlocksForMrk10V39And40[1].CharacterId,
+				"SETUP check - expected reference text to have James and John speak in second block for Mark 10:39.");
+			Assert.AreEqual(narrator, refTextBlocksForMrk10V39And40[2].CharacterId,
+				"SETUP check - expected reference text to have narrator speak in third block for Mark 10:39.");
+			Assert.AreEqual("Jesus", refTextBlocksForMrk10V39And40[3].CharacterId,
+				"SETUP check - expected reference text to have Jesus speak in last block for Mark 10:39.");
+			Assert.AreEqual(39, refTextBlocksForMrk10V39And40.Last().LastVerseNum,
+				"SETUP check - expected reference text to have have a block break between Mark 10:39 and v. 40.");
+			var refTextBlocksForMrk10V40 = refTextMrk.GetBlocksForVerse(10, 40).Single();
+			Assert.AreEqual("Jesus", refTextBlocksForMrk10V40.CharacterId,
+				"SETUP check - expected reference text to have Jesus speak in block for Mark 10:40.");
+			Assert.AreEqual("40", refTextBlocksForMrk10V40.BlockElements.OfType<Verse>().Single().Number,
+				"SETUP check - expected reference text to have have a block break between Mark 10:40 and v. 41.");
+			refTextBlocksForMrk10V39And40.Add(refTextBlocksForMrk10V40);
+
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 39,
+				"—Ku̱an=ni", true, 10));
+			// The following is supposed to be spoken by the narrator, but the "closing" dash at the start of the
+			// paragraph is treated as an opener.
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter,
+				"—kitsingojo ngojó.");
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "ꞌBa Jesús kitsure:", "MRK");
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter,
+				"—Sꞌiu nda sja xi kꞌuia̱ an, ꞌba sa̱tendo ko kjuanima jotsaꞌen sa̱tendaa̱; ")
+				.AddVerse(40, "tunga tsa ngate kixina̱ asa ngate skjunna̱ kuetsubo, tu kui= xuta xi je kisꞌendare ngaꞌndebiu kuaꞌere.");
+			var vernBook = new BookScript("MRK", vernacularBlocks, refText.Versification);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
+			var result = matchup.CorrelatedBlocks;
+
+			Assert.AreEqual(5, result.Count);
+			Assert.AreEqual("39", ((Verse)result[0].BlockElements[0]).Number);
+			Assert.IsFalse(result.Take(2).All(b => b.MatchesReferenceText),
+				"One or both of the first two blocks should not match the reference text.");
+			Assert.IsTrue(result[2].MatchesReferenceText);
+			Assert.IsTrue(result[3].MatchesReferenceText);
+			Assert.IsTrue(result[4].MatchesReferenceText);
+
+			var allReferenceBlocks = result.SelectMany(b => b.ReferenceBlocks).ToList();
+			Assert.AreEqual(5, allReferenceBlocks.Count,
+				"There should be no extra or missing reference blocks");
+
+			Assert.IsTrue(refTextBlocksForMrk10V39And40.Select(b => b.CharacterId)
+				.SetEquals(allReferenceBlocks.Select(b => b.CharacterId)),
+				"The resulting reference blocks should have the same characters as the original reference blocks");
+
+			var blockComparer = new BlockComparer();
+
+			Assert.AreEqual(5, allReferenceBlocks.Distinct(blockComparer).Count(),
+				"There should be no duplicate reference blocks");
+
+			Assert.IsTrue(allReferenceBlocks.SelectMany(b => b.BlockElements).OfType<Verse>().Select(v => v.Number)
+				.SetEquals(new [] {"39", "40"}));
+
+			Assert.IsTrue(allReferenceBlocks.SequenceEqual(refTextBlocksForMrk10V39And40, blockComparer));
+
+			if (refText.HasSecondaryReferenceText)
+			{
+				Assert.IsTrue(allReferenceBlocks.All(b => b.MatchesReferenceText));
+				var englishRefBlocks = allReferenceBlocks.Select(b => b.ReferenceBlocks.Single()).ToList();
+
+				Assert.AreEqual(5, englishRefBlocks.Distinct(blockComparer).Count(),
+					"There should be no duplicate English reference blocks");
+
+				Assert.IsTrue(englishRefBlocks.SelectMany(b => b.BlockElements).OfType<Verse>().Select(v => v.Number)
+					.SetEquals(new [] {"39", "40"}));
+
+				Assert.IsTrue(englishRefBlocks.SequenceEqual(refTextBlocksForMrk10V39And40.Select(b => b.ReferenceBlocks.Single()), blockComparer));
 			}
 		}
 		#endregion

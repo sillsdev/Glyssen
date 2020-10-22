@@ -522,7 +522,8 @@ namespace GlyssenEngine
 					var vernBlockInVerseChunk = vernBlockList[indexOfVernVerseStart + i];
 					var currRefBlockIndex = indexOfRefVerseStart + i + omittedHeSaids.Count;
 					var refBlockInVerseChunk = refBlockList[currRefBlockIndex];
-					if (BlocksMatch(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification))
+					if (BlocksMatch(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification) &&
+						(!vernBlockInVerseChunk.CharacterIsUnclear || omittedHeSaids.Count <= i))
 					{
 						if (i == numberOfVernBlocksInVerseChunk - 1 && i < numberOfRefBlocksInVerseChunk - 1)
 						{
@@ -684,25 +685,43 @@ namespace GlyssenEngine
 									if (omittedHeSaids.Any())
 									{
 										var iLastOmittedHeSaid = omittedHeSaids.Count - 1;
-										// Since modifiedOmittedHeSaidText is always the English one, the order in
-										// which they get hooked up depends on whether or not this (the primary
-										// reference text) is English or not.
-										if (HasSecondaryReferenceText)
+
+										if (omittedHeSaids[iLastOmittedHeSaid].Item1 == currBottomUpRefBlockIndex && iCurrVernBottomUp == 0)
 										{
-											var clonedRefBlock = refBlockList[omittedHeSaids[iLastOmittedHeSaid].Item1]
-												.Clone(Block.ReferenceBlockCloningBehavior.SetToNewEmptyList);
-											clonedRefBlock.RemoveVerseNumbers(vernBlockList.Skip(indexOfVernVerseStart)
-												.Take(i).SelectMany(vb => vb.BlockElements).OfType<Verse>());
+											// Special case. We found our way all the way to the top, so we can just use the
+											// existing ref block, rather than remaking it from the modified one.
 											vernBlockInVerseChunk.SetUnmatchedReferenceBlocks(
-												new [] {clonedRefBlock});
-											clonedRefBlock.SetMatchedReferenceBlock(omittedHeSaids[iLastOmittedHeSaid].Item2);
+												new[] {refBlockList[currBottomUpRefBlockIndex]});
+											verseFromOmittedHeSaidBlockToPrepend = null; // Just to be safe
 										}
 										else
 										{
-											vernBlockInVerseChunk.SetUnmatchedNarratorReferenceBlock(
-												omittedHeSaids[iLastOmittedHeSaid].Item2, bookId);
+											// Since modifiedOmittedHeSaidText is always the English one, the order in
+											// which they get hooked up depends on whether or not this (the primary
+											// reference text) is English or not.
+											Block englishRefBlock;
+											if (HasSecondaryReferenceText)
+											{
+												var clonedRefBlock = refBlockList[omittedHeSaids[iLastOmittedHeSaid].Item1]
+													.Clone(Block.ReferenceBlockCloningBehavior.SetToNewEmptyList);
+												clonedRefBlock.RemoveVerseNumbers(vernBlockList.Skip(indexOfVernVerseStart)
+													.Take(i).SelectMany(vb => vb.BlockElements).OfType<Verse>());
+												vernBlockInVerseChunk.SetUnmatchedReferenceBlocks(
+													new[] {clonedRefBlock});
+												englishRefBlock = clonedRefBlock.SetMatchedReferenceBlock(omittedHeSaids[iLastOmittedHeSaid].Item2);
+											}
+											else
+											{
+												englishRefBlock = vernBlockInVerseChunk.SetUnmatchedNarratorReferenceBlock(
+													omittedHeSaids[iLastOmittedHeSaid].Item2, bookId);
+											}
+									
+											if (verseFromOmittedHeSaidBlockToPrepend != null && vernBlockInVerseChunk.StartsAtVerseStart)
+											{
+												englishRefBlock.BlockElements.Insert(0, new Verse(verseFromOmittedHeSaidBlockToPrepend));
+												verseFromOmittedHeSaidBlockToPrepend = null;
+											}
 										}
-
 										omittedHeSaids.RemoveAt(iLastOmittedHeSaid);
 									}
 									else

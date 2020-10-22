@@ -588,7 +588,10 @@ namespace GlyssenEngine.Script
 				refBlock.BlockElements.Clear();
 			}
 			else
+			{
 				refBlock = new Block(StyleTag, ChapterNumber, prevVerse.StartVerse, prevVerse.LastVerseOfBridge);
+			}
+
 			refBlock.SetCharacterAndDeliveryInfo(this);
 			return refBlock;
 		}
