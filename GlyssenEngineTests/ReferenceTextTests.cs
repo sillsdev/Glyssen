@@ -19,6 +19,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using SIL.Extensions;
 using static System.String;
 using Resources = GlyssenEngineTests.Properties.Resources;
 
@@ -4650,11 +4651,13 @@ namespace GlyssenEngineTests
 			return matchup;
 		}
 
-		[Test]
-		public void GetBlocksForVerseMatchedToReferenceText_ClosingDashAtStartOfShortHeSaidParagraphNotIdentifiedAsDialogueCloser_NoPartOfReferenceTextDuplicatedNorOmitted()
+		[TestCase(ReferenceTextType.English)]
+		[TestCase(ReferenceTextType.Russian)]
+		public void GetBlocksForVerseMatchedToReferenceText_ClosingDashAtStartOfShortHeSaidParagraphNotIdentifiedAsDialogueCloser_NoPartOfReferenceTextDuplicatedNorOmitted(
+			ReferenceTextType type)
 		{
 			var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = ReferenceText.GetStandardReferenceText(type);
 			var refTextMrk = refText.GetBook("MRK");
 			var refTextBlocksForMrk15V14 = refTextMrk.GetBlocksForVerse(15, 14).ToList();
 			Assert.AreEqual(4, refTextBlocksForMrk15V14.Count, "SETUP check - expected English reference text to have two blocks for Mark 15:14.");
@@ -4695,24 +4698,54 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(4, allReferenceBlocks.Count,
 				"There should be no extra or missing reference blocks");
 
+			Assert.IsTrue(refTextBlocksForMrk15V14.Select(b => b.CharacterId)
+				.SetEquals(allReferenceBlocks.Select(b => b.CharacterId)),
+				"The resulting reference blocks should have the same characters as the original reference blocks");
+
 			var blockComparer = new BlockComparer();
 
 			Assert.AreEqual(4, allReferenceBlocks.Distinct(blockComparer).Count(),
 				"There should be no duplicate reference blocks");
 
+			Assert.AreEqual(14, allReferenceBlocks.Single(b => b.StartsAtVerseStart).BlockElements.OfType<Verse>().Single().AllVerseNumbers.Single());
+
 			var indexOfPrevRefBlockInOriginalList = -1;
-			foreach (var nonHeSaidRefBlock in refTextBlocksForMrk15V14.Skip(1))
+			foreach (var nonPilateSaidRefBlock in refTextBlocksForMrk15V14.Skip(1))
 			{
-				var indexOfThisBlockInOriginalList = refTextBlocksForMrk15V14.FindIndex(b => blockComparer.Equals(b, nonHeSaidRefBlock));
-				Assert.IsTrue(indexOfThisBlockInOriginalList >= 0,
-					$"Reference block {nonHeSaidRefBlock} missing. With the possible exception of" +
+				var indexOfThisRefBlockInResult = allReferenceBlocks.FindIndex(b => blockComparer.Equals(b, nonPilateSaidRefBlock));
+				Assert.IsTrue(indexOfThisRefBlockInResult >= 0,
+					$"Reference block {nonPilateSaidRefBlock} missing. With the possible exception of" +
 					$" the \"he said\" block for Pilate, all reference blocks should be in the" +
 					$" list of blocks corresponding to a vernacular block.");
-				Assert.IsTrue(indexOfThisBlockInOriginalList >= indexOfPrevRefBlockInOriginalList,
-					$"Reference block {nonHeSaidRefBlock} out of order. With the possible exception" +
+				Assert.IsTrue(indexOfThisRefBlockInResult >= indexOfPrevRefBlockInOriginalList,
+					$"Reference block {nonPilateSaidRefBlock} out of order. With the possible exception" +
 					$" of the \"he said\" block for Pilate, all reference blocks should be in the" +
 					$" same relative order as their occur in the reference text.");
-				indexOfPrevRefBlockInOriginalList = indexOfThisBlockInOriginalList;
+				indexOfPrevRefBlockInOriginalList = indexOfThisRefBlockInResult;
+
+				if (refText.HasSecondaryReferenceText)
+				{
+					var refBlockInOrigList = allReferenceBlocks[indexOfThisRefBlockInResult].ReferenceBlocks.Single();
+					var refBlockInResults = nonPilateSaidRefBlock.ReferenceBlocks.Single();
+					Assert.IsTrue(blockComparer.Equals(refBlockInOrigList, refBlockInResults),
+						"Secondary (English) reference text got hooked up differently from the primary!");
+				}
+			}
+
+			if (refText.HasSecondaryReferenceText)
+			{
+				var t = allReferenceBlocks.Select(b => b.ReferenceBlocks.Single());
+				var u = t.Single(b => b.StartsAtVerseStart);
+				var v = u.BlockElements.OfType<Verse>();
+				var w = v.Single();
+				Assert.AreEqual(14, w.AllVerseNumbers.Single());
+
+				var firstRefBlock = allReferenceBlocks[0];
+				Assert.IsTrue(firstRefBlock.MatchesReferenceText);
+				var secondaryRefBlock = firstRefBlock.ReferenceBlocks.Single();
+				Assert.AreEqual(firstRefBlock.StartsAtVerseStart, secondaryRefBlock.StartsAtVerseStart);
+				Assert.AreEqual(firstRefBlock.InitialStartVerseNumber, secondaryRefBlock.InitialStartVerseNumber);
+				Assert.AreEqual(firstRefBlock.LastVerseNum, secondaryRefBlock.LastVerseNum);
 			}
 		}
 		#endregion

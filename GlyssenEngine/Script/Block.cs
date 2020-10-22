@@ -511,6 +511,32 @@ namespace GlyssenEngine.Script
 			return refBlock;
 		}
 
+		public Block SetUnmatchedNarratorReferenceBlock(string plainTextWithNoVerseNumbers, string bookId)
+		{
+			var refBlock = GetEmptyReferenceBlock((InitialVerseNumberBridgeFromBlock)this);
+			refBlock.CharacterId = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
+			//if (StartsAtVerseStart)
+			//{
+			//	// TODO: Deal with versification difference
+			//	refBlock.BlockElements.Add(new Verse(BlockElements.OfType<Verse>().ToString()));
+			//}
+
+			refBlock.BlockElements.Add(new ScriptText(plainTextWithNoVerseNumbers));
+			//if (!refBlock.StartsAtVerseStart && refBlock.InitialEndVerseNumber > 0)
+			//{
+			//	// If we don't have a preceding ref block that can be used to imply the starting verse number/bridge
+			//	// for this ref block, we at least want to prevent it from looking like it starts at or before the
+			//	// first verse number it actually contains, so we infer that it starts at the preceding verse. This
+			//	// is not a common scenario, and it is really somewhat of a guess as to what is actually happening.
+			//	var firstVerseInRefBlock = refBlock.BlockElements.OfType<Verse>().FirstOrDefault();
+			//	if (firstVerseInRefBlock != null && firstVerseInRefBlock.StartVerse <= refBlock.InitialEndVerseNumber)
+			//		refBlock.InitialEndVerseNumber = firstVerseInRefBlock.StartVerse - 1;
+			//}
+			SetUnmatchedReferenceBlocks(new [] {refBlock});
+
+			return refBlock;
+		}
+
 		public void SetUnmatchedReferenceBlocks(IEnumerable<Block> referenceBlocks)
 		{
 			if (referenceBlocks == null)
@@ -604,8 +630,7 @@ namespace GlyssenEngine.Script
 						BlockElements.Add(new Verse(match.Result("${verse}").Replace(',', '-')));
 					else
 					{
-						var prevText = BlockElements.LastOrDefault() as ScriptText;
-						if (prevText != null && prevText.Content.Last() != ' ')
+						if (BlockElements.LastOrDefault() is ScriptText prevText && prevText.Content.Last() != ' ')
 							prevText.Content += " ";
 						BlockElements.Add(Sound.CreateFromMatchedRegex(match));
 						prependSpace = " ";
