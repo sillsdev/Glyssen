@@ -709,9 +709,9 @@ namespace GlyssenEngine
 										}
 										else
 										{
-											// Since modifiedOmittedHeSaidText is always the English one, the order in
-											// which they get hooked up depends on whether or not this (the primary
-											// reference text) is English or not.
+											// Since the modified "he said" text in omittedHeSaids is always the English
+											// one, the order in which they get hooked up depends on whether or not this
+											// (the primary reference text) is English or not.
 											Block englishRefBlock;
 											if (HasSecondaryReferenceText)
 											{
