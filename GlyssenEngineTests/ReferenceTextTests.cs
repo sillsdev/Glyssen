@@ -4829,6 +4829,61 @@ namespace GlyssenEngineTests
 				Assert.IsTrue(englishRefBlocks.SequenceEqual(refTextBlocksForMrk10V39And40.Select(b => b.ReferenceBlocks.Single()), blockComparer));
 			}
 		}
+
+		[TestCase(ReferenceTextType.English)]
+		[TestCase(ReferenceTextType.Russian)]
+		public void GetBlocksForVerseMatchedToReferenceText_InterruptingDashForHeSaidParagraphNotIdentifiedAsDialogueCloserInVerseWithSingleSpeaker_HeSaidNotOmitted(
+			ReferenceTextType type)
+		{
+			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			var refText = ReferenceText.GetStandardReferenceText(type);
+			var refTextMat = refText.GetBook("MAT");
+			var refTextBlocksForMat19V20 = refTextMat.GetBlocksForVerse(19, 20).ToList();
+			Assert.AreEqual(2, refTextBlocksForMat19V20.Count, "SETUP check - expected reference text to have two blocks for Matthew 19:20.");
+			Assert.AreEqual(narrator, refTextBlocksForMat19V20[0].CharacterId,
+				"SETUP check - expected reference text to have narrator speak in first block for Matthew 19:20.");
+			Assert.AreEqual("rich young ruler", refTextBlocksForMat19V20[1].CharacterId,
+				"SETUP check - expected reference text to have the rich young ruler speak in second block for Matthew 19:20.");
+			Assert.AreEqual(20, refTextBlocksForMat19V20.Last().LastVerseNum,
+				"SETUP check - expected reference text to have have a block break between Matthew 19:20 and v. 21.");
+
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateBlockForVerse(refTextBlocksForMat19V20[1].CharacterId, 20,
+				"—Ngayéjebiu je kitsikꞌetjusaa̱n", true, 19));
+			// The following is supposed to be spoken by the narrator, but the "closing" (interrupting) dash at the
+			// start of the paragraph is treated as an opener.
+			AddBlockForVerseInProgress(vernacularBlocks, refTextBlocksForMat19V20[1].CharacterId,
+				"—kitsu chanaꞌenbiu");
+			AddBlockForVerseInProgress(vernacularBlocks, refTextBlocksForMat19V20[1].CharacterId,
+				"—. ¿Mé= xi chaja ngisana̱?");
+			var vernBook = new BookScript("MAT", vernacularBlocks, refText.Versification);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
+			var result = matchup.CorrelatedBlocks;
+
+			Assert.AreEqual(3, result.Count);
+			Assert.AreEqual("20", ((Verse)result[0].BlockElements[0]).Number);
+			Assert.IsFalse(result.All(b => b.MatchesReferenceText),
+				"At least one of the blocks should not match the reference text.");
+
+			var allReferenceBlocks = result.SelectMany(b => b.ReferenceBlocks).ToList();
+
+			Assert.IsTrue(allReferenceBlocks.Any(b => b.CharacterId == narrator),
+				"The narrator block with the reporting clause should not be omitted.");
+
+			var blockComparer = new BlockComparer();
+
+			Assert.IsTrue(allReferenceBlocks.Contains(refTextBlocksForMat19V20[1], blockComparer),
+				"The reference block spoken by the rich young ruler should not be omitted.");
+
+			Assert.AreEqual("20", ((Verse)allReferenceBlocks[0].BlockElements.First()).Number);
+
+			if (refText.HasSecondaryReferenceText)
+			{
+				Assert.That(allReferenceBlocks.All(b => b.MatchesReferenceText));
+				Assert.AreEqual("20", ((Verse)allReferenceBlocks.Select(b => b.ReferenceBlocks.Single()).First().BlockElements.First()).Number);
+			}
+		}
 		#endregion
 
 		#region private helper methods
