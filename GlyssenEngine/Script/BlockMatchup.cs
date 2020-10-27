@@ -332,7 +332,7 @@ namespace GlyssenEngine.Script
 			return OriginalBlocks.Contains(block) || CorrelatedBlocks.Contains(block);
 		}
 
-		public void MatchAllBlocks()
+		public void MatchAllBlocks(string dialogueDash = null)
 		{
 			var versification = m_vernacularBook.Versification;
 			int bookNum = BCVRef.BookToNumber(BookId);
@@ -354,7 +354,12 @@ namespace GlyssenEngine.Script
 				else
 				{
 					block.SetMatchedReferenceBlock(bookNum, versification, m_referenceLanguageInfo);
-					if (block.CharacterIsUnclear)
+					if (block.CharacterIsUnclear ||
+						(dialogueDash != null && // See PG-1408 (and corresponding unit tests)
+						block.CharacterId == prevBlock?.CharacterId &&
+						!block.IsContinuationOfPreviousBlockQuote &&
+						CharacterVerseData.IsCharacterOfType(block.ReferenceBlocks.Single().CharacterId, CharacterVerseData.StandardCharacter.Narrator) &&
+						block.BlockElements.OfType<ScriptText>().First().Content.StartsWith(dialogueDash)))
 						block.SetCharacterAndDeliveryInfo(block.ReferenceBlocks.Single(), bookNum, versification);
 				}
 
