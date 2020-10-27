@@ -397,8 +397,8 @@ namespace GlyssenEngineTests.Export
 			Assert.AreEqual(6, row.VerseNumber);
 			Assert.AreEqual("narrator (JUD)", row.CharacterId);
 			Assert.AreEqual("{6}\u00A0F", row.VernacularText);
-			Assert.AreEqual("{6}\u00A0Ef", row.AdditionalReferenceText);
-			Assert.AreEqual("{6}\u00A0Secondary", row.EnglishReferenceText);
+			Assert.AreEqual("{6}\u00A0Ef ||| + 5 SECs |||", row.AdditionalReferenceText);
+			Assert.AreEqual("{6}\u00A0Secondary ||| + 5 SECs |||", row.EnglishReferenceText);
 
 			Assert.AreEqual(i, data.Count);
 		}
@@ -511,7 +511,7 @@ namespace GlyssenEngineTests.Export
 			Assert.AreEqual(40, row.VerseNumber);
 			Assert.AreEqual("Jesus", row.CharacterId);
 			Assert.AreEqual(mark.GetScriptBlocks()[i].GetText(true), row.VernacularText);
-			Assert.AreEqual(refBlocks[i - 2].GetText(true), row.AdditionalReferenceText);
+			Assert.AreEqual(refBlocks[i - 2].GetText(true) + " ||| + 5 SECs |||", row.AdditionalReferenceText);
 		}
 
 		[Test]

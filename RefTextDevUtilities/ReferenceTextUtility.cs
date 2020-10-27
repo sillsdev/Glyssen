@@ -459,7 +459,7 @@ namespace Glyssen.RefTextDevUtilities
 
 					foreach (var referenceTextRow in referenceTextRowsToProcess.Where(r => !r.CharacterId.StartsWith("Section Head_")))
 					{
-						var currBookId = GetBookIdFromFcbhBookCode(referenceTextRow.Book, out int currBookNum);
+						var currBookId = GetBookIdFromFcbhBookCode(referenceTextRow.Book, out var currBookNum);
 
 						if (skippingBook == currBookNum)
 							continue;
@@ -777,7 +777,7 @@ namespace Glyssen.RefTextDevUtilities
 							"replaced by a new version of the English text, then the tool needs to re re-run to link all reference texts to the new English version.");
 
 					if (annotationsToOutput.Any()) // If not, we probably didn't process English data
-						WriteAnnotationsFile(annotationsToOutput);
+						WriteAnnotationsFile(annotationsToOutput, minBook, maxBook);
 					break;
 				case Mode.GenerateEnglish:
 					var temporaryPathRoot = @"..\..\DevTools\Resources\temporary";
@@ -960,15 +960,13 @@ namespace Glyssen.RefTextDevUtilities
 				characterMappings.Add(new CharacterMapping(existingEnglishRefBlock.CharacterId, referenceTextRow.CharacterId,
 					verse));
 
-				SortedSet<string> fcbhIds;
-				if (glyssenToFcbhIds.TryGetValue(existingEnglishRefBlock.CharacterId, out fcbhIds))
+				if (glyssenToFcbhIds.TryGetValue(existingEnglishRefBlock.CharacterId, out var fcbhIds))
 					fcbhIds.Add(referenceTextRow.CharacterId);
 				else
 					glyssenToFcbhIds.Add(existingEnglishRefBlock.CharacterId,
 						new SortedSet<string> {referenceTextRow.CharacterId});
 
-				SortedSet<string> glyssenIds;
-				if (fcbhToGlyssenIds.TryGetValue(referenceTextRow.CharacterId, out glyssenIds))
+				if (fcbhToGlyssenIds.TryGetValue(referenceTextRow.CharacterId, out var glyssenIds))
 					glyssenIds.Add(existingEnglishRefBlock.CharacterId);
 				else
 					fcbhToGlyssenIds.Add(referenceTextRow.CharacterId,
@@ -1152,9 +1150,18 @@ namespace Glyssen.RefTextDevUtilities
 
 		private static void AttemptParseOfControlFileAnnotation(Mode mode, string s, ReferenceTextLanguageInfo languageInfo, string bookId, ReferenceTextRow referenceTextRow, Block existingEnglishRefBlock, List<string> annotationsToOutput)
 		{
-			if (ConvertTextToControlScriptAnnotationElement(s, out var annotation))
+			bool IsEndOfChapter()
 			{
-				if (mode != Mode.GenerateEnglish && languageInfo.IsEnglish)
+				var bookNum = BCVRef.BookToNumber(bookId);
+				//if (bookNum == 66 && existingEnglishRefBlock.ChapterNumber == 12)
+				//	Debug.WriteLine("Check");
+				// Note: using <= because in Rev 12, the Director's guide includes v. 18, which is not in the standard English versification
+				return ScrVers.English.GetLastVerse(bookNum, existingEnglishRefBlock.ChapterNumber) <= existingEnglishRefBlock.LastVerse.EndVerse;
+			}
+
+			if (ConvertTextToControlScriptAnnotationElement(s, IsEndOfChapter, out var annotation))
+			{
+				if (annotation != null && mode != Mode.GenerateEnglish && languageInfo.IsEnglish)
 				{
 					var pause = annotation as Pause;
 					var serializedAnnotation = pause != null
@@ -1849,16 +1856,32 @@ namespace Glyssen.RefTextDevUtilities
 			WriteOutput("Finished writing character mapping files!");
 		}
 
-		private static void WriteAnnotationsFile(List<string> annotationsToOutput)
+		private static void WriteAnnotationsFile(List<string> annotationsToOutput, int minBook, int maxBook)
 		{
 			if (!Directory.Exists(Path.GetDirectoryName(kOutputFileForAnnotations)))
 			{
 				WriteOutput($"Could not write file {kOutputFileForAnnotations}. If annotations have changed, this needs to be run by a developer. ");
 				return;
 			}
+
 			var sb = new StringBuilder();
+			var linesToAppend = new List<string>();
+			if (File.Exists(kOutputFileForAnnotations))
+			{
+				var lines = File.ReadAllLines(kOutputFileForAnnotations);
+				foreach (var line in lines)
+				{
+					var bookNum = BCVRef.BookToNumber(line.Substring(0, 3));
+					if (bookNum < minBook)
+						sb.AppendLine(line);
+					else if (bookNum > maxBook)
+						linesToAppend.Add(line);
+				}
+			}
 			foreach (string annotation in annotationsToOutput)
-				sb.Append(annotation).Append(Environment.NewLine);
+				sb.AppendLine(annotation);
+			foreach (var line in linesToAppend)
+				sb.AppendLine(line);
 			File.WriteAllText(kOutputFileForAnnotations, sb.ToString());
 		}
 
@@ -2180,19 +2203,28 @@ namespace Glyssen.RefTextDevUtilities
 		private static readonly Regex s_musicSfxRegex = new Regex("{Music \\+ SFX--(.*?) Starts? @ v(\\d*?)}", RegexOptions.Compiled);
 		private static Ignore s_differencesToIgnore;
 
-		public static bool ConvertTextToControlScriptAnnotationElement(string text, out ScriptAnnotation annotation)
+		public static bool ConvertTextToControlScriptAnnotationElement(string text, Func<bool> isEndOfChapter, out ScriptAnnotation annotation)
 		{
 			if (string.IsNullOrWhiteSpace(text))
 				throw new ArgumentException("text must contain non-whitespace", "text");
 
 			var match = s_doNotCombineRegex.Match(text);
 			if (match.Success)
-				return ConvertTextToControlScriptAnnotationElement(text.Substring(match.Length), out annotation);
+				return ConvertTextToControlScriptAnnotationElement(text.Substring(match.Length), isEndOfChapter, out annotation);
 
 			match = s_pauseRegex.Match(text);
 			if (match.Success)
 			{
-				annotation = new Pause { Time = double.Parse(match.Groups[1].Value) };
+				var duration = double.Parse(match.Groups[1].Value);
+				if (isEndOfChapter() && (duration.Equals(Pause.kStandardEndOfChapterPause) ||
+					duration.Equals(Pause.kStandardEndOfChapterPause)))
+				{
+					// We now handle standard end-of-chapter pauses programmatically.
+					annotation = null;
+					return true;
+				}
+
+				annotation = new Pause { Time = duration };
 				return true;
 			}
 			match = s_pauseMinuteRegex.Match(text);
