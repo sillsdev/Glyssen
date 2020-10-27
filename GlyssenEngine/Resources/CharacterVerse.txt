@@ -15592,6 +15592,8 @@ MAT	3	11	John the Baptist	humble		Normal
 MAT	3	12	John the Baptist	humble		Normal		
 MAT	3	14	John the Baptist	humble		Dialogue		
 MAT	3	15	Jesus			Dialogue		
+MAT	3	15	John the Baptist			Rare		
+MAT	3	15	Needs Review			Rare		
 MAT	3	17	God		voice from heaven (God)	Normal		
 MAT	4	3	Satan (Devil)		Tempter	Dialogue		
 MAT	4	4	Jesus			Dialogue		
