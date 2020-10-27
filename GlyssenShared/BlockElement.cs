@@ -202,6 +202,8 @@ namespace Glyssen.Shared
 	public class Pause : ScriptAnnotation
 	{
 		public const string kPauseSecondsFormat = "||| + {0} SECs |||";
+		public const double kStandardEndOfBookPause = 5d;
+		public const double kStandardEndOfChapterPause = 2d;
 
 		//[XmlAttribute("timeUnits")]
 		//[DefaultValue(TimeUnits.Seconds)]
