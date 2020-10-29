@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
@@ -17,9 +18,11 @@ using GlyssenFileBasedPersistence;
 using L10NSharp;
 using L10NSharp.XLiffUtils;
 using L10NSharp.UI;
+using SIL.Extensions;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Windows.Forms.WritingSystems;
+using static System.String;
 using Analytics = DesktopAnalytics.Analytics;
 using BlockNavigatorViewModel = GlyssenEngine.ViewModels.BlockNavigatorViewModel<System.Drawing.Font>;
 
@@ -32,8 +35,8 @@ namespace Glyssen.Dialogs
 
 		private class ChapterAnnouncementItem
 		{
-			public string UiString { get; private set; }
-			public ChapterAnnouncement ChapterAnnouncement { get; private set; }
+			private string UiString { get; }
+			public ChapterAnnouncement ChapterAnnouncement { get; }
 
 			public ChapterAnnouncementItem(string uiString, ChapterAnnouncement chapterAnnouncement)
 			{
@@ -62,9 +65,9 @@ namespace Glyssen.Dialogs
 			}
 
 			IReadOnlyList<BookScript> books = model.Project.IncludedBooks.Any() ? model.Project.IncludedBooks : model.Project.Books;
-			if (books.All(book => string.IsNullOrEmpty(book.PageHeader)))
+			if (books.All(book => IsNullOrEmpty(book.PageHeader)))
 				RemoveItemFromBookMarkerCombo(ChapterAnnouncement.PageHeader);
-			if (books.All(book => string.IsNullOrEmpty(book.MainTitle)))
+			if (books.All(book => IsNullOrEmpty(book.MainTitle)))
 				RemoveItemFromBookMarkerCombo(ChapterAnnouncement.MainTitle1);
 
 			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
@@ -79,14 +82,14 @@ namespace Glyssen.Dialogs
 			UpdateQuotePageDisplay();
 
 			var fmt = m_linkLblChangeOmittedChapterAnnouncements.Text;
-			var linkStartPos = fmt.IndexOf("{0}");
-			m_linkLblChangeOmittedChapterAnnouncements.Text = String.Format(fmt, m_tabPageScriptOptions.Text);
+			var linkStartPos = fmt.IndexOf("{0}", StringComparison.OrdinalIgnoreCase);
+			m_linkLblChangeOmittedChapterAnnouncements.Text = Format(fmt, m_tabPageScriptOptions.Text);
 			if (linkStartPos >= 0 && m_tabPageScriptOptions.Text.Length > 0)
 				m_linkLblChangeOmittedChapterAnnouncements.LinkArea = new LinkArea(linkStartPos, m_tabPageScriptOptions.Text.Length);
 			else
-				m_linkLblChangeOmittedChapterAnnouncements.LinkArea = default(LinkArea);
+				m_linkLblChangeOmittedChapterAnnouncements.LinkArea = default;
 			if (m_model.IsLiveParatextProject)
-				m_lblOriginalSource.Text = String.Format(LocalizationManager.GetString(
+				m_lblOriginalSource.Text = Format(LocalizationManager.GetString(
 					"DialogBoxes.ProjectSettingsDlg.SourceLabelForParatextProject", "{0} project:", "\"Paratext\" (product name)"),
 					ParatextScrTextWrapper.kParatextProgramName);
 		}
@@ -102,7 +105,7 @@ namespace Glyssen.Dialogs
 				if (paratextProj != null &&
 					!project.WritingSystem.QuotationMarks.SequenceEqual(project.GetQuotationMarksWithFullySpecifiedContinuers(paratextProj.QuotationMarks)))
 				{
-					string msg = string.Format(LocalizationManager.GetString("Project.ParatextQuoteSystemChanged",
+					string msg = Format(LocalizationManager.GetString("Project.ParatextQuoteSystemChanged",
 							"The quotation mark settings in {0} project {1} no longer match the settings in this {2} project. To update " +
 							"this project to match the {0} project settings (and get the latest versions of the text), click {3}.",
 							"Param 0: \"Paratext\" (product name); " +
@@ -164,7 +167,7 @@ namespace Glyssen.Dialogs
 					var fmt = (refTextId.Missing) ?
 						LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.MissingReferenceText", "Missing: {0}") :
 						LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.CustomReferenceText", "Custom: {0}");
-					key = String.Format(fmt, refTextId.CustomIdentifier);
+					key = Format(fmt, refTextId.CustomIdentifier);
 				}
 				else
 				{
@@ -205,7 +208,7 @@ namespace Glyssen.Dialogs
 		public GlyssenBundle UpdatedBundle { get; private set; }
 		internal ParatextScrTextWrapper UpdatedParatextProject { get; private set; }
 
-		public string ReferenceTextTabPageName { get { return m_tabPageReferenceTexts.Text; } }
+		public string ReferenceTextTabPageName => m_tabPageReferenceTexts.Text;
 
 		private void SetViewModel(ProjectSettingsViewModel projectSettingsViewModel, WritingSystemSetupModel wsViewModel)
 		{
@@ -223,7 +226,7 @@ namespace Glyssen.Dialogs
 
 			m_wsFontControl.BindToModel(wsViewModel);
 
-			if (!string.IsNullOrWhiteSpace(m_model.SampleText))
+			if (!IsNullOrWhiteSpace(m_model.SampleText))
 				m_wsFontControl.TestAreaText = m_model.SampleText;
 
 			// PG-433, 07 JAN 2016, PH: Disable some UI if project file is not writable
@@ -267,36 +270,36 @@ namespace Glyssen.Dialogs
 
 		private string RecordingProjectName
         {
-            get { return m_txtRecordingProjectName.Text.Trim(); }
-            set { m_txtRecordingProjectName.Text = value.Trim(); }
-        }
+            get => m_txtRecordingProjectName.Text.Trim();
+			set => m_txtRecordingProjectName.Text = value.Trim();
+		}
 
         private string AudioStockNumber
         {
-            get { return m_txtAudioStockNumber.Text; }
-            set { m_txtAudioStockNumber.Text = value; }
-        }
+            get => m_txtAudioStockNumber.Text.Trim();
+			set => m_txtAudioStockNumber.Text = value;
+		}
 
 		private string LanguageName
 		{
-			set { m_txtLanguageName.Text = value ?? string.Empty; }
+			set => m_txtLanguageName.Text = value ?? Empty;
 		}
 
 		private string IsoCode
 		{
-			get { return (string.IsNullOrWhiteSpace(m_txtIso639_2_Code.Text)) ? "zzz" : m_txtIso639_2_Code.Text; }
-			set { m_txtIso639_2_Code.Text = value; }
+			get => (IsNullOrWhiteSpace(m_txtIso639_2_Code.Text)) ? "zzz" : m_txtIso639_2_Code.Text;
+			set => m_txtIso639_2_Code.Text = value;
 		}
 
 		private string PublicationName
 		{
-			set { m_txtPublicationName.Text = value; }
+			set => m_txtPublicationName.Text = value;
 		}
 
 		private string PublicationId
 		{
-			get { return m_txtPublicationId.Text; }
-			set { m_txtPublicationId.Text = value; }
+			get => m_txtPublicationId.Text;
+			set => m_txtPublicationId.Text = value;
 		}
 
 		private void UpdateQuotePageDisplay()
@@ -316,10 +319,10 @@ namespace Glyssen.Dialogs
 					m_lblQuoteMarkReview.ForeColor = GlyssenColorPalette.ColorScheme.Warning;
 					break;
 				case QuoteSystemStatus.Reviewed:
-					quoteMarkReviewText = string.Format(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.QuoteMarksReviewed", "Quote mark settings were reviewed on {0}.", "{0} is a date"), m_model.Project.QuoteSystemDate.ToString("yyyy-MM-dd"));
+					quoteMarkReviewText = Format(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.QuoteMarksReviewed", "Quote mark settings were reviewed on {0}.", "{0} is a date"), m_model.Project.QuoteSystemDate.ToString("yyyy-MM-dd"));
 					break;
 				case QuoteSystemStatus.UserSet:
-					quoteMarkReviewText = string.Format(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.QuoteMarksUpdated", "Quote mark settings were updated on {0}.", "{0} is a date"), m_model.Project.QuoteSystemDate.ToString("yyyy-MM-dd"));
+					quoteMarkReviewText = Format(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.QuoteMarksUpdated", "Quote mark settings were updated on {0}.", "{0} is a date"), m_model.Project.QuoteSystemDate.ToString("yyyy-MM-dd"));
 					break;
 			}
 			m_lblQuoteMarkReview.Text = quoteMarkReviewText;
@@ -327,8 +330,9 @@ namespace Glyssen.Dialogs
 
 		private void UpdateAnnouncementsPageDisplay()
 		{
-			var showChangeOmittedChapterAnnouncementsLabel = m_titleChapters.SelectedValue is ExtraBiblicalMaterialSpeakerOption &&
-				(ExtraBiblicalMaterialSpeakerOption) m_titleChapters.SelectedValue == ExtraBiblicalMaterialSpeakerOption.Omitted;
+			var showChangeOmittedChapterAnnouncementsLabel =
+				m_titleChapters.SelectedValue is ExtraBiblicalMaterialSpeakerOption extraBiblicalOption &&
+				extraBiblicalOption == ExtraBiblicalMaterialSpeakerOption.Omitted;
 
 			if (showChangeOmittedChapterAnnouncementsLabel)
 			{
@@ -364,7 +368,7 @@ namespace Glyssen.Dialogs
 		{
 			if (m_model.RecordingProjectName != RecordingProjectName && ProjectBase.Reader.ProjectExistsHaving(IsoCode, PublicationId, RecordingProjectName))
 			{
-				var msg =string.Format(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.OverwriteProjectPrompt",
+				var msg =Format(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.OverwriteProjectPrompt",
 					"A {0} project with an ID of {1} and a Recording Project Name of {2} already exists for this language. Do you want to overwrite it?"),
 					ProductName, m_txtPublicationId.Text, RecordingProjectName);
 				if (MessageBox.Show(this, msg, ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) != DialogResult.Yes)
@@ -376,7 +380,7 @@ namespace Glyssen.Dialogs
 				var existingProjectPath = ProjectRepository.GetProjectFolderPath(IsoCode, PublicationId, RecordingProjectName);
 				if (!RobustIO.DeleteDirectoryAndContents(existingProjectPath))
 				{
-					var failedMsg = string.Format(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.OverwriteProjectFailed",
+					var failedMsg = Format(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.OverwriteProjectFailed",
 							"{0} was unable to delete all of the files in {1}. You can try to clean this up manually and then re-attempt saving these changes."),
 						ProductName, existingProjectPath);
 					MessageBox.Show(this, failedMsg, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -410,17 +414,12 @@ namespace Glyssen.Dialogs
 			Close();
 		}
 
-		private ChapterAnnouncement ChapterAnnouncementStyle
-		{
-			get
-			{
-				return m_rdoChapterLabel.Checked ? ChapterAnnouncement.ChapterLabel :
-					((ChapterAnnouncementItem)m_cboBookMarker.SelectedItem).ChapterAnnouncement;
-			}
-		}
+		private ChapterAnnouncement ChapterAnnouncementStyle =>
+			m_rdoChapterLabel.Checked ? ChapterAnnouncement.ChapterLabel :
+				((ChapterAnnouncementItem)m_cboBookMarker.SelectedItem).ChapterAnnouncement;
 
 		public string LocalizedGeneralTabName => m_tabPageGeneral.Text;
-		public string LocalizedUpdateButtonName => m_btnUpdateFromSource.Text.Replace("...", String.Empty);
+		public string LocalizedUpdateButtonName => m_btnUpdateFromSource.Text.Replace("...", Empty);
 
 		private void m_btnQuoteMarkSettings_Click(object sender, EventArgs e)
 		{
@@ -435,7 +434,7 @@ namespace Glyssen.Dialogs
 					reparseOkay = true;
 				else
 				{
-					string msg = string.Format(LocalizationManager.GetString("Project.UnableToLocateTextBundleMsg",
+					string msg = Format(LocalizationManager.GetString("Project.UnableToLocateTextBundleMsg",
 							"The original text release bundle for the project is no longer in its original location ({0}). " +
 							"The Quote Mark Settings cannot be modified without access to it."), m_model.Project.OriginalBundlePath) +
 						Program.LocateBundleYourselfQuestion;
@@ -480,7 +479,7 @@ namespace Glyssen.Dialogs
 					Analytics.Track("CancelledUpdateProjectFromParatextData", new Dictionary<string, string>
 					{
 						{"projectLanguage", m_model.IsoCode},
-						{"paratextPojectName", m_model.ParatextProjectName},
+						{"paratextProjectName", m_model.ParatextProjectName},
 						{"projectID", m_model.PublicationId},
 						{"recordingProjectName", m_model.RecordingProjectName}
 					});
@@ -529,7 +528,8 @@ namespace Glyssen.Dialogs
 				msg.Append(LocalizationManager.GetString("Project.UpdateFromBundle.Language", "Language"));
 				msg.Append(Environment.NewLine);
 				msg.Append("    ");
-				var oldLanguage = string.IsNullOrEmpty(m_model.LanguageName) ? m_model.IsoCode : string.Format("{0} ({1})", m_model.LanguageName, m_model.IsoCode);
+				var oldLanguage = IsNullOrEmpty(m_model.LanguageName) ? m_model.IsoCode :
+					$"{m_model.LanguageName} ({m_model.IsoCode})";
 				msg.AppendFormat(oldValueFormat, oldLanguage);
 				msg.Append(Environment.NewLine);
 				msg.Append("    ");
@@ -623,16 +623,16 @@ namespace Glyssen.Dialogs
 
 		private void m_txtRecordingProjectName_TextChanged(object sender, EventArgs e)
 		{
-			m_btnOk.Enabled = !String.IsNullOrWhiteSpace(m_txtRecordingProjectName.Text);
+			m_btnOk.Enabled = !IsNullOrWhiteSpace(m_txtRecordingProjectName.Text);
 		}
 
 		private void HandleSelectedReferenceTextChanged(object sender, EventArgs e)
 		{
-			m_linkRefTextAttribution.Text = String.Empty;
+			m_linkRefTextAttribution.Text = Empty;
 			m_linkRefTextAttribution.Links.Clear();
-			if (m_ReferenceText.SelectedItem is KeyValuePair<string, ReferenceTextProxy>)
+			if (m_ReferenceText.SelectedItem is KeyValuePair<string, ReferenceTextProxy> kvp)
 			{
-				var refTextProxy = ((KeyValuePair<string, ReferenceTextProxy>)m_ReferenceText.SelectedItem).Value;
+				var refTextProxy = kvp.Value;
 				var metadata = refTextProxy.Metadata;
 				SetReferenceTextCopyrightInfo(metadata);
 				var referenceText = ReferenceText.GetReferenceText(refTextProxy);
@@ -651,7 +651,7 @@ namespace Glyssen.Dialogs
 			if (copyrightInternalNodes == null)
 				return;
 
-			m_linkRefTextAttribution.Text = string.Join(Environment.NewLine, copyrightInternalNodes.Select(n => n.InnerText));
+			m_linkRefTextAttribution.Text = Join(Environment.NewLine, copyrightInternalNodes.Select(n => n.InnerText));
 			const string kHttpPrefix = "http://";
 			var linkStart = m_linkRefTextAttribution.Text.IndexOf(kHttpPrefix, StringComparison.Ordinal);
 			if (linkStart >= 0)
@@ -670,7 +670,7 @@ namespace Glyssen.Dialogs
 		{
 			string tgt = e.Link.LinkData as string;
 
-			if (!string.IsNullOrEmpty(tgt))
+			if (!IsNullOrEmpty(tgt))
 				System.Diagnostics.Process.Start(tgt);
 		}
 
@@ -715,7 +715,7 @@ namespace Glyssen.Dialogs
 			if (illegalCharacters.Any())
 			{
 				if (details.Length > 0)
-					details.Insert(0, "\u2022 ").Append(Environment.NewLine).Append("\u2022 "); // Make it into a bulleted list
+					details.Insert(0, "\u2022 ").Append(Environment.NewLine).Append("\u2022 "); // Make it into a bullet list
 				details.Append(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.RemoveIllegalCharacters",
 					"Remove illegal characters from the name:",
 					"The \"name\" here refers to the Recording Project Name entered in the Project Settings dialog box. " +
@@ -761,11 +761,59 @@ namespace Glyssen.Dialogs
 				else
 					break;
 			}
-			MessageBox.Show(this, String.Format(msgFmt, recordingProjectNameLabel),
-				String.Format(captionFmt, recordingProjectNameLabel),
+			MessageBox.Show(this, Format(msgFmt, recordingProjectNameLabel),
+				Format(captionFmt, recordingProjectNameLabel),
 				MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 			e.Cancel = true;
+		}
+
+		private void m_txtAudioStockNumber_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			// I'm using U+2024 (One Dot Leader) as my replacement character because, while it is a legal
+			// filename character, in practice it results in misleading names and should never be used. It's
+			// almost certainly never going to be typed in by a (non-malicious) user as an audio stock number.
+			const char kReplacement = '\u2024';
+			var sanitized = AudioStockNumber.SanitizeFilename(kReplacement);
+
+			string errorMsg = null;
+			if (sanitized.Length != AudioStockNumber.Length)
+			{
+				// Note: It's theoretically possible to get here because of other weird leading or trailing
+				// control characters, but this is highly unlikely.
+				// (See SIL.Extensions.StringExtensions.IsInvalidFilenameLeadingOrTrailingSpaceChar)
+				m_txtAudioStockNumber.Select(0, AudioStockNumber.Length);
+				errorMsg = LocalizationManager.GetString("Project.StockNumberIllegalTrailingCharacters",
+					"The {0} must not end with a dot (.).",
+					"Param is the (localized) \"Audio Stock Number\" label (with punctuation trimmed).");
+			}
+			else
+			{
+				var firstIllegalCharacter = sanitized.IndexOf(kReplacement);
+				if (firstIllegalCharacter >= 0)
+				{
+					var lastIllegalCharacter = AudioStockNumber.LastIndexOf(kReplacement);
+					m_txtAudioStockNumber.Select(firstIllegalCharacter, lastIllegalCharacter);
+					errorMsg = LocalizationManager.GetString("Project.StockNumberIllegalCharacters",
+						"The {0} must not contain illegal directory name characters.",
+						"Param is the (localized) \"Audio Stock Number\" label (with punctuation trimmed).");
+				}
+			}
+
+			if (errorMsg != null)
+			{
+				// Cancel the event and select the text to be corrected by the user.
+				e.Cancel = true;
+				m_txtAudioStockNumber.Select(0, AudioStockNumber.Length);
+				errorProvider1.SetError(m_txtAudioStockNumber, Format(errorMsg,
+					Regex.Replace(m_lblAudioStockNumber.Text, @"[^\w\s]", "")));
+			}
+		}
+
+		private void m_txtAudioStockNumber_Validated(object sender, EventArgs e)
+		{
+			// If all conditions have been met, clear the ErrorProvider of errors.
+			errorProvider1.SetError(m_txtAudioStockNumber, "");
 		}
 	}
 }
