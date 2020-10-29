@@ -63,15 +63,9 @@ namespace GlyssenEngine
 			return referenceText;
 		}
 
-		private enum FcbhTestament
-		{
-			OT,
-			NT
-		}
-
 		private string GetEnglishVersion(FcbhTestament testament)
 		{
-			var type = "fcbh" + testament;
+			var type = Constants.GetFCBHTestamentVersionSystemId(testament);
 			return m_metadata?.Identification?.SystemIds?.FirstOrDefault(sysId => sysId.Type == type)?.Id;
 		}
 
