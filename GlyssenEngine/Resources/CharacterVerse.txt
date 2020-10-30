@@ -1,4 +1,4 @@
-Control File Version	159
+Control File Version	160
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5
 GEN	1	3	God		God (the LORD)	Normal		
@@ -18335,34 +18335,34 @@ JHN	6	32	Jesus			Dialogue
 JHN	6	33	Jesus			Normal		
 JHN	6	34	people in crowd by Sea of Galilee	polite		Dialogue		
 JHN	6	35	Jesus			Dialogue		
-JHN	6	36	Jesus			Normal		
-JHN	6	37	Jesus			Normal		
-JHN	6	38	Jesus			Normal		
-JHN	6	39	Jesus			Normal		
-JHN	6	40	Jesus			Normal		
+JHN	6	36	Jesus			Implicit		
+JHN	6	37	Jesus			Implicit		
+JHN	6	38	Jesus			Implicit		
+JHN	6	39	Jesus			Implicit		
+JHN	6	40	Jesus			Implicit		
 JHN	6	41	Jesus			Quotation		
 JHN	6	41	narrator-JHN			Quotation		
 JHN	6	42	Jews, the	grumbling		Normal		
 JHN	6	43	Jesus			Dialogue		
-JHN	6	44	Jesus			Normal		
-JHN	6	45	Jesus			Normal		
-JHN	6	46	Jesus			Normal		
-JHN	6	47	Jesus			Normal		
-JHN	6	48	Jesus			Normal		
-JHN	6	49	Jesus			Normal		
-JHN	6	50	Jesus			Normal		
-JHN	6	51	Jesus			Normal		
+JHN	6	44	Jesus			Implicit		
+JHN	6	45	Jesus			Implicit		
+JHN	6	46	Jesus			Implicit		
+JHN	6	47	Jesus			Implicit		
+JHN	6	48	Jesus			Implicit		
+JHN	6	49	Jesus			Implicit		
+JHN	6	50	Jesus			Implicit		
+JHN	6	51	Jesus			Implicit		
 JHN	6	52	Jews, the			Normal		
 JHN	6	53	Jesus			Dialogue		
-JHN	6	54	Jesus			Normal		
-JHN	6	55	Jesus			Normal		
-JHN	6	56	Jesus			Normal		
-JHN	6	57	Jesus			Normal		
-JHN	6	58	Jesus			Normal		
+JHN	6	54	Jesus			Implicit		
+JHN	6	55	Jesus			Implicit		
+JHN	6	56	Jesus			Implicit		
+JHN	6	57	Jesus			Implicit		
+JHN	6	58	Jesus			Implicit		
 JHN	6	60	disciples	grumbling	disciples, many of His	Normal		
 JHN	6	61	Jesus			Dialogue		
-JHN	6	62	Jesus			Normal		
-JHN	6	63	Jesus			Normal		
+JHN	6	62	Jesus			Implicit		
+JHN	6	63	Jesus			Implicit		
 JHN	6	64	Jesus			Normal		
 JHN	6	65	Jesus			Dialogue		
 JHN	6	67	Jesus	questioning		Dialogue		
