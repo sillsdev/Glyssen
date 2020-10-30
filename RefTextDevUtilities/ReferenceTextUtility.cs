@@ -6,6 +6,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
+using System.Threading.Tasks;
 using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Character;
@@ -1643,7 +1645,7 @@ namespace Glyssen.RefTextDevUtilities
 			Process.Start(path);
 		}
 
-		public static ReferenceTextData GetDataFromExcelFile(string path)
+		public static ReferenceTextData GetDataFromExcelFile(string path, CancellationToken cancellationToken = default)
 		{
 			ErrorsOccurred = false;
 			var allLanguages = new Dictionary<string, string>();
@@ -1652,6 +1654,8 @@ namespace Glyssen.RefTextDevUtilities
 
 			using (var xls = new ExcelPackage(new FileInfo(path)))
 			{
+				if (cancellationToken.IsCancellationRequested)
+					return null;
 				var worksheet = xls.Workbook.Worksheets["Main DG"] ?? xls.Workbook.Worksheets.First();
 
 				string bookCol = null, chapterCol = null, verseCol = null, characterCol = null;
@@ -1758,7 +1762,7 @@ namespace Glyssen.RefTextDevUtilities
 				if (!allLanguages.Any())
 					WriteOutput("No language columns found! (English must exist and must be first)", true);
 
-				if (ErrorsOccurred)
+				if (ErrorsOccurred || cancellationToken.IsCancellationRequested)
 					return null;
 
 				foreach (var textRow in rowData.Skip(rowsToSkip))
@@ -1786,6 +1790,9 @@ namespace Glyssen.RefTextDevUtilities
 						verseStr,
 						(string)cells[characterCol + row].Value,
 						allLanguages.ToDictionary(kvp => kvp.Key, kvp => cells[kvp.Value + row].Value?.ToString())));
+
+					if (cancellationToken.IsCancellationRequested)
+						return null;
 				}
 			}
 
