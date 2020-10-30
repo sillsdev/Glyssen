@@ -4,6 +4,9 @@ using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Glyssen.ReferenceTextUtility.Properties;
 using Glyssen.RefTextDevUtilities;
@@ -12,23 +15,26 @@ using Glyssen.Shared.Bundle;
 using GlyssenEngine.Bundle;
 using GlyssenFileBasedPersistence;
 using SIL.DblBundle.Text;
+using SIL.Scripture;
 using SIL.Xml;
+using static System.Int32;
 
 namespace Glyssen.ReferenceTextUtility
 {
 	public partial class RefTextUtilityForm : Form
 	{
+		private CancellationTokenSource m_cancellationTokenSource;
 		private OutputForm m_outputForm;
 		private ReferenceTextData m_data;
 		private Stack<RefTextDevUtilities.ReferenceTextUtility.Mode> m_passes = new Stack<RefTextDevUtilities.ReferenceTextUtility.Mode>();
 		private readonly string m_distFilesDir;
 		private static readonly string[] s_createActions = { "Create in Temp Folder", "Create/Overwrite" };
 
-		private BackgroundWorker ExcelSpreadsheetLoader { get; }
+		private static readonly Regex s_regexNumber = new Regex(@"\d+", RegexOptions.Compiled | RegexOptions.RightToLeft);
 		private BackgroundWorker BackgroundProcessor { get; }
 		private ReferenceTextData Data
 		{
-			get { return m_data; }
+			get => m_data;
 			set
 			{
 				m_data = value;
@@ -94,10 +100,6 @@ namespace Glyssen.ReferenceTextUtility
 			if (!Directory.Exists(m_distFilesDir))
 				m_distFilesDir = null;
 
-			ExcelSpreadsheetLoader = new BackgroundWorker { WorkerReportsProgress = false };
-			ExcelSpreadsheetLoader.DoWork += ExcelLoader_DoWork;
-			ExcelSpreadsheetLoader.RunWorkerCompleted += ExcelLoader_RunWorkerCompleted;
-
 			BackgroundProcessor = new BackgroundWorker { WorkerReportsProgress = false };
 			BackgroundProcessor.DoWork += (s, args) => { DoNextPass(); };
 			BackgroundProcessor.RunWorkerCompleted += OnBackgroundProcessorWorkCompleted;
@@ -112,7 +114,7 @@ namespace Glyssen.ReferenceTextUtility
 				m_lblSpreadsheetFilePath.Text = "";
 		}
 
-		private void m_btnSelectSpreadsheetFile_Click(object sender, EventArgs e)
+		private async void m_btnSelectSpreadsheetFile_Click(object sender, EventArgs e)
 		{
 			using (var openDlg = new OpenFileDialog {CheckFileExists = true})
 			{
@@ -120,32 +122,23 @@ namespace Glyssen.ReferenceTextUtility
 				openDlg.CheckFileExists = true;
 				if (openDlg.ShowDialog() == DialogResult.OK)
 				{
-					lock (this)
+					try
 					{
-						if (ExcelSpreadsheetLoader.IsBusy)
-							ExcelSpreadsheetLoader.CancelAsync();
+						m_cancellationTokenSource?.Cancel();
 					}
+					catch (ObjectDisposedException)
+					{
+						// Race condition
+					}
+					
 					if (File.Exists(openDlg.FileName))
 					{
 						if (m_lblSpreadsheetFilePath.Text == openDlg.FileName)
-							LoadExcelSpreadsheet(m_lblSpreadsheetFilePath.Text); // Force attempted reload
+							await LoadExcelData(); // Force attempted reload
 						else
 							m_lblSpreadsheetFilePath.Text = openDlg.FileName;
 					}
 				}
-			}
-		}
-
-		private void LoadExcelSpreadsheet(string path)
-		{
-			m_btnOk.Enabled = m_btnSkipAll.Enabled = false;
-			m_dataGridRefTexts.RowCount = 0;
-			m_lblLoading.Visible = true;
-
-			object[] parameters = {path};
-			lock (this)
-			{
-				ExcelSpreadsheetLoader.RunWorkerAsync(parameters);
 			}
 		}
 
@@ -165,30 +158,50 @@ namespace Glyssen.ReferenceTextUtility
 		{
 			if (m_passes.Count == 0)
 			{
-				foreach (var newRefTextRow in m_dataGridRefTexts.Rows.OfType<DataGridViewRow>().Where(r => s_createActions.Contains((string)r.Cells[colAction.Index].Value) && !r.Cells[colHeSaidText.Index].ReadOnly && !r.Cells[colIsoCode.Index].ReadOnly))
+				foreach (var newRefTextRow in m_dataGridRefTexts.Rows.OfType<DataGridViewRow>().Where(r => s_createActions.Contains((string)r.Cells[colAction.Index].Value)))
 				{
+					var updateVersionOnly = newRefTextRow.Cells[colHeSaidText.Index].ReadOnly ||
+						!newRefTextRow.Cells[colIsoCode.Index].ReadOnly;
+					var updated = false;
 					// Generate a new metadata file with the above info
 					var languageName = (string)newRefTextRow.Cells[colName.Index].Value;
 					var folder = Data.GetLanguageInfo(languageName).OutputFolder;
 					var projectPath = Path.Combine(folder, languageName + ProjectRepository.kProjectFileExtension);
+					GlyssenDblTextMetadata metadata;
 					if (File.Exists(projectPath))
-						HandleMessageRaised($"File {projectPath} already exists! Skipping. Please verify contents.", true);
+					{
+						metadata = XmlSerializationHelper.DeserializeFromFile<GlyssenDblTextMetadata>(projectPath);
+						if (!updateVersionOnly)
+						{
+							if (metadata.Language == null)
+								metadata.Language = new GlyssenDblMetadataLanguage();
+							HandleMessageRaised($"Updating existing file {projectPath}. Please manually verify availableBooks.", true);
+						}
+					}
 					else
 					{
-						var metadata = XmlSerializationHelper.DeserializeFromString<GlyssenDblTextMetadata>(Resources.refTextMetadata);
-						metadata.Language = new GlyssenDblMetadataLanguage
+						updated = true;
+						metadata = XmlSerializationHelper.DeserializeFromString<GlyssenDblTextMetadata>(Resources.refTextMetadata);
+						if (!updateVersionOnly)
 						{
-							Name = languageName,
-							HeSaidText = newRefTextRow.Cells[colHeSaidText.Index].Value as string,
-							Iso = newRefTextRow.Cells[colIsoCode.Index].Value as string
-						};
-						metadata.AvailableBooks = new List<Book>();
-						ProjectRepository.ForEachBookFileInProject(folder,
-							(bookId, fileName) => metadata.AvailableBooks.Add(new Book { Code = bookId, IncludeInScript = true}));
+							metadata.Language = new GlyssenDblMetadataLanguage();
+							metadata.AvailableBooks = new List<Book>();
+							ProjectRepository.ForEachBookFileInProject(folder,
+								(bookId, fileName) => metadata.AvailableBooks.Add(new Book {Code = bookId, IncludeInScript = true}));
+						}
+					}
+					if (!updateVersionOnly)
+						updated |= SetLanguageInfo(metadata.Language, newRefTextRow, languageName);
+					if (m_numericUpDownOT.Enabled)
+						updated |= UpdateDirectorGuideVersion(metadata, FcbhTestament.OT, m_numericUpDownOT.Value);
+					if (m_numericUpDownNT.Enabled)
+						updated |= UpdateDirectorGuideVersion(metadata, FcbhTestament.NT, m_numericUpDownNT.Value);
+
+					if (updated)
+					{
 						metadata.LastModified = DateTime.Now;
 
-						Exception error;
-						XmlSerializationHelper.SerializeToFile(projectPath, metadata, out error);
+						XmlSerializationHelper.SerializeToFile(projectPath, metadata, out var error);
 						if (error != null)
 							HandleMessageRaised(error.Message, true);
 					}
@@ -199,41 +212,142 @@ namespace Glyssen.ReferenceTextUtility
 				BackgroundProcessor.RunWorkerAsync();
 		}
 
-		private void ExcelLoader_DoWork(object sender, DoWorkEventArgs e)
+		private bool SetLanguageInfo(GlyssenDblMetadataLanguage language, DataGridViewRow row, string languageName)
 		{
-			var parameters = (object[])e.Argument;
-			var path = (string)parameters[0];
+			var updated = false;
+			if (language.Name != languageName)
+			{
+				language.Name = languageName;
+				updated = true;
+			}
 
-			e.Result = RefTextDevUtilities.ReferenceTextUtility.GetDataFromExcelFile(path);
+			var heSaid = row.Cells[colHeSaidText.Index].Value as string;
+			if (language.HeSaidText != heSaid)
+			{
+				language.HeSaidText = heSaid;
+				updated = true;
+			}
+
+			var iso = row.Cells[colIsoCode.Index].Value as string;
+			if (language.Iso != iso)
+			{
+				language.Iso = iso;
+				updated = true;
+			}
+
+			return updated;
 		}
 
-		private void ExcelLoader_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+		private bool UpdateDirectorGuideVersion(GlyssenDblTextMetadata metadata, FcbhTestament fcbhTestament, decimal value)
 		{
-			lock (this)
+			var idTestament = Constants.GetFCBHTestamentVersionSystemId(fcbhTestament);
+
+			if (metadata.Identification == null)
+				metadata.Identification = new DblMetadataIdentification();
+			DblMetadataSystemId testament;
+			if (metadata.Identification.SystemIds == null)
 			{
-				m_lblLoading.Visible = false;
-				if (e.Error != null)
+				metadata.Identification.SystemIds = new HashSet<DblMetadataSystemId>();
+				testament = null;
+			}
+			else
+				testament = metadata.Identification.SystemIds.FirstOrDefault(id => id.Type == idTestament);
+
+			if (testament == null)
+				testament = new DblMetadataSystemId {Type = idTestament};
+
+			var newVersion = value.ToString();
+			if (testament.Id != newVersion)
+			{
+				testament.Id = newVersion;
+				return true;
+			}
+
+			return false;
+		}
+
+		private async Task LoadExcelDataAsync(string path)
+		{
+			var source = m_cancellationTokenSource = new CancellationTokenSource();
+			var ct = source.Token;
+			try
+			{
+				await Task.Run(() =>
+					{
+						ct.ThrowIfCancellationRequested();
+						var data = RefTextDevUtilities.ReferenceTextUtility.GetDataFromExcelFile(path, ct);
+						ct.ThrowIfCancellationRequested();
+						return data;
+					}, ct)
+					.ContinueWith(GetDataFromExcelFileCompleted, ct);
+			}
+			catch (OperationCanceledException)
+			{
+				// no op
+			}
+			finally
+			{
+				source.Dispose();
+			}
+		}
+
+		private void GetDataFromExcelFileCompleted(Task<ReferenceTextData> task)
+		{
+			if (InvokeRequired)
+			{
+				Invoke(new Action(() => { GetDataFromExcelFileCompleted(task); }));
+				return;
+			}
+
+			if (!task.IsCanceled) // Doesn't look like this is ever true
+			{
+				if (task.Exception != null)
 				{
 					MessageBox.Show(this, $"The file {m_lblSpreadsheetFilePath.Text} could not be read.", "Invalid Excel Spreadsheet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 					return;
 				}
 
-				if (!ExcelSpreadsheetLoader.CancellationPending)
+				lock (this)
 				{
-					Data = e.Result as ReferenceTextData;
+					Data = task.Result;
 					if (Data == null)
+					{
 						MessageBox.Show(this, $"No error was reported, but no data was loaded from file {m_lblSpreadsheetFilePath.Text}.", "Something bad happened", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+						m_lblOTVersion.Enabled = m_numericUpDownOT.Enabled =
+							m_lblNTVersion.Enabled = m_numericUpDownNT.Enabled = false;
+					}
+					else
+					{
+						m_lblOTVersion.Enabled = m_numericUpDownOT.Enabled = BCVRef.BookToNumber(Data.ReferenceTextRows.First().Book) < 40;
+						m_lblNTVersion.Enabled = m_numericUpDownNT.Enabled = BCVRef.BookToNumber(Data.ReferenceTextRows.Last().Book) >= 40;
+						var version = s_regexNumber.Match(m_lblSpreadsheetFilePath.Text).Value;
+						if (m_numericUpDownOT.Enabled && version.Length > 0)
+							m_numericUpDownOT.Value = Parse(version);
+						if (m_numericUpDownNT.Enabled && version.Length > 0)
+							m_numericUpDownNT.Value = Parse(version);
+					}
+
 					colAction.MinimumWidth = colAction.Width;
 				}
 			}
 		}
 
-		private void m_lblSpreadsheetFilePath_TextChanged(object sender, EventArgs e)
+		private async void m_lblSpreadsheetFilePath_TextChanged(object sender, EventArgs e)
 		{
 			if (File.Exists(m_lblSpreadsheetFilePath.Text))
+				await LoadExcelData();
+		}
+
+		private async Task LoadExcelData()
+		{
+			lock (this)
 			{
-				LoadExcelSpreadsheet(m_lblSpreadsheetFilePath.Text);
+				m_btnOk.Enabled = m_btnSkipAll.Enabled = false;
+				m_dataGridRefTexts.RowCount = 0;
+				m_lblLoading.Visible = true;
 			}
+
+			await LoadExcelDataAsync(m_lblSpreadsheetFilePath.Text);
 		}
 
 		protected override void OnFormClosed(FormClosedEventArgs e)

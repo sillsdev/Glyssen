@@ -14,5 +14,14 @@
 		public const string kHearThisMinimumSupportedVersion = "2.0";
 
 		public const string kSupportSite = "https://community.scripture.software.sil.org/";
+		
+		public static string GetFCBHTestamentVersionSystemId(FcbhTestament testament) =>
+			"fcbh" + testament;
+	}
+
+	public enum FcbhTestament
+	{
+		OT,
+		NT
 	}
 }
