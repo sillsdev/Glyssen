@@ -18258,6 +18258,7 @@ JHN	4	40	many Samaritans			Indirect
 JHN	4	42	many Samaritans			Dialogue		
 JHN	4	44	Jesus			Indirect		
 JHN	4	47	official, royal (father)	pleading		Indirect		
+JHN	4	47	report about Jesus			Indirect		
 JHN	4	48	Jesus			Dialogue		
 JHN	4	49	official, royal (father)	pleading		Dialogue		
 JHN	4	50	Jesus			Dialogue		
@@ -18919,6 +18920,8 @@ JHN	21	20	John		John (who had asked the Lord who was going to betray Him)	Quotat
 JHN	21	21	Peter (Simon)	defensive		Dialogue		
 JHN	21	22	Jesus			Dialogue		
 JHN	21	23	Jesus			Quotation	narrator-JHN	
+JHN	21	23	Needs Review			Potential		
+JHN	21	23	rumor			Rare		
 JHN	21	23	narrator-JHN			Quotation		
 ACT	1	4	Jesus			Dialogue		
 ACT	1	5	Jesus			Normal		

@@ -960,7 +960,7 @@ Rehum, commanding officer	1	Male				EZR 4:9 <-(6 more)-> EZR 4:16
 relative	1	Male				AMO 6:10
 relatives of Ahaziah, king of Judah	-1	Male				2KI 10:13
 reply to the slain believers (in vision)	1					REV 6:11
-report about Jesus	-1	PreferMale				MAT 14:13 <-(6 more)-> JHN 12:18
+report about Jesus	-1	PreferMale				MAT 14:13 <-(7 more)-> JHN 12:18
 report to Martha about Jesus	-1	PreferFemale				JHN 11:20
 report about John the Baptist	-1	PreferMale				MRK 6:29
 report about Lazarus	-1	PreferMale				JHN 11:6
@@ -977,6 +977,7 @@ Rhoda	1	Female	YoungAdult		possibly young girl/teen	ACT 12:13 <-(1 more)-> ACT 1
 rich young ruler	1	Male	YoungAdult			MAT 19:16 <-(5 more)-> LUK 18:21	Young Man (Rich)
 royal record	1	Male				EZR 6:3 <-(1 more)-> EZR 6:5	Scribe
 rumbling sound	1	Male				EZK 3:12	Angel
+rumor	1	PreferMale				JHN 21:23	
 rule given by Paul	1	Male				2TH 3:10
 rules of the world	1					COL 2:21
 Ruth	1	Female				RUT 1:10 <-(9 more)-> RUT 3:17
