@@ -768,8 +768,13 @@ namespace Glyssen.Dialogs
 			e.Cancel = true;
 		}
 
+		/// <summary>
+		/// Validates m_txtAudioStockNumber to prevent characters that would result in an illegal
+		/// file name during export.
+		/// </summary>
 		private void m_txtAudioStockNumber_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
+			m_txtAudioStockNumber.Text = AudioStockNumber; // ensure trimmed
 			// I'm using U+2024 (One Dot Leader) as my replacement character because, while it is a legal
 			// filename character, in practice it results in misleading names and should never be used. It's
 			// almost certainly never going to be typed in by a (non-malicious) user as an audio stock number.
@@ -777,12 +782,12 @@ namespace Glyssen.Dialogs
 			var sanitized = AudioStockNumber.SanitizeFilename(kReplacement);
 
 			string errorMsg = null;
-			if (sanitized.Length != AudioStockNumber.Length)
+			if (sanitized.Length < AudioStockNumber.Length)
 			{
 				// Note: It's theoretically possible to get here because of other weird leading or trailing
 				// control characters, but this is highly unlikely.
 				// (See SIL.Extensions.StringExtensions.IsInvalidFilenameLeadingOrTrailingSpaceChar)
-				m_txtAudioStockNumber.Select(0, AudioStockNumber.Length);
+				m_txtAudioStockNumber.Select(sanitized.Length, AudioStockNumber.Length - sanitized.Length);
 				errorMsg = LocalizationManager.GetString("Project.StockNumberIllegalTrailingCharacters",
 					"The {0} must not end with a dot (.).",
 					"Param is the (localized) \"Audio Stock Number\" label (with punctuation trimmed).");
@@ -792,8 +797,8 @@ namespace Glyssen.Dialogs
 				var firstIllegalCharacter = sanitized.IndexOf(kReplacement);
 				if (firstIllegalCharacter >= 0)
 				{
-					var lastIllegalCharacter = AudioStockNumber.LastIndexOf(kReplacement);
-					m_txtAudioStockNumber.Select(firstIllegalCharacter, lastIllegalCharacter);
+					var lastIllegalCharacter = sanitized.LastIndexOf(kReplacement);
+					m_txtAudioStockNumber.Select(firstIllegalCharacter, lastIllegalCharacter - firstIllegalCharacter + 1);
 					errorMsg = LocalizationManager.GetString("Project.StockNumberIllegalCharacters",
 						"The {0} must not contain illegal directory name characters.",
 						"Param is the (localized) \"Audio Stock Number\" label (with punctuation trimmed).");
@@ -804,7 +809,6 @@ namespace Glyssen.Dialogs
 			{
 				// Cancel the event and select the text to be corrected by the user.
 				e.Cancel = true;
-				m_txtAudioStockNumber.Select(0, AudioStockNumber.Length);
 				errorProvider1.SetError(m_txtAudioStockNumber, Format(errorMsg,
 					Regex.Replace(m_lblAudioStockNumber.Text, @"[^\w\s]", "")));
 			}

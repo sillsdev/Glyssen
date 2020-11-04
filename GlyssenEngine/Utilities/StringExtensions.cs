@@ -8,19 +8,9 @@ namespace GlyssenEngine.Utilities
 {
 	public static class StringExtensions
 	{
-		/// <summary>
-		/// Deprecated: use GetOptionalAttributeValue instead.
-		/// </summary>
-		// ENHANCE: Sometime when we're making a breaking change, this can be removed.
-		[Obsolete("Use SIL.Extensions.StringExtensions.Contains instead")]
-		public static bool Contains(this string source, string toCheck, StringComparison comp)
-		{
-			return SIL.Extensions.StringExtensions.Contains(source, toCheck, comp);
-		}
-
 		public static string ReplaceFirst(this string text, string search, string replace)
 		{
-			int pos = text.IndexOf(search);
+			int pos = text.IndexOf(search, StringComparison.Ordinal);
 			if (pos < 0)
 			{
 				return text;
@@ -30,7 +20,7 @@ namespace GlyssenEngine.Utilities
 
 		public static void AppendParagraph(this StringBuilder sb, string paragraphText)
 		{
-			sb.AppendLine(string.Format("<p>{0}</p>", paragraphText));
+			sb.AppendLine($"<p>{paragraphText}</p>");
 		}
 
 		public static bool IsWhitespace(this string value)
