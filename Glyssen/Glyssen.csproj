@@ -615,7 +615,7 @@
       <Version>9.1.9-beta</Version>
     </PackageReference>
     <PackageReference Include="SIL.Core">
-      <Version>8.0.0-beta0153</Version>
+      <Version>8.0.0-beta0176</Version>
     </PackageReference>
     <PackageReference Include="SIL.Core.Desktop">
       <Version>8.0.0-beta0153</Version>

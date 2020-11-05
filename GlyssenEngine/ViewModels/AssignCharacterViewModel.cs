@@ -11,6 +11,7 @@ using CollectionExtensions = SIL.Extensions.CollectionExtensions;
 using SIL;
 using SIL.Reporting;
 using static System.String;
+using SIL.Extensions;
 
 namespace GlyssenEngine.ViewModels
 {
@@ -27,8 +28,8 @@ namespace GlyssenEngine.ViewModels
 		private IEnumerable<Character> m_generatedCharacterList;
 		private List<Delivery> m_currentDeliveries = new List<Delivery>();
 
-		public delegate void AsssignedBlockIncrementEventHandler(AssignCharacterViewModel<TFont> sender, int increment);
-		public event AsssignedBlockIncrementEventHandler AssignedBlocksIncremented;
+		public delegate void AssignedBlockIncrementEventHandler(AssignCharacterViewModel<TFont> sender, int increment);
+		public event AssignedBlockIncrementEventHandler AssignedBlocksIncremented;
 		public event EventHandler CurrentBookSaved;
 		public delegate void CorrelatedBlockChangedHandler(AssignCharacterViewModel<TFont> sender, int index);
 		public event CorrelatedBlockChangedHandler CorrelatedBlockCharacterAssignmentChanged;
@@ -138,16 +139,16 @@ namespace GlyssenEngine.ViewModels
 
 		public void AddPendingProjectCharacterVerseData(Block block, Character character, Delivery delivery)
 		{
-			AddPendingProjectCharacterVerseData(block, character.CharacterId, delivery);
+			AddPendingProjectCharacterVerseData(character.CharacterId, delivery);
 		}
 
 		private void AddPendingProjectCharacterVerseDataIfNeeded(Block block, string characterId)
 		{
 			if (!GetUniqueCharacterVerseObjectsForBlock(block).Any(c => c.Character == characterId && c.Delivery == null))
-				AddPendingProjectCharacterVerseData(block, characterId);
+				AddPendingProjectCharacterVerseData(characterId);
 		}
 
-		private void AddPendingProjectCharacterVerseData(Block block, string characterId, Delivery delivery = null)
+		private void AddPendingProjectCharacterVerseData(string characterId, Delivery delivery = null)
 		{
 			Debug.Assert(!IsNullOrEmpty(characterId));
 			m_pendingCharacterDeliveryAdditions.Add(new CharacterSpeakingMode(
@@ -653,7 +654,7 @@ namespace GlyssenEngine.ViewModels
 						}
 						else
 						{
-							// We "split" between existing blocks in a multiblock quote,
+							// We "split" between existing blocks in a multi-block quote,
 							// so we don't need to do the same kind of cleanup above.
 						}
 						AddToRelevantBlocksIfNeeded(chipOffTheOldBlock, isNewBlock);
