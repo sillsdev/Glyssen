@@ -299,9 +299,9 @@ namespace GlyssenEngine
 		/// possible correspondence. Whenever this results in a reliable match to a single block, the correlation is considered
 		/// a "match." Otherwise, the blocks are stored as a sequence (0 or more) of mismatching blocks.
 		/// </summary>
-		/// <param name="vernBlockList">the list of vernacular (i.e., "target language") blocks (typically a whole book's worth -
-		/// and never more than one book's worth). Note that these objects will usually be modified by this method. If that is
-		/// not desirable, a cloned list should be passed.</param>
+		/// <param name="vernBlockList">the list of vernacular (i.e., "target language") blocks (either a whole book's worth -
+		/// and never more than one book's worth, or just the correlated blocks for a single matchup). Note that these objects
+		/// will usually be modified by this method. If that is not desirable, a cloned list should be passed.</param>
 		/// <param name="bookId">The standard SIL three-letter book code</param>
 		/// <param name="vernacularVersification">If this is different from the versification used by the reference text (which for
 		/// standard reference texts is always English), this will be used to ensure that the reference blocks for the corresponding
@@ -662,18 +662,27 @@ namespace GlyssenEngine
 						var j = 0;
 						var iLastVernBlockMatchedFromBottomUp = -1;
 						var numberOfUnexpectedReportingClausesMatched = 0;
+						var preMatchedHeSaids = 0;
 						if (numberOfVernBlocksInVerseChunk - i + omittedHeSaids.Count >= 2)
 						{
 							// Look from the bottom up
-							for (; j < numberOfVernBlocksInVerseChunk && j + i < numberOfRefBlocksInVerseChunk + omittedHeSaids.Count; j++)
+							for (; j < numberOfVernBlocksInVerseChunk && j + i < numberOfRefBlocksInVerseChunk + omittedHeSaids.Count + preMatchedHeSaids; j++)
 							{
 								var iCurrVernBottomUp = indexOfVernVerseStart + numberOfVernBlocksInVerseChunk - j - 1;
 								vernBlockInVerseChunk = vernBlockList[iCurrVernBottomUp];
 								if (vernBlockInVerseChunk.MatchesReferenceText)
+								{
+									if (vernBlockInVerseChunk.ReferenceBlocks.Single().GetText(false) == HeSaidText)
+									{
+										preMatchedHeSaids++;
+										continue;
+									}
+
 									break;
+								}
 
 								var currBottomUpRefBlockIndex = indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - j
-									- 1 + numberOfUnexpectedReportingClausesMatched;
+									- 1 + numberOfUnexpectedReportingClausesMatched + preMatchedHeSaids;
 								var refBlockInVerseChunk = refBlockList[currBottomUpRefBlockIndex];
 								if ((iCurrVernBottomUp > i || omittedHeSaids.Count == 0) && // PG-1408: Don't match two different vern blocks to the same ref block
 									BlocksMatch(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification))
@@ -764,25 +773,39 @@ namespace GlyssenEngine
 							}
 							else
 							{
-								if (remainingRefBlocksList.Count == 1 && vernBlockList[iVernBlock].MatchesReferenceText &&
-									vernBlockList[iVernBlock].ReferenceBlocks.Single().CharacterId != remainingRefBlocksList[0].CharacterId)
+								if (remainingRefBlocksList.Count == 1)
 								{
-									// See if the immediately following or preceding block is a better match
-									var otherIndicesToTry = (i <= iVernBlock) ?
-										new [] {iVernBlock - 1, iVernBlock + 1} :
-										new [] {iVernBlock + 1, iVernBlock - 1};
-									foreach (var iPreOrPost in otherIndicesToTry.Where(o => vernBlockList.Count > o && o >= 0))
+									if (vernBlockList[iVernBlock].MatchesReferenceText &&
+										vernBlockList[iVernBlock].ReferenceBlocks.Single().CharacterId != remainingRefBlocksList[0].CharacterId)
 									{
-										if (vernBlockList[iPreOrPost].ReferenceBlocks.FirstOrDefault()?.CharacterId == remainingRefBlocksList[0].CharacterId ||
-											vernBlockList[iPreOrPost].CharacterId == vernBlockList[iVernBlock].CharacterId)
+										// See if the immediately following or preceding block is a better match
+										var otherIndicesToTry = (i <= iVernBlock) ?
+											new[] {iVernBlock - 1, iVernBlock + 1} :
+											new[] {iVernBlock + 1, iVernBlock - 1};
+										foreach (var iPreOrPost in otherIndicesToTry.Where(o => vernBlockList.Count > o && o >= 0))
 										{
-											if (!vernBlockList[iPreOrPost].ReferenceBlocks.Any())
-												vernBlockList[iPreOrPost].SetUnmatchedReferenceBlocks(remainingRefBlocksList);
-											else if (iPreOrPost < iVernBlock) // Pre
-												vernBlockList[iPreOrPost].AppendUnmatchedReferenceBlocks(remainingRefBlocksList);
-											else // Post
-												vernBlockList[iPreOrPost].InsertUnmatchedReferenceBlocks(0, remainingRefBlocksList);
-											remainingRefBlocksList = null;
+											if (vernBlockList[iPreOrPost].ReferenceBlocks.FirstOrDefault()?.CharacterId == remainingRefBlocksList[0].CharacterId ||
+												vernBlockList[iPreOrPost].CharacterId == vernBlockList[iVernBlock].CharacterId)
+											{
+												if (!vernBlockList[iPreOrPost].ReferenceBlocks.Any())
+													vernBlockList[iPreOrPost].SetUnmatchedReferenceBlocks(remainingRefBlocksList);
+												else if (iPreOrPost < iVernBlock) // Pre
+													vernBlockList[iPreOrPost].AppendUnmatchedReferenceBlocks(remainingRefBlocksList);
+												else // Post
+													vernBlockList[iPreOrPost].InsertUnmatchedReferenceBlocks(0, remainingRefBlocksList);
+												remainingRefBlocksList = null;
+												break;
+											}
+										}
+									}
+									else
+									{
+										var betterMatch = vernBlockList.Skip(iVernBlock).Take(numberOfVernBlocksInVerseChunk - j)
+											.OnlyOrDefault(b => !b.MatchesReferenceText &&
+												BlocksMatch(bookNum, b, remainingRefBlocksList[0], vernacularVersification));
+										if (betterMatch != null)
+										{
+											betterMatch.SetMatchedReferenceBlock(remainingRefBlocksList[0]);
 											break;
 										}
 									}
