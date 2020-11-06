@@ -4890,7 +4890,7 @@ namespace GlyssenEngineTests
 		[TestCase(true)]
 		[TestCase(false)]
 		public void GetBlocksForVerseMatchedToReferenceText_OpeningAndClosingReportingClausesInVerseThatIsAllQuotationInEnglishReferenceText_EntireReferenceTextAssociatedWithQuoteBlock(
-			bool fillInClosingHeSaid)
+			bool includeClosingHeSaidInReportingClauses)
 		{
 			ReferenceText refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 			var refTextMat = refText.GetBook("MAT");
@@ -4906,21 +4906,21 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(20, refTextBlockForMat2V20.LastVerseNum,
 				"SETUP check - expected English reference text to have have a block break between Mat 2:20 and v. 21.");
 
-			var matchup = GetBlockMatchupForMat2V20(fillInClosingHeSaid, refTextBlockForMat2V20, refText);
+			var matchup = GetBlockMatchupForMat2V20(includeClosingHeSaidInReportingClauses, refTextBlockForMat2V20, refText);
 			var result = matchup.CorrelatedBlocks;
 
 			Assert.AreEqual(4, result.Count);
 			Assert.IsTrue(result[0].MatchesReferenceText);
 			Assert.IsFalse(result[1].MatchesReferenceText);
 			Assert.IsTrue(result[2].MatchesReferenceText);
-			Assert.AreEqual(fillInClosingHeSaid, result[3].MatchesReferenceText);
+			Assert.AreEqual(includeClosingHeSaidInReportingClauses, result[3].MatchesReferenceText);
 			Assert.AreEqual(refTextBlockForMat2V19.GetText(true), result[0].ReferenceBlocks.Single().GetText(true),
 				"Expected the narrator block in the English reference text for Mat 2:19 to be matched to the first block of matchup.");
 			Assert.AreEqual(refTextBlockForMat2V20.GetText(true), result[2].ReferenceBlocks.Single().GetText(true),
 				"Expected the block (angel) in the English reference text for Mat 2:20 to be matched to the third block of matchup.");
 		}
 
-		private static BlockMatchup GetBlockMatchupForMat2V20(bool fillInClosingHeSaid, Block refTextBlockForMat2V20, ReferenceText refText)
+		private static BlockMatchup GetBlockMatchupForMat2V20(bool includeClosingHeSaidInReportingClauses, Block refTextBlockForMat2V20, ReferenceText refText)
 		{
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(19,
@@ -4929,15 +4929,15 @@ namespace GlyssenEngineTests
 			// The following is supposed to be spoken by the narrator, but the "closing" (interrupting) dash at the
 			// start of the paragraph is treated as an opener.
 			AddBlockForVerseInProgress(vernacularBlocks, refTextBlockForMat2V20.CharacterId,
-				"—¡Elhatakha, eiantemekha nematka nak kakpota nhan ngken akieto Israel, apkenmaskengvakme apkenmahai'a lhta ennapok nematka nak! ");
+				"—¡Elhatakha, eiantemekha nematka nak kakpota nhan ngken akieto Israel, apkenmaskengvakme apkenmahai'a lhta ennapok nematka nak! ")
+				.Delivery = refTextBlockForMat2V20.Delivery;
 			var closingHeSaid = AddNarratorBlockForVerseInProgress(vernacularBlocks, "—lhna aptemak.");
-			if (fillInClosingHeSaid)
-				closingHeSaid.SetMatchedReferenceBlock(refText.HeSaidText);
+
 			var vernBook = new BookScript("MAT", vernacularBlocks, refText.Versification);
 
-			var reportingClauses = fillInClosingHeSaid ?
-				new List<string>(new[] {"— lhna aptemak ma'a.", "lhna aptemak ma'a.", "—lhna aptemak.", "lhna aptemak."}) :
-				null;
+			var reportingClauses = new List<string>(new[] {"— lhna aptemak ma'a.", "lhna aptemak ma'a.", "lhna aptemak."});
+			if (includeClosingHeSaidInReportingClauses)
+				reportingClauses.Insert(2, "—lhna aptemak.");
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, reportingClauses);
 			return matchup;
 		}
@@ -4945,7 +4945,7 @@ namespace GlyssenEngineTests
 		[TestCase(true)]
 		[TestCase(false)]
 		public void GetBlocksForVerseMatchedToReferenceText_OpeningAndClosingReportingClausesInVerseThatIsAllQuotationInReferenceText_EntireReferenceTextAssociatedWithQuoteBlock(
-			bool fillInClosingHeSaid)
+			bool includeClosingHeSaidInReportingClauses)
 		{
 			ReferenceText refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Russian);
 			var refTextMat = refText.GetBook("MAT");
@@ -4961,13 +4961,13 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(20, refTextBlockForMat2V20.LastVerseNum,
 				"SETUP check - expected Russian reference text to have have a block break between Mat 2:20 and v. 21.");
 
-			var matchup = GetBlockMatchupForMat2V20(fillInClosingHeSaid, refTextBlockForMat2V20, refText);
+			var matchup = GetBlockMatchupForMat2V20(includeClosingHeSaidInReportingClauses, refTextBlockForMat2V20, refText);
 			var result = matchup.CorrelatedBlocks;
 
 			Assert.AreEqual(3, result.Count);
 			Assert.IsTrue(result[0].MatchesReferenceText);
 			Assert.IsTrue(result[1].MatchesReferenceText);
-			Assert.AreEqual(fillInClosingHeSaid, result[2].MatchesReferenceText);
+			Assert.AreEqual(includeClosingHeSaidInReportingClauses, result[2].MatchesReferenceText);
 			Assert.AreEqual(refTextBlockForMat2V19.GetText(true), result[0].ReferenceBlocks.Single().GetText(true),
 				"Expected the narrator block in the reference text for Mat 2:19 to be matched to the first block of matchup.");
 			Assert.AreEqual(refTextBlockForMat2V20.GetText(true), result[1].ReferenceBlocks.Single().GetText(true),

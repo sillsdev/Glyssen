@@ -662,27 +662,18 @@ namespace GlyssenEngine
 						var j = 0;
 						var iLastVernBlockMatchedFromBottomUp = -1;
 						var numberOfUnexpectedReportingClausesMatched = 0;
-						var preMatchedHeSaids = 0;
 						if (numberOfVernBlocksInVerseChunk - i + omittedHeSaids.Count >= 2)
 						{
 							// Look from the bottom up
-							for (; j < numberOfVernBlocksInVerseChunk && j + i < numberOfRefBlocksInVerseChunk + omittedHeSaids.Count + preMatchedHeSaids; j++)
+							for (; j < numberOfVernBlocksInVerseChunk && j + i < numberOfRefBlocksInVerseChunk + omittedHeSaids.Count + numberOfUnexpectedReportingClausesMatched; j++)
 							{
 								var iCurrVernBottomUp = indexOfVernVerseStart + numberOfVernBlocksInVerseChunk - j - 1;
 								vernBlockInVerseChunk = vernBlockList[iCurrVernBottomUp];
 								if (vernBlockInVerseChunk.MatchesReferenceText)
-								{
-									if (vernBlockInVerseChunk.ReferenceBlocks.Single().GetText(false) == HeSaidText)
-									{
-										preMatchedHeSaids++;
-										continue;
-									}
-
 									break;
-								}
 
 								var currBottomUpRefBlockIndex = indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - j
-									- 1 + numberOfUnexpectedReportingClausesMatched + preMatchedHeSaids;
+									- 1 + numberOfUnexpectedReportingClausesMatched;
 								var refBlockInVerseChunk = refBlockList[currBottomUpRefBlockIndex];
 								if ((iCurrVernBottomUp > i || omittedHeSaids.Count == 0) && // PG-1408: Don't match two different vern blocks to the same ref block
 									BlocksMatch(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification))
