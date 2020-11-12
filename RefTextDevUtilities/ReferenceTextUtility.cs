@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Threading.Tasks;
 using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Character;
@@ -2224,7 +2223,7 @@ namespace Glyssen.RefTextDevUtilities
 			{
 				var duration = double.Parse(match.Groups[1].Value);
 				if (isEndOfChapter() && (duration.Equals(Pause.kStandardEndOfChapterPause) ||
-					duration.Equals(Pause.kStandardEndOfChapterPause)))
+					duration.Equals(Pause.kStandardEndOfBookPause)))
 				{
 					// We now handle standard end-of-chapter pauses programmatically.
 					annotation = null;
