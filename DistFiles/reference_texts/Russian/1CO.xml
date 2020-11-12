@@ -3374,7 +3374,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="45" characterId="scripture">
       <text>«The first man, Adam, became a living soul.»</text>
     </ReferenceBlocks>
-    <text>«первый человек Адам стал душею живущею;»</text>
+    <text>«первый человек Адам стал душею живущею»;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="45" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="45" characterId="narrator-1CO">

@@ -484,7 +484,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="41" characterId="Andrew" delivery="excited">
       <text>«We have found the Messiah!»</text>
     </ReferenceBlocks>
-    <text>«мы нашли Мессию, что значит:»</text>
+    <text>«мы нашли Мессию»,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="41" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="41" characterId="narrator-JHN">
@@ -492,7 +492,7 @@
       <verse num="42" />
       <text>He brought him to Jesus. Jesus looked at him, and said,</text>
     </ReferenceBlocks>
-    <text>Христос; </text>
+    <text>что значит: Христос; </text>
     <verse num="42" />
     <text>и привел его к Иисусу. Иисус же, взглянув на него, сказал:</text>
   </block>
@@ -5117,7 +5117,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="36" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="36" characterId="Jesus">
       <verse num="36" />
-      <text>God has set me apart for Himself. He sent me into the world. Then how can you say that I am blaspheming because I said, ‹I am the Son of God?›</text>
+      <text>God has set me apart for Himself. He sent me into the world. Then how can you say that I am blaspheming because I said, ‹I am the Son of God›?</text>
     </ReferenceBlocks>
     <verse num="36" />
     <text>Бог поставил меня на части для себя. Он послал меня в мир. Тогда как вы можете сказать, что я хулы, потому что Я сказал: ‹Я Сын Божий›?</text>
@@ -6074,7 +6074,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="29" characterId="crowd preparing for Passover Feast">
       <text>«It is thunder!»</text>
     </ReferenceBlocks>
-    <text>«это гром;»</text>
+    <text>«это гром»;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="29" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="29" characterId="narrator-JHN">
@@ -6437,7 +6437,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="Jesus">
       <verse num="13" />
-      <text>You call me, ‹Teacher’ and ‹Lord.› You say so correctly, for so I am.</text>
+      <text>You call me, ‹Teacher› and ‹Lord.› You say so correctly, for so I am.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Вы называете Меня Учителем и Господом, и правильно говорите, ибо Я точно то.</text>
@@ -8788,7 +8788,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="38" characterId="Joseph of Arimathaea">
       <text>«May I take Jesus’ body for burial?»</text>
     </ReferenceBlocks>
-    <text>«Дайте мне тело Иисуса;»</text>
+    <text>«Дайте мне тело Иисуса»;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="38" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="38" characterId="narrator-JHN">

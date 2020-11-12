@@ -253,7 +253,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-JAS">
       <verse num="3" />
-      <text>and if you pay special attention to him who wears the fine clothing, and say, «Sit here in a good place»; and you tell the poor man, «Stand there,» or «Sit by my footstool»</text>
+      <text>and if you pay special attention to him who wears the fine clothing, and say, «Sit here in a good place;» and you tell the poor man, «Stand there,» or «Sit by my footstool»</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>и вы, смотря на одетого в богатую одежду, скажете ему: тебе хорошо сесть здесь, а бедному скажете: ты стань там, или садись здесь, у ног моих, —</text>
@@ -342,7 +342,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="scripture">
       <text>«Do not commit murder.»</text>
     </ReferenceBlocks>
-    <text>«не убей;»</text>
+    <text>«не убей»;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS">
