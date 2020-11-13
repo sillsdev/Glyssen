@@ -2344,7 +2344,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="voice from heaven (God?)">
       <text>«Write, ‹Blessed are the dead who die in the Lord from now on.› »</text>
     </ReferenceBlocks>
-    <text>«напиши: отныне блаженны мертвые, умирающие в Господе;»</text>
+    <text>«напиши: отныне блаженны мертвые, умирающие в Господе»;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the">
@@ -3241,7 +3241,7 @@
       <text>It was given to her that she would array herself in bright, pure, fine linen.»</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>И дано было ей облечься в виссон чистый и светлый;»</text>
+    <text>И дано было ей облечься в виссон чистый и светлый»;</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="8" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" chapter="19" initialStartVerse="8" characterId="narrator-REV">
