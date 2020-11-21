@@ -71,7 +71,8 @@ namespace ControlDataIntegrityTests
 				var character = match.Result("${character}");
 
 				var alias = match.Result("${alias}");
-				if (!string.IsNullOrEmpty(alias))
+				bool aliasDefined = !string.IsNullOrEmpty(alias);
+				if (aliasDefined)
 					Assert.AreNotEqual(character, alias, "Line: " + line);
 
 				var defaultCharacter = match.Result("${defaultCharacter}");
@@ -83,7 +84,10 @@ namespace ControlDataIntegrityTests
 
 				string typeAsString = match.Result("${type}");
 				if (CharacterVerseData.IsCharacterOfType(character, CharacterVerseData.StandardCharacter.Narrator))
+				{
 					Assert.AreNotEqual("Dialogue", typeAsString, "Line: " + line);
+					Assert.IsFalse(aliasDefined, "Line: " + line);
+				}
 
 				var matchResult = match.Result("$&");
 				Assert.IsTrue(set.Add(matchResult), "Duplicate line: " + matchResult);
@@ -338,6 +342,47 @@ namespace ControlDataIntegrityTests
 		}
 
 		/// <summary>
+		/// Some "quotations" are strictly narrator. (This is where the narrator is saying something that is a "quote" of
+		/// speech that "no one" said, a translation, a foreign phrase, a title, or a literal name. Any non-narrator
+		/// quotation should also be accompanied by the option to have the narrator (or the active first-level normal speaker)
+		/// speak the quoted text because it is typically not desirable to have the original speaker re-speak the quote
+		/// (though it sometimes can be for dramatic effect).
+		/// This would not be strictly required in places where the Director's Guide does dramatize the quotation if we just
+		/// wanted to let it be assigned with no review needed, but these are rare enough that it is probably better to
+		/// make the scripter look at them.
+		/// </summary>
+		[Test]
+		public void DataIntegrity_QuotationAccompaniedByNarratorOrActiveSpeaker()
+		{
+			var problems = new List<string>();
+			foreach (var quote in ControlCharacterVerseData.Singleton.GetAllQuoteInfo()
+				.Where(cv => cv.QuoteType == QuoteType.Quotation && cv.Character != "scripture" &&
+				!CharacterVerseData.IsCharacterOfType(cv.Character, CharacterVerseData.StandardCharacter.Narrator)))
+			{
+				if (!ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber(quote.BookCode),
+						quote.Chapter, new SingleVerse(quote.Verse), ScrVers.English, true)
+					.Any(c => CharacterVerseData.IsCharacterOfType(c.Character, CharacterVerseData.StandardCharacter.Narrator) ||
+					c.QuoteType == QuoteType.Normal ||
+					c.QuoteType == QuoteType.Dialogue ||
+					c.QuoteType == QuoteType.Alternate ||
+					c.QuoteType == QuoteType.Implicit ||
+					c.QuoteType == QuoteType.ImplicitWithPotentialSelfQuote ||
+					c.QuoteType == QuoteType.Potential))
+				{
+					// Just passing true in the above call to GetCharacters to grab the narrator overrides is insufficient
+					// because there are places (e.g., PSA 95:10) where the narrator override character has self-quotes with
+					// no specified delivery, in which case the narrator override is not included as a separate result.
+					var verse = new VerseRef(BCVRef.BookToNumber(quote.BookCode), quote.Chapter, quote.Verse, ScrVers.English);
+					if (!NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verse, quote.Verse).Any())
+						problems.Add($"{quote.BookCode}\t{quote.Chapter}\t{quote.Verse}\t{quote.Character}");
+				}
+			}
+
+			Assert.IsFalse(problems.Any(), "Character-verse file contains the following Quotation with no accompanying narrator option:" +
+				Environment.NewLine + Join(Environment.NewLine, problems));
+		}
+
+		/// <summary>
 		/// The point of the Hypothetical quote type is to indicate something someone or something (personified) might think or
 		/// say but which they didn't. The Quote Parser treats these as Narrator Quotations unless the reference text actually
 		/// has the hypothetical character speaking (which pretty much never happens in the NT, but it does in the OT). However,
@@ -402,9 +447,9 @@ namespace ControlDataIntegrityTests
 							break;
 						default:
 							Assert.IsTrue(needsReviewQuoteType == QuoteType.Rare || needsReviewQuoteType == QuoteType.Potential,
-								"Character-verse file contains a Needs Review entry in {rare.BookCode} {rare.Chapter}:" +
-								"{rare.Verse} that is neither Rare nor Potential. If there is a valid reason, this check can" +
-								"be remove from this test.");
+								$"Character-verse file contains a Needs Review entry in {rare.BookCode} {rare.Chapter}:" +
+								$"{rare.Verse} that is neither Rare nor Potential. If there is a valid reason, this check can " +
+								"be removed from this test.");
 							break;
 					}
 				}

@@ -187,6 +187,7 @@ chief official	1	Male				DAN 1:10	Official
 chief priests	-1	Male				2KI 19:3 <-(71 more)-> ACT 25:7
 chiefs of 10 tribes	10	Male			not Reuben, Gad, half tribe of Manasseh	JOS 22:16 <-(4 more)-> JOS 22:32
 children	-1		Child			MAT 21:15
+children of God	-1	Either	Child		could be spoken by any age actor, but a child's voice might provide best dramatic effect	GAL 4:6
 children of excellent wife	-1		Child			PRO 31:28
 children of Zion (Jerusalem)	-1		Child			LAM 2:12 & LAM 4:4
 citizens of Shechem	-1		Adult			JDG 9:3
@@ -222,7 +223,7 @@ crowd at Jericho	-1		Adult			MAT 20:30 <-(3 more)-> LUK 19:11
 crowd before Pilate	-1		Adult			MAT 27:21 <-(7 more)-> LUK 23:21
 crowd in Jerusalem	-1		Adult			ACT 22:22 & ACT 22:24
 crowd in Jerusalem on Pentecost	-1		Adult			ACT 2:37
-crowd in Lystra	-1		Adult			ACT 14:11
+crowd in Lystra	-1		Adult			ACT 14:11 & ACT 14:12
 crowd near sea of Galilee	-1		Adult			MAT 15:31
 crowd preparing for Passover Feast	-1		Adult			MAT 21:9 <-(6 more)-> JHN 12:37
 crowd preparing for Passover Feast, others	-1		Adult			JHN 12:29
@@ -258,7 +259,7 @@ disciples of John the Baptist	-1	Male				MAT 9:14 <-(6 more)-> JHN 3:26	Disciple
 disciples, some	-1					LUK 21:5
 disciples, two men (from Joppa)	2	Male				ACT 9:38 & ACT 9:39
 Doeg the Edomite	1	Male				1SA 22:9 <-(1 more)-> PSA 52:0
-donkey (female)	1	Female				NUM 22:28 & NUM 22:30
+donkey (female)	1	Female				NUM 22:28 <-(1 more)-> 2PE 2:16
 dream	1	Male				MAT 2:12 & MAT 2:22
 dreamers	-1	Either				JUD 1:8
 drunkard	1	Male				PRO 23:35
@@ -459,7 +460,7 @@ invalid for 38 years	1	Male				JHN 5:7 <-(2 more)-> JHN 5:15
 Irijah, captain of the guard of Judah	1	Male				JER 37:13
 Isaac	1	Male	Adult			GEN 22:7 <-(5 more)-> HEB 11:20
 Isaac (old)	1	Male	Elder			GEN 27:1 <-(23 more)-> GEN 28:6
-Isaiah	1	Male				2KI 19:6 <-(418 more)-> ISA 66:6
+Isaiah	1	Male				2KI 19:6 <-(423 more)-> ISA 66:6
 Ish-Bosheth, son of Saul	1	Male				2SA 3:7
 Ishmael, son of Nethaniah (murderer)	1	Male				JER 41:6
 Issachar	1	Male	Adult			GEN 37:8 <-(33 more)-> GEN 50:18
@@ -548,7 +549,7 @@ Job's wife	1	Female				JOB 2:9
 Joel	1	Male				JOL 3:9 <-(1 more)-> JOL 3:11
 Johanan	1	Male			son of Kareah	JER 40:14 <-(6 more)-> JER 43:3
 John	1	Male				MAT 17:10 <-(35 more)-> GAL 2:10
-John the Baptist	1	Male				MAT 3:2 <-(47 more)-> JHN 3:36
+John the Baptist	1	Male				MAT 3:2 <-(48 more)-> JHN 3:36
 John, Alexander, and other men of the high priest's family	-1	Male				ACT 4:7 <-(4 more)-> ACT 4:18
 Jonadab	1	Male				2SA 13:4 <-(3 more)-> 2SA 13:35
 Jonah	1	Male				JON 1:9 <-(14 more)-> JON 4:9
@@ -934,6 +935,7 @@ prophet of the LORD	1	Male				1KI 20:13 <-(4 more)-> 2CH 25:16
 prophet who confronts Ahab	1	Male				1KI 20:35 <-(4 more)-> 1KI 20:42
 prophets	-1				Former prophets (generically), quoted	JER 25:5 <-(3 more)-> ZEC 1:4
 prophets (speaking the word of the LORD)	-1					2KI 21:11 <-(3 more)-> 2KI 21:15
+prophets and seers	-1	Male				2KI 17:13
 prophets and teachers at Antioch	-1	Male				ACT 13:3
 prophets of Baal	-1					1KI 18:26	Prophet of Baal
 prophets, 400 false	400					1KI 22:6 <-(2 more)-> 2CH 18:11	Prophet (false)
@@ -976,6 +978,7 @@ Reubenites	-1	Male				NUM 32:3 <-(21 more)-> JOS 22:29	Reubenite
 Rhoda	1	Female	YoungAdult		possibly young girl/teen	ACT 12:13 <-(1 more)-> ACT 12:15
 rich young ruler	1	Male	YoungAdult			MAT 19:16 <-(5 more)-> LUK 18:21	Young Man (Rich)
 royal record	1	Male				EZR 6:3 <-(1 more)-> EZR 6:5	Scribe
+rooster	1	PreferMale				MAT 26:75 <-(2 more)-> JHN 18:27	
 rumbling sound	1	Male				EZK 3:12	Angel
 rumor	1	PreferMale				JHN 21:23	
 rule given by Paul	1	Male				2TH 3:10
@@ -1032,7 +1035,7 @@ scoffers who rule people in Jerusalem	-1	Male				ISA 28:15	Scoffer
 scoundrels	-1	Male				1KI 21:13	Scoundrel
 scouts of Ben-Hadad, king of Aram	-1	Male				1KI 20:17
 scribes	-1	Male			Gr. grammateus	LUK 11:53 <-(3 more)-> LUK 23:10
-scripture	-1					2CH 25:4 <-(233 more)-> REV 19:15
+scripture	-1					2KI 14:6 <-(234 more)-> REV 19:15
 sea	1	Neuter				ISA 23:4
 sea captains, seafarers, sailors	-1	Male				REV 18:18 <-(1 more)-> REV 18:20
 second person to accuse Peter (man)	1	Male				LUK 22:58
@@ -1095,6 +1098,7 @@ Sisera	1	Male				JDG 4:19 & JDG 4:20
 sisters of beloved	-1	Female				SNG 8:8 & SNG 8:9
 slave drivers, Egyptian	-1	Male	Adult			EXO 5:10 <-(2 more)-> EXO 5:14
 slave girls	-1	Female				NAM 2:7 & NAM 2:8	Slave Girl (female)
+slaves of corruption	-1					2PE 2:19
 sluggard	1	Male	Adult			PRO 22:13 & PRO 26:13
 soldier at the cross	1	Male	Adult			LUK 23:37
 soldiers	-1	Male	Adult			NAM 2:9 <-(3 more)-> ACT 27:42
@@ -1116,6 +1120,7 @@ son of Paul's sister (young man)	1	Male	YoungAdult			ACT 23:20 & ACT 23:21	Child
 son of Shelomith (whose father was an Egyptian)	1	Male				LEV 24:11 & LEV 24:23
 son of Shunammite	1	Male	Child			2KI 4:19	Boy
 son of widow	1	Male				2KI 4:6
+sons of God	-1	Male	Child		could be spoken by any age actor, but a child's voice might provide best dramatic effect	GAL 4:6
 song about the prostitute	1	Either				ISA 23:16
 song of the prostitute	1	Female				ISA 23:16
 sons (hypothetical), at end of life	-1	Male	Elder			PRO 5:12 <-(1 more)-> PRO 5:14
