@@ -15768,9 +15768,13 @@ MAT	7	26	Jesus	preaching		Implicit
 MAT	7	27	Jesus	preaching		Implicit		
 MAT	7	28	crowd			Rare		
 MAT	7	28	Needs Review			Potential		
+MAT	7	29	crowd			Rare		
+MAT	7	29	Needs Review			Potential		
 MAT	8	2	leper	pleading		Dialogue		MAT 8.2;MRK 1.40;LUK 5.12
 MAT	8	3	Jesus			Dialogue		
 MAT	8	4	Jesus	giving orders		Dialogue		
+MAT	8	5	centurion with great faith	entreating		Rare		
+MAT	8	5	Needs Review			Potential		
 MAT	8	6	centurion with great faith	entreating		Dialogue		
 MAT	8	7	Jesus			Dialogue		
 MAT	8	8	centurion with great faith	humbly		Dialogue		MAT 8.8-9;LUK 7.6-8
