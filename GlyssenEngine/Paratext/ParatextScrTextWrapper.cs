@@ -13,6 +13,7 @@ using SIL.DblBundle.Usx;
 using SIL.Reporting;
 using SIL.Scripture;
 using SIL.WritingSystems;
+using static System.String;
 // IBundle is probably an unfortunate name. IProjectSourceMetadata would have been a better name.
 using IProjectSourceMetadata = SIL.DblBundle.IBundle;
 
@@ -48,7 +49,7 @@ namespace GlyssenEngine.Paratext
 		// REVIEW (PG-63): In all cases where FailedChecksBooks is accessed, analyze whether UserCanEditProject should be
 		// taken into account. Maybe FailedChecksBooks should always return an empty list when !UserCanEditProject.
 		public IEnumerable<string> FailedChecksBooks => m_bookInfo.FailedChecksBooks;
-		public string RequiredCheckNames => string.Join(Localizer.GetString("Common.SimpleListSeparator", ", "),
+		public string RequiredCheckNames => Join(Localizer.GetString("Common.SimpleListSeparator", ", "),
 			m_requiredChecks.Select(ParatextProjectBookInfo.LocalizedCheckName));
 		private string ProjectId => UnderlyingScrText.Name;
 		public bool UserCanEditProject => UnderlyingScrText.Permissions.AmAdministratorOrTeamMember;
@@ -198,7 +199,10 @@ namespace GlyssenEngine.Paratext
 						AvailableBooks = new List<Book>()
 					};
 
-					if (!String.IsNullOrEmpty(UnderlyingScrText.Settings.TMSId))
+					if (!IsNullOrEmpty(UnderlyingScrText.Settings.Copyright))
+						m_metadata.Copyright = new DblMetadataCopyright {Statement = new DblMetadataXhtmlContentNode {Xhtml = UnderlyingScrText.Settings.Copyright}};
+
+					if (!IsNullOrEmpty(UnderlyingScrText.Settings.TMSId))
 						m_metadata.Identification.SystemIds.Add(new DblMetadataSystemId {Type = "tms", Id = UnderlyingScrText.Settings.TMSId});
 
 					var nameInfo = UnderlyingScrText.BookNames;

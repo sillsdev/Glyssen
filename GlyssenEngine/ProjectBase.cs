@@ -58,6 +58,8 @@ namespace GlyssenEngine
 			Versification = versification;
 		}
 
+		public IReadOnlyGlyssenDblTextMetadata Metadata => m_metadata;
+
 		public string LanguageName => m_metadata.Language.Name;
 
 		public string LanguageIsoCode => m_metadata.Language.Iso;
