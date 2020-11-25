@@ -374,9 +374,27 @@ namespace GlyssenEngine.Export
 			//		row[clipFileColIndex] = "= HYPERLINK(\"" + row[clipFileColIndex] + "\")";
 			//}
 			dataArray.Insert(0, GetHeaders().ToArray());
+
+			void AppendReferenceTextCopyrightInfo(ReferenceText referenceText, List<string> list)
+			{
+				var primaryCopyrightInfo = referenceText.Metadata.Copyright?.Statement?.InternalNodes.Select(n => n.InnerText).ToList();
+				if (primaryCopyrightInfo != null && primaryCopyrightInfo.Any())
+				{
+					primaryCopyrightInfo.Insert(0, $"{referenceText.LanguageName} reference text: {referenceText.Metadata.Identification?.Name}");
+					list.AddRange(primaryCopyrightInfo);
+				}
+			}
+
 			using (var xls = new ExcelPackage(new FileInfo(path)))
 			{
 				xls.Workbook.Properties.Title = OutputName;
+				var copyrightInfo = Project.Metadata.Copyright?.Statement?.InternalNodes?.Select(n => n.InnerText).ToList() ??
+					new List<string>();
+				AppendReferenceTextCopyrightInfo(Project.ReferenceText, copyrightInfo);
+				if (Project.ReferenceText.HasSecondaryReferenceText)
+					AppendReferenceTextCopyrightInfo(Project.ReferenceText.SecondaryReferenceText, copyrightInfo);
+				if (copyrightInfo.Any())
+					xls.Workbook.Properties.Comments = string.Join(Environment.NewLine, copyrightInfo);
 				var sheet = xls.Workbook.Worksheets.Add("Script");
 				var firstCell = sheet.Cells["A1"];
 				firstCell.LoadFromArrays(dataArray);
