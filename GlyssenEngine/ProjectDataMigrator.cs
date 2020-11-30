@@ -497,7 +497,7 @@ namespace GlyssenEngine
                         {
                             // This is almost certainly an error in the data, but just in case there's some edge case
                             // I can't think of, I'll play it safe and log it rather than crashing.
-                            var error = "Unexpected block data encountered in Data migration: Block starts with an element having no word-forming" +
+                            var error = "Unexpected block data encountered in Data migration: Block starts with an element having no word-forming " +
                                 $"characters and has no subsequent {typeof(Verse).Name} element. Block: {block.ToString(true, book.BookId)}";
                             Logger.WriteEvent(error);
                             Debug.Fail(error);
