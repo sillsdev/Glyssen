@@ -103,7 +103,7 @@
       <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Core.8.0.0-beta0153\lib\net461\SIL.Core.dll</HintPath>
+      <HintPath>..\packages\SIL.Core.8.0.0-beta0176\lib\net461\SIL.Core.dll</HintPath>
     </Reference>
     <Reference Include="SIL.DblBundle, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
       <HintPath>..\packages\SIL.DblBundle.8.0.0-beta0153\lib\net461\SIL.DblBundle.dll</HintPath>
@@ -276,6 +276,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Quote\NewTestamentBooksFirstComparerTests.cs" />
+    <Compile Include="Quote\ParserCharacterRepositoryTests.cs" />
     <Compile Include="Quote\QuoteParserTests.cs" />
     <Compile Include="Quote\QuoteSystemGuesserTests.cs" />
     <Compile Include="Quote\QuoteSystemTests.cs" />

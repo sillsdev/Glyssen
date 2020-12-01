@@ -11729,6 +11729,10 @@ MAT	9	29	Jesus			Dialogue
 MAT	9	30	Jesus	warning		Dialogue		
 MAT	9	33	crowd after mute healed	amazed		Normal		
 MAT	9	34	Pharisees	accusing		Normal		
+MAT	9	36	narrator-MAT			Quotation		
+MAT	9	36	scripture			Quotation	Micaiah, prophet of the LORD	
+MAT	9	36	Jesus			Rare		
+MAT	9	36	Needs Review			Rare
 MAT	9	37	Jesus			Dialogue		
 MAT	9	38	Jesus			Normal		
 MAT	10	1	Jesus			Indirect		

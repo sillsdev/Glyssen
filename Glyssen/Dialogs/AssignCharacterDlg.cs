@@ -420,9 +420,8 @@ namespace Glyssen.Dialogs
 		private IEnumerable<int> GetColumnsIntoWhichHeSaidCanBeInserted(DataGridViewRow row)
 		{
 			var matchup = m_viewModel.CurrentReferenceTextMatchup;
-			if (row != null && matchup != null && (matchup.CorrelatedBlocks[row.Index].
-					CharacterIs(m_viewModel.CurrentBookId, CharacterVerseData.StandardCharacter.Narrator) ||
-				matchup.CorrelatedBlocks[row.Index].CharacterId == CharacterVerseData.kUnexpectedCharacter))
+			if (row != null && matchup != null &&
+				matchup.CorrelatedBlocks[row.Index].IsNarratorOrPotentialNarrator(m_viewModel.CurrentBookId))
 			{
 				if (Block.IsEmptyVerseReferenceText(row.Cells[colEnglish.Index].Value as string))
 					yield return colEnglish.Index;
@@ -524,9 +523,7 @@ namespace Glyssen.Dialogs
 
 		private void SetDeliveryCellValue(DataGridViewRow row, Block correlatedBlock)
 		{
-			var delivery = correlatedBlock.Delivery;
-			if (IsNullOrEmpty(delivery))
-				delivery = correlatedBlock.ReferenceBlocks.Single().Delivery;
+			var delivery = m_viewModel.GetEffectiveDelivery(correlatedBlock);
 			if (IsNullOrEmpty(delivery))
 				delivery = ((AssignCharacterViewModel.Delivery)colDelivery.Items[0]).LocalizedDisplay;
 			row.Cells[colDelivery.Index].Value = delivery;

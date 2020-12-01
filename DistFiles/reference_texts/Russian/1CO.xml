@@ -103,10 +103,10 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-1CO">
       <verse num="12" />
-      <text>Now I mean this, that each one of you says, “I follow Paul,” “I follow Apollos,” “I follow Cephas,” and, “I follow Christ.”</text>
+      <text>Now I mean this, that each one of you says, «I follow Paul,» «I follow Apollos,» «I follow Cephas,» and, «I follow Christ.»</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>Я разумею то, что у вас говорят: 'я Павлов'; 'я Аполлосов'; 'я Кифин'; 'а я Христов'.</text>
+    <text>Я разумею то, что у вас говорят: «я Павлов»; «я Аполлосов»; «я Кифин»; «а я Христов».</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-1CO">
@@ -143,7 +143,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1CO">
       <verse num="17" />
-      <text>For Christ sent me not to baptize, but to preach the Good News--not in wisdom of words, so that the cross of Christ wouldn’t be made void.</text>
+      <text>For Christ sent me not to baptize, but to preach the Good News—not in wisdom of words, so that the cross of Christ wouldn’t be made void.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Ибо Христос послал меня не крестить, а благовествовать, не в премудрости слова, чтобы не упразднить креста Христова.</text>
@@ -162,9 +162,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="scripture">
-      <text>“I will destroy the wisdom of the wise, I will bring the discernment of the discerning to nothing.”</text>
+      <text>«I will destroy the wisdom of the wise, I will bring the discernment of the discerning to nothing.»</text>
     </ReferenceBlocks>
-    <text>“погублю мудрость мудрецов, и разум разумных отвергну.”</text>
+    <text>«погублю мудрость мудрецов, и разум разумных отвергну.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-1CO">
@@ -193,11 +193,11 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-1CO">
       <verse num="23" />
-      <text>But we preach Christ crucified; a stumbling block to Jews, and foolishness to Greeks,</text>
+      <text>But we preach Christ crucified; a stumbling block to Jews, and foolishness to Greeks, </text>
       <sound startVerse="-999" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="23" />
-    <text>а мы проповедуем Христа распятого, для Иудеев соблазн, а для Еллинов безумие,</text>
+    <text>а мы проповедуем Христа распятого, для Иудеев соблазн, а для Еллинов безумие, </text>
     <sound startVerse="-999" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-1CO" matchesReferenceText="true">
@@ -266,9 +266,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="31" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="31" characterId="scripture">
-      <text>“He who boasts, let him boast in the Lord.”</text>
+      <text>«He who boasts, let him boast in the Lord.»</text>
     </ReferenceBlocks>
-    <text>“хвалящийся хвались Господом.”</text>
+    <text>«хвалящийся хвались Господом.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="1CO" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
@@ -346,9 +346,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="scripture">
-      <text>“Things which an eye didn’t see, and an ear didn’t hear, which didn’t enter into the heart of man, these God has prepared for those who love him.”</text>
+      <text>«Things which an eye didn’t see, and an ear didn’t hear, which didn’t enter into the heart of man, these God has prepared for those who love him.»</text>
     </ReferenceBlocks>
-    <text>“не видел того глаз, не слышало ухо, и не приходило то на сердце человеку, что приготовил Бог любящим Его.”</text>
+    <text>«не видел того глаз, не слышало ухо, и не приходило то на сердце человеку, что приготовил Бог любящим Его.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1CO">
@@ -401,10 +401,10 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="scripture">
       <verse num="16" />
-      <text>“For who has known the mind of the Lord, that he should instruct him?”</text>
+      <text>«For who has known the mind of the Lord, that he should instruct him?»</text>
     </ReferenceBlocks>
     <verse num="16" />
-    <text>“Ибо кто познал ум Господень, чтобы мог судить его?”</text>
+    <text>«Ибо кто познал ум Господень, чтобы мог судить его?»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1CO">
@@ -445,10 +445,10 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1CO">
       <verse num="4" />
-      <text>For when one says, “I follow Paul,” and another, “I follow Apollos,” aren’t you fleshly?</text>
+      <text>For when one says, «I follow Paul,» and another, «I follow Apollos,» aren’t you fleshly?</text>
     </ReferenceBlocks>
     <verse num="4" />
-    <text>Ибо когда один говорит: 'я Павлов', а другой: 'я Аполлосов', то не плотские ли вы?</text>
+    <text>Ибо когда один говорит: «я Павлов», а другой: «я Аполлосов», то не плотские ли вы?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1CO">
@@ -572,9 +572,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="scripture">
-      <text>“He has taken the wise in their craftiness.”</text>
+      <text>«He has taken the wise in their craftiness.»</text>
     </ReferenceBlocks>
-    <text>“уловляет мудрых в лукавстве их.”</text>
+    <text>«уловляет мудрых в лукавстве их.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-1CO">
@@ -586,9 +586,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="scripture">
-      <text>“The Lord knows the reasoning of the wise, that it is worthless.”</text>
+      <text>«The Lord knows the reasoning of the wise, that it is worthless.»</text>
     </ReferenceBlocks>
-    <text>“Господь знает умствования мудрецов, что они суетны.”</text>
+    <text>«Господь знает умствования мудрецов, что они суетны.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1CO">
@@ -1001,7 +1001,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-1CO">
       <verse num="12" />
-      <text>“All things are lawful for me,” but not all things are expedient. “All things are lawful for me,” but I will not be brought under the power of anything.</text>
+      <text>«All things are lawful for me,» but not all things are expedient. «All things are lawful for me,» but I will not be brought under the power of anything.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Все мне позволительно, но не все полезно; все мне позволительно, но ничто не должно обладать мною.</text>
@@ -1009,7 +1009,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-1CO">
       <verse num="13" />
-      <text>“Foods for the belly, and the belly for foods,” but God will bring to nothing both it and them. But the body is not for sexual immorality, but for the Lord; and the Lord for the body.</text>
+      <text>«Foods for the belly, and the belly for foods,» but God will bring to nothing both it and them. But the body is not for sexual immorality, but for the Lord; and the Lord for the body.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Пища для чрева, и чрево для пищи; но Бог уничтожит и то и другое. Тело же не для блуда, но для Господа, и Господь для тела.</text>
@@ -1055,7 +1055,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-1CO">
       <verse num="18" />
-      <text>Flee sexual immorality! “Every sin that a man does is outside the body,” but he who commits sexual immorality sins against his own body.</text>
+      <text>Flee sexual immorality! «Every sin that a man does is outside the body,» but he who commits sexual immorality sins against his own body.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Бегайте блуда; всякий грех, какой делает человек, есть вне тела, а блудник грешит против собственного тела.</text>
@@ -1157,7 +1157,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="narrator-1CO">
       <verse num="10" />
-      <text>But to the married I command--not I, but the Lord--that the wife not leave her husband,</text>
+      <text>But to the married I command—not I, but the Lord—that the wife not leave her husband,</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>А вступившим в брак не я повелеваю, а Господь: жене не разводиться с мужем, —</text>
@@ -1173,7 +1173,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="narrator-1CO">
       <verse num="12" />
-      <text>But to the rest I--not the Lord--say, if any brother has an unbelieving wife, and she is content to live with him, let him not leave her.</text>
+      <text>But to the rest I—not the Lord—say, if any brother has an unbelieving wife, and she is content to live with him, let him not leave her.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Прочим же я говорю, а не Господь: если какой брат имеет жену неверующую, и она согласна жить с ним, то он не должен оставлять ее;</text>
@@ -1349,7 +1349,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="34" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="34" characterId="narrator-1CO">
       <verse num="34" />
-      <text>There is also a difference between a wife and a virgin. The unmarried woman cares about the things of the Lord, that she may be holy both in body and in spirit. But she who is married cares about the things of the world--how she may please her husband.</text>
+      <text>There is also a difference between a wife and a virgin. The unmarried woman cares about the things of the Lord, that she may be holy both in body and in spirit. But she who is married cares about the things of the world—how she may please her husband.</text>
     </ReferenceBlocks>
     <verse num="34" />
     <text>незамужняя заботится о Господнем, как угодить Господу, чтобы быть святою и телом и духом; а замужняя заботится о мирском, как угодить мужу.</text>
@@ -1443,7 +1443,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="narrator-1CO">
       <verse num="5" />
-      <text>For though there are things that are called “gods,” whether in the heavens or on earth; as there are many “gods“ and many “lords“;</text>
+      <text>For though there are things that are called «gods,» whether in the heavens or on earth; as there are many «gods» and many «lords»;</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Ибо хотя и есть так называемые боги, или на небе, или на земле, так как есть много богов и господ много, —</text>
@@ -1588,9 +1588,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="scripture">
-      <text>“You shall not muzzle an ox while it treads out the grain.”</text>
+      <text>«You shall not muzzle an ox while it treads out the grain.»</text>
     </ReferenceBlocks>
-    <text>“не заграждай рта у вола молотящего.”</text>
+    <text>«не заграждай рта у вола молотящего.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="narrator-1CO">
@@ -1802,9 +1802,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="scripture">
-      <text>“The people sat down to eat and drink, and rose up to play.”</text>
+      <text>«The people sat down to eat and drink, and rose up to play.»</text>
     </ReferenceBlocks>
-    <text>“народ сел есть и пить, и встал играть.”</text>
+    <text>«народ сел есть и пить, и встал играть.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-1CO">
@@ -1929,7 +1929,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="23" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="23" characterId="narrator-1CO">
       <verse num="23" />
-      <text>“All things are lawful for me,” but not all things are profitable. “All things are lawful for me,” but not all things build up.</text>
+      <text>«All things are lawful for me,» but not all things are profitable. «All things are lawful for me,» but not all things build up.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Все мне позволительно, но не все полезно; все мне позволительно, но не все назидает.</text>
@@ -1956,9 +1956,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="scripture">
-      <text>“the earth is the Lord’s, and its fullness.”</text>
+      <text>«the earth is the Lord’s, and its fullness.»</text>
     </ReferenceBlocks>
-    <text>“Господня земля, и что наполняет ее.”</text>
+    <text>«Господня земля, и что наполняет ее.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="27" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="27" characterId="narrator-1CO">
@@ -1971,7 +1971,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="28" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="28" characterId="narrator-1CO">
       <verse num="28" />
-      <text>But if anyone says to you, “This was offered to idols,” don’t eat it for the sake of the one who told you. And for the sake of conscience.</text>
+      <text>But if anyone says to you, «This was offered to idols,» don’t eat it for the sake of the one who told you. And for the sake of conscience.</text>
     </ReferenceBlocks>
     <verse num="28" />
     <text>Но если кто скажет вам: это идоложертвенное, —то не ешьте ради того, кто объявил вам, и ради совести. Ибо Господня земля, и что наполняет ее.</text>
@@ -2212,9 +2212,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="24" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="24" characterId="Jesus">
-      <text>“Take, eat. This is my body, which is broken for you. Do this in memory of me.”</text>
+      <text>«Take, eat. This is my body, which is broken for you. Do this in memory of me.»</text>
     </ReferenceBlocks>
-    <text>“приимите, ядите, сие есть Тело Мое, за вас ломимое; сие творите в Мое воспоминание.”</text>
+    <text>«приимите, ядите, сие есть Тело Мое, за вас ломимое; сие творите в Мое воспоминание.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="narrator-1CO">
@@ -2226,9 +2226,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="Jesus">
-      <text>“This cup is the new covenant in my blood. Do this, as often as you drink, in memory of me.”</text>
+      <text>«This cup is the new covenant in my blood. Do this, as often as you drink, in memory of me.»</text>
     </ReferenceBlocks>
-    <text>“сия чаша есть новый завет в Моей Крови; сие творите, когда только будете пить, в Мое воспоминание.”</text>
+    <text>«сия чаша есть новый завет в Моей Крови; сие творите, когда только будете пить, в Мое воспоминание.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="narrator-1CO">
@@ -2327,7 +2327,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-1CO">
       <verse num="3" />
-      <text>Therefore I make known to you that no man speaking by God’s Spirit says, “Jesus is accursed.” No one can say, “Jesus is Lord,” but by the Holy Spirit.</text>
+      <text>Therefore I make known to you that no man speaking by God’s Spirit says, «Jesus is accursed.» No one can say, «Jesus is Lord,» but by the Holy Spirit.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Потому сказываю вам, что никто, говорящий Духом Божиим, не произнесет анафемы на Иисуса, и никто не может назвать Иисуса Господом, как только Духом Святым.</text>
@@ -2375,7 +2375,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-1CO">
       <verse num="9" />
-      <text>To another, the gift of faithis given by the same Spirit; and to another gifts of healings by the same Spirit.</text>
+      <text>To another, the gift of faith is given by the same Spirit; and to another gifts of healings by the same Spirit.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>иному вера, тем же Духом; иному дары исцелений, тем же Духом;</text>
@@ -2423,7 +2423,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="narrator-1CO">
       <verse num="15" />
-      <text>If the foot would say, “Because I’m not the hand, I’m not part of the body,” it is not therefore not part of the body.</text>
+      <text>If the foot would say, «Because I’m not the hand, I’m not part of the body,» it is not therefore not part of the body.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Если нога скажет: я не принадлежу к телу, потому что я не рука, то неужели она потому не принадлежит к телу?</text>
@@ -2431,7 +2431,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-1CO">
       <verse num="16" />
-      <text>If the ear would say, “Because I’m not the eye, I’m not part of the body,” it’s not therefore not part of the body.</text>
+      <text>If the ear would say, «Because I’m not the eye, I’m not part of the body,» it’s not therefore not part of the body.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>И если ухо скажет: я не принадлежу к телу, потому что я не глаз, то неужели оно потому не принадлежит к телу?</text>
@@ -2467,7 +2467,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-1CO">
       <verse num="21" />
-      <text>The eye can’t tell the hand, “I have no need for you,” or again the head to the feet, “I have no need for you.”</text>
+      <text>The eye can’t tell the hand, «I have no need for you,» or again the head to the feet, «I have no need for you.»</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Не может глаз сказать руке: ты мне не надобна; или также голова ногам: вы мне не нужны.</text>
@@ -2657,7 +2657,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="narrator-1CO">
       <verse num="13" />
-      <text>But now faith, hope, and love remain--these three. The greatest of these is love.</text>
+      <text>But now faith, hope, and love remain—these three. The greatest of these is love.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>А теперь пребывают сии три: вера, надежда, любовь; но любовь из них больше.</text>
@@ -2791,10 +2791,10 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-1CO">
       <verse num="16" />
-      <text>Otherwise if you bless with the spirit, how will he who fills the place of the unlearned say the “Amen“ at your giving of thanks? Seeing how he doesn’t know what you say.</text>
+      <text>Otherwise if you bless with the spirit, how will he who fills the place of the unlearned say the «Amen» at your giving of thanks? Seeing how he doesn’t know what you say.</text>
     </ReferenceBlocks>
     <verse num="16" />
-    <text>Ибо если ты будешь благословлять духом, то стоящий на месте простолюдина как скажет: 'аминь' при твоем благодарении? Ибо он не понимает, что ты говоришь.</text>
+    <text>Ибо если ты будешь благословлять духом, то стоящий на месте простолюдина как скажет: «аминь» при твоем благодарении? Ибо он не понимает, что ты говоришь.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="narrator-1CO">
@@ -2838,9 +2838,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="21" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="21" characterId="scripture">
-      <text>“By men of strange languages and by the lips of strangers I will speak to this people. Not even thus will they hear me, says the Lord.”</text>
+      <text>«By men of strange languages and by the lips of strangers I will speak to this people. Not even thus will they hear me, says the Lord.»</text>
     </ReferenceBlocks>
-    <text>“иными языками и иными устами буду говорить народу сему; но и тогда не послушают Меня, говорит Господь.”</text>
+    <text>«иными языками и иными устами буду говорить народу сему; но и тогда не послушают Меня, говорит Господь.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="22" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="22" characterId="narrator-1CO">
@@ -3203,24 +3203,24 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="26" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="26" characterId="narrator-1CO">
       <verse num="26" />
-      <text>The last enemy that will be abolished is death.</text>
+      <text>The last enemy that will be abolished is death. </text>
       <verse num="27" />
       <text>For,</text>
     </ReferenceBlocks>
     <verse num="26" />
-    <text>Последний же враг истребится—смерть,</text>
+    <text>Последний же враг истребится—смерть, </text>
     <verse num="27" />
     <text>потому</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="scripture">
-      <text>“He put all things in subjection under his feet.”</text>
+      <text>«He put all things in subjection under his feet.»</text>
     </ReferenceBlocks>
-    <text>“что все покорил под ноги Его.”</text>
+    <text>«что все покорил под ноги Его.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="narrator-1CO">
-      <text>But when he says, “All things are put in subjection,” it is evident that he is excepted who subjected all things to him.</text>
+      <text>But when he says, «All things are put in subjection,» it is evident that he is excepted who subjected all things to him.</text>
     </ReferenceBlocks>
     <text>Когда же сказано, что Ему все покорено, то ясно, что кроме Того, Который покорил Ему все.</text>
   </block>
@@ -3273,7 +3273,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="33" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="33" characterId="narrator-1CO">
       <verse num="33" />
-      <text>Don’t be deceived! “Evil companionships corrupt good morals.”</text>
+      <text>Don’t be deceived! «Evil companionships corrupt good morals.»</text>
     </ReferenceBlocks>
     <verse num="33" />
     <text>Не обманывайтесь: худые сообщества развращают добрые нравы.</text>
@@ -3289,7 +3289,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="35" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="35" characterId="narrator-1CO">
       <verse num="35" />
-      <text>But someone will say, “How are the dead raised?” and, “With what kind of body do they come?”</text>
+      <text>But someone will say, «How are the dead raised?» and, «With what kind of body do they come?»</text>
     </ReferenceBlocks>
     <verse num="35" />
     <text>Но скажет кто-нибудь: как воскреснут мертвые? и в каком теле придут?</text>
@@ -3372,9 +3372,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="45" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="45" characterId="scripture">
-      <text>“The first man, Adam, became a living soul.”</text>
+      <text>«The first man, Adam, became a living soul.»</text>
     </ReferenceBlocks>
-    <text>“первый человек Адам стал душею живущею;”</text>
+    <text>«первый человек Адам стал душею живущею»;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="45" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="45" characterId="narrator-1CO">
@@ -3456,17 +3456,17 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="54" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="54" characterId="scripture">
-      <text>“Death is swallowed up in victory.”</text>
+      <text>«Death is swallowed up in victory.</text>
     </ReferenceBlocks>
-    <text>“поглощена смерть победою.”</text>
+    <text>«поглощена смерть победою.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="55" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="55" characterId="scripture">
       <verse num="55" />
-      <text>“O death, where is your victory? O death where is your sting?”</text>
+      <text>O death, where is your victory? O death where is your sting?»</text>
     </ReferenceBlocks>
     <verse num="55" />
-    <text>“Смерть! где твое жало? ад! где твоя победа?”</text>
+    <text>Смерть! где твое жало? ад! где твоя победа?»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="56" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="56" characterId="narrator-1CO">

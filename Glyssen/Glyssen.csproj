@@ -67,6 +67,7 @@
     <WarningLevel>1</WarningLevel>
     <OutputPath>..\output\Debug\</OutputPath>
     <Prefer32Bit>false</Prefer32Bit>
+    <DefineConstants>DEBUG</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <OutputPath>..\output\Release\</OutputPath>
@@ -614,7 +615,7 @@
       <Version>9.1.9-beta</Version>
     </PackageReference>
     <PackageReference Include="SIL.Core">
-      <Version>8.0.0-beta0153</Version>
+      <Version>8.0.0-beta0176</Version>
     </PackageReference>
     <PackageReference Include="SIL.Core.Desktop">
       <Version>8.0.0-beta0153</Version>

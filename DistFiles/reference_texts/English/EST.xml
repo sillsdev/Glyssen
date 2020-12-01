@@ -67,7 +67,7 @@
     <text>Memucan answered before the king and the princes,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="16" characterId="Memucan, noble advisor to Xerxes, king">
-    <text>“Vashti the queen has not done wrong to just the king, but also to all the princes, and to all the people who are in all the provinces of the King Ahasuerus.</text>
+    <text>«Vashti the queen has not done wrong to just the king, but also to all the princes, and to all the people who are in all the provinces of the King Ahasuerus.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="17" characterId="Memucan, noble advisor to Xerxes, king">
     <verse num="17" />
@@ -105,7 +105,7 @@
     <text>Then the king’s servants who served him said,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="attendants to Xerxes, king">
-    <text>“Let beautiful young virgins be sought for the king.</text>
+    <text>«Let beautiful young virgins be sought for the king.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="attendants to Xerxes, king">
     <verse num="3" />
@@ -113,7 +113,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="attendants to Xerxes, king">
     <verse num="4" />
-    <text>and let the maiden who pleases the king be queen instead of Vashti.”</text>
+    <text>and let the maiden who pleases the king be queen instead of Vashti.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-EST">
     <text>The thing pleased the king, and he did so.</text>
@@ -210,7 +210,7 @@
     <text>Then the king’s servants, who were in the king’s gate, said to Mordecai,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="3" characterId="officials, royal, to Xerxes, king">
-    <text>“Why do you disobey the king's commandment?”</text>
+    <text>«Why do you disobey the king’s commandment?»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="4" characterId="narrator-EST">
     <verse num="4" />
@@ -233,11 +233,11 @@
     <text>Haman said to King Ahasuerus,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="8" characterId="Haman, highest noble to Xerxes, king">
-    <text>“There is a certain people scattered abroad and dispersed among the peoples in all the provinces of your kingdom, and their laws are different than other people's. They don't keep the king's laws. Therefore it is not for the king's profit to allow them to remain.</text>
+    <text>«There is a certain people scattered abroad and dispersed among the peoples in all the provinces of your kingdom, and their laws are different than other people’s. They don’t keep the king’s laws. Therefore it is not for the king’s profit to allow them to remain.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="9" characterId="Haman, highest noble to Xerxes, king">
     <verse num="9" />
-    <text>If it pleases the king, let it be written that they be destroyed; and I will pay ten thousand talents of silver into the hands of those who are in charge of the king’s business, to bring it into the king’s treasuries.”</text>
+    <text>If it pleases the king, let it be written that they be destroyed; and I will pay ten thousand talents of silver into the hands of those who are in charge of the king’s business, to bring it into the king’s treasuries.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="10" characterId="narrator-EST">
     <verse num="10" />
@@ -246,7 +246,7 @@
     <text>The king said to Haman,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="11" characterId="Xerxes, king of Persia and Media (Ahasuerus)">
-    <text>“The silver is given to you, the people also, to do with them as it seems good to you.”</text>
+    <text>«The silver is given to you, the people also, to do with them as it seems good to you.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="12" characterId="narrator-EST">
     <verse num="12" />
@@ -318,11 +318,11 @@
     <text>Then Mordecai asked them return answer to Esther,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="13" characterId="Mordecai, cousin of Esther">
-    <text>“Don't think to yourself that you will escape in the king's house any more than all the Jews.</text>
+    <text>«Don’t think to yourself that you will escape in the king’s house any more than all the Jews.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="14" characterId="Mordecai, cousin of Esther">
     <verse num="14" />
-    <text>For if you remain silent now, then relief and deliverance will come to the Jews from another place, but you and your father’s house will perish. Who knows if you haven’t come to the kingdom for such a time as this?”</text>
+    <text>For if you remain silent now, then relief and deliverance will come to the Jews from another place, but you and your father’s house will perish. Who knows if you haven’t come to the kingdom for such a time as this?»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="15" characterId="narrator-EST">
     <verse num="15" />
@@ -350,21 +350,21 @@
     <text>Then the king asked her,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="3" characterId="Xerxes, king of Persia and Media (Ahasuerus)">
-    <text>“What would you like, queen Esther? What is your request? It shall be given you even to the half of the kingdom.”</text>
+    <text>«What would you like, queen Esther? What is your request? It shall be given you even to the half of the kingdom.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="4" characterId="narrator-EST">
     <verse num="4" />
     <text>Esther said,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="4" characterId="Esther, queen">
-    <text>“If it seems good to the king, let the king and Haman come today to the banquet that I have prepared for him.”</text>
+    <text>«If it seems good to the king, let the king and Haman come today to the banquet that I have prepared for him.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="5" characterId="narrator-EST">
     <verse num="5" />
     <text>Then the king said,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="5" characterId="Xerxes, king of Persia and Media (Ahasuerus)">
-    <text>“Bring Haman quickly, so that it may be done as Esther has said.”</text>
+    <text>«Bring Haman quickly, so that it may be done as Esther has said.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="5" characterId="narrator-EST">
     <text>So the king and Haman came to the banquet that Esther had prepared. </text>
@@ -372,18 +372,18 @@
     <text>The king said to Esther at the banquet of wine,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="6" characterId="Xerxes, king of Persia and Media (Ahasuerus)">
-    <text>“What is your petition? It shall be granted you. What is your request? Even to the half of the kingdom it shall be performed.”</text>
+    <text>«What is your petition? It shall be granted you. What is your request? Even to the half of the kingdom it shall be performed.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="7" characterId="narrator-EST">
     <verse num="7" />
     <text>Then Esther answered and said,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="7" characterId="Esther, queen">
-    <text>“My petition and my request is this.</text>
+    <text>«My petition and my request is this.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="8" characterId="Esther, queen">
     <verse num="8" />
-    <text>If I have found favor in the sight of the king, and if it please the king to grant my petition and to perform my request, let the king and Haman come to the banquet that I will prepare for them, and I will do tomorrow as the king has said.”</text>
+    <text>If I have found favor in the sight of the king, and if it please the king to grant my petition and to perform my request, let the king and Haman come to the banquet that I will prepare for them, and I will do tomorrow as the king has said.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="9" characterId="narrator-EST">
     <verse num="9" />
@@ -400,18 +400,18 @@
     <text>Haman also said,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="12" characterId="Haman, highest noble to Xerxes, king">
-    <text>“Yes, Esther the queen let no man come in with the king to the banquet that she had prepared but myself; and tomorrow I am also invited by her together with the king.</text>
+    <text>«Yes, Esther the queen let no man come in with the king to the banquet that she had prepared but myself; and tomorrow I am also invited by her together with the king.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="13" characterId="Haman, highest noble to Xerxes, king">
     <verse num="13" />
-    <text>Yet all this avails me nothing, so long as I see Mordecai the Jew sitting at the king’s gate.”</text>
+    <text>Yet all this avails me nothing, so long as I see Mordecai the Jew sitting at the king’s gate.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="14" characterId="narrator-EST">
     <verse num="14" />
     <text>Then Zeresh his wife and all his friends said to him,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="14" characterId="Zeresh, wife of Haman/friends of Haman" characterIdOverrideForScript="Zeresh, wife of Haman">
-    <text>“Let a gallows be made fifty cubits high, and in the morning speak to the king about hanging Mordecai on it. Then go in merrily with the king to the banquet.”</text>
+    <text>«Let a gallows be made fifty cubits high, and in the morning speak to the king about hanging Mordecai on it. Then go in merrily with the king to the banquet.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="14" characterId="narrator-EST">
     <text>This pleased Haman, so he had the gallows made.</text>
@@ -430,20 +430,20 @@
     <text>The king said,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="3" characterId="Xerxes, king of Persia and Media (Ahasuerus)">
-    <text>“What honor and dignity has been bestowed on Mordecai for this?”</text>
+    <text>«What honor and dignity has been bestowed on Mordecai for this?»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="3" characterId="narrator-EST">
-    <text>Then the king's servants who attended him said,</text>
+    <text>Then the king’s servants who attended him said,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="3" characterId="attendants to Xerxes, king">
-    <text>“Nothing has been done for him.”</text>
+    <text>«Nothing has been done for him.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="4" characterId="narrator-EST">
     <verse num="4" />
     <text>The king said,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="4" characterId="Xerxes, king of Persia and Media (Ahasuerus)">
-    <text>“Who is in the court?”</text>
+    <text>«Who is in the court?»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="4" characterId="narrator-EST">
     <text>Now Haman had come into the outer court of the king’s house, to speak to the king about hanging Mordecai on the gallows that he had prepared for him. </text>
@@ -451,33 +451,33 @@
     <text>The king’s servants said to him,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="5" characterId="attendants to Xerxes, king">
-    <text>“Behold, Haman stands in the court.”</text>
+    <text>«Behold, Haman stands in the court.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="5" characterId="narrator-EST">
     <text>The king said,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="5" characterId="Xerxes, king of Persia and Media (Ahasuerus)">
-    <text>“Let him come in.”</text>
+    <text>«Let him come in.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="6" characterId="narrator-EST">
     <verse num="6" />
     <text>So Haman came in. The king said to him,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="6" characterId="Xerxes, king of Persia and Media (Ahasuerus)">
-    <text>“What shall be done to the man whom the king delights to honor?”</text>
+    <text>«What shall be done to the man whom the king delights to honor?»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="6" characterId="narrator-EST">
     <text>Now Haman said in his heart,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="6" characterId="Haman, highest noble to Xerxes, king">
-    <text>“Who would the king delight to honor more than myself?”</text>
+    <text>«Who would the king delight to honor more than myself?»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="7" characterId="narrator-EST">
     <verse num="7" />
     <text>Haman said to the king,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="7" characterId="Haman, highest noble to Xerxes, king">
-    <text>“For the man whom the king delights to honor,</text>
+    <text>«For the man whom the king delights to honor,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="8" characterId="Haman, highest noble to Xerxes, king">
     <verse num="8" />
@@ -485,21 +485,21 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="9" characterId="Haman, highest noble to Xerxes, king">
     <verse num="9" />
-    <text>Let the clothing and the horse be delivered to the hand of one of the king’s most noble princes, that they may array the man whom the king delights to honor with them, and have him ride on horseback through the city square, and proclaim before him, ‹Thus shall it be done to the man whom the king delights to honor!› ”</text>
+    <text>Let the clothing and the horse be delivered to the hand of one of the king’s most noble princes, that they may array the man whom the king delights to honor with them, and have him ride on horseback through the city square, and proclaim before him, ‹Thus shall it be done to the man whom the king delights to honor!› »</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="10" characterId="narrator-EST">
     <verse num="10" />
     <text>Then the king said to Haman,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="10" characterId="Xerxes, king of Persia and Media (Ahasuerus)">
-    <text>“Hurry and take the clothing and the horse, as you have said, and do this for Mordecai the Jew, who sits at the king's gate. Let nothing fail of all that you have spoken.”</text>
+    <text>«Hurry and take the clothing and the horse, as you have said, and do this for Mordecai the Jew, who sits at the king’s gate. Let nothing fail of all that you have spoken.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="11" characterId="narrator-EST">
     <verse num="11" />
     <text>Then Haman took the clothing and the horse, and arrayed Mordecai, and had him ride through the city square, and proclaimed before him,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="11" characterId="Haman, highest noble to Xerxes, king">
-    <text>“Thus shall it be done to the man whom the king delights to honor!”</text>
+    <text>«Thus shall it be done to the man whom the king delights to honor!»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="12" characterId="narrator-EST">
     <verse num="12" />
@@ -510,7 +510,7 @@
     <text>Haman recounted to Zeresh his wife and all his friends everything that had happened to him. Then his wise men and Zeresh his wife said to him,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="13" characterId="Zeresh, wife of Haman/friends of Haman" characterIdOverrideForScript="Zeresh, wife of Haman">
-    <text>“If Mordecai, before whom you have begun to fall, is of Jewish descent, you will not prevail against him, but you will surely fall before him.”</text>
+    <text>«If Mordecai, before whom you have begun to fall, is of Jewish descent, you will not prevail against him, but you will surely fall before him.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="14" characterId="narrator-EST">
     <verse num="14" />
@@ -526,32 +526,32 @@
     <text>The king said again to Esther on the second day at the banquet of wine,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="2" characterId="Xerxes, king of Persia and Media (Ahasuerus)">
-    <text>“What is your petition, queen Esther? It shall be granted you. What is your request? Even to the half of the kingdom it shall be performed.”</text>
+    <text>«What is your petition, queen Esther? It shall be granted you. What is your request? Even to the half of the kingdom it shall be performed.»</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="3" characterId="narrator-EST">
     <verse num="3" />
     <text>Then Esther the queen answered,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="3" characterId="Esther, queen">
-    <text>“If I have found favor in your sight, O king, and if it please the king, let my life be given me at my petition, and my people at my request.</text>
+    <text>«If I have found favor in your sight, O king, and if it please the king, let my life be given me at my petition, and my people at my request.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="4" characterId="Esther, queen">
     <verse num="4" />
-    <text>For we are sold, I and my people, to be destroyed, to be slain, and to perish. But if we had been sold for bondservants and bondmaids, I would have held my peace, although the adversary could not have compensated for the king’s loss.”</text>
+    <text>For we are sold, I and my people, to be destroyed, to be slain, and to perish. But if we had been sold for bondservants and bondmaids, I would have held my peace, although the adversary could not have compensated for the king’s loss.»</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="5" characterId="narrator-EST">
     <verse num="5" />
     <text>Then King Ahasuerus said to Esther the queen,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="5" characterId="Xerxes, king of Persia and Media (Ahasuerus)">
-    <text>“Who is he, and where is he who dared presume in his heart to do so?”</text>
+    <text>«Who is he, and where is he who dared presume in his heart to do so?»</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="6" characterId="narrator-EST">
     <verse num="6" />
     <text>Esther said,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="6" characterId="Esther, queen">
-    <text>“An adversary and an enemy, even this wicked Haman!”</text>
+    <text>«An adversary and an enemy, even this wicked Haman!»</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="6" characterId="narrator-EST">
     <text>Then Haman was afraid before the king and the queen.</text>
@@ -565,7 +565,7 @@
     <text>Then the king returned out of the palace garden into the place of the banquet of wine; and Haman had fallen on the couch where Esther was. Then the king said,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="8" characterId="Xerxes, king of Persia and Media (Ahasuerus)">
-    <text>“Will he even assault the queen in front of me in the house?”</text>
+    <text>«Will he even assault the queen in front of me in the house?»</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="8" characterId="narrator-EST">
     <text>As the word went out of the king’s mouth, they covered Haman’s face. </text>
@@ -573,13 +573,13 @@
     <text>Then Harbonah, one of the eunuchs who were with the king said,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="9" characterId="Harbona, eunuch attending Xerxes, king">
-    <text>“Behold, the gallows fifty cubits high, which Haman has made for Mordecai, who spoke good for the king, is standing at Haman's house.”</text>
+    <text>«Behold, the gallows fifty cubits high, which Haman has made for Mordecai, who spoke good for the king, is standing at Haman’s house.»</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="9" characterId="narrator-EST">
     <text>The king said,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="9" characterId="Xerxes, king of Persia and Media (Ahasuerus)">
-    <text>“Hang him on it!”</text>
+    <text>«Hang him on it!»</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="10" characterId="narrator-EST">
     <verse num="10" />
@@ -607,22 +607,22 @@
     <text>She said,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="5" characterId="Esther, queen">
-    <text>“If it pleases the king, and if I have found favor in his sight, and the thing seem right to the king, and I am pleasing in his eyes, let it be written to reverse the letters devised by Haman, the son of Hammedatha the Agagite, which he wrote to destroy the Jews who are in all the king's provinces.</text>
+    <text>«If it pleases the king, and if I have found favor in his sight, and the thing seem right to the king, and I am pleasing in his eyes, let it be written to reverse the letters devised by Haman, the son of Hammedatha the Agagite, which he wrote to destroy the Jews who are in all the king’s provinces.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="6" characterId="Esther, queen">
     <verse num="6" />
-    <text>For how can I endure to see the evil that would come to my people? How can I endure to see the destruction of my relatives?”</text>
+    <text>For how can I endure to see the evil that would come to my people? How can I endure to see the destruction of my relatives?»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="7" characterId="narrator-EST">
     <verse num="7" />
     <text>Then King Ahasuerus said to Esther the queen and to Mordecai the Jew,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="7" characterId="Xerxes, king of Persia and Media (Ahasuerus)">
-    <text>“See, I have given Esther the house of Haman, and him they have hanged on the gallows, because he laid his hand on the Jews.</text>
+    <text>«See, I have given Esther the house of Haman, and him they have hanged on the gallows, because he laid his hand on the Jews.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="8" characterId="Xerxes, king of Persia and Media (Ahasuerus)">
     <verse num="8" />
-    <text>Write also to the Jews, as it pleases you, in the king’s name, and seal it with the king’s ring; for the writing which is written in the king’s name, and sealed with the king’s ring, may not be reversed by any man.”</text>
+    <text>Write also to the Jews, as it pleases you, in the king’s name, and seal it with the king’s ring; for the writing which is written in the king’s name, and sealed with the king’s ring, may not be reversed by any man.»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="9" characterId="narrator-EST">
     <verse num="9" />
@@ -708,14 +708,14 @@
     <text>The king said to Esther the queen,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="12" characterId="Xerxes, king of Persia and Media (Ahasuerus)">
-    <text>“The Jews have slain and destroyed five hundred men in the citadel of Susa, including the ten sons of Haman; what then have they done in the rest of the king's provinces! Now what is your petition? It shall be granted you. What is your further request? It shall be done.”</text>
+    <text>«The Jews have slain and destroyed five hundred men in the citadel of Susa, including the ten sons of Haman; what then have they done in the rest of the king’s provinces! Now what is your petition? It shall be granted you. What is your further request? It shall be done.»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="13" characterId="narrator-EST">
     <verse num="13" />
     <text>Then Esther said,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="13" characterId="Esther, queen">
-    <text>“If it pleases the king, let it be granted to the Jews who are in Shushan to do tomorrow also according to this day's decree, and let Haman's ten sons be hanged on the gallows.”</text>
+    <text>«If it pleases the king, let it be granted to the Jews who are in Shushan to do tomorrow also according to this day’s decree, and let Haman’s ten sons be hanged on the gallows.»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="14" characterId="narrator-EST">
     <verse num="14" />
@@ -755,7 +755,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="24" characterId="narrator-EST">
     <verse num="24" />
-    <text>because Haman the son of Hammedatha, the Agagite, the enemy of all the Jews, had plotted against the Jews to destroy them, and had cast “Pur,” that is the lot, to consume them, and to destroy them;</text>
+    <text>because Haman the son of Hammedatha, the Agagite, the enemy of all the Jews, had plotted against the Jews to destroy them, and had cast «Pur,» that is the lot, to consume them, and to destroy them;</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="25" characterId="narrator-EST">
     <verse num="25" />
@@ -763,7 +763,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="26" characterId="narrator-EST">
     <verse num="26" />
-    <text>Therefore they called these days “Purim,” from the word “Pur.” Therefore because of all the words of this letter, and of that which they had seen concerning this matter, and that which had come to them, </text>
+    <text>Therefore they called these days «Purim,» from the word «Pur.» Therefore because of all the words of this letter, and of that which they had seen concerning this matter, and that which had come to them, </text>
     <verse num="27" />
     <text>the Jews established, and imposed on themselves, and on their descendants, and on all those who joined themselves to them, so that it should not fail, that they would keep these two days according to what was written, and according to its appointed time, every year;</text>
   </block>

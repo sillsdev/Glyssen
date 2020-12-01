@@ -617,36 +617,26 @@ namespace GlyssenEngine.Export
 
 		private void AddAnnotations(List<ExportBlock> data)
 		{
-			var annotationRowIndexes = new List<int>();
+			m_annotatedRowIndexes = new List<int>();
 
 			int lastIndexOfPreviousVerse = 0;
 			BCVRef previousReferenceTextVerse = null;
+			BCVRef referenceTextVerse = null;
 			IEnumerable<VerseAnnotation> annotationsForPreviousVerse = null;
 			for (int i = 0; i < data.Count; i++)
 			{
 				var row = data[i];
 				if (row.HasReferenceText)
 				{
-					var referenceTextVerse = row.BcvRef;
+					referenceTextVerse = row.BcvRef;
 					if (referenceTextVerse != previousReferenceTextVerse)
 					{
-						if (previousReferenceTextVerse != null && annotationsForPreviousVerse != null)
+						if (previousReferenceTextVerse != null)
 						{
-							foreach (var verseAnnotation in annotationsForPreviousVerse.Where(va => va.Annotation is Pause))
-							{
-								if (ExportAnnotationsInSeparateRows)
-								{
-									var rowIndex = lastIndexOfPreviousVerse + 1 + verseAnnotation.Offset;
-									data.Insert(rowIndex,
-										GetExportDataForAnnotation(verseAnnotation, BCVRef.NumberToBookCode(previousReferenceTextVerse.Book),
-											previousReferenceTextVerse.Chapter, previousReferenceTextVerse.Verse));
-									i++;
-									annotationRowIndexes.Add(rowIndex);
-								}
-								else
-									annotationRowIndexes.Add(AddAnnotationData(data, lastIndexOfPreviousVerse, verseAnnotation));
-							}
+							AddAnnotationsForPreviousVerse(annotationsForPreviousVerse, data, lastIndexOfPreviousVerse,
+								referenceTextVerse, previousReferenceTextVerse, () => i++);
 						}
+
 						if (referenceTextVerse != previousReferenceTextVerse)
 						{
 							var annotationsForVerse = ControlAnnotations.Singleton.GetAnnotationsForVerse(referenceTextVerse);
@@ -658,10 +648,10 @@ namespace GlyssenEngine.Export
 									data.Insert(rowIndex,
 										GetExportDataForAnnotation(verseAnnotation, BCVRef.NumberToBookCode(referenceTextVerse.Book),
 											referenceTextVerse.Chapter, referenceTextVerse.Verse));
-									annotationRowIndexes.Add(rowIndex);
+									m_annotatedRowIndexes.Add(rowIndex);
 								}
 								else
-									annotationRowIndexes.Add(AddAnnotationData(data, i, verseAnnotation));
+									m_annotatedRowIndexes.Add(AddAnnotationData(data, i, verseAnnotation));
 							}
 
 							annotationsForPreviousVerse = annotationsForVerse;
@@ -672,7 +662,45 @@ namespace GlyssenEngine.Export
 				}
 			}
 
-			m_annotatedRowIndexes = annotationRowIndexes;
+			if (annotationsForPreviousVerse != null && previousReferenceTextVerse != null)
+			{
+				AddAnnotationsForPreviousVerse(annotationsForPreviousVerse, data, lastIndexOfPreviousVerse,
+					null, previousReferenceTextVerse);
+			}
+		}
+
+		private void AddAnnotationsForPreviousVerse(IEnumerable<VerseAnnotation> annotations, List<ExportBlock> data,
+			int lastIndexOfPreviousVerse, BCVRef currentRef, BCVRef previousRef, Action onAnnotationRowInserted = null)
+		{
+			// Add any standard end-of-book or end-of-chapter annotations
+			IEnumerable<VerseAnnotation> allAnnotations;
+			var standardPause = currentRef?.Book != previousRef.Book ? Pause.kStandardEndOfBookPause :
+				(previousRef.Chapter != 0 && currentRef.Chapter != previousRef.Chapter) ?
+				Pause.kStandardEndOfChapterPause : 0d;
+
+			if (standardPause > 0)
+			{
+				var list = annotations.Where(va => va.Annotation is Pause).ToList();
+				list.Add(new VerseAnnotation(previousRef, new Pause {Time = standardPause }, 0));
+				allAnnotations = list;
+			}
+			else
+				allAnnotations = annotations.Where(va => va.Annotation is Pause);
+
+			foreach (var verseAnnotation in allAnnotations)
+			{
+				if (ExportAnnotationsInSeparateRows)
+				{
+					var rowIndex = lastIndexOfPreviousVerse + 1 + verseAnnotation.Offset;
+					data.Insert(rowIndex,
+						GetExportDataForAnnotation(verseAnnotation, BCVRef.NumberToBookCode(previousRef.Book),
+							previousRef.Chapter, previousRef.Verse));
+					onAnnotationRowInserted?.Invoke();
+					m_annotatedRowIndexes.Add(rowIndex);
+				}
+				else
+					m_annotatedRowIndexes.Add(AddAnnotationData(data, lastIndexOfPreviousVerse, verseAnnotation));
+			}
 		}
 
 		private int AddAnnotationData(List<ExportBlock> data, int relativeIndex, VerseAnnotation verseAnnotation)

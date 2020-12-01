@@ -477,48 +477,10 @@ namespace GlyssenEngineTests
 		[Test]
 		public void AddNewReportingClauses_NewOnes_AddedAndDataUpdated()
 		{
-			// TODO: Much of this test probably belongs elsewhere. Project is now only responsible for updating the list and returning whether anything was added.
-			// SETUP
 			var project = TestProject.CreateTestProject(TestProject.TestBook.MRK);
-			var book = project.IncludedBooks.First();
-			Assert.IsFalse(book.Blocks.Any(b => b.MatchesReferenceText));
-			var narrator = CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator);
-			var heSaidRenderings = new HashSet<string>();
-			var matchupIndices = new List<Tuple<int, uint>>();
-			for(var i = 0; i < book.Blocks.Count;)
-			{
-				var block = book.Blocks[i];
-				if (!block.IsScripture)
-				{
-					i++;
-					continue;
-				}
-
-				var matchup = project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(book, i);
-				if (!matchup.AllScriptureBlocksMatch && matchup.CorrelatedBlocks.Where(b => !b.MatchesReferenceText)
-					.All(ub => ub.CharacterId == narrator && !ub.CoversMoreThanOneVerse &&
-						ub.BlockElements.OfType<ScriptText>().Single().Content.Length < 75))
-				{
-					heSaidRenderings.AddRange(matchup.CorrelatedBlocks.Where(b => !b.MatchesReferenceText)
-						.Select(b => b.BlockElements.OfType<ScriptText>().Single().Content.Trim()));
-					matchupIndices.Add(new Tuple<int, uint>(i, (uint)matchup.OriginalBlockCount));
-				}
-
-				i += matchup.OriginalBlockCount;
-			}
-			Assert.IsTrue(heSaidRenderings.Count > 0, "Setup conditions not met");
-			Assert.IsTrue(matchupIndices.Count > 0, "Setup conditions not met");
-
-			// SUT
-			Assert.IsTrue(project.AddNewReportingClauses(heSaidRenderings));
-			
-			// VERIFY
-			Assert.IsTrue(heSaidRenderings.SetEquals(project.Metadata.Language.ReportingClauses));
-			foreach (var m in matchupIndices)
-			{
-				var matchup = project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(book, m.Item1, project.ReportingClauses, m.Item2);
-				Assert.IsTrue(matchup.AllScriptureBlocksMatch);
-			}
+			Assert.IsTrue(project.AddNewReportingClauses(new [] { "monkey", "soup" }));
+			Assert.IsTrue(project.ReportingClauses.Contains("monkey"));
+			Assert.IsTrue(project.ReportingClauses.Contains("soup"));
 		}
 
 		[TestCase("Boaz")]
@@ -1231,7 +1193,7 @@ namespace GlyssenEngineTests
 				"vern block to exactly one ref block.");
 			Assert.IsFalse(matchup.CorrelatedBlocks.Last().MatchesReferenceText);
 			var englishTextOfLastNarratorBlock = ((ScriptText)matchup.CorrelatedBlocks[3].ReferenceBlocks.Single().BlockElements.Single()).Content;
-			var iQuoteMark = englishTextOfLastNarratorBlock.IndexOf("“", StringComparison.Ordinal);
+			var iQuoteMark = englishTextOfLastNarratorBlock.IndexOf(ReferenceText.kOpenFirstLevelQuote, StringComparison.Ordinal);
 			matchup.SetReferenceText(3, "This is not going to match the corresponding English text in the French test reference text.");
 			matchup.SetReferenceText(4, englishTextOfLastNarratorBlock.Substring(iQuoteMark));
 			matchup.CorrelatedBlocks.Last().SetNonDramaticCharacterId(mark.NarratorCharacterId);

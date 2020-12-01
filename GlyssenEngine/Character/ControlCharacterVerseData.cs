@@ -297,6 +297,12 @@ namespace GlyssenEngine.Character
 
 			foreach (var expectedQuote in Singleton.GetAllQuoteInfo().Where(c => c.IsExpected))
 			{
+				if (expectedQuote.IsScriptureQuotation)
+				{
+					if (Singleton.GetEntriesForRef(expectedQuote.BcvRef)
+						.Any(cv => cv.QuoteType == QuoteType.Rare && cv.Character == kNeedsReview))
+						continue;
+				}
 				Dictionary<int, HashSet<int>> expectedQuotesInBook;
 				if (!m_expectedQuotes.TryGetValue(expectedQuote.Book, out expectedQuotesInBook))
 					m_expectedQuotes.Add(expectedQuote.Book, expectedQuotesInBook = new Dictionary<int, HashSet<int>>());

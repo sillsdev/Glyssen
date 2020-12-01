@@ -357,13 +357,13 @@
     <text>For the Scripture says,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="scripture">
-    <text>“You shall not muzzle the ox when it treads out the grain.”</text>
+    <text>«You shall not muzzle the ox when it treads out the grain.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-1TI">
     <text>And,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="scripture">
-    <text>“The laborer is worthy of his wages.”</text>
+    <text>«The laborer is worthy of his wages.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-1TI">
     <verse num="19" />

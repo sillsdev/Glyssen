@@ -1,4 +1,4 @@
-Control File Version	158
+Control File Version	161
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5
 GEN	1	3	God		God (the LORD)	Normal		
@@ -102,6 +102,7 @@ GEN	9	25	Noah			Normal
 GEN	9	26	Noah			Normal		
 GEN	9	27	Noah			Implicit		
 GEN	10	9	saying about Nimrod			Quotation		
+GEN	10	9	narrator-GEN			Quotation		
 GEN	11	3	men of Babel			Normal		
 GEN	11	4	men of Babel			Normal		
 GEN	11	6	God		God (the LORD)	Normal		
@@ -304,6 +305,8 @@ GEN	24	24	Rebekah			Normal
 GEN	24	25	Rebekah			Normal		
 GEN	24	27	Abraham's chief servant			Normal		
 GEN	24	30	Rebekah			Quotation		
+GEN	24	30	narrator-GEN			Quotation		
+GEN	24	30	Needs Review			Quotation		
 GEN	24	31	Laban			Normal		
 GEN	24	33	Abraham's chief servant			Normal		
 GEN	24	33	Laban			Normal		
@@ -411,6 +414,7 @@ GEN	28	2	Isaac (old)			Normal
 GEN	28	3	Isaac (old)			Normal		
 GEN	28	4	Isaac (old)			Normal		
 GEN	28	6	Isaac (old)			Quotation		
+GEN	28	6	narrator-GEN			Quotation		
 GEN	28	13	God		God (the LORD) (in vision)	Normal		
 GEN	28	14	God		God (the LORD) (in vision)	Normal		
 GEN	28	15	God		God (the LORD) (in vision)	Normal		
@@ -945,7 +949,8 @@ EXO	4	21	God		God (the LORD)	Normal
 EXO	4	22	God		God (the LORD)	Normal		
 EXO	4	23	God		God (the LORD)	Normal		
 EXO	4	25	Zipporah, Moses' wife			Normal		
-EXO	4	26	Zipporah, Moses' wife			Quotation		
+EXO	4	26	narrator-GEN			Quotation		
+EXO	4	26	Zipporah, Moses' wife			Quotation	narrator-GEN	
 EXO	4	27	God		God (the LORD)	Normal		
 EXO	5	1	Moses/Aaron			Normal	Aaron	
 EXO	5	2	Pharaoh (3rd)		Pharaoh	Normal		
@@ -964,6 +969,7 @@ EXO	5	16	Israelite foremen			Normal
 EXO	5	17	Pharaoh (3rd)		Pharaoh	Normal		
 EXO	5	18	Pharaoh (3rd)		Pharaoh	Normal		
 EXO	5	19	Pharaoh (3rd)		Pharaoh	Quotation		
+EXO	5	19	narrator-EXO			Quotation		
 EXO	5	21	Israelite foremen			Normal		
 EXO	5	22	Moses			Normal		
 EXO	5	23	Moses			Normal		
@@ -1117,6 +1123,7 @@ EXO	13	15	Moses			Normal
 EXO	13	16	Moses			Normal		
 EXO	13	17	God		God (the LORD)	Normal		
 EXO	13	19	Joseph			Quotation		
+EXO	13	19	narrator-EXO			Quotation		
 EXO	14	2	God		God (the LORD)	Normal		
 EXO	14	3	God		God (the LORD)	Normal		
 EXO	14	4	God		God (the LORD)	Normal		
@@ -2333,6 +2340,7 @@ LEV	24	22	God		God (the LORD)	Implicit
 LEV	24	23	Moses			Indirect		
 LEV	24	23	God		God (the LORD)	Indirect		
 LEV	24	23	son of Shelomith (whose father was an Egyptian)			Quotation		
+LEV	24	23	narrator-LEV			Quotation		
 LEV	25	2	God		God (the LORD)	Implicit		
 LEV	25	3	God		God (the LORD)	Implicit		
 LEV	25	4	God		God (the LORD)	Implicit		
@@ -2972,7 +2980,8 @@ NUM	26	53	God		God (the LORD)	Normal
 NUM	26	54	God		God (the LORD)	Normal		
 NUM	26	55	God		God (the LORD)	Normal		
 NUM	26	56	God		God (the LORD)	Normal		
-NUM	26	65	God		God (the LORD)	Quotation		
+NUM	26	65	narrator-NUM			Quotation		
+NUM	26	65	God		God (the LORD)	Quotation	narrator-NUM	
 NUM	27	3	daughters of Zelophehad			Normal		
 NUM	27	4	daughters of Zelophehad			Normal		
 NUM	27	7	God		God (the LORD)	Normal		
@@ -4677,6 +4686,7 @@ JDG	12	2	Jephthah			Normal
 JDG	12	3	Jephthah			Normal		
 JDG	12	4	Jephthah			Indirect		
 JDG	12	4	Ephraimites			Quotation		
+JDG	12	4	narrator-JDG			Quotation		
 JDG	12	5	Ephraimites		Ephraim, fugitive of	Normal		
 JDG	12	5	Gilead, men of			Normal		
 JDG	12	6	Ephraimites		Ephraim, fugitive of	Normal		
@@ -5222,6 +5232,7 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	19	22	people at cistern			Normal		
 1SA	19	22	Saul			Normal		
 1SA	19	24	saying about Saul			Quotation		
+1SA	19	24	narrator-1SA			Quotation		
 1SA	20	1	David			Normal		
 1SA	20	2	Jonathan			Normal		
 1SA	20	3	David			Normal		
@@ -6065,6 +6076,7 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	12	9	Rehoboam, king			Normal		
 1KI	12	10	young men (advisors of Rehoboam)			Normal		1KI 12.10;2CH 10.10
 1KI	12	11	young men (advisors of Rehoboam)			Normal		1KI 12.11;2CH 10.11
+1KI	12	12	narrator-1KI			Quotation		
 1KI	12	12	Rehoboam, king			Quotation		
 1KI	12	14	Rehoboam, king			Normal		
 #Even though the text says "all Israel," FCBH wants Jeroboam to speak this.
@@ -6155,6 +6167,7 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	18	27	Elijah			Normal		
 1KI	18	30	Elijah			Normal		
 1KI	18	31	God		God (the LORD)	Quotation		
+1KI	18	31	narrator-1KI			Quotation		
 1KI	18	33	Elijah			Normal		
 1KI	18	34	Elijah			Normal		
 1KI	18	36	Elijah			Normal		
@@ -6220,6 +6233,7 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	21	2	Ahab, king of Israel			Normal		
 1KI	21	3	Naboth			Normal		
 1KI	21	4	Naboth			Quotation		
+1KI	21	4	narrator-1KI			Quotation		
 1KI	21	5	Jezebel			Normal		
 1KI	21	6	Ahab, king of Israel			Normal		
 1KI	21	7	Jezebel			Normal		
@@ -6436,10 +6450,16 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	7	12	Joram (Jehoram), king of Israel			Normal		
 2KI	7	13	officer of King Joram of Israel			Normal		
 2KI	7	14	Joram (Jehoram), king of Israel			Normal		
-2KI	7	18	Elisha		Elisha (had said)	Quotation		
-2KI	7	19	Elisha		Elisha (had said)	Quotation		
+2KI	7	18	Elisha			Quotation		
+2KI	7	18	narrator-2KI			Quotation		
+2KI	7	19	narrator-2KI			Quotation		
+2KI	7	19	Elisha			Quotation		
 2KI	7	19	officer of king of Israel, on whose arm the king leaned			Quotation		
-2KI	8	1	Elisha		Elisha (had said)	Normal		
+# Some translations word this as a quote (Elisha had said "...) and others a normal
+# speech. Consideration needs to be given to the grammar and the desired dramatic effect.
+2KI	8	1	Elisha			Normal		
+2KI	8	1	narrator-2KI			Quotation		
+2KI	8	1	Needs Review			Rare		
 2KI	8	4	Joram (Jehoram), king of Israel			Normal		
 2KI	8	5	Gehazi		Gehazi, servant of Elisha	Normal		
 2KI	8	5	Shunammite woman			Indirect		
@@ -6532,22 +6552,34 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	13	18	Elisha (old)			Normal		
 2KI	13	19	Elisha (old)			Normal		
 2KI	14	6	God			Quotation		
+2KI	14	6	scripture			Quotation	Moses	
+2KI	14	6	narrator-2KI			Quotation		
 2KI	14	8	Amaziah, king of Judah			Normal		
 2KI	14	9	Jehoash, king of Israel			Normal		
 2KI	14	10	Jehoash, king of Israel			Normal		
 2KI	15	12	God		God (the LORD)	Quotation		
+2KI	15	12	narrator-2KI			Quotation		
 2KI	16	7	Ahaz, king of Judah			Normal		
 2KI	16	15	Ahaz, king of Judah			Normal		
 2KI	17	12	God		God (the LORD)	Quotation		
-2KI	17	13	God		God (the LORD) had warned through prophets and seers	Quotation		
+2KI	17	12	narrator-2KI			Quotation		
+2KI	17	13	God	warning	God (the LORD), speaking through the prophets and seers	Quotation		
+2KI	17	13	prophets and seers	warning		Quotation		
+2KI	17	13	narrator-2KI			Quotation		
 2KI	17	15	God		God (the LORD)	Quotation		
+2KI	17	15	narrator-2KI			Quotation		
 2KI	17	26	report to king of Assyria			Normal		
 2KI	17	27	Shalmaneser, king of Assyria		king of Assyria	Normal		
 2KI	17	35	God		God (the LORD), commandment of	Quotation		
+2KI	17	35	narrator-2KI			Quotation		
 2KI	17	36	God		God (the LORD), commandment of	Quotation		
+2KI	17	36	narrator-2KI			Quotation		
 2KI	17	37	God		God (the LORD), commandment of	Quotation		
+2KI	17	37	narrator-2KI			Quotation		
 2KI	17	38	God		God (the LORD), commandment of	Quotation		
+2KI	17	38	narrator-2KI			Quotation		
 2KI	17	39	God		God (the LORD), commandment of	Quotation		
+2KI	17	39	narrator-2KI			Quotation		
 2KI	18	14	Hezekiah, king of Judah			Normal		
 2KI	18	19	Rabshakeh			Normal		2KI 18:19; 2CH 32:10; ISA 36:4
 2KI	18	20	Rabshakeh			Normal		2KI 18:20; ISA 36:5
@@ -6613,8 +6645,11 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	20	18	Isaiah			Normal		
 2KI	20	19	Hezekiah, king of Judah			Normal		
 2KI	21	4	God		God (the LORD)	Quotation		
+2KI	21	4	narrator-2KI			Quotation		
 2KI	21	7	God		God (the LORD)	Quotation		
+2KI	21	7	narrator-2KI			Quotation		
 2KI	21	8	God		God (the LORD)	Quotation		
+2KI	21	8	narrator-2KI			Quotation		
 2KI	21	11	prophets (speaking the word of the LORD)			Normal		
 2KI	21	11	God		God (the LORD)	Normal		
 2KI	21	12	prophets (speaking the word of the LORD)			Normal		
@@ -6879,6 +6914,7 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	10	10	young men (advisors of Rehoboam)			Normal		1KI 12.10;2CH 10.10
 2CH	10	11	young men (advisors of Rehoboam)			Normal		1KI 12.11;2CH 10.11
 2CH	10	12	Rehoboam, king			Quotation		
+2CH	10	12	narrator-2CH			Quotation		
 2CH	10	14	Rehoboam, king			Normal		
 #Even though the text says "all Israel," FCBH wants Jeroboam to speak this.
 2CH	10	16	Israel, all			Normal		1KI 12.16;2CH 10.16
@@ -7035,6 +7071,7 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	32	18	Rabshakeh		Sennacherib's officers	Indirect		
 2CH	32	19	Rabshakeh		Sennacherib's officers	Indirect		
 2CH	33	4	God		God (the LORD)	Quotation		
+2CH	33	4	narrator-2CH			Quotation		
 2CH	33	7	God		God (the LORD)	Quotation		
 2CH	33	7	narrator-2CH			Indirect		
 2CH	33	8	God		God (the LORD)	Quotation		
@@ -8432,25 +8469,35 @@ PSA	42	9	narrator-PSA			Quotation
 PSA	42	10	David's enemies			Normal		
 PSA	45	0	narrator-PSA			Quotation		
 PSA	46	10	God		God (the LORD)	Normal		
-PSA	50	5	God		God (the LORD)	Normal		
-PSA	50	7	God		God (the LORD)(the Mighty One)	Quotation		
-PSA	50	8	God		God (the LORD)(the Mighty One)	Quotation		
-PSA	50	9	God		God (the LORD)(the Mighty One)	Quotation		
-PSA	50	10	God		God (the LORD)(the Mighty One)	Quotation		
-PSA	50	11	God		God (the LORD)(the Mighty One)	Quotation		
-PSA	50	12	God		God (the LORD)(the Mighty One)	Quotation		
-PSA	50	13	God		God (the LORD)(the Mighty One)	Quotation		
+PSA	50	5	God		God (the LORD)	Implicit		
+PSA	50	7	God		God (the LORD)(the Mighty One)	ImplicitWithPotentialSelfQuote		
+PSA	50	8	God		God (the LORD)(the Mighty One)	ImplicitWithPotentialSelfQuote		
+PSA	50	9	God		God (the LORD)(the Mighty One)	ImplicitWithPotentialSelfQuote		
+PSA	50	10	God		God (the LORD)(the Mighty One)	ImplicitWithPotentialSelfQuote		
+PSA	50	11	God		God (the LORD)(the Mighty One)	ImplicitWithPotentialSelfQuote		
+PSA	50	12	God		God (the LORD)(the Mighty One)	ImplicitWithPotentialSelfQuote		
+PSA	50	13	God		God (the LORD)(the Mighty One)	ImplicitWithPotentialSelfQuote		
 PSA	50	14	God		God (the LORD)(the Mighty One)	Quotation		
-PSA	50	15	God		God (the LORD)(the Mighty One)	Quotation		
+PSA	50	14	narrator-PSA			Quotation		
+PSA	50	15	God		God (the LORD)(the Mighty One)	ImplicitWithPotentialSelfQuote		
 PSA	50	16	God		God (the LORD)(the Mighty One)	Quotation		
+PSA	50	16	narrator-PSA			Quotation		
 PSA	50	17	God		God (the LORD)(the Mighty One)	Quotation		
+PSA	50	17	narrator-PSA			Quotation		
 PSA	50	18	God		God (the LORD)(the Mighty One)	Quotation		
+PSA	50	18	narrator-PSA			Quotation		
 PSA	50	19	God		God (the LORD)(the Mighty One)	Quotation		
+PSA	50	19	narrator-PSA			Quotation		
 PSA	50	20	God		God (the LORD)(the Mighty One)	Quotation		
+PSA	50	20	narrator-PSA			Quotation		
 PSA	50	21	God		God (the LORD)(the Mighty One)	Quotation		
+PSA	50	21	narrator-PSA			Quotation		
 PSA	50	22	God		God (the LORD)(the Mighty One)	Quotation		
+PSA	50	22	narrator-PSA			Quotation		
 PSA	50	23	God		God (the LORD)(the Mighty One)	Quotation		
-PSA	52	0	Doeg the Edomite			Quotation		
+PSA	50	23	narrator-PSA			Quotation		
+PSA	52	0	Doeg the Edomite			Quotation	narrator-PSA	
+PSA	52	0	narrator-PSA			Quotation		
 PSA	52	7	people, righteous	laughing		Hypothetical		
 PSA	53	1	fool			Hypothetical		
 PSA	54	0	Ziphites			Quotation		
@@ -8475,7 +8522,9 @@ PSA	66	4	you (hypothetical)			Hypothetical
 PSA	68	12	proclaimers of God's word			Normal		
 PSA	68	13	proclaimers of God's word			Potential		
 PSA	68	22	God		God (the LORD)	Quotation		
+PSA	68	22	narrator-PSA			Alternate		
 PSA	68	23	God		God (the LORD)	Quotation		
+PSA	68	23	narrator-PSA			Alternate		
 PSA	69	0	narrator-PSA			Quotation		
 PSA	70	3	David's enemies			Normal		
 PSA	70	4	those who seek God			Normal		
@@ -9618,7 +9667,9 @@ ISA	36	18	Rabshakeh			Implicit		2KI 18:32c-33; 2CH 32:13; ISA 36:18
 ISA	36	19	Rabshakeh			Implicit		2KI 18:34; ISA 36:19
 ISA	36	20	Rabshakeh			Implicit		2KI 18:35; 2CH 32:14; ISA 36:20
 ISA	36	21	Hezekiah, king of Judah			Normal		
-ISA	36	22	Rabshakeh			Quotation		
+ISA	36	22	Rabshakeh			Quotation	narrator-ISA	
+ISA	36	22	narrator-ISA			Quotation		
+ISA	36	22	Needs Review			Rare		
 ISA	37	3	Eliakim/Shebna/chief priests			Normal	Eliakim	
 ISA	37	3	Hezekiah, king of Judah			Alternate		
 ISA	37	4	Eliakim/Shebna/chief priests			Implicit	Eliakim	
@@ -12352,13 +12403,13 @@ EZK	9	4	God		God (the LORD) (in vision)	Normal
 EZK	9	5	God		God (the LORD) (in vision)	Normal		
 EZK	9	6	God		God (the LORD) (in vision)	Normal		
 EZK	9	7	God		God (the LORD) (in vision)	Normal		
-EZK	9	8	narrator-EZK		Ezekiel (in vision)	Quotation		
+EZK	9	8	narrator-EZK			Quotation		
 EZK	9	9	God		God (the LORD) (in vision)	Normal		
 EZK	9	10	God		God (the LORD) (in vision)	Implicit		
 EZK	9	11	man in linen with writing kit (in vision)			Normal		
 EZK	10	2	God		God (the LORD) (in vision)	Normal		
 EZK	10	6	God		God (the LORD) (in vision)	Normal		
-EZK	10	13	narrator-EZK		Ezekiel	Quotation		
+EZK	10	13	narrator-EZK			Quotation		
 EZK	10	13	voice			Potential		
 EZK	10	13	Needs Review			Potential		
 EZK	11	2	God		God (the LORD) (in vision)	Normal		
@@ -12383,7 +12434,7 @@ EZK	11	9	God		God (the LORD)	Implicit
 EZK	11	10	God		God (the LORD)	Implicit		
 EZK	11	11	God		God (the LORD)	Implicit		
 EZK	11	12	God		God (the LORD)	Implicit		
-EZK	11	13	narrator-EZK		Ezekiel	Quotation		
+EZK	11	13	narrator-EZK			Quotation		
 EZK	11	15	God		God (the LORD)	Implicit		
 EZK	11	16	God		God (the LORD)	Normal		
 EZK	11	16	Ezekiel		Ezekiel (the LORD says)	Potential		
@@ -15592,6 +15643,8 @@ MAT	3	11	John the Baptist	humble		Normal
 MAT	3	12	John the Baptist	humble		Normal		
 MAT	3	14	John the Baptist	humble		Dialogue		
 MAT	3	15	Jesus			Dialogue		
+MAT	3	15	John the Baptist			Rare		
+MAT	3	15	Needs Review			Rare		
 MAT	3	17	God		voice from heaven (God)	Normal		
 MAT	4	3	Satan (Devil)		Tempter	Dialogue		
 MAT	4	4	Jesus			Dialogue		
@@ -16180,6 +16233,7 @@ MAT	21	10	people of Jerusalem		the whole city	Dialogue
 MAT	21	11	crowd	praising		Dialogue		
 MAT	21	13	Jesus			Dialogue		
 MAT	21	15	children	praising		Quotation		
+MAT	21	15	narrator-MAT			Quotation		
 MAT	21	16	chief priests/teachers of religious law	upset	chief priests/teachers of the law	Dialogue		
 MAT	21	16	Jesus			Dialogue		
 MAT	21	19	Jesus			Dialogue		
@@ -16461,7 +16515,10 @@ MAT	26	71	servant girl, another			Dialogue		*different speakers;MAT 26.71;MRK 14
 MAT	26	72	Peter (Simon)	denial, stronger		Dialogue		
 MAT	26	73	high priest's servant (relative of the man whose ear Peter cut off)/those standing near	accusing	those standing near	Dialogue	high priest's servant (relative of the man whose ear Peter cut off)	MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
 MAT	26	74	Peter (Simon)	denial, strongest		Dialogue		
+MAT	26	75	narrator-MAT			Quotation		
 MAT	26	75	Jesus			Quotation		
+MAT	26	75	rooster	crowing		Rare		
+MAT	26	75	Needs Review			Rare		
 MAT	27	4	chief priests/elders	impatient		Dialogue		
 MAT	27	4	Judas Iscariot	remorse		Dialogue		
 MAT	27	6	chief priests	disdain		Normal		
@@ -16490,7 +16547,8 @@ MAT	27	29	soldiers, Roman	mocking		Dialogue
 MAT	27	32	soldiers, Roman	giving orders		Indirect		
 MAT	27	33	narrator-MAT			Quotation		
 MAT	27	35	scripture			Potential	David	
-MAT	27	37	sign on the cross			Quotation		
+MAT	27	37	narrator-MAT			Quotation		
+MAT	27	37	sign on the cross			Quotation	narrator-MAT	
 MAT	27	39	passers by	mocking		Potential		
 MAT	27	40	passers by	mocking		Dialogue		
 MAT	27	42	chief priests/teachers of religious law/elders	sneering		Dialogue		MAT 27.42;MRK 15.31-32;LUK 23.35
@@ -16689,6 +16747,7 @@ MRK	5	42	Jairus (synagogue leader)/Jairus' wife/disciples	amazed	father and moth
 MRK	5	42	Needs Review			Potential		
 MRK	5	43	Jesus			Indirect		MRK 5.43; LUK 8.55,56
 MRK	6	2	men in Nazareth synagogue	amazed		Dialogue		
+MRK	6	2	Needs Review			Potential		
 MRK	6	3	men in Nazareth synagogue	amazed		Dialogue		
 MRK	6	4	Jesus			Dialogue		
 MRK	6	6	Jesus	amazed		Rare		
@@ -17080,6 +17139,8 @@ MRK	14	70	high priest's servant (relative of the man whose ear Peter cut off)/th
 MRK	14	71	Peter (Simon)	denial, strongest		Dialogue		
 MRK	14	72	narrator-MRK			Quotation		
 MRK	14	72	Jesus			Quotation	narrator-MRK	
+MRK	14	72	rooster	crowing		Rare		
+MRK	14	72	Needs Review			Rare		
 MRK	15	1	chief priests/all the elders/expert in religious law/Sanhedrin			Rare		
 MRK	15	1	Needs Review			Potential		
 MRK	15	2	Jesus			Dialogue		
@@ -17100,7 +17161,8 @@ MRK	15	15	Pilate			Indirect
 MRK	15	18	soldiers, Roman	mocking		Dialogue		
 MRK	15	21	soldiers, Roman	giving orders		Indirect		
 MRK	15	22	narrator-MRK			Quotation		
-MRK	15	26	sign on the cross			Quotation		
+MRK	15	26	narrator-MRK			Quotation		
+MRK	15	26	sign on the cross			Quotation	narrator-MRK	
 MRK	15	28	scripture			Quotation		
 MRK	15	29	passers by	insulting		Dialogue		
 MRK	15	30	passers by	insulting		Normal		
@@ -18035,6 +18097,8 @@ LUK	22	58	second person to accuse Peter (man)	accusing	someone else (man)	Dialog
 LUK	22	58	Peter (Simon)	denial, stronger		Dialogue		
 LUK	22	59	high priest's servant (relative of the man whose ear Peter cut off)/those standing near	accusing	another (person in the courtyard)	Dialogue	high priest's servant (relative of the man whose ear Peter cut off)	MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
 LUK	22	60	Peter (Simon)	denial, strongest		Dialogue		
+LUK	22	60	rooster	crowing		Rare		
+LUK	22	60	Needs Review			Rare		
 LUK	22	61	Jesus			Quotation	narrator-LUK	
 LUK	22	61	narrator-LUK			Quotation		
 LUK	22	64	guards at high priests' house	mocking		Dialogue		
@@ -18081,7 +18145,8 @@ LUK	23	33	narrator-LUK			Quotation
 LUK	23	34	Jesus			Normal		
 LUK	23	35	chief priests/teachers of religious law/elders	sneering	rulers	Dialogue		MAT 27.42;MRK 15.31-32;LUK 23.35
 LUK	23	37	soldier at the cross			Dialogue		
-LUK	23	38	sign on the cross			Quotation		
+LUK	23	38	narrator-LUK			Quotation		
+LUK	23	38	sign on the cross			Quotation	narrator-LUK	
 LUK	23	39	criminal on cross, insulting	insulting		Dialogue		MAT 27.44;LUK 23.39
 LUK	23	40	criminal on cross, repentant	rebuking		Dialogue		
 LUK	23	41	criminal on cross, repentant	rebuking		Normal		
@@ -18237,6 +18302,8 @@ JHN	4	22	Jesus			Normal
 JHN	4	23	Jesus			Normal		
 JHN	4	24	Jesus			Normal		
 JHN	4	25	woman, Samaritan			Dialogue		
+JHN	4	25	interruption-JHN			Interruption		
+JHN	4	25	Needs Review			Potential		
 JHN	4	26	Jesus			Dialogue		
 JHN	4	27	narrator-JHN			Quotation		
 JHN	4	29	woman, Samaritan			Dialogue		
@@ -18249,17 +18316,20 @@ JHN	4	36	Jesus			Normal
 JHN	4	37	Jesus			Normal		
 JHN	4	38	Jesus			Normal		
 JHN	4	39	woman, Samaritan			Quotation		
+JHN	4	39	narrator-JHN			Quotation		
 JHN	4	40	many Samaritans			Indirect		
 JHN	4	42	many Samaritans			Dialogue		
 JHN	4	44	Jesus			Indirect		
 JHN	4	47	official, royal (father)	pleading		Indirect		
+JHN	4	47	report about Jesus			Indirect		
 JHN	4	48	Jesus			Dialogue		
 JHN	4	49	official, royal (father)	pleading		Dialogue		
 JHN	4	50	Jesus			Dialogue		
 JHN	4	51	servants of royal official (father)	excited		Indirect		
 JHN	4	52	servants of royal official (father)	excited		Dialogue		
 JHN	4	52	official, royal (father)			Indirect		
-JHN	4	53	Jesus	giving orders		Quotation		
+JHN	4	53	Jesus			Quotation		
+JHN	4	53	narrator-JHN			Quotation		
 JHN	5	2	narrator-JHN			Quotation		
 JHN	5	6	Jesus	questioning		Dialogue		
 JHN	5	7	invalid for 38 years	whining		Dialogue		
@@ -18330,34 +18400,34 @@ JHN	6	32	Jesus			Dialogue
 JHN	6	33	Jesus			Normal		
 JHN	6	34	people in crowd by Sea of Galilee	polite		Dialogue		
 JHN	6	35	Jesus			Dialogue		
-JHN	6	36	Jesus			Normal		
-JHN	6	37	Jesus			Normal		
-JHN	6	38	Jesus			Normal		
-JHN	6	39	Jesus			Normal		
-JHN	6	40	Jesus			Normal		
+JHN	6	36	Jesus			Implicit		
+JHN	6	37	Jesus			Implicit		
+JHN	6	38	Jesus			Implicit		
+JHN	6	39	Jesus			Implicit		
+JHN	6	40	Jesus			Implicit		
 JHN	6	41	Jesus			Quotation		
 JHN	6	41	narrator-JHN			Quotation		
 JHN	6	42	Jews, the	grumbling		Normal		
 JHN	6	43	Jesus			Dialogue		
-JHN	6	44	Jesus			Normal		
-JHN	6	45	Jesus			Normal		
-JHN	6	46	Jesus			Normal		
-JHN	6	47	Jesus			Normal		
-JHN	6	48	Jesus			Normal		
-JHN	6	49	Jesus			Normal		
-JHN	6	50	Jesus			Normal		
-JHN	6	51	Jesus			Normal		
+JHN	6	44	Jesus			Implicit		
+JHN	6	45	Jesus			Implicit		
+JHN	6	46	Jesus			Implicit		
+JHN	6	47	Jesus			Implicit		
+JHN	6	48	Jesus			Implicit		
+JHN	6	49	Jesus			Implicit		
+JHN	6	50	Jesus			Implicit		
+JHN	6	51	Jesus			Implicit		
 JHN	6	52	Jews, the			Normal		
 JHN	6	53	Jesus			Dialogue		
-JHN	6	54	Jesus			Normal		
-JHN	6	55	Jesus			Normal		
-JHN	6	56	Jesus			Normal		
-JHN	6	57	Jesus			Normal		
-JHN	6	58	Jesus			Normal		
+JHN	6	54	Jesus			Implicit		
+JHN	6	55	Jesus			Implicit		
+JHN	6	56	Jesus			Implicit		
+JHN	6	57	Jesus			Implicit		
+JHN	6	58	Jesus			Implicit		
 JHN	6	60	disciples	grumbling	disciples, many of His	Normal		
 JHN	6	61	Jesus			Dialogue		
-JHN	6	62	Jesus			Normal		
-JHN	6	63	Jesus			Normal		
+JHN	6	62	Jesus			Implicit		
+JHN	6	63	Jesus			Implicit		
 JHN	6	64	Jesus			Normal		
 JHN	6	65	Jesus			Dialogue		
 JHN	6	67	Jesus	questioning		Dialogue		
@@ -18486,6 +18556,7 @@ JHN	9	21	parents of cured man, blind from birth			Normal	mother of cured man, bl
 JHN	9	22	parents of cured man, blind from birth			Indirect	father of cured man, blind from birth	
 JHN	9	22	Jews, the			Indirect		
 JHN	9	23	parents of cured man, blind from birth			Quotation	mother of cured man, blind from birth	
+JHN	9	23	narrator-JHN			Quotation		
 JHN	9	24	Jews, the	challenging		Dialogue		
 JHN	9	25	cured man, blind from birth			Dialogue		
 JHN	9	26	Jews, the			Dialogue		
@@ -18643,7 +18714,8 @@ JHN	13	8	Jesus			Dialogue
 JHN	13	8	Peter (Simon)	declare		Dialogue		
 JHN	13	9	Peter (Simon)	humble		Dialogue		
 JHN	13	10	Jesus			Dialogue		
-JHN	13	11	Jesus			Quotation		
+JHN	13	11	narrator-JHN			Quotation		
+JHN	13	11	Jesus			Quotation	narrator-JHN	
 JHN	13	12	Jesus			Dialogue		
 JHN	13	13	Jesus			Normal		
 JHN	13	14	Jesus			Normal		
@@ -18814,6 +18886,8 @@ JHN	18	25	people in high priest's courtyard		they (people accusing Peter)	Dialog
 JHN	18	25	Peter (Simon)	denial, stronger		Dialogue		
 JHN	18	26	high priest's servant (relative of the man whose ear Peter cut off)	accusing		Dialogue		MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
 JHN	18	27	Peter (Simon)	denial, strongest		Indirect		
+JHN	18	27	rooster	crowing		Rare		
+JHN	18	27	Needs Review			Rare		
 JHN	18	28	Jews, the			Rare		
 JHN	18	28	Needs Review			Potential		
 JHN	18	29	Pilate	to crowd		Dialogue		
@@ -18851,7 +18925,8 @@ JHN	19	15	Jews, the	shouting		Dialogue
 JHN	19	15	Pilate	to crowd		Dialogue		
 JHN	19	15	chief priests	shouting		Dialogue		
 JHN	19	17	narrator-JHN			Quotation		
-JHN	19	19	sign on the cross			Quotation		
+JHN	19	19	narrator-JHN			Quotation		
+JHN	19	19	sign on the cross			Quotation	narrator-JHN	
 JHN	19	21	chief priests	protesting		Dialogue		
 JHN	19	22	Pilate	impatient		Dialogue		
 JHN	19	24	soldiers, Roman	gruff		Dialogue		
@@ -18910,10 +18985,13 @@ JHN	21	17	narrator-JHN			Quotation
 JHN	21	17	Peter (Simon)	perplexed		Dialogue		
 JHN	21	18	Jesus	speaking to Peter (Simon)		Normal		
 JHN	21	19	Jesus			Dialogue		
-JHN	21	20	John		John (who had asked the Lord who was going to betray Him)	Quotation		
+JHN	21	20	narrator-JHN			Quotation		
+JHN	21	20	John		John (who had asked the Lord who was going to betray Him)	Quotation	narrator-JHN	
 JHN	21	21	Peter (Simon)	defensive		Dialogue		
 JHN	21	22	Jesus			Dialogue		
 JHN	21	23	Jesus			Quotation	narrator-JHN	
+JHN	21	23	Needs Review			Potential		
+JHN	21	23	rumor			Rare		
 JHN	21	23	narrator-JHN			Quotation		
 ACT	1	4	Jesus			Dialogue		
 ACT	1	5	Jesus			Normal		
@@ -19248,10 +19326,10 @@ ACT	11	22	report concerning new believers in Antioch			Rare
 ACT	11	22	disciples		assembly in Jerusalem	Rare		
 ACT	11	22	Needs Review			Potential		
 ACT	11	23	Barnabas			Indirect		
-ACT	11	28	Agabus the prophet			Indirect		
-ACT	11	29	disciples			Indirect		
 ACT	11	26	Barnabas/Paul		Barnabas/Paul (Saul)	Indirect		
 ACT	11	26	narrator-ACT			Quotation		
+ACT	11	28	Agabus the prophet			Indirect		
+ACT	11	29	disciples			Indirect		
 ACT	12	4	King Herod Agrippa II			Rare		
 ACT	12	4	Needs Review			Potential		
 ACT	12	7	angel	commanding	angel of the Lord	Normal		
@@ -19753,7 +19831,8 @@ ROM	4	18	scripture			Quotation	God
 ROM	4	22	scripture			Quotation		
 ROM	4	23	narrator-ROM			Quotation		
 ROM	7	7	scripture			Quotation	God	
-ROM	8	15	we (believers)	crying		Quotation		
+ROM	8	15	narrator-ROM			Quotation		
+ROM	8	15	we (believers)	crying		Quotation	narrator-ROM	
 ROM	8	36	scripture			Quotation	sons of Korah	
 ROM	9	7	scripture			Quotation	God	
 ROM	9	9	scripture			Quotation	God	
@@ -19829,8 +19908,10 @@ ROM	16	22	Tertius			Implicit
 1CO	3	18	narrator-1CO			Quotation		
 1CO	3	19	scripture			Quotation	Eliphaz the Temanite	
 1CO	3	20	scripture			Quotation	psalmist	
-1CO	4	6	saying about going beyond what is written			Quotation		
-1CO	5	6	saying about yeast			Quotation		
+1CO	4	6	narrator-1CO			Quotation		
+1CO	4	6	saying about going beyond what is written			Quotation	narrator-1CO	
+1CO	5	6	narrator-1CO			Quotation		
+1CO	5	6	saying about yeast			Quotation	narrator-1CO	
 1CO	5	13	scripture			Quotation	Moses	
 1CO	6	12	saying about doing anything			Hypothetical		
 1CO	6	13	saying about food			Hypothetical		
@@ -19887,11 +19968,16 @@ ROM	16	22	Tertius			Implicit
 2CO	9	7	each one			Hypothetical		
 2CO	9	9	scripture			Quotation	Moses	
 2CO	10	1	narrator-2CO			Quotation		
-2CO	10	10	some people (quoted by Paul)			Quotation		
+2CO	10	10	narrator-2CO			Quotation		
+2CO	10	10	some people (quoted by Paul)			Quotation	narrator-2CO	
 2CO	10	17	scripture			Quotation	God	
 2CO	11	4	narrator-2CO			Quotation		
 2CO	11	5	narrator-2CO			Quotation		
 2CO	12	9	Jesus		Lord Jesus	Quotation		
+2CO	12	9	narrator-2CO			Quotation		
+# The grammar and/or narrative style in the target language might influence whether this
+# can/should be spoken by Jesus or related as a quotation of his words by the narrator.
+2CO	12	9	Needs Review			Quotation		
 2CO	12	11	narrator-2CO			Quotation		
 2CO	12	16	someone (hypothetical argument)			Hypothetical		
 2CO	13	1	scripture			Quotation	Moses	
@@ -19899,9 +19985,13 @@ GAL	1	6	narrator-GAL			Quotation
 GAL	1	7	narrator-GAL			Quotation		
 GAL	1	8	narrator-GAL			Quotation		
 GAL	1	9	narrator-GAL			Quotation		
-GAL	1	23	report concerning Paul			Quotation		
+GAL	1	23	narrator-GAL			Quotation		
+GAL	1	23	report concerning Paul			Quotation	narrator-GAL	
 GAL	2	10	James/Peter (Simon)/John		James/Peter (Cephas)/John	Quotation		
+GAL	2	10	narrator-GAL			Quotation		
+GAL	2	10	Needs Review			Quotation		
 GAL	2	14	narrator-GAL			Quotation		
+# Some translations consider that Paul's self-quote ends with v.14. Others have him speak through v. 21
 GAL	2	15	narrator-GAL			Quotation		
 GAL	2	16	narrator-GAL			Quotation		
 GAL	2	17	narrator-GAL			Quotation		
@@ -19915,18 +20005,25 @@ GAL	3	10	scripture			Quotation	Moses
 GAL	3	11	scripture			Quotation	God	
 GAL	3	12	scripture			Quotation	God	
 GAL	3	13	scripture			Quotation	Moses	
-GAL	3	16	narrator-GAL		God does not say (narrator)	Quotation		
+# Narrator should definitely speak at least the quote of what God doesn't say.
+GAL	3	16	narrator-GAL			Quotation		
 GAL	3	16	scripture		scripture (God)	Quotation	God	
 GAL	3	17	God		God (the LORD)	Rare		
 GAL	3	17	Needs Review			Potential		
 GAL	3	22	scripture			Indirect		
+GAL	4	6	narrator-GAL			Quotation		
 GAL	4	6	Holy Spirit, the		the Spirit (of God's Son)	Quotation		
+GAL	4	6	children of God			Quotation		
+GAL	4	6	sons of God			Quotation		
+GAL	4	6	Needs Review			Quotation		
 GAL	4	8	narrator-GAL			Quotation		
 GAL	4	25	narrator-GAL			Quotation		
 GAL	4	27	scripture			Quotation	God	
 GAL	4	30	scripture			Quotation	Sarah (Sarai)	
+GAL	5	2	narrator-GAL			Quotation		
 GAL	5	3	narrator-GAL			Quotation		
-GAL	5	9	saying about yeast			Quotation		
+GAL	5	9	narrator-GAL			Quotation		
+GAL	5	9	saying about yeast			Quotation	narrator-GAL	
 GAL	5	14	scripture			Quotation	God	
 GAL	6	12	Judaizers			Indirect		
 EPH	1	7	God		God (the LORD)	Rare		
@@ -19950,15 +20047,25 @@ COL	4	17	narrator-COL			Quotation
 1TH	5	3	people			Hypothetical		
 1TH	5	27	narrator-1TH			Potential		
 2TH	2	4	man of lawlessness			Indirect		
-2TH	3	10	rule given by Paul			Quotation		
+2TH	3	10	narrator-2TH			Quotation		
+2TH	3	10	rule given by Paul			Quotation	narrator-2TH	
 1TI	1	15	narrator-1TI			Quotation		
-1TI	3	16	hymn, early creedal			Quotation		
+1TI	3	16	narrator-1TI			Quotation		
+1TI	3	16	hymn, early creedal			Quotation	narrator-1TI	
 1TI	4	3	false teachers			Hypothetical		
 1TI	5	18	scripture			Quotation		
+# Use of quote in vv. 17-18 is rare. If it occurs, most likely it should be read by the narrator/author (Paul). But since he is telling Timothy what to say, a possible alternative would be to have a different character (Timothy) read the quote. Data integrity rules don't allow Alternate type to be used, but AdjustData will make this into an alternate.
+1TI	6	17	narrator-1TI			Quotation		
+1TI	6	17	Timothy			Quotation	narrator-1TI	
+1TI	6	18	narrator-1TI			Quotation		
+1TI	6	18	Timothy			Quotation	narrator-1TI	
 1TI	6	20	narrator-1TI			Quotation		
-2TI	2	11	saying, true			Quotation		
-2TI	2	12	saying, true			Quotation		
-2TI	2	13	saying, true			Quotation		
+2TI	2	11	narrator-2TI			Quotation		
+2TI	2	11	saying, true			Quotation	narrator-2TI	
+2TI	2	12	narrator-2TI			Quotation		
+2TI	2	12	saying, true			Quotation	narrator-2TI	
+2TI	2	13	narrator-2TI			Quotation		
+2TI	2	13	saying, true			Quotation	narrator-2TI	
 2TI	2	18	men who have gone astray			Indirect		
 2TI	2	19	narrator-2TI			Quotation		
 2TI	2	19	scripture			Quotation		
@@ -19968,6 +20075,7 @@ COL	4	17	narrator-COL			Quotation
 # clause introducing the second quote, this might not work.
 2TI	2	19	Needs Review			Potential		
 TIT	1	12	Cretan prophet			Quotation		
+TIT	1	12	narrator-TIT			Quotation		
 TIT	2	12	narrator-TIT			Quotation		
 HEB	1	5	scripture			Quotation	God	
 HEB	1	6	scripture			Quotation	God	
@@ -20032,6 +20140,7 @@ HEB	10	37	scripture			Quotation	God
 HEB	10	38	scripture			Quotation	God	
 HEB	11	5	scripture			Quotation		
 HEB	11	18	scripture			Quotation	God	
+HEB	11	20	narrator-HEB			Quotation		
 HEB	11	20	Isaac			Quotation		
 HEB	12	5	scripture			Quotation	Solomon, king	
 HEB	12	6	scripture			Quotation	Solomon, king	
@@ -20081,9 +20190,16 @@ JAS	5	17	Elijah	praying		Indirect
 1PE	4	18	scripture			Quotation	Solomon, king	
 1PE	5	5	scripture			Quotation	Solomon, king	
 2PE	1	17	God		God the Father	Quotation		
-2PE	2	19	saying about what controls you			Quotation		
+2PE	1	17	narrator-2PE			Quotation		
+2PE	2	16	donkey (female)			Quotation		
+2PE	2	16	narrator-2PE			Quotation		
+2PE	2	19	narrator-2PE			Quotation		
+2PE	2	19	saying about what controls you			Quotation	narrator-2PE	
+2PE	2	19	slaves of corruption			Rare		
+2PE	2	19	Needs Review			Rare		
 2PE	2	22	scripture		proverb about a dog	Quotation	Solomon, king	
 2PE	2	22	saying about sow			Quotation		
+2PE	2	22	narrator-2PE			Quotation		
 2PE	3	4	scoffers			Hypothetical		
 1JN	1	6	narrator-1JN			Quotation		
 1JN	1	8	narrator-1JN			Quotation		
@@ -20093,8 +20209,12 @@ JAS	5	17	Elijah	praying		Indirect
 1JN	2	18	narrator-1JN			Quotation		
 1JN	4	15	anyone			Hypothetical		
 1JN	4	20	anyone			Hypothetical		
-1JN	4	21	Jesus			Quotation		
-2JN	1	6	Jesus		Jesus in 2 John	Quotation		
+1JN	4	21	Jesus			Quotation	narrator-1JN	
+1JN	4	21	narrator-1JN			Quotation		
+1JN	4	21	Needs Review			Quotation		
+2JN	1	6	Jesus			Quotation		
+2JN	1	6	narrator-2JN			Quotation		
+2JN	1	6	Needs Review			Quotation		
 2JN	1	10	anyone			Hypothetical		
 2JN	1	11	anyone			Hypothetical		
 JUD	1	8	dreamers			Indirect		
@@ -20303,7 +20423,7 @@ REV	19	4	twenty-four elders/living creature, first/living creature, second/livin
 REV	19	5	voice from throne			Normal		
 REV	19	6	voice of great crowd, like roar of many waters, loud thunderclaps	shouting		Normal		
 REV	19	7	voice of great crowd, like roar of many waters, loud thunderclaps	shouting		Normal		
-REV	19	8	voice of great crowd, like roar of many waters, loud thunderclaps	shouting		Normal		
+REV	19	8	voice of great crowd, like roar of many waters, loud thunderclaps	shouting		Potential		
 REV	19	9	angel (one of the seven)			Normal		
 REV	19	10	angel (one of the seven)			Normal		
 REV	19	11	narrator-REV			Quotation		

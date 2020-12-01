@@ -147,7 +147,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-COL">
     <verse num="6" />
-    <text>As therefore you received Christ Jesus, the Lord, walk in him.</text>
+    <text>As therefore you received Christ Jesus, the Lord, walk in him. </text>
     <sound startVerse="-999" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-COL">
@@ -208,7 +208,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL">
     <verse num="21" />
-    <text>“Don’t handle, nor taste, nor touch”</text>
+    <text>«Don’t handle, nor taste, nor touch»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-COL">
     <verse num="22" />
@@ -362,7 +362,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-COL">
     <verse num="10" />
-    <text>Aristarchus, my fellow prisoner, greets you, and Mark, the cousin of Barnabas (concerning whom you received commandments, “if he comes to you, receive him”),</text>
+    <text>Aristarchus, my fellow prisoner, greets you, and Mark, the cousin of Barnabas (concerning whom you received instructions, «if he comes to you, receive him»),</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-COL">
     <verse num="11" />
@@ -390,7 +390,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-COL">
     <verse num="17" />
-    <text>Tell Archippus, “Take heed to the ministry which you have received in the Lord, that you fulfill it.”</text>
+    <text>Tell Archippus, «Take heed to the ministry which you have received in the Lord, that you fulfill it.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-COL">
     <verse num="18" />
