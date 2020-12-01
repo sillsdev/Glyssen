@@ -175,6 +175,13 @@ namespace GlyssenEngine.Quote
 			{
 				sbQuoteMatcher.Append("(?:");
 				sbQuoteMatcher.Append(Regex.Escape(qm));
+				// It's extremely unlikely that a quote would ever start with a numeral,
+				// so we could probably safely add this look-ahead for any quote marker.
+				// But the main purpose here is to prevent breaking a number range with
+				// a dash (or any kind) by accidentally interpreting the dash as the
+				// start of dialogue.
+				if (qm == "-" || qm == "\u2014" || qm == "\u2015")
+					sbQuoteMatcher.Append(@"(?!\d)");
 				sbQuoteMatcher.Append(")|");
 			}
 			sbQuoteMatcher.Length--;
@@ -322,7 +329,7 @@ namespace GlyssenEngine.Quote
 
 						var regex = m_regexes[m_quoteLevel >= m_regexes.Count ? m_regexes.Count - 1 : m_quoteLevel];
 						var match = regex.Match(content, pos);
-						if (match.Success)
+						if (match.Success) // && (!IsDigit(content[match.Index - 1]) || !IsDigit(content[match.Index + 1])))
 						{
 							var specialOpeningPunctuationLen = 0;
 							if (match.Index > pos)
