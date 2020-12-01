@@ -2005,21 +2005,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed">
-      <text>«Where did this man get these things?» </text>
+      <text>«Where did this man get these things? and, What is the wisdom that is given to this man, that such mighty works come about by his hands?</text>
     </ReferenceBlocks>
-    <text>«откуда у Него это? </text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="Needs Review" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="Needs Review">
-      <text>and, </text>
-    </ReferenceBlocks>
-    <text>[и] </text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed">
-      <text>«What is the wisdom that is given to this man, that such mighty works come about by his hands?</text>
-    </ReferenceBlocks>
-    <text>что за премудрость дана Ему, и как такие чудеса совершаются руками Его?</text>
+    <text>«откуда у Него это? что за премудрость дана Ему, и как такие чудеса совершаются руками Его?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="men in Nazareth synagogue" delivery="amazed" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="men in Nazareth synagogue" delivery="amazed">
@@ -2247,7 +2235,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="22" characterId="Herod Antipas (the tetrarch)" delivery="drunk">
       <text>«Ask me whatever you want, and I will give it to you.»</text>
     </ReferenceBlocks>
-    <text>«проси у меня, чего хочешь, и дам тебе;»</text>
+    <text>«проси у меня, чего хочешь, и дам тебе»;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="23" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="23" characterId="narrator-MRK">
@@ -2726,10 +2714,10 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="8" characterId="Jesus" delivery="rebuking" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="8" characterId="Jesus" delivery="rebuking">
       <verse num="8" />
-      <text>«For you set aside the commandment of God, and hold tightly to the tradition of men--the washing of pitchers and cups, and you do many other such things.»</text>
+      <text>For you set aside the commandment of God, and hold tightly to the tradition of men—the washing of pitchers and cups, and you do many other such things.»</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>«Ибо вы, оставив заповедь Божию, держитесь предания человеческого, омовения кружек и чаш, и делаете многое другое, сему подобное.»</text>
+    <text>Ибо вы, оставив заповедь Божию, держитесь предания человеческого, омовения кружек и чаш, и делаете многое другое, сему подобное.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="narrator-MRK">
@@ -2759,7 +2747,7 @@
       <text>But you say, ‹If a man tells his father or his mother, «Whatever profit you might have received from me is Corban,» › that is to say, given to God;</text>
     </ReferenceBlocks>
     <verse num="11" />
-    <text>А вы говорите: кто скажет отцу или матери: корван, то есть дар Богу то, чем бы ты от меня пользовался,»</text>
+    <text>А вы говорите: кто скажет отцу или матери: корван, то есть дар Богу то, чем бы ты от меня пользовался,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="Jesus" delivery="rebuking" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="Jesus" delivery="rebuking">
@@ -3621,7 +3609,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="Peter (Simon)/James, the disciple/John" delivery="puzzled" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="Peter (Simon)/James, the disciple/John" delivery="puzzled">
-      <text>«What does ‹Rising from the dead’ mean?»</text>
+      <text>«What does ‹Rising from the dead› mean?»</text>
     </ReferenceBlocks>
     <text>«воскреснуть из мертвых.»</text>
   </block>
@@ -3773,7 +3761,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="23" characterId="Jesus">
       <text>«If you can believe, all things are possible to him who believes.»</text>
     </ReferenceBlocks>
-    <text>если сколько-нибудь можешь веровать, всё возможно верующему.»</text>
+    <text>«если сколько-нибудь можешь веровать, всё возможно верующему.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="24" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="24" characterId="narrator-MRK">
@@ -4010,7 +3998,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="45" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="45" characterId="Jesus">
       <verse num="45" />
-      <text>If your foot causes you to stumble, cut it off. It is better for you to enter into life lame, rather than having your two feet to be cast into Gehenna, into the fire that will never be quenched--</text>
+      <text>If your foot causes you to stumble, cut it off. It is better for you to enter into life lame, rather than having your two feet to be cast into Gehenna, into the fire that will never be quenched—</text>
     </ReferenceBlocks>
     <verse num="45" />
     <text>И если нога твоя соблазняет тебя, отсеки ее: лучше тебе войти в жизнь хромому, нежели с двумя ногами быть ввержену в геенну, в огонь неугасимый,</text>
@@ -4251,7 +4239,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="Jesus">
-      <text>«Why do you call me good? No one is good except one--God.</text>
+      <text>«Why do you call me good? No one is good except one—God.</text>
     </ReferenceBlocks>
     <text>«что ты называешь Меня благим? Никто не благ, как только один Бог.</text>
   </block>
@@ -4757,7 +4745,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="disciples">
       <text>«The Lord needs him.»</text>
     </ReferenceBlocks>
-    <text>«как повелел Иисус;»</text>
+    <text>«как повелел Иисус»;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="narrator-MRK">
@@ -4993,7 +4981,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="30" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="30" characterId="Jesus">
       <verse num="30" />
-      <text>The baptism of John--was it from heaven, or from men? Answer me.»</text>
+      <text>The baptism of John—was it from heaven, or from men? Answer me.»</text>
     </ReferenceBlocks>
     <verse num="30" />
     <text>Крещение Иоанново с небес было, или от человеков? отвечайте Мне.»</text>
@@ -5015,14 +5003,14 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="chief priests/teachers of religious law/elders" delivery="to themselves" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="chief priests/teachers of religious law/elders" delivery="to themselves">
       <verse num="32" />
-      <text>If we should say, ‹From men›»</text>
+      <text>If we should say, ‹From men› »</text>
     </ReferenceBlocks>
     <verse num="32" />
     <text>а сказать: от человеков»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="narrator-MRK">
-      <text>--they feared the people because they believed that John really was a prophet. </text>
+      <text>—they feared the people because they believed that John really was a prophet. </text>
       <verse num="33" />
       <text>They answered Jesus,</text>
     </ReferenceBlocks>
@@ -5143,7 +5131,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="11" characterId="Jesus" delivery="preaching" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="11" characterId="Jesus" delivery="preaching">
       <verse num="11" />
-      <text>This was from the Lord, it is marvelous in our eyes’?»</text>
+      <text>This was from the Lord, it is marvelous in our eyes›?»</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>это от Господа, и есть дивно в очах наших.»</text>
@@ -5312,7 +5300,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="26" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="26" characterId="Jesus">
       <verse num="26" />
-      <text>But about the dead, that they are raised; haven’t you read in the book of Moses, about the Bush, how God spoke to him, saying, ‹I am the God of Abraham, the God of Isaac, and the God of Jacob’?</text>
+      <text>But about the dead, that they are raised; haven’t you read in the book of Moses, about the Bush, how God spoke to him, saying, ‹I am the God of Abraham, the God of Isaac, and the God of Jacob›?</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>А о мертвых, что они воскреснут, разве не читали вы в книге Моисея, как Бог при купине сказал ему: Я Бог Авраама, и Бог Исаака, и Бог Иакова?</text>
@@ -5459,7 +5447,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="38" characterId="Jesus">
       <text>«Beware of the scribes. They like to walk around in long robes, and to get greetings in the marketplaces.</text>
     </ReferenceBlocks>
-    <text>"Остерегайтесь книжников. Они любят ходить в длинных одеждах, и, чтобы получить приветствия в народных собраниях.</text>
+    <text>«Остерегайтесь книжников. Они любят ходить в длинных одеждах, и, чтобы получить приветствия в народных собраниях.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="39" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="39" characterId="Jesus">
@@ -5475,7 +5463,7 @@
       <text>They devour widows’ houses, and for a pretense make long prayers. They will receive the greater damnation.»</text>
     </ReferenceBlocks>
     <verse num="40" />
-    <text>Они пожирают домы вдов и лицемерно долго молятся. Они будут получать большее проклятье ".</text>
+    <text>Они пожирают домы вдов и лицемерно долго молятся. Они будут получать большее проклятье».</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="41" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="41" characterId="narrator-MRK">
@@ -5590,7 +5578,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="Jesus">
       <verse num="7" />
-      <text>«When you hear of wars and rumors of wars, don’t be troubled. For those must happen, but the end is not yet.</text>
+      <text>When you hear of wars and rumors of wars, don’t be troubled. For those must happen, but the end is not yet.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Когда же услышите о войнах и о военных слухах, не ужасайтесь: ибо надлежит сему быть, —но это еще не конец.</text>
@@ -5630,7 +5618,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="Jesus">
       <verse num="12" />
-      <text>«Brother will deliver up brother to death, and the father his child. Children will rise up against parents, and cause them to be put to death.</text>
+      <text>Brother will deliver up brother to death, and the father his child. Children will rise up against parents, and cause them to be put to death.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Предаст же брат брата на смерть, и отец—детей; и восстанут дети на родителей и умертвят их.</text>
@@ -5770,10 +5758,10 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="28" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="28" characterId="Jesus">
       <verse num="28" />
-      <text>«Now from the fig tree, learn this parable. When the branch has now become tender, and puts forth its leaves, you know that the summer is near.</text>
+      <text>Now from the fig tree, learn this parable. When the branch has now become tender, and puts forth its leaves, you know that the summer is near.</text>
     </ReferenceBlocks>
     <verse num="28" />
-    <text>«От смоковницы возьмите подобие: когда ветви ее становятся уже мягки и пускают листья, то знаете, что близко лето.</text>
+    <text>От смоковницы возьмите подобие: когда ветви ее становятся уже мягки и пускают листья, то знаете, что близко лето.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="29" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="29" characterId="Jesus">
@@ -5818,10 +5806,10 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="34" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="34" characterId="Jesus">
       <verse num="34" />
-      <text>«It is like a man, traveling to another country, having left his house, and given authority to his servants, and to each one his work, and also commanded the doorkeeper to keep watch.</text>
+      <text>It is like a man, traveling to another country, having left his house, and given authority to his servants, and to each one his work, and also commanded the doorkeeper to keep watch.</text>
     </ReferenceBlocks>
     <verse num="34" />
-    <text>«Подобно как бы кто, отходя в путь и оставляя дом свой, дал слугам своим власть и каждому свое дело, и приказал привратнику бодрствовать.</text>
+    <text>Подобно как бы кто, отходя в путь и оставляя дом свой, дал слугам своим власть и каждому свое дело, и приказал привратнику бодрствовать.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="35" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="35" characterId="Jesus">
@@ -5874,7 +5862,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="3" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="3" characterId="narrator-MRK">
       <verse num="3" />
-      <text>While he was at Bethany, in the house of Simon the leper, as he sat at the table, a woman came having an alabaster jar of ointment of pure nard--very costly. She broke the jar, and poured it over his head.</text>
+      <text>While he was at Bethany, in the house of Simon the leper, as he sat at the table, a woman came having an alabaster jar of ointment of pure nard—very costly. She broke the jar, and poured it over his head.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>И когда был Он в Вифании, в доме Симона прокаженного, и возлежал, —пришла женщина с алавастровым сосудом мира из нарда чистого, драгоценного и, разбив сосуд, возлила Ему на голову.</text>
@@ -6041,7 +6029,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="18" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="18" characterId="Jesus">
-      <text>«Most certainly I tell you, one of you will betray me--he who eats with me.»</text>
+      <text>«Most certainly I tell you, one of you will betray me—he who eats with me.»</text>
     </ReferenceBlocks>
     <text>«истинно говорю вам, один из вас, ядущий со Мною, предаст Меня.»</text>
   </block>
@@ -6308,7 +6296,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="43" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="43" characterId="narrator-MRK">
       <verse num="43" />
-      <text>Immediately, while he was still speaking, Judas, one of the twelve, came--and with him a multitude with swords and clubs, from the chief priests, the scribes, and the elders.</text>
+      <text>Immediately, while he was still speaking, Judas, one of the twelve, came—and with him a multitude with swords and clubs, from the chief priests, the scribes, and the elders.</text>
     </ReferenceBlocks>
     <verse num="43" />
     <text>И тотчас, как Он еще говорил, приходит Иуда, один из двенадцати, и с ним множество народа с мечами и кольями, от первосвященников и книжников и старейшин.</text>

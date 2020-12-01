@@ -1391,6 +1391,64 @@ namespace GlyssenEngineTests.Script
 			Assert.AreEqual(@"demons (Legion)", refBlock.CharacterIdOverrideForScript);
 		}
 
+		[Test]
+		public void RemoveVerseNumbers_EmptyCollection_NoChange()
+		{
+			var block = new Block("p", 8, 29)
+				.AddVerse("29", "Verse 29 text. ")
+				.AddVerse("30", "Verse 30 text.");
+			block.BlockElements.Add(new Sound {EndVerse = 31});
+			var expected = block.GetText(true, true);
+
+			block.RemoveVerseNumbers(new Verse[0]);
+			Assert.AreEqual(expected, block.GetText(true, true));
+		}
+
+		[Test]
+		public void RemoveVerseNumbers_CollectionContainsVersesNotInBlock_NoChange()
+		{
+			var block = new Block("p", 8, 29)
+				.AddVerse("29", "Verse 29 text. ")
+				.AddVerse("30", "Verse 30 text.");
+			block.BlockElements.Add(new Sound {EndVerse = 31});
+			var expected = block.GetText(true, true);
+
+			block.RemoveVerseNumbers(new [] {new Verse("42"), new Verse("43")});
+			Assert.AreEqual(expected, block.GetText(true, true));
+		}
+
+		[Test]
+		public void RemoveVerseNumbers_CollectionContainsOneVerseInBlock_VerseRemovedAndAdjacentTextJoinedIntoSingleElement()
+		{
+			var block = new Block("p", 8, 29)
+				.AddVerse("29", "Verse 29 text. ")
+				.AddVerse("30", "Verse 30 text.");
+
+			block.RemoveVerseNumbers(new [] {new Verse("30")});
+			Assert.AreEqual("{29}\u00A0Verse 29 text. Verse 30 text.", block.GetText(true, true));
+		}
+
+		[Test]
+		public void RemoveVerseNumbers_CollectionContainsAllVersesInBlock_VersesRemovedAndAdjacentTextJoinedIntoSingleElement()
+		{
+			var block = new Block("p", 8, 29)
+				.AddVerse("29", "Verse 29 text. ")
+				.AddVerse("30", "Verse 30 text.");
+
+			block.RemoveVerseNumbers(new [] {new Verse("29"), new Verse("30")});
+			Assert.AreEqual("Verse 29 text. Verse 30 text.", block.GetText(true, true));
+		}
+
+		[Test]
+		public void RemoveVerseNumbers_CollectionContainsSingleStartingVerse_VerseRemoved()
+		{
+			var block = new Block("p", 8, 29)
+				.AddVerse("29", "Verse 29 text. ");
+
+			block.RemoveVerseNumbers(new [] {new Verse("29"), new Verse("30")});
+			Assert.AreEqual("Verse 29 text. ", block.GetText(true, true));
+		}
+
 		[TestCase("")]
 		[TestCase(" ")]
 		[TestCase("\u00A0")]

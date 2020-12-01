@@ -28,7 +28,8 @@
 				LicenseFile="..\..\DistFiles\License.rtf"
 				LogoFile ="Glyssen-64.png"
 				ShowVersion="yes"
-				SuppressOptionsUI="yes" />
+				SuppressOptionsUI="yes"
+				LaunchTarget="[ProgramFiles64Folder]Glyssen\Glyssen.exe" />
 		</BootstrapperApplicationRef>
 		<Chain>
 		

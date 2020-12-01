@@ -197,7 +197,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="scripture">
       <verse num="23" />
-      <text>«Behold, the virgin shall be with child, and shall bring forth a son. They shall call his name Immanuel»;</text>
+      <text>«Behold, the virgin shall be with child, and shall bring forth a son. They shall call his name Immanuel,»</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>«се, Дева во чреве приимет и родит Сына, и нарекут имя Ему Еммануил,»</text>
@@ -1170,7 +1170,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="37" characterId="Jesus" delivery="preaching" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="37" characterId="Jesus" delivery="preaching">
       <verse num="37" />
-      <text>But let your ‹Yes’ be ‹Yes’ and your ‹No’ be ‹No.› Whatever is more than these is of the evil one.</text>
+      <text>But let your ‹Yes› be ‹Yes› and your ‹No› be ‹No.› Whatever is more than these is of the evil one.</text>
     </ReferenceBlocks>
     <verse num="37" />
     <text>Но да будет слово ваше: да, да; нет, нет; а что сверх этого, то от лукавого.</text>
@@ -7815,7 +7815,7 @@
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="7" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="7" characterId="Jesus">
       <verse num="7" />
-      <text>They love to be greeted in the marketplaces, and to be called ‹Rabbi, Rabbi’ by men.</text>
+      <text>They love to be greeted in the marketplaces, and to be called ‹Rabbi, Rabbi› by men.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>и приветствия в народных собраниях, и чтобы люди звали их: учитель! учитель!</text>
