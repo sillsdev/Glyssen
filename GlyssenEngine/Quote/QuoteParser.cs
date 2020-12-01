@@ -215,7 +215,7 @@ namespace GlyssenEngine.Quote
 					continue;
 				}
 
-				if (StyleToCharacterMappings.Includes(block.StyleTag))
+				if (StyleToCharacterMappings.IncludesCharStyle(block.StyleTag))
 				{
 					var cvInfo = GetMatchingCharacter(m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, block.AllVerses, m_versification),
 						new CharacterVerseData.SimpleCharacterInfoWithoutDelivery(block.CharacterId));

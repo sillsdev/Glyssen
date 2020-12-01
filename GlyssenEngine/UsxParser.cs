@@ -161,6 +161,8 @@ namespace GlyssenEngine
 							block.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.Intro);
 						else if (style.IsPublishable && !style.IsVerseText)
 							block.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.ExtraBiblical);
+						else if (StyleToCharacterMappings.TryGetCharacterForParaStyle(style.Id, m_bookId, out var character))
+							block.SetNonDramaticCharacterId(character);
 
 						var sb = new StringBuilder();
 						// <verse number="1" style="v" />
@@ -228,7 +230,7 @@ namespace GlyssenEngine
 									break;
 								case "#text":
 									var textToAppend = childNode.InnerText;
-									if (StyleToCharacterMappings.Includes(block.StyleTag) && textToAppend.Any(IsLetter))
+									if (StyleToCharacterMappings.IncludesCharStyle(block.StyleTag) && textToAppend.Any(IsLetter))
 									{
 										if (sb.Length > 0 && sb[sb.Length - 1] != ' ')
 										{

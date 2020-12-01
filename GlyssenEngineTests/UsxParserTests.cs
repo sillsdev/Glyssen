@@ -537,6 +537,18 @@ namespace GlyssenEngineTests
 		}
 
 		[Test]
+		public void Parse_DescriptiveTitleUsedOutsidePsalms_CharacterSetToExtraBiblical()
+		{
+			Assert.IsTrue(StyleToCharacterMappings.TryGetCharacterForParaStyle("d", "MRK", out var character),
+				$"Setup condition not met: marker \"d\" should be included in {nameof(StyleToCharacterMappings)}.");
+			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"d\">INTRODUCTION TO MARK</para>");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(2, blocks.Count, "Should have a chapter block, plus the descriptive title block.");
+			Assert.AreEqual(character, blocks[1].CharacterId);
+		}
+
+		[Test]
 		public void Parse_ParaStartsWithVerseNumber_BlocksGetCorrectChapterAndVerseNumbers()
 		{
 			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\">" +
