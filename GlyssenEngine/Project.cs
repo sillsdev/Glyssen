@@ -2110,6 +2110,11 @@ namespace GlyssenEngine
 
 		private void HandleQuoteSystemChanged()
 		{
+			if (QuoteSystem == null)
+			{
+				// This should be prevented by logic elsewhere
+				throw new InvalidOperationException("HandleQuoteSystemChanged called with a null QuoteSystem.");
+			}
 			Project copyOfExistingProject = new Project(m_projectMetadata, Name, ws: WritingSystem);
 			copyOfExistingProject.m_books.AddRange(m_books);
 
@@ -2117,27 +2122,26 @@ namespace GlyssenEngine
 
 			if (IsBundleBasedProject)
 			{
-				if (RobustFile.Exists(OriginalBundlePath) && QuoteSystem != null)
+				if (!RobustFile.Exists(OriginalBundlePath))
 				{
-					UserDecisionsProject = copyOfExistingProject;
-					using (var bundle = new GlyssenBundle(OriginalBundlePath))
-						PopulateAndParseBooks(bundle);
+					// This should be prevented by logic elsewhere
+					throw new InvalidOperationException("Attempt to change quote system for a bundle-based project, but the text release bundle is not present.");
 				}
-				else
-				{
-					// This is prevented by logic elsewhere
-					throw new ApplicationException();
-				}
+				UserDecisionsProject = copyOfExistingProject;
+				using (var bundle = new GlyssenBundle(OriginalBundlePath))
+					PopulateAndParseBooks(bundle);
 			}
 			else
 			{
 				var scrTextWrapper = GetParatextScrTextWrapper();
-				if (scrTextWrapper != null && QuoteSystem != null)
+				if (scrTextWrapper == null)
 				{
-					scrTextWrapper.IncludeOverriddenBooksFromProject(copyOfExistingProject);
-					UserDecisionsProject = copyOfExistingProject;
-					ParseAndSetBooks(scrTextWrapper.UsxDocumentsForIncludedBooks, scrTextWrapper.Stylesheet);
+					// This should be prevented by logic elsewhere
+					throw new InvalidOperationException("Attempt to change quote system for a Paratext-based project, but the project is unavailable.");
 				}
+				scrTextWrapper.IncludeOverriddenBooksFromProject(copyOfExistingProject);
+				UserDecisionsProject = copyOfExistingProject;
+				ParseAndSetBooks(scrTextWrapper.UsxDocumentsForIncludedBooks, scrTextWrapper.Stylesheet);
 			}
 		}
 

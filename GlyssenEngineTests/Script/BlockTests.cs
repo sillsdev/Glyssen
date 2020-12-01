@@ -101,14 +101,14 @@ namespace GlyssenEngineTests.Script
 			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
 			var frenchRefText = block.SetMatchedReferenceBlock("{1}\u00A0Jésus ... {2}\u00A0Ils ... demandent: <<Où ... l'adorer.>>");
 			frenchRefText.SetMatchedReferenceBlock("{1}\u00A0Now when Jesus was born in Bethlehem of Judea in the days of King Herod, behold, wise men from the east came to Jerusalem, " +
-				"{2}\u00A0saying, “Where is the one who is born King of the Jews? For we saw his star in the east, and have come to worship him.”");
+				"{2}\u00A0saying, «Where is the one who is born King of the Jews? For we saw his star in the east, and have come to worship him.»");
 			ReferenceText rtSpanish = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.SpanishMAT);
 			Assert.IsTrue(block.ChangeReferenceText("MAT", rtSpanish, ScrVers.English));
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual("{1}\u00A0Jesús ... {2}\u00A0y ... preguntaron: <<¿Dónde ... adorarlo.>>",
 				block.GetPrimaryReferenceText());
 			Assert.AreEqual("{1}\u00A0Now when Jesus was born in Bethlehem of Judea in the days of King Herod, behold, wise men from the east came to Jerusalem, " +
-				"{2}\u00A0saying, “Where is the one who is born King of the Jews? For we saw his star in the east, and have come to worship him.”",
+				"{2}\u00A0saying, «Where is the one who is born King of the Jews? For we saw his star in the east, and have come to worship him.»",
 				block.ReferenceBlocks.Single().GetPrimaryReferenceText());
 		}
 
@@ -181,7 +181,7 @@ namespace GlyssenEngineTests.Script
 			var block = new Block("p", 9, 20);
 			block.BlockElements.Add(new ScriptText("<<Desde cuando le llega asi?>>"));
 			block.CharacterId = "Jesus";
-			block.SetMatchedReferenceBlock("“How long has it been since this has come to him?”");
+			block.SetMatchedReferenceBlock("«How long has it been since this has come to him?»");
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, vernVers));
 			Assert.IsTrue(block.MatchesReferenceText);
@@ -200,7 +200,7 @@ namespace GlyssenEngineTests.Script
 
 			var block = new Block("p", 5, 43).AddVerse(43, "Whatever. ").AddVerse(44, "Cool.");
 			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
-			block.SetMatchedReferenceBlock("{43} He strictly ordered them, saying: “Tell no one about this!” Then he said: “Give her something to eat.” " +
+			block.SetMatchedReferenceBlock("{43} He strictly ordered them, saying: «Tell no one about this!» Then he said: «Give her something to eat.» " +
 				"{1} He went out from there. He came into his own country, and his disciples followed him.");
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, vernVers));
@@ -1391,6 +1391,64 @@ namespace GlyssenEngineTests.Script
 			Assert.AreEqual(@"demons (Legion)", refBlock.CharacterIdOverrideForScript);
 		}
 
+		[Test]
+		public void RemoveVerseNumbers_EmptyCollection_NoChange()
+		{
+			var block = new Block("p", 8, 29)
+				.AddVerse("29", "Verse 29 text. ")
+				.AddVerse("30", "Verse 30 text.");
+			block.BlockElements.Add(new Sound {EndVerse = 31});
+			var expected = block.GetText(true, true);
+
+			block.RemoveVerseNumbers(new Verse[0]);
+			Assert.AreEqual(expected, block.GetText(true, true));
+		}
+
+		[Test]
+		public void RemoveVerseNumbers_CollectionContainsVersesNotInBlock_NoChange()
+		{
+			var block = new Block("p", 8, 29)
+				.AddVerse("29", "Verse 29 text. ")
+				.AddVerse("30", "Verse 30 text.");
+			block.BlockElements.Add(new Sound {EndVerse = 31});
+			var expected = block.GetText(true, true);
+
+			block.RemoveVerseNumbers(new [] {new Verse("42"), new Verse("43")});
+			Assert.AreEqual(expected, block.GetText(true, true));
+		}
+
+		[Test]
+		public void RemoveVerseNumbers_CollectionContainsOneVerseInBlock_VerseRemovedAndAdjacentTextJoinedIntoSingleElement()
+		{
+			var block = new Block("p", 8, 29)
+				.AddVerse("29", "Verse 29 text. ")
+				.AddVerse("30", "Verse 30 text.");
+
+			block.RemoveVerseNumbers(new [] {new Verse("30")});
+			Assert.AreEqual("{29}\u00A0Verse 29 text. Verse 30 text.", block.GetText(true, true));
+		}
+
+		[Test]
+		public void RemoveVerseNumbers_CollectionContainsAllVersesInBlock_VersesRemovedAndAdjacentTextJoinedIntoSingleElement()
+		{
+			var block = new Block("p", 8, 29)
+				.AddVerse("29", "Verse 29 text. ")
+				.AddVerse("30", "Verse 30 text.");
+
+			block.RemoveVerseNumbers(new [] {new Verse("29"), new Verse("30")});
+			Assert.AreEqual("Verse 29 text. Verse 30 text.", block.GetText(true, true));
+		}
+
+		[Test]
+		public void RemoveVerseNumbers_CollectionContainsSingleStartingVerse_VerseRemoved()
+		{
+			var block = new Block("p", 8, 29)
+				.AddVerse("29", "Verse 29 text. ");
+
+			block.RemoveVerseNumbers(new [] {new Verse("29"), new Verse("30")});
+			Assert.AreEqual("Verse 29 text. ", block.GetText(true, true));
+		}
+
 		[TestCase("")]
 		[TestCase(" ")]
 		[TestCase("\u00A0")]
@@ -1786,6 +1844,60 @@ namespace GlyssenEngineTests.Script
 				new QuoteSystem(new QuotationMark("\u2014", "\u2014", null, 1, QuotationMarkingSystemType.Narrative));
 
 			Assert.Null(block.GetNextInterruption(interruptionFinderForQuoteSystemWithLongDashDialogueQuotes));
+		}
+
+		[TestCase(CharacterVerseData.kAmbiguousCharacter)]
+		[TestCase(CharacterVerseData.kUnexpectedCharacter)]
+		public void TryMatchToReportingClause_BlockCharacterIsUnclear_ReturnsFalse(string character)
+		{
+			var block = new Block("p", 1, 2)
+			{
+				CharacterId = character,
+				BookCode = "MAT",
+				BlockElements =
+				{
+					new Verse("2"),
+					new ScriptText("el dijo"),
+				}
+			};
+			Assert.IsFalse(block.TryMatchToReportingClause(new []{"el dijo"}, ReferenceText.GetStandardReferenceText(ReferenceTextType.English),
+				40, ScrVers.English));
+		}
+
+		[Test]
+		public void TryMatchToReportingClause_BlockCharacterIsNarrator_ReturnsTrue()
+		{
+			var block = new Block("p", 1, 2)
+			{
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", StandardCharacter.Narrator),
+				BookCode = "MAT",
+				BlockElements =
+				{
+					new Verse("2"),
+					new ScriptText("el dijo"),
+				}
+			};
+			Assert.IsTrue(block.TryMatchToReportingClause(new []{"el dijo"}, ReferenceText.GetStandardReferenceText(ReferenceTextType.English),
+				40, ScrVers.English));
+		}
+
+		[Test]
+		public void TryMatchToReportingClause_BlockCharacterIsNeedsReview_ReturnsTrue()
+		{
+			var block = new Block("p", 1, 2)
+			{
+				CharacterId = CharacterVerseData.kNeedsReview,
+				BookCode = "MAT",
+				BlockElements =
+				{
+					new Verse("2"),
+					new ScriptText("el dijo"),
+				}
+			};
+			Assert.IsTrue(block.TryMatchToReportingClause(new []{"el dijo"}, ReferenceText.GetStandardReferenceText(ReferenceTextType.English),
+				40, ScrVers.English));
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", StandardCharacter.Narrator),
+				block.CharacterId);
 		}
 
 		private Block GetBlockWithText(string text)

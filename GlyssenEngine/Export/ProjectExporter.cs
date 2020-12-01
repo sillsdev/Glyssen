@@ -621,18 +621,22 @@ namespace GlyssenEngine.Export
 
 			int lastIndexOfPreviousVerse = 0;
 			BCVRef previousReferenceTextVerse = null;
+			BCVRef referenceTextVerse = null;
 			IEnumerable<VerseAnnotation> annotationsForPreviousVerse = null;
 			for (int i = 0; i < data.Count; i++)
 			{
 				var row = data[i];
 				if (row.HasReferenceText)
 				{
-					var referenceTextVerse = row.BcvRef;
+					referenceTextVerse = row.BcvRef;
 					if (referenceTextVerse != previousReferenceTextVerse)
 					{
 						if (previousReferenceTextVerse != null)
+						{
 							AddAnnotationsForPreviousVerse(annotationsForPreviousVerse, data, lastIndexOfPreviousVerse,
-								previousReferenceTextVerse, () => i++);
+								referenceTextVerse, previousReferenceTextVerse, () => i++);
+						}
+
 						if (referenceTextVerse != previousReferenceTextVerse)
 						{
 							var annotationsForVerse = ControlAnnotations.Singleton.GetAnnotationsForVerse(referenceTextVerse);
@@ -658,24 +662,39 @@ namespace GlyssenEngine.Export
 				}
 			}
 
-			if (annotationsForPreviousVerse != null)
+			if (annotationsForPreviousVerse != null && previousReferenceTextVerse != null)
 			{
 				AddAnnotationsForPreviousVerse(annotationsForPreviousVerse, data, lastIndexOfPreviousVerse,
-					previousReferenceTextVerse);
+					null, previousReferenceTextVerse);
 			}
 		}
 
 		private void AddAnnotationsForPreviousVerse(IEnumerable<VerseAnnotation> annotations, List<ExportBlock> data,
-			int lastIndexOfPreviousVerse, BCVRef previousReferenceTextVerse, Action onAnnotationRowInserted = null)
+			int lastIndexOfPreviousVerse, BCVRef currentRef, BCVRef previousRef, Action onAnnotationRowInserted = null)
 		{
-			foreach (var verseAnnotation in annotations.Where(va => va.Annotation is Pause))
+			// Add any standard end-of-book or end-of-chapter annotations
+			IEnumerable<VerseAnnotation> allAnnotations;
+			var standardPause = currentRef?.Book != previousRef.Book ? Pause.kStandardEndOfBookPause :
+				(previousRef.Chapter != 0 && currentRef.Chapter != previousRef.Chapter) ?
+				Pause.kStandardEndOfChapterPause : 0d;
+
+			if (standardPause > 0)
+			{
+				var list = annotations.Where(va => va.Annotation is Pause).ToList();
+				list.Add(new VerseAnnotation(previousRef, new Pause {Time = standardPause }, 0));
+				allAnnotations = list;
+			}
+			else
+				allAnnotations = annotations.Where(va => va.Annotation is Pause);
+
+			foreach (var verseAnnotation in allAnnotations)
 			{
 				if (ExportAnnotationsInSeparateRows)
 				{
 					var rowIndex = lastIndexOfPreviousVerse + 1 + verseAnnotation.Offset;
 					data.Insert(rowIndex,
-						GetExportDataForAnnotation(verseAnnotation, BCVRef.NumberToBookCode(previousReferenceTextVerse.Book),
-							previousReferenceTextVerse.Chapter, previousReferenceTextVerse.Verse));
+						GetExportDataForAnnotation(verseAnnotation, BCVRef.NumberToBookCode(previousRef.Book),
+							previousRef.Chapter, previousRef.Verse));
 					onAnnotationRowInserted?.Invoke();
 					m_annotatedRowIndexes.Add(rowIndex);
 				}

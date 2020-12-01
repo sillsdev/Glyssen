@@ -992,7 +992,7 @@ namespace GlyssenEngine.Script
 				else if (numUniqueCharacterDeliveries <= numUniqueCharacters)
 				{
 					// Only one real character (and delivery). Set to that character (and delivery).
-					var realCharacter = uniqueCharacterDeliveries.Single(c => c.Character != CharacterVerseData.kAmbiguousCharacter && c.Character != CharacterVerseData.kUnexpectedCharacter);
+					var realCharacter = uniqueCharacterDeliveries.Single(c => !CharacterVerseData.IsCharacterUnclear(c.Character));
 					foreach (Block block in multiBlockQuote)
 					{
 						block.SetCharacterIdAndCharacterIdInScript(realCharacter.Character, bookNum, versification);

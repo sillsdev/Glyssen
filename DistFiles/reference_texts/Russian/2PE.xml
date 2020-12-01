@@ -150,7 +150,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="God" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="God">
-      <text>“This is my beloved Son, in whom I am well pleased.”</text>
+      <text>«This is my beloved Son, in whom I am well pleased.»</text>
     </ReferenceBlocks>
     <text>Сей есть Сын Мой возлюбленный, в Котором Мое благоволение.</text>
   </block>
@@ -370,9 +370,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture">
-      <text>“The dog turns to his own vomit again,.”</text>
+      <text>«The dog turns to his own vomit again,»</text>
     </ReferenceBlocks>
-    <text>“пес возвращается на свою блевотину,”</text>
+    <text>«пес возвращается на свою блевотину,»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-2PE">
@@ -382,9 +382,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture">
-      <text>“the sow that has washed to wallowing in the mire.”</text>
+      <text>«the sow that has washed to wallowing in the mire.»</text>
     </ReferenceBlocks>
-    <text>“вымытая свинья идет валяться в грязи.”</text>
+    <text>«вымытая свинья идет валяться в грязи.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="2PE" initialStartVerse="0" characterId="BC-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
@@ -419,7 +419,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-2PE">
       <verse num="4" />
-      <text>They will be saying, “Where is the promise of his coming? For, from the day that the fathers fell asleep, all things continue as they were from the beginning of the creation.”</text>
+      <text>They will be saying, «Where is the promise of his coming? For, from the day that the fathers fell asleep, all things continue as they were from the beginning of the creation.»</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>и говорящие: где обетование пришествия Его? Ибо с тех пор, как стали умирать отцы, от начала творения, всё остается так же.</text>

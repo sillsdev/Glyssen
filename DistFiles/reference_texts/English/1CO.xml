@@ -52,7 +52,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-1CO">
     <verse num="12" />
-    <text>Now I mean this, that each one of you says, “I follow Paul,” “I follow Apollos,” “I follow Cephas,” and, “I follow Christ.”</text>
+    <text>Now I mean this, that each one of you says, «I follow Paul,» «I follow Apollos,» «I follow Cephas,» and, «I follow Christ.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-1CO">
     <verse num="13" />
@@ -72,7 +72,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1CO">
     <verse num="17" />
-    <text>For Christ sent me not to baptize, but to preach the Good News--not in wisdom of words, so that the cross of Christ wouldn’t be made void.</text>
+    <text>For Christ sent me not to baptize, but to preach the Good News—not in wisdom of words, so that the cross of Christ wouldn’t be made void.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-1CO">
     <verse num="18" />
@@ -81,7 +81,7 @@
     <text>For it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="scripture">
-    <text>“I will destroy the wisdom of the wise, I will bring the discernment of the discerning to nothing.”</text>
+    <text>«I will destroy the wisdom of the wise, I will bring the discernment of the discerning to nothing.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-1CO">
     <verse num="20" />
@@ -97,7 +97,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-1CO">
     <verse num="23" />
-    <text>But we preach Christ crucified; a stumbling block to Jews, and foolishness to Greeks,</text>
+    <text>But we preach Christ crucified; a stumbling block to Jews, and foolishness to Greeks, </text>
     <sound startVerse="-999" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-1CO">
@@ -133,7 +133,7 @@
     <text>that, according as it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="31" characterId="scripture">
-    <text>“He who boasts, let him boast in the Lord.”</text>
+    <text>«He who boasts, let him boast in the Lord.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>2</text>
@@ -173,7 +173,7 @@
     <text>But as it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="scripture">
-    <text>“Things which an eye didn’t see, and an ear didn’t hear, which didn’t enter into the heart of man, these God has prepared for those who love him.”</text>
+    <text>«Things which an eye didn’t see, and an ear didn’t hear, which didn’t enter into the heart of man, these God has prepared for those who love him.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1CO">
     <verse num="10" />
@@ -201,7 +201,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="scripture">
     <verse num="16" />
-    <text>“For who has known the mind of the Lord, that he should instruct him?”</text>
+    <text>«For who has known the mind of the Lord, that he should instruct him?»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1CO">
     <text>But we have Christ’s mind.</text>
@@ -223,7 +223,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1CO">
     <verse num="4" />
-    <text>For when one says, “I follow Paul,” and another, “I follow Apollos,” aren’t you fleshly?</text>
+    <text>For when one says, «I follow Paul,» and another, «I follow Apollos,» aren’t you fleshly?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1CO">
     <verse num="5" />
@@ -286,14 +286,14 @@
     <text>For the wisdom of this world is foolishness with God. For it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="scripture">
-    <text>“He has taken the wise in their craftiness.”</text>
+    <text>«He has taken the wise in their craftiness.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-1CO">
     <verse num="20" />
     <text>And again,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="scripture">
-    <text>“The Lord knows the reasoning of the wise, that it is worthless.”</text>
+    <text>«The Lord knows the reasoning of the wise, that it is worthless.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1CO">
     <verse num="21" />
@@ -501,11 +501,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-1CO">
     <verse num="12" />
-    <text>“All things are lawful for me,” but not all things are expedient. “All things are lawful for me,” but I will not be brought under the power of anything.</text>
+    <text>«All things are lawful for me,» but not all things are expedient. «All things are lawful for me,» but I will not be brought under the power of anything.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-1CO">
     <verse num="13" />
-    <text>“Foods for the belly, and the belly for foods,” but God will bring to nothing both it and them. But the body is not for sexual immorality, but for the Lord; and the Lord for the body.</text>
+    <text>«Foods for the belly, and the belly for foods,» but God will bring to nothing both it and them. But the body is not for sexual immorality, but for the Lord; and the Lord for the body.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-1CO">
     <verse num="14" />
@@ -528,7 +528,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-1CO">
     <verse num="18" />
-    <text>Flee sexual immorality! “Every sin that a man does is outside the body,” but he who commits sexual immorality sins against his own body.</text>
+    <text>Flee sexual immorality! «Every sin that a man does is outside the body,» but he who commits sexual immorality sins against his own body.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-1CO">
     <verse num="19" />
@@ -579,7 +579,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="narrator-1CO">
     <verse num="10" />
-    <text>But to the married I command--not I, but the Lord--that the wife not leave her husband,</text>
+    <text>But to the married I command—not I, but the Lord—that the wife not leave her husband,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="narrator-1CO">
     <verse num="11" />
@@ -587,7 +587,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="narrator-1CO">
     <verse num="12" />
-    <text>But to the rest I--not the Lord--say, if any brother has an unbelieving wife, and she is content to live with him, let him not leave her.</text>
+    <text>But to the rest I—not the Lord—say, if any brother has an unbelieving wife, and she is content to live with him, let him not leave her.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="narrator-1CO">
     <verse num="13" />
@@ -675,7 +675,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="34" characterId="narrator-1CO">
     <verse num="34" />
-    <text>There is also a difference between a wife and a virgin. The unmarried woman cares about the things of the Lord, that she may be holy both in body and in spirit. But she who is married cares about the things of the world--how she may please her husband.</text>
+    <text>There is also a difference between a wife and a virgin. The unmarried woman cares about the things of the Lord, that she may be holy both in body and in spirit. But she who is married cares about the things of the world—how she may please her husband.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="35" characterId="narrator-1CO">
     <verse num="35" />
@@ -722,7 +722,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="narrator-1CO">
     <verse num="5" />
-    <text>For though there are things that are called “gods,” whether in the heavens or on earth; as there are many “gods“ and many “lords“;</text>
+    <text>For though there are things that are called «gods,» whether in the heavens or on earth; as there are many «gods» and many «lords»;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="6" characterId="narrator-1CO">
     <verse num="6" />
@@ -794,7 +794,7 @@
     <text>For it is written in the law of Moses,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="scripture">
-    <text>“You shall not muzzle an ox while it treads out the grain.”</text>
+    <text>«You shall not muzzle an ox while it treads out the grain.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="narrator-1CO">
     <text>Is it for the oxen that God cares, </text>
@@ -901,7 +901,7 @@
     <text>Neither be idolaters, as some of them were. As it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="scripture">
-    <text>“The people sat down to eat and drink, and rose up to play.”</text>
+    <text>«The people sat down to eat and drink, and rose up to play.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-1CO">
     <verse num="8" />
@@ -965,7 +965,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="23" characterId="narrator-1CO">
     <verse num="23" />
-    <text>“All things are lawful for me,” but not all things are profitable. “All things are lawful for me,” but not all things build up.</text>
+    <text>«All things are lawful for me,» but not all things are profitable. «All things are lawful for me,» but not all things build up.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="24" characterId="narrator-1CO">
     <verse num="24" />
@@ -978,7 +978,7 @@
     <text>The scriptures say, for</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="scripture">
-    <text>“the earth is the Lord’s, and its fullness.”</text>
+    <text>«the earth is the Lord’s, and its fullness.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="27" characterId="narrator-1CO">
     <verse num="27" />
@@ -986,7 +986,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="28" characterId="narrator-1CO">
     <verse num="28" />
-    <text>But if anyone says to you, “This was offered to idols,” don’t eat it for the sake of the one who told you. And for the sake of conscience.</text>
+    <text>But if anyone says to you, «This was offered to idols,» don’t eat it for the sake of the one who told you. And for the sake of conscience.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="29" characterId="narrator-1CO">
     <verse num="29" />
@@ -1106,14 +1106,14 @@
     <text>When he had given thanks, he broke it, and said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="24" characterId="Jesus">
-    <text>“Take, eat. This is my body, which is broken for you. Do this in memory of me.”</text>
+    <text>«Take, eat. This is my body, which is broken for you. Do this in memory of me.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="narrator-1CO">
     <verse num="25" />
     <text>In the same way he also took the cup, after supper, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="Jesus">
-    <text>“This cup is the new covenant in my blood. Do this, as often as you drink, in memory of me.”</text>
+    <text>«This cup is the new covenant in my blood. Do this, as often as you drink, in memory of me.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="narrator-1CO">
     <verse num="26" />
@@ -1164,7 +1164,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-1CO">
     <verse num="3" />
-    <text>Therefore I make known to you that no man speaking by God’s Spirit says, “Jesus is accursed.” No one can say, “Jesus is Lord,” but by the Holy Spirit.</text>
+    <text>Therefore I make known to you that no man speaking by God’s Spirit says, «Jesus is accursed.» No one can say, «Jesus is Lord,» but by the Holy Spirit.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-1CO">
     <verse num="4" />
@@ -1212,11 +1212,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="narrator-1CO">
     <verse num="15" />
-    <text>If the foot would say, “Because I’m not the hand, I’m not part of the body,” it is not therefore not part of the body.</text>
+    <text>If the foot would say, «Because I’m not the hand, I’m not part of the body,» it is not therefore not part of the body.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-1CO">
     <verse num="16" />
-    <text>If the ear would say, “Because I’m not the eye, I’m not part of the body,” it’s not therefore not part of the body.</text>
+    <text>If the ear would say, «Because I’m not the eye, I’m not part of the body,» it’s not therefore not part of the body.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-1CO">
     <verse num="17" />
@@ -1234,7 +1234,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-1CO">
     <verse num="21" />
-    <text>The eye can’t tell the hand, “I have no need for you,” or again the head to the feet, “I have no need for you.”</text>
+    <text>The eye can’t tell the hand, «I have no need for you,» or again the head to the feet, «I have no need for you.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="22" characterId="narrator-1CO">
     <verse num="22" />
@@ -1329,7 +1329,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="narrator-1CO">
     <verse num="13" />
-    <text>But now faith, hope, and love remain--these three. The greatest of these is love.</text>
+    <text>But now faith, hope, and love remain—these three. The greatest of these is love.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>14</text>
@@ -1396,7 +1396,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-1CO">
     <verse num="16" />
-    <text>Otherwise if you bless with the spirit, how will he who fills the place of the unlearned say the “Amen“ at your giving of thanks? Seeing how he doesn’t know what you say.</text>
+    <text>Otherwise if you bless with the spirit, how will he who fills the place of the unlearned say the «Amen» at your giving of thanks? Seeing how he doesn’t know what you say.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="narrator-1CO">
     <verse num="17" />
@@ -1419,7 +1419,7 @@
     <text>In the law it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="21" characterId="scripture">
-    <text>“By men of strange languages and by the lips of strangers I will speak to this people. Not even thus will they hear me, says the Lord.”</text>
+    <text>«By men of strange languages and by the lips of strangers I will speak to this people. Not even thus will they hear me, says the Lord.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="22" characterId="narrator-1CO">
     <verse num="22" />
@@ -1602,15 +1602,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="26" characterId="narrator-1CO">
     <verse num="26" />
-    <text>The last enemy that will be abolished is death.</text>
+    <text>The last enemy that will be abolished is death. </text>
     <verse num="27" />
     <text>For,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="scripture">
-    <text>“He put all things in subjection under his feet.”</text>
+    <text>«He put all things in subjection under his feet.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="narrator-1CO">
-    <text>But when he says, “All things are put in subjection,” it is evident that he is excepted who subjected all things to him.</text>
+    <text>But when he says, «All things are put in subjection,» it is evident that he is excepted who subjected all things to him.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="28" characterId="narrator-1CO">
     <verse num="28" />
@@ -1637,7 +1637,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="33" characterId="narrator-1CO">
     <verse num="33" />
-    <text>Don’t be deceived! “Evil companionships corrupt good morals.”</text>
+    <text>Don’t be deceived! «Evil companionships corrupt good morals.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="34" characterId="narrator-1CO">
     <verse num="34" />
@@ -1645,7 +1645,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="35" characterId="narrator-1CO">
     <verse num="35" />
-    <text>But someone will say, “How are the dead raised?” and, “With what kind of body do they come?”</text>
+    <text>But someone will say, «How are the dead raised?» and, «With what kind of body do they come?»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="36" characterId="narrator-1CO">
     <verse num="36" />
@@ -1686,7 +1686,7 @@
     <text>So also it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="45" characterId="scripture">
-    <text>“The first man, Adam, became a living soul.”</text>
+    <text>«The first man, Adam, became a living soul.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="45" characterId="narrator-1CO">
     <text>The last Adam became a life-giving spirit.</text>
@@ -1728,11 +1728,11 @@
     <text>But when this corruptible will have put on incorruption, and this mortal will have put on immortality, then what is written will happen:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="54" characterId="scripture">
-    <text>“Death is swallowed up in victory.”</text>
+    <text>«Death is swallowed up in victory.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="55" characterId="scripture">
     <verse num="55" />
-    <text>“O death, where is your victory? O death where is your sting?”</text>
+    <text>O death, where is your victory? O death where is your sting?»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="56" characterId="narrator-1CO">
     <verse num="56" />

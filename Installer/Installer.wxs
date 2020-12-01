@@ -330,17 +330,5 @@ are trying to support, you're better off using non-advertised shortcuts." -->
     <Icon Id="Glyssen.exe" SourceFile ="..\output\release\Glyssen.exe" />
     <Property Id="ARPPRODUCTICON" Value="Glyssen.exe" />
     <!-- what you see in add/remove programs control panel -->
-
-    <CustomAction Id="LaunchGlyssen"
-                  FileKey="Glyssen.exe"
-                  ExeCommand=""
-                  Return="asyncNoWait"
-				  Impersonate="yes"/>
-
-    <InstallExecuteSequence>
-
-      <!--We need the condition here so that we only launch the executable when we make an installation but not when we remove the product-->
-      <Custom Action='LaunchGlyssen' After="InstallFinalize">NOT Installed</Custom>
-    </InstallExecuteSequence>
   </Product>
 </Wix>

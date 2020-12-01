@@ -18,7 +18,7 @@ http://blogs.msdn.com/robmen/archive/2003/10/04/56479.aspx -->
              Version="$(var.Property_ProductVersion)" Manufacturer="FCBH-SIL"
              UpgradeCode="$(var.Property_UpgradeCode)">
 
-    <Package  Compressed="yes" InstallerVersion="200" />
+    <Package Platform="x64" Compressed="yes" InstallerVersion="200" InstallScope="perMachine" />
 
     <!-- changed schedule from afterInstallInitialize, to afterInstallValidate, hopes that upgrades which have some library (e.g. palaso) with a lower version won't leave us
         with no palaso at all, as afterInstallInitialize was doing. But it's not clear whether even this will work, as it depends on when the "costing" happens:
@@ -47,15 +47,12 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
 
     <!--ProductSearch UpgradeCode='{cd92c128-d3c7-4c9a-acc6-81e4184ef6ca}' Variable='GLYSSENFOUND'/-->
     <Upgrade Id ="{cd92c128-d3c7-4c9a-acc6-81e4184ef6ca}" >
-      <UpgradeVersion Minimum ="1.0.0.0" IncludeMinimum ="yes" OnlyDetect ="yes" Property ="GLYSSENFOUND" />
+      <UpgradeVersion Minimum ="1.5.0.0" IncludeMinimum ="yes" OnlyDetect ="yes" Property ="GLYSSENFOUND" />
     </Upgrade >
 	
-	<Condition Message="The Reference Text Utility requires that Glyssen 1.0 or later be installed.">
-		<![CDATA[Installed OR (GLYSSENFOUND >= "1.0.0.0")]]>
+	<Condition Message="The Reference Text Utility requires that Glyssen 1.5 or later be installed.">
+		<![CDATA[Installed OR (GLYSSENFOUND >= "1.5.0.0")]]>
 	</Condition>
-
-    <!--because of bug, this needs to be 1 -->
-    <Property Id ="ALLUSERS">1</Property>
 	
 	<!--Property Id="GYSSENSHORTCUTDIR_EXISTS" Secure="yes">
 		<RegistrySearch Id='RegistrySearchGlyssenShortcutDir' Type='directory'
@@ -81,16 +78,16 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
 		</Directory>
 	  </Directory>
 		
-      <Directory Id="ProgramFilesFolder" Name="PFiles">
+      <Directory Id="ProgramFiles64Folder" Name="PFiles">
 
         <Directory Id="ProgramDir" Name="Glyssen">
-          <Component Id="ReferenceTextUtility.exe" Guid="{92306462-199c-4484-b5ec-8c0f4346be65}">
+          <Component Id="ReferenceTextUtility.exe" Guid="{92306462-199c-4484-b5ec-8c0f4346be65}" Win64="yes">
             <RegistryKey Root="HKCU" Key="SOFTWARE\Glyssen\Components\ReferenceTextUtility.exe" />
-            <File Id="ReferenceTextUtility.exe" Name="ReferenceTextUtility.exe" Source="..\..\output\release\ReferenceTextUtility.exe"/>
+            <File Id="ReferenceTextUtility.exe" Name="ReferenceTextUtility.exe" Source="..\..\output\release\ReferenceTextUtility.exe" ProcessorArchitecture="x64"/>
 			<File Id="ReferenceTextUtility.pdb" Name="ReferenceTextUtility.pdb" Source="..\..\output\release\ReferenceTextUtility.pdb"/>
           </Component>
           
-		  <Component Id="RTUShortcut" Guid="{d6d5e117-3d41-48ff-802a-bdd76328443e}">
+		  <Component Id="RTUShortcut" Guid="{d6d5e117-3d41-48ff-802a-bdd76328443e}" Win64="yes">
             <Shortcut Id="startmenuShortcut" Directory="GlyssenShortcutDir" Name="Reference Text Utility for Glyssen"
                  WorkingDirectory="ProgramDir" Target="[!ReferenceTextUtility.exe]" Icon="ReferenceTextUtility.exe" />
 			<RemoveFile Id ="CleanupShortcut" Name="[!ReferenceTextUtility.exe]" On ="uninstall"/>
@@ -102,12 +99,12 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
 			</Condition>
           </Component>
 
-          <Component Id="ReferenceTextUtility.exe.config" Guid="{d45ac38f-524c-47b0-a999-fc51f40c93ec}">
+          <Component Id="ReferenceTextUtility.exe.config" Guid="{d45ac38f-524c-47b0-a999-fc51f40c93ec}" Win64="yes">
             <File Id="ReferenceTextUtility.exe.config" Name="ReferenceTextUtility.exe.config" KeyPath="yes" Source="..\..\output\release\ReferenceTextUtility.exe.config" />
           </Component>
 
-          <Component Id="RefTextDevUtilities.dll" Guid="{67c98f7f-069d-4939-bcc1-e2aadfa541e3}">
-            <File Id="RefTextDevUtilities.dll" Name="RefTextDevUtilities.dll" KeyPath="yes" Source="..\..\output\release\RefTextDevUtilities.dll" />
+          <Component Id="RefTextDevUtilities.dll" Guid="{67c98f7f-069d-4939-bcc1-e2aadfa541e3}" Win64="yes">
+            <File Id="RefTextDevUtilities.dll" Name="RefTextDevUtilities.dll" KeyPath="yes" Source="..\..\output\release\RefTextDevUtilities.dll" ProcessorArchitecture="x64"/>
 			<File Id="RefTextDevUtilities.pdb" Name="RefTextDevUtilities.pdb" Source="..\..\output\release\RefTextDevUtilities.pdb" />
           </Component>
 

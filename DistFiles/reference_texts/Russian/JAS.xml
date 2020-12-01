@@ -111,7 +111,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-JAS">
       <verse num="13" />
-      <text>Let no man say when he is tempted, “I am tempted by God,” for God can’t be tempted by evil, and he himself tempts no one.</text>
+      <text>Let no man say when he is tempted, «I am tempted by God,» for God can’t be tempted by evil, and he himself tempts no one.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>В искушении никто не говори: Бог меня искушает; потому что Бог не искушается злом и Сам не искушает никого,</text>
@@ -253,7 +253,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-JAS">
       <verse num="3" />
-      <text>and if you pay special attention to him who wears the fine clothing, and say, “Sit here in a good place”; and you tell the poor man, “Stand there,” or “Sit by my footstool”</text>
+      <text>and if you pay special attention to him who wears the fine clothing, and say, «Sit here in a good place;» and you tell the poor man, «Stand there,» or «Sit by my footstool»</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>и вы, смотря на одетого в богатую одежду, скажете ему: тебе хорошо сесть здесь, а бедному скажете: ты стань там, или садись здесь, у ног моих, —</text>
@@ -300,9 +300,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture">
-      <text>“You shall love your neighbor as yourself,”</text>
+      <text>«You shall love your neighbor as yourself,»</text>
     </ReferenceBlocks>
-    <text>“возлюби ближнего твоего, как себя самого,”</text>
+    <text>«возлюби ближнего твоего, как себя самого,»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-JAS">
@@ -328,9 +328,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="scripture">
-      <text>“Do not commit adultery,”</text>
+      <text>«Do not commit adultery,»</text>
     </ReferenceBlocks>
-    <text>“не прелюбодействуй,”</text>
+    <text>«не прелюбодействуй,»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS">
@@ -340,9 +340,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="scripture">
-      <text>“Do not commit murder.”</text>
+      <text>«Do not commit murder.»</text>
     </ReferenceBlocks>
-    <text>“не убей;”</text>
+    <text>«не убей»;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS">
@@ -385,10 +385,10 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-JAS">
       <verse num="16" />
-      <text>and one of you tells them, “Go in peace. Be warmed and filled;” yet you didn’t give them the things the body needs, what good is it?</text>
+      <text>and one of you tells them, «Go in peace. Be warmed and filled;» yet you didn’t give them the things the body needs, what good is it?</text>
     </ReferenceBlocks>
     <verse num="16" />
-    <text>а кто-нибудь из вас скажет им: 'идите с миром, грейтесь и питайтесь', но не даст им потребного для тела: что пользы?</text>
+    <text>а кто-нибудь из вас скажет им: «идите с миром, грейтесь и питайтесь», но не даст им потребного для тела: что пользы?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-JAS">
@@ -401,10 +401,10 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-JAS">
       <verse num="18" />
-      <text>Yes, a man will say, “You have faith, and I have works.” Show me your faith without works, and I by my works will show you my faith.</text>
+      <text>Yes, a man will say, «You have faith, and I have works.» Show me your faith without works, and I by my works will show you my faith.</text>
     </ReferenceBlocks>
     <verse num="18" />
-    <text>Но скажет кто-нибудь: 'ты имеешь веру, а я имею дела': покажи мне веру твою без дел твоих, а я покажу тебе веру мою из дел моих.</text>
+    <text>Но скажет кто-нибудь: «ты имеешь веру, а я имею дела»: покажи мне веру твою без дел твоих, а я покажу тебе веру мою из дел моих.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-JAS">
@@ -448,15 +448,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="scripture">
-      <text>“Abraham believed God, and it was accounted to him as righteousness”</text>
+      <text>«Abraham believed God, and it was accounted to him as righteousness»</text>
     </ReferenceBlocks>
-    <text>“'веровал Авраам Богу, и это вменилось ему в праведность,”</text>
+    <text>«веровал Авраам Богу, и это вменилось ему в праведность,»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-JAS">
       <text>and he was called the friend of God.</text>
     </ReferenceBlocks>
-    <text>и он наречен другом Божиим'.</text>
+    <text>и он наречен другом Божиим.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-JAS">
@@ -673,10 +673,10 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-JAS">
       <verse num="5" />
-      <text>Or do you think that the Scripture says in vain, “The Spirit who lives in us yearns jealously”?</text>
+      <text>Or do you think that the Scripture says in vain, «The Spirit who lives in us yearns jealously»?</text>
     </ReferenceBlocks>
     <verse num="5" />
-    <text>Или вы думаете, что напрасно говорит Писание: 'до ревности любит дух, живущий в нас'?</text>
+    <text>Или вы думаете, что напрасно говорит Писание: «до ревности любит дух, живущий в нас»?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-JAS">
@@ -688,9 +688,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="scripture">
-      <text>“God resists the proud, but gives grace to the humble.”</text>
+      <text>«God resists the proud, but gives grace to the humble.»</text>
     </ReferenceBlocks>
-    <text>“Бог гордым противится, а смиренным дает благодать.”</text>
+    <text>«Бог гордым противится, а смиренным дает благодать.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-JAS">
@@ -743,10 +743,10 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-JAS">
       <verse num="13" />
-      <text>Come now, you who say, “Today or tomorrow let’s go into this city, and spend a year there, trade, and make a profit.”</text>
+      <text>Come now, you who say, «Today or tomorrow let’s go into this city, and spend a year there, trade, and make a profit.»</text>
     </ReferenceBlocks>
     <verse num="13" />
-    <text>Теперь послушайте вы, говорящие: 'сегодня или завтра отправимся в такой-то город, и проживем там один год, и будем торговать и получать прибыль';</text>
+    <text>Теперь послушайте вы, говорящие: «сегодня или завтра отправимся в такой-то город, и проживем там один год, и будем торговать и получать прибыль»;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-JAS">
@@ -759,10 +759,10 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-JAS">
       <verse num="15" />
-      <text>For you ought to say, “If the Lord wills, we will both live, and do this or that.”</text>
+      <text>For you ought to say, «If the Lord wills, we will both live, and do this or that.»</text>
     </ReferenceBlocks>
     <verse num="15" />
-    <text>Вместо того, чтобы вам говорить: 'если угодно будет Господу и живы будем, то сделаем то или другое', —</text>
+    <text>Вместо того, чтобы вам говорить: «если угодно будет Господу и живы будем, то сделаем то или другое», —</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-JAS">
@@ -877,10 +877,10 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-JAS">
       <verse num="12" />
-      <text>But above all things, my brothers, don’t swear— not by heaven, or by the earth, or by any other oath; but let your “yes” be “yes”, and your “no”, “no”, so that you don’t fall into hypocrisy.</text>
+      <text>But above all things, my brothers, don’t swear— not by heaven, or by the earth, or by any other oath; but let your «yes» be «yes», and your «no», «no», so that you don’t fall into hypocrisy.</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>Прежде же всего, братия мои, не клянитесь ни небом, ни землею, и никакою другою клятвою, но да будет у вас: 'да, да' и 'нет, нет', дабы вам не подпасть осуждению.</text>
+    <text>Прежде же всего, братия мои, не клянитесь ни небом, ни землею, и никакою другою клятвою, но да будет у вас: «да, да» и «нет, нет», дабы вам не подпасть осуждению.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-JAS">

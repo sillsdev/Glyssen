@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Character;
@@ -447,8 +448,6 @@ namespace Glyssen.RefTextDevUtilities
 					IReadOnlyList<Block> existingRefBlocksForLanguage = null;
 					int skippingBook = 0;
 
-					GetQuoteMarksForLanguage(language, out var openDoubleQuote, out var closeDoubleQuote, out var openQuoteSingle, out var closeQuoteSingle);
-
 					HashSet<int> existingBookNumbersRequired = null;
 					if (mode != Mode.GenerateEnglish && (mode != Mode.Generate || !languageInfo.IsEnglish))
 					{
@@ -461,7 +460,7 @@ namespace Glyssen.RefTextDevUtilities
 
 					foreach (var referenceTextRow in referenceTextRowsToProcess.Where(r => !r.CharacterId.StartsWith("Section Head_")))
 					{
-						var currBookId = GetBookIdFromFcbhBookCode(referenceTextRow.Book, out int currBookNum);
+						var currBookId = GetBookIdFromFcbhBookCode(referenceTextRow.Book, out var currBookNum);
 
 						if (skippingBook == currBookNum)
 							continue;
@@ -568,26 +567,7 @@ namespace Glyssen.RefTextDevUtilities
 
 						var verseNumberFixedText = s_verseNumberInExcelRegex.Replace(originalText, "{$1}\u00A0");
 
-						var modifiedText = verseNumberFixedText.Replace("\n ", " ").Replace('\n', ' ').Replace("«", openDoubleQuote).Replace("»", closeDoubleQuote);
-						// Apparently, at one time this code cleaned up all kinds of unusual quotation marks. Recent versions of the DG are cleaner
-						// so the only thing left to do is to replace double chevrons (above). This code could probably be removed completely, but
-						// I'm leaving it here just in case things ever go backward or we need to process an old version for some reason.
-						//var modifiedText1 = modifiedText;
-						//var modifiedText = s_doubleSingleOpenQuote.Replace(modifiedText1, openDoubleQuote + "\u202F" + openQuoteSingle);
-						//modifiedText = s_singleDoubleOpenQuote.Replace(modifiedText, openQuoteSingle + "\u202F" + openDoubleQuote);
-						//modifiedText = s_doubleSingleCloseQuote.Replace(modifiedText, closeDoubleQuote + "\u202F" + closeQuoteSingle);
-						//modifiedText = s_singleDoubleCloseQuote.Replace(modifiedText, closeQuoteSingle + "\u202F" + closeDoubleQuote);
-						//modifiedText = s_doubleOpenQuote.Replace(modifiedText, openDoubleQuote);
-						//modifiedText = s_doubleCloseQuote.Replace(modifiedText, closeDoubleQuote);
-						//if (modifiedText1 != modifiedText)
-						//	Debug.WriteLine($"{modifiedText1} != {modifiedText}");
-						//modifiedText = s_openDoubleChevrons.Replace(modifiedText, openDoubleQuote);
-						//modifiedText = s_closeDoubleChevrons.Replace(modifiedText, closeDoubleQuote);
-						//var modifiedText2 = modifiedText;
-						//modifiedText = s_singleOpenQuote.Replace(modifiedText, openQuoteSingle);
-						//modifiedText = s_singleCloseQuote.Replace(modifiedText, closeQuoteSingle);
-						//if (modifiedText2 != modifiedText)
-						//	Debug.WriteLine($"{modifiedText2} != {modifiedText}");
+						var modifiedText = verseNumberFixedText.Replace("\n ", " ").Replace('\n', ' ').Replace("_x000D_", "");
 
 						if (languageInfo.IsEnglish) // REVIEW: Do we want to enforce this for all languages?
 							modifiedText = modifiedText.Replace("  ", " ");
@@ -710,7 +690,7 @@ namespace Glyssen.RefTextDevUtilities
 							if (string.IsNullOrWhiteSpace(split))
 							{
 								if (splits.Length == 1)
-									newBlock.BlockElements.Add(new ScriptText(" ")); // Blank row should have already be reported as error.
+									newBlock.BlockElements.Add(new ScriptText(" ")); // Blank row should have already been reported as error.
 								continue;
 							}
 
@@ -751,7 +731,12 @@ namespace Glyssen.RefTextDevUtilities
 										if (string.IsNullOrWhiteSpace(text))
 											WriteOutput("No text found between annotations:" + referenceTextRow, true);
 										else
-											newBlock.BlockElements.Add(lastElementInBlock = new ScriptText(text));
+										{
+											// Excel does not handle thin non-breaking spaces well, but when there are
+											// adjacent chevrons facing the same direction, that's what we want.
+											newBlock.BlockElements.Add(lastElementInBlock = new ScriptText(
+												ReplaceInterChevronSpacesWithThinNonBreakingSpaces(text)));
+										}
 									}
 								}
 							}
@@ -793,7 +778,7 @@ namespace Glyssen.RefTextDevUtilities
 							"replaced by a new version of the English text, then the tool needs to re re-run to link all reference texts to the new English version.");
 
 					if (annotationsToOutput.Any()) // If not, we probably didn't process English data
-						WriteAnnotationsFile(annotationsToOutput);
+						WriteAnnotationsFile(annotationsToOutput, minBook, maxBook);
 					break;
 				case Mode.GenerateEnglish:
 					var temporaryPathRoot = @"..\..\DevTools\Resources\temporary";
@@ -835,6 +820,46 @@ namespace Glyssen.RefTextDevUtilities
 			}
 
 			WriteOutput("Done!");
+		}
+
+		private static string ReplaceInterChevronSpacesWithThinNonBreakingSpaces(string text)
+		{
+			var sb = new StringBuilder(text);
+			var prevNonWsCharWasOpeningQuote = false;
+			var prevNonWsCharWasClosingQuote = false;
+			var prevCharWasSpace = false;
+			for (int i = 0; i < sb.Length; i++)
+			{
+				switch (sb[i])
+				{
+					case '«':
+					case '‹':
+						if (prevNonWsCharWasOpeningQuote && prevCharWasSpace)
+							sb[i - 1] = '\u202F';
+						else
+							prevNonWsCharWasOpeningQuote = true;
+						prevNonWsCharWasClosingQuote = false;
+						break;
+					case '»':
+					case '›':
+						if (prevNonWsCharWasClosingQuote && prevCharWasSpace)
+							sb[i - 1] = '\u202F';
+						else
+							prevNonWsCharWasClosingQuote = true;
+						prevNonWsCharWasOpeningQuote = false;
+						break;
+					case ' ':
+						prevCharWasSpace = true;
+						continue;
+					default:
+						prevNonWsCharWasClosingQuote = false;
+						prevNonWsCharWasOpeningQuote = false;
+						break;
+				}
+				prevCharWasSpace = false;
+			}
+
+			return sb.ToString();
 		}
 
 		private static void CheckBlockForMissingF8Annotations(Block block, Block englishRefBlock, ReferenceTextLanguageInfo languageInfo)
@@ -936,15 +961,13 @@ namespace Glyssen.RefTextDevUtilities
 				characterMappings.Add(new CharacterMapping(existingEnglishRefBlock.CharacterId, referenceTextRow.CharacterId,
 					verse));
 
-				SortedSet<string> fcbhIds;
-				if (glyssenToFcbhIds.TryGetValue(existingEnglishRefBlock.CharacterId, out fcbhIds))
+				if (glyssenToFcbhIds.TryGetValue(existingEnglishRefBlock.CharacterId, out var fcbhIds))
 					fcbhIds.Add(referenceTextRow.CharacterId);
 				else
 					glyssenToFcbhIds.Add(existingEnglishRefBlock.CharacterId,
 						new SortedSet<string> {referenceTextRow.CharacterId});
 
-				SortedSet<string> glyssenIds;
-				if (fcbhToGlyssenIds.TryGetValue(referenceTextRow.CharacterId, out glyssenIds))
+				if (fcbhToGlyssenIds.TryGetValue(referenceTextRow.CharacterId, out var glyssenIds))
 					glyssenIds.Add(existingEnglishRefBlock.CharacterId);
 				else
 					fcbhToGlyssenIds.Add(referenceTextRow.CharacterId,
@@ -1128,9 +1151,18 @@ namespace Glyssen.RefTextDevUtilities
 
 		private static void AttemptParseOfControlFileAnnotation(Mode mode, string s, ReferenceTextLanguageInfo languageInfo, string bookId, ReferenceTextRow referenceTextRow, Block existingEnglishRefBlock, List<string> annotationsToOutput)
 		{
-			if (ConvertTextToControlScriptAnnotationElement(s, out var annotation))
+			bool IsEndOfChapter()
 			{
-				if (mode != Mode.GenerateEnglish && languageInfo.IsEnglish)
+				var bookNum = BCVRef.BookToNumber(bookId);
+				//if (bookNum == 66 && existingEnglishRefBlock.ChapterNumber == 12)
+				//	Debug.WriteLine("Check");
+				// Note: using <= because in Rev 12, the Director's guide includes v. 18, which is not in the standard English versification
+				return ScrVers.English.GetLastVerse(bookNum, existingEnglishRefBlock.ChapterNumber) <= existingEnglishRefBlock.LastVerse.EndVerse;
+			}
+
+			if (ConvertTextToControlScriptAnnotationElement(s, IsEndOfChapter, out var annotation))
+			{
+				if (annotation != null && mode != Mode.GenerateEnglish && languageInfo.IsEnglish)
 				{
 					var pause = annotation as Pause;
 					var serializedAnnotation = pause != null
@@ -1612,7 +1644,7 @@ namespace Glyssen.RefTextDevUtilities
 			Process.Start(path);
 		}
 
-		public static ReferenceTextData GetDataFromExcelFile(string path)
+		public static ReferenceTextData GetDataFromExcelFile(string path, CancellationToken cancellationToken = default)
 		{
 			ErrorsOccurred = false;
 			var allLanguages = new Dictionary<string, string>();
@@ -1621,6 +1653,8 @@ namespace Glyssen.RefTextDevUtilities
 
 			using (var xls = new ExcelPackage(new FileInfo(path)))
 			{
+				if (cancellationToken.IsCancellationRequested)
+					return null;
 				var worksheet = xls.Workbook.Worksheets["Main DG"] ?? xls.Workbook.Worksheets.First();
 
 				string bookCol = null, chapterCol = null, verseCol = null, characterCol = null;
@@ -1727,7 +1761,7 @@ namespace Glyssen.RefTextDevUtilities
 				if (!allLanguages.Any())
 					WriteOutput("No language columns found! (English must exist and must be first)", true);
 
-				if (ErrorsOccurred)
+				if (ErrorsOccurred || cancellationToken.IsCancellationRequested)
 					return null;
 
 				foreach (var textRow in rowData.Skip(rowsToSkip))
@@ -1743,6 +1777,8 @@ namespace Glyssen.RefTextDevUtilities
 					var verseValue = cells[verseCol + row].Value;
 					if (verseValue == null)
 					{
+						if (row < (5 - rowsToSkip))
+							continue; // Maybe an extra blank row or two before the data starts...
 						WriteOutput($"Stopping at row {row} because verse column contained a null value.");
 						break;
 					}
@@ -1753,6 +1789,9 @@ namespace Glyssen.RefTextDevUtilities
 						verseStr,
 						(string)cells[characterCol + row].Value,
 						allLanguages.ToDictionary(kvp => kvp.Key, kvp => cells[kvp.Value + row].Value?.ToString())));
+
+					if (cancellationToken.IsCancellationRequested)
+						return null;
 				}
 			}
 
@@ -1823,16 +1862,32 @@ namespace Glyssen.RefTextDevUtilities
 			WriteOutput("Finished writing character mapping files!");
 		}
 
-		private static void WriteAnnotationsFile(List<string> annotationsToOutput)
+		private static void WriteAnnotationsFile(List<string> annotationsToOutput, int minBook, int maxBook)
 		{
 			if (!Directory.Exists(Path.GetDirectoryName(kOutputFileForAnnotations)))
 			{
 				WriteOutput($"Could not write file {kOutputFileForAnnotations}. If annotations have changed, this needs to be run by a developer. ");
 				return;
 			}
+
 			var sb = new StringBuilder();
+			var linesToAppend = new List<string>();
+			if (File.Exists(kOutputFileForAnnotations))
+			{
+				var lines = File.ReadAllLines(kOutputFileForAnnotations);
+				foreach (var line in lines)
+				{
+					var bookNum = BCVRef.BookToNumber(line.Substring(0, 3));
+					if (bookNum < minBook)
+						sb.AppendLine(line);
+					else if (bookNum > maxBook)
+						linesToAppend.Add(line);
+				}
+			}
 			foreach (string annotation in annotationsToOutput)
-				sb.Append(annotation).Append(Environment.NewLine);
+				sb.AppendLine(annotation);
+			foreach (var line in linesToAppend)
+				sb.AppendLine(line);
 			File.WriteAllText(kOutputFileForAnnotations, sb.ToString());
 		}
 
@@ -2005,34 +2060,6 @@ namespace Glyssen.RefTextDevUtilities
 			return iStartAt;
 		}
 
-		private static void GetQuoteMarksForLanguage(string languageName, out string doubleOpen, out string doubleClose, out string singleOpen, out string singleClose)
-		{
-			doubleOpen = "“";
-			doubleClose = "”";
-			singleOpen = "‘";
-			singleClose = "’";
-			switch (languageName)
-			{
-				case "Azeri":
-					doubleOpen = "\"";
-					doubleClose = "\"";
-					singleOpen = "“";
-					singleClose = "”";
-					break;
-				case "French":
-				case "Spanish":
-					doubleOpen = "«";
-					doubleClose = "»";
-					break;
-				case "TokPisin":
-					doubleOpen = "\"";
-					doubleClose = "\"";
-					singleOpen = "'";
-					singleClose = "'";
-					break;
-			}
-		}
-
 		public static bool LinkToEnglish()
 		{
 			bool errorOccurred = false;
@@ -2041,12 +2068,6 @@ namespace Glyssen.RefTextDevUtilities
 				Console.WriteLine("Processing " +
 					(referenceTextId.Type == ReferenceTextType.Custom ? referenceTextId.CustomIdentifier : referenceTextId.Type.ToString()) +
 					"...");
-
-				string openQuote;
-				string closeQuote;
-				string openQuoteSingle;
-				string closeQuoteSingle;
-				GetQuoteMarksForLanguage(referenceTextId.Name, out openQuote, out closeQuote, out openQuoteSingle, out closeQuoteSingle);
 
 				Console.Write("   ");
 
@@ -2169,7 +2190,7 @@ namespace Glyssen.RefTextDevUtilities
 		private const string k3Bars = @"\|\|\|";
 		private static readonly Regex s_musicOrNonF8SoundAnnotationInCurlyBracesRegex = new Regex("{(M|S).*?}", RegexOptions.Compiled);
 		private static readonly Regex s_annotationInCurlyBracesRegex = new Regex("{[^0-9]+.*?}", RegexOptions.Compiled);
-		private static readonly Regex s_annotationDelimitedWith3VerticalBarsRegex = new Regex($" {k3Bars}.*?{k3Bars} ?", RegexOptions.Compiled);
+		private static readonly Regex s_annotationDelimitedWith3VerticalBarsRegex = new Regex($" {k3Bars}.*?{k3Bars}", RegexOptions.Compiled);
 		private static readonly Regex s_anyAnnotationRegex = new Regex($"{RegexEscapedDoNotCombine}{s_annotationInCurlyBracesRegex}|{s_annotationInCurlyBracesRegex}|{s_annotationDelimitedWith3VerticalBarsRegex}", RegexOptions.Compiled);
 		// For splitting, the regular expression is wrapped in parentheses to tell Split method to include the capturing group as one of the strings in the resulting array.
 		// See explanation here: https://stackoverflow.com/questions/27999449/c-sharp-regex-match-vs-split-for-same-string
@@ -2188,26 +2209,36 @@ namespace Glyssen.RefTextDevUtilities
 		private static readonly Regex s_musicSfxRegex = new Regex("{Music \\+ SFX--(.*?) Starts? @ v(\\d*?)}", RegexOptions.Compiled);
 		private static Ignore s_differencesToIgnore;
 
-		public static bool ConvertTextToControlScriptAnnotationElement(string text, out ScriptAnnotation annotation)
+		public static bool ConvertTextToControlScriptAnnotationElement(string text, Func<bool> isEndOfChapter, out ScriptAnnotation annotation)
 		{
 			if (string.IsNullOrWhiteSpace(text))
 				throw new ArgumentException("text must contain non-whitespace", "text");
 
 			var match = s_doNotCombineRegex.Match(text);
 			if (match.Success)
-				return ConvertTextToControlScriptAnnotationElement(text.Substring(match.Length), out annotation);
+				return ConvertTextToControlScriptAnnotationElement(text.Substring(match.Length), isEndOfChapter, out annotation);
 
 			match = s_pauseRegex.Match(text);
 			if (match.Success)
 			{
-				annotation = new Pause { TimeUnits = TimeUnits.Seconds, Time = double.Parse(match.Groups[1].Value) };
+				var duration = double.Parse(match.Groups[1].Value);
+				if (isEndOfChapter() && (duration.Equals(Pause.kStandardEndOfChapterPause) ||
+					duration.Equals(Pause.kStandardEndOfBookPause)))
+				{
+					// We now handle standard end-of-chapter pauses programmatically.
+					annotation = null;
+					return true;
+				}
+
+				annotation = new Pause { Time = duration };
 				return true;
 			}
 			match = s_pauseMinuteRegex.Match(text);
 			if (match.Success)
 			{
-				annotation = new Pause { TimeUnits = TimeUnits.Minutes, Time = double.Parse(match.Groups[1].Value) };
-				return true;
+				throw new ArgumentException("Pauses specified in minutes are no longer supported", "text");
+				//annotation = new Pause { TimeUnits = TimeUnits.Minutes, Time = double.Parse(match.Groups[1].Value) };
+				//return true;
 			}
 
 			match = s_musicEndRegex.Match(text);

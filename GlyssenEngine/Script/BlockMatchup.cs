@@ -332,7 +332,7 @@ namespace GlyssenEngine.Script
 			return OriginalBlocks.Contains(block) || CorrelatedBlocks.Contains(block);
 		}
 
-		public void MatchAllBlocks()
+		public void MatchAllBlocks(string dialogueDash = null)
 		{
 			var versification = m_vernacularBook.Versification;
 			int bookNum = BCVRef.BookToNumber(BookId);
@@ -354,7 +354,12 @@ namespace GlyssenEngine.Script
 				else
 				{
 					block.SetMatchedReferenceBlock(bookNum, versification, m_referenceLanguageInfo);
-					if (block.CharacterIsUnclear)
+					if (block.CharacterIsUnclear ||
+						(dialogueDash != null && // See PG-1408 (and corresponding unit tests)
+						block.CharacterId == prevBlock?.CharacterId &&
+						!block.IsContinuationOfPreviousBlockQuote &&
+						CharacterVerseData.IsCharacterOfType(block.ReferenceBlocks.Single().CharacterId, CharacterVerseData.StandardCharacter.Narrator) &&
+						block.BlockElements.OfType<ScriptText>().First().Content.StartsWith(dialogueDash)))
 						block.SetCharacterAndDeliveryInfo(block.ReferenceBlocks.Single(), bookNum, versification);
 				}
 
@@ -399,14 +404,13 @@ namespace GlyssenEngine.Script
 		private void InsertHeSaidText(IReferenceLanguageInfo referenceLanguageInfo, int i, Action<int, int, string> handleHeSaidInserted, int level = 0)
 		{
 			var block = CorrelatedBlocks[i];
-			if (block.CharacterIs(BookId, CharacterVerseData.StandardCharacter.Narrator) ||
-				block.CharacterIsUnclear)
+			if (block.IsNarratorOrPotentialNarrator(BookId))
 			{
 				var existingEmptyVerseRefText = block.GetEmptyVerseReferenceTextAtDepth(level);
 				if (existingEmptyVerseRefText != null)
 				{
 					var narrator = CharacterVerseData.GetStandardCharacterId(BookId, CharacterVerseData.StandardCharacter.Narrator);
-					if (block.CharacterIsUnclear)
+					if (block.CharacterId != narrator)
 						block.SetNonDramaticCharacterId(narrator);
 					// Deal with following blocks in quote block chain (and mark this one None).
 					if (block.MultiBlockQuote == MultiBlockQuote.Start)
@@ -420,7 +424,7 @@ namespace GlyssenEngine.Script
 							// It's probably impossible in practice, but if this block has a character other than narrator already set,
 							// let's leave it as is. And, of course, if it's already explicitly set to narrator, then there's nothing to
 							// do.
-							if (contBlock.CharacterIsUnclear)
+							if (contBlock.CharacterId == CharacterVerseData.kNeedsReview)
 							{
 								// By far the common case will be that this block will be associated with a reference
 								// block that has a real character ID. If so, we'll use that ID, even if it's not
@@ -432,7 +436,8 @@ namespace GlyssenEngine.Script
 								// we need to fire the handler to alert the client.
 								var dataChange = false;
 								var newCharacterId = contBlock.ReferenceBlocks.SingleOrDefault()?.CharacterId;
-								if (CharacterVerseData.IsCharacterUnclear(newCharacterId))
+								if (newCharacterId == CharacterVerseData.kNeedsReview ||
+									CharacterVerseData.IsCharacterUnclear(newCharacterId))
 								{
 									newCharacterId = narrator;
 									dataChange = true;

@@ -420,9 +420,8 @@ namespace Glyssen.Dialogs
 		private IEnumerable<int> GetColumnsIntoWhichHeSaidCanBeInserted(DataGridViewRow row)
 		{
 			var matchup = m_viewModel.CurrentReferenceTextMatchup;
-			if (row != null && matchup != null && (matchup.CorrelatedBlocks[row.Index].
-					CharacterIs(m_viewModel.CurrentBookId, CharacterVerseData.StandardCharacter.Narrator) ||
-				matchup.CorrelatedBlocks[row.Index].CharacterId == CharacterVerseData.kUnexpectedCharacter))
+			if (row != null && matchup != null &&
+				matchup.CorrelatedBlocks[row.Index].IsNarratorOrPotentialNarrator(m_viewModel.CurrentBookId))
 			{
 				if (Block.IsEmptyVerseReferenceText(row.Cells[colEnglish.Index].Value as string))
 					yield return colEnglish.Index;
