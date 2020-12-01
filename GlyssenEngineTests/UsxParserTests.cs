@@ -509,6 +509,33 @@ namespace GlyssenEngineTests
 			Assert.AreEqual("Kire wi jo “Kulocelie ye ne we ni.” {24}\u00A0Ba Yusufu wi keni ye ngonimo ne be.", blocks.Last().GetText(true));
 		}
 
+		[TestCase("wj")]
+		[TestCase("qt")]
+		public void Parse_MappedMarkerInsideQuotationMarks_AdjacentPunctuationIncludedInBlockWithQuotedText(string sfMarker)
+		{
+			Assert.IsTrue(StyleToCharacterMappings.TryGetCharacterForCharStyle(sfMarker, out var character),
+				$"Setup condition not met: marker \"{sfMarker}\" in TestCase should be included in {nameof(StyleToCharacterMappings)}.");
+			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\">" +
+				"<verse number=\"18\" style=\"v\" />" +
+				"Kulocɛliɛ céki 'juu mɛ́ nɛ́ jo: «" +
+				$"<char style=\"{sfMarker}\">Siaga nī muɔ bésimɛ ta bè</char>" +
+				"<note caller=\"+\" style=\"f\"><char style=\"fr\" closed=\"false\">11.18 </char><char style=\"ft\" closed=\"false\">" +
+				"<char style=\"xt\" closed=\"true\">Sél 21.12</char>" +
+				"tire ti 'juu náʔa gè.</char></note>" +
+				".»" +
+				"<verse number=\"19\" style=\"v\" />" +
+				"Nɛ̀ kiyaʔa Birayoma yéki sɔ̀ngi nɛ̀ tɛ́ngɛ ki nɛ̄ dí Kucɛliɛ bèle. Kire nɛ̄ wire kiyɛ́nì kpíʔile." +
+				"</para>");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(4, blocks.Count, "Should have a chapter block, plus 3 Scripture blocks.");
+			Assert.AreEqual(character, blocks[2].CharacterId);
+			Assert.IsTrue(blocks[1].GetText(true).TrimEnd().EndsWith("jo:"));
+			Assert.AreEqual("«Siaga nī muɔ bésimɛ ta bè.»", blocks[2].GetText(true).Trim());
+			Assert.IsTrue(blocks[3].StartsAtVerseStart);
+			Assert.AreEqual(19, blocks[3].InitialStartVerseNumber);
+		}
+
 		[Test]
 		public void Parse_ParaStartsWithVerseNumber_BlocksGetCorrectChapterAndVerseNumbers()
 		{
