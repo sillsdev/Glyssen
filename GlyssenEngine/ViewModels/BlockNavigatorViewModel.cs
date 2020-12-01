@@ -317,9 +317,9 @@ namespace GlyssenEngine.ViewModels
 						var indices = new BookBlockIndices(m_temporarilyIncludedBookBlockIndices.BookIndex, m_temporarilyIncludedBookBlockIndices.BlockIndex);
 						for (var iBlock = 0; iBlock < m_temporarilyIncludedBookBlockIndices.MultiBlockCount; iBlock++)
 						{
-							indices.BlockIndex++;
 							if (SetAsCurrentLocationIfRelevant(indices))
 								return; // This can happen, for example if we're switching out of rainbow mode and going from a previously relevant matchup to a single relevant block within it.
+							indices.BlockIndex++;
 						}
 					}
 					if (stayOnCurrentBlock)
@@ -838,7 +838,7 @@ namespace GlyssenEngine.ViewModels
 				currentIndices.BlockIndex, m_project.ReportingClauses, currentIndices.MultiBlockCount);
 			if (m_currentRefBlockMatchups != null)
 			{
-				m_currentRefBlockMatchups.MatchAllBlocks();
+				m_currentRefBlockMatchups.MatchAllBlocks(m_project.QuoteSystem.QuotationDashMarker);
 				// We might have gotten here by ad-hoc navigation (clicking or using the Verse Reference control). Since we are in "rainbow mode"
 				// the filter holds *groups* of relevant blocks (rather than individual ones), so if the new current matchup corresponds to one
 				// of those groups (i.e., it is relevant), we need to set indices based on the group rather than the individual block. Otherwise,

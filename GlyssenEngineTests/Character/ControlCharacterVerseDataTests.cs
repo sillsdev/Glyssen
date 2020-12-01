@@ -230,7 +230,17 @@ namespace GlyssenEngineTests.Character
 		}
 
 		[Test]
-		public void ExpectedQuotes_NonScriptureQuotation_IsNotExpected()
+		public void ExpectedQuotes_ScriptureQuotationAccompaniedByRareNeedsReview_IsNotExpected()
+		{
+			// MAT	9	36	narrator-MAT			Quotation		
+			// MAT	9	36	scripture			Quotation	Micaiah, prophet of the LORD	
+			// MAT	9	36	Jesus			Rare		
+			// MAT	9	36	Needs Review			Rare		
+			Assert.False(ControlCharacterVerseData.Singleton.ExpectedQuotes[BCVRef.BookToNumber("MAT")][9].Contains(36));
+		}
+
+		[Test]
+		public void ExpectedQuotes_QuotationDefaultedToNarrator_IsNotExpected()
 		{
 			// 1KI	12	12	Rehoboam, king			Quotation	narrator-1KI	
 			Assert.False(ControlCharacterVerseData.Singleton.ExpectedQuotes[BCVRef.BookToNumber("1KI")][12].Contains(12));

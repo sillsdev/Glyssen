@@ -166,19 +166,13 @@ namespace Glyssen.Shared
 		/// Gets the verse number as an integer. If the Verse number represents a verse bridge, this will be the
 		/// starting number in the bridge.
 		/// </summary>
-		public int StartVerse
-		{
-			get { return BCVRef.VerseToIntStart(Number); }
-		}
+		public int StartVerse => BCVRef.VerseToIntStart(Number);
 
 		/// <summary>
 		/// Gets the verse number as an integer. If the Verse number represents a verse bridge, this will be the
 		/// ending number in the bridge.
 		/// </summary>
-		public int EndVerse
-		{
-			get { return BCVRef.VerseToIntEnd(Number); }
-		}
+		public int EndVerse => BCVRef.VerseToIntEnd(Number);
 
 		/// <summary>
 		/// If the Verse number represents a verse bridge, this will be the ending number in the bridge; otherwise 0.
@@ -208,10 +202,12 @@ namespace Glyssen.Shared
 	public class Pause : ScriptAnnotation
 	{
 		public const string kPauseSecondsFormat = "||| + {0} SECs |||";
+		public const double kStandardEndOfBookPause = 5d;
+		public const double kStandardEndOfChapterPause = 2d;
 
-		[XmlAttribute("timeUnits")]
-		[DefaultValue(TimeUnits.Seconds)]
-		public TimeUnits TimeUnits { get; set; }
+		//[XmlAttribute("timeUnits")]
+		//[DefaultValue(TimeUnits.Seconds)]
+		public TimeUnits TimeUnits => TimeUnits.Seconds;
 
 		[XmlAttribute("time")]
 		public double Time { get; set; }
@@ -220,8 +216,7 @@ namespace Glyssen.Shared
 		{
 			if (TimeUnits == TimeUnits.Seconds)
 				return string.Format(kPauseSecondsFormat, Time);
-			if (Time == 1.0d)
-				return "||| + 1 MINUTE |||";
+			// "Minute" was only used for a long pause after Revelation. No longer needed. (See comment on PG-1399)
 			Debug.Fail("No code for displaying this annotation: " + ToString());
 			return string.Empty;
 		}

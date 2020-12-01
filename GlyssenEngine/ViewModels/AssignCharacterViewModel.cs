@@ -10,6 +10,8 @@ using SIL.Scripture;
 using CollectionExtensions = SIL.Extensions.CollectionExtensions;
 using SIL;
 using SIL.Reporting;
+using static System.String;
+using SIL.Extensions;
 
 namespace GlyssenEngine.ViewModels
 {
@@ -26,8 +28,8 @@ namespace GlyssenEngine.ViewModels
 		private IEnumerable<Character> m_generatedCharacterList;
 		private List<Delivery> m_currentDeliveries = new List<Delivery>();
 
-		public delegate void AsssignedBlockIncrementEventHandler(AssignCharacterViewModel<TFont> sender, int increment);
-		public event AsssignedBlockIncrementEventHandler AssignedBlocksIncremented;
+		public delegate void AssignedBlockIncrementEventHandler(AssignCharacterViewModel<TFont> sender, int increment);
+		public event AssignedBlockIncrementEventHandler AssignedBlocksIncremented;
 		public event EventHandler CurrentBookSaved;
 		public delegate void CorrelatedBlockChangedHandler(AssignCharacterViewModel<TFont> sender, int index);
 		public event CorrelatedBlockChangedHandler CorrelatedBlockCharacterAssignmentChanged;
@@ -137,18 +139,18 @@ namespace GlyssenEngine.ViewModels
 
 		public void AddPendingProjectCharacterVerseData(Block block, Character character, Delivery delivery)
 		{
-			AddPendingProjectCharacterVerseData(block, character.CharacterId, delivery);
+			AddPendingProjectCharacterVerseData(character.CharacterId, delivery);
 		}
 
 		private void AddPendingProjectCharacterVerseDataIfNeeded(Block block, string characterId)
 		{
 			if (!GetUniqueCharacterVerseObjectsForBlock(block).Any(c => c.Character == characterId && c.Delivery == null))
-				AddPendingProjectCharacterVerseData(block, characterId);
+				AddPendingProjectCharacterVerseData(characterId);
 		}
 
-		private void AddPendingProjectCharacterVerseData(Block block, string characterId, Delivery delivery = null)
+		private void AddPendingProjectCharacterVerseData(string characterId, Delivery delivery = null)
 		{
-			Debug.Assert(!String.IsNullOrEmpty(characterId));
+			Debug.Assert(!IsNullOrEmpty(characterId));
 			m_pendingCharacterDeliveryAdditions.Add(new CharacterSpeakingMode(
 				characterId,
 				delivery == null ? Delivery.Normal.Text : delivery.Text,
@@ -313,7 +315,7 @@ namespace GlyssenEngine.ViewModels
 		{
 			var charactersForCurrentRef = GetUniqueCharacterVerseObjectsForCurrentReference();
 
-			if (string.IsNullOrWhiteSpace(filterText))
+			if (IsNullOrWhiteSpace(filterText))
 			{
 				m_currentCharacters = new HashSet<ICharacterDeliveryInfo>(m_combinedCharacterVerseData.GetUniqueCharacterDeliveryInfo(CurrentBookId));
 			}
@@ -353,7 +355,7 @@ namespace GlyssenEngine.ViewModels
 			if (!selectedCharacter.IsNarrator)
 			{
 				foreach (var cv in m_currentCharacters.Where(c => c.Character == selectedCharacter.CharacterId &&
-					!string.IsNullOrEmpty(c.Delivery) &&
+					!IsNullOrEmpty(c.Delivery) &&
 					m_currentDeliveries.All(d => d.Text != c.Delivery)))
 				{
 					m_currentDeliveries.Add(new Delivery(cv.Delivery, cv.ProjectSpecific));
@@ -365,7 +367,7 @@ namespace GlyssenEngine.ViewModels
 		public IEnumerable<Delivery> GetUniqueDeliveries(string filterText = null)
 		{
 			List<Delivery> deliveries;
-			if (string.IsNullOrWhiteSpace(filterText))
+			if (IsNullOrWhiteSpace(filterText))
 				deliveries = m_combinedCharacterVerseData.GetUniqueDeliveries()
 					.Select(d => m_currentDeliveries.FirstOrDefault(cd => cd.Text == d) ?? new Delivery(d)).ToList();
 			else
@@ -386,14 +388,16 @@ namespace GlyssenEngine.ViewModels
 
 			foreach (var block in CurrentReferenceTextMatchup.CorrelatedBlocks)
 			{
-				foreach (var delivery in GetUniqueCharacterVerseObjectsForBlock(block).Where(cv => !String.IsNullOrEmpty(cv.Delivery))
+				foreach (var delivery in GetUniqueCharacterVerseObjectsForBlock(block).Where(cv => !IsNullOrEmpty(cv.Delivery))
 					.Select(cv => new Delivery(cv.Delivery, cv.ProjectSpecific)))
 				{
 					if (!m_currentDeliveries.Any(d => d.Text == delivery.Text))
 						m_currentDeliveries.Add(delivery);
 				}
-				if (!String.IsNullOrEmpty(block.Delivery) && !m_currentDeliveries.Any(d => d.Text == block.Delivery))
-					m_currentDeliveries.Add(new Delivery(block.Delivery));
+
+				var deliveryFromBlock = GetEffectiveDelivery(block);
+				if (!IsNullOrEmpty(deliveryFromBlock) && !m_currentDeliveries.Any(d => d.Text == deliveryFromBlock))
+					m_currentDeliveries.Add(new Delivery(deliveryFromBlock));
 			}
 
 			m_currentDeliveries.Sort(m_deliveryComparer);
@@ -401,6 +405,19 @@ namespace GlyssenEngine.ViewModels
 			m_currentDeliveries.Insert(0, Delivery.Normal);
 
 			return m_currentDeliveries;
+		}
+		
+		public string GetEffectiveDelivery(Block block)
+		{
+			var delivery = block.Delivery;
+			if (IsNullOrEmpty(delivery) && block.MatchesReferenceText)
+			{
+				var refBlock = block.ReferenceBlocks.Single();
+				delivery = refBlock.Delivery ??
+					(m_project.ReferenceText.HasSecondaryReferenceText ? refBlock.ReferenceBlocks.SingleOrDefault()?.Delivery : null);
+			}
+
+			return delivery;
 		}
 
 		public IEnumerable<Delivery> GetDeliveriesForCharacterInCurrentReferenceTextMatchup(Character character)
@@ -430,7 +447,7 @@ namespace GlyssenEngine.ViewModels
 				return true;
 
 			if (newDelivery.IsNormal)
-				return (!string.IsNullOrEmpty(currentBlock.Delivery));
+				return (!IsNullOrEmpty(currentBlock.Delivery));
 
 			return newDelivery.Text != currentBlock.Delivery;
 		}
@@ -581,7 +598,7 @@ namespace GlyssenEngine.ViewModels
 			{
 				if (character.CharacterId == characterId)
 				{
-					if (!string.IsNullOrEmpty(character.LocalizedAlias))
+					if (!IsNullOrEmpty(character.LocalizedAlias))
 						return character.LocalizedAlias;
 					break;
 				}
@@ -602,7 +619,7 @@ namespace GlyssenEngine.ViewModels
 				var firstCharacterId = characters.First(c => c.Key == 0).Value;
 				if (currentBlock.CharacterId != firstCharacterId)
 				{
-					if (string.IsNullOrEmpty(firstCharacterId))
+					if (IsNullOrEmpty(firstCharacterId))
 						currentBlock.CharacterId = CharacterVerseData.kUnexpectedCharacter;
 					else
 					{
@@ -625,7 +642,7 @@ namespace GlyssenEngine.ViewModels
 						var originalNextBlock = BlockAccessor.GetNthNextBlockWithinBook(1, blockSplitData.BlockToSplit);
 						var chipOffTheOldBlock = CurrentBook.SplitBlock(blockSplitData.BlockToSplit, blockSplitData.VerseToSplit,
 							blockSplitData.CharacterOffsetToSplit, true, characterId);
-						if (!string.IsNullOrEmpty(characterId))
+						if (!IsNullOrEmpty(characterId))
 							AddPendingProjectCharacterVerseDataIfNeeded(chipOffTheOldBlock, characterId);
 
 						var isNewBlock = originalNextBlock != chipOffTheOldBlock;
@@ -637,7 +654,7 @@ namespace GlyssenEngine.ViewModels
 						}
 						else
 						{
-							// We "split" between existing blocks in a multiblock quote,
+							// We "split" between existing blocks in a multi-block quote,
 							// so we don't need to do the same kind of cleanup above.
 						}
 						AddToRelevantBlocksIfNeeded(chipOffTheOldBlock, isNewBlock);
@@ -712,15 +729,15 @@ namespace GlyssenEngine.ViewModels
 				m_characterId = CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator) ?
 					s_narrator.CharacterId : characterId;
 				m_localizedCharacterId = localizedCharacterId ?? characterId;
-				m_alias = String.IsNullOrWhiteSpace(alias) ? null : alias;
-				m_localizedAlias = String.IsNullOrWhiteSpace(localizedAlias) ? null : localizedAlias;
+				m_alias = IsNullOrWhiteSpace(alias) ? null : alias;
+				m_localizedAlias = IsNullOrWhiteSpace(localizedAlias) ? null : localizedAlias;
 				m_projectSpecific = projectSpecific;
 			}
 
 			public override string ToString()
 			{
 				if (IsNarrator)
-					return String.Format(CharacterId, s_funcToGetBookId());
+					return Format(CharacterId, s_funcToGetBookId());
 				return LocalizedAlias ?? CharacterId;
 			}
 
@@ -736,9 +753,9 @@ namespace GlyssenEngine.ViewModels
 				switch (CharacterVerseData.GetStandardCharacterType(characterId))
 				{
 					case CharacterVerseData.StandardCharacter.Narrator: return s_narrator.ToString();
-					case CharacterVerseData.StandardCharacter.Intro: return String.Format(s_introCharacter, s_funcToGetBookId());
-					case CharacterVerseData.StandardCharacter.ExtraBiblical: return String.Format(s_extraCharacter, s_funcToGetBookId());
-					case CharacterVerseData.StandardCharacter.BookOrChapter: return String.Format(s_bookChapterCharacter, s_funcToGetBookId());
+					case CharacterVerseData.StandardCharacter.Intro: return Format(s_introCharacter, s_funcToGetBookId());
+					case CharacterVerseData.StandardCharacter.ExtraBiblical: return Format(s_extraCharacter, s_funcToGetBookId());
+					case CharacterVerseData.StandardCharacter.BookOrChapter: return Format(s_bookChapterCharacter, s_funcToGetBookId());
 					default:
 						if (characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnexpectedCharacter)
 							return "";
@@ -753,7 +770,7 @@ namespace GlyssenEngine.ViewModels
 			#region Equality members
 			protected bool Equals(Character other)
 			{
-				return string.Equals(CharacterId, other.CharacterId);
+				return String.Equals(CharacterId, other.CharacterId);
 			}
 
 			public override bool Equals(object obj)
@@ -804,7 +821,7 @@ namespace GlyssenEngine.ViewModels
 				}
 
 				// this is not a special case
-				return string.Compare(xTextToCompare, yTextToCompare, StringComparison.InvariantCultureIgnoreCase);
+				return Compare(xTextToCompare, yTextToCompare, StringComparison.InvariantCultureIgnoreCase);
 			}
 		}
 
@@ -822,11 +839,11 @@ namespace GlyssenEngine.ViewModels
 		{
 			int IComparer<Character>.Compare(Character x, Character y)
 			{
-				var xTextToCompare = string.IsNullOrEmpty(x.Alias) ? x.CharacterId : x.Alias;
-				var yTextToCompare = string.IsNullOrEmpty(y.Alias) ? y.CharacterId : y.Alias;
+				var xTextToCompare = IsNullOrEmpty(x.Alias) ? x.CharacterId : x.Alias;
+				var yTextToCompare = IsNullOrEmpty(y.Alias) ? y.CharacterId : y.Alias;
 
 				var result = CompareSpecialCases(x, y, xTextToCompare, yTextToCompare);
-				return result != 0 ? result : string.Compare(x.CharacterId, y.CharacterId, StringComparison.InvariantCultureIgnoreCase);
+				return result != 0 ? result : Compare(x.CharacterId, y.CharacterId, StringComparison.InvariantCultureIgnoreCase);
 			}
 		}
 		#endregion
@@ -907,7 +924,7 @@ namespace GlyssenEngine.ViewModels
 		{
 			int IComparer<Delivery>.Compare(Delivery x, Delivery y)
 			{
-				return String.Compare(x.Text, y.Text, StringComparison.InvariantCultureIgnoreCase);
+				return Compare(x.Text, y.Text, StringComparison.InvariantCultureIgnoreCase);
 			}
 		}
 		#endregion

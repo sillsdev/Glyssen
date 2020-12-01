@@ -125,7 +125,7 @@
 
 	</Target>
 
-	<Target Name="ReferenceTextUtilityInstaller" DependsOnTargets="Build ">
+	<Target Name="ReferenceTextUtilityInstaller" DependsOnTargets="SetInstallerVersionNumber; Build ">
 
 		<FileUpdate File="$(RootDir)\Reference Text Utility\Installer\RTUInstaller.wxs" Regex='Property_ProductVersion = ".*"'
 			ReplacementText ="Property_ProductVersion = &quot;$(GitVersion_MajorMinorPatch)&quot;" />
@@ -137,7 +137,10 @@
 		</PropertyGroup>
 		<Message Text="RTUInstallerFileDestName: $(RTUInstallerFileDestName)" Importance="high"/>
 	
-		<MSBuild Projects="$(RootDir)\Reference Text Utility\Installer\RTUInstaller.wixproj"/>
+		<MSBuild
+			Projects="$(RootDir)\Reference Text Utility\Installer\RTUInstaller.wixproj"
+			Properties="Configuration=$(Configuration)" />
+		<Message Text="RTUInstaller Build Complete"/>
 
 		<!-- remove an existing one with the same name, if necessary -->
 		<Delete Files="$(RTUInstallerFileDestName)" TreatErrorsAsWarnings="false" />
@@ -151,7 +154,7 @@
 
 	</Target>
 
-	<!-- These targets are designed to be additional steps on TeamCity after running target Installer. Pick the appropriate one
+	<!--When building on TeamCity, use one of these targets to build a signed Installer. Pick the appropriate one
 	depending on whether your project's output MUST be signed or it's only nice if it is. For example, a continuous build
 	might use SignIfPossible, while a Publication build must use SignInstaller.-->
 	<Target Name="SignInstaller" DependsOnTargets="Installer">
