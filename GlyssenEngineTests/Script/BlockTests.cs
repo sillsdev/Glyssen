@@ -1589,7 +1589,7 @@ namespace GlyssenEngineTests.Script
 			}
 			else
 			{
-				Block.GetSwappedReferenceText(null, "{21} Verse twenty-one.",
+				Block.GetSwappedReferenceText(null, -1, null, "{21} Verse twenty-one.",
 					out newRowAValue, out newRowBValue);
 			}
 
@@ -1613,7 +1613,7 @@ namespace GlyssenEngineTests.Script
 			}
 			else
 			{
-				Block.GetSwappedReferenceText("{21} Verse twenty-one.", null,
+				Block.GetSwappedReferenceText(null, -1, "{21} Verse twenty-one.", null,
 					out newRowAValue, out newRowBValue);
 			}
 

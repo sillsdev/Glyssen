@@ -1215,16 +1215,6 @@ namespace GlyssenEngine.Script
 			ReferenceBlocks = new List<Block>(origList.Select(rb => rb.Clone(ReferenceBlockCloningBehavior.CloneListAndAllReferenceBlocks)));
 		}
 
-		/// <summary>
-		/// The other version of this method is preferred, as it is better able to determine
-		/// whether a leading verse number should be separated from the text of the block being
-		/// moved down.
-		/// </summary>
-		public static void GetSwappedReferenceText(string rowA, string rowB, out string newRowAValue, out string newRowBValue)
-		{
-			GetSwappedReferenceText(null, -1, rowA, rowB, out newRowAValue, out newRowBValue);
-		}
-
 		public static void GetSwappedReferenceText(IEnumerable<Block> vernBlocks, int iCurrentVernBlock,
 			string rowA, string rowB, out string newRowAValue, out string newRowBValue)
 		{
