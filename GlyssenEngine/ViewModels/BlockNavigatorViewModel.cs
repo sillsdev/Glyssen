@@ -234,18 +234,8 @@ namespace GlyssenEngine.ViewModels
 						// A block within the existing matchup has been selected, so we need to translate the index to find the
 						// correct block within the sequence of correlated blocks rather than within the book.
 						index -= m_currentRefBlockMatchups.IndexOfStartBlockInBook;
-						var newAnchorBlock = m_currentRefBlockMatchups.CorrelatedBlocks[index];
-						while (newAnchorBlock.CharacterIs(CurrentBookId, CharacterVerseData.StandardCharacter.ExtraBiblical))
-						{
-							index++; // A section head should NEVER be the last one in the matchup!
-							newAnchorBlock = m_currentRefBlockMatchups.CorrelatedBlocks[index];
-						}
-						// Just reset the anchor (if needed) and get out.
-						if (newAnchorBlock != m_currentRefBlockMatchups.CorrelatedAnchorBlock)
-						{
-							m_currentRefBlockMatchups.ChangeAnchor(newAnchorBlock);
+						if (TrySetCorrelatedAnchorBlockToFirstScriptureBlockAfter(index))
 							HandleCurrentBlockChanged();
-						}
 						return;
 					}
 				}
@@ -816,11 +806,29 @@ namespace GlyssenEngine.ViewModels
 					m_currentRefBlockMatchups.IndexOfStartBlockInBook + m_currentRefBlockMatchups.OriginalBlockCount >= indices.BlockIndex &&
 					m_currentRefBlockMatchups.CorrelatedAnchorBlock != m_currentRefBlockMatchups.CorrelatedBlocks[indices.BlockIndex - m_currentRefBlockMatchups.IndexOfStartBlockInBook])
 				{
-					m_currentRefBlockMatchups.ChangeAnchor(m_currentRefBlockMatchups.CorrelatedBlocks[indices.BlockIndex - m_currentRefBlockMatchups.IndexOfStartBlockInBook]);
+					TrySetCorrelatedAnchorBlockToFirstScriptureBlockAfter(indices.BlockIndex - m_currentRefBlockMatchups.IndexOfStartBlockInBook);
 				}
 			}
 
 			HandleCurrentBlockChanged();
+		}
+
+		private bool TrySetCorrelatedAnchorBlockToFirstScriptureBlockAfter(int index)
+		{
+			var newAnchorBlock = m_currentRefBlockMatchups.CorrelatedBlocks[index];
+			while (newAnchorBlock.CharacterIs(CurrentBookId, CharacterVerseData.StandardCharacter.ExtraBiblical))
+			{
+				if (index == m_currentRefBlockMatchups.CorrelatedBlocks.Count)
+					throw new Exception("A section head should NEVER be the last one in the matchup!");
+				index++;
+				newAnchorBlock = m_currentRefBlockMatchups.CorrelatedBlocks[index];
+			}
+
+			if (newAnchorBlock == m_currentRefBlockMatchups.CorrelatedAnchorBlock)
+				return false;
+
+			m_currentRefBlockMatchups.ChangeAnchor(newAnchorBlock);
+			return true;
 		}
 
 		public void SetBlockMatchupForCurrentLocation()
@@ -1179,19 +1187,6 @@ namespace GlyssenEngine.ViewModels
 
 			// check for verse surrounded by the block (can happen if there is a verse bridge)
 			if ((verse.Verse >= block.InitialStartVerseNumber) && (verse.Verse < block.LastVerseNum))
-				return true;
-
-			return false;
-		}
-
-		static bool PeekForwardBlocksMatch(Block block, BCVRef verse)
-		{
-			if (block.ChapterNumber != verse.Chapter) return false;
-
-			if (block.InitialStartVerseNumber == verse.Verse) return true;
-
-			// check for verse surrounded by the block (can happen if there is a verse bridge)
-			if ((verse.Verse > block.InitialStartVerseNumber) && (verse.Verse <= block.LastVerseNum))
 				return true;
 
 			return false;
