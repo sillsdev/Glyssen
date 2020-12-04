@@ -375,26 +375,25 @@ namespace GlyssenEngine.Export
 			//}
 			dataArray.Insert(0, GetHeaders().ToArray());
 
-			void AppendReferenceTextCopyrightInfo(ReferenceText referenceText, List<string> list)
+			void AppendReferenceTextCopyrightInfo(ReferenceText referenceText, ref string copyrightInfo)
 			{
-				var primaryCopyrightInfo = referenceText.Metadata.Copyright?.Statement?.InternalNodes.Select(n => n.InnerText).ToList();
-				if (primaryCopyrightInfo != null && primaryCopyrightInfo.Any())
+				var refTextCopyrightInfo = referenceText.Metadata.Copyright?.ToString();
+				if (!IsNullOrEmpty(refTextCopyrightInfo))
 				{
-					primaryCopyrightInfo.Insert(0, $"{referenceText.LanguageName} reference text: {referenceText.Metadata.Identification?.Name}");
-					list.AddRange(primaryCopyrightInfo);
+					copyrightInfo += $"{referenceText.LanguageName} reference text: {referenceText.Metadata.Identification?.Name}" +
+						Environment.NewLine + refTextCopyrightInfo;
 				}
 			}
 
 			using (var xls = new ExcelPackage(new FileInfo(path)))
 			{
 				xls.Workbook.Properties.Title = OutputName;
-				var copyrightInfo = Project.Metadata.Copyright?.Statement?.InternalNodes?.Select(n => n.InnerText).ToList() ??
-					new List<string>();
-				AppendReferenceTextCopyrightInfo(Project.ReferenceText, copyrightInfo);
+				var copyrightInfo = Project.Metadata.Copyright?.ToString() ?? Empty;
+				AppendReferenceTextCopyrightInfo(Project.ReferenceText, ref copyrightInfo);
 				if (Project.ReferenceText.HasSecondaryReferenceText)
-					AppendReferenceTextCopyrightInfo(Project.ReferenceText.SecondaryReferenceText, copyrightInfo);
-				if (copyrightInfo.Any())
-					xls.Workbook.Properties.Comments = string.Join(Environment.NewLine, copyrightInfo);
+					AppendReferenceTextCopyrightInfo(Project.ReferenceText.SecondaryReferenceText, ref copyrightInfo);
+				if (copyrightInfo.Length > 0)
+					xls.Workbook.Properties.Comments = copyrightInfo;
 				var sheet = xls.Workbook.Worksheets.Add("Script");
 				var firstCell = sheet.Cells["A1"];
 				firstCell.LoadFromArrays(dataArray);

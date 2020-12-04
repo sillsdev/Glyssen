@@ -200,7 +200,7 @@ namespace GlyssenEngine.Paratext
 					};
 
 					if (!IsNullOrEmpty(UnderlyingScrText.Settings.Copyright))
-						m_metadata.Copyright = new DblMetadataCopyright {Statement = new DblMetadataXhtmlContentNode {Xhtml = UnderlyingScrText.Settings.Copyright}};
+						m_metadata.Copyright = new DblMetadataCopyright(UnderlyingScrText.Settings.Copyright);
 
 					if (!IsNullOrEmpty(UnderlyingScrText.Settings.TMSId))
 						m_metadata.Identification.SystemIds.Add(new DblMetadataSystemId {Type = "tms", Id = UnderlyingScrText.Settings.TMSId});
