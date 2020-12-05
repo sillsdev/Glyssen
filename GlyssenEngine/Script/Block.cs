@@ -1215,7 +1215,8 @@ namespace GlyssenEngine.Script
 			ReferenceBlocks = new List<Block>(origList.Select(rb => rb.Clone(ReferenceBlockCloningBehavior.CloneListAndAllReferenceBlocks)));
 		}
 
-		public static void GetSwappedReferenceText(string rowA, string rowB, out string newRowAValue, out string newRowBValue)
+		public static void GetSwappedReferenceText(IEnumerable<Block> vernBlocks, int iCurrentVernBlock,
+			string rowA, string rowB, out string newRowAValue, out string newRowBValue)
 		{
 			newRowBValue = rowA;
 			if (rowA == null || rowB == null)
@@ -1229,8 +1230,13 @@ namespace GlyssenEngine.Script
 			var match = verseNumbers.Match(newRowBValue);
 			if (match.Success && !verseNumbers.IsMatch(rowB))
 			{
-				leadingVerse = match.Value;
-				newRowBValue = newRowBValue.Substring(match.Length);
+				var verseNum = match.Value.Trim().TrimStart('{').TrimEnd('}');
+				if (vernBlocks == null ||
+					!vernBlocks.Skip(iCurrentVernBlock + 1).Any(b => b.AllVerses.Any(v => v.ToString() == verseNum)))
+				{
+					leadingVerse = match.Value;
+					newRowBValue = newRowBValue.Substring(match.Length);
+				}
 			}
 			newRowAValue = leadingVerse + rowB;
 		}
