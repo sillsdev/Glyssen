@@ -942,11 +942,26 @@ namespace GlyssenEngine.Quote
 							// slight chance the delivery could change. And an even slighter chance we could have two
 							// possible deliveries left after removing any other characters from this list. So we'll
 							// be conservative and just prune the list down by character.
-							characterSpeakingDetails.RemoveAll(cv => cv.Character != prevQuoteBlock.CharacterId);
-							Debug.Assert(characterSpeakingDetails.Any(),
-								$"(See PG-1321) We are in the middle of a quote in {m_bookId} {m_workingBlock.ChapterNumber}:{m_workingBlock.InitialStartVerseNumber} " +
-								"and we have no speakers left who were possible when this quote opened. Unless we're missing some useful entries in the CharacterVerse " +
-								$"control file, the logic for {nameof(m_possibleCharactersForCurrentQuote)} should have kept us from running off the rails like this.");
+							// PG-1321: there's also the special case where we need to backtrack and consider an
+							// alternate character who was passed over in the preceding blocks.
+							if (characterSpeakingDetails.All(cv => cv.Character != prevQuoteBlock.CharacterId))
+							{
+								characterSpeakingDetails = new HashSet<CharacterSpeakingMode>(
+									characterSpeakingDetails.Where(newCv =>
+									m_currentMultiBlockQuote.All(earlierBlock => m_cvInfo.GetCharacters(m_bookNum,
+										earlierBlock.ChapterNumber, earlierBlock.AllVerses, m_versification, true).Any(cv =>
+										cv.Character == newCv.Character))));
+								Debug.Assert(characterSpeakingDetails.Any(),
+									$"(See PG-1321) TODO: Try to write a unit test. We are in the middle of a quote in {m_bookId} {m_workingBlock.ChapterNumber}:{m_workingBlock.InitialStartVerseNumber} " +
+									"and we have no speakers left who were possible when this quote opened. Unless we're missing some useful entries in the CharacterVerse " +
+									$"control file, the logic for {nameof(m_possibleCharactersForCurrentQuote)} should have kept us from running off the rails like this.");
+								foreach (var earlierBlock in m_currentMultiBlockQuote)
+									earlierBlock.SetCharacterAndDelivery(s_quoteSystem, characterSpeakingDetails);
+							}
+							else
+							{
+								characterSpeakingDetails.RemoveAll(cv => cv.Character != prevQuoteBlock.CharacterId);
+							}
 						}
 					}
 					m_workingBlock.SetCharacterAndDelivery(s_quoteSystem, characterSpeakingDetails);
