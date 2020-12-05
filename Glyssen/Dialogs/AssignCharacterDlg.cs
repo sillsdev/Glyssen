@@ -1395,9 +1395,10 @@ namespace Glyssen.Dialogs
 			m_viewModel.GetRowIndicesForMovingReferenceText(down, currentRowIndex, out int iPreceding, out int iFollowing);
 			var rowA = m_dataGridReferenceText.Rows[iPreceding];
 			var rowB = m_dataGridReferenceText.Rows[iFollowing];
+			var vernBlocks = m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks;
 			if (colPrimary.Visible)
-				SwapRefText(rowA, rowB, colPrimary.Index);
-			SwapRefText(rowA, rowB, colEnglish.Index);
+				SwapRefText(vernBlocks, currentRowIndex, rowA, rowB, colPrimary.Index);
+			SwapRefText(vernBlocks, currentRowIndex, rowA, rowB, colEnglish.Index);
 			if (m_viewModel.CurrentReferenceTextMatchup.CanChangeCharacterAndDeliveryInfo(rowA.Index, rowB.Index))
 			{
 				if (!colCharacter.ReadOnly)
@@ -1419,11 +1420,12 @@ namespace Glyssen.Dialogs
 			rowB.Cells[columnIndex].Value = temp;
 		}
 
-		private void SwapRefText(DataGridViewRow rowA, DataGridViewRow rowB, int columnIndex)
+		private void SwapRefText(IEnumerable<Block> vernBlocks, int iCurrentVernBlock,
+			DataGridViewRow rowA, DataGridViewRow rowB, int columnIndex)
 		{
-			string newRowAValue, newRowBValue;
-			Block.GetSwappedReferenceText((string)rowA.Cells[columnIndex].Value, (string)rowB.Cells[columnIndex].Value,
-				out newRowAValue, out newRowBValue);
+			Block.GetSwappedReferenceText(vernBlocks, iCurrentVernBlock,
+				(string)rowA.Cells[columnIndex].Value, (string)rowB.Cells[columnIndex].Value,
+				out var newRowAValue, out var newRowBValue);
 			rowA.Cells[columnIndex].Value = newRowAValue;
 			rowB.Cells[columnIndex].Value = newRowBValue;
 		}
@@ -1888,19 +1890,23 @@ namespace Glyssen.Dialogs
 			var textBeforeInsertionPoint = editingCtrl.Text.Substring(0, editingCtrl.SelectionStart);
 			var textAfterInsertionPoint = editingCtrl.Text.Substring(editingCtrl.SelectionStart);
 			var destCell = GetSplitTextDestination();
-			if (destCell.RowIndex < currCell.RowIndex)
-			{
-				destCell.Value = textBeforeInsertionPoint;
-				currCell.Value = textAfterInsertionPoint;
-			}
+			if (destCell == null)
+				editingCtrl.Click -= HandleClickToSplitRefText;
 			else
 			{
-				currCell.Value = textBeforeInsertionPoint;
-				destCell.Value = textAfterInsertionPoint;
+				if (destCell.RowIndex < currCell.RowIndex)
+				{
+					destCell.Value = textBeforeInsertionPoint;
+					currCell.Value = textAfterInsertionPoint;
+				}
+				else
+				{
+					currCell.Value = textBeforeInsertionPoint;
+					destCell.Value = textAfterInsertionPoint;
+				}
+
+				m_dataGridReferenceText.CurrentCell = destCell;
 			}
-			m_dataGridReferenceText.CurrentCell = destCell;
-			if (GetSplitTextDestination() == null)
-				editingCtrl.Click -= HandleClickToSplitRefText;
 		}
 
 		private DataGridViewCell GetSplitTextDestination()

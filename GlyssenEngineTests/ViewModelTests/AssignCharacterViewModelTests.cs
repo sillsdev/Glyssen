@@ -244,11 +244,22 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			FindRefInMark(5, 9);
 			var characters = m_model.GetUniqueCharacters("zeru").ToList();
-			Assert.AreEqual(4, characters.Count);
-			Assert.AreEqual("Zerubbabel/Jeshua/rest of heads of families", characters[0].CharacterId);
+			Assert.AreEqual(5, characters.Count);
+			Assert.AreEqual("Zerubbabel", characters[0].CharacterId);
+			Assert.AreEqual("Zerubbabel/Jeshua/rest of heads of families", characters[1].CharacterId);
 			Assert.IsTrue(characters.Any(c => c.CharacterId == "Jesus"));
 			Assert.IsTrue(characters.Any(c => c.CharacterId == "demons (Legion)/man delivered from Legion of demons"));
-			Assert.IsTrue(characters[3].IsNarrator);
+			Assert.IsTrue(characters[4].IsNarrator);
+		}
+
+		[TestCase("father of cured man, blind from birth")]
+		public void GetUniqueCharacters_MatchingFilterInCharacterDetailButNotInCharacterVerse_ResultIncludesMatchingDetailCharacter(string character)
+		{
+			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Any(c => c.Character == character),
+				"Setup precondition not met");
+			Assert.IsNull(CharacterDetailData.Singleton.GetDictionary()[character].FirstReference,
+				"Setup precondition not met");
+			Assert.AreEqual(character, m_model.GetUniqueCharacters(character).First().CharacterId);
 		}
 
 		[Test]
@@ -2299,6 +2310,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerseOct2015;
+			CharacterDetailData.TabDelimitedCharacterDetailData = Properties.Resources.TestCharacterDetailOct2015;
 			CreateTestProjectForActs();
 		}
 
@@ -2336,7 +2348,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		}
 
 		[Test]
-		public void ApplyCurrentReferenceTextMatchup_BlockMatchupAlreadyApplied_ThrowsInvalidOperationException()
+		public void SetMode_NotAlignedToReferenceText_MatchupWithCharactersAssignedIsExcluded()
 		{
 			m_fullProjectRefreshRequired = true;
 			CreateModel(BlocksToDisplay.NotYetAssigned);

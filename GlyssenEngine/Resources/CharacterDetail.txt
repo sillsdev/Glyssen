@@ -81,7 +81,7 @@ Anna, prophetess	1	Female	Elder			LUK 2:38
 another disciple of John the Baptist	1	Male	Adult		Became disciple of Jesus (not Andrew, Simon Peter, Philip, Nathanael, or Matthew)	JHN 1:38
 another holy one (in vision)	1		Adult			DAN 8:13
 answer from Israel	1		Adult			ISA 14:32
-anyone	1		Adult			1CO 10:28 <-(3 more)-> 2JN 1:11
+anyone	1		Adult			JHN 9:22 <-(4 more)-> 2JN 1:11
 anyone with complaint for king	1		Adult			2SA 15:2
 Apollos	1	Male	Adult			ACT 18:28
 apostles, elders, and whole church at Jerusalem	-1		Adult			ACT 4:24 <-(7 more)-> ACT 15:22
@@ -750,7 +750,7 @@ mob	-1	PreferMale				ACT 17:6 & ACT 17:7
 molded thing	1					ROM 9:20
 Mordecai, cousin of Esther	1	Male				EST 4:13 & EST 4:14
 Moses	1	Male				EXO 2:13 <-(1185 more)-> NEH 8:15
-mother of cured man, blind from birth	1	Female				
+mother of cured man, blind from birth	1	Female				JHN 9:20 <-(2 more)-> JHN 9:23
 mother of false prophet	1	Female				ZEC 13:3
 mother of the sons of Zebedee (James and John)	1	Female				MAT 20:20 & MAT 20:21
 mourners	-1					JER 34:5
