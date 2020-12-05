@@ -1890,19 +1890,23 @@ namespace Glyssen.Dialogs
 			var textBeforeInsertionPoint = editingCtrl.Text.Substring(0, editingCtrl.SelectionStart);
 			var textAfterInsertionPoint = editingCtrl.Text.Substring(editingCtrl.SelectionStart);
 			var destCell = GetSplitTextDestination();
-			if (destCell.RowIndex < currCell.RowIndex)
-			{
-				destCell.Value = textBeforeInsertionPoint;
-				currCell.Value = textAfterInsertionPoint;
-			}
+			if (destCell == null)
+				editingCtrl.Click -= HandleClickToSplitRefText;
 			else
 			{
-				currCell.Value = textBeforeInsertionPoint;
-				destCell.Value = textAfterInsertionPoint;
+				if (destCell.RowIndex < currCell.RowIndex)
+				{
+					destCell.Value = textBeforeInsertionPoint;
+					currCell.Value = textAfterInsertionPoint;
+				}
+				else
+				{
+					currCell.Value = textBeforeInsertionPoint;
+					destCell.Value = textAfterInsertionPoint;
+				}
+
+				m_dataGridReferenceText.CurrentCell = destCell;
 			}
-			m_dataGridReferenceText.CurrentCell = destCell;
-			if (GetSplitTextDestination() == null)
-				editingCtrl.Click -= HandleClickToSplitRefText;
 		}
 
 		private DataGridViewCell GetSplitTextDestination()
