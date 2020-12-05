@@ -327,6 +327,9 @@ namespace GlyssenEngine.ViewModels
 				m_currentCharacters = new HashSet<ICharacterDeliveryInfo>(uniqueEntries
 					.Where(c => c.LocalizedAlias == null && c.LocalizedCharacter.Contains(filterText, StringComparison.OrdinalIgnoreCase)),
 					new CharacterDeliveryEqualityComparer());
+				m_currentCharacters.AddRange(CharacterDetailData.Singleton.GetAll()
+					.Where(c => c.CharacterId.Contains(filterText, StringComparison.OrdinalIgnoreCase))
+					.Select(c => new CharacterSpeakingMode(c.CharacterId, null, null, false)));
 				m_currentCharacters.UnionWith(uniqueEntries.Where(c => c.LocalizedAlias != null &&
 					(c.LocalizedCharacter.Contains(filterText, StringComparison.OrdinalIgnoreCase) ||
 					c.LocalizedAlias.Contains(filterText, StringComparison.OrdinalIgnoreCase))));
@@ -666,7 +669,6 @@ namespace GlyssenEngine.ViewModels
 					// A split will always require the current matchup to be re-constructed.
 					SetBlockMatchupForCurrentLocation();
 				}
-
 
 				//// This is basically a hack. All kinds of problems were occurring after splits causing our indices to get off.
 				//// See https://jira.sil.org/browse/PG-1075. This ensures our state is valid every time.
