@@ -304,6 +304,9 @@ namespace GlyssenEngine.ViewModels
 				m_currentCharacters = new HashSet<ICharacterDeliveryInfo>(uniqueEntries
 					.Where(c => c.LocalizedAlias == null && c.LocalizedCharacter.Contains(filterText, StringComparison.OrdinalIgnoreCase)),
 					new CharacterDeliveryEqualityComparer());
+				m_currentCharacters.AddRange(CharacterDetailData.Singleton.GetAll()
+					.Where(c => c.CharacterId.Contains(filterText, StringComparison.OrdinalIgnoreCase))
+					.Select(c => new CharacterSpeakingMode(c.CharacterId, null, null, false)));
 				m_currentCharacters.UnionWith(uniqueEntries.Where(c => c.LocalizedAlias != null &&
 					(c.LocalizedCharacter.Contains(filterText, StringComparison.OrdinalIgnoreCase) ||
 					c.LocalizedAlias.Contains(filterText, StringComparison.OrdinalIgnoreCase))));
