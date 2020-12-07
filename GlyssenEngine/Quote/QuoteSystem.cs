@@ -9,6 +9,7 @@ using System.Xml.Serialization;
 using SIL.ObjectModel;
 using SIL.WritingSystems;
 using SIL.Xml;
+using static System.Char;
 
 namespace GlyssenEngine.Quote
 {
@@ -263,7 +264,7 @@ namespace GlyssenEngine.Quote
 						// Long dashes should never be word-forming, so even if there is no surrounding whitespace,
 						// they can safely be treated as punctuation dashes that could indicate an interruption.
 						// Hence, the simpler regex (compared to the above regex for normal dashes).
-						const String longDashStyleInterruptionFmt = @"|({0}[^{0}]*\w+[^{0}]*{0})";
+						const string longDashStyleInterruptionFmt = @"|({0}[^{0}]*\w+[^{0}]*{0})";
 						pattern.AppendFormat(longDashStyleInterruptionFmt, "\u2014");
 						pattern.AppendFormat(longDashStyleInterruptionFmt, "\u2015");
 					}
@@ -343,23 +344,11 @@ namespace GlyssenEngine.Quote
 			return Equals((QuoteSystem)obj);
 		}
 
-		public override int GetHashCode()
-		{
-			unchecked
-			{
-				return (AllLevels != null ? AllLevels.GetHashCode() : 0);
-			}
-		}
+		public override int GetHashCode() => AllLevels != null ? AllLevels.GetHashCode() : 0;
 
-		public static bool operator ==(QuoteSystem left, QuoteSystem right)
-		{
-			return Equals(left, right);
-		}
+		public static bool operator ==(QuoteSystem left, QuoteSystem right) => Equals(left, right);
 
-		public static bool operator !=(QuoteSystem left, QuoteSystem right)
-		{
-			return !Equals(left, right);
-		}
+		public static bool operator !=(QuoteSystem left, QuoteSystem right) => !Equals(left, right);
 		#endregion
 
 		private class TypeAndLevelComparer : IComparer<QuotationMark>
@@ -373,16 +362,22 @@ namespace GlyssenEngine.Quote
 			}
 		}
 
-		public bool ProbablyDoesNotContainInterruption(string text)
+		public bool ProbablyIsNotAnInterruption(string text)
 		{
-			return !RegexInterruption.Match(text).Success;
+			var match = RegexInterruption.Match(text.Trim());
+			return !match.Success || match.Index > 0 ||
+				text.Skip(match.Index + match.Length).Any(IsLetter);
 		}
 
 		public QuoteInterruption GetNextInterruption(string text, int startCharIndex)
 		{
 			var match = RegexInterruption.Match(text, startCharIndex);
 			if (match.Success)
+			{
+				if (match.Index > 0 && !text.Take(match.Index).Any(IsLetter))
+					return GetNextInterruption(text, match.Index + match.Length);
 				return new QuoteInterruption(match.Index, match.Length, match.Value);
+			}
 			return null;
 		}
 	}

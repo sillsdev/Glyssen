@@ -61,23 +61,22 @@ namespace GlyssenEngine {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GEN	1	30	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///GEN	2	25	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///GEN	3	24	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///GEN	4	26	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///GEN	5	32	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///GEN	6	22	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///GEN	7	24	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///GEN	8	22	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///GEN	9	29	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///GEN	10	32	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///GEN	11	32	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///GEN	12	20	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///GEN	13	18	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///GEN	14	24	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///GEN	15	19	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///GEN	16	16	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///GEN	17	27 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to ISA	14	24	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///ISA	14	27	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///MAT	1	2	0	&lt;Sound startVerse=&quot;2&quot; /&gt;
+        ///MAT	1	17	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///MAT	2	8	0	&lt;Sound startVerse=&quot;8&quot; /&gt;
+        ///MAT	4	11	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///MAT	4	17	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///MAT	4	22	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///MAT	6	7	0	&lt;Sound endVerse=&quot;7&quot; /&gt;
+        ///MAT	6	15	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///MAT	7	2	0	&lt;Sound startVerse=&quot;2&quot; /&gt;
+        ///MAT	8	4	0	&lt;Pause time=&quot;1.5&quot; /&gt;
+        ///MAT	8	11	0	&lt;Sound endVerse=&quot;11&quot; /&gt;
+        ///MAT	8	13	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///MAT	8	17	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///MAT	8	22	0	&lt;Pause tim [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Annotations {
             get {
@@ -159,7 +158,7 @@ namespace GlyssenEngine {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Control File Version	155
+        ///   Looks up a localized string similar to Control File Version	161
         ///#	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
         ///# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5
         ///GEN	1	3	God		God (the LORD)	Normal		
@@ -275,6 +274,20 @@ namespace GlyssenEngine {
         internal static System.IO.UnmanagedMemoryStream Silent {
             get {
                 return ResourceManager.GetStream("Silent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;
+        ///&lt;StyleToCharacaterMappings&gt;
+        ///    &lt;StyleMapping sf=&quot;wj&quot; character=&quot;Jesus&quot;/&gt;
+        ///    &lt;StyleMapping sf=&quot;qt&quot; character=&quot;scripture&quot;/&gt;
+        ///&lt;/StyleToCharacaterMappings&gt;
+        ///.
+        /// </summary>
+        internal static string StyleToCharacterMappings {
+            get {
+                return ResourceManager.GetString("StyleToCharacterMappings", resourceCulture);
             }
         }
     }

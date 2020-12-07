@@ -907,7 +907,7 @@ namespace GlyssenEngine.Script
 					CharacterSpeakingMode nonInterruption;
 					if (characterList.Count(cd => cd.QuoteType == QuoteType.Interruption) == 1 &&
 						(nonInterruption = characterList.OnlyOrDefault(cd => cd.QuoteType != QuoteType.Interruption)) != null &&
-						ProbablyDoesNotContainInterruption(interruptionFinder))
+						ProbablyIsNotAnInterruption(interruptionFinder))
 					{
 						// Since this block does not appear to be an interruption, we can safely assign the character from
 						// the one and only cv record that is not an "Interruption" type.
@@ -923,13 +923,10 @@ namespace GlyssenEngine.Script
 			}
 		}
 
-		public bool ProbablyDoesNotContainInterruption(IQuoteInterruptionFinder interruptionFinder)
+		public bool ProbablyIsNotAnInterruption(IQuoteInterruptionFinder interruptionFinder)
 		{
-			var textElement = BlockElements.OnlyOrDefault() as ScriptText;
-			if (textElement == null)
-				return true;
-			var text = textElement.Content;//.Trim();
-			return interruptionFinder.ProbablyDoesNotContainInterruption(text);
+			return !(BlockElements.OnlyOrDefault() is ScriptText textElement) ||
+				interruptionFinder.ProbablyIsNotAnInterruption(textElement.Content);
 		}
 
 		public void SetCharacterIdAndCharacterIdInScript(string characterId, int bookNumber, ScrVers scrVers = null)
@@ -1375,8 +1372,7 @@ namespace GlyssenEngine.Script
 			var verse = InitialVerseNumberOrBridge;
 			foreach (var element in BlockElements)
 			{
-				var text = element as ScriptText;
-				if (text != null)
+				if (element is ScriptText text)
 				{
 					var interruption = interruptionFinder.GetNextInterruption(text.Content, startCharIndex);
 					if (interruption != null)
