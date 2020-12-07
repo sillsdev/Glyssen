@@ -4938,7 +4938,7 @@ namespace GlyssenEngineTests.Quote
 			var results = parser.Parse().ToList();
 
 			Assert.AreEqual(5, results.Count);
-			// Text preceeding interruption in original first block:
+			// Text preceding interruption in original first block:
 			int i = 0;
 			Assert.AreEqual(MultiBlockQuote.None, results[i].MultiBlockQuote);
 			Assert.AreEqual("{15}\u00A0«When you see the ‹abomination of desolation› that Daniel prophesied about ", results[i].GetText(true));
