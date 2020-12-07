@@ -175,6 +175,13 @@ namespace GlyssenEngine.Quote
 			{
 				sbQuoteMatcher.Append("(?:");
 				sbQuoteMatcher.Append(Regex.Escape(qm));
+				// It's extremely unlikely that a quote would ever start with a numeral,
+				// so we could probably safely add this look-ahead for any quote marker.
+				// But the main purpose here is to prevent breaking a number range with
+				// a dash (or any kind) by accidentally interpreting the dash as the
+				// start of dialogue.
+				if (qm == "-" || qm == "\u2014" || qm == "\u2015")
+					sbQuoteMatcher.Append(@"(?!\d)");
 				sbQuoteMatcher.Append(")|");
 			}
 			sbQuoteMatcher.Length--;
@@ -215,7 +222,7 @@ namespace GlyssenEngine.Quote
 					continue;
 				}
 
-				if (ControlCharacterVerseData.IsCharStyleThatMapsToSpecificCharacter(block.StyleTag))
+				if (StyleToCharacterMappings.IncludesCharStyle(block.StyleTag))
 				{
 					var cvInfo = GetMatchingCharacter(m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, block.AllVerses, m_versification),
 						new CharacterVerseData.SimpleCharacterInfoWithoutDelivery(block.CharacterId));

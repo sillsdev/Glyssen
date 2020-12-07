@@ -3062,6 +3062,27 @@ namespace GlyssenEngineTests.Quote
 			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
 		}
 
+		[TestCase("-")]
+		[TestCase("\u2014")]
+		[TestCase("\u2015")]
+		public void Parse_DialogueDashBetweenTwoNumbers_KeptAsSingleBlock(string dialogueDash)
+		{
+			// Note: in the original data where I encountered this, the marker was a \d.
+			// The USX Parser now handles that as a special case (except in Psalms) so that
+			// the character is set and it is not even treated as a Scripture style. But
+			// for this test, I'm keeping it as a "d" just to preserve the historical origin.
+			var block = new Block("d", 40);
+			block.BlockElements.Add(new ScriptText($"BAGIAN KEDUA PASAL 40{dialogueDash}55"));
+			block.IsParagraphStart = true;
+			var input = new List<Block> { block };
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), dialogueDash, dialogueDash);
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			var outputBlock = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA", input).Parse().Single();
+			
+			Assert.AreEqual(block.GetText(true), outputBlock.GetText(true));
+			Assert.IsTrue(outputBlock.CharacterIsStandard);
+		}
+
 		[TestCase("“", true)]
 		[TestCase("”", true)]
 		[TestCase("%", true)]
@@ -4917,7 +4938,7 @@ namespace GlyssenEngineTests.Quote
 			var results = parser.Parse().ToList();
 
 			Assert.AreEqual(5, results.Count);
-			// Text preceeding interruption in original first block:
+			// Text preceding interruption in original first block:
 			int i = 0;
 			Assert.AreEqual(MultiBlockQuote.None, results[i].MultiBlockQuote);
 			Assert.AreEqual("{15}\u00A0«When you see the ‹abomination of desolation› that Daniel prophesied about ", results[i].GetText(true));

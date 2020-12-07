@@ -3,6 +3,6 @@
 	public interface IQuoteInterruptionFinder
 	{
 		QuoteInterruption GetNextInterruption(string text, int startCharIndex);
-		bool ProbablyDoesNotContainInterruption(string text);
+		bool ProbablyIsNotAnInterruption(string text);
 	}
 }

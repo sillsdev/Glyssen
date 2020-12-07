@@ -98,7 +98,8 @@ namespace GlyssenEngine
 		private int m_currentStartVerse;
 		private int m_currentEndVerse;
 
-		private readonly Regex m_regexStartsWithClosingPunctuation = new Regex(@"^(\p{Pd}|\p{Pe}|\p{Pf}|\p{Po})+\s+");
+		private readonly Regex m_regexStartsWithClosingPunctuation = new Regex(@"^(\p{Pd}|\p{Pe}|\p{Pf}|\p{Po})+\s+", RegexOptions.Compiled);
+		private readonly Regex m_regexEndsWithOpeningQuote = new Regex("(\\p{Pi}\\s?)*(\\p{Pi}|\")+$", RegexOptions.Compiled);
 
 		public UsxParser(string bookId, IStylesheet stylesheet, XmlNodeList nodeList)
 		{
@@ -160,6 +161,8 @@ namespace GlyssenEngine
 							block.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.Intro);
 						else if (style.IsPublishable && !style.IsVerseText)
 							block.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.ExtraBiblical);
+						else if (StyleToCharacterMappings.TryGetCharacterForParaStyle(style.Id, m_bookId, out var character))
+							block.SetNonDramaticCharacterId(character);
 
 						var sb = new StringBuilder();
 						// <verse number="1" style="v" />
@@ -206,8 +209,14 @@ namespace GlyssenEngine
 										var tokens = childNode.InnerText.Split('|');
 										if (tokens.Any())
 										{
-											if (ControlCharacterVerseData.TryGetCharacterForCharStyle(charTag, out var character) && block.StyleTag != charTag)
+											if (StyleToCharacterMappings.TryGetCharacterForCharStyle(charTag, out var character) && block.StyleTag != charTag)
 											{
+												var matchOpeningQuoteAtEnd = m_regexEndsWithOpeningQuote.Match(sb.ToString());
+												if (matchOpeningQuoteAtEnd.Success)
+												{
+													sb.Remove(matchOpeningQuoteAtEnd.Index, matchOpeningQuoteAtEnd.Length);
+													tokens[0] = matchOpeningQuoteAtEnd.Value + tokens[0];
+												}
 												FinalizeCharacterStyleBlock(sb, ref block, blocks, charTag);
 												block.CharacterId = character;
 												//ControlCharacterVerseData.Singleton.GetCharacters(m_bookNum, block.ChapterNumber,
@@ -221,7 +230,7 @@ namespace GlyssenEngine
 									break;
 								case "#text":
 									var textToAppend = childNode.InnerText;
-									if (ControlCharacterVerseData.IsCharStyleThatMapsToSpecificCharacter(block.StyleTag) && textToAppend.Any(IsLetter))
+									if (StyleToCharacterMappings.IncludesCharStyle(block.StyleTag) && textToAppend.Any(IsLetter))
 									{
 										if (sb.Length > 0 && sb[sb.Length - 1] != ' ')
 										{
