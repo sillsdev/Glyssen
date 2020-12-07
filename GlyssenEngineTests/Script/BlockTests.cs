@@ -15,6 +15,7 @@ using SIL.Scripture;
 using SIL.TestUtilities;
 using SIL.WritingSystems;
 using SIL.Xml;
+using static System.String;
 using static GlyssenEngine.Character.CharacterVerseData;
 using Resources = GlyssenEngineTests.Properties.Resources;
 
@@ -749,11 +750,11 @@ namespace GlyssenEngineTests.Script
 			const string expect5 = ">Text of verse five.<";
 			var actual = block.GetTextAsHtml(true, false);
 
-			Assert.IsTrue(actual.Contains(expect1), string.Format("The output string did not contain: {0}", expect1));
-			Assert.IsTrue(actual.Contains(expect2), string.Format("The output string did not contain: {0}", expect2));
-			Assert.IsTrue(actual.Contains(expect3), string.Format("The output string did not contain: {0}", expect3));
-			Assert.IsTrue(actual.Contains(expect4), string.Format("The output string did not contain: {0}", expect4));
-			Assert.IsTrue(actual.Contains(expect5), string.Format("The output string did not contain: {0}", expect5));
+			Assert.IsTrue(actual.Contains(expect1), $"The output string did not contain: {expect1}");
+			Assert.IsTrue(actual.Contains(expect2), $"The output string did not contain: {expect2}");
+			Assert.IsTrue(actual.Contains(expect3), $"The output string did not contain: {expect3}");
+			Assert.IsTrue(actual.Contains(expect4), $"The output string did not contain: {expect4}");
+			Assert.IsTrue(actual.Contains(expect5), $"The output string did not contain: {expect5}");
 		}
 
 		[Test]
@@ -767,7 +768,7 @@ namespace GlyssenEngineTests.Script
 			const string expected = "<sup>&rlm;4&#160;&rlm;</sup>";
 			var actual = block.GetTextAsHtml(true, true);
 
-			Assert.IsTrue(actual.Contains(expected), string.Format("The output string did not contain: {0}", expected));
+			Assert.IsTrue(actual.Contains(expected), Format("The output string did not contain: {0}", expected));
 		}
 
 		[Test]
@@ -1452,11 +1453,14 @@ namespace GlyssenEngineTests.Script
 		[TestCase("")]
 		[TestCase(" ")]
 		[TestCase("\u00A0")]
-		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBHasNoVerseNumber_LeadingVerseStaysWithRowA(string separator)
+		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBHasNoVerseNumber_VernHasNoCorrespondingVerse_LeadingVerseStaysWithRowA(string separator)
 		{
-			string newRowAValue, newRowBValue;
-			Block.GetSwappedReferenceText("{19}"+  separator + "Cool. {20}" + separator + "Fine", "This is another chunk of some verse.",
-				out newRowAValue, out newRowBValue);
+			var vernBlocks = new List<Block>();
+			vernBlocks.Add(new Block("p", 8, 20).AddVerse("20", "Verse 20 text."));
+			vernBlocks.Add(new Block("q", 8, 20).AddText("More verse 20 text."));
+			Block.GetSwappedReferenceText(vernBlocks, 0,
+				"{19}"+  separator + "Cool. {20}" + separator + "Fine", "This is another chunk of some verse.",
+				out var newRowAValue, out var newRowBValue);
 			Assert.AreEqual("{19}" + separator + "This is another chunk of some verse.", newRowAValue);
 			Assert.AreEqual("Cool. {20}" + separator + "Fine", newRowBValue);
 		}
@@ -1464,54 +1468,156 @@ namespace GlyssenEngineTests.Script
 		[TestCase("")]
 		[TestCase(" ")]
 		[TestCase("\u00A0")]
-		public void GetSwappedReferenceText_RowAHasNonLeadingVerseNumber_RowBHasNoVerseNumber_EntireContentsSwap(string separator)
+		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBHasNoVerseNumber_VernHasCorrespondingVerseAbove_LeadingVerseStaysWithRowA(string separator)
 		{
-			string newRowAValue, newRowBValue;
-			Block.GetSwappedReferenceText("Cool. {20}" + separator + "Fine", "This is another chunk of some verse.",
-				out newRowAValue, out newRowBValue);
+			var vernBlocks = new List<Block>();
+			vernBlocks.Add(new Block("p", 8, 19).AddVerse("19", "Verse 19 text."));
+			vernBlocks.Add(new Block("p", 8, 20).AddVerse("20", "Verse 20 text."));
+			vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text."));
+			Block.GetSwappedReferenceText(vernBlocks, 1,
+				"{19}"+  separator + "Cool. {20}" + separator + "Fine", "This is another chunk of some verse.",
+				out var newRowAValue, out var newRowBValue);
+			Assert.AreEqual("{19}" + separator + "This is another chunk of some verse.", newRowAValue);
+			Assert.AreEqual("Cool. {20}" + separator + "Fine", newRowBValue);
+		}
+
+		[TestCase("")]
+		[TestCase(" ")]
+		[TestCase("\u00A0")]
+		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBHasNoVerseNumber_VernHasCorrespondingVerseAtSameRow_LeadingVerseStaysWithRowA(string separator)
+		{
+			var vernBlocks = new List<Block>();
+			vernBlocks.Add(new Block("p", 8, 19).AddVerse("19", "Verse 19 text."));
+			vernBlocks.Add(new Block("p", 8, 20).AddVerse("20", "Verse 20 text."));
+			vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text."));
+			Block.GetSwappedReferenceText(vernBlocks, 0,
+				"{19}"+  separator + "Cool. {20}" + separator + "Fine", "This is another chunk of some verse.",
+				out var newRowAValue, out var newRowBValue);
+			Assert.AreEqual("{19}" + separator + "This is another chunk of some verse.", newRowAValue);
+			Assert.AreEqual("Cool. {20}" + separator + "Fine", newRowBValue);
+		}
+
+		[TestCase("", 0)]
+		[TestCase(" ", 1)]
+		[TestCase("\u00A0", 1)]
+		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBHasNoVerseNumber_VernHasCorrespondingVerseSubsequentRow_LeadingVerseMovesWithRowAContents(
+			string separator, int currentRow)
+		{
+			var vernBlocks = new List<Block>();
+			vernBlocks.Add(new Block("p", 8, 17).AddVerse("17", "Verse 17 text."));
+			vernBlocks.Add(new Block("p", 8, 18).AddVerse("18", "Verse 18 text."));
+			vernBlocks.Add(new Block("p", 8, 19).AddVerse("19", "Verse 19 text."));
+			vernBlocks.Add(new Block("p", 8, 20).AddVerse("20", "Verse 20 text."));
+			vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text."));
+			Block.GetSwappedReferenceText(vernBlocks, currentRow,
+				"{19}"+  separator + "Cool. {20}" + separator + "Fine", "This is another chunk of some verse.",
+				out var newRowAValue, out var newRowBValue);
+			Assert.AreEqual("This is another chunk of some verse.", newRowAValue);
+			Assert.AreEqual("{19}" + separator + "Cool. {20}" + separator + "Fine", newRowBValue);
+		}
+
+		[TestCase("", 0)]
+		[TestCase(" ", 2)]
+		[TestCase("\u00A0", 3)]
+		public void GetSwappedReferenceText_RowAHasNonLeadingVerseNumber_RowBHasNoVerseNumber_EntireContentsSwap(
+			string separator, int currentRow)
+		{
+			var vernBlocks = new List<Block>();
+			vernBlocks.Add(new Block("p", 8, 17).AddVerse("17", "Verse 17 text."));
+			vernBlocks.Add(new Block("p", 8, 18).AddVerse("18", "Verse 18 text."));
+			vernBlocks.Add(new Block("p", 8, 19).AddVerse("19", "Verse 19 text."));
+			vernBlocks.Add(new Block("p", 8, 20).AddVerse("20", "Verse 20 text."));
+			vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text."));
+			Block.GetSwappedReferenceText(vernBlocks, currentRow,
+				"Cool. {20}" + separator + "Fine", "This is another chunk of some verse.",
+				out var newRowAValue, out var newRowBValue);
 			Assert.AreEqual("This is another chunk of some verse.", newRowAValue);
 			Assert.AreEqual("Cool. {20}" + separator + "Fine", newRowBValue);
 		}
 
-		[TestCase("")]
-		[TestCase(" ")]
-		[TestCase("\u00A0")]
-		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBHasNonLeadingVerseNumber_LeadingVerseStaysWithRowA(string separator)
+		[TestCase("", 0)]
+		[TestCase(" ", 2)]
+		[TestCase("\u00A0", 3)]
+		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBHasNonLeadingVerseNumber_LeadingVerseStaysWithRowA(
+			string separator, int currentRow)
 		{
-			string newRowAValue, newRowBValue;
-			Block.GetSwappedReferenceText("{19}" + separator + "Cool. {20}" + separator + "Fine", "This is another chunk of some verse. {21}" + separator + "Verse twenty-one.",
-				out newRowAValue, out newRowBValue);
-			Assert.AreEqual("{19}" + separator + "This is another chunk of some verse. {21}" + separator + "Verse twenty-one.", newRowAValue);
+			var vernBlocks = new List<Block>();
+			vernBlocks.Add(new Block("p", 8, 17).AddVerse("17", "Verse 17 text."));
+			vernBlocks.Add(new Block("p", 8, 18).AddVerse("18", "Verse 18 text."));
+			vernBlocks.Add(new Block("p", 8, 19).AddVerse("19", "Verse 19 text."));
+			vernBlocks.Add(new Block("p", 8, 20).AddVerse("20", "Verse 20 text."));
+			vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text."));
+			Block.GetSwappedReferenceText(vernBlocks, currentRow,
+				"Cool. {20}" + separator + "Fine", "This is another chunk of some verse. {21}" + separator + "Verse twenty-one.",
+				out var newRowAValue, out var newRowBValue);
+			Assert.AreEqual("This is another chunk of some verse. {21}" + separator + "Verse twenty-one.", newRowAValue);
 			Assert.AreEqual("Cool. {20}" + separator + "Fine", newRowBValue);
 		}
 
-		[TestCase("")]
-		[TestCase(" ")]
-		[TestCase("\u00A0")]
-		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBHasLeadingVerseNumber_EntireContentsSwap(string separator)
+		[TestCase("", 0)]
+		[TestCase(" ", 2)]
+		[TestCase("\u00A0", 3)]
+		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBHasLeadingVerseNumber_EntireContentsSwap(
+			string separator, int currentRow)
 		{
-			string newRowAValue, newRowBValue;
-			Block.GetSwappedReferenceText("{19}" + separator + "Cool. {20}" + separator + "Fine", "{21}" + separator + "Verse twenty-one.",
-				out newRowAValue, out newRowBValue);
+			var vernBlocks = new List<Block>();
+			vernBlocks.Add(new Block("p", 8, 17).AddVerse("17", "Verse 17 text."));
+			vernBlocks.Add(new Block("p", 8, 18).AddVerse("18", "Verse 18 text."));
+			vernBlocks.Add(new Block("p", 8, 19).AddVerse("19", "Verse 19 text."));
+			vernBlocks.Add(new Block("p", 8, 20).AddVerse("20", "Verse 20 text."));
+			vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text."));
+			Block.GetSwappedReferenceText(vernBlocks, currentRow,
+				"{19}" + separator + "Cool. {20}" + separator + "Fine", "{21}" + separator + "Verse twenty-one.",
+				out var newRowAValue, out var newRowBValue);
 			Assert.AreEqual("{21}" + separator + "Verse twenty-one.", newRowAValue);
 			Assert.AreEqual("{19}" + separator + "Cool. {20}" + separator + "Fine", newRowBValue);
 		}
 
-		[Test]
-		public void GetSwappedReferenceText_RowAIsNull_EntireContentsSwap()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void GetSwappedReferenceText_RowAIsNull_EntireContentsSwap(bool supplyVernBlocks)
 		{
 			string newRowAValue, newRowBValue;
-			Block.GetSwappedReferenceText(null, "{21} Verse twenty-one.", out newRowAValue, out newRowBValue);
+
+			if (supplyVernBlocks)
+			{
+				var vernBlocks = new List<Block>();
+				vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text. "));
+				vernBlocks.Add(new Block("p", 8, 21).AddText("Blah."));
+				Block.GetSwappedReferenceText(vernBlocks, 0, null, "{21} Verse twenty-one.",
+					out newRowAValue, out newRowBValue);
+			}
+			else
+			{
+				Block.GetSwappedReferenceText(null, -1, null, "{21} Verse twenty-one.",
+					out newRowAValue, out newRowBValue);
+			}
+
 			Assert.AreEqual("{21} Verse twenty-one.", newRowAValue);
-			Assert.IsTrue(String.IsNullOrEmpty(newRowBValue));
+			Assert.IsTrue(IsNullOrEmpty(newRowBValue));
 		}
 
-		[Test]
-		public void GetSwappedReferenceText_RowBIsNull_EntireContentsSwap()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void GetSwappedReferenceText_RowBIsNull_EntireContentsSwap(bool supplyVernBlocks)
 		{
 			string newRowAValue, newRowBValue;
-			Block.GetSwappedReferenceText("{21} Verse twenty-one.", null, out newRowAValue, out newRowBValue);
-			Assert.IsTrue(String.IsNullOrEmpty(newRowAValue));
+
+			if (supplyVernBlocks)
+			{
+				var vernBlocks = new List<Block>();
+				vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text. "));
+				vernBlocks.Add(new Block("p", 8, 21).AddText("Blah."));
+				Block.GetSwappedReferenceText(vernBlocks, 0, "{21} Verse twenty-one.", null,
+					out newRowAValue, out newRowBValue);
+			}
+			else
+			{
+				Block.GetSwappedReferenceText(null, -1, "{21} Verse twenty-one.", null,
+					out newRowAValue, out newRowBValue);
+			}
+
+			Assert.IsTrue(IsNullOrEmpty(newRowAValue));
 			Assert.AreEqual("{21} Verse twenty-one.", newRowBValue);
 		}
 
@@ -1769,39 +1875,86 @@ namespace GlyssenEngineTests.Script
 		}
 
 		[TestCase("-a-")]
+		[TestCase(" -a- ")]
 		[TestCase("—a—")]
+		[TestCase("—a— ")]
 		[TestCase("(a)")]
+		[TestCase(" (a)")]
 		[TestCase("[a]")]
-		[TestCase("[a] b c")]
-		public void ProbablyDoesNotContainInterruption_ApparentInterruptions_ReturnsFalse(string text)
+		[TestCase(" [a]")]
+		[TestCase("[a]»")]
+		[TestCase("(a)»")]
+		public void ProbablyIsNotAnInterruption_LikelyInterruptions_ReturnsFalse(string text)
 		{
 			var block = GetBlockWithText(text);
-			Assert.False(block.ProbablyDoesNotContainInterruption(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes));
+			Assert.False(block.ProbablyIsNotAnInterruption(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes));
+		}
+
+		[TestCase("(a) starts with parentheses; possibly CONTAINS an interruption.")]
+		[TestCase(" (a) starts with parentheses; possibly CONTAINS an interruption.")]
+		[TestCase("“(a) starts with parentheses; possibly CONTAINS an interruption.”")]
+		[TestCase(" [a] b c")]
+		[TestCase("«[a] b c»")]
+		[TestCase("Somebody talking and then -a-")]
+		[TestCase("Somebody talking and then—a—")]
+		[TestCase("Somebody talking and then(a)")]
+		[TestCase("‘Somebody talking and then (a)")]
+		[TestCase("Somebody talking and then (a) there was an interruption.")]
+		[TestCase("Somebody talking and then[a]")]
+		[TestCase("Somebody talking and then [a] there was an interruption")]
+		[TestCase("«Somebody talking and then[a] there was an interruption»")]
+		[TestCase(" -a- there was an interruption.")]
+		[TestCase("—a—there was an interruption.")]
+		[TestCase(" -a- there was an interruption.")]
+		[TestCase(" —a— there was an interruption.")]
+		[TestCase("‘(a)")]
+		[TestCase("“(a)”")]
+		[TestCase("“[a]”")]
+		public void ProbablyIsNotAnInterruption_ApparentNonInterruptions_ReturnsTrue(string text)
+		{
+			var block = GetBlockWithText(text);
+			Assert.True(block.ProbablyIsNotAnInterruption(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes));
 		}
 
 		[Test]
-		public void ProbablyDoesNotContainInterruption_PossibleInterruptionUsesLongDashesWhichAreAlsoUsedForDialgueQuotes_ReturnsTrue()
+		public void ProbablyIsNotAnInterruption_PossibleInterruptionUsesLongDashesWhichAreAlsoUsedForDialogueQuotes_ReturnsTrue()
 		{
 			IQuoteInterruptionFinder interruptionFinderForQuoteSystemWithLongDashDialogueQuotes =
 				new QuoteSystem(new QuotationMark("\u2014", "\u2014", null, 1, QuotationMarkingSystemType.Narrative));
 
 			var block = GetBlockWithText("—a—");
-			Assert.True(block.ProbablyDoesNotContainInterruption(interruptionFinderForQuoteSystemWithLongDashDialogueQuotes));
+			Assert.True(block.ProbablyIsNotAnInterruption(interruptionFinderForQuoteSystemWithLongDashDialogueQuotes));
 		}
 
-		[TestCase("a b-c d-e")]
-		[TestCase("a -c d e")]
-		[TestCase("a c- d e")]
-		[TestCase("a c - d e")]
-		public void ProbablyDoesNotContainInterruption_WordMedialOrUnmatchedDashes_ReturnsTrue(string text)
+		[TestCase("(", ")")]
+		[TestCase("[", "]")]
+		// REVIEW: Currently, we do treat the following as a potential interruption, but that might not
+		// be correct. Probably need to wait until some real data comes along to decide for sure.
+		//[TestCase("-", "-")]
+		public void GetNextInterruption_OnlyOpeningQuoteMarkBeforeInterruptionStart_NoInterruptionFound(string interruptionStart, string interruptionEnd)
 		{
-			var block = GetBlockWithText(text);
-			Assert.True(block.ProbablyDoesNotContainInterruption(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes));
+			var block = GetBlockWithText($"“{interruptionStart}plus some text{interruptionEnd} is not an interruption.”");
+			Assert.Null(block.GetNextInterruption(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes));
 
 			IQuoteInterruptionFinder interruptionFinderForQuoteSystemWithLongDashDialogueQuotes =
 				new QuoteSystem(new QuotationMark("\u2014", "\u2014", null, 1, QuotationMarkingSystemType.Narrative));
 
-			Assert.True(block.ProbablyDoesNotContainInterruption(interruptionFinderForQuoteSystemWithLongDashDialogueQuotes));
+			Assert.Null(block.GetNextInterruption(interruptionFinderForQuoteSystemWithLongDashDialogueQuotes));
+		}
+
+		[TestCase("(", ")")]
+		[TestCase("[", "]")]
+		public void GetNextInterruption_OnlyOpeningQuoteMarkBeforeInterruptionStart_RealInterruptionFound(string interruptionStart, string interruptionEnd)
+		{
+			var block = GetBlockWithText($"“{interruptionStart}plus some text{interruptionEnd} is not an interruption {interruptionStart}but this is{interruptionEnd}.”");
+			Assert.AreEqual($"{interruptionStart}but this is{interruptionEnd}.”",
+				block.GetNextInterruption(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes).Item1.Value);
+
+			IQuoteInterruptionFinder interruptionFinderForQuoteSystemWithLongDashDialogueQuotes =
+				new QuoteSystem(new QuotationMark("\u2014", "\u2014", null, 1, QuotationMarkingSystemType.Narrative));
+
+			Assert.AreEqual($"{interruptionStart}but this is{interruptionEnd}.”",
+				block.GetNextInterruption(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes).Item1.Value);
 		}
 
 		[TestCase("a (bcd) e", ExpectedResult = "(bcd) ")]
@@ -1833,9 +1986,12 @@ namespace GlyssenEngineTests.Script
 			return block.GetNextInterruption(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes)?.Item1.Value;
 		}
 
+		[TestCase("a -c d e")]
+		[TestCase("a c- d e")]
+		[TestCase("a c - d e")]
 		[TestCase("a b-c-d e")]
 		[TestCase("a b-c d-e")]
-		public void GetNextInterruption_WordMedialDashes_NoInterruptionFound(string text)
+		public void GetNextInterruption_WordMedialOrUnmatchedDashes_NoInterruptionFound(string text)
 		{
 			var block = GetBlockWithText(text);
 			Assert.Null(block.GetNextInterruption(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes));
@@ -1846,8 +2002,8 @@ namespace GlyssenEngineTests.Script
 			Assert.Null(block.GetNextInterruption(interruptionFinderForQuoteSystemWithLongDashDialogueQuotes));
 		}
 
-		[TestCase(CharacterVerseData.kAmbiguousCharacter)]
-		[TestCase(CharacterVerseData.kUnexpectedCharacter)]
+		[TestCase(kAmbiguousCharacter)]
+		[TestCase(kUnexpectedCharacter)]
 		public void TryMatchToReportingClause_BlockCharacterIsUnclear_ReturnsFalse(string character)
 		{
 			var block = new Block("p", 1, 2)

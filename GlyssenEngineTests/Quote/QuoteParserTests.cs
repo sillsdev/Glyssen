@@ -3062,6 +3062,27 @@ namespace GlyssenEngineTests.Quote
 			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
 		}
 
+		[TestCase("-")]
+		[TestCase("\u2014")]
+		[TestCase("\u2015")]
+		public void Parse_DialogueDashBetweenTwoNumbers_KeptAsSingleBlock(string dialogueDash)
+		{
+			// Note: in the original data where I encountered this, the marker was a \d.
+			// The USX Parser now handles that as a special case (except in Psalms) so that
+			// the character is set and it is not even treated as a Scripture style. But
+			// for this test, I'm keeping it as a "d" just to preserve the historical origin.
+			var block = new Block("d", 40);
+			block.BlockElements.Add(new ScriptText($"BAGIAN KEDUA PASAL 40{dialogueDash}55"));
+			block.IsParagraphStart = true;
+			var input = new List<Block> { block };
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), dialogueDash, dialogueDash);
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			var outputBlock = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA", input).Parse().Single();
+			
+			Assert.AreEqual(block.GetText(true), outputBlock.GetText(true));
+			Assert.IsTrue(outputBlock.CharacterIsStandard);
+		}
+
 		[TestCase("“", true)]
 		[TestCase("”", true)]
 		[TestCase("%", true)]
@@ -4917,7 +4938,7 @@ namespace GlyssenEngineTests.Quote
 			var results = parser.Parse().ToList();
 
 			Assert.AreEqual(5, results.Count);
-			// Text preceeding interruption in original first block:
+			// Text preceding interruption in original first block:
 			int i = 0;
 			Assert.AreEqual(MultiBlockQuote.None, results[i].MultiBlockQuote);
 			Assert.AreEqual("{15}\u00A0«When you see the ‹abomination of desolation› that Daniel prophesied about ", results[i].GetText(true));
@@ -5539,6 +5560,86 @@ namespace GlyssenEngineTests.Quote
 			Assert.IsTrue(output[0].CharacterIs("ISA", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.IsTrue(output.Skip(1).All(b => b.CharacterId == "God"));
 			Assert.IsTrue(output.All(b => !b.UserConfirmed));
+		}
+
+		/// <summary>
+		/// This test covers the case where the reference guide and control file assume that Isaiah will speak if there is a quote
+		/// but have God as an Alternate. However, the quote continues on into verse that must be God (one normal verse folllowed by
+		/// a few implicit verses). This test ensures that while we normally ignore Alternates when doing automatic block assignments,
+		/// we do properly take them into consideration when a quote is not closed.
+		/// </summary>
+		[TestCase(2)]
+		[TestCase(3)]
+		[TestCase(4)]
+		[TestCase(5)]
+		[TestCase(10)]
+		public void Parse_LongQuoteStartsAsPotentialAndAlternateButContinuesIntoVersesWhereAltIsNormalThenImplicit_QuoteAssignedToAltNormalImplicitCharacter(int quoteStartVerse)
+		{
+			var bookNumIsaiah = BCVRef.BookToNumber("ISA");
+			Assert.AreEqual("God", ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 1,
+				new VerseBridge(2, 3)).Select(cv => cv.Character).Distinct().Single(),
+				"Test setup condition not met: God (not Isaiah) should be the primary/expected character in ISA 1:2-3; " +
+				"Isaiah should not be included when includeAlternatesAndRareQuotes is false.");
+			Assert.AreEqual("Isaiah", ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 1, new VerseBridge(4, 10)).Select(cv => cv.Character).Distinct().Single(),
+				"Test setup condition not met: Isaiah (not God) should be the primary/expected character in ISA 1:4-10; " +
+				"God should not be included when includeAlternatesAndRareQuotes is false.");
+			var characterInIsa1V11 = ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 1,
+				new SingleVerse(11), includeAlternatesAndRareQuotes: true).Single();
+			Assert.AreEqual("God", characterInIsa1V11.Character,
+				"Test setup condition not met: God should be the only possible character in ISA 1:11.");
+			Assert.AreEqual(QuoteType.Normal, characterInIsa1V11.QuoteType,
+				"Test setup condition not met: God should be a normal (not implicit) character in ISA 1:11.");
+			var characterInIsa1V12 = ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 1,
+				new VerseBridge(12, 17), includeAlternatesAndRareQuotes: true).Single();
+			Assert.AreEqual(characterInIsa1V11.Character, characterInIsa1V12.Character,
+				"Test setup condition not met: God should be the only possible character in ISA 1:12-17.");
+			Assert.AreEqual(QuoteType.Normal, characterInIsa1V12.QuoteType,
+				"Test setup condition not met: God should be the implicit speaker in in ISA 1:12-17.");
+
+			var input = new List<Block> {
+				new Block("q1", 1, 2)
+					.AddVerse(2, "Listen, because the Lord has spoken: I reared children, but they rebelled."),
+				new Block("q1", 1, 3)
+					.AddVerse(3, "The ox and donkey know who takes care of them, but Israel doesn’t know diddly."),
+				new Block("q1", 1, 4)
+					.AddVerse(4, "Oh, you sinful nation, burdened by iniquity! You offspring of evildoers! You corrupt children!"),
+				new Block("q2", 1, 4)
+					.AddText("They’ve abandoned the Lord; they’ve despised the Holy One of Israel; they’ve walked away from me."),
+				new Block("q2", 1, 5)
+					.AddVerse(5, "Why be struck down? Why continue to rebel? Your head is sick, and your heart is faint."),
+				new Block("q2", 1, 6)
+					.AddVerse(6, "You are a hot mess from top to bottom, like a gaping wound."),
+				new Block("q1", 1, 7)
+					.AddVerse(7, "Your land has been ravaged."),
+				new Block("q2", 1, 8)
+					.AddVerse(8, "Jerusalem has been reduced to an abandoned shack."),
+				new Block("q2", 1, 9)
+					.AddVerse(9, "If God had not spared a tiny remnant, we would have been wiped off the map."),
+				new Block("q1", 1, 10)
+					.AddVerse(10, "I am talking to you rebels:"),
+				new Block("q2", 1, 11)
+					.AddVerse(11, "Do you think I need the meat and blood of the animals you sacrifice? They make me sick!"),
+				new Block("q2", 1, 12)
+					.AddVerse(12, "What makes you think I want you near my house?"),
+				new Block("q1", 1, 13)
+					.AddVerse(13, "Just forget all this worthless and meaningless worship."),
+				new Block("q2", 1, 14)
+					.AddVerse(14, "You might think you are doing what you are supposed to do, but I am tired of it all!"),
+				new Block("q2", 1, 15)
+					.AddVerse(15, "You commit acts of violence with your hands and then fold them in worthless prayers. I am not listening!"),
+				new Block("q1", 1, 16)
+					.AddVerse(16, "Clean up your act."),
+				new Block("q2", 1, 17)
+					.AddVerse(17, "If you want to worship me, see if you can figure out how to start loving widows and orphans.”")
+			};
+			var textOfVerseWhereQuoteStarts = (ScriptText)input.First(b => b.InitialStartVerseNumber == quoteStartVerse).BlockElements[1];
+			textOfVerseWhereQuoteStarts.Content = "The LORD says, “" + textOfVerseWhereQuoteStarts.Content;
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "", 1, QuotationMarkingSystemType.Normal), null, null);
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA", input).Parse().ToList();
+			// Note: after skipping any verse that precede the beginning of the verse where the quote starts, we also need to
+			// skip the narrator block that introduces the speaking.
+			Assert.IsTrue(output.SkipWhile(b => b.InitialStartVerseNumber < quoteStartVerse).Skip(1).All(b => b.CharacterId == "God"));
 		}
 
 		[Test]

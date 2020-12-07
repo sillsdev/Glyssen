@@ -27,13 +27,6 @@ namespace GlyssenEngine.Character
 			}
 		}
 
-		static ControlCharacterVerseData()
-		{
-			// This could come from a control file, but for now we'll just hard-code it.
-			s_charStylesThatMapToSpecificCharacters = new Dictionary<string, string>(2)
-				{ ["wj"] = "Jesus", ["qt"] = "scripture" };
-		}
-
 		private ControlCharacterVerseData()
 		{
 			// Tests can set this before accessing the Singleton.
@@ -60,16 +53,6 @@ namespace GlyssenEngine.Character
 					InitializeExpectedQuotes();
 				return m_expectedQuotes;
 			}
-		}
-
-		public static bool TryGetCharacterForCharStyle(string charTag, out string character)
-		{
-			return s_charStylesThatMapToSpecificCharacters.TryGetValue(charTag, out character);
-		}
-
-		public static bool IsCharStyleThatMapsToSpecificCharacter(string charTag)
-		{
-			return s_charStylesThatMapToSpecificCharacters.ContainsKey(charTag);
 		}
 
 		public int ControlFileVersion { get; private set; }
