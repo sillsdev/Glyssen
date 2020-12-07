@@ -329,7 +329,7 @@ namespace GlyssenEngine.Quote
 
 						var regex = m_regexes[m_quoteLevel >= m_regexes.Count ? m_regexes.Count - 1 : m_quoteLevel];
 						var match = regex.Match(content, pos);
-						if (match.Success) // && (!IsDigit(content[match.Index - 1]) || !IsDigit(content[match.Index + 1])))
+						if (match.Success)
 						{
 							var specialOpeningPunctuationLen = 0;
 							if (match.Index > pos)
