@@ -750,11 +750,11 @@ namespace GlyssenEngineTests.Script
 			const string expect5 = ">Text of verse five.<";
 			var actual = block.GetTextAsHtml(true, false);
 
-			Assert.IsTrue(actual.Contains(expect1), Format("The output string did not contain: {0}", expect1));
-			Assert.IsTrue(actual.Contains(expect2), Format("The output string did not contain: {0}", expect2));
-			Assert.IsTrue(actual.Contains(expect3), Format("The output string did not contain: {0}", expect3));
-			Assert.IsTrue(actual.Contains(expect4), Format("The output string did not contain: {0}", expect4));
-			Assert.IsTrue(actual.Contains(expect5), Format("The output string did not contain: {0}", expect5));
+			Assert.IsTrue(actual.Contains(expect1), $"The output string did not contain: {expect1}");
+			Assert.IsTrue(actual.Contains(expect2), $"The output string did not contain: {expect2}");
+			Assert.IsTrue(actual.Contains(expect3), $"The output string did not contain: {expect3}");
+			Assert.IsTrue(actual.Contains(expect4), $"The output string did not contain: {expect4}");
+			Assert.IsTrue(actual.Contains(expect5), $"The output string did not contain: {expect5}");
 		}
 
 		[Test]
@@ -1875,39 +1875,86 @@ namespace GlyssenEngineTests.Script
 		}
 
 		[TestCase("-a-")]
+		[TestCase(" -a- ")]
 		[TestCase("—a—")]
+		[TestCase("—a— ")]
 		[TestCase("(a)")]
+		[TestCase(" (a)")]
 		[TestCase("[a]")]
-		[TestCase("[a] b c")]
-		public void ProbablyDoesNotContainInterruption_ApparentInterruptions_ReturnsFalse(string text)
+		[TestCase(" [a]")]
+		[TestCase("[a]»")]
+		[TestCase("(a)»")]
+		public void ProbablyIsNotAnInterruption_LikelyInterruptions_ReturnsFalse(string text)
 		{
 			var block = GetBlockWithText(text);
-			Assert.False(block.ProbablyDoesNotContainInterruption(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes));
+			Assert.False(block.ProbablyIsNotAnInterruption(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes));
+		}
+
+		[TestCase("(a) starts with parentheses; possibly CONTAINS an interruption.")]
+		[TestCase(" (a) starts with parentheses; possibly CONTAINS an interruption.")]
+		[TestCase("“(a) starts with parentheses; possibly CONTAINS an interruption.”")]
+		[TestCase(" [a] b c")]
+		[TestCase("«[a] b c»")]
+		[TestCase("Somebody talking and then -a-")]
+		[TestCase("Somebody talking and then—a—")]
+		[TestCase("Somebody talking and then(a)")]
+		[TestCase("‘Somebody talking and then (a)")]
+		[TestCase("Somebody talking and then (a) there was an interruption.")]
+		[TestCase("Somebody talking and then[a]")]
+		[TestCase("Somebody talking and then [a] there was an interruption")]
+		[TestCase("«Somebody talking and then[a] there was an interruption»")]
+		[TestCase(" -a- there was an interruption.")]
+		[TestCase("—a—there was an interruption.")]
+		[TestCase(" -a- there was an interruption.")]
+		[TestCase(" —a— there was an interruption.")]
+		[TestCase("‘(a)")]
+		[TestCase("“(a)”")]
+		[TestCase("“[a]”")]
+		public void ProbablyIsNotAnInterruption_ApparentNonInterruptions_ReturnsTrue(string text)
+		{
+			var block = GetBlockWithText(text);
+			Assert.True(block.ProbablyIsNotAnInterruption(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes));
 		}
 
 		[Test]
-		public void ProbablyDoesNotContainInterruption_PossibleInterruptionUsesLongDashesWhichAreAlsoUsedForDialgueQuotes_ReturnsTrue()
+		public void ProbablyIsNotAnInterruption_PossibleInterruptionUsesLongDashesWhichAreAlsoUsedForDialogueQuotes_ReturnsTrue()
 		{
 			IQuoteInterruptionFinder interruptionFinderForQuoteSystemWithLongDashDialogueQuotes =
 				new QuoteSystem(new QuotationMark("\u2014", "\u2014", null, 1, QuotationMarkingSystemType.Narrative));
 
 			var block = GetBlockWithText("—a—");
-			Assert.True(block.ProbablyDoesNotContainInterruption(interruptionFinderForQuoteSystemWithLongDashDialogueQuotes));
+			Assert.True(block.ProbablyIsNotAnInterruption(interruptionFinderForQuoteSystemWithLongDashDialogueQuotes));
 		}
 
-		[TestCase("a b-c d-e")]
-		[TestCase("a -c d e")]
-		[TestCase("a c- d e")]
-		[TestCase("a c - d e")]
-		public void ProbablyDoesNotContainInterruption_WordMedialOrUnmatchedDashes_ReturnsTrue(string text)
+		[TestCase("(", ")")]
+		[TestCase("[", "]")]
+		// REVIEW: Currently, we do treat the following as a potential interruption, but that might not
+		// be correct. Probably need to wait until some real data comes along to decide for sure.
+		//[TestCase("-", "-")]
+		public void GetNextInterruption_OnlyOpeningQuoteMarkBeforeInterruptionStart_NoInterruptionFound(string interruptionStart, string interruptionEnd)
 		{
-			var block = GetBlockWithText(text);
-			Assert.True(block.ProbablyDoesNotContainInterruption(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes));
+			var block = GetBlockWithText($"“{interruptionStart}plus some text{interruptionEnd} is not an interruption.”");
+			Assert.Null(block.GetNextInterruption(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes));
 
 			IQuoteInterruptionFinder interruptionFinderForQuoteSystemWithLongDashDialogueQuotes =
 				new QuoteSystem(new QuotationMark("\u2014", "\u2014", null, 1, QuotationMarkingSystemType.Narrative));
 
-			Assert.True(block.ProbablyDoesNotContainInterruption(interruptionFinderForQuoteSystemWithLongDashDialogueQuotes));
+			Assert.Null(block.GetNextInterruption(interruptionFinderForQuoteSystemWithLongDashDialogueQuotes));
+		}
+
+		[TestCase("(", ")")]
+		[TestCase("[", "]")]
+		public void GetNextInterruption_OnlyOpeningQuoteMarkBeforeInterruptionStart_RealInterruptionFound(string interruptionStart, string interruptionEnd)
+		{
+			var block = GetBlockWithText($"“{interruptionStart}plus some text{interruptionEnd} is not an interruption {interruptionStart}but this is{interruptionEnd}.”");
+			Assert.AreEqual($"{interruptionStart}but this is{interruptionEnd}.”",
+				block.GetNextInterruption(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes).Item1.Value);
+
+			IQuoteInterruptionFinder interruptionFinderForQuoteSystemWithLongDashDialogueQuotes =
+				new QuoteSystem(new QuotationMark("\u2014", "\u2014", null, 1, QuotationMarkingSystemType.Narrative));
+
+			Assert.AreEqual($"{interruptionStart}but this is{interruptionEnd}.”",
+				block.GetNextInterruption(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes).Item1.Value);
 		}
 
 		[TestCase("a (bcd) e", ExpectedResult = "(bcd) ")]
@@ -1939,9 +1986,12 @@ namespace GlyssenEngineTests.Script
 			return block.GetNextInterruption(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes)?.Item1.Value;
 		}
 
+		[TestCase("a -c d e")]
+		[TestCase("a c- d e")]
+		[TestCase("a c - d e")]
 		[TestCase("a b-c-d e")]
 		[TestCase("a b-c d-e")]
-		public void GetNextInterruption_WordMedialDashes_NoInterruptionFound(string text)
+		public void GetNextInterruption_WordMedialOrUnmatchedDashes_NoInterruptionFound(string text)
 		{
 			var block = GetBlockWithText(text);
 			Assert.Null(block.GetNextInterruption(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes));
@@ -1952,8 +2002,8 @@ namespace GlyssenEngineTests.Script
 			Assert.Null(block.GetNextInterruption(interruptionFinderForQuoteSystemWithLongDashDialogueQuotes));
 		}
 
-		[TestCase(CharacterVerseData.kAmbiguousCharacter)]
-		[TestCase(CharacterVerseData.kUnexpectedCharacter)]
+		[TestCase(kAmbiguousCharacter)]
+		[TestCase(kUnexpectedCharacter)]
 		public void TryMatchToReportingClause_BlockCharacterIsUnclear_ReturnsFalse(string character)
 		{
 			var block = new Block("p", 1, 2)

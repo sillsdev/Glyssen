@@ -1460,6 +1460,9 @@ namespace Glyssen.Dialogs
 				if (correlatedBlock.IsContinuationOfPreviousBlockQuote)
 				{
 					var index = e.RowIndex - 1;
+					if (index >= 0 && m_dataGridReferenceText.CurrentCell.EditedFormattedValue == m_dataGridReferenceText.Rows[index].Cells[colCharacter.Index].FormattedValue)
+						return;
+
 					while (index >= 0 && matchup.CorrelatedBlocks[index].IsContinuationOfPreviousBlockQuote)
 						index--;
 					int verseWhereQuoteStarts;
