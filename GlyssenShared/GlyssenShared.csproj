@@ -31,9 +31,9 @@ See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="SIL.Core" Version="8.0.0-beta0176" />
-    <PackageReference Include="SIL.DblBundle" Version="8.0.0-beta0153" />
-    <PackageReference Include="SIL.Scripture" Version="8.0.0-beta0153" />
+    <PackageReference Include="SIL.Core" Version="8.0.0-beta0234" />
+    <PackageReference Include="SIL.DblBundle" Version="8.0.0-beta0234" />
+    <PackageReference Include="SIL.Scripture" Version="8.0.0-beta0234" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
