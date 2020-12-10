@@ -18,7 +18,9 @@ namespace GlyssenEngine.Export
 
 		internal static GlyssenScript CreateGlyssenScript(Project project, IEnumerable<ProjectExporter.ExportBlock> data)
 		{
-			var gs = new GlyssenScript(project.Name, project.Metadata);
+			var gs = (project.ReferenceText.HasSecondaryReferenceText) ?
+				new GlyssenScript(project.Name, project.Metadata, project.ReferenceText.Metadata, project.ReferenceText.SecondaryReferenceText.Metadata) :
+				new GlyssenScript(project.Name, project.Metadata, project.ReferenceText.Metadata);
 
 			string bookCode = null;
 			int blockId = 1;
