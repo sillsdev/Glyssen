@@ -171,29 +171,6 @@ namespace GlyssenEngine.ViewModels
 		}
 
 		#region Overridden methods
-		private bool m_inHandleCurrentBlockChanged = false;
-		protected override void HandleCurrentBlockChanged()
-		{
-			if (m_inHandleCurrentBlockChanged)
-				return;
-			m_inHandleCurrentBlockChanged = true;
-			if (CharacterVerseData.IsCharacterExtraBiblical(CurrentBlock.CharacterId))
-				throw new InvalidOperationException("Cannot attempt to match an extra-biblical block to a reference text.");
-			if (AttemptRefBlockMatchup)
-			{
-				if (CurrentReferenceTextMatchup == null || !CurrentReferenceTextMatchup.IncludesBlock(CurrentBlock))
-				{
-					SetBlockMatchupForCurrentLocation();
-				}
-				else
-				{
-					CurrentReferenceTextMatchup.ChangeAnchor(CurrentBlock);
-				}
-			}
-			base.HandleCurrentBlockChanged();
-			m_inHandleCurrentBlockChanged = false;
-		}
-
 		protected override void PopulateRelevantBlocks()
 		{
 			CompletedBlockCount = 0;

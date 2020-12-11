@@ -317,8 +317,6 @@ namespace GlyssenEngine
 
 		public static string DefaultRecordingProjectNameSuffix { get; set; } = " Audio"; // This default can be overriden (and localized)
 
-		public IReadOnlyGlyssenDblTextMetadata Metadata => m_metadata;
-
 		public bool IsLiveParatextProject => m_projectMetadata.Type == ParatextScrTextWrapper.kLiveParatextProjectType;
 
 		public bool IsBundleBasedProject => !IsNullOrEmpty(OriginalBundlePath);
