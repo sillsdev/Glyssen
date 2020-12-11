@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Xml.Serialization;
 using Glyssen.Shared.Bundle;
+using SIL.DblBundle.Text;
 
 namespace Glyssen.Shared.Script
 {
@@ -17,10 +18,16 @@ namespace Glyssen.Shared.Script
 		// Needed for serialization/deserialization
 		public GlyssenScript()
 		{
-			Version = "2.1";
+			Version = "2.2";
 		}
 
-		public GlyssenScript(string recordingProjectName, IReadOnlyGlyssenDblTextMetadata source) : this()
+		public GlyssenScript(string recordingProjectName, IReadOnlyGlyssenDblTextMetadata source) :
+			this(recordingProjectName, source, null)
+		{
+		}
+
+		public GlyssenScript(string recordingProjectName, IReadOnlyGlyssenDblTextMetadata source,
+			params IReadOnlyGlyssenDblTextMetadata[] referenceTextMetadata) : this()
 		{
 			RecordingProjectName = recordingProjectName;
 			Copyright = source.Copyright;
@@ -37,6 +44,14 @@ namespace Glyssen.Shared.Script
 				Books = new List<ScriptBook>(),
 				LanguageCode = source.Language.Ldml
 			};
+
+			if (referenceTextMetadata != null)
+			{
+				ReferenceTexts = new ReferenceTextInfo[referenceTextMetadata.Length];
+
+				for (int i = 0; i < referenceTextMetadata.Length; i++)
+					ReferenceTexts[i] = new ReferenceTextInfo(i, referenceTextMetadata[i]);
+			}
 		}
 
 		/// <summary>
@@ -49,6 +64,8 @@ namespace Glyssen.Shared.Script
 
 		[XmlAttribute("projectName")]
 		public string RecordingProjectName { get; set; }
+
+		public ReferenceTextInfo[] ReferenceTexts { get; set; }
 
 		[XmlElement("script")]
 		public Script Script { get; set; }
@@ -165,6 +182,43 @@ namespace Glyssen.Shared.Script
 					return null;
 				return string.Join("", BlockElements.OfType<ScriptText>().Select(st => st.Content));
 			}
+		}
+	}
+
+	/// <summary>
+	/// Identification, copyright and language information about a reference text used in a script
+	/// </summary>
+	public class ReferenceTextInfo
+	{
+		[XmlAttribute("level")]
+		public int Level { get; set; }
+		[XmlAttribute("name")]
+		public string Name { get; set; }
+		[XmlElement(ElementName = "Language")]
+		public GlyssenDblMetadataLanguage Language { get; set; }
+		[XmlElement(ElementName = "Copyright")]
+		public DblMetadataCopyright Copyright { get; set; }
+
+		// Needed for serialization/deserialization
+		public ReferenceTextInfo()
+		{
+		}
+
+		/// <summary>
+		/// Constructs a ReferenceTextInfo based on the metadata of the reference text
+		/// </summary>
+		/// <param name="level">0 = primary; 1 = secondary</param>
+		/// <param name="metadata">The  metadata of the reference text</param>
+		/// <remarks>An arbitrary number of levels is supported, but in practice there are never
+		/// more than two. If there is a secondary reference text, it is always English.</remarks>
+		public ReferenceTextInfo(int level, IReadOnlyGlyssenDblTextMetadata metadata)
+		{
+			Level = level;
+			Name = metadata.Identification.Name;
+			Language = metadata.Language;
+			var statement = metadata.Copyright?.Statement;
+			if (statement?.Text != null || (statement?.InternalNodes != null && statement.InternalNodes.Any()))
+				Copyright = metadata.Copyright;
 		}
 	}
 }

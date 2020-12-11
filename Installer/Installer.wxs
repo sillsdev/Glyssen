@@ -175,10 +175,6 @@ are trying to support, you're better off using non-advertised shortcuts." -->
             <File Id="Geckofx_Winforms.pdb" Name="Geckofx-Winforms.pdb" KeyPath="yes" Source="..\output\release\Geckofx-Winforms.pdb" />
           </Component>
 
-          <Component Id="MarkdownDeep.dll" Guid="*">
-            <File Id="MarkdownDeep.dll" Name="MarkdownDeep.dll" KeyPath="yes" Source="..\output\release\MarkdownDeep.dll" />
-          </Component>
-
           <Component Id="NetSparkle.Net40.dll" Guid="*" Win64="yes">
             <File Id="NetSparkle.Net40.dll" Name="NetSparkle.Net40.dll" KeyPath="yes" Source="..\output\release\NetSparkle.Net40.dll" ProcessorArchitecture="x64"/>
           </Component>
@@ -287,7 +283,6 @@ are trying to support, you're better off using non-advertised shortcuts." -->
       <ComponentRef Id="SIL.Windows.Forms.Scripture.dll"/>
       <ComponentRef Id="Geckofx_Core.dll"/>
       <ComponentRef Id="Geckofx_Winforms.dll"/>
-      <ComponentRef Id="MarkdownDeep.dll"/>
       <ComponentRef Id="NetSparkle.Net40.dll"/>
       <ComponentRef Id="icu.net.dll"/>
       <ComponentRef Id="icudt59.dll"/>
