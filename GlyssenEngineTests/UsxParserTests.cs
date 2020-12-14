@@ -537,7 +537,7 @@ namespace GlyssenEngineTests
 		}
 
 		[Test]
-		public void Parse_DescriptiveTitleUsedOutsidePsalms_CharacterSetToExtraBiblical()
+		public void Parse_DescriptiveTitleUsedOutsidePsalms_CharacterSetToNarrator()
 		{
 			Assert.IsTrue(StyleToCharacterMappings.TryGetCharacterForParaStyle("d", "MRK", out var character),
 				$"Setup condition not met: marker \"d\" should be included in {nameof(StyleToCharacterMappings)}.");
