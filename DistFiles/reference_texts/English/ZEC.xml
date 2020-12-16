@@ -379,7 +379,13 @@
     <text>I said, «What is it?» He said,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="6" characterId="angel who talked with Zechariah">
-    <text>«This is the ephah basket that is appearing.» He said moreover, «This is their appearance in all the land</text>
+    <text>«This is the ephah basket that is appearing.»</text>
+  </block>
+  <block style="p" chapter="5" initialStartVerse="6" characterId="narrator-ZEC">
+    <text>He said moreover,</text>
+  </block>
+  <block style="p" chapter="5" initialStartVerse="6" characterId="angel who talked with Zechariah">
+    <text>«This is their appearance in all the land</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="7" characterId="narrator-ZEC">
     <verse num="7" />
