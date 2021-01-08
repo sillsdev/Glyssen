@@ -6645,7 +6645,6 @@ namespace GlyssenEngineTests.Quote
 			Assert.AreEqual("MRK", results[0].BookCode);
 			Assert.AreEqual(1, results[0].ChapterNumber);
 			Assert.AreEqual(0, results[0].InitialStartVerseNumber);
-			Assert.AreEqual("1", results[0].GetText(true));
 
 			Assert.AreEqual("p", results[1].StyleTag);
 			Assert.AreEqual(1, results[1].ChapterNumber);
@@ -6699,7 +6698,6 @@ namespace GlyssenEngineTests.Quote
 			Assert.AreEqual("MRK", results[0].BookCode);
 			Assert.AreEqual(1, results[0].ChapterNumber);
 			Assert.AreEqual(0, results[0].InitialStartVerseNumber);
-			Assert.AreEqual("1", results[0].GetText(true));
 
 			Assert.AreEqual("q", results[1].StyleTag);
 			Assert.AreEqual(1, results[1].ChapterNumber);
@@ -6771,7 +6769,6 @@ namespace GlyssenEngineTests.Quote
 			Assert.AreEqual("MRK", results[0].BookCode);
 			Assert.AreEqual(1, results[0].ChapterNumber);
 			Assert.AreEqual(0, results[0].InitialStartVerseNumber);
-			Assert.AreEqual("1", results[0].GetText(true));
 
 			Assert.AreEqual("p", results[1].StyleTag);
 			Assert.AreEqual(1, results[1].ChapterNumber);
@@ -6826,7 +6823,7 @@ namespace GlyssenEngineTests.Quote
 			Assert.AreEqual("c", results[0].StyleTag);
 			Assert.IsTrue(results[0].IsChapterAnnouncement);
 			Assert.AreEqual("MAT", results[0].BookCode);
-			Assert.AreEqual("9", results[0].GetText(true));
+			Assert.AreEqual(9, results[0].ChapterNumber);
 
 			Assert.AreEqual("p", results[1].StyleTag);
 			Assert.AreEqual(9, results[1].ChapterNumber);
@@ -6869,7 +6866,7 @@ namespace GlyssenEngineTests.Quote
 			Assert.AreEqual("c", results[0].StyleTag);
 			Assert.IsTrue(results[0].IsChapterAnnouncement);
 			Assert.AreEqual("HEB", results[0].BookCode);
-			Assert.AreEqual("4", results[0].GetText(true));
+			Assert.AreEqual(4, results[0].ChapterNumber);
 
 			Assert.AreEqual("p", results[1].StyleTag);
 			Assert.AreEqual(4, results[1].ChapterNumber);
