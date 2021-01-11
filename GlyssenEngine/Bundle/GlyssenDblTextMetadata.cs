@@ -7,13 +7,17 @@ using System.Xml.Serialization;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine.Script;
+using SIL.DblBundle.Text;
 using SIL.Xml;
+using static System.String;
 
 namespace GlyssenEngine.Bundle
 {
 	[XmlRoot("DBLMetadata")]
 	public class GlyssenDblTextMetadata : GlyssenDblTextMetadataBase
 	{
+		internal const string kParatextSystemId = "paratext";
+
 		private ReferenceTextType m_referenceTextType = ReferenceTextType.English;
 
 		#region public Properties
@@ -47,15 +51,26 @@ namespace GlyssenEngine.Bundle
 			get => m_originalReleaseBundlePath;
 			set
 			{
-				if (!String.IsNullOrEmpty(ParatextProjectId))
+				if (!IsNullOrEmpty(ParatextProjectId))
 					throw new InvalidOperationException("A Glyssen project cannot have both a Text Release Bundle and a Paratext project as its source.");
 				m_originalReleaseBundlePath = value;
 			}
 		}
 
 		/// <summary>
-		/// We add this when we parse the USX to create a script.
-		/// This tells us the Paratext Project (short name) used to create this project.
+		/// We add this when we parse the USX to create a script. This tells us the Name
+		/// (i.e., "short name") of the Paratext Project used to create this project. This *used*
+		/// to be the unique identifier (hence the name of the property) for the project within
+		/// the context of the local system. However, as of Paratext 9.1 multiple projects with
+		/// the same name are now supported. This is rare, but for Glyssen to support this, the
+		/// <see cref="ParatextProjectUniqueId"/> should now be used as the preferred way to find
+		/// the project, and this property should only be used as a backup or for displaying the
+		/// project name in the UI. (Generally this should sufficient to identify the project in
+		/// error messages, etc. If there is a need for a "more unique" display in the UI, the
+		/// Paratext project's full name -- assuming the project can be loaded -- can be used to
+		/// disambiguate. Technically, that does not guarantee uniqueness, but Paratext's own UI
+		/// assumes that the short name + full name will be sufficient to allow a user to
+		/// unambiguously identify a project.)
 		/// </summary>
 		[XmlAttribute("sourceparatextproj")]
 		public string ParatextProjectId
@@ -63,11 +78,13 @@ namespace GlyssenEngine.Bundle
 			get => m_paratextProjectId;
 			set
 			{
-				if (!String.IsNullOrEmpty(OriginalReleaseBundlePath))
+				if (!IsNullOrEmpty(OriginalReleaseBundlePath))
 					throw new InvalidOperationException("A Glyssen project cannot have both a Text Release Bundle and a Paratext project as its source.");
 				m_paratextProjectId = value;
 			}
 		}
+
+		public string ParatextProjectUniqueId => ParatextSystemId?.Id;
 
 		/// <summary>
 		/// We use this to know if character assignments should be reprocessed.
@@ -123,6 +140,9 @@ namespace GlyssenEngine.Bundle
 		[DefaultValue(false)]
 		public bool IncludeChapterAnnouncementForSingleChapterBooks { get; set; }
 
+		internal DblMetadataSystemId ParatextSystemId =>
+			Identification?.SystemIds.FirstOrDefault(si => si.Type == kParatextSystemId);
+
 		/// <summary>
 		/// Gets the revision number from a standard DBL bundle. If this bundle is an ad-hoc bundle created by Paratext,
 		/// this will instead be the (Mercurial) changeset id (which is a GUID). If this is metadata created from a live
@@ -133,11 +153,11 @@ namespace GlyssenEngine.Bundle
 		{
 			get
 			{
-				if (Revision == 0 && Identification != null)
+				if (Revision == 0)
 				{
-					var paratext = Identification.SystemIds.FirstOrDefault(si => si.Type == "paratext");
-					if (paratext != null && !String.IsNullOrEmpty(paratext.ChangeSetId))
-						return paratext.ChangeSetId;
+					var changeSetId = ParatextSystemId?.ChangeSetId;
+					if (!IsNullOrEmpty(changeSetId))
+						return changeSetId;
 				}
 				return Revision.ToString(CultureInfo.InvariantCulture);
 			}

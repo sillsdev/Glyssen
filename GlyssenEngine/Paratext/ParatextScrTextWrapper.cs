@@ -51,7 +51,12 @@ namespace GlyssenEngine.Paratext
 		public IEnumerable<string> FailedChecksBooks => m_bookInfo.FailedChecksBooks;
 		public string RequiredCheckNames => Join(Localizer.GetString("Common.SimpleListSeparator", ", "),
 			m_requiredChecks.Select(ParatextProjectBookInfo.LocalizedCheckName));
-		private string ProjectId => UnderlyingScrText.Name;
+		private string ProjectName => UnderlyingScrText.Name;
+		// Note: Technically this is not absolutely guaranteed to be unique, but Paratext assumes
+		// that in the rare case where there are two projects with the same short name, they will
+		// have different full names. Using the ID (GUID) would guarantee uniqueness but it would
+		// not be very helpful to a normal user.
+		private string UniqueProjectNameForUi => ScrTextCollection.Find(ProjectName) == null ? $"{ProjectName} ({ProjectFullName})" : ProjectName;
 		public bool UserCanEditProject => UnderlyingScrText.Permissions.AmAdministratorOrTeamMember;
 		public bool HasBooksWithoutProblems => m_bookInfo.HasBooksWithoutProblems;
 		public IEnumerable<QuotationMark> QuotationMarks
@@ -86,7 +91,7 @@ namespace GlyssenEngine.Paratext
 			else
 				GetUpdatedBookInfo();
 			if (m_bookInfo.SupportedBookCount == 0)
-				throw new NoSupportedBooksException(ProjectId, m_bookInfo);
+				throw new NoSupportedBooksException(UniqueProjectNameForUi, m_bookInfo);
 		}
 
 		public void GetUpdatedBookInfo()
@@ -100,7 +105,7 @@ namespace GlyssenEngine.Paratext
 			}
 			catch (Exception e)
 			{
-				throw new ApplicationException($"Unexpected error retrieving the checking status data for {kParatextProgramName} project: {ProjectId}", e);
+				throw new ApplicationException($"Unexpected error retrieving the checking status data for {kParatextProgramName} project: {UniqueProjectNameForUi}", e);
 			}
 			foreach (var bookNum in CanonicalBookNumbersInProject)
 			{
@@ -121,7 +126,7 @@ namespace GlyssenEngine.Paratext
 					}
 					catch (Exception e)
 					{
-						throw new ApplicationException($"Unexpected error retrieving the {check} check status for {code} in {kParatextProgramName} project: {ProjectId}", e);
+						throw new ApplicationException($"Unexpected error retrieving the {check} check status for {code} in {kParatextProgramName} project: {UniqueProjectNameForUi}", e);
 					}
 					if (status == null || !status.Successful)
 						failedChecks.Add(check);
@@ -153,9 +158,9 @@ namespace GlyssenEngine.Paratext
 						ErrorReport.NotifyUserOfProblem(e, Localizer.GetString("Project.FailedToCreateWritingSystemFromParatextLdml",
 							"Failed to create Writing System based on LDML file for {0} project {1}",
 							"Param 0: \"Paratext\"; " +
-							"Param 1: Project short name (unique project identifier)"),
+							"Param 1: Unique Paratext project identifier"),
 							kParatextProgramName,
-							ProjectId);
+							UniqueProjectNameForUi);
 					}
 				}
 				return m_writingSystem;
@@ -174,7 +179,7 @@ namespace GlyssenEngine.Paratext
 					m_metadata = new GlyssenDblTextMetadata
 					{
 						Id = UnderlyingScrText.Settings.DBLId,
-						ParatextProjectId = ProjectId,
+						ParatextProjectId = ProjectName,
 						Type = kLiveParatextProjectType,
 						Revision = 1,
 						Versification = Versification.Name,
@@ -183,7 +188,7 @@ namespace GlyssenEngine.Paratext
 							Name = UnderlyingScrText.FullName,
 							SystemIds = new HashSet<DblMetadataSystemId>(new[]
 							{
-								new DblMetadataSystemId {Type = "paratext", Id = UnderlyingScrText.Settings.Guid}
+								new DblMetadataSystemId {Type = GlyssenDblTextMetadata.kParatextSystemId, Id = UnderlyingScrText.Guid}
 							})
 						},
 
