@@ -4268,7 +4268,6 @@ namespace GlyssenEngineTests.Quote
 
 			var input = new List<Block> { blockChapter1, block1, block2, block3, block4, block5 };
 
-			// set up a quote system that matches PG-690
 			var levels = new BulkObservableList<QuotationMark>
 			{
 				new QuotationMark("«", "»", "»", 1, QuotationMarkingSystemType.Normal),
@@ -6629,7 +6628,6 @@ namespace GlyssenEngineTests.Quote
 
 			var input = new List<Block> { blockChapter1, block1, block2, block3, block4, block5 };
 
-			// set up a quote system that matches PG-690
 			var levels = new BulkObservableList<QuotationMark>
 			{
 				new QuotationMark("«", "»", "»", 1, QuotationMarkingSystemType.Normal),
@@ -6682,7 +6680,6 @@ namespace GlyssenEngineTests.Quote
 
 			var input = new List<Block> { blockChapter1, block1, block2, block3, block4, block5 };
 
-			// set up a quote system that matches PG-690
 			var levels = new BulkObservableList<QuotationMark>
 			{
 				new QuotationMark("«", "»", "»", 1, QuotationMarkingSystemType.Normal),
@@ -6753,7 +6750,6 @@ namespace GlyssenEngineTests.Quote
 
 			var input = new List<Block> { blockChapter1, block1, block2, block3, block4, block5 };
 
-			// set up a quote system that matches PG-690
 			var levels = new BulkObservableList<QuotationMark>
 			{
 				new QuotationMark("«", "»", "»", 1, QuotationMarkingSystemType.Normal),

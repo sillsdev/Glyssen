@@ -263,7 +263,7 @@ namespace GlyssenEngine.Quote
 				}
 				else
 				{
-					TrySetRunOfPoetryBlocksToScripture();
+					ProcessPossibleRunOfPoetryBlocksAsScripture();
 				}
 
 				bool atBeginningOfBlock = true;
@@ -520,12 +520,12 @@ namespace GlyssenEngine.Quote
 				// In case the last set of blocks were a multi-block quote
 				ProcessMultiBlock();
 			}
-			TrySetRunOfPoetryBlocksToScripture();
+			ProcessPossibleRunOfPoetryBlocksAsScripture();
 			SetImplicitCharacters();
 			return m_outputBlocks;
 		}
 
-		private void TrySetRunOfPoetryBlocksToScripture()
+		private void ProcessPossibleRunOfPoetryBlocksAsScripture()
 		{
 			if (InRunOfPoetryBlocksThatAreProbablyScripture)
 			{
