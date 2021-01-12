@@ -27,13 +27,10 @@ namespace GlyssenEngine.Paratext
 		/// is almost always true, but if two local projects have the same (short) Name,
 		/// then this will be false for one of them.
 		/// </summary>
-		/// <remarks>There are two possible ways to implement this: 1) Try ScrTextCollection.Find
-		/// and if it returns null, then return false. (Of course, null can also be returned if the
-		/// project can't be found at all, but since we have a ScrText object, that's presumably
-		/// impossible.) 2) As follows. This relies on an implementation detail, but it's probably
-		/// faster and (maybe?) more intuitive. A ScrText that must be loaded by ID will have a
-		/// directory named: name.id</remarks>
-		public bool CanBeFoundUsingShortName => Path.GetFileName(ScrText.Directory) == ScrText.Name;
+		/// <remarks>ScrTextCollection.Find returns null if there is more than one project with the
+		/// given name. (Of course, null can also be returned if the project can't be found at all,
+		/// but since we have a ScrText object, that's presumably impossible.)</remarks>
+		public bool CanBeFoundUsingShortName => ScrTextCollection.Find(ScrText.Name) != null;
 
 		public string Name => CanBeFoundUsingShortName ? ScrText.Name :
 			$"{ScrText.Name} ({ScrText.FullName})";

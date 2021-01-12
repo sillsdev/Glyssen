@@ -65,7 +65,7 @@ namespace Glyssen.Controls
 
 		public Func<IEnumerable<ScrText>> GetParatextProjects { private get; set; }
 
-		public string GetIdentifierForParatextProjectThatCannotBeLoadedByName =>
+		public string GetIdentifierForParatextProject =>
 			m_paratextProjectIds.TryGetValue(SelectedProject, out var id) ? id : null;
 
 		protected override IEnumerable<Tuple<string, IProjectInfo>> Projects
@@ -86,8 +86,7 @@ namespace Glyssen.Controls
 						if (!existingProjects.Contains(scrText.Settings.DBLId))
 						{
 							var proxy = new ParatextProjectProxy(scrText);
-							if (!proxy.CanBeFoundUsingShortName)
-								m_paratextProjectIds[proxy.Name] = scrText.Guid;
+							m_paratextProjectIds[proxy.Name] = scrText.Guid;
 							yield return new Tuple<string, IProjectInfo>(proxy.Name, proxy);
 						}
 					}
@@ -120,7 +119,16 @@ namespace Glyssen.Controls
 				if (!IsNullOrEmpty(metadata.OriginalReleaseBundlePath))
 					yield return Path.GetFileName(metadata.OriginalReleaseBundlePath);
 				else if (metadata.Id != SampleProject.kSample)
-					yield return Format(m_fmtParatextProjectSource, ParatextScrTextWrapper.kParatextProgramName, metadata.ParatextProjectId);
+				{
+					// Note: Once we have a actual glyssen project started, we no longer worry about trying to
+					// show the unambiguous Paratext project name in the rare case of two projects that have the
+					// same (short) name. Presumably the language and/or the recording project name will be
+					// different, and that will be sufficient for the user to distinguish between them. We
+					// could test each one to see if the project exists but does not have a unique short name
+					// in order to display the unambiguous name here, but it doesn't seem worth the trouble.
+					yield return Format(m_fmtParatextProjectSource, ParatextScrTextWrapper.kParatextProgramName,
+						metadata.ParatextProjectId);
+				}
 				else
 					yield return null;
 				if (metadata.LastModified.Year < 1900)
@@ -133,6 +141,13 @@ namespace Glyssen.Controls
 
 		protected override bool IsInactive(IProjectInfo project)
 		{
+			// Note: there is a really tiny chance that someone may have made a Paratext project
+			// inactive and then later added a second project with the same name on the machine. At
+			// that point, the unique name that will be used for the project will change to include
+			// the full name in parentheses, so it will not longer be found in the list of inactive
+			// projects. In that case, the user would have to re-inactivate it and this list would
+			// forever be left containing the old (short) name as well. This is so unlikely it's
+			// barely even worth mentioning.
 			return (project as GlyssenDblTextMetadata)?.Inactive ?? IsInactiveParatextProject(project.Name);
 		}
 
