@@ -1036,6 +1036,15 @@ namespace GlyssenEngine.Script
 		public bool IsFollowOnParagraphStyle => s_regexFollowOnParagraphStyles.IsMatch(StyleTag);
 
 		/// <summary>
+		/// Gets whether the paragraph style associated with this block is a "continuation" style
+		/// used to exit some indented text (usually poetry or a Scripture quote) and return to the
+		/// context of the containing text (usually prose).
+		/// </summary>
+		///<remarks>I'm not 100% sure that "mi" should be treated as a continuation, but it's a rare style and is
+		/// formatted similar to "m", so it's probably safer to treat it in a similar way.</remarks>
+		public bool IsContinuationParagraphStyle => StyleTag == "m" || StyleTag == "mi";
+
+		/// <summary>
 		/// Block represents the text of a single verse bridge and contain no text from any other verse(s).
 		/// </summary>
 		public bool IsSimpleBridge => InitialEndVerseNumber != 0 && !CoversMoreThanOneVerse;
