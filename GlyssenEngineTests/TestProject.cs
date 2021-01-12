@@ -20,8 +20,6 @@ namespace GlyssenEngineTests
 {
 	static class TestProject
 	{
-		private static readonly Random s_random = new Random(DateTime.Now.Millisecond);
-
 		public class TestFontRepository : IFontRepository
 		{
 			public bool IsFontInstalled(string fontFamilyIdentifier)
@@ -107,7 +105,7 @@ namespace GlyssenEngineTests
 			m_errorDuringProjectCreation = null;
 
 			AppDomain.CurrentDomain.UnhandledException += HandleErrorDuringProjectCreation;
-			var metadataId = s_random.Next(16000).ToString();
+			var metadataId = TestContext.CurrentContext.Test.ID;
 			try
 			{
 				var sampleMetadata = new GlyssenDblTextMetadata();
