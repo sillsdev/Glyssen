@@ -25,6 +25,7 @@ namespace Glyssen.Controls
 	{
 		private string m_fmtParatextProjectSource;
 		private readonly Dictionary<string, bool> m_unstartedParatextProjectStates = new Dictionary<string, bool>();
+		private readonly Dictionary<string, string> m_paratextProjectIds = new Dictionary<string, string>();
 		private ApplicationMetadata m_glyssenMetadata = null;
 
 		private ApplicationMetadata GlyssenMetadata
@@ -64,6 +65,9 @@ namespace Glyssen.Controls
 
 		public Func<IEnumerable<ScrText>> GetParatextProjects { private get; set; }
 
+		public string GetIdentifierForParatextProjectThatCannotBeLoadedByName =>
+			m_paratextProjectIds.TryGetValue(SelectedProject, out var id) ? id : null;
+
 		protected override IEnumerable<Tuple<string, IProjectInfo>> Projects
 		{
 			get
@@ -80,7 +84,12 @@ namespace Glyssen.Controls
 					foreach (var scrText in GetParatextProjects())
 					{
 						if (!existingProjects.Contains(scrText.Settings.DBLId))
-							yield return new Tuple<string, IProjectInfo>(scrText.Name, new ParatextProjectProxy(scrText));
+						{
+							var proxy = new ParatextProjectProxy(scrText);
+							if (!proxy.CanBeFoundUsingShortName)
+								m_paratextProjectIds[proxy.Name] = scrText.Guid;
+							yield return new Tuple<string, IProjectInfo>(proxy.Name, proxy);
+						}
 					}
 				}
 			}
