@@ -591,14 +591,13 @@ namespace Glyssen
 
 		private void LoadParatextProject(string paratextProjName, string paratextProjectId)
 		{
-			Logger.WriteEvent($"Loading {ParatextScrTextWrapper.kParatextProgramName} project {paratextProjName}");
+			Logger.WriteEvent($"Loading {ParatextScrTextWrapper.kParatextProgramName} project {paratextProjName} (id:{paratextProjectId})");
 
 			ParatextScrTextWrapper paratextProject = null;
 
 			if (!LoadAndHandleApplicationExceptions(() =>
 			{
-				var scrText = (IsNullOrEmpty(paratextProjectId)) ? ScrTextCollection.Find(paratextProjName) :
-					ScrTextCollection.FindById(paratextProjectId);
+				var scrText = ScrTextCollection.FindById(paratextProjectId);
 				paratextProject = new ParatextScrTextWrapper(scrText);
 			}))
 			{

@@ -48,10 +48,9 @@ namespace Glyssen.Dialogs
 
 		public string SelectedProject { get; private set; }
 		/// <summary>
-		/// For Paratext projects, if this is set, use it instead of the SelectedProject (short name)
-		/// to load the project.
+		/// For Paratext projects, use this instead of the SelectedProject (name) to load the project.
 		/// </summary>
-		public string ParatextProjectId => m_listExistingProjects.GetIdentifierForParatextProjectThatCannotBeLoadedByName;
+		public string ParatextProjectId => m_listExistingProjects.GetIdentifierForParatextProject;
 
 		private void OpenProjectDlg_Load(object sender, EventArgs e)
 		{
