@@ -257,9 +257,8 @@ namespace GlyssenEngine
 			// "Get" it by name, though I'm kind of doubting this would ever succeed. If that
 			// fails, Paratext throws a ProjectNotFoundException, and the caller needs to deal with
 			// it.
-			// Note: If there is more than one local project with the same name, the first one to
-			// show up can be loaded by name, but any subsequent ones will be stored in a separate
-			// location and can only be loaded by ID.
+			// Note: If there is more than one local project with the same name, attempting to load
+			// by name will not work - they can only be loaded by ID.
 			var id = m_projectMetadata.ParatextProjectUniqueId;
 			if (!IsNullOrEmpty(id))
 			{
