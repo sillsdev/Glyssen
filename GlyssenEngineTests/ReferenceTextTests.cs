@@ -3998,9 +3998,9 @@ namespace GlyssenEngineTests
 		}
 
 		/// <summary>
-		/// This scenario has the two lines by the Holy Spirit combined, but with both a preceeding announcement and a closing "he said".
+		/// This scenario has the two lines by the Holy Spirit combined, but with both a preceding announcement and a closing "he said".
 		/// We could possibly hope for better results, but it's pretty tricky to figure out what's best in this case and probably harder
-		/// to write intelligible code to do it. So we'll be content if everything in the reference text is just preserved in the corretc order.
+		/// to write intelligible code to do it. So we'll be content if everything in the reference text is just preserved in the correct order.
 		/// </summary>
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_VernBlockHasPreAndPostAnnouncedQuoteAsSingleBlockThatIsSplitInRefText_AllTextFromRefTextIncluded()
@@ -4972,6 +4972,52 @@ namespace GlyssenEngineTests
 				"Expected the narrator block in the reference text for Mat 2:19 to be matched to the first block of matchup.");
 			Assert.AreEqual(refTextBlockForMat2V20.GetText(true), result[1].ReferenceBlocks.Single().GetText(true),
 				"Expected the block (angel) in the reference text for Mat 2:20 to be matched to the third block of matchup.");
+		}
+		#endregion
+
+		#region PG-1229
+		/// <summary>
+		/// Note: This is the text for the specific scenario detailed in PG-794.
+		/// GetBlocksForVerseMatchedToReferenceText_VernBlockHasPreAnnouncedQuoteAsSingleBlockThatIsSplitInRefText_AllTextFromRefTextIsIncluded
+		/// is this exact same scenario without allowing for alternates.
+		/// </summary>
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_RevC14V13TextFollowsCEV_UsesAlternateBasedOnCEV()
+		{
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refTextRev = refText.GetBook("REV");
+			var refBlockRev14V12 = refTextRev.GetBlocksForVerse(14, 12).Single();
+			var refBlocksRev14V13 = refTextRev.GetBlocksForVerse(14, 13).ToList();
+			VerifyCharacterVerseEntriesForRev4V12To13(refBlockRev14V12, refBlocksRev14V13);
+
+			var vernacularBlocks = new List<Block>
+			{
+				new Block("c", 14)
+				{
+					BookCode = refTextRev.BookId,
+					CharacterId = CharacterVerseData.GetStandardCharacterId(refTextRev.BookId, CharacterVerseData.StandardCharacter.BookOrChapter),
+				},
+				CreateNarratorBlockForVerse(12, "'Ŋwacɩa ya ŋeni, ɩya Laagɔ 'la ncɛlɩa ‑ɔ 'plɩlɩ 'lɛ ɔla ‑jlɩmaa 'kʋ 'nyɩ ‑ɔ ‑ka 'lɛ Zozii 'la pɔɔtɛtɛ na, 'kanɩ pɔlɛ kla. ", true, 14, refTextRev.BookId)
+					.AddVerse(13, "'Nyɩ n ‑ya ‑blɩɩzɔn bhlo 'nu, ʋ 'wlʋlʋa ‑laagɔɔn 'nyɩ ʋ claa lebhe: ")
+			};
+
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "«Zie lebhe: Ma ‑kʋnɩ ‑pɔtɔnʋ 'nanɩ, maa ‑ɔ 'kulu 'lɛ ‑Kwlenyɔ nɩkplaan na!» "); // Write: Blessed...
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "‑Ghɛɛ, 'Wugoa nabhe: ", refTextRev.BookId); // The Holy Spirit said:
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "«'Naa ma 'lɩnɩ lobholia ‑tɛtɛa ma nʋ 'lɛ na 'la nyɔkwɛa, sa mala nʋnʋgbɩa gɩlɩ maa na.»"); // Yes, that they...
+			var vernBook = new BookScript(refTextRev.BookId, vernacularBlocks, m_vernVersification);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 1);
+			Assert.AreEqual(5, matchup.CorrelatedBlocks.Count);
+			Assert.AreEqual(refBlockRev14V12.GetText(true), matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().GetText(true));
+			Assert.AreEqual(refBlocksRev14V13[0].GetText(true), matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().GetText(true),
+				$"Vern: {matchup.CorrelatedBlocks[1].GetText(true)}");
+			Assert.AreEqual(refBlocksRev14V13[1].GetText(true), matchup.CorrelatedBlocks[2].ReferenceBlocks.Single().GetText(true),
+				$"Vern: {matchup.CorrelatedBlocks[2].GetText(true)}");
+			Assert.AreEqual(refBlocksRev14V13[3].GetText(true), matchup.CorrelatedBlocks[3].ReferenceBlocks.Single().GetText(true),
+				$"Vern: {matchup.CorrelatedBlocks[3].GetText(true)}");
+			Assert.AreEqual(refBlocksRev14V13[2].GetText(true) + refBlocksRev14V13[4].GetText(true),
+				String.Join("", matchup.CorrelatedBlocks[4].ReferenceBlocks.Select(r => r.GetText(true))),
+				$"Vern: {matchup.CorrelatedBlocks[4].GetText(true)}");
 		}
 		#endregion
 
