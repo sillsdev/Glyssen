@@ -46,6 +46,9 @@ back-up plan.)
 
 # Release Notes
 
+## January 18 2020 Glyssen 2.0.1
+Enhanced USX parser to correctly process ["milestone"](https://ubsicap.github.io/usfm/milestones/index.html) markers.
+
 ## January 8 2020 Glyssen 2.0.0
 Enhanced parser to identify "poetry" paragraphs as Scripture quotes when no other character speaks in the verses.
 

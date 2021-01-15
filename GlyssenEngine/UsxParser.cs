@@ -15,6 +15,7 @@ using SIL.DblBundle;
 using SIL.DblBundle.Usx;
 using SIL.Reporting;
 using SIL.Scripture;
+using SIL.Xml;
 using static System.Char;
 using static System.String;
 
@@ -219,14 +220,32 @@ namespace GlyssenEngine
 												}
 												FinalizeCharacterStyleBlock(sb, ref block, blocks, charTag);
 												block.CharacterId = character;
-												//ControlCharacterVerseData.Singleton.GetCharacters(m_bookNum, block.ChapterNumber,
-												//block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum, m_versification, true)
-												//.FirstOrDefault(cv => cv.Character == character)?.Character ?? CharacterVerseData.kNeedsReview;
 											}
 											sb.Append(tokens[0]);
 										}
 									}
 
+									break;
+								case "ms": // Milestone (PG-1419)
+									// Note: Technically, the style attribute is required for ms elements,
+									// but for greater robustness, if it's missing, we'll just ignore it.
+									var styleTag = childNode.GetOptionalStringAttribute("style", default);
+									if (Block.IsFirstLevelQuoteMilestoneStart(styleTag))
+									{
+										FinalizeCharacterStyleBlock(sb, ref block, blocks, styleTag);
+										var character = childNode.GetOptionalStringAttribute("character", default);
+										if (character != null &&
+											CharacterDetailData.Singleton.GetDictionary().ContainsKey(character))
+										{
+											block.CharacterId = character;
+											// TODO: Set CharacterIdInScript to default if necessary
+											// TODO: Set Delivery if there is only one delivery for this character in this verse.
+										}
+									}
+									else if (Block.IsFirstLevelQuoteMilestoneEnd(styleTag))
+									{
+										FinalizeCharacterStyleBlock(sb, ref block, blocks, styleTag);
+									}
 									break;
 								case "#text":
 									var textToAppend = childNode.InnerText;

@@ -214,7 +214,12 @@ namespace GlyssenEngine.Quote
 				if (block.UserConfirmed)
 					throw new InvalidOperationException($"Should not be parsing blocks that already have user-decisions applied. ({m_bookId} {block.ChapterNumber}:{block.InitialStartVerseNumber}");
 
-				bool thisBlockStartsWithAContinuer = false;
+				// TODO: combine these two checks
+				if (block.HasPreConfirmedCharacter)
+				{
+					m_outputBlocks.Add(block);
+					continue;
+				}
 
 				if (!block.IsScripture)
 				{
@@ -222,6 +227,13 @@ namespace GlyssenEngine.Quote
 					m_outputBlocks.Add(block);
 					continue;
 				}
+
+				if (block.IsPredeterminedFirstLevelQuoteStart)
+				{
+					IncrementQuoteLevel();
+				}
+
+				bool thisBlockStartsWithAContinuer = false;
 
 				if (StyleToCharacterMappings.IncludesCharStyle(block.StyleTag))
 				{
@@ -240,7 +252,6 @@ namespace GlyssenEngine.Quote
 					m_nextBlockContinuesQuote = false;
 					m_outputBlocks.Add(block);
 					continue;
-
 				}
 
 				if (m_quoteLevel == 1 && blockInWhichDialogueQuoteStarted != null &&

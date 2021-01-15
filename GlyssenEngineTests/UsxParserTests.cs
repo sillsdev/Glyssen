@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Text;
 using System.Xml;
 using Glyssen.Shared;
 using GlyssenEngine;
@@ -534,6 +536,69 @@ namespace GlyssenEngineTests
 			Assert.AreEqual("«Siaga nī muɔ bésimɛ ta bè.»", blocks[2].GetText(true).Trim());
 			Assert.IsTrue(blocks[3].StartsAtVerseStart);
 			Assert.AreEqual(19, blocks[3].InitialStartVerseNumber);
+		}
+
+		[TestCase(ExpectedResult = CharacterVerseData.kUnexpectedCharacter)]
+		[TestCase("qt_123", ExpectedResult = CharacterVerseData.kUnexpectedCharacter)]
+		[TestCase("qt_123", null, 1, ExpectedResult = CharacterVerseData.kUnexpectedCharacter)]
+		[TestCase("qt_123", "Enoch", ExpectedResult = "Enoch")]
+		[TestCase("qt_123", "Enoch", 1, ExpectedResult = "Enoch")]
+		public string Parse_QtMilestonesWithOnlyTextBetweenThem_AdjacentPunctuationIncludedInBlockWithQuotedText(
+			string qtId = null, string character = null, int level = 0)
+		{
+			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\">" +
+				"<verse number=\"14\" style=\"v\" />" +
+				"De éstos también profetizó Enoc," +
+				"<note caller=\"-\" style=\"x\"><char style=\"xo\" closed=\"false\">1:14 </char><char style=\"xt\" closed=\"false\">Gn. 5.21-24.</char></note> " +
+				" séptimo desde Adán, diciendo: " +
+				GetQtMilestoneElement("start", qtId, character, level) +
+				"He aquí, vino el Señor con sus santas decenas de millares." +
+				GetQtMilestoneElement("end", qtId, character, level) +
+				"<verse number=\"15\" style=\"v\" />" +
+				"The quote should continue in this verse but it does not." +
+				"</para>");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(4, blocks.Count, "Should have a chapter block, plus 3 Scripture blocks.");
+			Assert.AreEqual(14, blocks[1].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[1].GetText(true).TrimEnd().EndsWith("diciendo:"));
+			Assert.IsNull(blocks[1].CharacterId);
+			Assert.AreEqual(14, blocks[2].InitialStartVerseNumber);
+			Assert.AreEqual("He aquí, vino el Señor con sus santas decenas de millares.", blocks[2].GetText(true).Trim());
+			Assert.IsTrue(blocks[3].StartsAtVerseStart);
+			Assert.AreEqual(15, blocks[3].InitialStartVerseNumber);
+			Assert.IsNull(blocks[3].CharacterId);
+			return blocks[2].CharacterId;
+		}
+
+		private string GetQtMilestoneElement(string startOrEnd, string qtId = null, string character = null, int level = 0)
+		{
+			Debug.Assert(startOrEnd == "start" || startOrEnd == "end");
+			var sb = new StringBuilder("<ms style=\"qt");
+			if (level >= 1)
+				sb.Append(level);
+			sb.Append("-");
+			sb.Append(startOrEnd[0]);
+			sb.Append("\" status=\"");
+			sb.Append(startOrEnd);
+			sb.Append("\" ");
+			if (qtId != null)
+			{
+				sb.Append(startOrEnd[0]);
+				sb.Append("id=\"");
+				sb.Append(qtId);
+				sb.Append("\"");
+				sb.Append(" ");
+			}
+			if (character != null)
+			{
+				sb.Append("who=\"");
+				sb.Append(character);
+				sb.Append("\"");
+				sb.Append(" ");
+			}
+			sb.Append("/>");
+			return sb.ToString();
 		}
 
 		[Test]

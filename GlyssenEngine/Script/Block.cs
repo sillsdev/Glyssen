@@ -27,6 +27,9 @@ namespace GlyssenEngine.Script
 
 		public const int kNotSplit = -1;
 
+		private static Regex s_regexFirstLevelQuoteMilestoneStartMarker = new Regex("^qt1?-s$", RegexOptions.Compiled);
+		private static Regex s_regexFirstLevelQuoteMilestoneEndMarker = new Regex("^qt1?-e$", RegexOptions.Compiled);
+
 		public const string kCssFrame = "body{{font-family:{0};font-size:{1}pt}}" +
 						".right-to-left{{direction:rtl}}" +
 						".scripttext {{display:inline}}";
@@ -263,6 +266,25 @@ namespace GlyssenEngine.Script
 		[XmlAttribute("userConfirmed")]
 		[DefaultValue(false)]
 		public bool UserConfirmed { get; set; }
+
+		public static bool IsFirstLevelQuoteMilestoneStart(string styleTag) =>
+			styleTag != null && s_regexFirstLevelQuoteMilestoneStartMarker.IsMatch(styleTag);
+
+		public static bool IsFirstLevelQuoteMilestoneEnd(string styleTag) =>
+			styleTag != null && s_regexFirstLevelQuoteMilestoneEndMarker.IsMatch(styleTag);
+
+		/// <summary>
+		/// Gets whether the block had the character pre-determined in the source. If this block is
+		/// later user-confirmed, that's okay, but if the user actually overrides the pre-
+		/// determined character, we (hopefully consistently) alter the style tag so that it does
+		/// not appear that the new character is the one that was predetermined.
+		/// </summary>
+		public bool HasPreConfirmedCharacter => CharacterId  != null && !CharacterIsUnclear && IsPredeterminedFirstLevelQuoteStart;
+
+		public bool IsPredeterminedFirstLevelQuoteStart
+		{
+			get { return IsFirstLevelQuoteMilestoneStart(StyleTag); }
+		}
 
 		[XmlAttribute("multiBlockQuote")]
 		[DefaultValue(MultiBlockQuote.None)]
@@ -836,10 +858,9 @@ namespace GlyssenEngine.Script
 		/// actually store an additional piece of information about the block to distinguish this case and prevent
 		/// a false positive. (For the current planned usage, an occasional false positive will not be a big deal.)
 		/// </summary>
-		public bool IsQuote
-		{
-			get { return !CharacterVerseData.IsCharacterStandard(CharacterId) || UserConfirmed; }
-		}
+		public bool IsQuote => !CharacterVerseData.IsCharacterStandard(CharacterId) ||
+			UserConfirmed ||
+			IsFirstLevelQuoteMilestoneStart(StyleTag);
 
 		public bool IsNarratorOrPotentialNarrator(string bookId) =>
 			CharacterIs(bookId, CharacterVerseData.StandardCharacter.Narrator) ||
@@ -870,9 +891,20 @@ namespace GlyssenEngine.Script
 		// fields are cleared that would be inappropriate for this kind of character.
 		public void SetNonDramaticCharacterId(string characterID)
 		{
-			CharacterId = characterID;
+			ChangeCharacterId(characterID);
 			m_characterIdInScriptOverride = null;
 			Delivery = null;
+		}
+
+		private void ChangeCharacterId(string newCharacterId)
+		{
+			if (CharacterId == newCharacterId)
+				return;
+			if (IsPredeterminedFirstLevelQuoteStart)
+				StyleTag += "|" + CharacterId; //  Remember that we *were* predetermined, but now we're not.
+			// REVIEW: If we change it back to its previous predetermined value, should we put the the style
+			// tag back. (We probably don't much care at that point.)
+			CharacterId = newCharacterId;
 		}
 
 		public string GetAsXml(bool includeXmlDeclaration = true)
@@ -948,7 +980,7 @@ namespace GlyssenEngine.Script
 					m_characterIdInScriptOverride = null;
 				return;
 			}
-			CharacterId = characterId;
+			ChangeCharacterId(characterId);
 			UseDefaultForMultipleChoiceCharacter(getMatchingCharacterForVerse);
 		}
 
@@ -1169,7 +1201,7 @@ namespace GlyssenEngine.Script
 
 		public void SetCharacterInfo(Block basedOnBlock)
 		{
-			CharacterId = basedOnBlock.CharacterId;
+			ChangeCharacterId(basedOnBlock.CharacterId);
 			m_characterIdInScriptOverride = basedOnBlock.m_characterIdInScriptOverride;
 		}
 
