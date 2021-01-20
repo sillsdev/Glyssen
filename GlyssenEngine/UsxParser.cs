@@ -23,7 +23,8 @@ namespace GlyssenEngine
 {
 	public class UsxParser
 	{
-		public static List<BookScript> ParseBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet, Action<int> reportProgressAsPercent)
+		public static List<BookScript> ParseBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet,
+			ICharacterUsageStore characterUsageStore, Action<int> reportProgressAsPercent)
 		{
 			var numBlocksPerBook = new ConcurrentDictionary<string, int>();
 			var blocksInBook = new ConcurrentDictionary<string, XmlNodeList>();
@@ -40,7 +41,7 @@ namespace GlyssenEngine
 			Parallel.ForEach(blocksInBook, book =>
 			{
 				var bookId = book.Key;
-				var bookScript = new UsxParser(bookId, stylesheet, book.Value).CreateBookScript();
+				var bookScript = new UsxParser(bookId, stylesheet, characterUsageStore, book.Value).CreateBookScript();
 				lock(bookScripts)
 					bookScripts.Add(bookScript);
 				Logger.WriteEvent("Added bookScript ({0}, {1})", bookId, bookScript.BookId);
@@ -92,6 +93,7 @@ namespace GlyssenEngine
 		private readonly string m_bookId;
 		private readonly int m_bookNum;
 		private readonly IStylesheet m_stylesheet;
+		private readonly ICharacterUsageStore m_characterUsageStore;
 		private readonly XmlNodeList m_nodeList;
 
 		private string m_bookLevelChapterLabel;
@@ -102,11 +104,12 @@ namespace GlyssenEngine
 		private readonly Regex m_regexStartsWithClosingPunctuation = new Regex(@"^(\p{Pd}|\p{Pe}|\p{Pf}|\p{Po})+\s+", RegexOptions.Compiled);
 		private readonly Regex m_regexEndsWithOpeningQuote = new Regex("(\\p{Pi}\\s?)*(\\p{Pi}|\")+$", RegexOptions.Compiled);
 
-		public UsxParser(string bookId, IStylesheet stylesheet, XmlNodeList nodeList)
+		public UsxParser(string bookId, IStylesheet stylesheet, ICharacterUsageStore characterUsageStore, XmlNodeList nodeList)
 		{
 			m_bookId = bookId;
 			m_bookNum = BCVRef.BookToNumber(m_bookId);
 			m_stylesheet = stylesheet;
+			m_characterUsageStore = characterUsageStore;
 			m_nodeList = nodeList;
 		}
 
@@ -233,13 +236,31 @@ namespace GlyssenEngine
 									if (Block.IsFirstLevelQuoteMilestoneStart(styleTag))
 									{
 										FinalizeCharacterStyleBlock(sb, ref block, blocks, styleTag);
-										var character = childNode.GetOptionalStringAttribute("character", default);
-										if (character != null &&
-											CharacterDetailData.Singleton.GetDictionary().ContainsKey(character))
+										var character = childNode.GetOptionalStringAttribute("who", default);
+										if (character != null)
 										{
-											block.CharacterId = character;
-											// TODO: Set CharacterIdInScript to default if necessary
-											// TODO: Set Delivery if there is only one delivery for this character in this verse.
+											var standardCharacter = m_characterUsageStore.GetStandardCharacterName(
+												character, m_bookNum, m_currentChapter, block.AllVerses,
+												out var delivery, out var defaultCharacter);
+											if (standardCharacter != null)
+											{
+												block.CharacterId = standardCharacter;
+												//block.Delivery = delivery;
+												// REVIEW: Should the following be done in the Quote Parser or here?
+												// TODO: Set CharacterIdInScript to default if necessary
+												// block.SetCharacterIdAndCharacterIdInScript(character, ...);
+												// TODO: Set Delivery if there is only one delivery for this character in this verse.
+											}
+											else
+											{
+												block.CharacterId = CharacterVerseData.kNeedsReview;
+												block.CharacterIdInScript = character;
+											}
+										}
+										else
+										{
+											//block.CharacterId = CharacterVerseData.kUnexpectedCharacter;
+											// ENHANCE: Try to find a close match?
 										}
 									}
 									else if (Block.IsFirstLevelQuoteMilestoneEnd(styleTag))

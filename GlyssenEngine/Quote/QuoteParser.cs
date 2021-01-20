@@ -214,13 +214,6 @@ namespace GlyssenEngine.Quote
 				if (block.UserConfirmed)
 					throw new InvalidOperationException($"Should not be parsing blocks that already have user-decisions applied. ({m_bookId} {block.ChapterNumber}:{block.InitialStartVerseNumber}");
 
-				// TODO: combine these two checks
-				if (block.HasPreConfirmedCharacter)
-				{
-					m_outputBlocks.Add(block);
-					continue;
-				}
-
 				if (!block.IsScripture)
 				{
 					m_nextBlockContinuesQuote = false;
@@ -230,7 +223,25 @@ namespace GlyssenEngine.Quote
 
 				if (block.IsPredeterminedFirstLevelQuoteStart)
 				{
-					IncrementQuoteLevel();
+					// TODO: Deal with multi-block quote
+					if (block.CharacterId == null)
+					{
+						m_quoteLevel = 0;
+						IncrementQuoteLevel();
+					}
+					else
+					{
+						m_outputBlocks.Add(block);
+						m_quoteLevel = 1;
+						// TODO: Need to deal with character mismatch & multiple deliveries.
+						m_possibleCharactersForCurrentQuote = new List<string>(new [] {block.CharacterId});
+						continue;
+					}
+				}
+				else if (block.IsPredeterminedFirstLevelQuoteEnd)
+				{
+					m_quoteLevel = 1;
+					DecrementQuoteLevel();
 				}
 
 				bool thisBlockStartsWithAContinuer = false;

@@ -1,5 +1,4 @@
 ﻿using Glyssen.Shared;
-using Glyssen.Shared.Bundle;
 using GlyssenEngine.Analysis;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Casting;
@@ -76,6 +75,8 @@ namespace GlyssenEngine
 
 		public delegate BadLdmlRecoveryAction BadLdmlHandler(Project sender, string error, bool attemptToUseBackup);
 		public static BadLdmlHandler GetBadLdmlRecoveryAction;
+
+		public static Func<string, IEnumerable<string>> GetDynamicLocalizedCharacterIdVariants;
 
 		public static IFontRepository FontRepository { get; set; }
 		public static IProjectPersistenceWriter Writer { get; set; }
@@ -516,6 +517,12 @@ namespace GlyssenEngine
 				characterDetails.AddRange(ProjectCharacterDetail.ToDictionary(k => k.CharacterId));
 				return characterDetails;
 			}
+		}
+
+		public string GetStandardCharacterName(string character, string bookId, int chapter,
+			IEnumerable<IVerse> verses, out string singleKnownDelivery, out string defaultcharacter)
+		{
+			throw new NotImplementedException();
 		}
 
 		public bool IsProjectSpecificCharacter(string character)
@@ -1496,7 +1503,10 @@ namespace GlyssenEngine
 
 			var backgroundWorker = (BackgroundWorker)sender;
 
-			var parsedBooks = UsxParser.ParseBooks(books, stylesheet, i => backgroundWorker.ReportProgress(i));
+			var parsedBooks = UsxParser.ParseBooks(books, stylesheet,
+				new CharacterUsageStore(Versification, new CombinedCharacterVerseData(this),
+					GetDynamicLocalizedCharacterIdVariants),
+				i => backgroundWorker.ReportProgress(i));
 
 			if (postParseAction != null)
 			{
@@ -2161,12 +2171,13 @@ namespace GlyssenEngine
 						character = narratorToUseForSingleVoiceBook;
 					else
 					{
-						if (block.CharacterIsUnclear)
-							continue; // REVIEW: Should we throw an exception if this happens (in production code)?
+						// The "Needs Review" character should never be added to a group.
+						// REVIEW: By the time we get here (in production code), it shouldn't be possible
+						// to have any characters that have not been disambiguated. Should we throw an
+						// exception if this happens?
+						if (block.CharacterIsUnclear || block.CharacterId == CharacterVerseData.kNeedsReview)
+							continue;
 						character = book.GetCharacterIdInScript(block);
-
-						if (character == CharacterVerseData.kNeedsReview)
-							continue; // The "Needs Review" character should never be added to a group.
 
 						if (character == null)
 						{
@@ -2342,7 +2353,8 @@ namespace GlyssenEngine
 				usxDocsForBooksToInclude = scrTextWrapper.UsxDocumentsForIncludedBooks;
 				stylesheet = scrTextWrapper.Stylesheet;
 			}
-			var books = UsxParser.ParseBooks(usxDocsForBooksToInclude, stylesheet, null);
+			var books = UsxParser.ParseBooks(usxDocsForBooksToInclude, stylesheet,
+				new CharacterUsageStore(Versification, cvInfo, GetDynamicLocalizedCharacterIdVariants), null);
 
 			var blocksInBook = books.ToDictionary(b => b.BookId, b => b.GetScriptBlocks());
 

@@ -13,6 +13,7 @@ using Paratext.Data;
 using SIL.DblBundle;
 using SIL.DblBundle.Tests.Usx;
 using SIL.DblBundle.Usx;
+using SIL.Scripture;
 using Resources = GlyssenEngineTests.Properties.Resources;
 
 namespace GlyssenEngineTests
@@ -538,15 +539,17 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(19, blocks[3].InitialStartVerseNumber);
 		}
 
-		[TestCase(ExpectedResult = CharacterVerseData.kUnexpectedCharacter)]
-		[TestCase("qt_123", ExpectedResult = CharacterVerseData.kUnexpectedCharacter)]
-		[TestCase("qt_123", null, 1, ExpectedResult = CharacterVerseData.kUnexpectedCharacter)]
+		[TestCase(ExpectedResult = null)]
+		[TestCase("qt_123", ExpectedResult = null)]
+		[TestCase("qt_123", null, 1, ExpectedResult = null)]
+		[TestCase("qt_123", "Some random name that doesn't look anything like a name we expect", 1, ExpectedResult = CharacterVerseData.kNeedsReview)]
 		[TestCase("qt_123", "Enoch", ExpectedResult = "Enoch")]
 		[TestCase("qt_123", "Enoch", 1, ExpectedResult = "Enoch")]
 		public string Parse_QtMilestonesWithOnlyTextBetweenThem_AdjacentPunctuationIncludedInBlockWithQuotedText(
 			string qtId = null, string character = null, int level = 0)
 		{
-			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\">" +
+			var doc = UsxDocumentTests.CreateDocFromString(string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"JUD\""),
+				"<para style=\"p\">" +
 				"<verse number=\"14\" style=\"v\" />" +
 				"De éstos también profetizó Enoc," +
 				"<note caller=\"-\" style=\"x\"><char style=\"xo\" closed=\"false\">1:14 </char><char style=\"xt\" closed=\"false\">Gn. 5.21-24.</char></note> " +
@@ -556,8 +559,8 @@ namespace GlyssenEngineTests
 				GetQtMilestoneElement("end", qtId, character, level) +
 				"<verse number=\"15\" style=\"v\" />" +
 				"The quote should continue in this verse but it does not." +
-				"</para>");
-			var parser = GetUsxParser(doc);
+				"</para>"));
+			var parser = GetUsxParser(doc, "JUD");
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(4, blocks.Count, "Should have a chapter block, plus 3 Scripture blocks.");
 			Assert.AreEqual(14, blocks[1].InitialStartVerseNumber);
@@ -568,6 +571,8 @@ namespace GlyssenEngineTests
 			Assert.IsTrue(blocks[3].StartsAtVerseStart);
 			Assert.AreEqual(15, blocks[3].InitialStartVerseNumber);
 			Assert.IsNull(blocks[3].CharacterId);
+			if (blocks[2].CharacterId == CharacterVerseData.kNeedsReview)
+				Assert.AreEqual(character, blocks[2].CharacterIdInScript);
 			return blocks[2].CharacterId;
 		}
 
@@ -996,7 +1001,7 @@ namespace GlyssenEngineTests
 
 			// This uses the "real" stylesheet (now USFM v. 3)
 			var doc = UsfmToUsx.ConvertToXmlDocument(SfmLoader.GetUsfmScrStylesheet(), usfmData);
-			var parser = new UsxParser("MAT", SfmLoader.GetUsfmStylesheet(), new UsxDocument(doc).GetChaptersAndParas());
+			var parser = new UsxParser("MAT", SfmLoader.GetUsfmStylesheet(), null, new UsxDocument(doc).GetChaptersAndParas());
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual(6, blocks[1].BlockElements.Count);
@@ -1019,7 +1024,7 @@ namespace GlyssenEngineTests
 
 			// This uses the "real" stylesheet (now USFM v. 3)
 			var doc = UsfmToUsx.ConvertToXmlDocument(SfmLoader.GetUsfmScrStylesheet(), usfmData);
-			var parser = new UsxParser("MAT", SfmLoader.GetUsfmStylesheet(), new UsxDocument(doc).GetChaptersAndParas());
+			var parser = new UsxParser("MAT", SfmLoader.GetUsfmStylesheet(), null, new UsxDocument(doc).GetChaptersAndParas());
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual(2, blocks[1].BlockElements.Count);
@@ -1154,9 +1159,16 @@ namespace GlyssenEngineTests
 			Assert.AreEqual("{37}\u00A0They, answering, asked him, “Where, Lord?”", blocks[2].GetText(true));
 		}
 
-		private UsxParser GetUsxParser(XmlDocument doc, string bookId = "MRK")
+		private UsxParser GetUsxParser(XmlDocument doc, string bookId = "MRK", ICharacterUsageStore characterUsageStore = null)
 		{
-			return new UsxParser(bookId, new TestStylesheet(), new UsxDocument(doc).GetChaptersAndParas());
+			if (characterUsageStore == null)
+			{
+				characterUsageStore = new CharacterUsageStore(ScrVers.English, 
+					ControlCharacterVerseData.Singleton, null);
+			}
+
+			return new UsxParser(bookId, new TestStylesheet(), characterUsageStore,
+				new UsxDocument(doc).GetChaptersAndParas());
 		}
 
 		private void VerifyChapterBlock(Block block, int number, string bookId = "MRK", string text = null, string tag = "c")

@@ -73,11 +73,12 @@ namespace GlyssenEngineTests.Quote
 
 		[TestCase()]
 		[TestCase("Andrew")]
-		public void Parse_ContainsBlockWithPreConfirmedCharactersFollowingUnclosedFirstLevelQuote_ExistingQuoteIsClosed(string character = null)
+		public void Parse_ContainsBlockWithPreConfirmedCharactersFollowingUnclosedFirstLevelQuote_ExistingQuoteIsClosed(
+			string character = CharacterVerseData.kUnexpectedCharacter)
 		{
 			var styleTag = "qt-s";
 			var endStyle = "qt-e";
-			var block1 = new Block("p", 6, 38).AddVerse("Jesus asked, «How many loaves do you have? Go check!" ); // Missing closer
+			var block1 = new Block("p", 6, 38).AddVerse(38, "Jesus asked, «How many loaves do you have? Go check!" ); // Missing closer
 			var block2 = new Block(styleTag, 6, 38) { CharacterId = character }.AddText("--Seven, if you count the fish,");
 			var block3 = new Block(endStyle, 6, 38).AddText("they replied.");
 			var input = new List<Block> { block1, block2, block3 };
@@ -93,7 +94,36 @@ namespace GlyssenEngineTests.Quote
 			Assert.IsTrue(output[2].IsPredeterminedFirstLevelQuoteStart);
 			Assert.AreEqual(narrator, output[3].CharacterId);
 			Assert.IsFalse(output[3].HasPreConfirmedCharacter);
-			Assert.Fail("Look at all the other places where UserConfirmed is used");
+		}
+
+		[Test]
+		public void Parse_MultiBlockQuoteWithPreConfirmedCharacters_PreConfirmedCharacterAssignmentsUnchanged()
+		{
+			Assert.Fail("Write this test");
+			var styleTag = "qt-s";
+			var endStyle = "qt1-e";
+			var blockJ1 = new Block(styleTag, 6, 38) { CharacterId = "Jesus"}.AddVerse(38, "How many «loaves» do you have?");
+			var blockN1 = new Block(endStyle, 6, 38).AddText("he asked.");
+			var blockD = new Block(styleTag, 6, 38) { CharacterId = "disciples", CharacterIdInScript = "Andrew"}
+				.AddText("--Seven, if you count the fish,");
+			var blockN2 = new Block(endStyle, 6, 38).AddText("they replied after Jesus told them,");
+			var blockJ2 = new Block(styleTag, 6, 38).AddText("\"Go check!\""); // Note: character not set
+			var input = new List<Block> { blockJ1, blockN1, blockD, blockN2, blockJ2 };
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			Assert.AreEqual(5, output.Count);
+			var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			Assert.AreEqual("Jesus", output[0].CharacterId);
+			Assert.IsTrue(output[0].HasPreConfirmedCharacter);
+			Assert.AreEqual(narrator, output[1].CharacterId);
+			Assert.IsFalse(output[1].HasPreConfirmedCharacter);
+			Assert.AreEqual("disciples", output[2].CharacterId);
+			Assert.AreEqual("Andrew", output[2].CharacterIdInScript);
+			Assert.IsTrue(output[2].HasPreConfirmedCharacter);
+			Assert.AreEqual(narrator, output[3].CharacterId);
+			Assert.IsFalse(output[3].HasPreConfirmedCharacter);
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, output[4].CharacterId);
+			Assert.IsFalse(output[4].HasPreConfirmedCharacter);
 		}
 
 		[Test]

@@ -1153,7 +1153,7 @@ namespace GlyssenEngine.ViewModels
 			if ((Mode & BlocksToDisplay.AllQuotes) > 0)
 				return block.IsQuote;
 			if ((Mode & BlocksToDisplay.NeedsReview) > 0)
-				return block.CharacterIdInScript == CharacterVerseData.kNeedsReview;
+				return block.CharacterId == CharacterVerseData.kNeedsReview;
 			return false;
 		}
 
@@ -1170,7 +1170,7 @@ namespace GlyssenEngine.ViewModels
 			if (CurrentBookIsSingleVoice)
 				return false;
 
-			return (block.UserConfirmed || block.CharacterIsUnclear);
+			return ((block.UserConfirmed && !block.IsPredeterminedFirstLevelQuoteStart) || block.CharacterIsUnclear);
 		}
 
 		internal bool BlockHasMissingExpectedQuote(Block startBlock, bool searchForwardOnly, IEnumerable<BCVRef> versesWithPotentialMissingQuote)

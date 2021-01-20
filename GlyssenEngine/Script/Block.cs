@@ -279,12 +279,13 @@ namespace GlyssenEngine.Script
 		/// determined character, we (hopefully consistently) alter the style tag so that it does
 		/// not appear that the new character is the one that was predetermined.
 		/// </summary>
-		public bool HasPreConfirmedCharacter => CharacterId  != null && !CharacterIsUnclear && IsPredeterminedFirstLevelQuoteStart;
+		public bool HasPreConfirmedCharacter => CharacterId != null && !CharacterIsUnclear && IsPredeterminedFirstLevelQuoteStart;
 
-		public bool IsPredeterminedFirstLevelQuoteStart
-		{
-			get { return IsFirstLevelQuoteMilestoneStart(StyleTag); }
-		}
+		public bool IsPredeterminedFirstLevelQuoteStart =>
+			IsFirstLevelQuoteMilestoneStart(StyleTag);
+
+		public bool IsPredeterminedFirstLevelQuoteEnd =>
+			IsFirstLevelQuoteMilestoneEnd(StyleTag);
 
 		[XmlAttribute("multiBlockQuote")]
 		[DefaultValue(MultiBlockQuote.None)]
