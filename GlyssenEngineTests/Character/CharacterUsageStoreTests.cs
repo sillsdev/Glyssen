@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Glyssen.Shared;
 using GlyssenEngine.Character;
+using GlyssenEngineTests.Properties;
 using NUnit.Framework;
 using SIL.Scripture;
 
@@ -113,6 +115,27 @@ namespace GlyssenEngineTests.Character
 				1, new[] {new Verse("1")}, out var delivery, out var defaultCharacter));
 			Assert.IsNull(delivery);
 			Assert.IsNull(defaultCharacter);
+		}
+
+		// Note: In production, we have tried to clean up this kind of C-V data so this can't
+		// happen because it seldom makes sense. This test uses an older test version of the
+		// CV file to test this condition, in case there are places where it is still possible.
+		[Test] public void GetStandardCharacterName_TwoVersesWithSameCharacterGroupButDifferentDefaults_UsesDefaultFromFirstVerse()
+		{
+			try
+			{
+				ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
+				var store = new CharacterUsageStore(ScrVers.English,
+					ControlCharacterVerseData.Singleton, GetLocalizedVariants);
+				Assert.AreEqual("Peter (Simon)/John", store.GetStandardCharacterName("Peter (Simon)/John", BCVRef.BookToNumber("ACT"),
+					4, new[] {new Verse("19"), new Verse("20")}, out var delivery, out var defaultCharacter));
+				Assert.IsNull(delivery);
+				Assert.AreEqual("Peter (Simon)", defaultCharacter);
+			}
+			finally
+			{
+				ControlCharacterVerseData.TabDelimitedCharacterVerseData = null;
+			}
 		}
 
 		private IEnumerable<string> GetLocalizedVariants(string englishCharId)

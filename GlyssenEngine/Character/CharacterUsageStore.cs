@@ -31,9 +31,21 @@ namespace GlyssenEngine.Character
 			var exactMatches = charactersInPassage.Where(cv => cv.Character == character).ToList();
 			if (exactMatches.Any())
 			{
-				singleKnownDelivery = exactMatches.OnlyOrDefault()?.Delivery;
-				if (singleKnownDelivery == Empty)
+				var singleMatch = exactMatches.OnlyOrDefault();
+				if (singleMatch == null)
+				{
 					singleKnownDelivery = null;
+				}
+				else
+				{
+					singleKnownDelivery = singleMatch.Delivery;
+					if (singleKnownDelivery == Empty)
+						singleKnownDelivery = null;
+					defaultCharacter = singleMatch.ResolvedDefaultCharacter;
+					if (character == defaultCharacter)
+						defaultCharacter = null;
+				}
+				
 				return character;
 			}
 

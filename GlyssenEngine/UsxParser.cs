@@ -249,12 +249,6 @@ namespace GlyssenEngine
 											{
 												sb.Append(match.Value);
 												var toRemove = match.Length;
-												if (text.InnerText.Length > match.Length && char.IsWhiteSpace(text.InnerText[match.Length]))
-												{
-													sb.Append(" ");
-													toRemove++;
-												}
-
 												var remainingText = text.InnerText.Remove(0, toRemove).TrimStart();
 												if (remainingText.Any())
 													text.InnerText = remainingText;
@@ -356,11 +350,8 @@ namespace GlyssenEngine
 				if (standardCharacter != null)
 				{
 					block.CharacterId = standardCharacter;
-					//block.Delivery = delivery;
-					// REVIEW: Should the following be done in the Quote Parser or here?
-					// TODO: Set CharacterIdInScript to default if necessary
-					// block.SetCharacterIdAndCharacterIdInScript(character, ...);
-					// TODO: Set Delivery if there is only one delivery for this character in this verse.
+					block.Delivery = delivery;
+					block.CharacterIdInScript = defaultCharacter;
 				}
 				else
 				{
