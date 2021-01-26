@@ -737,7 +737,8 @@ namespace GlyssenEngine.Script
 		/// Technically, any preceding ScriptText element that consists entirely of punctuation will be
 		/// considered as being part of the following verse.)
 		/// </summary>
-		public bool StartsAtVerseStart => !(BlockElements.First() is ScriptText) || (StartsWithScriptTextElementContainingOnlyPunctuation && ContainsVerseNumber);
+		public bool StartsAtVerseStart => BlockElements.First(e => !(e is ScriptAnnotation)) is Verse ||
+			StartsWithScriptTextElementContainingOnlyPunctuation && ContainsVerseNumber;
 
 		/// <summary>
 		/// <see cref="StartsAtVerseStart"/> or <see cref="IsChapterAnnouncement"/>
@@ -767,13 +768,8 @@ namespace GlyssenEngine.Script
 
 		public bool StartsWithEllipsis => BlockElements.OfType<ScriptText>().FirstOrDefault()?.StartsWithEllipsis ?? false;
 
-		public bool StartsWithScriptTextElementContainingOnlyPunctuation
-		{
-			get
-			{
-				return (BlockElements.FirstOrDefault() as ScriptText)?.Content.All(c => IsPunctuation(c) || IsWhiteSpace(c)) ?? false;
-			}
-		}
+		public bool StartsWithScriptTextElementContainingOnlyPunctuation =>
+			(BlockElements.FirstOrDefault() as ScriptText)?.ContainsOnlyWhitespaceAndPunctuation ?? false;
 
 		public string GetTextAsHtml(bool showVerseNumbers, bool rightToLeftScript)
 		{

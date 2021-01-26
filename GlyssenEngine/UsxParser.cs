@@ -100,6 +100,7 @@ namespace GlyssenEngine
 		private int m_currentChapter;
 		private int m_currentStartVerse;
 		private int m_currentEndVerse;
+		private Block m_currentExplicitQuoteStartBlock;
 
 		private readonly Regex m_regexStartsWithClosingPunctuation = new Regex(@"^(\p{Pd}|\p{Pe}|\p{Pf}|\p{Po})+\s+", RegexOptions.Compiled);
 		private readonly Regex m_regexEndsWithOpeningQuote = new Regex("(\\p{Pi}\\s?)*(\\p{Pi}|\")+$", RegexOptions.Compiled);
@@ -195,8 +196,8 @@ namespace GlyssenEngine
 										m_currentStartVerse = BCVRef.VerseToIntStart(verseNumStr);
 										m_currentEndVerse = BCVRef.VerseToIntEnd(verseNumStr);
 									}
-									if (!block.BlockElements.Any() ||
-										(block.BlockElements.Count == 1 && block.StartsWithScriptTextElementContainingOnlyPunctuation))
+									if (!block.BlockElements.Any(e => e is ScriptText) ||
+										 ((block.BlockElements.OnlyOrDefault() as ScriptText)?.ContainsOnlyWhitespaceAndPunctuation ?? false))
 									{
 										block.InitialStartVerseNumber = m_currentStartVerse;
 										block.InitialEndVerseNumber = m_currentEndVerse;
@@ -215,13 +216,7 @@ namespace GlyssenEngine
 										{
 											if (StyleToCharacterMappings.TryGetCharacterForCharStyle(charTag, out var character) && block.StyleTag != charTag)
 											{
-												var matchOpeningQuoteAtEnd = m_regexEndsWithOpeningQuote.Match(sb.ToString());
-												if (matchOpeningQuoteAtEnd.Success)
-												{
-													sb.Remove(matchOpeningQuoteAtEnd.Index, matchOpeningQuoteAtEnd.Length);
-													tokens[0] = matchOpeningQuoteAtEnd.Value + tokens[0];
-												}
-												FinalizeCharacterStyleBlock(sb, ref block, blocks, charTag);
+												FinalizeCharacterStyleBlockWithoutTrailingOpener(sb, ref block, blocks, charTag);
 												block.CharacterId = character;
 											}
 											sb.Append(tokens[0]);
@@ -235,37 +230,45 @@ namespace GlyssenEngine
 									var styleTag = childNode.GetOptionalStringAttribute("style", default);
 									if (Block.IsFirstLevelQuoteMilestoneStart(styleTag))
 									{
-										FinalizeCharacterStyleBlock(sb, ref block, blocks, styleTag);
-										var character = childNode.GetOptionalStringAttribute("who", default);
-										if (character != null)
-										{
-											var standardCharacter = m_characterUsageStore.GetStandardCharacterName(
-												character, m_bookNum, m_currentChapter, block.AllVerses,
-												out var delivery, out var defaultCharacter);
-											if (standardCharacter != null)
-											{
-												block.CharacterId = standardCharacter;
-												//block.Delivery = delivery;
-												// REVIEW: Should the following be done in the Quote Parser or here?
-												// TODO: Set CharacterIdInScript to default if necessary
-												// block.SetCharacterIdAndCharacterIdInScript(character, ...);
-												// TODO: Set Delivery if there is only one delivery for this character in this verse.
-											}
-											else
-											{
-												block.CharacterId = CharacterVerseData.kNeedsReview;
-												block.CharacterIdInScript = character;
-											}
-										}
-										else
-										{
-											//block.CharacterId = CharacterVerseData.kUnexpectedCharacter;
-											// ENHANCE: Try to find a close match?
-										}
+										FinalizeCharacterStyleBlockWithoutTrailingOpener(sb, ref block, blocks, styleTag);
+										ProcessQuoteStart(block,
+											childNode.GetOptionalStringAttribute("sid", default),
+											childNode.GetOptionalStringAttribute("who", default));
 									}
 									else if (Block.IsFirstLevelQuoteMilestoneEnd(styleTag))
 									{
+										if (childNode.NextSibling is XmlWhitespace)
+										{
+											AppendSpaceIfNeeded(sb);
+											childNode.ParentNode.RemoveChild(childNode.NextSibling);
+										}
+										else if (childNode.NextSibling is XmlText text)
+										{
+											var match = m_regexStartsWithClosingPunctuation.Match(text.InnerText);
+											if (match.Success)
+											{
+												sb.Append(match.Value);
+												var toRemove = match.Length;
+												if (text.InnerText.Length > match.Length && char.IsWhiteSpace(text.InnerText[match.Length]))
+												{
+													sb.Append(" ");
+													toRemove++;
+												}
+
+												var remainingText = text.InnerText.Remove(0, toRemove).TrimStart();
+												if (remainingText.Any())
+													text.InnerText = remainingText;
+												else
+													childNode.ParentNode.RemoveChild(childNode.NextSibling);
+											}
+										}
+										if (block != m_currentExplicitQuoteStartBlock)
+											m_currentExplicitQuoteStartBlock.MultiBlockQuote = MultiBlockQuote.Start;
 										FinalizeCharacterStyleBlock(sb, ref block, blocks, styleTag);
+										m_currentExplicitQuoteStartBlock = null;
+										var quoteId = childNode.GetOptionalStringAttribute("eid", default);
+										if (quoteId != null)
+											blocks.Last().BlockElements.Add(new QuoteId { Id = quoteId, Start = false});
 									}
 									break;
 								case "#text":
@@ -297,8 +300,7 @@ namespace GlyssenEngine
 									sb.Append(textToAppend);
 									break;
 								case "#whitespace":
-									if (sb.Length > 0 && sb[sb.Length - 1] != ' ')
-										sb.Append(" ");
+									AppendSpaceIfNeeded(sb);
 									break;
 							}
 						}
@@ -312,9 +314,81 @@ namespace GlyssenEngine
 						break;
 				}
 				if (block != null && block.BlockElements.Count > 0)
-					blocks.Add(block);
+					AddBlock(blocks, block);
 			}
 			return blocks;
+		}
+
+		private void AddBlock(IList<Block> blocks, Block block)
+		{
+			if (m_currentExplicitQuoteStartBlock != null && m_currentExplicitQuoteStartBlock != block)
+			{
+				block.MultiBlockQuote = MultiBlockQuote.Continuation;
+				block.CharacterId = m_currentExplicitQuoteStartBlock.CharacterId;
+				block.CharacterIdInScript = m_currentExplicitQuoteStartBlock.CharacterIdInScript;
+			}
+
+			blocks.Add(block);
+		}
+
+		private static void AppendSpaceIfNeeded(StringBuilder sb)
+		{
+			if (sb.Length > 0 && sb[sb.Length - 1] != ' ')
+				sb.Append(" ");
+		}
+
+		private void ProcessQuoteStart(Block block, string quoteId, string character)
+		{
+			if (quoteId != null)
+			{
+				var quoteIdAnnotation = new QuoteId {Id = quoteId, Start = true};
+				if (block.BlockElements.LastOrDefault() is Verse)
+					block.BlockElements.Insert(block.BlockElements.Count - 1, quoteIdAnnotation);
+				else
+					block.BlockElements.Add(quoteIdAnnotation);
+			}
+
+			if (character != null)
+			{
+				var standardCharacter = m_characterUsageStore.GetStandardCharacterName(
+					character, m_bookNum, m_currentChapter, block.AllVerses,
+					out var delivery, out var defaultCharacter);
+				if (standardCharacter != null)
+				{
+					block.CharacterId = standardCharacter;
+					//block.Delivery = delivery;
+					// REVIEW: Should the following be done in the Quote Parser or here?
+					// TODO: Set CharacterIdInScript to default if necessary
+					// block.SetCharacterIdAndCharacterIdInScript(character, ...);
+					// TODO: Set Delivery if there is only one delivery for this character in this verse.
+				}
+				else
+				{
+					block.CharacterId = CharacterVerseData.kNeedsReview;
+					block.CharacterIdInScript = character;
+				}
+			}
+			else
+			{
+				//block.CharacterId = CharacterVerseData.kUnexpectedCharacter;
+				// ENHANCE: Try to find a close match?
+			}
+
+			m_currentExplicitQuoteStartBlock = block;
+		}
+
+		private void FinalizeCharacterStyleBlockWithoutTrailingOpener(StringBuilder sb, ref Block block, IList<Block> blocks, string newBlockTag)
+		{
+			string trailingOpener = null;
+			var matchOpeningQuoteAtEnd = m_regexEndsWithOpeningQuote.Match(sb.ToString());
+			if (matchOpeningQuoteAtEnd.Success)
+			{
+				sb.Remove(matchOpeningQuoteAtEnd.Index, matchOpeningQuoteAtEnd.Length);
+				trailingOpener = matchOpeningQuoteAtEnd.Value;
+			}
+			FinalizeCharacterStyleBlock(sb, ref block, blocks, newBlockTag);
+			if (trailingOpener != null)
+				sb.Append(trailingOpener);
 		}
 
 		private void FinalizeCharacterStyleBlock(StringBuilder sb, ref Block block, IList<Block> blocks, string newBlockTag)
@@ -325,7 +399,7 @@ namespace GlyssenEngine
 				Verse finalVerse = block.BlockElements.Last() as Verse;
 				if (finalVerse != null)
 					block.BlockElements.RemoveAt(block.BlockElements.Count - 1);
-				blocks.Add(block);
+				AddBlock(blocks, block);
 				block = new Block(newBlockTag, m_currentChapter, m_currentStartVerse, m_currentEndVerse);
 				if (finalVerse != null)
 					block.BlockElements.Add(finalVerse);

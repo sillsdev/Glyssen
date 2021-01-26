@@ -544,8 +544,8 @@ namespace GlyssenEngineTests
 		[TestCase("qt_123", null, 1, ExpectedResult = null)]
 		[TestCase("qt_123", "Some random name that doesn't look anything like a name we expect", 1, ExpectedResult = CharacterVerseData.kNeedsReview)]
 		[TestCase("qt_123", "Enoch", ExpectedResult = "Enoch")]
-		[TestCase("qt_123", "Enoch", 1, ExpectedResult = "Enoch")]
-		public string Parse_QtMilestonesWithOnlyTextBetweenThem_AdjacentPunctuationIncludedInBlockWithQuotedText(
+		[TestCase(null, "Enoch", 1, ExpectedResult = "Enoch")]
+		public string Parse_QtMilestonesWithOnlyTextBetweenThem_TextBetweenMilestonesAddedAsQuoteBlock(
 			string qtId = null, string character = null, int level = 0)
 		{
 			var doc = UsxDocumentTests.CreateDocFromString(string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"JUD\""),
@@ -553,27 +553,252 @@ namespace GlyssenEngineTests
 				"<verse number=\"14\" style=\"v\" />" +
 				"De éstos también profetizó Enoc," +
 				"<note caller=\"-\" style=\"x\"><char style=\"xo\" closed=\"false\">1:14 </char><char style=\"xt\" closed=\"false\">Gn. 5.21-24.</char></note> " +
-				" séptimo desde Adán, diciendo: " +
+				"séptimo desde Adán, diciendo: " +
 				GetQtMilestoneElement("start", qtId, character, level) +
 				"He aquí, vino el Señor con sus santas decenas de millares." +
 				GetQtMilestoneElement("end", qtId, character, level) +
-				"<verse number=\"15\" style=\"v\" />" +
+				" <verse number=\"15\" style=\"v\" />" +
 				"The quote should continue in this verse but it does not." +
 				"</para>"));
 			var parser = GetUsxParser(doc, "JUD");
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(4, blocks.Count, "Should have a chapter block, plus 3 Scripture blocks.");
 			Assert.AreEqual(14, blocks[1].InitialStartVerseNumber);
-			Assert.IsTrue(blocks[1].GetText(true).TrimEnd().EndsWith("diciendo:"));
+			Assert.IsTrue(blocks[1].StartsAtVerseStart);
+			Assert.IsTrue(blocks[1].GetText(true).EndsWith("diciendo: "));
 			Assert.IsNull(blocks[1].CharacterId);
 			Assert.AreEqual(14, blocks[2].InitialStartVerseNumber);
-			Assert.AreEqual("He aquí, vino el Señor con sus santas decenas de millares.", blocks[2].GetText(true).Trim());
+			Assert.IsFalse(blocks[2].StartsAtVerseStart);
+			Assert.IsTrue(blocks[2].IsPredeterminedFirstLevelQuoteStart);
+			if (qtId == null)
+				Assert.AreEqual("He aquí, vino el Señor con sus santas decenas de millares. ", blocks[2].GetText(true, true));
+			else
+			{
+				Assert.AreEqual("He aquí, vino el Señor con sus santas decenas de millares. ", blocks[2].GetText(true));
+				var quoteIdAnnotation = (QuoteId)blocks[2].BlockElements.First();
+				Assert.AreEqual(qtId, quoteIdAnnotation.Id);
+				Assert.IsTrue(quoteIdAnnotation.Start);
+			}
+			if (blocks[2].CharacterId == CharacterVerseData.kNeedsReview)
+				Assert.AreEqual(character, blocks[2].CharacterIdInScript);
+			Assert.AreEqual(MultiBlockQuote.None, blocks[2].MultiBlockQuote);
+
 			Assert.IsTrue(blocks[3].StartsAtVerseStart);
 			Assert.AreEqual(15, blocks[3].InitialStartVerseNumber);
 			Assert.IsNull(blocks[3].CharacterId);
+			Assert.IsTrue(blocks[3].IsPredeterminedFirstLevelQuoteEnd);
+			if (qtId != null)
+			{
+				var quoteIdAnnotation = (QuoteId)blocks[2].BlockElements.Last();
+				Assert.AreEqual(qtId, quoteIdAnnotation.Id);
+				Assert.IsFalse(quoteIdAnnotation.Start);
+			}
+			Assert.AreEqual(MultiBlockQuote.None, blocks[3].MultiBlockQuote);
+
+			return blocks[2].CharacterId;
+		}
+
+		[TestCase(ExpectedResult = null)]
+		[TestCase("qt_123", ExpectedResult = null)]
+		[TestCase("qt_123", null, 1, ExpectedResult = null)]
+		[TestCase("qt_123", "Some random name that doesn't look anything like a name we expect", 1, ExpectedResult = CharacterVerseData.kNeedsReview)]
+		[TestCase("qt_123", "Enoch", ExpectedResult = "Enoch")]
+		[TestCase(null, "Enoch", 1, ExpectedResult = "Enoch")]
+		public string Parse_QtMilestonesInsideEnclosingQuotes_AdjacentPunctuationIncludedInBlockWithQuotedText(
+			string qtId = null, string character = null, int level = 0)
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"JUD\""),
+				"<para style=\"p\">" +
+				"<verse number=\"14\" style=\"v\" />" +
+				"De éstos también profetizó Enoc," +
+				"<note caller=\"-\" style=\"x\"><char style=\"xo\" closed=\"false\">1:14 </char><char style=\"xt\" closed=\"false\">Gn. 5.21-24.</char></note> " +
+				"séptimo desde Adán, diciendo: «" +
+				GetQtMilestoneElement("start", qtId, character, level) +
+				"He aquí, vino el Señor con sus santas decenas de millares." +
+				GetQtMilestoneElement("end", qtId, character, level) +
+				"» <verse number=\"15\" style=\"v\" />" +
+				"The quote should continue in this verse but it does not." +
+				"</para>"));
+			var parser = GetUsxParser(doc, "JUD");
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(4, blocks.Count, "Should have a chapter block, plus 3 Scripture blocks.");
+			Assert.AreEqual(14, blocks[1].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[1].StartsAtVerseStart);
+			Assert.IsTrue(blocks[1].GetText(true).EndsWith("diciendo: "));
+			Assert.IsNull(blocks[1].CharacterId);
+			Assert.AreEqual(14, blocks[2].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[2].StartsAtVerseStart);
+			Assert.IsTrue(blocks[2].IsPredeterminedFirstLevelQuoteStart);
+			if (qtId == null)
+				Assert.AreEqual("«He aquí, vino el Señor con sus santas decenas de millares.» ", blocks[2].GetText(true, true));
+			else
+			{
+				Assert.AreEqual("«He aquí, vino el Señor con sus santas decenas de millares.» ", blocks[2].GetText(true));
+				var quoteIdAnnotation = (QuoteId)blocks[2].BlockElements.First();
+				Assert.AreEqual(qtId, quoteIdAnnotation.Id);
+				Assert.IsTrue(quoteIdAnnotation.Start);
+			}
 			if (blocks[2].CharacterId == CharacterVerseData.kNeedsReview)
 				Assert.AreEqual(character, blocks[2].CharacterIdInScript);
+			Assert.IsTrue(blocks[3].StartsAtVerseStart);
+			Assert.AreEqual(15, blocks[3].InitialStartVerseNumber);
+			Assert.IsNull(blocks[3].CharacterId);
+			Assert.IsTrue(blocks[3].IsPredeterminedFirstLevelQuoteEnd);
+			if (qtId != null)
+			{
+				var quoteIdAnnotation = (QuoteId)blocks[2].BlockElements.Last();
+				Assert.AreEqual(qtId, quoteIdAnnotation.Id);
+				Assert.IsFalse(quoteIdAnnotation.Start);
+			}
+
 			return blocks[2].CharacterId;
+		}
+
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Parse_QtMilestoneStartAtStartOfVerse_QuoteIdAnnotationInsertedAfterVerseNumber(
+			bool milestoneBeforeVerseNumber)
+		{
+			const string qtId = "yeah";
+			const string character = "Jesus";
+			var usx = "<para style=\"p\">" +
+				"<verse number=\"14\" style=\"v\" />" +
+				"De éstos también profetizó Enoc," +
+				"<note caller=\"-\" style=\"x\"><char style=\"xo\" closed=\"false\">1:14 </char><char style=\"xt\" closed=\"false\">Gn. 5.21-24.</char></note> " +
+				"séptimo desde Adán, diciendo que el Señor venía con sus santas decenas de millares.";
+			if (milestoneBeforeVerseNumber)
+				usx += GetQtMilestoneElement("start", qtId, character, 1);
+			usx += "<verse number=\"15\" style=\"v\" />";
+			if (!milestoneBeforeVerseNumber)
+				usx += GetQtMilestoneElement("start", qtId, character, 1);
+			usx += "“Haré juicio contra todos para convencer a todos los impíos de entre ellos tocante a todas sus obras de impiedad.”" +
+				GetQtMilestoneElement("end", qtId, character, 1) +
+				"</para>";
+
+			var doc = UsxDocumentTests.CreateDocFromString(
+				string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"JUD\""),
+				usx));
+			var parser = GetUsxParser(doc, "JUD");
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(3, blocks.Count, "Should have a chapter block, plus 2 Scripture blocks.");
+			Assert.AreEqual(14, blocks[1].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[1].StartsAtVerseStart);
+			Assert.AreEqual("{14}\u00A0De éstos también profetizó Enoc, séptimo desde Adán, " +
+				"diciendo que el Señor venía con sus santas decenas de millares.",
+				blocks[1].GetText(true));
+			Assert.IsNull(blocks[1].CharacterId);
+			Assert.AreEqual(15, blocks[2].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[2].StartsAtVerseStart);
+			Assert.IsTrue(blocks[2].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("{15}\u00A0“Haré juicio contra todos para convencer a todos los " +
+				"impíos de entre ellos tocante a todas sus obras de impiedad.”",
+				blocks[2].GetText(true).Trim());
+			var quoteIdAnnotation = (QuoteId)blocks[2].BlockElements.First();
+			Assert.AreEqual(qtId, quoteIdAnnotation.Id);
+			Assert.IsTrue(quoteIdAnnotation.Start);
+			Assert.AreEqual(CharacterVerseData.kNeedsReview, blocks[2].CharacterId,
+				$"Because {character} is not expected to speak in JUD 15.");
+			Assert.AreEqual(character, blocks[2].CharacterIdInScript);
+			quoteIdAnnotation = (QuoteId)blocks[2].BlockElements.Last();
+			Assert.AreEqual(qtId, quoteIdAnnotation.Id);
+			Assert.IsFalse(quoteIdAnnotation.Start);
+		}
+
+		[TestCase(ExpectedResult = null)]
+		[TestCase("qt_123", ExpectedResult = null)]
+		[TestCase("qt_123", null, 1, ExpectedResult = null)]
+		[TestCase("qt_123", "Some random name that doesn't look anything like a name we expect", 1, ExpectedResult = CharacterVerseData.kNeedsReview)]
+		[TestCase("qt_123", "Enoch", ExpectedResult = "Enoch")]
+		[TestCase(null, "Enoch", 1, ExpectedResult = "Enoch")]
+		public string Parse_QtMilestonesCoveringMultipleVersesAndParagraphs_MultiBlockQuoteBlocksCreated(
+			string qtId = null, string character = null, int level = 0)
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"JUD\""),
+				"<para style=\"p\">" +
+				"<verse number=\"14\" style=\"v\" />" +
+				"De éstos también profetizó Enoc," +
+				"<note caller=\"-\" style=\"x\"><char style=\"xo\" closed=\"false\">1:14 </char><char style=\"xt\" closed=\"false\">Gn. 5.21-24.</char></note> " +
+				"séptimo desde Adán, diciendo: " +
+				GetQtMilestoneElement("start", qtId, character, level) +
+				"«He aquí, vino el Señor con sus santas decenas de millares;" +
+				"</para>" +
+				"<para style=\"q1\">" +
+				"<verse number=\"15\" style=\"v\" />" +
+				"para hacer juicio contra todos." +
+				"</para>" +
+				"<para style=\"q2\">" +
+				"Dejará convictos a todos los impíos de sus obras impías y de todas las cosas duras que han hablado contra él" +
+				GetQtMilestoneElement("end", qtId, character, level) +
+				",» dijo Enoc." +
+				"</para>"));
+			var parser = GetUsxParser(doc, "JUD");
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(6, blocks.Count, "Should have a chapter block, a leading narrator" +
+				" block, 3 quote blocks and a trailing narrator block.");
+			Assert.AreEqual(14, blocks[1].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[1].StartsAtVerseStart);
+			Assert.IsTrue(blocks[1].GetText(true, true).EndsWith("diciendo: "));
+			Assert.IsNull(blocks[1].CharacterId);
+			Assert.AreEqual(14, blocks[2].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[2].StartsAtVerseStart);
+			Assert.IsTrue(blocks[2].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("«He aquí, vino el Señor con sus santas decenas de millares;",
+				blocks[2].GetText(true).Trim());
+			if (qtId != null)
+			{
+				var quoteIdAnnotation = (QuoteId)blocks[2].BlockElements.First();
+				Assert.AreEqual(qtId, quoteIdAnnotation.Id);
+				Assert.IsTrue(quoteIdAnnotation.Start);
+			}
+			if (blocks[2].CharacterId == CharacterVerseData.kNeedsReview)
+				Assert.AreEqual(character, blocks[2].CharacterIdInScript);
+			Assert.AreEqual(MultiBlockQuote.Start, blocks[2].MultiBlockQuote);
+			
+			Assert.IsTrue(blocks[3].StartsAtVerseStart);
+			Assert.AreEqual(15, blocks[3].InitialStartVerseNumber);
+			Assert.AreEqual(blocks[2].CharacterId, blocks[3].CharacterId);
+			Assert.AreEqual(blocks[2].CharacterIdInScript, blocks[3].CharacterIdInScript);
+			Assert.IsFalse(blocks[3].IsPredeterminedFirstLevelQuoteEnd);
+			Assert.AreEqual("q1", blocks[3].StyleTag);
+			Assert.AreEqual("{15}\u00A0para hacer juicio contra todos.", blocks[3].GetText(true, true));
+			Assert.AreEqual(MultiBlockQuote.Continuation, blocks[3].MultiBlockQuote);
+
+			Assert.IsFalse(blocks[4].StartsAtVerseStart);
+			Assert.AreEqual(15, blocks[4].InitialStartVerseNumber);
+			Assert.AreEqual(blocks[2].CharacterId, blocks[4].CharacterId);
+			Assert.AreEqual(blocks[2].CharacterIdInScript, blocks[4].CharacterIdInScript);
+			Assert.IsFalse(blocks[4].IsPredeterminedFirstLevelQuoteEnd);
+			Assert.AreEqual("q2", blocks[4].StyleTag);
+			Assert.AreEqual("Dejará convictos a todos los impíos de sus obras impías y de todas las cosas duras que han hablado contra él,» ",
+				blocks[4].GetText(true));
+			if (qtId != null)
+			{
+				var quoteIdAnnotation = (QuoteId)blocks[4].BlockElements.Last();
+				Assert.AreEqual(qtId, quoteIdAnnotation.Id);
+				Assert.IsFalse(quoteIdAnnotation.Start);
+			}
+			Assert.AreEqual(MultiBlockQuote.Continuation, blocks[4].MultiBlockQuote);
+
+			Assert.IsFalse(blocks[5].StartsAtVerseStart);
+			Assert.AreEqual(15, blocks[5].InitialStartVerseNumber);
+			Assert.IsNull(blocks[5].CharacterId);
+			Assert.IsTrue(blocks[5].IsPredeterminedFirstLevelQuoteEnd);
+			Assert.AreEqual("dijo Enoc.", blocks[5].GetText(true, true));
+			Assert.AreEqual(MultiBlockQuote.None, blocks[5].MultiBlockQuote);
+
+			return blocks[2].CharacterId;
+		}
+
+		[Test]
+		public void Parse_QtMilestonesQuoteOpenPastLastVerseWhereCharacterIsExpected_LastBlockForExpectedVerseAndBlockPrecedingCloseNeedsReview()
+		{
+			Assert.Ignore("Write this test (unless we determine that the QuoteParser can handle this case.");
+		}
+
+		[Test]
+		public void Parse_QtMilestonesNotClosed_LastBlockForExpectedVerseNeedsReview()
+		{
+			Assert.Ignore("Write this test (unless we determine that the QuoteParser can handle this case.");
 		}
 
 		private string GetQtMilestoneElement(string startOrEnd, string qtId = null, string character = null, int level = 0)

@@ -91,6 +91,11 @@ namespace Glyssen.Shared
 		// can be just a numeric "word."
 		public bool ContainsNoWords => !Content.Any(IsLetterOrDigit);
 
+		// In almost all situations, this is the opposite of ContainsNoWords, except perhaps for
+		// bizarre situations where the content could consist entirely of symbols or other weird
+		// characters.
+		public bool ContainsOnlyWhitespaceAndPunctuation => Content.All(c => IsPunctuation(c) || IsWhiteSpace(c));
+
 		public bool StartsWithEllipsis => s_startsWithEllipsis.IsMatch(Content);
 
 		public string ContentWithoutLeadingEllipsis => s_startsWithEllipsis.Replace(Content, String.Empty);
@@ -194,6 +199,7 @@ namespace Glyssen.Shared
 
 	[XmlInclude(typeof(Pause))]
 	[XmlInclude(typeof(Sound))]
+	[XmlInclude(typeof(QuoteId))]
 	public abstract class ScriptAnnotation : BlockElement
 	{
 		public abstract string ToDisplay(string elementSeparator = " ");
@@ -439,6 +445,21 @@ namespace Glyssen.Shared
 			}
 		}
 		#endregion
+	}
+
+	public class QuoteId : ScriptAnnotation
+	{
+		[XmlAttribute("id")]
+		public string Id { get; set; }
+
+		[XmlAttribute("start")]
+		public bool Start { get; set; }
+
+		public override string ToDisplay(string elementSeparator = " ")
+		{
+			var start = Start ? "start" : "end";
+			return $"Quote {start} ({Id})";
+		}
 	}
 
 	public enum SoundType
