@@ -100,7 +100,24 @@ namespace GlyssenEngine
 		private int m_currentChapter;
 		private int m_currentStartVerse;
 		private int m_currentEndVerse;
-		private Block m_currentExplicitQuoteStartBlock;
+		private ExplicitQuoteInfo m_currentExplicitQuote;
+
+		private class ExplicitQuoteInfo
+		{
+			internal Block StartBlock { get; }
+			internal string QuoteId { get; }
+			internal string SpecifiedCharacter { get; }
+			internal bool Resolved { get; set; }
+
+			internal ExplicitQuoteInfo(Block startBlock, string quoteId, string character)
+			{
+				StartBlock = startBlock;
+				QuoteId = quoteId;
+				SpecifiedCharacter = character;
+				Resolved = false;
+			}
+		}
+
 
 		private readonly Regex m_regexStartsWithClosingPunctuation = new Regex(@"^(\p{Pd}|\p{Pe}|\p{Pf}|\p{Po})+\s+", RegexOptions.Compiled);
 		private readonly Regex m_regexEndsWithOpeningQuote = new Regex("(\\p{Pi}\\s?)*(\\p{Pi}|\")+$", RegexOptions.Compiled);
@@ -231,12 +248,17 @@ namespace GlyssenEngine
 									if (Block.IsFirstLevelQuoteMilestoneStart(styleTag))
 									{
 										FinalizeCharacterStyleBlockWithoutTrailingOpener(sb, ref block, blocks, styleTag);
-										ProcessQuoteStart(block,
+										m_currentExplicitQuote = new ExplicitQuoteInfo(block,
 											childNode.GetOptionalStringAttribute("sid", default),
 											childNode.GetOptionalStringAttribute("who", default));
 									}
 									else if (Block.IsFirstLevelQuoteMilestoneEnd(styleTag))
 									{
+										if (m_currentExplicitQuote == null)
+										{
+											Logger.WriteEvent($"End quote milestone {childNode} does not correspond to a start milestone.");
+											break;
+										}
 										if (childNode.NextSibling is XmlWhitespace)
 										{
 											AppendSpaceIfNeeded(sb);
@@ -256,10 +278,10 @@ namespace GlyssenEngine
 													childNode.ParentNode.RemoveChild(childNode.NextSibling);
 											}
 										}
-										if (block != m_currentExplicitQuoteStartBlock)
-											m_currentExplicitQuoteStartBlock.MultiBlockQuote = MultiBlockQuote.Start;
+										if (block != m_currentExplicitQuote.StartBlock)
+											m_currentExplicitQuote.StartBlock.MultiBlockQuote = MultiBlockQuote.Start;
 										FinalizeCharacterStyleBlock(sb, ref block, blocks, styleTag);
-										m_currentExplicitQuoteStartBlock = null;
+										m_currentExplicitQuote = null;
 										var quoteId = childNode.GetOptionalStringAttribute("eid", default);
 										if (quoteId != null)
 											blocks.Last().BlockElements.Add(new QuoteId { Id = quoteId, Start = false});
@@ -267,6 +289,8 @@ namespace GlyssenEngine
 									break;
 								case "#text":
 									var textToAppend = childNode.InnerText;
+									if (m_currentExplicitQuote != null && !m_currentExplicitQuote.Resolved)
+										ResolveQuoteCharacter();
 									if (StyleToCharacterMappings.IncludesCharStyle(block.StyleTag) && textToAppend.Any(IsLetter))
 									{
 										if (sb.Length > 0 && sb[sb.Length - 1] != ' ')
@@ -315,11 +339,11 @@ namespace GlyssenEngine
 
 		private void AddBlock(IList<Block> blocks, Block block)
 		{
-			if (m_currentExplicitQuoteStartBlock != null && m_currentExplicitQuoteStartBlock != block)
+			if (m_currentExplicitQuote != null && m_currentExplicitQuote.StartBlock != block)
 			{
 				block.MultiBlockQuote = MultiBlockQuote.Continuation;
-				block.CharacterId = m_currentExplicitQuoteStartBlock.CharacterId;
-				block.CharacterIdInScript = m_currentExplicitQuoteStartBlock.CharacterIdInScript;
+				block.CharacterId = m_currentExplicitQuote.StartBlock.CharacterId;
+				block.CharacterIdInScript = m_currentExplicitQuote.StartBlock.CharacterIdInScript;
 			}
 
 			blocks.Add(block);
@@ -331,21 +355,22 @@ namespace GlyssenEngine
 				sb.Append(" ");
 		}
 
-		private void ProcessQuoteStart(Block block, string quoteId, string character)
+		private void ResolveQuoteCharacter()
 		{
-			if (quoteId != null)
+			var block = m_currentExplicitQuote.StartBlock;
+			if (m_currentExplicitQuote.QuoteId != null)
 			{
-				var quoteIdAnnotation = new QuoteId {Id = quoteId, Start = true};
+				var quoteIdAnnotation = new QuoteId {Id = m_currentExplicitQuote.QuoteId, Start = true};
 				if (block.BlockElements.LastOrDefault() is Verse)
 					block.BlockElements.Insert(block.BlockElements.Count - 1, quoteIdAnnotation);
 				else
 					block.BlockElements.Add(quoteIdAnnotation);
 			}
 
-			if (character != null)
+			if (m_currentExplicitQuote.SpecifiedCharacter != null)
 			{
 				var standardCharacter = m_characterUsageStore.GetStandardCharacterName(
-					character, m_bookNum, m_currentChapter, block.AllVerses,
+					m_currentExplicitQuote.SpecifiedCharacter, m_bookNum, m_currentChapter, block.AllVerses,
 					out var delivery, out var defaultCharacter);
 				if (standardCharacter != null)
 				{
@@ -356,16 +381,11 @@ namespace GlyssenEngine
 				else
 				{
 					block.CharacterId = CharacterVerseData.kNeedsReview;
-					block.CharacterIdInScript = character;
+					block.CharacterIdInScript = m_currentExplicitQuote.SpecifiedCharacter;
 				}
-			}
-			else
-			{
-				//block.CharacterId = CharacterVerseData.kUnexpectedCharacter;
-				// ENHANCE: Try to find a close match?
-			}
 
-			m_currentExplicitQuoteStartBlock = block;
+				m_currentExplicitQuote.Resolved = true;
+			}
 		}
 
 		private void FinalizeCharacterStyleBlockWithoutTrailingOpener(StringBuilder sb, ref Block block, IList<Block> blocks, string newBlockTag)

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Xml;
-using Glyssen.Shared;
+﻿using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.Script;
@@ -14,6 +8,12 @@ using SIL.DblBundle;
 using SIL.DblBundle.Tests.Usx;
 using SIL.DblBundle.Usx;
 using SIL.Scripture;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Xml;
 using Resources = GlyssenEngineTests.Properties.Resources;
 
 namespace GlyssenEngineTests
@@ -975,7 +975,51 @@ namespace GlyssenEngineTests
 		[Test]
 		public void Parse_SeparateQtMilestonesForTwoVersesWithSameGroupCharactersButDifferentDefaults_DefaultFromEachVerseUsed()
 		{
-			Assert.Fail("Write this test");
+			var doc = UsxDocumentTests.CreateDocFromString(
+				string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"ACT\"")
+						.Replace("<chapter number=\"1\"", "<chapter number=\"4\""),
+					"<para style=\"p\">" +
+					"<verse number=\"19\" style=\"v\" />" +
+					"But Peter and John replied, " +
+					GetQtMilestoneElement("start", "Peter (Simon)/John") +
+					"“Which is right in God’s eyes: to listen to you, or to him? You be the judges! " +
+					GetQtMilestoneElement("end") +
+					GetQtMilestoneElement("start", "Peter (Simon)/John") +
+					"<verse number=\"20\" style=\"v\" />" +
+					"As for us, we cannot help speaking about what we have seen and heard.”" +
+					GetQtMilestoneElement("end") +
+					"</para>"));
+			var parser = GetUsxParser(doc, "ACT");
+			var blocks = parser.Parse().ToList();
+			
+			int i = 0;
+			Assert.AreEqual(4, blocks[i].ChapterNumber);
+			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
+
+			Assert.AreEqual(19, blocks[++i].InitialStartVerseNumber);
+			Assert.AreEqual("{19}\u00A0But Peter and John replied, ",
+				blocks[i].GetText(true));
+			Assert.IsNull(blocks[i].CharacterId);
+
+			Assert.AreEqual(19, blocks[++i].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[i].StartsAtVerseStart);
+			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("“Which is right in God’s eyes: to listen to you, or to him? You be " +
+				"the judges! ",
+				blocks[i].GetText(true, true));
+			Assert.AreEqual("Peter (Simon)/John", blocks[i].CharacterId);
+			Assert.AreEqual("Peter (Simon)", blocks[i].CharacterIdInScript);
+
+			Assert.AreEqual(20, blocks[++i].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[i].StartsAtVerseStart);
+			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("{20}\u00A0As for us, we cannot help speaking about what we have seen " +
+				"and heard.”",
+				blocks[i].GetText(true, true));
+			Assert.AreEqual("Peter (Simon)/John", blocks[i].CharacterId);
+			Assert.AreEqual("John", blocks[i].CharacterIdInScript);
+
+			Assert.AreEqual(++i, blocks.Count);
 		}
 
 		[Test]
