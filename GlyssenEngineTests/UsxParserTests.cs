@@ -539,6 +539,7 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(19, blocks[3].InitialStartVerseNumber);
 		}
 
+		#region PG-1419 - Quote milestones
 		[TestCase(ExpectedResult = null)]
 		[TestCase("qt_123", ExpectedResult = null)]
 		[TestCase("qt_123", null, 1, ExpectedResult = null)]
@@ -1023,6 +1024,126 @@ namespace GlyssenEngineTests
 		}
 
 		[Test]
+		public void Parse_QtMilestonesOpenAndCloseInDifferentChapters_MultiBlockQuoteStoppedAndRestartedAndCharactersSetCorrectly()
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
+				string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"MAT\"")
+						.Replace("<chapter number=\"1\"", "<chapter number=\"5\""),
+					"<para style=\"p\">" +
+					"<verse number=\"1\" style=\"v\" />" +
+					"When Jesus perceived the crowds, he ascended a mountain and sat down. His disciples came to him, " +
+					"<verse number=\"2\" style=\"v\" />" +
+					"And he commenced teaching them, saying: " +
+					"</para>" +
+					"<para style=\"p\">" +
+					"<verse number=\"3\" style=\"v\" />" +
+					GetQtMilestoneElement("start", "Jesus", "SOTM") +
+					"Blessed are the poor in spirit," +
+					"</para>" +
+					"<para style=\"q2\">" +
+					"for they own the kingdom of heaven." +
+					"</para>" +
+					"<para style=\"p\">" +
+					"<verse number=\"48\" style=\"v\" />" +
+					"Be perfect, then, as your Father is perfect." +
+					"</para>" +
+					"<chapter number=\"6\" style=\"c\" />" +
+					"<para style=\"p\">" +
+					"<verse number=\"1\" style=\"v\" />" +
+					"Practice your righteousness in front of others and you forfeit your heavenly reward." +
+					"<verse number=\"34\" style=\"v\" />" +
+					"So do not worry about tomorrow; it will worry about itself. Each day is enough of a problem." +
+					"</para>" +
+					"<chapter number=\"7\" style=\"c\" />" +
+					"<para style=\"p\">" +
+					"<verse number=\"1\" style=\"v\" />" +
+					"Do not judge unless you want to be judged. " +
+					"<verse number=\"27\" style=\"v\" />" +
+					"The rain came down, the streams rose, and the winds blew and beat against that house, and it fell with a great crash." +
+					GetQtMilestoneElement("end") +
+					"</para>" +
+					"<para style=\"p\">" +
+					"<verse number=\"28-29\" style=\"v\" />" +
+					"When Jesus had finished, having taught as one who had authority, the crowds were amazed at how his teaching was not like that of their own teachers." +
+					"</para>"));
+			var parser = GetUsxParser(doc, "MAT");
+			var blocks = parser.Parse().ToList();
+			int i = 0;
+
+			var chapterCharacter = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter);
+
+			Assert.AreEqual(5, blocks[i].ChapterNumber);
+			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
+			Assert.AreEqual(chapterCharacter, blocks[i].CharacterId);
+
+			Assert.AreEqual(1, blocks[++i].InitialStartVerseNumber);
+			Assert.IsNull(blocks[i].CharacterId);
+
+			Assert.AreEqual(3, blocks[++i].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[i].StartsAtVerseStart);
+			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("{3}\u00A0Blessed are the poor in spirit,", blocks[i].GetText(true));
+			// Not sure we actually care whether the QuoteId annotation comes
+			// before or after the verse number.
+			Assert.AreEqual("SOTM", blocks[i].BlockElements.Take(2).OfType<QuoteId>().Single().Id);
+			Assert.AreEqual("Jesus", blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Start, blocks[i].MultiBlockQuote);
+
+			Assert.AreEqual(3, blocks[++i].InitialStartVerseNumber);
+			Assert.AreEqual("q2", blocks[i].StyleTag);
+			Assert.AreEqual("for they own the kingdom of heaven.", blocks[i].GetText(true, true));
+			Assert.AreEqual("Jesus", blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, blocks[i].MultiBlockQuote);
+
+			Assert.AreEqual(48, blocks[++i].InitialStartVerseNumber);
+			Assert.AreEqual("p", blocks[i].StyleTag);
+			Assert.AreEqual("Jesus", blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, blocks[i].MultiBlockQuote);
+
+			Assert.AreEqual(6, blocks[++i].ChapterNumber);
+			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
+			Assert.AreEqual(chapterCharacter, blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
+			
+			Assert.AreEqual(1, blocks[++i].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[i].StartsAtVerseStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("p", blocks[i].StyleTag);
+			Assert.AreEqual("{1}\u00A0Blessed are the poor in spirit,", blocks[i].GetText(true));
+			Assert.AreEqual("Jesus", blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Start, blocks[i].MultiBlockQuote);
+
+			Assert.AreEqual(34, blocks[++i].InitialStartVerseNumber);
+			Assert.AreEqual("p", blocks[i].StyleTag);
+			Assert.AreEqual("Jesus", blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, blocks[i].MultiBlockQuote);
+
+			Assert.AreEqual(7, blocks[++i].ChapterNumber);
+			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
+			Assert.AreEqual(chapterCharacter, blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
+			
+			Assert.AreEqual(1, blocks[++i].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[i].StartsAtVerseStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("p", blocks[i].StyleTag);
+			Assert.AreEqual("{1}\u00A0Do not judge unless you want to be judged. " +
+				"{27}\u00A0The rain came down, the streams rose, and the winds blew and beat " +
+				"against that house, and it fell with a great crash.",
+				blocks[i].GetText(true, true));
+			Assert.AreEqual("Jesus", blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Start, blocks[i].MultiBlockQuote);
+
+			Assert.AreEqual(28, blocks[++i].InitialStartVerseNumber);
+			Assert.AreEqual(29, blocks[++i].InitialEndVerseNumber);
+			Assert.AreEqual("p", blocks[i].StyleTag);
+			Assert.IsNull(blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
+
+			Assert.AreEqual(++i, blocks.Count);
+		}
+
+		[Test]
 		public void Parse_QtMilestonesQuoteOpenPastLastVerseWhereCharacterIsExpected_LastBlockForExpectedVerseAndBlockPrecedingCloseNeedsReview()
 		{
 			Assert.Ignore("Write this test (unless we determine that the QuoteParser can handle this case.");
@@ -1063,6 +1184,7 @@ namespace GlyssenEngineTests
 			sb.Append("/>");
 			return sb.ToString();
 		}
+		#endregion PG-1419 - Quote milestones
 
 		[Test]
 		public void Parse_DescriptiveTitleUsedOutsidePsalms_CharacterSetToNarrator()
