@@ -12,7 +12,8 @@ namespace GlyssenEngine.Character
 {
 	internal class CharacterUsageStore : ICharacterUsageStore
 	{
-		private readonly ScrVers m_versification;
+		public ScrVers Versification { get; }
+
 		private readonly ICharacterVerseInfo m_cvInfo;
 		private readonly Func<string, IEnumerable<string>> m_getVariants;
 		private static readonly IEqualityComparer<CharacterSpeakingMode> s_characterComparer = new CharacterEqualityComparer();
@@ -21,7 +22,7 @@ namespace GlyssenEngine.Character
 		internal CharacterUsageStore(ScrVers versification, ICharacterVerseInfo cvInfo,
 			Func<string, IEnumerable<string>> getLocalizedVariants)
 		{
-			m_versification = versification;
+			Versification = versification;
 			m_cvInfo = cvInfo;
 			m_getVariants = getLocalizedVariants;
 		}
@@ -32,7 +33,7 @@ namespace GlyssenEngine.Character
 			character = character.Trim();
 			defaultCharacter = null;
 
-			var charactersInPassage = m_cvInfo.GetCharacters(bookNum, chapter, verses, m_versification, true, true).ToList();
+			var charactersInPassage = m_cvInfo.GetCharacters(bookNum, chapter, verses, Versification, true, true).ToList();
 			var matches = charactersInPassage.Where(cv => cv.Character == character).ToList();
 			if (matches.Any())
 			{

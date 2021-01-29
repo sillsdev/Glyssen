@@ -104,15 +104,15 @@ namespace GlyssenEngine
 
 		private class ExplicitQuoteInfo
 		{
-			internal Block StartBlock { get; }
-			internal string QuoteId { get; }
+			internal Block StartBlock { get; set; }
+			internal string Id { get; }
 			internal string SpecifiedCharacter { get; }
 			internal bool Resolved { get; set; }
 
 			internal ExplicitQuoteInfo(Block startBlock, string quoteId, string character)
 			{
 				StartBlock = startBlock;
-				QuoteId = quoteId;
+				Id = quoteId;
 				SpecifiedCharacter = character;
 				Resolved = false;
 			}
@@ -182,9 +182,43 @@ namespace GlyssenEngine
 						if (m_currentChapter == 0)
 							block.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.Intro);
 						else if (style.IsPublishable && !style.IsVerseText)
+						{
+							if (m_currentExplicitQuote?.StartBlock != null)
+							{
+								if (m_currentExplicitQuote.StartBlock != null && blocks.Last() != m_currentExplicitQuote.StartBlock)
+									m_currentExplicitQuote.StartBlock.MultiBlockQuote = MultiBlockQuote.Start;
+								m_currentExplicitQuote.StartBlock = null;
+							}
+
 							block.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.ExtraBiblical);
+						}
 						else if (StyleToCharacterMappings.TryGetCharacterForParaStyle(style.Id, m_bookId, out var character))
+						{
+							// ENHANCE (PG-1322): If we ever decide to make it so section heads do
+							// not interrupt multi-block quotes, this is one place that will need
+							// to change.
+							if (m_currentExplicitQuote != null)
+							{
+								// Break off any unclosed explicit quote initiated by a milestone quote marker.
+								if (m_currentExplicitQuote.StartBlock != null &&
+									blocks.Last() != m_currentExplicitQuote.StartBlock)
+								{
+									m_currentExplicitQuote.StartBlock.MultiBlockQuote = MultiBlockQuote.Start;
+								}
+								m_currentExplicitQuote = null;
+							}
+
 							block.SetNonDramaticCharacterId(character);
+						}
+						else if (m_currentExplicitQuote != null && m_currentExplicitQuote.StartBlock == null)
+						{
+							Debug.Assert(blocks.Last().CharacterIsStandard, "This should only " +
+								"happen when restarting a long quote that carries over past chapter" +
+								"and/or section head breaks");
+							block.SetCharacterAndDeliveryInfo(blocks.Last(b => !b.CharacterIsStandard),
+								m_bookNum, m_characterUsageStore.Versification);
+							m_currentExplicitQuote.StartBlock = block;
+						}
 
 						var sb = new StringBuilder();
 						// <verse number="1" style="v" />
@@ -233,8 +267,26 @@ namespace GlyssenEngine
 										{
 											if (StyleToCharacterMappings.TryGetCharacterForCharStyle(charTag, out var character) && block.StyleTag != charTag)
 											{
-												FinalizeCharacterStyleBlockWithoutTrailingOpener(sb, ref block, blocks, charTag);
-												block.CharacterId = character;
+												if (m_currentExplicitQuote != null)
+												{
+													ResolveQuoteCharacter();
+
+													// TODO: check for null StartBlock.
+
+													if (m_currentExplicitQuote.StartBlock.CharacterIdInScript != character)
+													{
+														// Break off any unclosed explicit quote initiated by a milestone quote marker.
+														if (block != m_currentExplicitQuote.StartBlock)
+															m_currentExplicitQuote.StartBlock.MultiBlockQuote = MultiBlockQuote.Start;
+														m_currentExplicitQuote = null;
+													}
+												}
+
+												if (m_currentExplicitQuote == null)
+												{
+													FinalizeCharacterStyleBlockWithoutTrailingOpener(sb, ref block, blocks, charTag);
+													block.CharacterId = character;
+												}
 											}
 											sb.Append(tokens[0]);
 										}
@@ -242,15 +294,28 @@ namespace GlyssenEngine
 
 									break;
 								case "ms": // Milestone (PG-1419)
+									if (m_currentChapter == 0)
+									{
+										Logger.WriteEvent($"Ignoring milestone node {childNode} in intro material.");
+										break;
+									}
+
 									// Note: Technically, the style attribute is required for ms elements,
 									// but for greater robustness, if it's missing, we'll just ignore it.
 									var styleTag = childNode.GetOptionalStringAttribute("style", default);
 									if (Block.IsFirstLevelQuoteMilestoneStart(styleTag))
 									{
+										var character = childNode.GetOptionalStringAttribute("who", default);
+										var id = childNode.GetOptionalStringAttribute("sid", default);
+										if (m_currentExplicitQuote != null && (character != null || id != null) &&
+											m_currentExplicitQuote.SpecifiedCharacter == character &&
+												m_currentExplicitQuote.Id == id)
+										{
+											Logger.WriteEvent($"Ignoring duplicate milestone node {childNode}.");
+											break;
+										}
 										FinalizeCharacterStyleBlockWithoutTrailingOpener(sb, ref block, blocks, styleTag);
-										m_currentExplicitQuote = new ExplicitQuoteInfo(block,
-											childNode.GetOptionalStringAttribute("sid", default),
-											childNode.GetOptionalStringAttribute("who", default));
+										m_currentExplicitQuote = new ExplicitQuoteInfo(block, id, character);
 									}
 									else if (Block.IsFirstLevelQuoteMilestoneEnd(styleTag))
 									{
@@ -341,9 +406,21 @@ namespace GlyssenEngine
 		{
 			if (m_currentExplicitQuote != null && m_currentExplicitQuote.StartBlock != block)
 			{
-				block.MultiBlockQuote = MultiBlockQuote.Continuation;
-				block.CharacterId = m_currentExplicitQuote.StartBlock.CharacterId;
-				block.CharacterIdInScript = m_currentExplicitQuote.StartBlock.CharacterIdInScript;
+				if (block.CharacterIsStandard)
+				{
+					if (m_currentExplicitQuote.StartBlock != null)
+					{
+						if (blocks.Last() != m_currentExplicitQuote.StartBlock)
+							m_currentExplicitQuote.StartBlock.MultiBlockQuote = MultiBlockQuote.Start;
+						m_currentExplicitQuote.StartBlock = null;
+					}
+				}
+				else
+				{
+					block.MultiBlockQuote = MultiBlockQuote.Continuation;
+					block.CharacterId = m_currentExplicitQuote.StartBlock.CharacterId;
+					block.CharacterIdInScript = m_currentExplicitQuote.StartBlock.CharacterIdInScript;
+				}
 			}
 
 			blocks.Add(block);
@@ -358,9 +435,9 @@ namespace GlyssenEngine
 		private void ResolveQuoteCharacter()
 		{
 			var block = m_currentExplicitQuote.StartBlock;
-			if (m_currentExplicitQuote.QuoteId != null)
+			if (m_currentExplicitQuote.Id != null)
 			{
-				var quoteIdAnnotation = new QuoteId {Id = m_currentExplicitQuote.QuoteId, Start = true};
+				var quoteIdAnnotation = new QuoteId {Id = m_currentExplicitQuote.Id, Start = true};
 				if (block.BlockElements.LastOrDefault() is Verse)
 					block.BlockElements.Insert(block.BlockElements.Count - 1, quoteIdAnnotation);
 				else

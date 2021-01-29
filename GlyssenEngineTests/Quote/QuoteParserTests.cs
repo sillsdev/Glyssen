@@ -96,34 +96,87 @@ namespace GlyssenEngineTests.Quote
 			Assert.IsFalse(output[3].HasPreConfirmedCharacter);
 		}
 
-		[Test]
-		public void Parse_MultiBlockQuoteWithPreConfirmedCharacters_PreConfirmedCharacterAssignmentsUnchanged()
+		[TestCase(false, false)]
+		[TestCase(false, true)]
+		[TestCase(true, false)]
+		[TestCase(true, true)]
+		public void Parse_QuoteWithPreConfirmedCharactersAtEndOfParagraph_PreConfirmedCharacterAssignmentsUnchanged(
+			bool includeFollowingParagraph, bool includeQuoteIdAnnotations)
 		{
-			Assert.Fail("Write this test");
-			var styleTag = "qt-s";
-			var endStyle = "qt1-e";
-			var blockJ1 = new Block(styleTag, 6, 38) { CharacterId = "Jesus"}.AddVerse(38, "How many «loaves» do you have?");
-			var blockN1 = new Block(endStyle, 6, 38).AddText("he asked.");
-			var blockD = new Block(styleTag, 6, 38) { CharacterId = "disciples", CharacterIdInScript = "Andrew"}
-				.AddText("--Seven, if you count the fish,");
-			var blockN2 = new Block(endStyle, 6, 38).AddText("they replied after Jesus told them,");
-			var blockJ2 = new Block(styleTag, 6, 38).AddText("\"Go check!\""); // Note: character not set
-			var input = new List<Block> { blockJ1, blockN1, blockD, blockN2, blockJ2 };
+			// Note: In this case, the block that starts the quote will have a QuoteId annotation at the
+			// end, but there will be no subsequent block that has the qt-e tag (i.e.,
+			// IsPredeterminedFirstLevelQuoteEnd will not be true for either the quote block or the subsequent
+			// block).
+			const string styleTag = "qt-s";
+			var block1 = new Block("p", 6, 38).AddVerse(38, "Jesus asked, «How many loaves do you have? Go check!» The disciples replied, " );
+			var block2 = new Block(styleTag, 6, 38) { CharacterId = "Andrew" }.AddText("«Five plus a couple of old fish.»");
+			if (includeQuoteIdAnnotations)
+			{
+				block2.BlockElements.Insert(0, new QuoteId { Id = "987654321", Start = true });
+				block2.BlockElements.Add(new QuoteId { Id = "987654321", Start = false });
+			}
+			var input = new List<Block> { block1, block2 };
+			if (includeFollowingParagraph)
+				input.Add(new Block("p", 6, 39).AddVerse(39, "Then Jesus told them to have the crowd huddle up on the sod."));
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			Assert.AreEqual(includeFollowingParagraph ? 5 : 4, output.Count);
+			var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			Assert.AreEqual(narrator, output[0].CharacterId);
+			Assert.IsFalse(output[0].HasPreConfirmedCharacter);
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, output[1].CharacterId);
+			Assert.IsFalse(output[1].HasPreConfirmedCharacter);
+			Assert.AreEqual(narrator, output[2].CharacterId);
+			Assert.IsFalse(output[2].HasPreConfirmedCharacter);
+			Assert.AreEqual("Andrew", output[3].CharacterId);
+			Assert.IsTrue(output[3].HasPreConfirmedCharacter);
+			Assert.AreEqual(MultiBlockQuote.None, output[3].MultiBlockQuote);
+			if (includeFollowingParagraph)
+			{
+				Assert.AreEqual(narrator, output.Last().CharacterId);
+				Assert.IsFalse(output.Last().HasPreConfirmedCharacter);
+			}
+		}
+
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Parse_MultiBlockQuoteWithPreConfirmedCharacters_PreConfirmedCharacterAssignmentsUnchanged(
+			bool includeQuoteIdAnnotations)
+		{
+			const string styleTag = "qt-s";
+			const string endStyle = "qt1-e";
+			var blockV12 = new Block("p", 5, 1).AddVerse(1, "Then Jesus saw the people and went up to instruct them.")
+				.AddVerse(2, "He began to teach them as follows:");
+			var blockV3a = new Block(styleTag, 5, 3) { CharacterId = "Jesus", MultiBlockQuote = MultiBlockQuote.Start}
+				.AddVerse(3, "Blessed are the poor in spirit,");
+			if (includeQuoteIdAnnotations)
+				blockV3a.BlockElements.Insert(1, new QuoteId { Id = "sermon on the mount", Start = true});
+			var blockV3b = new Block("q2", 5, 3) { CharacterId = "Jesus", MultiBlockQuote = MultiBlockQuote.Continuation}
+				.AddText("for theirs is the celestial kingdom.");
+			var blockV4a = new Block("q1", 5, 4) { CharacterId = "Jesus", MultiBlockQuote = MultiBlockQuote.Continuation}
+				.AddVerse(4, "Blessed are those who mourn,");
+			var blockV4b = new Block("q2", 5, 4) { CharacterId = "Jesus", MultiBlockQuote = MultiBlockQuote.Continuation}
+				.AddText("for they will be given consolation.");
+			var blockV11ff = new Block("p", 5, 11) { CharacterId = "Jesus", MultiBlockQuote = MultiBlockQuote.Continuation}
+				.AddVerse(11, "Blessed are you.").AddVerse(12, "Rejoice.");
+			var blockC6 = new Block("c", 6);
+
+			var input = new List<Block> { blockV12, blockV3a, blockV3b, blockV4a, blockV4b, blockV11ff, blockC6 };
 			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
-			var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
-			Assert.AreEqual("Jesus", output[0].CharacterId);
-			Assert.IsTrue(output[0].HasPreConfirmedCharacter);
-			Assert.AreEqual(narrator, output[1].CharacterId);
-			Assert.IsFalse(output[1].HasPreConfirmedCharacter);
-			Assert.AreEqual("disciples", output[2].CharacterId);
-			Assert.AreEqual("Andrew", output[2].CharacterIdInScript);
-			Assert.IsTrue(output[2].HasPreConfirmedCharacter);
-			Assert.AreEqual(narrator, output[3].CharacterId);
-			Assert.IsFalse(output[3].HasPreConfirmedCharacter);
-			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, output[4].CharacterId);
-			Assert.IsFalse(output[4].HasPreConfirmedCharacter);
+			//var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			//Assert.AreEqual("Jesus", output[0].CharacterId);
+			//Assert.IsTrue(output[0].HasPreConfirmedCharacter);
+			//Assert.AreEqual(narrator, output[1].CharacterId);
+			//Assert.IsFalse(output[1].HasPreConfirmedCharacter);
+			//Assert.AreEqual("disciples", output[2].CharacterId);
+			//Assert.AreEqual("Andrew", output[2].CharacterIdInScript);
+			//Assert.IsTrue(output[2].HasPreConfirmedCharacter);
+			//Assert.AreEqual(narrator, output[3].CharacterId);
+			//Assert.IsFalse(output[3].HasPreConfirmedCharacter);
+			//Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, output[4].CharacterId);
+			//Assert.IsFalse(output[4].HasPreConfirmedCharacter);
 		}
 
 		[Test]

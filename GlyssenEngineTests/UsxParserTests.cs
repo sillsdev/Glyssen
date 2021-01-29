@@ -1033,7 +1033,7 @@ namespace GlyssenEngineTests
 					"<verse number=\"1\" style=\"v\" />" +
 					"When Jesus perceived the crowds, he ascended a mountain and sat down. His disciples came to him, " +
 					"<verse number=\"2\" style=\"v\" />" +
-					"And he commenced teaching them, saying: " +
+					"and he commenced teaching them, saying: " +
 					"</para>" +
 					"<para style=\"p\">" +
 					"<verse number=\"3\" style=\"v\" />" +
@@ -1043,6 +1043,8 @@ namespace GlyssenEngineTests
 					"<para style=\"q2\">" +
 					"for they own the kingdom of heaven." +
 					"</para>" +
+					"<para style=\"s\">Love Your Enemies</para>" +
+					"<para style=\"r\">Luke 6:32</para>" +
 					"<para style=\"p\">" +
 					"<verse number=\"48\" style=\"v\" />" +
 					"Be perfect, then, as your Father is perfect." +
@@ -1051,6 +1053,14 @@ namespace GlyssenEngineTests
 					"<para style=\"p\">" +
 					"<verse number=\"1\" style=\"v\" />" +
 					"Practice your righteousness in front of others and you forfeit your heavenly reward." +
+					"</para>" +
+					"<para style=\"p\">" +
+					"<verse number=\"2\" style=\"v\" />" +
+					"So when you give to the poor, do not make a big deal of it. " +
+					"<verse number=\"3\" style=\"v\" />" +
+					"Do not even let your one hand know what the other is doing." +
+					"</para>" +
+					"<para style=\"p\">" +
 					"<verse number=\"34\" style=\"v\" />" +
 					"So do not worry about tomorrow; it will worry about itself. Each day is enough of a problem." +
 					"</para>" +
@@ -1071,6 +1081,7 @@ namespace GlyssenEngineTests
 			int i = 0;
 
 			var chapterCharacter = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter);
+			var sectionHeadCharacter = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical);
 
 			Assert.AreEqual(5, blocks[i].ChapterNumber);
 			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
@@ -1094,11 +1105,17 @@ namespace GlyssenEngineTests
 			Assert.AreEqual("for they own the kingdom of heaven.", blocks[i].GetText(true, true));
 			Assert.AreEqual("Jesus", blocks[i].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.Continuation, blocks[i].MultiBlockQuote);
+			
+			Assert.AreEqual("s", blocks[++i].StyleTag);
+			Assert.AreEqual(sectionHeadCharacter, blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
+			
+			// Parallel passage references do not get included in script.
 
 			Assert.AreEqual(48, blocks[++i].InitialStartVerseNumber);
 			Assert.AreEqual("p", blocks[i].StyleTag);
 			Assert.AreEqual("Jesus", blocks[i].CharacterId);
-			Assert.AreEqual(MultiBlockQuote.Continuation, blocks[i].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
 
 			Assert.AreEqual(6, blocks[++i].ChapterNumber);
 			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
@@ -1109,12 +1126,26 @@ namespace GlyssenEngineTests
 			Assert.IsTrue(blocks[i].StartsAtVerseStart);
 			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
 			Assert.AreEqual("p", blocks[i].StyleTag);
-			Assert.AreEqual("{1}\u00A0Blessed are the poor in spirit,", blocks[i].GetText(true));
+			Assert.AreEqual("{1}\u00A0Practice your righteousness in front of others and you " +
+				"forfeit your heavenly reward.", blocks[i].GetText(true));
 			Assert.AreEqual("Jesus", blocks[i].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.Start, blocks[i].MultiBlockQuote);
-
-			Assert.AreEqual(34, blocks[++i].InitialStartVerseNumber);
+			
+			Assert.AreEqual(2, blocks[++i].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
 			Assert.AreEqual("p", blocks[i].StyleTag);
+			Assert.AreEqual("{2}\u00A0So when you give to the poor, do not make a big deal of it. " +
+				"{3}\u00A0Do not even let your one hand know what the other is doing.",
+				blocks[i].GetText(true));
+			Assert.AreEqual("Jesus", blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, blocks[i].MultiBlockQuote);
+			
+			Assert.AreEqual(34, blocks[++i].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[i].StartsAtVerseStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("p", blocks[i].StyleTag);
+			Assert.AreEqual("{34}\u00A0So do not worry about tomorrow; it will worry about itself. " +
+				"Each day is enough of a problem.", blocks[i].GetText(true));
 			Assert.AreEqual("Jesus", blocks[i].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.Continuation, blocks[i].MultiBlockQuote);
 
@@ -1132,11 +1163,472 @@ namespace GlyssenEngineTests
 				"against that house, and it fell with a great crash.",
 				blocks[i].GetText(true, true));
 			Assert.AreEqual("Jesus", blocks[i].CharacterId);
-			Assert.AreEqual(MultiBlockQuote.Start, blocks[i].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
 
 			Assert.AreEqual(28, blocks[++i].InitialStartVerseNumber);
-			Assert.AreEqual(29, blocks[++i].InitialEndVerseNumber);
+			Assert.AreEqual(29, blocks[i].InitialEndVerseNumber);
 			Assert.AreEqual("p", blocks[i].StyleTag);
+			Assert.IsNull(blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
+
+			Assert.AreEqual(++i, blocks.Count);
+		}
+
+		[Test]
+		public void Parse_QtMilestonesLeftOpenFollowedByWordsOfJesusStyle_WjClosesOpenMilestoneQuote()
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
+				string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"MAT\"")
+						.Replace("<chapter number=\"1\"", "<chapter number=\"8\""),
+					"<para style=\"p\">" +
+					"<verse number=\"1\" style=\"v\" />" +
+					"When Jesus came back from the hill, big crowds chased Him. " +
+					"<verse number=\"2\" style=\"v\" />" +
+					"And a guy with leprosy came and bowed before Him, saying, " +
+					GetQtMilestoneElement("start", "leper") +
+					"“Sir, if You would, you can cleanse me.” " +
+					// Quote should have been closed here, but there was a mistake in the data.
+					"<verse number=\"3\" style=\"v\" />" +
+					"Jesus reached out with His hand and touched him, saying, " +
+					"<char style=\"wj\">“Absolutely.” </char>" +
+					"And immediately his leprosy was cleansed." +
+					"</para>"));
+			var parser = GetUsxParser(doc, "MAT");
+			var blocks = parser.Parse().ToList();
+			int i = 0;
+
+			var chapterCharacter = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter);
+
+			Assert.AreEqual(8, blocks[i].ChapterNumber);
+			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
+			Assert.AreEqual(chapterCharacter, blocks[i].CharacterId);
+
+			Assert.AreEqual(1, blocks[++i].InitialStartVerseNumber);
+			Assert.AreEqual(2, blocks[i].LastVerseNum);
+			Assert.IsNull(blocks[i].CharacterId);
+
+			Assert.AreEqual(2, blocks[++i].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[i].StartsAtVerseStart);
+			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("“Sir, if You would, you can cleanse me.” " +
+				"{3}\u00A0Jesus reached out with His hand and touched him, saying, ",
+				blocks[i].GetText(true, true));
+			Assert.AreEqual(CharacterVerseData.kNeedsReview, blocks[i].CharacterId);
+			Assert.AreEqual("leper", blocks[i].CharacterIdInScript);
+			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
+
+			Assert.AreEqual(3, blocks[++i].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("wj", blocks[i].StyleTag);
+			Assert.AreEqual("“Absolutely.” ", blocks[i].GetText(true, true));
+			Assert.AreEqual("Jesus", blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
+
+			Assert.AreEqual(3, blocks[++i].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("p", blocks[i].StyleTag);
+			Assert.AreEqual("And immediately his leprosy was cleansed.", blocks[i].GetText(true, true));
+			Assert.IsNull(blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
+
+			Assert.AreEqual(++i, blocks.Count);
+		}
+
+		[Test]
+		public void Parse_QtMilestonesForOtherCharacterFollowedByBreakThenWjStyle_WjClosesOpenMilestoneQuote()
+		{			var doc = UsxDocumentTests.CreateDocFromString(
+				string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"MAT\"")
+						.Replace("<chapter number=\"1\"", "<chapter number=\"8\""),
+					"<para style=\"p\">" +
+					"<verse number=\"17\" style=\"v\" />" +
+					"This happened so that what was spoken through Isaiah the prophet would be fulfilled: " +
+					GetQtMilestoneElement("start", "scripture") +
+					"“He Himself took our illnesses and carried away our diseases.”" +
+					"</para>" +
+					"<para style=\"s\">Discipleship Tested</para>" +
+					"<para style=\"p\">" +
+					"<verse number=\"18\" style=\"v\" />" +
+					"<char style=\"wj\">“Let us go over to the other side of the sea,” </char>" +
+					"said Jesus, wishing to ditch the crowd." +
+					"</para>"));
+			var parser = GetUsxParser(doc, "MAT");
+			var blocks = parser.Parse().ToList();
+			int i = 0;
+
+			var chapterCharacter = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter);
+			var sectionHeadCharacter = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical);
+
+			Assert.AreEqual(8, blocks[i].ChapterNumber);
+			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
+			Assert.AreEqual(chapterCharacter, blocks[i].CharacterId);
+
+			Assert.AreEqual(17, blocks[++i].InitialStartVerseNumber);
+			Assert.IsNull(blocks[i].CharacterId);
+
+			Assert.AreEqual(17, blocks[++i].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("“He Himself took our illnesses and carried away our diseases.”", blocks[i].GetText(true, true));
+			Assert.AreEqual("scripture", blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
+			
+			Assert.AreEqual("s", blocks[++i].StyleTag);
+			Assert.AreEqual(sectionHeadCharacter, blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
+
+			Assert.AreEqual(18, blocks[++i].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[i].StartsAtVerseStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("{18}\u00A0“Let us go over to the other side of the sea,” ", blocks[i].GetText(true, true));
+			Assert.AreEqual("Jesus", blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
+
+			Assert.AreEqual(18, blocks[++i].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("said Jesus, wishing to ditch the crowd.", blocks[i].GetText(true, true));
+			Assert.IsNull(blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
+
+			Assert.AreEqual(++i, blocks.Count);
+		}
+
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Parse_QtMilestonesIntermingledWithWjStyle_WjDoesNotCloseOpenMilestoneQuote(bool includeSectionHead)
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
+				string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"MAT\"")
+						.Replace("<chapter number=\"1\"", "<chapter number=\"5\""),
+					"<para style=\"p\">" +
+					"<verse number=\"1\" style=\"v\" />" +
+					"When Jesus perceived the crowds, he ascended a slope and sat. His followers came to him, " +
+					"<verse number=\"2\" style=\"v\" />" +
+					"and he commenced teaching them, saying: " +
+					"</para>" +
+					"<para style=\"p\">" +
+					"<verse number=\"3\" style=\"v\" />" +
+					GetQtMilestoneElement("start", "Jesus") +
+					"<char style=\"wj\">Blessed are the poor in spirit.</char>" +
+					"</para>" +
+					(includeSectionHead ? "<para style=\"s\">Love Your Enemies</para>" : "") +
+					"<para style=\"p\">" +
+					"<verse number=\"48\" style=\"v\" />" +
+					// If user really wanted the wj's, then "is perfect" should have been included:
+					"<char style=\"wj\">Be perfect, then, as your Father</char> is perfect." +
+					"</para>" +
+					"<chapter number=\"6\" style=\"c\" />" +
+					"<para style=\"p\">" +
+					"<verse number=\"1\" style=\"v\" />" +
+					// If user really wanted the wj's, this next snippet should have been included:
+					"Practice your righteousness " +
+					"<char style=\"wj\">in front of others and you forfeit your heavenly reward.</char>" +
+					"</para>" +
+					"<para style=\"p\">" +
+					"<verse number=\"2\" style=\"v\" />" +
+					// No wj around this, but the milestone quote should still be in effect since
+					// it's for the same character.
+					"So when you give to the poor, do not make a big deal of it." +
+					GetQtMilestoneElement("end", "Jesus") +
+					"</para>"));
+			var parser = GetUsxParser(doc, "MAT");
+			var blocks = parser.Parse().ToList();
+			int i = 0;
+
+			var chapterCharacter = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter);
+			var sectionHeadCharacter = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical);
+
+			Assert.AreEqual(5, blocks[i].ChapterNumber);
+			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
+			Assert.AreEqual(chapterCharacter, blocks[i].CharacterId);
+
+			Assert.AreEqual(1, blocks[++i].InitialStartVerseNumber);
+			Assert.IsNull(blocks[i].CharacterId);
+
+			Assert.AreEqual(3, blocks[++i].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[i].StartsAtVerseStart);
+			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("{3}\u00A0Blessed are the poor in spirit.", blocks[i].GetText(true));
+			Assert.AreEqual("Jesus", blocks[i].CharacterId);
+
+			if (includeSectionHead)
+			{
+				Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
+
+				Assert.AreEqual("s", blocks[++i].StyleTag);
+				Assert.AreEqual(sectionHeadCharacter, blocks[i].CharacterId);
+
+				Assert.AreEqual(MultiBlockQuote.None, blocks[++i].MultiBlockQuote);
+			}
+			else
+			{
+				Assert.AreEqual(MultiBlockQuote.Start, blocks[i].MultiBlockQuote);
+
+				Assert.AreEqual(MultiBlockQuote.Continuation, blocks[++i].MultiBlockQuote);
+			}
+
+			Assert.AreEqual(48, blocks[i].InitialStartVerseNumber);
+			Assert.AreEqual("p", blocks[i].StyleTag);
+			Assert.AreEqual("{48}\u00A0Be perfect, then, as your Father is perfect.", blocks[i].GetText(true));
+			Assert.AreEqual("Jesus", blocks[i].CharacterId);
+
+			Assert.AreEqual(6, blocks[++i].ChapterNumber);
+			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
+			Assert.AreEqual(chapterCharacter, blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
+			
+			Assert.AreEqual(1, blocks[++i].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[i].StartsAtVerseStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("p", blocks[i].StyleTag);
+			Assert.AreEqual("{1}\u00A0Practice your righteousness in front of others and you " +
+				"forfeit your heavenly reward.", blocks[i].GetText(true));
+			Assert.AreEqual("Jesus", blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Start, blocks[i].MultiBlockQuote);
+			
+			Assert.AreEqual(2, blocks[++i].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("p", blocks[i].StyleTag);
+			Assert.AreEqual("{2}\u00A0So when you give to the poor, do not make a big deal of it.",
+				blocks[i].GetText(true));
+			Assert.AreEqual("Jesus", blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, blocks[i].MultiBlockQuote);
+
+			Assert.AreEqual(++i, blocks.Count);
+		}
+
+		[Test]
+		public void Parse_QtMilestonesInIntroMaterial_Ignored()
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
+				string.Format(UsxDocumentTests.kUsxFrame
+						.Replace("<chapter number=\"1\" style=\"c\" />", ""),
+					"<para style=\"ip\">" +
+					"As you study the book of Mark, it is important to remember Jesus' words: " +
+					GetQtMilestoneElement("start", "Jesus") +
+					"“what shall it profit a man, if he shall gain the whole world, and lose his own soul?” " +
+					GetQtMilestoneElement("end", "Jesus") +
+					"So be sure not just to read it, but to put your faith in Christ." +
+					"</para>"));
+			var parser = GetUsxParser(doc, "MAT");
+			var blocks = parser.Parse().ToList();
+
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Intro),
+				blocks.Single().CharacterId);
+		}
+
+		[Test]
+		public void Parse_DuplicateStartQtMilestone_Ignored()
+		{
+			var usx = "<para style=\"p\">" +
+				"<verse number=\"14\" style=\"v\" />" +
+				"De éstos también profetizó Enoc, séptimo desde Adán, diciendo: " +
+				GetQtMilestoneElement("start", "Enoch") +
+				"El Señor viene con sus santas decenas de millares. " +
+				"<verse number=\"15\" style=\"v\" />" +
+				GetQtMilestoneElement("start", "Enoch") +
+				"“Hará juicio contra todos para convencer a todos los impíos " +
+				GetQtMilestoneElement("start", "Enoch") +
+				"de entre ellos tocante a todas sus obras de impiedad.”" +
+				GetQtMilestoneElement("end") +
+				"</para>";
+
+			var doc = UsxDocumentTests.CreateDocFromString(
+				string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"JUD\""),
+				usx));
+			var parser = GetUsxParser(doc, "JUD");
+			var blocks = parser.Parse().ToList();
+
+			int i = 0;
+
+			var chapterCharacter = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.BookOrChapter);
+
+			Assert.AreEqual(1, blocks[i].ChapterNumber);
+			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
+			Assert.AreEqual(chapterCharacter, blocks[i].CharacterId);
+
+			Assert.AreEqual(14, blocks[++i].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[i].StartsAtVerseStart);
+			Assert.AreEqual("{14}\u00A0De éstos también profetizó Enoc, séptimo desde Adán, " +
+				"diciendo: ", blocks[i].GetText(true, true));
+			Assert.IsNull(blocks[i].CharacterId);
+
+			Assert.AreEqual(14, blocks[++i].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[i].StartsAtVerseStart);
+			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("El Señor viene con sus santas decenas de millares. " +
+				"{15}\u00A0“Hará juicio contra todos para convencer a todos los impíos " +
+				"de entre ellos tocante a todas sus obras de impiedad.”",
+				blocks[i].GetText(true));
+			Assert.AreEqual("Enoch", blocks[i].CharacterId);
+		}
+
+		[Test]
+		public void Parse_ExtraneousEndQtMilestone_Ignored()
+		{
+			var usx = "<para style=\"p\">" +
+				"<verse number=\"14\" style=\"v\" />" +
+				"De éstos también profetizó Enoc, séptimo desde Adán, diciendo: " +
+				GetQtMilestoneElement("start", "Enoch") +
+				"El Señor viene con sus santas decenas de millares. " +
+				"<verse number=\"15\" style=\"v\" />" +
+				"“Hará juicio contra todos para convencer a todos los impíos " +
+				"de entre ellos tocante a todas sus obras de impiedad.” " +
+				GetQtMilestoneElement("end") +
+				"<verse number=\"16\" style=\"v\" />" +
+				"These are grumble-bunnies, following their own sinful desires." +
+				// Oops. This doesn't belong here:
+				GetQtMilestoneElement("end") +
+				"</para>";
+
+			var doc = UsxDocumentTests.CreateDocFromString(
+				string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"JUD\""),
+					usx));
+			var parser = GetUsxParser(doc, "JUD");
+			var blocks = parser.Parse().ToList();
+
+			int i = 0;
+
+			var chapterCharacter = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.BookOrChapter);
+
+			Assert.AreEqual(1, blocks[i].ChapterNumber);
+			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
+			Assert.AreEqual(chapterCharacter, blocks[i].CharacterId);
+
+			Assert.AreEqual(14, blocks[++i].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[i].StartsAtVerseStart);
+			Assert.AreEqual("{14}\u00A0De éstos también profetizó Enoc, séptimo desde Adán, " +
+				"diciendo: ", blocks[i].GetText(true, true));
+			Assert.IsNull(blocks[i].CharacterId);
+
+			Assert.AreEqual(14, blocks[++i].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[i].StartsAtVerseStart);
+			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("El Señor viene con sus santas decenas de millares. " +
+				"{15}\u00A0“Hará juicio contra todos para convencer a todos los impíos " +
+				"de entre ellos tocante a todas sus obras de impiedad.” ",
+				blocks[i].GetText(true));
+			Assert.AreEqual("Enoch", blocks[i].CharacterId);
+
+			Assert.AreEqual(16, blocks[++i].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("{16}\u00A0These are grumble-bunnies, following their own sinful " +
+				"desires.", blocks[i].GetText(true, true));
+			Assert.IsNull(blocks[i].CharacterId);
+		}
+
+		[Test]
+		public void Parse_StartQtMilestoneAtEndOfParagraph_Ignored()
+		{
+			// REVIEW: Or should it apply to start of following paragraph.
+			Assert.Fail("Write me");
+		}
+
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Parse_QtMilestonesLeftOpenFollowedByHebrewSubtitle_WjClosesOpenMilestoneQuote(bool includeSectionHead)
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
+				string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"PSA\"")
+						.Replace("<chapter number=\"1\"", "<chapter number=\"39\""),
+					"<para style=\"q1\">" +
+					GetQtMilestoneElement("start", "David", "Prayer in Psalm 39") +
+					"<verse number=\"12\" style=\"v\" />" +
+					"“Hear my prayer, Lord, and listen to my cry for help;" +
+					"</para>" +
+					"<para style=\"q1\">" +
+					"Do not be silent to my tears;" +
+					"</para>" +
+					"<para style=\"q1\">" +
+					"For I am a stranger with You," +
+					"</para>" +
+					"<para style=\"q1\">" +
+					"One who lives abroad, like all my fathers." +
+					"</para>" +
+					"<para style=\"q1\">" +
+					"<verse number=\"13\" style=\"v\" />" +
+					"Turn Your eyes away from me, that I may become cheerful again" +
+					"</para>" +
+					"<para style=\"q1\">" +
+					"Before I depart and am no more.”" +
+					"</para>" +
+					// Quote should have been closed here, but there was a mistake in the data.
+					"<chapter number=\"40\" style=\"c\" />" +
+					(includeSectionHead ? "<para style=\"s\">God Sustains His Servant</para>" : "") +
+					"<para style=\"d\">" +
+					"For the music director. A Psalm of David." +
+					"</para>" +
+					"<para style=\"q1\">" +
+					"<verse number=\"1\" style=\"v\" />" +
+					"I waited patiently for the Lord;" +
+					"</para>" +
+					"<para style=\"q1\">" +
+					"And He reached down to me and heard my cry." +
+					"</para>"));
+			var parser = GetUsxParser(doc, "PSA");
+			var blocks = parser.Parse().ToList();
+			int i = 0;
+
+			var chapterCharacter = CharacterVerseData.GetStandardCharacterId("PSA", CharacterVerseData.StandardCharacter.BookOrChapter);
+			var sectionHeadCharacter = CharacterVerseData.GetStandardCharacterId("PSA", CharacterVerseData.StandardCharacter.ExtraBiblical);
+			var narrator = CharacterVerseData.GetStandardCharacterId("PSA", CharacterVerseData.StandardCharacter.Narrator);
+
+			Assert.AreEqual(39, blocks[i].ChapterNumber);
+			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
+			Assert.AreEqual(chapterCharacter, blocks[i].CharacterId);
+
+			Assert.AreEqual(12, blocks[++i].InitialStartVerseNumber);
+			Assert.AreEqual("David", blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Start, blocks[i].MultiBlockQuote);
+
+			Assert.AreEqual(12, blocks[++i].InitialStartVerseNumber);
+			Assert.AreEqual("David", blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, blocks[i].MultiBlockQuote);
+
+			Assert.AreEqual(12, blocks[++i].InitialStartVerseNumber);
+			Assert.AreEqual("David", blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, blocks[i].MultiBlockQuote);
+
+			Assert.AreEqual(12, blocks[++i].InitialStartVerseNumber);
+			Assert.AreEqual("David", blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, blocks[i].MultiBlockQuote);
+
+			Assert.AreEqual(13, blocks[++i].InitialStartVerseNumber);
+			Assert.AreEqual("David", blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, blocks[i].MultiBlockQuote);
+
+			Assert.AreEqual(13, blocks[++i].InitialStartVerseNumber);
+			Assert.AreEqual("David", blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, blocks[i].MultiBlockQuote);
+			Assert.AreEqual(39, blocks[i].ChapterNumber);
+
+			Assert.AreEqual(40, blocks[++i].ChapterNumber);
+			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
+			Assert.AreEqual(chapterCharacter, blocks[i].CharacterId);
+
+			if (includeSectionHead)
+			{
+				Assert.AreEqual("s", blocks[++i].StyleTag);
+				Assert.AreEqual(sectionHeadCharacter, blocks[i].CharacterId);
+				Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
+				Assert.AreEqual("God Sustains His Servant", blocks[i].GetText(true, true));
+			}
+
+			Assert.AreEqual("d", blocks[++i].StyleTag);
+			Assert.AreEqual(narrator, blocks[i].CharacterId);
+			Assert.AreEqual(40, blocks[i].ChapterNumber);
+			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
+			Assert.AreEqual("For the music director. A Psalm of David.", blocks[i].GetText(true, true));
+
+			Assert.AreEqual(1, blocks[++i].InitialStartVerseNumber);
+			Assert.AreEqual(40, blocks[i].ChapterNumber);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("q1", blocks[i].StyleTag);
+			Assert.IsNull(blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
+
+			Assert.AreEqual(1, blocks[++i].InitialStartVerseNumber);
+			Assert.AreEqual(40, blocks[i].ChapterNumber);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("q1", blocks[i].StyleTag);
 			Assert.IsNull(blocks[i].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
 
