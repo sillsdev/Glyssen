@@ -675,7 +675,7 @@ namespace GlyssenEngine
 								var currBottomUpRefBlockIndex = indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - j
 									- 1 + numberOfUnexpectedReportingClausesMatched;
 								var refBlockInVerseChunk = refBlockList[currBottomUpRefBlockIndex];
-								if ((iCurrVernBottomUp > i || omittedHeSaids.Count == 0) && // PG-1408: Don't match two different vern blocks to the same ref block
+								if ((iCurrVernBottomUp >= i || omittedHeSaids.Count == 0) && // PG-1408: Don't match two different vern blocks to the same ref block
 									BlocksMatch(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification))
 								{
 									vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockInVerseChunk);
@@ -770,7 +770,7 @@ namespace GlyssenEngine
 										vernBlockList[iVernBlock].ReferenceBlocks.Single().CharacterId != remainingRefBlocksList[0].CharacterId)
 									{
 										// See if the immediately following or preceding block is a better match
-										var otherIndicesToTry = (i <= iVernBlock) ?
+										var otherIndicesToTry = (i + indexOfVernVerseStart <= iVernBlock) ?
 											new[] {iVernBlock - 1, iVernBlock + 1} :
 											new[] {iVernBlock + 1, iVernBlock - 1};
 										foreach (var iPreOrPost in otherIndicesToTry.Where(o => vernBlockList.Count > o && o >= 0))
@@ -783,7 +783,29 @@ namespace GlyssenEngine
 												else if (iPreOrPost < iVernBlock) // Pre
 													vernBlockList[iPreOrPost].AppendUnmatchedReferenceBlocks(remainingRefBlocksList);
 												else // Post
+												{
 													vernBlockList[iPreOrPost].InsertUnmatchedReferenceBlocks(0, remainingRefBlocksList);
+													if (vernBlockList[iVernBlock].StartsAtVerseStart &&
+														!vernBlockList[iVernBlock].ReferenceBlocks.Any(b => b.ContainsVerseNumber))
+													{
+														// See if we can shift a verse number from one of the following reference blocks
+														foreach (var subsequentRefBlock in vernBlockList[iPreOrPost].ReferenceBlocks)
+														{
+															if (subsequentRefBlock.StartsAtVerseStart)
+															{
+																var refVerse = subsequentRefBlock.BlockElements.First(e => e is Verse);
+																vernBlockList[iVernBlock].ReferenceBlocks.First().BlockElements.Insert(0, refVerse);
+																subsequentRefBlock.BlockElements.Remove(refVerse);
+																m_modifiedBooks.Add(bookId);
+																break;
+															}
+
+															if (subsequentRefBlock.ContainsVerseNumber)
+																break;
+														}
+													}
+												}
+
 												remainingRefBlocksList = null;
 												break;
 											}
