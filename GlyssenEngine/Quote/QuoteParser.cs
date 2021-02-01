@@ -223,17 +223,15 @@ namespace GlyssenEngine.Quote
 
 				if (block.IsPredeterminedFirstLevelQuoteStart)
 				{
-					// TODO: Deal with multi-block quote
 					if (block.CharacterId == null)
 					{
 						m_quoteLevel = 0;
-						IncrementQuoteLevel();
+						IncrementQuoteLevel(block);
 					}
 					else
 					{
 						m_outputBlocks.Add(block);
 						m_quoteLevel = 1;
-						// TODO: Need to deal with character mismatch & multiple deliveries.
 						m_possibleCharactersForCurrentQuote = new List<string>(new [] {block.CharacterId});
 						continue;
 					}
@@ -277,7 +275,7 @@ namespace GlyssenEngine.Quote
 				}
 
 				m_workingBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber)
-					{ IsParagraphStart = block.IsParagraphStart };
+					{ IsParagraphStart = block.IsParagraphStart, MultiBlockQuote = block.MultiBlockQuote, CharacterId = block.CharacterId };
 				if (!m_workingBlock.IsContinuationParagraphStyle && m_workingBlock.IsFollowOnParagraphStyle)
 				{
 					if (m_outputBlockInWhichPoetryStarted < 0)
@@ -294,8 +292,11 @@ namespace GlyssenEngine.Quote
 					var scriptText = element as ScriptText;
 					if (scriptText == null)
 					{
-						// Add the element to our working list in case we need to move it to the next block (see MoveTrailingElementsIfNecessary)
-						m_nonScriptTextBlockElements.Add(element);
+						if (!element.CanBeLastElementInBlock)
+						{
+							// Add the element to our working list in case we need to move it to the next block (see MoveTrailingElementsIfNecessary)
+							m_nonScriptTextBlockElements.Add(element);
+						}
 
 						var verseElement = element as Verse;
 						if (verseElement != null)
@@ -314,8 +315,7 @@ namespace GlyssenEngine.Quote
 									foreach (var multiBlock in m_currentMultiBlockQuote)
 									{
 										multiBlock.MultiBlockQuote = MultiBlockQuote.None;
-										multiBlock.CharacterId = CharacterVerseData.kUnexpectedCharacter;
-										multiBlock.Delivery = null;
+										multiBlock.SetNonDramaticCharacterId(CharacterVerseData.kUnexpectedCharacter);
 									}
 									m_currentMultiBlockQuote.Clear();
 									FlushStringBuilderAndBlock(sb, block.StyleTag, m_quoteLevel > 0, true);
@@ -870,9 +870,14 @@ namespace GlyssenEngine.Quote
 
 		private void IncrementQuoteLevel()
 		{
+			IncrementQuoteLevel(m_workingBlock);
+		}
+
+		private void IncrementQuoteLevel(Block currentBlock)
+		{
 			if (m_quoteLevel++ == 0)
-				m_possibleCharactersForCurrentQuote = m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber,
-					(Block.InitialVerseNumberBridgeFromBlock)m_workingBlock, m_versification, true).Select(cv => cv.Character).ToList();
+				m_possibleCharactersForCurrentQuote = m_cvInfo.GetCharacters(m_bookNum, currentBlock.ChapterNumber,
+					(Block.InitialVerseNumberBridgeFromBlock)currentBlock, m_versification, true).Select(cv => cv.Character).ToList();
 		}
 
 		private void DecrementQuoteLevel()

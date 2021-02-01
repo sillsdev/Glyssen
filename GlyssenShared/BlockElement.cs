@@ -20,6 +20,8 @@ namespace Glyssen.Shared
 		{
 			return (BlockElement)MemberwiseClone();
 		}
+
+		public abstract bool CanBeLastElementInBlock { get; }
 	}
 
 	public class BlockElementContentsComparer : IEqualityComparer<BlockElement>
@@ -70,6 +72,8 @@ namespace Glyssen.Shared
 		{
 			Content = content;
 		}
+
+		public override bool CanBeLastElementInBlock => true;
 
 		[XmlText]
 		public string Content
@@ -164,6 +168,8 @@ namespace Glyssen.Shared
 			Number = number;
 		}
 
+		public override bool CanBeLastElementInBlock => false;
+
 		[XmlAttribute("num")]
 		public string Number { get; set; }
 
@@ -203,6 +209,8 @@ namespace Glyssen.Shared
 	public abstract class ScriptAnnotation : BlockElement
 	{
 		public abstract string ToDisplay(string elementSeparator = " ");
+
+		public override bool CanBeLastElementInBlock => true;
 	}
 
 	public class Pause : ScriptAnnotation

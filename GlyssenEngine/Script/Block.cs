@@ -737,7 +737,7 @@ namespace GlyssenEngine.Script
 		/// Technically, any preceding ScriptText element that consists entirely of punctuation will be
 		/// considered as being part of the following verse.)
 		/// </summary>
-		public bool StartsAtVerseStart => BlockElements.First(e => !(e is ScriptAnnotation)) is Verse ||
+		public bool StartsAtVerseStart => BlockElements.FirstOrDefault(e => !(e is ScriptAnnotation)) is Verse ||
 			StartsWithScriptTextElementContainingOnlyPunctuation && ContainsVerseNumber;
 
 		/// <summary>
@@ -897,7 +897,7 @@ namespace GlyssenEngine.Script
 		{
 			if (CharacterId == newCharacterId)
 				return;
-			if (IsPredeterminedFirstLevelQuoteStart)
+			if (IsPredeterminedFirstLevelQuoteStart && CharacterId != null)
 				StyleTag += "|" + CharacterId; //  Remember that we *were* predetermined, but now we're not.
 			// REVIEW: If we change it back to its previous predetermined value, should we put the the style
 			// tag back. (We probably don't much care at that point.)

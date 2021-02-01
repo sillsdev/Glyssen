@@ -42,6 +42,7 @@ namespace GlyssenEngineTests.Quote
 			Assert.Throws<InvalidOperationException>(() => parser.Parse());
 		}
 
+		#region PG-1419 tests (blocks created by quote milestones)
 		[TestCase("qt-s")]
 		[TestCase("qt1-s")]
 		public void Parse_ContainsBlockWithPreConfirmedCharacters_PreConfirmedCharacterAssignmentsUnchanged(string styleTag)
@@ -71,10 +72,11 @@ namespace GlyssenEngineTests.Quote
 			Assert.IsFalse(output[4].HasPreConfirmedCharacter);
 		}
 
-		[TestCase()]
+		[TestCase(null)]
+		[TestCase(CharacterVerseData.kUnexpectedCharacter)]
 		[TestCase("Andrew")]
 		public void Parse_ContainsBlockWithPreConfirmedCharactersFollowingUnclosedFirstLevelQuote_ExistingQuoteIsClosed(
-			string character = CharacterVerseData.kUnexpectedCharacter)
+			string character)
 		{
 			var styleTag = "qt-s";
 			var endStyle = "qt-e";
@@ -143,41 +145,160 @@ namespace GlyssenEngineTests.Quote
 		public void Parse_MultiBlockQuoteWithPreConfirmedCharacters_PreConfirmedCharacterAssignmentsUnchanged(
 			bool includeQuoteIdAnnotations)
 		{
-			const string styleTag = "qt-s";
-			const string endStyle = "qt1-e";
-			var blockV12 = new Block("p", 5, 1).AddVerse(1, "Then Jesus saw the people and went up to instruct them.")
+			var chapterCharacter = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter);
+			var blockC5 = new Block("c", 5) { CharacterId = chapterCharacter };
+			var blockV12 = new Block("p", 5, 1) { IsParagraphStart = true }.AddVerse(1, "Then Jesus saw the people and went up to instruct them. ")
 				.AddVerse(2, "He began to teach them as follows:");
-			var blockV3a = new Block(styleTag, 5, 3) { CharacterId = "Jesus", MultiBlockQuote = MultiBlockQuote.Start}
+			var blockV3a = new Block("qt-s", 5, 3) { IsParagraphStart = true, CharacterId = "Jesus", MultiBlockQuote = MultiBlockQuote.Start}
 				.AddVerse(3, "Blessed are the poor in spirit,");
 			if (includeQuoteIdAnnotations)
 				blockV3a.BlockElements.Insert(1, new QuoteId { Id = "sermon on the mount", Start = true});
-			var blockV3b = new Block("q2", 5, 3) { CharacterId = "Jesus", MultiBlockQuote = MultiBlockQuote.Continuation}
+			var blockV3b = new Block("q2", 5, 3) { IsParagraphStart = true, CharacterId = "Jesus", MultiBlockQuote = MultiBlockQuote.Continuation}
 				.AddText("for theirs is the celestial kingdom.");
-			var blockV4a = new Block("q1", 5, 4) { CharacterId = "Jesus", MultiBlockQuote = MultiBlockQuote.Continuation}
+			var blockV4a = new Block("q1", 5, 4) { IsParagraphStart = true, CharacterId = "Jesus", MultiBlockQuote = MultiBlockQuote.Continuation}
 				.AddVerse(4, "Blessed are those who mourn,");
-			var blockV4b = new Block("q2", 5, 4) { CharacterId = "Jesus", MultiBlockQuote = MultiBlockQuote.Continuation}
+			var blockV4b = new Block("q2", 5, 4) { IsParagraphStart = true, CharacterId = "Jesus", MultiBlockQuote = MultiBlockQuote.Continuation}
 				.AddText("for they will be given consolation.");
-			var blockV11ff = new Block("p", 5, 11) { CharacterId = "Jesus", MultiBlockQuote = MultiBlockQuote.Continuation}
+			var blockV11ff = new Block("p", 5, 11) { IsParagraphStart = true, CharacterId = "Jesus", MultiBlockQuote = MultiBlockQuote.Continuation}
 				.AddVerse(11, "Blessed are you.").AddVerse(12, "Rejoice.");
-			var blockC6 = new Block("c", 6);
+			var blockC6 = new Block("c", 6) { CharacterId = chapterCharacter };
+			var block6V1ff = new Block("p", 6, 1) { IsParagraphStart = true, CharacterId = "Jesus", MultiBlockQuote = MultiBlockQuote.Start}
+				.AddVerse(1, "Show off your righteousness in front of folks and forfeit your heavenly prize.")
+				.AddVerse(2, "Give to the poor discretely. ");
+			var block6V3a = new Block("p", 6, 3) { IsParagraphStart = true, CharacterId = "Jesus", MultiBlockQuote = MultiBlockQuote.Continuation}
+				.AddVerse(3, "Keep your hands mutually ignorant, ");
+			if (includeQuoteIdAnnotations)
+				block6V3a.BlockElements.Add(new QuoteId { Id = "sermon on the mount", Start = false});
+			var block6V3b = new Block("qt1-e", 6, 3).AddText(" he preached.");
 
-			var input = new List<Block> { blockV12, blockV3a, blockV3b, blockV4a, blockV4b, blockV11ff, blockC6 };
+			var input = new List<Block> { blockC5, blockV12, blockV3a, blockV3b, blockV4a, blockV4b,
+				blockV11ff, blockC6, block6V1ff, block6V3a, block6V3b };
 			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
-			Assert.AreEqual(5, output.Count);
-			//var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
-			//Assert.AreEqual("Jesus", output[0].CharacterId);
-			//Assert.IsTrue(output[0].HasPreConfirmedCharacter);
-			//Assert.AreEqual(narrator, output[1].CharacterId);
-			//Assert.IsFalse(output[1].HasPreConfirmedCharacter);
-			//Assert.AreEqual("disciples", output[2].CharacterId);
-			//Assert.AreEqual("Andrew", output[2].CharacterIdInScript);
-			//Assert.IsTrue(output[2].HasPreConfirmedCharacter);
-			//Assert.AreEqual(narrator, output[3].CharacterId);
-			//Assert.IsFalse(output[3].HasPreConfirmedCharacter);
-			//Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, output[4].CharacterId);
-			//Assert.IsFalse(output[4].HasPreConfirmedCharacter);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			Assert.AreEqual(input.Count - 2, output.Count,
+				"Poetry blocks not ending with periods should have joined with following poetry blocks.");
+			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			var i = 0;
+			Assert.AreEqual(chapterCharacter, output[i].CharacterId);
+			Assert.AreEqual(input[i].GetText(true, true), output[i].GetText(true, true));
+			Assert.AreEqual(narrator, output[++i].CharacterId);
+			Assert.AreEqual(input[i].GetText(true, true), output[i].GetText(true, true));
+
+			Assert.IsTrue(output[++i].HasPreConfirmedCharacter);
+			Assert.AreEqual("Jesus", output[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Start, output[i].MultiBlockQuote);
+			Assert.AreEqual("{3}\u00A0Blessed are the poor in spirit, for theirs is the celestial kingdom.", output[i].GetText(true));
+			if (includeQuoteIdAnnotations)
+			{
+				var quoteAnnotation = (QuoteId)output[i].BlockElements[1];
+				Assert.AreEqual("sermon on the mount", quoteAnnotation.Id);
+				Assert.IsTrue(quoteAnnotation.Start);
+			}
+
+			Assert.IsFalse(output[++i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("Jesus", output[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[i].MultiBlockQuote);
+			Assert.AreEqual("{4}\u00A0Blessed are those who mourn, for they will be given consolation.", output[i].GetText(true, true));
+
+			Assert.IsFalse(output[++i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("Jesus", output[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[i].MultiBlockQuote);
+			Assert.AreEqual(input[i + 2].GetText(true, true), output[i].GetText(true, true));
+
+			Assert.AreEqual(chapterCharacter, output[++i].CharacterId);
+			Assert.AreEqual(input[i + 2].GetText(true, true), output[i].GetText(true, true));
+
+			Assert.IsFalse(output[++i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("Jesus", output[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Start, output[i].MultiBlockQuote);
+			Assert.AreEqual(input[i + 2].GetText(true, true), output[i].GetText(true, true));
+
+			Assert.IsFalse(output[++i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("Jesus", output[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[i].MultiBlockQuote);
+			Assert.AreEqual(input[i + 2].GetText(true, true), output[i].GetText(true, true));
+
+			Assert.AreEqual(narrator, output[++i].CharacterIdInScript);
+			Assert.IsTrue(output[i].IsPredeterminedFirstLevelQuoteEnd);
+			Assert.AreEqual(MultiBlockQuote.None, output[i].MultiBlockQuote);
+			Assert.AreEqual(input[i + 2].GetText(true, true), output[i].GetText(true, true));
 		}
+
+		[TestCase(true, true, null)]
+		[TestCase(true, true, "Jesus")]
+		[TestCase(true, false, null)]
+		[TestCase(false, false, null)]
+		[TestCase(false, false, "Jesus")]
+		public void Parse_MultiBlockQuoteWithPreConfirmedCharactersGoesPastExpectedReference_QuoteBrokenAndCharacterChangedToUnknown(
+			bool includeStartAnnotation, bool includeEndAnnotation, string character)
+		{
+			var chapterCharacter = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter);
+			var blockC7 = new Block("c", 7) { CharacterId = chapterCharacter };
+			var blockJ24 = new Block("qt-s", 7, 24) { IsParagraphStart = true }
+				.AddVerse(24, "«Everyone who obeys will be wise. ")
+				.AddVerse(25, "Nothing bad will happen when it rains. ")
+				.AddVerse("26-27", "But fools will end up with flattened houses because don't listen.");
+			if (includeStartAnnotation)
+				blockJ24.BlockElements.Insert(1, new QuoteId { Id = "end of sermon", Start = true });
+			// Jesus' quote is left open.
+			var block28 = new Block("p", 7, 28) { IsParagraphStart = true }
+				.AddVerse(28, "The crowds were in awe of his teaching ")
+				.AddVerse(29, "because he spoke with authority.");
+			if (includeEndAnnotation)
+				blockJ24.BlockElements.Add(new QuoteId { Id = "end of sermon", Start = false });
+
+			var input = new List<Block> { blockC7, blockJ24, block28 };
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			Assert.AreEqual(input.Count, output.Count);
+			var i = 0;
+			Assert.AreEqual(chapterCharacter, output[i].CharacterId);
+
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, output[++i].CharacterId);
+			Assert.IsFalse(output[i].IsPredeterminedFirstLevelQuoteStart,
+				"This becomes false when the character is set to unexpected");
+			Assert.AreEqual(MultiBlockQuote.None, output[i].MultiBlockQuote);
+			Assert.AreEqual(input[i].GetText(true, true), output[i].GetText(true, true));
+
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+				output[++i].CharacterIdInScript);
+			Assert.AreEqual(MultiBlockQuote.None, output[i].MultiBlockQuote);
+			Assert.AreEqual(input[i].GetText(true, true), output[i].GetText(true, true));
+		}
+
+		[Test]
+		public void Parse_NeedReviewCharacter_CharacterAndCharacterIdInScriptUnchanged()
+		{
+			var chapterCharacter = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter);
+			var blockC7 = new Block("c", 7) { CharacterId = chapterCharacter };
+			var blockJ24 = new Block("qt-s", 7, 24) { IsParagraphStart = true,
+					CharacterId = CharacterVerseData.kNeedsReview,
+					CharacterIdInScript = "Fred" }
+				.AddVerse(24, "«Everyone who obeys will be wise. ")
+				.AddVerse(25, "Nothing bad will happen when it rains. ")
+				.AddVerse("26-27", "But fools will end up with flattened houses because don't listen,» ");
+			var blockJ27b = new Block("qt-e", 7, 27)
+				.AddText("said Fred.");
+
+			var input = new List<Block> { blockC7, blockJ24, blockJ27b };
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			Assert.AreEqual(input.Count, output.Count);
+			var i = 0;
+			Assert.AreEqual(chapterCharacter, output[i].CharacterId);
+
+			Assert.AreEqual(CharacterVerseData.kNeedsReview, output[++i].CharacterId);
+			Assert.AreEqual("Fred", output[i].CharacterIdInScript);
+			Assert.IsTrue(output[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual(MultiBlockQuote.None, output[i].MultiBlockQuote);
+			Assert.AreEqual(input[i].GetText(true, true), output[i].GetText(true, true));
+
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+				output[++i].CharacterIdInScript);
+			Assert.AreEqual(MultiBlockQuote.None, output[i].MultiBlockQuote);
+			Assert.AreEqual(input[i].GetText(true, true), output[i].GetText(true, true));
+		}
+		#endregion // PG-1419 tests (blocks created by quote milestones)
 
 		[Test]
 		public void Parse_OneBlockBecomesTwo_QuoteAtEnd()
@@ -4787,6 +4908,9 @@ namespace GlyssenEngineTests.Quote
 			Assert.AreEqual(MultiBlockQuote.None, output[3].MultiBlockQuote);
 		}
 
+		/// <summary>
+		/// Tests logic to keep us from "running off the rails" when a quote is not closed.
+		/// </summary>
 		[Test]
 		public void Parse_DialogueQuoteCloseMissingFollowedByNoControlFileEntry_CloseQuoteWhenNoCharacterInControlFileAndSetDialogueQuoteToUnknown()
 		{

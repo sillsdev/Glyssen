@@ -1516,10 +1516,12 @@ namespace GlyssenEngineTests
 		}
 
 		[Test]
-		public void Parse_StartQtMilestoneAtEndOfParagraph_Ignored()
+		public void Parse_StartQtMilestoneAtEndOfParagraph_IgnoredOrProcessed()
 		{
-			// REVIEW: Or should it apply to start of following paragraph.
-			Assert.Fail("Write me");
+			Assert.Inconclusive("REVIEW: if we encounter a start milestone at the end of a paragraph, " +
+				"should we assume that it is a mistake and ignore it, or should we handle it, as " +
+				"an opener (perhaps only in the case where the paragraph does not end with " +
+				"sentence-ending punctuation)?");
 		}
 
 		[TestCase(true)]
