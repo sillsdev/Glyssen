@@ -243,88 +243,110 @@ namespace GlyssenEngine
             {
                 int bookNum = BCVRef.BookToNumber(book.BookId);
 
-                foreach (Block block in book.GetScriptBlocks().Where(block => block.CharacterId != null &&
-                    block.CharacterId != CharacterVerseData.kUnexpectedCharacter &&
-                    block.CharacterId != CharacterVerseData.kNeedsReview &&
-					!CharacterVerseData.IsCharacterStandard(block.CharacterId)))
+                foreach (Block block in book.GetScriptBlocks())
                 {
-                    if (block.CharacterId == CharacterVerseData.kAmbiguousCharacter)
-                    {
-                        if (block.UserConfirmed)
-                        {
-                            block.UserConfirmed = false;
-                            numberOfChangesMade++;
-                        }
-                    }
-                    else
-                    {
-                        var knownFactoryCharacter = characterDetailDictionary.ContainsKey(block.CharacterIdInScript);
-                        var unknownCharacter = !knownFactoryCharacter && !project.IsProjectSpecificCharacter(block.CharacterIdInScript);
-                        if (unknownCharacter && project.ProjectCharacterVerseData.GetCharacters(bookNum, block.ChapterNumber, block.AllVerses)
-                            .Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
-                        {
-                            // PG-471: This is a formerly known character who spoke in an unexpected location and was therefore added to the project CV file,
-                            // but was subsequently removed or renamed from the master character detail list.
-                            project.ProjectCharacterVerseData.RemoveAllEntriesForBlock(bookNum, block);
-                            block.UserConfirmed = false;
-                            block.CharacterId = CharacterVerseData.kUnexpectedCharacter;
-                            block.CharacterIdInScript = null;
-                            numberOfChangesMade++;
-                        }
-                        else
-                        {
-                            var characters = cvInfo.GetCharacters(bookNum, block.ChapterNumber, block.AllVerses,
-                                includeAlternatesAndRareQuotes: true, includeNarratorOverrides: true);
-                            if (unknownCharacter || !characters.Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
-                            {
-                                if (characters.Count(c => c.Character == block.CharacterId) == 1)
-                                {
-                                    // Note: For normal projects, if we get here, we will almost certainly be changing the delivery.
-                                    // However, this is not the case when processing the reference text project using Glyssen after
-                                    // generating it from the Director's Guide because we get here repeatedly for blocks assigned to
-                                    // multiple-character IDs because we intentionally do not set the CharacterIdOverrideForScript,
-                                    // preferring rather to leave it up to the program to assign the then-current default to the
-                                    // vernacular block at the time the matchup is applied.
-                                    var onlyKnownDelivery = characters.First(c => c.Character == block.CharacterId).Delivery;
-                                    if ((block.Delivery ?? "") != onlyKnownDelivery)
-                                    {
-                                        block.Delivery = characters.First(c => c.Character == block.CharacterId).Delivery;
-                                        numberOfChangesMade++;
-                                    }
-                                }
-                                else
-                                {
-                                    var match = characters.SingleOrDefault(c => c.ResolvedDefaultCharacter == block.CharacterId &&
-                                        c.Delivery == (block.Delivery ?? ""));
-                                    if (match != null)
-                                    {
-                                        block.CharacterId = match.Character;
-                                        block.CharacterIdInScript = match.ResolvedDefaultCharacter;
-                                    }
-                                    else
-                                        block.SetCharacterAndDelivery(project.QuoteSystem, characters);
-                                    numberOfChangesMade++;
-                                }
-                            }
-                            else if (knownFactoryCharacter)
-                            {
-                                var projectCvEntryRemoved = false;
-                                foreach (var verseNum in block.AllVerses.SelectMany(v => v.AllVerseNumbers))
-                                {
-                                    if (ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, verseNum)
-                                        .Any(cv => cv.Character == block.CharacterId && cv.Delivery == (block.Delivery ?? "")))
-                                    {
-                                        projectCvEntryRemoved |= project.ProjectCharacterVerseData.RemoveEntryForBlock(bookNum, block, verseNum);
-                                    }
-                                }
+					switch(block.CharacterId)
+					{
+						case CharacterVerseData.kNeedsReview:
+							if (block.IsPredeterminedFirstLevelQuoteStart && block.CharacterIdOverrideForScript != null)
+							{
+								if (cvInfo.GetCharacters(bookNum, block.ChapterNumber, block.AllVerses,
+									includeAlternatesAndRareQuotes: true, includeNarratorOverrides: true)
+									.Any(cv => cv.Character == block.CharacterIdOverrideForScript))
+								{
+									block.CharacterId = block.CharacterIdOverrideForScript;
+									block.CharacterIdOverrideForScript = null;
+									numberOfChangesMade++;
+								}
+							}
+							break;
+
+	                    case CharacterVerseData.kAmbiguousCharacter:
+	                        if (block.UserConfirmed)
+	                        {
+	                            block.UserConfirmed = false;
+	                            numberOfChangesMade++;
+	                        }
+							break;
+
+						case null:
+						case CharacterVerseData.kUnexpectedCharacter:
+							break;
+
+						default:
+							if (CharacterVerseData.IsCharacterStandard(block.CharacterId))
+								break;
+
+	                        var knownFactoryCharacter = characterDetailDictionary.ContainsKey(block.CharacterIdInScript);
+	                        var unknownCharacter = !knownFactoryCharacter && !project.IsProjectSpecificCharacter(block.CharacterIdInScript);
+	                        if (unknownCharacter && project.ProjectCharacterVerseData.GetCharacters(bookNum, block.ChapterNumber, block.AllVerses)
+	                            .Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
+	                        {
+	                            // PG-471: This is a formerly known character who spoke in an unexpected location and was therefore added to the project CV file,
+	                            // but was subsequently removed or renamed from the master character detail list.
+	                            project.ProjectCharacterVerseData.RemoveAllEntriesForBlock(bookNum, block);
+	                            block.UserConfirmed = false;
+	                            block.CharacterId = CharacterVerseData.kUnexpectedCharacter;
+	                            block.CharacterIdInScript = null;
+	                            numberOfChangesMade++;
+	                        }
+							else
+							{
+								var characters = cvInfo.GetCharacters(bookNum, block.ChapterNumber, block.AllVerses,
+									includeAlternatesAndRareQuotes: true, includeNarratorOverrides: true);
+								if (unknownCharacter || !characters.Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
+								{
+									if (characters.Count(c => c.Character == block.CharacterId) == 1)
+									{
+										// Note: For normal projects, if we get here, we will almost certainly be changing the delivery.
+										// However, this is not the case when processing the reference text project using Glyssen after
+										// generating it from the Director's Guide because we get here repeatedly for blocks assigned to
+										// multiple-character IDs because we intentionally do not set the CharacterIdOverrideForScript,
+										// preferring rather to leave it up to the program to assign the then-current default to the
+										// vernacular block at the time the matchup is applied.
+										var onlyKnownDelivery = characters.First(c => c.Character == block.CharacterId).Delivery;
+										if ((block.Delivery ?? "") != onlyKnownDelivery)
+										{
+											block.Delivery = characters.First(c => c.Character == block.CharacterId).Delivery;
+											numberOfChangesMade++;
+										}
+									}
+									else
+									{
+										var match = characters.SingleOrDefault(c => c.ResolvedDefaultCharacter == block.CharacterId &&
+											c.Delivery == (block.Delivery ?? ""));
+										if (match != null)
+										{
+											block.CharacterId = match.Character;
+											block.CharacterIdInScript = match.ResolvedDefaultCharacter;
+										}
+										else
+											block.SetCharacterAndDelivery(project.QuoteSystem, characters);
+
+										numberOfChangesMade++;
+									}
+								}
+								else if (knownFactoryCharacter)
+								{
+									var projectCvEntryRemoved = false;
+									foreach (var verseNum in block.AllVerses.SelectMany(v => v.AllVerseNumbers))
+									{
+										if (ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, verseNum)
+											.Any(cv => cv.Character == block.CharacterId && cv.Delivery == (block.Delivery ?? "")))
+										{
+											projectCvEntryRemoved |= project.ProjectCharacterVerseData.RemoveEntryForBlock(bookNum, block, verseNum);
+										}
+									}
 
 
-                                if (project.RemoveProjectCharacterDetail(block.CharacterId) || projectCvEntryRemoved)
-                                    numberOfChangesMade++;
-                            }
-                        }
-                    }
-                }
+									if (project.RemoveProjectCharacterDetail(block.CharacterId) || projectCvEntryRemoved)
+										numberOfChangesMade++;
+								}
+							}
+
+							break;
+					}
+				}
             }
             return numberOfChangesMade;
         }
