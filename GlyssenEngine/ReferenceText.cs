@@ -473,10 +473,10 @@ namespace GlyssenEngine
 				var indexOfVernVerseStart = iVernBlock;
 				var indexOfRefVerseStart = iRefBlock;
 
-				Func<Block, bool> canBreakatBlock;
+				Func<Block, bool> canBreakAtBlock;
 				if (allowSplitting)
 				{
-					canBreakatBlock = b =>
+					canBreakAtBlock = b =>
 					{
 						if (b.IsQuote)
 							return isCleanBreakLocation(b);
@@ -484,9 +484,9 @@ namespace GlyssenEngine
 					};
 				}
 				else
-					canBreakatBlock = i => true;
+					canBreakAtBlock = i => true;
 
-				BlockMatchup.AdvanceToCleanVerseBreak(vernBlockList, canBreakatBlock, ref iVernBlock);
+				BlockMatchup.AdvanceToCleanVerseBreak(vernBlockList, canBreakAtBlock, ref iVernBlock);
 				var lastVernVerseFound = new VerseRef(bookNum, vernBlockList[iVernBlock].ChapterNumber,
 					vernBlockList[iVernBlock].LastVerseNum, vernacularVersification);
 				FindAllScriptureBlocksThroughVerse(refBlockList, lastVernVerseFound, ref iRefBlock, Versification);
@@ -878,8 +878,10 @@ namespace GlyssenEngine
 										// block starts with. (In this case, the ref block didn't get split because the
 										// preceding vern verse was totally missing, but we can split it now and make it match.)
 										if (allowSplitting && remainingRefBlocksList.Count == 1 &&
-											TryMatchBySplittingRefBlock(vernBlockList[iVernBlock], refBook, indexOfRefVerseStart + i,
-												vernacularVersification))
+											TryMatchBySplittingRefBlock(vernBlockList.Skip(iVernBlock)
+												.Take(numberOfVernBlocksInVerseChunk - indexOfVernVerseStart - 1)
+												.ToList(),
+												refBook, indexOfRefVerseStart + i, vernacularVersification))
 										{
 											numberOfRefBlocksInVerseChunk++;
 										}
@@ -984,7 +986,8 @@ namespace GlyssenEngine
 		/// of a method that has locked m_modifiedBooks; otherwise, the local call here to lock it could result in deadlock.
 		/// </summary>
 		/// <returns></returns>
-		private bool TryMatchBySplittingRefBlock(Block vernBlock, PortionScript refBook, int iRefBlock, ScrVers vernacularVersification)
+		private bool TryMatchBySplittingRefBlock(Block vernBlock, PortionScript refBook,
+			int iRefBlock, ScrVers vernacularVersification)
 		{
 			lock (m_modifiedBooks) // See comment above
 			{
@@ -1004,6 +1007,49 @@ namespace GlyssenEngine
 						Debug.Assert(newBlock.StartsAtVerseStart && newBlock.InitialStartVerseNumber == vernStartVerse);
 						vernBlock.SetMatchedReferenceBlock(newBlock);
 						return true;
+					}
+				}
+			}
+			return false;
+		}
+
+		private bool TryMatchBySplittingRefBlock(List<Block> vernBlocks, PortionScript refBook,
+			int iRefBlock, ScrVers vernacularVersification)
+		{
+			var firstVernBlock = vernBlocks.First();
+			if (vernBlocks.Count == 1)
+			{
+				return TryMatchBySplittingRefBlock(firstVernBlock, refBook, iRefBlock, vernacularVersification);
+			}
+			lock (m_modifiedBooks) // See comment above
+			{
+				var refBlockList = refBook.GetScriptBlocks();
+				Block refBlock = refBlockList[iRefBlock];
+
+				if (firstVernBlock.StartsAtVerseStart == refBlock.StartsAtVerseStart)
+				{
+					var vernStartRef = firstVernBlock.StartRef(refBook.BookNumber, vernacularVersification);
+					vernStartRef.ChangeVersification(refBook.Versification);
+
+					var vernEndRef = vernBlocks.Last().EndRef(refBook.BookNumber, vernacularVersification);
+					vernEndRef.ChangeVersification(refBook.Versification);
+
+					if (vernStartRef.VerseNum == refBlock.InitialStartVerseNumber &&
+						vernEndRef.VerseNum == refBlock.LastVerseNum)
+					{
+						// TODO: For each vern block that starts with a verse num, break the ref block at that
+						// same verse num (after converting versification)
+						var vernStartVerse = vernStartRef.VerseNum;
+						if (vernStartRef.ChapterNum == refBlock.ChapterNumber &&
+							refBlock.BlockElements.Skip(1).OfType<Verse>().Any(v => v.StartVerse == vernStartVerse) &&
+							refBook.TrySplitBlockAtEndOfVerse(refBlock, vernStartVerse - 1))
+						{
+							m_modifiedBooks.Add(refBook.BookId);
+							var newBlock = refBlockList[iRefBlock + 1];
+							Debug.Assert(newBlock.StartsAtVerseStart && newBlock.InitialStartVerseNumber == vernStartVerse);
+							vernBlock.SetMatchedReferenceBlock(newBlock);
+							return true;
+						}
 					}
 				}
 			}
