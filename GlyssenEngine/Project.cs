@@ -1124,14 +1124,18 @@ namespace GlyssenEngine
 
 				if (existingAvailable.TryGetValue(nowAvailableBook.Code, out var includeExistingInScript))
 				{
-					if (includeExistingInScript &&
-						!GetBook(bookCode).CheckStatusOverridden &&
-						!scrTextWrapper.DoesBookPassChecks(bookNum))
+					var book = GetBook(bookCode);
+					if (book != null)
 					{
-						noLongerPassChecksPreviouslyIncludedWithoutCheckStatusOverride?.Invoke(bookCode);
+						if (includeExistingInScript &&
+							!book.CheckStatusOverridden &&
+							!scrTextWrapper.DoesBookPassChecks(bookNum))
+						{
+							noLongerPassChecksPreviouslyIncludedWithoutCheckStatusOverride?.Invoke(bookCode);
+						}
+						else
+							foundInBoth?.Invoke(bookCode);
 					}
-					else
-						foundInBoth?.Invoke(bookCode);
 
 					existingAvailable.Remove(bookCode);
 				}
@@ -1436,6 +1440,9 @@ namespace GlyssenEngine
 			if (!bookMetadata.IncludeInScript)
 				throw new InvalidOperationException($"Attempt to include the {nameof(BookScript)} for {book.BookId}, but the metadata for the book indicates that it should not be included.");
 
+			if (!book.GetScriptBlocks().Any())
+				return;
+
 			int i;
 			for (i = 0; i < m_books.Count; i++)
 			{
@@ -1527,6 +1534,8 @@ namespace GlyssenEngine
 
 				bookScript.Initialize(Versification);
 			}
+
+			bookScripts.RemoveAll(b => !b.GetScriptBlocks().Any());
 
 			if (m_books.Any())
 			{
