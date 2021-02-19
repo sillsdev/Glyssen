@@ -12,6 +12,7 @@ using Glyssen.Shared;
 using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
 using GlyssenEngine.Utilities;
+using SIL.Code;
 using SIL.Scripture;
 using SIL.Xml;
 using static System.Char;
@@ -624,9 +625,8 @@ namespace GlyssenEngine.Script
 
 						if (match.Groups["verse"].Success)
 						{
-							InitialStartVerseNumber = Int32.Parse(match.Result("${startVerse}"));
-							int endVerse;
-							if (!Int32.TryParse(match.Result("${endVerse}"), out endVerse))
+							InitialStartVerseNumber = int.Parse(match.Result("${startVerse}"));
+							if (!int.TryParse(match.Result("${endVerse}"), out var endVerse))
 								endVerse = 0;
 							InitialEndVerseNumber = endVerse;
 							prependSpace = "";
@@ -1221,9 +1221,13 @@ namespace GlyssenEngine.Script
 			ReferenceBlocks = new List<Block>(origList.Select(rb => rb.Clone(ReferenceBlockCloningBehavior.CloneListAndAllReferenceBlocks)));
 		}
 
-		public static void GetSwappedReferenceText(IEnumerable<Block> vernBlocks, int iCurrentVernBlock,
-			string rowA, string rowB, out string newRowAValue, out string newRowBValue)
+		public static void GetSwappedReferenceText(IReadOnlyList<Block> vernBlocks, int bookNum, int iVernRowA,
+			ScrVers vernVersification, string rowA, string rowB, out string newRowAValue, out string newRowBValue)
 		{
+			Guard.AgainstNull(vernBlocks, nameof(vernBlocks));
+			if (iVernRowA >= vernBlocks.Count)
+				throw new ArgumentOutOfRangeException(nameof(iVernRowA));
+
 			newRowBValue = rowA;
 			if (rowA == null || rowB == null)
 			{
@@ -1234,11 +1238,14 @@ namespace GlyssenEngine.Script
 			var leadingVerse = Empty;
 			var verseNumbers = new Regex("^" + kRegexForVerseNumber + kRegexForWhitespaceFollowingVerseNumber);
 			var match = verseNumbers.Match(newRowBValue);
-			if (match.Success && !verseNumbers.IsMatch(rowB))
+			if (match.Success && !verseNumbers.IsMatch(rowB) &&
+				int.TryParse(match.Value.Trim().TrimStart('{').TrimEnd('}'), out var verseNum))
 			{
-				var verseNum = match.Value.Trim().TrimStart('{').TrimEnd('}');
+				var leadingVerseInNewRowB = new VerseRef(bookNum, vernBlocks[iVernRowA].ChapterNumber, verseNum, ScrVers.English);
+				vernVersification.ChangeVersification(ref leadingVerseInNewRowB);
+				var refVersesInVern = leadingVerseInNewRowB.AllVerses().Select(v => v.VerseNum).ToList();
 				if (vernBlocks == null ||
-					!vernBlocks.Skip(iCurrentVernBlock + 1).Any(b => b.AllVerses.Any(v => v.ToString() == verseNum)))
+					!vernBlocks.Skip(iVernRowA + 1).Any(b => b.AllVerses.Any(v => v.AllVerseNumbers.Any(vn => refVersesInVern.Contains(vn)))))
 				{
 					leadingVerse = match.Value;
 					newRowBValue = newRowBValue.Substring(match.Length);
