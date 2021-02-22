@@ -107,7 +107,7 @@ namespace GlyssenEngineTests
 		/// PG-1434
 		/// </summary>
 		[Test]
-		public void Parse_NoScriptureTextFollowingFinalChapter_FinalChapterOmitted()
+		public void Parse_NoScriptureTextFollowingFinalChapterMarker_FinalChapterOmitted()
 		{
 			var doc = UsxDocumentTests.CreateDocFromString(
 				UsxDocumentTests.kUsxFrameStart +

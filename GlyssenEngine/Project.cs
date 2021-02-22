@@ -1535,7 +1535,7 @@ namespace GlyssenEngine
 				bookScript.Initialize(Versification);
 			}
 
-			bookScripts.RemoveAll(b => !b.GetScriptBlocks().Any());
+			Debug.Assert(bookScripts.All(b => b.GetScriptBlocks().Any()));
 
 			if (m_books.Any())
 			{
