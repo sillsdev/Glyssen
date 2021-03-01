@@ -1221,7 +1221,8 @@ namespace GlyssenEngine.Script
 			ReferenceBlocks = new List<Block>(origList.Select(rb => rb.Clone(ReferenceBlockCloningBehavior.CloneListAndAllReferenceBlocks)));
 		}
 
-		public static void GetSwappedReferenceText(IReadOnlyList<Block> vernBlocks, int bookNum, int iVernRowA,
+		public static void GetSwappedReferenceText(IReadOnlyList<Block> vernBlocks, string bookId,
+			int refChapterForRowA, int iVernRowA,
 			ScrVers vernVersification, string rowA, string rowB, out string newRowAValue, out string newRowBValue)
 		{
 			Guard.AgainstNull(vernBlocks, nameof(vernBlocks));
@@ -1238,14 +1239,17 @@ namespace GlyssenEngine.Script
 			var leadingVerse = Empty;
 			var verseNumbers = new Regex("^" + kRegexForVerseNumber + kRegexForWhitespaceFollowingVerseNumber);
 			var match = verseNumbers.Match(newRowBValue);
-			if (match.Success && !verseNumbers.IsMatch(rowB) &&
-				int.TryParse(match.Value.Trim().TrimStart('{').TrimEnd('}'), out var verseNum))
+			if (match.Success && !verseNumbers.IsMatch(rowB))
 			{
-				var leadingVerseInNewRowB = new VerseRef(bookNum, vernBlocks[iVernRowA].ChapterNumber, verseNum, ScrVers.English);
+				var verseNum = match.Value.Trim().TrimStart('{').TrimEnd('}');
+				var leadingVerseInNewRowB = new VerseRef(bookId, refChapterForRowA.ToString(), verseNum, ScrVers.English);
 				vernVersification.ChangeVersification(ref leadingVerseInNewRowB);
-				var refVersesInVern = leadingVerseInNewRowB.AllVerses().Select(v => v.VerseNum).ToList();
-				if (vernBlocks == null ||
-					!vernBlocks.Skip(iVernRowA + 1).Any(b => b.AllVerses.Any(v => v.AllVerseNumbers.Any(vn => refVersesInVern.Contains(vn)))))
+				var refVerses = leadingVerseInNewRowB.AllVerses().Select(v => v.VerseNum).ToList();
+				// If any of the vern blocks at or above the swap position have any of the
+				// verses in the ref verse range, then don't move it.
+				if (vernBlocks.Take(iVernRowA + 1).Any(b => b.AllVerses.Any(v => v.AllVerseNumbers.Any(vn => refVerses.Contains(vn)))) ||
+					(iVernRowA < vernBlocks.Count - 1 &&
+					vernBlocks[iVernRowA + 1].InitialStartVerseNumber > refVerses.First()))
 				{
 					leadingVerse = match.Value;
 					newRowBValue = newRowBValue.Substring(match.Length);

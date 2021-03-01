@@ -1398,9 +1398,22 @@ namespace Glyssen.Dialogs
 			var vernBlocks = m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks;
 			Debug.Assert(vernBlocks != null);
 			Debug.Assert(vernBlocks.Count > currentRowIndex);
+			var primaryRefBlockA = m_viewModel.CurrentReferenceTextMatchup
+				.CorrelatedBlocks[iPreceding].ReferenceBlocks.Single();
+			var refChapter = primaryRefBlockA.ChapterNumber;
 			if (colPrimary.Visible)
-				SwapRefText(vernBlocks, currentRowIndex, rowA, rowB, colPrimary.Index);
-			SwapRefText(vernBlocks, currentRowIndex, rowA, rowB, colEnglish.Index);
+			{
+				SwapRefText(vernBlocks, currentRowIndex, refChapter,
+					rowA, rowB, colPrimary.Index);
+				// Almost 100% sure this will always match to a single block, but
+				// just in case the above swap can mess that up, play it safe.
+				primaryRefBlockA = primaryRefBlockA.ReferenceBlocks.SingleOrDefault();
+				if (primaryRefBlockA != null)
+					refChapter = primaryRefBlockA.ChapterNumber;
+			}
+
+			SwapRefText(vernBlocks, currentRowIndex,
+				refChapter, rowA, rowB, colEnglish.Index);
 			if (m_viewModel.CurrentReferenceTextMatchup.CanChangeCharacterAndDeliveryInfo(rowA.Index, rowB.Index))
 			{
 				if (!colCharacter.ReadOnly)
@@ -1423,10 +1436,10 @@ namespace Glyssen.Dialogs
 		}
 
 		private void SwapRefText(IReadOnlyList<Block> vernBlocks, int iCurrentVernBlock,
-			DataGridViewRow rowA, DataGridViewRow rowB, int columnIndex)
+			int refRowAChapter, DataGridViewRow rowA, DataGridViewRow rowB, int columnIndex)
 		{
-			Block.GetSwappedReferenceText(vernBlocks, m_viewModel.CurrentBookNumber, iCurrentVernBlock,
-				m_viewModel.Versification,
+			Block.GetSwappedReferenceText(vernBlocks,
+				m_viewModel.CurrentBookId, refRowAChapter, iCurrentVernBlock, m_viewModel.Versification,
 				(string)rowA.Cells[columnIndex].Value, (string)rowB.Cells[columnIndex].Value,
 				out var newRowAValue, out var newRowBValue);
 			rowA.Cells[columnIndex].Value = newRowAValue;
