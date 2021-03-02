@@ -1453,16 +1453,95 @@ namespace GlyssenEngineTests.Script
 		[TestCase("")]
 		[TestCase(" ")]
 		[TestCase("\u00A0")]
-		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBHasNoVerseNumber_VernHasNoCorrespondingVerse_LeadingVerseStaysWithRowA(string separator)
+		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBHasNoVerseNumber_VernHasLaterVerse_LeadingVerseStaysWithRowA(string separator)
 		{
 			var vernBlocks = new List<Block>();
 			vernBlocks.Add(new Block("p", 8, 20).AddVerse("20", "Verse 20 text."));
 			vernBlocks.Add(new Block("q", 8, 20).AddText("More verse 20 text."));
-			Block.GetSwappedReferenceText(vernBlocks, 0,
+			Block.GetSwappedReferenceText(vernBlocks, "MAT", 8, 0, ScrVers.English, 
 				"{19}"+  separator + "Cool. {20}" + separator + "Fine", "This is another chunk of some verse.",
 				out var newRowAValue, out var newRowBValue);
 			Assert.AreEqual("{19}" + separator + "This is another chunk of some verse.", newRowAValue);
 			Assert.AreEqual("Cool. {20}" + separator + "Fine", newRowBValue);
+		}
+
+		[TestCase(0)]
+		[TestCase(1)]
+		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBIsEmpty_VernHasCorrespondingVerse_LeadingVerseStaysWithRowA(
+			int vernRowCorrespondingToA)
+		{
+			var vernBlocks = new List<Block>();
+			vernBlocks.Add(new Block("p", 8, 19).AddVerse("19", "Start of verse 19 text."));
+			vernBlocks.Add(new Block("p", 8, 19).AddText("Rest of verse 19.")
+				.AddVerse("20", "Verse 20 text.").AddVerse("21", "Verse 21 text."));
+			Block.GetSwappedReferenceText(vernBlocks, "MAT", 8, vernRowCorrespondingToA, ScrVers.English,
+				"{19}\u00A0Cool and fine", "",
+				out var newRowAValue, out var newRowBValue);
+			Assert.AreEqual("{19}\u00A0", newRowAValue);
+			Assert.AreEqual("Cool and fine", newRowBValue);
+		}
+
+		[TestCase("NUM", 13, 3, 4 /* 2-3 in English */, "2-3", ScrVersType.RussianOrthodox)]
+		[TestCase("NUM", 13, 2, 3 /* 1-2 in English */, "2-3", ScrVersType.RussianOrthodox)]
+		[TestCase("NUM", 13, 3, 4 /* 2-3 in English */, "2", ScrVersType.RussianOrthodox)]
+		[TestCase("NUM", 13, 3, 5 /* 2-4 in English */, "4-5", ScrVersType.RussianProtestant)]
+		[TestCase("NUM", 13, 4, 5 /* 3-4 in English */, "4", ScrVersType.RussianProtestant)]
+		[TestCase("NUM", 13, 3, 5 /* 2-4 in English */, "3-4", ScrVersType.RussianProtestant)]
+		[TestCase("NUM", 13, 3, 7 /* 2-6 in English */, "3-4", ScrVersType.RussianOrthodox)]
+		public void GetSwappedReferenceText_VerseRangesWithPartialOverlapBetweenRefAndVern_LeadingVerseStaysWithRowA(
+			string bookId, int chapter, int vernStartVerse, int vernEndVerse, string refVerseRange, ScrVersType vernVersification)
+		{
+			var vernBlocks = new List<Block>();
+			vernBlocks.Add(new Block("p", chapter, vernStartVerse, vernEndVerse) {BookCode = bookId}
+				.AddVerse($"{vernStartVerse}-{vernEndVerse}", "Gobbledygook and monkey soup."));
+			vernBlocks.Add(new Block("p", chapter, vernStartVerse, vernEndVerse) {BookCode = bookId}
+				.AddText("Zubbety lubble fmoodic'ka.")
+				.AddVerse(vernEndVerse + 1, "Some more text for the next verse."));
+			for (int vernRowCorrespondingToA = 0; vernRowCorrespondingToA < 2; vernRowCorrespondingToA++)
+			{
+				Block.GetSwappedReferenceText(vernBlocks, bookId, chapter,
+					vernRowCorrespondingToA, new ScrVers(vernVersification),
+					$"{{{refVerseRange}}} Cool and fine", "",
+					out var newRowAValue, out var newRowBValue);
+				Assert.AreEqual($"{{{refVerseRange}}}\u00A0", newRowAValue);
+				Assert.AreEqual("Cool and fine", newRowBValue);
+			}
+		}
+
+		[TestCase("NUM", 13, 12, 1 /* 12:16 in English */, 16, ScrVersType.RussianOrthodox)]
+		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBIsEmpty_VernHasCorrespondingVerseInDifferentChapterInDifferentVersification_LeadingVerseStaysWithRowA(
+			string bookId, int vernChapter, int refChapter, int vernVerse, int refVerse, ScrVersType vernVersification)
+		{
+			var vernBlocks = new List<Block>();
+			vernBlocks.Add(new Block("p", vernChapter, vernVerse) {BookCode = bookId}
+				.AddVerse($"{vernVerse}", "Gobbledygook and monkey soup."));
+			vernBlocks.Add(new Block("p", vernChapter, vernVerse) {BookCode = bookId}
+				.AddText("Zubbety lubble fmoodic'ka."));
+			for (int vernRowCorrespondingToA = 0; vernRowCorrespondingToA < 2; vernRowCorrespondingToA++)
+			{
+				Block.GetSwappedReferenceText(vernBlocks, bookId, refChapter,
+					vernRowCorrespondingToA, new ScrVers(vernVersification),
+					$"{{{refVerse}}} Cool and fine", "",
+					out var newRowAValue, out var newRowBValue);
+				Assert.AreEqual($"{{{refVerse}}}\u00A0", newRowAValue);
+				Assert.AreEqual("Cool and fine", newRowBValue);
+			}
+		}
+
+		[TestCase(0)]
+		[TestCase(1)]
+		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBIsEmpty_VernHasCorrespondingVerseInDifferentVersification_LeadingVerseStaysWithRowA(
+			int vernRowCorrespondingToA)
+		{
+			var vernBlocks = new List<Block>();
+			vernBlocks.Add(new Block("p", 2, 6).AddVerse("6", "Start of verse 6 (verse 2 in English) text."));
+			vernBlocks.Add(new Block("p", 2, 6).AddText("Rest of verse 6 (2 in en).")
+				.AddVerse("7", "Verse 7(3) text.").AddVerse("8", "Verse 8(4) text."));
+			Block.GetSwappedReferenceText(vernBlocks, "ZEC", 2, vernRowCorrespondingToA, ScrVers.Original,
+				"{2}\u00A0Cool and fine", "",
+				out var newRowAValue, out var newRowBValue);
+			Assert.AreEqual("{2}\u00A0", newRowAValue);
+			Assert.AreEqual("Cool and fine", newRowBValue);
 		}
 
 		[TestCase("")]
@@ -1474,7 +1553,7 @@ namespace GlyssenEngineTests.Script
 			vernBlocks.Add(new Block("p", 8, 19).AddVerse("19", "Verse 19 text."));
 			vernBlocks.Add(new Block("p", 8, 20).AddVerse("20", "Verse 20 text."));
 			vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text."));
-			Block.GetSwappedReferenceText(vernBlocks, 1,
+			Block.GetSwappedReferenceText(vernBlocks, "MAT", 8, 1, ScrVers.English,
 				"{19}"+  separator + "Cool. {20}" + separator + "Fine", "This is another chunk of some verse.",
 				out var newRowAValue, out var newRowBValue);
 			Assert.AreEqual("{19}" + separator + "This is another chunk of some verse.", newRowAValue);
@@ -1490,7 +1569,7 @@ namespace GlyssenEngineTests.Script
 			vernBlocks.Add(new Block("p", 8, 19).AddVerse("19", "Verse 19 text."));
 			vernBlocks.Add(new Block("p", 8, 20).AddVerse("20", "Verse 20 text."));
 			vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text."));
-			Block.GetSwappedReferenceText(vernBlocks, 0,
+			Block.GetSwappedReferenceText(vernBlocks, "MAT", 8, 0, ScrVers.English,
 				"{19}"+  separator + "Cool. {20}" + separator + "Fine", "This is another chunk of some verse.",
 				out var newRowAValue, out var newRowBValue);
 			Assert.AreEqual("{19}" + separator + "This is another chunk of some verse.", newRowAValue);
@@ -1509,7 +1588,7 @@ namespace GlyssenEngineTests.Script
 			vernBlocks.Add(new Block("p", 8, 19).AddVerse("19", "Verse 19 text."));
 			vernBlocks.Add(new Block("p", 8, 20).AddVerse("20", "Verse 20 text."));
 			vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text."));
-			Block.GetSwappedReferenceText(vernBlocks, currentRow,
+			Block.GetSwappedReferenceText(vernBlocks, "MAT", 8, currentRow, ScrVers.English,
 				"{19}"+  separator + "Cool. {20}" + separator + "Fine", "This is another chunk of some verse.",
 				out var newRowAValue, out var newRowBValue);
 			Assert.AreEqual("This is another chunk of some verse.", newRowAValue);
@@ -1528,7 +1607,7 @@ namespace GlyssenEngineTests.Script
 			vernBlocks.Add(new Block("p", 8, 19).AddVerse("19", "Verse 19 text."));
 			vernBlocks.Add(new Block("p", 8, 20).AddVerse("20", "Verse 20 text."));
 			vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text."));
-			Block.GetSwappedReferenceText(vernBlocks, currentRow,
+			Block.GetSwappedReferenceText(vernBlocks, "MAT", 8, currentRow, ScrVers.English,
 				"Cool. {20}" + separator + "Fine", "This is another chunk of some verse.",
 				out var newRowAValue, out var newRowBValue);
 			Assert.AreEqual("This is another chunk of some verse.", newRowAValue);
@@ -1547,7 +1626,7 @@ namespace GlyssenEngineTests.Script
 			vernBlocks.Add(new Block("p", 8, 19).AddVerse("19", "Verse 19 text."));
 			vernBlocks.Add(new Block("p", 8, 20).AddVerse("20", "Verse 20 text."));
 			vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text."));
-			Block.GetSwappedReferenceText(vernBlocks, currentRow,
+			Block.GetSwappedReferenceText(vernBlocks, "MAT", 8, currentRow, ScrVers.English,
 				"Cool. {20}" + separator + "Fine", "This is another chunk of some verse. {21}" + separator + "Verse twenty-one.",
 				out var newRowAValue, out var newRowBValue);
 			Assert.AreEqual("This is another chunk of some verse. {21}" + separator + "Verse twenty-one.", newRowAValue);
@@ -1566,56 +1645,34 @@ namespace GlyssenEngineTests.Script
 			vernBlocks.Add(new Block("p", 8, 19).AddVerse("19", "Verse 19 text."));
 			vernBlocks.Add(new Block("p", 8, 20).AddVerse("20", "Verse 20 text."));
 			vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text."));
-			Block.GetSwappedReferenceText(vernBlocks, currentRow,
+			Block.GetSwappedReferenceText(vernBlocks, "MAT", 8, currentRow, ScrVers.English,
 				"{19}" + separator + "Cool. {20}" + separator + "Fine", "{21}" + separator + "Verse twenty-one.",
 				out var newRowAValue, out var newRowBValue);
 			Assert.AreEqual("{21}" + separator + "Verse twenty-one.", newRowAValue);
 			Assert.AreEqual("{19}" + separator + "Cool. {20}" + separator + "Fine", newRowBValue);
 		}
 
-		[TestCase(true)]
-		[TestCase(false)]
-		public void GetSwappedReferenceText_RowAIsNull_EntireContentsSwap(bool supplyVernBlocks)
+		[Test]
+		public void GetSwappedReferenceText_RowAIsNull_EntireContentsSwap()
 		{
-			string newRowAValue, newRowBValue;
-
-			if (supplyVernBlocks)
-			{
-				var vernBlocks = new List<Block>();
-				vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text. "));
-				vernBlocks.Add(new Block("p", 8, 21).AddText("Blah."));
-				Block.GetSwappedReferenceText(vernBlocks, 0, null, "{21} Verse twenty-one.",
-					out newRowAValue, out newRowBValue);
-			}
-			else
-			{
-				Block.GetSwappedReferenceText(null, -1, null, "{21} Verse twenty-one.",
-					out newRowAValue, out newRowBValue);
-			}
-
+			var vernBlocks = new List<Block>();
+			vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text. "));
+			vernBlocks.Add(new Block("p", 8, 21).AddText("Blah."));
+			Block.GetSwappedReferenceText(vernBlocks, "MAT", 8, 0, ScrVers.English, null, "{21} Verse twenty-one.",
+				out string newRowAValue, out string newRowBValue);
+			
 			Assert.AreEqual("{21} Verse twenty-one.", newRowAValue);
 			Assert.IsTrue(IsNullOrEmpty(newRowBValue));
 		}
 
-		[TestCase(true)]
-		[TestCase(false)]
-		public void GetSwappedReferenceText_RowBIsNull_EntireContentsSwap(bool supplyVernBlocks)
+		[Test]
+		public void GetSwappedReferenceText_RowBIsNull_EntireContentsSwap()
 		{
-			string newRowAValue, newRowBValue;
-
-			if (supplyVernBlocks)
-			{
-				var vernBlocks = new List<Block>();
-				vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text. "));
-				vernBlocks.Add(new Block("p", 8, 21).AddText("Blah."));
-				Block.GetSwappedReferenceText(vernBlocks, 0, "{21} Verse twenty-one.", null,
-					out newRowAValue, out newRowBValue);
-			}
-			else
-			{
-				Block.GetSwappedReferenceText(null, -1, "{21} Verse twenty-one.", null,
-					out newRowAValue, out newRowBValue);
-			}
+			var vernBlocks = new List<Block>();
+			vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text. "));
+			vernBlocks.Add(new Block("p", 8, 21).AddText("Blah."));
+			Block.GetSwappedReferenceText(vernBlocks, "MAT", 8, 0, ScrVers.English, "{21} Verse twenty-one.", null,
+				out string newRowAValue, out string newRowBValue);
 
 			Assert.IsTrue(IsNullOrEmpty(newRowAValue));
 			Assert.AreEqual("{21} Verse twenty-one.", newRowBValue);
