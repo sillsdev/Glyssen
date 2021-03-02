@@ -106,6 +106,30 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(9, blocks[3].InitialStartVerseNumber);
 		}
 
+		/// <summary>
+		/// PG-1434
+		/// </summary>
+		[Test]
+		public void Parse_NoScriptureTextFollowingFinalChapterMarker_FinalChapterOmitted()
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
+				UsxDocumentTests.kUsxFrameStart +
+				"<para style=\"mt1\">Markus</para>" +
+				"<chapter number=\"15\" style=\"c\" />" +
+				"<para style=\"p\"><verse number=\"1\" />This is Scripture text.</para>" +
+				"<chapter number=\"16\" style=\"c\" />" +
+				"<para style=\"s\">A chapter to end all chapters</para>" +
+				UsxDocumentTests.kUsxFrameEnd);
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(3, blocks.Count);
+			var lastBlock = blocks.Last();
+			Assert.IsTrue(lastBlock.IsScripture);
+			Assert.AreEqual("{1}\u00A0This is Scripture text.", lastBlock.GetText(true));
+			Assert.AreEqual(1, lastBlock.InitialStartVerseNumber);
+			Assert.AreEqual(15, lastBlock.ChapterNumber);
+		}
+
 		[TestCase(". ", "*")]
 		[TestCase(".", "?")]
 		[TestCase(". [", "...")]
@@ -1821,7 +1845,7 @@ namespace GlyssenEngineTests
 		}
 
 		[Test]
-		public void Parse_TitleFollowedByChapter_TitleIsSimplified()
+		public void Parse_MultiParagraphTitleFollowedByChapter_TitleIsSimplified()
 		{
 			var doc = UsxDocumentTests.CreateDocFromString(
 				UsxDocumentTests.kUsxFrameStart +
@@ -1829,10 +1853,13 @@ namespace GlyssenEngineTests
 				"<para style=\"mt2\">The Gospel According to</para>" +
 				"<para style=\"mt1\">Mark</para>" +
 				"<chapter number=\"1\" style=\"c\" />" +
+				"<para style=\"p\">" +
+				"<verse number=\"1\" style=\"v\" />" +
+				"Acakki me lok me kwena maber i kom Yecu Kricito</para>" +
 				UsxDocumentTests.kUsxFrameEnd);
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
-			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual("mt", blocks[0].StyleTag);
 			Assert.AreEqual("The Gospel According to Mark", blocks[0].GetText(false));
 			Assert.AreEqual("The Gospel According to Mark", blocks[0].GetText(true));
@@ -1841,7 +1868,7 @@ namespace GlyssenEngineTests
 		}
 
 		[Test]
-		public void Parse_TitleNotFollowedByChapter_TitleIsSimplified()
+		public void Parse_MultiParagraphTitleNotFollowedByChapter_TitleIsSimplified()
 		{
 			var doc = UsxDocumentTests.CreateDocFromString(
 				UsxDocumentTests.kUsxFrameStart +
@@ -1868,17 +1895,31 @@ namespace GlyssenEngineTests
 				"<para style=\"h\">Marco</para>" +
 				"<para style=\"mt2\">The Gospel According to</para>" +
 				"<para style=\"mt1\">Markus</para>" +
+				// These chapters will get pruned because you can't end a book with an
+				// empty chapter.
 				"<chapter number=\"1\" style=\"c\" />" +
 				"<chapter number=\"2\" style=\"c\" />" +
 				UsxDocumentTests.kUsxFrameEnd);
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
-			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(1, blocks.Count);
 			Assert.AreEqual("mt", blocks[0].StyleTag);
 			Assert.AreEqual("The Gospel According to Markus", blocks[0].GetText(false));
 			Assert.AreEqual("The Gospel According to Markus", blocks[0].GetText(true));
 			Assert.AreEqual("Marco", parser.PageHeader);
 			Assert.AreEqual("Markus", parser.MainTitle);
+		}
+
+		[Test]
+		public void ParseBooks_OnlyEmptyChapters_EmptyBookNotAdded()
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
+				UsxDocumentTests.kUsxFrameStart +
+				"<chapter number=\"1\" style=\"c\" />" +
+				"<chapter number=\"2\" style=\"c\" />" +
+				UsxDocumentTests.kUsxFrameEnd);
+			var books = UsxParser.ParseBooks(new[] {new UsxDocument(doc)}, new TestStylesheet(), null);
+			Assert.AreEqual(0, books.Count);
 		}
 
 		[Test]
