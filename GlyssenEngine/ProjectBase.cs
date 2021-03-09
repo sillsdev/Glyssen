@@ -105,7 +105,11 @@ namespace GlyssenEngine
 			{
 				var bookReader = Reader.LoadBook(this, bookCode);
 				if (bookReader != null)
-					m_books.Add(BookScript.Deserialize(bookReader, Versification));
+				{
+					var bookScript = BookScript.Deserialize(bookReader, Versification);
+					if (bookScript.GetScriptBlocks().Any())
+						m_books.Add(bookScript);
+				}
 			}
 		}
 

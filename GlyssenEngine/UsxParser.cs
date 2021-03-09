@@ -40,11 +40,14 @@ namespace GlyssenEngine
 			{
 				var bookId = book.Key;
 				var bookScript = new UsxParser(bookId, stylesheet, book.Value).CreateBookScript();
-				lock(bookScripts)
-					bookScripts.Add(bookScript);
-				Logger.WriteEvent("Added bookScript ({0}, {1})", bookId, bookScript.BookId);
-				completedBlocks += numBlocksPerBook[bookId];
-				reportProgressAsPercent?.Invoke(MathUtilities.Percent(completedBlocks, allBlocks, 99));
+				if (bookScript != null)
+				{
+					lock (bookScripts)
+						bookScripts.Add(bookScript);
+					Logger.WriteEvent("Added bookScript ({0}, {1})", bookId, bookScript.BookId);
+					completedBlocks += numBlocksPerBook[bookId];
+					reportProgressAsPercent?.Invoke(MathUtilities.Percent(completedBlocks, allBlocks, 99));
+				}
 			});
 
 			// This code is an attempt to figure out how we are getting null reference exceptions on the Sort call (See PG-275 & PG-287)
@@ -79,7 +82,10 @@ namespace GlyssenEngine
 		private BookScript CreateBookScript()
 		{
 			Logger.WriteEvent("Creating bookScript ({0})", m_bookId);
-			var bookScript = new BookScript(m_bookId, Parse(), null)
+			var blocks = Parse();
+			if (!blocks.Any())
+				return null;
+			var bookScript = new BookScript(m_bookId, blocks, null)
 			{
 				PageHeader = PageHeader,
 				MainTitle = MainTitle
@@ -274,6 +280,14 @@ namespace GlyssenEngine
 				if (block != null && block.BlockElements.Count > 0)
 					blocks.Add(block);
 			}
+
+			var lastBlock = blocks.LastOrDefault();
+			while (lastBlock != null && lastBlock.ChapterNumber > 0 && (!lastBlock.IsScripture || lastBlock.IsChapterAnnouncement))
+			{
+				blocks.RemoveAt(blocks.Count - 1);
+				lastBlock = blocks.LastOrDefault();
+			}
+
 			return blocks;
 		}
 

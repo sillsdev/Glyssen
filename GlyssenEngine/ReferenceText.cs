@@ -430,9 +430,15 @@ namespace GlyssenEngine
 							currentVernBlock.SetMatchedReferenceBlock(refChapterBlock);
 							if (!currentRefBlock.IsChapterAnnouncement)
 							{
-								// Note: It is illegal to have a chapter announcement not followed
-								// by a Scripture block, so using First should never fail.
-								var nextScriptureBlock = vernBlockList.Skip(iVernBlock + 1).First(b => b.IsScripture);
+								// Note: A chapter announcement should always be followed by a
+								// Scripture block, so using First should never fail. However in
+								// PG-1434, we came across a case where bad data could lead to a
+								// crash. We probably want to improve the USX parser to prevent
+								// this, but for now, to be safe, if there's no more Scripture,
+								// we're done.
+								var nextScriptureBlock = vernBlockList.Skip(iVernBlock + 1).FirstOrDefault(b => b.IsScripture);
+								if (nextScriptureBlock == null)
+									break;
 								if (currentRefBlock.EndRef(bookNum, Versification) >= nextScriptureBlock.StartRef(bookNum, vernacularVersification))
 									iRefBlock--;
 							}
