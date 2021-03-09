@@ -12,6 +12,7 @@ using Glyssen.Shared;
 using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
 using GlyssenEngine.Utilities;
+using SIL.Code;
 using SIL.Scripture;
 using SIL.Xml;
 using static System.Char;
@@ -647,9 +648,8 @@ namespace GlyssenEngine.Script
 
 						if (match.Groups["verse"].Success)
 						{
-							InitialStartVerseNumber = Int32.Parse(match.Result("${startVerse}"));
-							int endVerse;
-							if (!Int32.TryParse(match.Result("${endVerse}"), out endVerse))
+							InitialStartVerseNumber = int.Parse(match.Result("${startVerse}"));
+							if (!int.TryParse(match.Result("${endVerse}"), out var endVerse))
 								endVerse = 0;
 							InitialEndVerseNumber = endVerse;
 							prependSpace = "";
@@ -1250,9 +1250,14 @@ namespace GlyssenEngine.Script
 			ReferenceBlocks = new List<Block>(origList.Select(rb => rb.Clone(ReferenceBlockCloningBehavior.CloneListAndAllReferenceBlocks)));
 		}
 
-		public static void GetSwappedReferenceText(IEnumerable<Block> vernBlocks, int iCurrentVernBlock,
-			string rowA, string rowB, out string newRowAValue, out string newRowBValue)
+		public static void GetSwappedReferenceText(IReadOnlyList<Block> vernBlocks, string bookId,
+			int refChapterForRowA, int iVernRowA,
+			ScrVers vernVersification, string rowA, string rowB, out string newRowAValue, out string newRowBValue)
 		{
+			Guard.AgainstNull(vernBlocks, nameof(vernBlocks));
+			if (iVernRowA >= vernBlocks.Count)
+				throw new ArgumentOutOfRangeException(nameof(iVernRowA));
+
 			newRowBValue = rowA;
 			if (rowA == null || rowB == null)
 			{
@@ -1266,8 +1271,14 @@ namespace GlyssenEngine.Script
 			if (match.Success && !verseNumbers.IsMatch(rowB))
 			{
 				var verseNum = match.Value.Trim().TrimStart('{').TrimEnd('}');
-				if (vernBlocks == null ||
-					!vernBlocks.Skip(iCurrentVernBlock + 1).Any(b => b.AllVerses.Any(v => v.ToString() == verseNum)))
+				var leadingVerseInNewRowB = new VerseRef(bookId, refChapterForRowA.ToString(), verseNum, ScrVers.English);
+				vernVersification.ChangeVersification(ref leadingVerseInNewRowB);
+				var refVerses = leadingVerseInNewRowB.AllVerses().Select(v => v.VerseNum).ToList();
+				// If any of the vern blocks at or above the swap position have any of the
+				// verses in the ref verse range, then don't move it.
+				if (vernBlocks.Take(iVernRowA + 1).Any(b => b.AllVerses.Any(v => v.AllVerseNumbers.Any(vn => refVerses.Contains(vn)))) ||
+					(iVernRowA < vernBlocks.Count - 1 &&
+					vernBlocks[iVernRowA + 1].InitialStartVerseNumber > refVerses.First()))
 				{
 					leadingVerse = match.Value;
 					newRowBValue = newRowBValue.Substring(match.Length);
