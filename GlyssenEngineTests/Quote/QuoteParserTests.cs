@@ -1763,6 +1763,27 @@ namespace GlyssenEngineTests.Quote
 			Assert.IsFalse(output[5].StartsAtVerseStart);
 		}
 
+		[Test]
+		public void Parse_SquareBracketBetweenVerseNumberAndWj_VerseNumberDoesNotGetOrphanedInIllegalBlock()
+		{
+			var input = new List<Block>
+			{
+				new Block("p", 23, 14) { IsParagraphStart = true }.AddVerse(14, "["),
+				new Block("wj", 23, 14) { CharacterId = "Jesus" }.AddText("अ़चाअ़त्‍मादा।]"),
+				new Block("wj", 23, 15) { CharacterId = "Jesus", IsParagraphStart = true }.AddVerse(15, "अ़चाअ़त्‍मादा।")
+			};
+			QuoteParser.SetQuoteSystem(QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal),
+				null, null));
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT", input).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+
+			Assert.AreEqual("Jesus", output[0].CharacterId);
+			Assert.AreEqual("{14}\u00A0[अ़चाअ़त्‍मादा।]", output[0].GetText(true).TrimEnd());
+			Assert.AreEqual(14, output[0].InitialStartVerseNumber);
+			Assert.AreEqual("{15}\u00A0अ़चाअ़त्‍मादा।", output[1].GetText(true).TrimEnd());
+			Assert.AreEqual(15, output[1].InitialStartVerseNumber);
+		}
+
 		[TestCase("(")]
 		[TestCase("[")]
 		[TestCase("{")]
@@ -1771,7 +1792,7 @@ namespace GlyssenEngineTests.Quote
 		[TestCase("¿")]
 		[TestCase("[(")]
 		[TestCase("¿¡")]
-		public void Parse_QuoteStartsWithLeadingPunctation_LeadingPunctationIncludedInQuote(string openingPunctuation)
+		public void Parse_QuoteStartsWithLeadingPunctuation_LeadingPunctuationIncludedInQuote(string openingPunctuation)
 		{
 			// PG-644 (Kaqchikel - cak)
 			var block1 = new Block("p", 1, 25) { IsParagraphStart = true };
