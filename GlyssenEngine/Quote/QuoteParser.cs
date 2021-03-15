@@ -237,8 +237,20 @@ namespace GlyssenEngine.Quote
 						block.Delivery = cvInfo.Delivery;
 					}
 
+					if (sb.Length > 0)
+					{
+						var pendingText = sb.ToString();
+						Debug.Assert(!pendingText.Any(IsLetterOrDigit));
+						if (!(block.BlockElements.First() is ScriptText textElement))
+							throw new Exception($"Pending text \"{pendingText}\" was left from " +
+								$"previous block, but following block does not start with text: {block.ToString(true, m_bookId)}");
+						textElement.Content = pendingText + textElement.Content;
+						sb.Clear();
+					}
 					m_nextBlockContinuesQuote = false;
-					m_outputBlocks.Add(block);
+					m_workingBlock = block;
+					MoveTrailingElementsIfNecessary();
+					m_outputBlocks.Add(m_workingBlock);
 					continue;
 
 				}
@@ -897,9 +909,14 @@ namespace GlyssenEngine.Quote
 				int numRemoved = lastBlock.BlockElements.RemoveAll(m_nonScriptTextBlockElements.Contains);
 				if (numRemoved > 0)
 				{
-					var verse = m_nonScriptTextBlockElements.First() as Verse;
-					if (verse != null)
+					if (m_workingBlock.BlockElements.FirstOrDefault() is Verse && m_nonScriptTextBlockElements.Last() is Verse)
+						throw new Exception($"Pending verse \"{m_nonScriptTextBlockElements.Last()}\" was left " +
+							"from previous block, but following block starts with a verse: " +
+							m_workingBlock.ToString(true, m_bookId));
+
+					if (m_nonScriptTextBlockElements.First() is Verse verse)
 						m_workingBlock.InitialStartVerseNumber = BCVRef.VerseToIntStart(verse.Number);
+
 					m_workingBlock.BlockElements.InsertRange(0, m_nonScriptTextBlockElements);
 					m_workingBlock.MultiBlockQuote = (lastBlock.MultiBlockQuote == MultiBlockQuote.Start)
 						? MultiBlockQuote.Continuation : lastBlock.MultiBlockQuote;
