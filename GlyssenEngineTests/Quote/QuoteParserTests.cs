@@ -1774,7 +1774,7 @@ namespace GlyssenEngineTests.Quote
 			};
 			QuoteParser.SetQuoteSystem(QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal),
 				null, null));
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("Jesus", output[0].CharacterId);
