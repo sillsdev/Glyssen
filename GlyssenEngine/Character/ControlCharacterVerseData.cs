@@ -13,7 +13,6 @@ namespace GlyssenEngine.Character
 	{
 		private static ControlCharacterVerseData s_singleton;
 		private static string s_tabDelimitedCharacterVerseData;
-		private static Dictionary<string, string> s_charStylesThatMapToSpecificCharacters;
 
 		private Dictionary<int, Dictionary<int, HashSet<int>>> m_expectedQuotes;
 

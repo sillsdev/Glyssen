@@ -421,9 +421,15 @@ namespace GlyssenEngine
 							currentVernBlock.SetMatchedReferenceBlock(refChapterBlock);
 							if (!currentRefBlock.IsChapterAnnouncement)
 							{
-								// Note: It is illegal to have a chapter announcement not followed
-								// by a Scripture block, so using First should never fail.
-								var nextScriptureBlock = vernBlockList.Skip(iVernBlock + 1).First(b => b.IsScripture);
+								// Note: A chapter announcement should always be followed by a
+								// Scripture block, so using First should never fail. However in
+								// PG-1434, we came across a case where bad data could lead to a
+								// crash. We probably want to improve the USX parser to prevent
+								// this, but for now, to be safe, if there's no more Scripture,
+								// we're done.
+								var nextScriptureBlock = vernBlockList.Skip(iVernBlock + 1).FirstOrDefault(b => b.IsScripture);
+								if (nextScriptureBlock == null)
+									break;
 								if (currentRefBlock.EndRef(bookNum, Versification) >= nextScriptureBlock.StartRef(bookNum, vernacularVersification))
 									iRefBlock--;
 							}
@@ -675,7 +681,7 @@ namespace GlyssenEngine
 								var currBottomUpRefBlockIndex = indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - j
 									- 1 + numberOfUnexpectedReportingClausesMatched;
 								var refBlockInVerseChunk = refBlockList[currBottomUpRefBlockIndex];
-								if ((iCurrVernBottomUp > i || omittedHeSaids.Count == 0) && // PG-1408: Don't match two different vern blocks to the same ref block
+								if ((iCurrVernBottomUp >= i || omittedHeSaids.Count == 0) && // PG-1408: Don't match two different vern blocks to the same ref block
 									BlocksMatch(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification))
 								{
 									vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockInVerseChunk);
@@ -770,7 +776,7 @@ namespace GlyssenEngine
 										vernBlockList[iVernBlock].ReferenceBlocks.Single().CharacterId != remainingRefBlocksList[0].CharacterId)
 									{
 										// See if the immediately following or preceding block is a better match
-										var otherIndicesToTry = (i <= iVernBlock) ?
+										var otherIndicesToTry = (i + indexOfVernVerseStart <= iVernBlock) ?
 											new[] {iVernBlock - 1, iVernBlock + 1} :
 											new[] {iVernBlock + 1, iVernBlock - 1};
 										foreach (var iPreOrPost in otherIndicesToTry.Where(o => vernBlockList.Count > o && o >= 0))
@@ -783,7 +789,29 @@ namespace GlyssenEngine
 												else if (iPreOrPost < iVernBlock) // Pre
 													vernBlockList[iPreOrPost].AppendUnmatchedReferenceBlocks(remainingRefBlocksList);
 												else // Post
+												{
 													vernBlockList[iPreOrPost].InsertUnmatchedReferenceBlocks(0, remainingRefBlocksList);
+													if (vernBlockList[iVernBlock].StartsAtVerseStart &&
+														!vernBlockList[iVernBlock].ReferenceBlocks.Any(b => b.ContainsVerseNumber))
+													{
+														// See if we can shift a verse number from one of the following reference blocks
+														foreach (var subsequentRefBlock in vernBlockList[iPreOrPost].ReferenceBlocks)
+														{
+															if (subsequentRefBlock.StartsAtVerseStart)
+															{
+																var refVerse = subsequentRefBlock.BlockElements.First(e => e is Verse);
+																vernBlockList[iVernBlock].ReferenceBlocks.First().BlockElements.Insert(0, refVerse);
+																subsequentRefBlock.BlockElements.Remove(refVerse);
+																m_modifiedBooks.Add(bookId);
+																break;
+															}
+
+															if (subsequentRefBlock.ContainsVerseNumber)
+																break;
+														}
+													}
+												}
+
 												remainingRefBlocksList = null;
 												break;
 											}

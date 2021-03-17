@@ -1763,6 +1763,27 @@ namespace GlyssenEngineTests.Quote
 			Assert.IsFalse(output[5].StartsAtVerseStart);
 		}
 
+		[Test]
+		public void Parse_SquareBracketBetweenVerseNumberAndWj_VerseNumberDoesNotGetOrphanedInIllegalBlock()
+		{
+			var input = new List<Block>
+			{
+				new Block("p", 23, 14) { IsParagraphStart = true }.AddVerse(14, "["),
+				new Block("wj", 23, 14) { CharacterId = "Jesus" }.AddText("अ़चाअ़त्‍मादा।]"),
+				new Block("wj", 23, 15) { CharacterId = "Jesus", IsParagraphStart = true }.AddVerse(15, "अ़चाअ़त्‍मादा।")
+			};
+			QuoteParser.SetQuoteSystem(QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal),
+				null, null));
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+
+			Assert.AreEqual("Jesus", output[0].CharacterId);
+			Assert.AreEqual("{14}\u00A0[अ़चाअ़त्‍मादा।]", output[0].GetText(true).TrimEnd());
+			Assert.AreEqual(14, output[0].InitialStartVerseNumber);
+			Assert.AreEqual("{15}\u00A0अ़चाअ़त्‍मादा।", output[1].GetText(true).TrimEnd());
+			Assert.AreEqual(15, output[1].InitialStartVerseNumber);
+		}
+
 		[TestCase("(")]
 		[TestCase("[")]
 		[TestCase("{")]
@@ -1771,7 +1792,7 @@ namespace GlyssenEngineTests.Quote
 		[TestCase("¿")]
 		[TestCase("[(")]
 		[TestCase("¿¡")]
-		public void Parse_QuoteStartsWithLeadingPunctation_LeadingPunctationIncludedInQuote(string openingPunctuation)
+		public void Parse_QuoteStartsWithLeadingPunctuation_LeadingPunctuationIncludedInQuote(string openingPunctuation)
 		{
 			// PG-644 (Kaqchikel - cak)
 			var block1 = new Block("p", 1, 25) { IsParagraphStart = true };
@@ -4268,7 +4289,6 @@ namespace GlyssenEngineTests.Quote
 
 			var input = new List<Block> { blockChapter1, block1, block2, block3, block4, block5 };
 
-			// set up a quote system that matches PG-690
 			var levels = new BulkObservableList<QuotationMark>
 			{
 				new QuotationMark("«", "»", "»", 1, QuotationMarkingSystemType.Normal),
@@ -4293,9 +4313,13 @@ namespace GlyssenEngineTests.Quote
 			Assert.AreEqual(1, results[2].ChapterNumber);
 			Assert.AreEqual(2, results[2].InitialStartVerseNumber);
 			Assert.AreEqual("{2}\u00A0This is a poem, about something good;", results[2].GetText(true));
+			// The TestCharacterVerse file does not know about the Scripture quote in Mark 1:2-3.
+			Assert.AreEqual(results[1].CharacterId, results[2].CharacterId);
 			Assert.AreEqual(style2, results[3].StyleTag);
 			Assert.AreEqual(1, results[3].ChapterNumber);
 			Assert.AreEqual(3, results[3].InitialStartVerseNumber);
+			Assert.AreEqual("{3}\u00A0So you can see that it's not about something wood.", results[3].GetText(true));
+			Assert.AreEqual(results[1].CharacterId, results[3].CharacterId);
 		}
 
 		#region Recovery from bad data
@@ -5883,7 +5907,7 @@ namespace GlyssenEngineTests.Quote
 		}
 
 		[Test]
-		public void Parse_PoetryNarratorBlockFollowsNormalParagraphInVerseWithScriptureQuote_PoetryParasNotCombinedWithNormalPara()
+		public void Parse_PoetryNarratorBlockFollowsNormalParagraphInVerseWithScriptureQuote_PoetryScriptureParasNotCombinedWithNormalPara()
 		{
 			var input = new List<Block>();
 			input.Add(new Block("c", 8) { IsParagraphStart = true, BookCode = "ACT" }.AddText("8"));
@@ -5907,19 +5931,27 @@ namespace GlyssenEngineTests.Quote
 			Assert.IsTrue(output[1].IsParagraphStart);
 			Assert.AreEqual("p", output[1].StyleTag);
 			Assert.AreEqual("{32}\u00A0Lë naʼ nayúj lu guich rulabëʼ, rna cni:", output[1].GetText(true));
-			Assert.IsTrue(output[2].CharacterIs("ACT", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(output[1].CharacterIs("ACT", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+
 			Assert.IsTrue(output[2].IsParagraphStart);
 			Assert.AreEqual("q", output[2].StyleTag);
 			Assert.AreEqual("Ca böʼcuʼ zxílaʼdauʼ, Gulachë́ʼë Lëʼ quië ludöddëʼ Lëʼ, Len ca böʼcuʼ zxílaʼdauʼ, " +
 				"Cutu rnëbaʼ catiʼ nu rchugu lítsaʼbaʼ, Caʼ benëʼ Lëʼ, cutu bsalj ruʼë gnëʼ.", output[2].GetText(true));
-			Assert.IsTrue(output[3].CharacterIs("ACT", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(CharacterSpeakingMode.kScriptureCharacter, output[2].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Start, output[2].MultiBlockQuote);
+
 			Assert.IsTrue(output[3].IsParagraphStart);
 			Assert.AreEqual("q", output[3].StyleTag);
 			Assert.AreEqual("{33}\u00A0Gulucaʼnëʼ Lëʼ caʼz, Len cutu gluʼë latj nu cuequi xbey Lëʼ.", output[3].GetText(true));
-			Assert.IsTrue(output[4].CharacterIs("ACT", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(CharacterSpeakingMode.kScriptureCharacter, output[3].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[3].MultiBlockQuote);
+
 			Assert.IsTrue(output[4].IsParagraphStart);
 			Assert.AreEqual("q", output[4].StyleTag);
 			Assert.AreEqual("¿Nuzxa caz gac quixjöʼ zxguiaʼ nabágaʼgac bunách uládz queëʼ?", output[4].GetText(true));
+			Assert.AreEqual(CharacterSpeakingMode.kScriptureCharacter, output[4].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[4].MultiBlockQuote);
 		}
 		#endregion
 
@@ -6594,5 +6626,293 @@ namespace GlyssenEngineTests.Quote
 			Assert.IsNull(output[i].Delivery);
 		}
 		#endregion // Tests for PG-1272
+
+		#region Tests for PG-1415
+		// The following three tests have the same setup as QuoteParserTests.Parse_PoetryLinesInDifferentVersesWithNoInterveningSentenceEndingPunctuation_VersesAreNotCombined.
+		// That fixture uses the TestCharacterVerse file, so the results are different because that
+		// version of the file does not contain entries for the Scripture quotes in Mark 1:2-3.
+		// In this class, the tests are split into two different versions because text marked with
+		// the \m marker must not be included as part of the implicit Scripture quote.
+		[TestCase("q1", "q2")]
+		[TestCase("pi1", "pi2")]
+		public void Parse_PoetryLinesInVersesWhoseOnlyKnownCharacterIsScripture_PoetryBlocksTreatedAsMultiBlockScriptureQuote(string style2, string style3)
+		{
+			var blockChapter1 = new Block("c", 1) { BookCode = "MRK", CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter)};
+			blockChapter1.BlockElements.Add(new ScriptText("1"));
+			var block1 = new Block("p", 1, 1).AddVerse(1, "Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.");
+			var block2 = new Block(style2, 1, 2).AddVerse(2, "This is a poem, ");
+			var block3 = new Block(style3, 1, 2);
+			block3.BlockElements.Add(new ScriptText("about something good;"));
+			var block4 = new Block(style2, 1, 3).AddVerse(3, "So you can see that");
+			var block5 = new Block(style3, 1, 3);
+			block5.BlockElements.Add(new ScriptText("it's not about something wood."));
+
+			var input = new List<Block> { blockChapter1, block1, block2, block3, block4, block5 };
+
+			var levels = new BulkObservableList<QuotationMark>
+			{
+				new QuotationMark("«", "»", "»", 1, QuotationMarkingSystemType.Normal),
+			};
+			QuoteParser.SetQuoteSystem(new QuoteSystem(levels));
+
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, blockChapter1.BookCode, input);
+			var results = parser.Parse().ToList();
+
+			Assert.AreEqual(4, results.Count);
+			Assert.AreEqual("c", results[0].StyleTag);
+			Assert.IsTrue(results[0].IsChapterAnnouncement);
+			Assert.AreEqual("MRK", results[0].BookCode);
+			Assert.AreEqual(1, results[0].ChapterNumber);
+			Assert.AreEqual(0, results[0].InitialStartVerseNumber);
+
+			Assert.AreEqual("p", results[1].StyleTag);
+			Assert.AreEqual(1, results[1].ChapterNumber);
+			Assert.AreEqual(1, results[1].InitialStartVerseNumber);
+			Assert.AreEqual("{1}\u00A0Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", results[1].GetText(true));
+			Assert.IsTrue(results[1].CharacterIs(blockChapter1.BookCode, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual(style2, results[2].StyleTag);
+			Assert.AreEqual(1, results[2].ChapterNumber);
+			Assert.AreEqual(2, results[2].InitialStartVerseNumber);
+			Assert.AreEqual("{2}\u00A0This is a poem, about something good;", results[2].GetText(true));
+			Assert.AreEqual("scripture", results[2].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Start, results[2].MultiBlockQuote);
+
+			Assert.AreEqual(style2, results[3].StyleTag);
+			Assert.AreEqual(1, results[3].ChapterNumber);
+			Assert.AreEqual(3, results[3].InitialStartVerseNumber);
+			Assert.AreEqual("{3}\u00A0So you can see that it's not about something wood.", results[3].GetText(true));
+			Assert.AreEqual("scripture", results[3].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, results[3].MultiBlockQuote);
+		}
+
+		[Test]
+		public void Parse_PoetryLinesAndContinuationLinesStartInVersesWithoutKnownScripture_PoetryBlocksKeptAsNarrator()
+		{
+			var blockChapter1 = new Block("c", 1) { BookCode = "MRK", CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter)};
+			blockChapter1.BlockElements.Add(new ScriptText("1"));
+			var block1 = new Block("q", 1, 1).AddVerse(1, "Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.");
+			var block2 = new Block("q", 1, 2).AddVerse(2, "This is a poem, ");
+			var block3 = new Block("m", 1, 2);
+			block3.BlockElements.Add(new ScriptText("about something good;"));
+			var block4 = new Block("q", 1, 3).AddVerse(3, "So you can see that");
+			var block5 = new Block("m", 1, 3);
+			block5.BlockElements.Add(new ScriptText("it's not about something wood."));
+
+			var input = new List<Block> { blockChapter1, block1, block2, block3, block4, block5 };
+
+			var levels = new BulkObservableList<QuotationMark>
+			{
+				new QuotationMark("«", "»", "»", 1, QuotationMarkingSystemType.Normal),
+			};
+			QuoteParser.SetQuoteSystem(new QuoteSystem(levels));
+
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, blockChapter1.BookCode, input);
+			var results = parser.Parse().ToList();
+
+			Assert.AreEqual(5, results.Count);
+			Assert.AreEqual("c", results[0].StyleTag);
+			Assert.IsTrue(results[0].IsChapterAnnouncement);
+			Assert.AreEqual("MRK", results[0].BookCode);
+			Assert.AreEqual(1, results[0].ChapterNumber);
+			Assert.AreEqual(0, results[0].InitialStartVerseNumber);
+
+			Assert.AreEqual("q", results[1].StyleTag);
+			Assert.AreEqual(1, results[1].ChapterNumber);
+			Assert.AreEqual(1, results[1].InitialStartVerseNumber);
+			Assert.AreEqual("{1}\u00A0Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", results[1].GetText(true));
+			Assert.IsTrue(results[1].CharacterIs(blockChapter1.BookCode, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, results[1].MultiBlockQuote);
+
+			// Since the poetry containing this next block started in a verse where we were not
+			// expecting a Scripture quote, we can't 100% safely treat this as a Scripture quote.
+			Assert.AreEqual("q", results[2].StyleTag);
+			Assert.AreEqual(1, results[2].ChapterNumber);
+			Assert.AreEqual(2, results[2].InitialStartVerseNumber);
+			Assert.AreEqual("{2}\u00A0This is a poem, about something good;", results[2].GetText(true));
+			Assert.IsTrue(results[2].CharacterIs(blockChapter1.BookCode, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, results[2].MultiBlockQuote);
+
+			Assert.AreEqual("q", results[3].StyleTag);
+			Assert.AreEqual(1, results[3].ChapterNumber);
+			Assert.AreEqual(3, results[3].InitialStartVerseNumber);
+			// Since the preceding "m" continuation paragraph popped us out of poetry,
+			// This new poetry that is entirely in v. 3 CAN be safely treated as a
+			// Scripture quote. A little weird, maybe, but probably what we'd want -or
+			// at least the best assumption we can make.
+			Assert.AreEqual("{3}\u00A0So you can see that", results[3].GetText(true));
+			Assert.AreEqual("scripture", results[3].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, results[3].MultiBlockQuote);
+
+			Assert.AreEqual("m", results[4].StyleTag);
+			Assert.AreEqual(1, results[4].ChapterNumber);
+			Assert.AreEqual(3, results[4].InitialStartVerseNumber);
+			Assert.AreEqual("it's not about something wood.", results[4].GetText(true));
+			Assert.IsTrue(results[4].CharacterIs(blockChapter1.BookCode, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, results[4].MultiBlockQuote);
+		}
+
+		[TestCase("q1", "q2", "m")]
+		// I'm not 100% sure that "mi" should be treated as a continuation, but it's a rare style and is
+		// formatted similar to "m", so it's probably safer to treat it in a similar way.
+		[TestCase("q", "q", "mi")]
+		public void Parse_PoetryLinesAndContinuationLinesInVersesWhoseOnlyKnownCharacterIsScripture_PoetryBlocksTreatedAsScriptureQuotes(
+			string style1, string style2, string continuationStyle)
+		{
+			var blockChapter1 = new Block("c", 1) { BookCode = "MRK", CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter)};
+			blockChapter1.BlockElements.Add(new ScriptText("1"));
+			var block1 = new Block("p", 1, 1).AddVerse(1, "Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.");
+			var block2 = new Block(style1, 1, 2).AddVerse(2, "This is a poem, ");
+			var block3 = new Block(continuationStyle, 1, 2);
+			block3.BlockElements.Add(new ScriptText("about something good;"));
+			var block4 = new Block(style2, 1, 3).AddVerse(3, "So you can see that");
+			var block5 = new Block(continuationStyle, 1, 3);
+			block5.BlockElements.Add(new ScriptText("it's not about something wood."));
+
+			var input = new List<Block> { blockChapter1, block1, block2, block3, block4, block5 };
+
+			var levels = new BulkObservableList<QuotationMark>
+			{
+				new QuotationMark("«", "»", "»", 1, QuotationMarkingSystemType.Normal),
+			};
+			QuoteParser.SetQuoteSystem(new QuoteSystem(levels));
+
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, blockChapter1.BookCode, input);
+			var results = parser.Parse().ToList();
+
+			Assert.AreEqual(6, results.Count);
+			Assert.AreEqual("c", results[0].StyleTag);
+			Assert.IsTrue(results[0].IsChapterAnnouncement);
+			Assert.AreEqual("MRK", results[0].BookCode);
+			Assert.AreEqual(1, results[0].ChapterNumber);
+			Assert.AreEqual(0, results[0].InitialStartVerseNumber);
+
+			Assert.AreEqual("p", results[1].StyleTag);
+			Assert.AreEqual(1, results[1].ChapterNumber);
+			Assert.AreEqual(1, results[1].InitialStartVerseNumber);
+			Assert.AreEqual("{1}\u00A0Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", results[1].GetText(true));
+			Assert.IsTrue(results[1].CharacterIs(blockChapter1.BookCode, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, results[1].MultiBlockQuote);
+
+			Assert.AreEqual(style1, results[2].StyleTag);
+			Assert.AreEqual(1, results[2].ChapterNumber);
+			Assert.AreEqual(2, results[2].InitialStartVerseNumber);
+			Assert.AreEqual("{2}\u00A0This is a poem, ", results[2].GetText(true));
+			Assert.AreEqual("scripture", results[2].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, results[2].MultiBlockQuote);
+
+			Assert.AreEqual(continuationStyle, results[3].StyleTag);
+			Assert.AreEqual(1, results[3].ChapterNumber);
+			Assert.AreEqual(2, results[3].InitialStartVerseNumber);
+			Assert.AreEqual("about something good;", results[3].GetText(true));
+			Assert.IsTrue(results[3].CharacterIs(blockChapter1.BookCode, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, results[3].MultiBlockQuote);
+
+			Assert.AreEqual(style2, results[4].StyleTag);
+			Assert.AreEqual(1, results[4].ChapterNumber);
+			Assert.AreEqual(3, results[4].InitialStartVerseNumber);
+			Assert.AreEqual("{3}\u00A0So you can see that", results[4].GetText(true));
+			Assert.AreEqual("scripture", results[4].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, results[4].MultiBlockQuote);
+
+			Assert.AreEqual(continuationStyle, results[5].StyleTag);
+			Assert.AreEqual(1, results[5].ChapterNumber);
+			Assert.AreEqual(3, results[5].InitialStartVerseNumber);
+			Assert.AreEqual("it's not about something wood.", results[5].GetText(true));
+			Assert.IsTrue(results[5].CharacterIs(blockChapter1.BookCode, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, results[5].MultiBlockQuote);
+		}
+
+		[Test]
+		public void Parse_PoetryLinesInVerseWithScriptureAndOtherPossibleSpeakers_PoetryBlocksKeptAsNarrator()
+		{
+			var blockChapter9 = new Block("c", 9) { BookCode = "MAT", CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter)};
+			blockChapter9.BlockElements.Add(new ScriptText("9"));
+			var block1 = new Block("p", 9, 36).AddVerse(36, "When Jesus saw the crowds, he was moved by compassion for them, because they were oppressed and helpless, ");
+			var block2 = new Block("qr", 9, 36).AddText("like a scattered flock of sheep with no pastor.");
+
+			var input = new List<Block> { blockChapter9, block1, block2 };
+
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, blockChapter9.BookCode, input);
+			var results = parser.Parse().ToList();
+
+			Assert.AreEqual(3, results.Count);
+			Assert.AreEqual("c", results[0].StyleTag);
+			Assert.IsTrue(results[0].IsChapterAnnouncement);
+			Assert.AreEqual("MAT", results[0].BookCode);
+			Assert.AreEqual(9, results[0].ChapterNumber);
+
+			Assert.AreEqual("p", results[1].StyleTag);
+			Assert.AreEqual(9, results[1].ChapterNumber);
+			Assert.AreEqual(36, results[1].InitialStartVerseNumber);
+			Assert.AreEqual("{36}\u00A0When Jesus saw the crowds, he was moved by compassion for them, because they were oppressed and helpless, ", results[1].GetText(true));
+			Assert.IsTrue(results[1].CharacterIs(blockChapter9.BookCode, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, results[1].MultiBlockQuote);
+
+			// Since this verse has other potential speakers, we can't 100% safely treat this as a Scripture quote.
+			Assert.AreEqual("qr", results[2].StyleTag);
+			Assert.AreEqual(9, results[2].ChapterNumber);
+			Assert.AreEqual(36, results[2].InitialStartVerseNumber);
+			Assert.AreEqual("like a scattered flock of sheep with no pastor.", results[2].GetText(true));
+			Assert.IsTrue(results[2].CharacterIs(blockChapter9.BookCode, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, results[2].MultiBlockQuote);
+		}
+
+		[Test]
+		public void Parse_PoetryLinesInVerseWithScriptureAndNarratorQuote_PoetryBlocksCombinedAndTreatedAsScriptureQuote()
+		{
+			var blockChapter4 = new Block("c", 4) { BookCode = "HEB", CharacterId = CharacterVerseData.GetStandardCharacterId("HEB", CharacterVerseData.StandardCharacter.BookOrChapter)};
+			blockChapter4.BlockElements.Add(new ScriptText("4"));
+			var block1 = new Block("p", 4, 7).AddVerse(7, "God again set a certain day, calling it “Today.” " +
+				"This was when he later spoke through David, as in already quoted:");
+			var block2 = new Block("q1", 4, 7).AddText("Today, if you hear his voice, ");
+			var block3 = new Block("q2", 4, 7).AddText("do not harden your hearts.");
+
+			var levels = new BulkObservableList<QuotationMark>
+			{
+				new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal),
+			};
+			QuoteParser.SetQuoteSystem(new QuoteSystem(levels));
+
+			var input = new List<Block> { blockChapter4, block1, block2, block3 };
+
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, blockChapter4.BookCode, input);
+			var results = parser.Parse().ToList();
+
+			Assert.AreEqual(5, results.Count);
+			Assert.AreEqual("c", results[0].StyleTag);
+			Assert.IsTrue(results[0].IsChapterAnnouncement);
+			Assert.AreEqual("HEB", results[0].BookCode);
+			Assert.AreEqual(4, results[0].ChapterNumber);
+
+			Assert.AreEqual("p", results[1].StyleTag);
+			Assert.AreEqual(4, results[1].ChapterNumber);
+			Assert.AreEqual(7, results[1].InitialStartVerseNumber);
+			Assert.AreEqual("{7}\u00A0God again set a certain day, calling it ", results[1].GetText(true));
+			Assert.IsTrue(results[1].CharacterIs(blockChapter4.BookCode, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, results[1].MultiBlockQuote);
+
+			Assert.AreEqual("p", results[2].StyleTag);
+			Assert.AreEqual(4, results[2].ChapterNumber);
+			Assert.AreEqual(7, results[2].InitialStartVerseNumber);
+			Assert.AreEqual("“Today.” ", results[2].GetText(true));
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, results[2].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, results[1].MultiBlockQuote);
+
+			Assert.AreEqual("p", results[3].StyleTag);
+			Assert.AreEqual(4, results[3].ChapterNumber);
+			Assert.AreEqual(7, results[3].InitialStartVerseNumber);
+			Assert.AreEqual("This was when he later spoke through David, as in already quoted:", results[3].GetText(true));
+			Assert.IsTrue(results[3].CharacterIs(blockChapter4.BookCode, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, results[3].MultiBlockQuote);
+
+			Assert.AreEqual("q1", results[4].StyleTag);
+			Assert.AreEqual(4, results[4].ChapterNumber);
+			Assert.AreEqual(7, results[4].InitialStartVerseNumber);
+			Assert.AreEqual("Today, if you hear his voice, do not harden your hearts.", results[4].GetText(true));
+			Assert.AreEqual(CharacterSpeakingMode.kScriptureCharacter, results[4].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, results[4].MultiBlockQuote);
+		}
+		#endregion
 	}
 }

@@ -15944,7 +15944,8 @@ MAT	12	44	Jesus			Implicit
 MAT	12	45	Jesus			Implicit		
 MAT	12	46	Jesus			Indirect		
 MAT	12	46	Jesus' family		Jesus' mother and brothers	Indirect	Mary, Jesus' mother	
-MAT	12	47	crowd	announcing	someone	Dialogue		MAT 12.47;MRK 3.32;LUK 8.20
+# MAT 12:47 is not contained in early manuscripts.
+MAT	12	47	crowd	announcing	someone	Potential		MAT 12.47;MRK 3.32;LUK 8.20
 MAT	12	48	Jesus	questioning		Dialogue		
 MAT	12	49	Jesus			Dialogue		
 MAT	12	50	Jesus			Normal		
