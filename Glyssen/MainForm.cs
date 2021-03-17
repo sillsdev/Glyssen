@@ -380,7 +380,7 @@ namespace Glyssen
 							break;
 						case OpenProjectDlg.ProjectType.ParatextProject:
 							InitializeProgress();
-							LoadParatextProject(dlg.SelectedProject);
+							LoadParatextProject(dlg.SelectedProject, dlg.ParatextProjectId);
 							break;
 						default:
 							MessageBox.Show(@"Sorry - not implemented yet");
@@ -589,13 +589,17 @@ namespace Glyssen
 			bundle.Dispose();
 		}
 
-		private void LoadParatextProject(string paratextProjId)
+		private void LoadParatextProject(string paratextProjName, string paratextProjectId)
 		{
-			Logger.WriteEvent($"Loading {ParatextScrTextWrapper.kParatextProgramName} project {paratextProjId}");
+			Logger.WriteEvent($"Loading {ParatextScrTextWrapper.kParatextProgramName} project {paratextProjName} (id:{paratextProjectId})");
 
 			ParatextScrTextWrapper paratextProject = null;
 
-			if (!LoadAndHandleApplicationExceptions(() => { paratextProject = new ParatextScrTextWrapper(ScrTextCollection.Find(paratextProjId)); }))
+			if (!LoadAndHandleApplicationExceptions(() =>
+			{
+				var scrText = ScrTextCollection.FindById(paratextProjectId);
+				paratextProject = new ParatextScrTextWrapper(scrText);
+			}))
 			{
 				SetProject(null);
 				return;
@@ -622,7 +626,7 @@ namespace Glyssen
 						"Param 4: Name of the Paratext \"Quotations\" check"),
 					GlyssenInfo.Product,
 					ParatextScrTextWrapper.kParatextProgramName,
-					paratextProjId,
+					paratextProjName,
 					optionalObserverInfo,
 					ParatextProjectBookInfo.LocalizedCheckName(ParatextScrTextWrapper.kQuotationCheckId));
 				var result = MessageBox.Show(this, msg, GlyssenInfo.Product, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
@@ -654,7 +658,7 @@ namespace Glyssen
 					"Param 3: List of Paratext check names; " +
 					"Param 4: Optional line indicating that user is an observer on the Paratext project"),
 					ParatextScrTextWrapper.kParatextProgramName,
-					paratextProjId,
+					paratextProjName,
 					GlyssenInfo.Product,
 					paratextProject.RequiredCheckNames,
 					optionalObserverInfo);
@@ -676,9 +680,9 @@ namespace Glyssen
 			if (glyssenMetadata?.InactiveUnstartedParatextProjects != null)
 			{
 				var list = new List<string>(glyssenMetadata.InactiveUnstartedParatextProjects);
-				if (list.Contains(paratextProjId))
+				if (list.Contains(paratextProjName))
 				{
-					list.Remove(paratextProjId);
+					list.Remove(paratextProjName);
 					glyssenMetadata.InactiveUnstartedParatextProjects = list.Any() ? list.ToArray() : null;
 					glyssenMetadata.Save();
 				}

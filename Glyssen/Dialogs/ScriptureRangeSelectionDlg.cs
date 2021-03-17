@@ -430,7 +430,7 @@ namespace Glyssen.Dialogs
 			var books = grid.Equals(m_otBooksGrid) ? m_availableOtBooks : m_availableNtBooks;
 			var book = books[rowIndex];
 			if (book.IncludeInScript)
-				return true; // Always valid to exclude
+				return true; // Always valid to include
 			var bookCode = book.Code;
 			if (ProjectBase.Reader.BookResourceExists(m_project, bookCode))
 				return true; // Might try to get an updated version later but this one is valid.

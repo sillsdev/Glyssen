@@ -28,7 +28,7 @@ glyssen-support_lsdev@sil.org
 
 # What to Back Up
 Glyssen stores all its project files in the Program Data folder, under the
-SIL-FCBH\Glyssen directory. On a default installation of Windows 7, that would be
+SIL-FCBH\Glyssen directory. On a default installation of Windows, that would be
 here: <a href="file:///C:/ProgramData/FCBH-SIL/Glyssen">
 C:\ProgramData\FCBH-SIL\Glyssen</a>. To support multiple
 recording projects, versions, and languages, there will be three levels of subfolders
@@ -45,6 +45,9 @@ back-up plan.)
 -----------------------------
 
 # Release Notes
+
+## January 8 2020 Glyssen 2.0.0
+Enhanced parser to identify "poetry" paragraphs as Scripture quotes when no other character speaks in the verses.
 
 ## September 23 2020 Glyssen 1.6.0
 Changed English and Russian reference texts to use chevrons instead of curly quotes for improved visibility when scripting.
