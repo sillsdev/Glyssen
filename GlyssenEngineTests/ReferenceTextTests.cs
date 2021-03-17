@@ -5021,6 +5021,58 @@ namespace GlyssenEngineTests
 		}
 		#endregion
 
+		#region PG-1431
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_ReportingClausesInRefTextAppearBetweenSpeakingPartsInVern_RefTextReportingClausesCombinedToMatchOnlyNarratorBlock()
+		{
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refTextJhn = refText.GetBook("JHN");
+			var refTextBlocksJhn8V11 = refTextJhn.GetBlocksForVerse(8, 11).ToList();
+			Assert.AreEqual(4, refTextBlocksJhn8V11.Count,
+				"SETUP check - unexpected number of reference blocks for John 8:11.");
+			Assert.AreEqual("woman, caught in adultery", refTextBlocksJhn8V11[1].CharacterId,
+				"SETUP check - expected English reference text to have woman speak in second block for John 8:11.");
+			Assert.AreEqual("Jesus", refTextBlocksJhn8V11[3].CharacterId,
+				"SETUP check - expected English reference text to have Jesus speak in last block for John 8:11.");
+
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 11, "“Ondaꞌidun, Polopanad,” ", true, 8));
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "tinumabal og glibun koyon. Miktaluꞌ si Isus, ", "JHN");
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "“Akon siꞌoy ondiꞌu ika ukumon. Uliꞌa na bu naꞌa na mokpuliꞌ moginang nog dusa.”");
+			var vernBook = new BookScript("JHN", vernacularBlocks, refText.Versification);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
+
+			var result = matchup.CorrelatedBlocks;
+			Assert.AreEqual(3, result.Count);
+			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.IsFalse(result[1].MatchesReferenceText);
+			Assert.IsTrue(result[2].MatchesReferenceText);
+			var womanRefBlock = result[0].ReferenceBlocks.Single();
+			Assert.IsTrue(womanRefBlock.StartsAtVerseStart);
+			Assert.AreEqual(result[0].InitialStartVerseNumber, womanRefBlock.InitialStartVerseNumber);
+			Assert.AreEqual(
+				refTextBlocksJhn8V11.Single(b => b.CharacterId == "woman, caught in adultery").GetText(false),
+				womanRefBlock.GetText(false),
+				"Expected the second block (woman in adultery) in the English reference text for" +
+				" John 8:11 to be matched to the first block of matchup.");
+			Assert.AreEqual(2, result[1].ReferenceBlocks.Count);
+			Assert.AreEqual(refTextBlocksJhn8V11.First(b => !b.IsQuote).GetText(false),
+				result[1].ReferenceBlocks[0].GetText(true),
+				"Expected the first reporting clause in the reference text for John 8:11 to be the " +
+				"first reference block for the combined reporting clause block in the vernacular.");
+			Assert.AreEqual(refTextBlocksJhn8V11.Last(b => !b.IsQuote).GetText(false),
+				result[1].ReferenceBlocks[1].GetText(true),
+				"Expected the last reporting clause in the reference text for John 8:11 to be the " +
+				"last reference block for the combined reporting clause block in the vernacular.");
+			Assert.AreEqual(
+				refTextBlocksJhn8V11.Single(b => b.CharacterId == "Jesus").GetText(true),
+				result[2].ReferenceBlocks.Single().GetText(false),
+				"Expected the \"Jesus\" block in the English reference text for" +
+				" John 8:11 to be matched to the last block of matchup.");
+		}
+		#endregion
+
 		#region private helper methods
 		private Block NewChapterBlock(string bookId, int chapterNum, string text = null)
 		{

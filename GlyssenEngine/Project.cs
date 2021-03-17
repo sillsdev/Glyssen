@@ -38,7 +38,7 @@ namespace GlyssenEngine
 {
 	public class Project : ProjectBase, IUserProject
 	{
-		public const int kParserVersion = 51;
+		public const int kParserVersion = 52;
 
 		private const double kUsxPercent = 0.25;
 		private const double kGuessPercent = 0.10;
@@ -1124,14 +1124,18 @@ namespace GlyssenEngine
 
 				if (existingAvailable.TryGetValue(nowAvailableBook.Code, out var includeExistingInScript))
 				{
-					if (includeExistingInScript &&
-						!GetBook(bookCode).CheckStatusOverridden &&
-						!scrTextWrapper.DoesBookPassChecks(bookNum))
+					var book = GetBook(bookCode);
+					if (book != null)
 					{
-						noLongerPassChecksPreviouslyIncludedWithoutCheckStatusOverride?.Invoke(bookCode);
+						if (includeExistingInScript &&
+							!book.CheckStatusOverridden &&
+							!scrTextWrapper.DoesBookPassChecks(bookNum))
+						{
+							noLongerPassChecksPreviouslyIncludedWithoutCheckStatusOverride?.Invoke(bookCode);
+						}
+						else
+							foundInBoth?.Invoke(bookCode);
 					}
-					else
-						foundInBoth?.Invoke(bookCode);
 
 					existingAvailable.Remove(bookCode);
 				}
@@ -1179,7 +1183,29 @@ namespace GlyssenEngine
 			}
 
 			var booksToExcludeFromProject = new List<string>();
-			void Exclude(string bookCode) => booksToExcludeFromProject.Add(bookCode);
+			void Exclude(string bookCode)
+			{
+				var books = upgradedProject.m_projectMetadata.AvailableBooks;
+				// Although this book is being excluded (because it does not pass checks)
+				// we do need to check to see if it is a newly available book for this
+				// project, so we can include it in the list of available books in the
+				// dialog in case the user wants to override and include it anyway.
+				if (!books.Any(b => b.Code == bookCode))
+				{
+					foundDataChange = true;
+					int insertAt = 0;
+					var newBookNum = BCVRef.BookToNumber(bookCode);
+					while (insertAt < books.Count)
+					{
+						var existingAvailBookNum = BCVRef.BookToNumber(books[insertAt].Code);
+						if (existingAvailBookNum > newBookNum)
+							break;
+						insertAt++;
+					}
+					books.Insert(insertAt, scrTextWrapper.AvailableBooks.Single(b => b.Code == bookCode));
+				}
+				booksToExcludeFromProject.Add(bookCode);
+			}
 
 			// For any newly available book that passes checks, if all existing books are included,
 			// we assume we want to include anything new as well.
@@ -1436,6 +1462,9 @@ namespace GlyssenEngine
 			if (!bookMetadata.IncludeInScript)
 				throw new InvalidOperationException($"Attempt to include the {nameof(BookScript)} for {book.BookId}, but the metadata for the book indicates that it should not be included.");
 
+			if (!book.GetScriptBlocks().Any())
+				return;
+
 			int i;
 			for (i = 0; i < m_books.Count; i++)
 			{
@@ -1527,6 +1556,8 @@ namespace GlyssenEngine
 
 				bookScript.Initialize(Versification);
 			}
+
+			Debug.Assert(bookScripts.All(b => b.GetScriptBlocks().Any()));
 
 			if (m_books.Any())
 			{

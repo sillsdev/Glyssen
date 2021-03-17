@@ -74,6 +74,9 @@ namespace GlyssenEngine.Paratext
 							yield return new QuotationMark(qmInfo.InnerInnerQuotes.Begin, qmInfo.InnerInnerQuotes.End, qmInfo.InnerInnerContinuer.Continuer, 3, QuotationMarkingSystemType.Normal);
 					}
 				}
+				// REVIEW: It is possible in Paratext to define all three levels for the "alternate" quote system and not
+				// have them be "narrative" (i.e., dialog) quotes at all. It is also possible to have alternates set at level 2 and/or 3
+				// without having them set at the higher levels.
 				if (qmInfo.LevelHasAlternate(1))
 				{
 					yield return new QuotationMark(qmInfo.Quotes.AltBegin, qmInfo.Quotes.AltEnd, qmInfo.Continuer.AltContinuer, 1, QuotationMarkingSystemType.Narrative);
