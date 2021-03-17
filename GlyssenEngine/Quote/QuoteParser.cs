@@ -74,6 +74,7 @@ namespace GlyssenEngine.Quote
 		private readonly List<Block> m_currentMultiBlockQuote = new List<Block>();
 		private List<string> m_possibleCharactersForCurrentQuote = new List<string>();
 		private bool m_ignoringNarratorQuotation;
+		private int m_outputBlockInWhichPoetryStarted = -1;
 		#endregion
 
 		public QuoteParser(ICharacterVerseRepository cvInfo, string bookId, IEnumerable<Block> blocks, ScrVers versification = null)
@@ -236,8 +237,20 @@ namespace GlyssenEngine.Quote
 						block.Delivery = cvInfo.Delivery;
 					}
 
+					if (sb.Length > 0)
+					{
+						var pendingText = sb.ToString();
+						Debug.Assert(!pendingText.Any(IsLetterOrDigit));
+						if (!(block.BlockElements.First() is ScriptText textElement))
+							throw new Exception($"Pending text \"{pendingText}\" was left from " +
+								$"previous block, but following block does not start with text: {block.ToString(true, m_bookId)}");
+						textElement.Content = pendingText + textElement.Content;
+						sb.Clear();
+					}
 					m_nextBlockContinuesQuote = false;
-					m_outputBlocks.Add(block);
+					m_workingBlock = block;
+					MoveTrailingElementsIfNecessary();
+					m_outputBlocks.Add(m_workingBlock);
 					continue;
 
 				}
@@ -253,7 +266,17 @@ namespace GlyssenEngine.Quote
 						(s_quoteSystem.NormalLevels.Count > 0 && s_quoteSystem.NormalLevels[0].Continue != s_quoteSystem.NormalLevels[0].Open);
 				}
 
-				m_workingBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber) { IsParagraphStart = block.IsParagraphStart };
+				m_workingBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber)
+					{ IsParagraphStart = block.IsParagraphStart };
+				if (!m_workingBlock.IsContinuationParagraphStyle && m_workingBlock.IsFollowOnParagraphStyle)
+				{
+					if (m_outputBlockInWhichPoetryStarted < 0)
+						m_outputBlockInWhichPoetryStarted = m_outputBlocks.Count;
+				}
+				else
+				{
+					ProcessPossibleRunOfPoetryBlocksAsScripture();
+				}
 
 				bool atBeginningOfBlock = true;
 				foreach (BlockElement element in block.BlockElements)
@@ -509,8 +532,46 @@ namespace GlyssenEngine.Quote
 				// In case the last set of blocks were a multi-block quote
 				ProcessMultiBlock();
 			}
+			ProcessPossibleRunOfPoetryBlocksAsScripture();
 			SetImplicitCharacters();
 			return m_outputBlocks;
+		}
+
+		private void ProcessPossibleRunOfPoetryBlocksAsScripture()
+		{
+			if (InRunOfPoetryBlocksThatAreProbablyScripture)
+			{
+				m_outputBlocks[m_outputBlockInWhichPoetryStarted].CharacterId = CharacterSpeakingMode.kScriptureCharacter;
+				for (var iPoetry = m_outputBlockInWhichPoetryStarted + 1; iPoetry < m_outputBlocks.Count; iPoetry++)
+				{
+					// Perhaps slightly inefficient to do this inside the loop, but there will seldom be more than
+					// a few paragraphs, and it's probably just as inefficient to set a flag or repeat the check.
+					m_outputBlocks[m_outputBlockInWhichPoetryStarted].MultiBlockQuote = MultiBlockQuote.Start;
+					m_outputBlocks[iPoetry].CharacterId = CharacterSpeakingMode.kScriptureCharacter;
+					m_outputBlocks[iPoetry].MultiBlockQuote = MultiBlockQuote.Continuation;
+				}
+			}
+			m_outputBlockInWhichPoetryStarted = -1;
+		}
+
+		private bool InRunOfPoetryBlocksThatAreProbablyScripture
+		{
+			get
+			{
+				return m_outputBlockInWhichPoetryStarted >= 0 && m_outputBlockInWhichPoetryStarted < m_outputBlocks.Count &&
+					m_outputBlocks.Skip(m_outputBlockInWhichPoetryStarted).All(b =>
+					{
+						if (!b.CharacterIs(m_bookId, CharacterVerseData.StandardCharacter.Narrator))
+							return false;
+
+						var characters = m_cvInfo.GetCharacters(m_bookNum, b.ChapterNumber, b.AllVerses, m_versification, true);
+						if (!characters.Any(c => c.Character == CharacterSpeakingMode.kScriptureCharacter))
+							return false;
+
+						return characters.Count == 1 || (characters.Count == 2 &&
+							characters.Any(c => CharacterVerseData.IsCharacterOfType(c.Character, CharacterVerseData.StandardCharacter.Narrator)));
+					});
+			}
 		}
 
 		/// <summary>
@@ -848,9 +909,14 @@ namespace GlyssenEngine.Quote
 				int numRemoved = lastBlock.BlockElements.RemoveAll(m_nonScriptTextBlockElements.Contains);
 				if (numRemoved > 0)
 				{
-					var verse = m_nonScriptTextBlockElements.First() as Verse;
-					if (verse != null)
+					if (m_workingBlock.BlockElements.FirstOrDefault() is Verse && m_nonScriptTextBlockElements.Last() is Verse)
+						throw new Exception($"Pending verse \"{m_nonScriptTextBlockElements.Last()}\" was left " +
+							"from previous block, but following block starts with a verse: " +
+							m_workingBlock.ToString(true, m_bookId));
+
+					if (m_nonScriptTextBlockElements.First() is Verse verse)
 						m_workingBlock.InitialStartVerseNumber = BCVRef.VerseToIntStart(verse.Number);
+
 					m_workingBlock.BlockElements.InsertRange(0, m_nonScriptTextBlockElements);
 					m_workingBlock.MultiBlockQuote = (lastBlock.MultiBlockQuote == MultiBlockQuote.Start)
 						? MultiBlockQuote.Continuation : lastBlock.MultiBlockQuote;
@@ -874,10 +940,6 @@ namespace GlyssenEngine.Quote
 		/// Flush the current string builder to a block element,
 		/// and flush the current block elements to a block
 		/// </summary>
-		/// <param name="sb"></param>
-		/// <param name="styleTag"></param>
-		/// <param name="nonNarrator"></param>
-		/// <param name="characterUnknown"></param>
 		private void FlushStringBuilderAndBlock(StringBuilder sb, string styleTag, bool nonNarrator, bool characterUnknown = false)
 		{
 			Debug.Assert(!m_ignoringNarratorQuotation,
@@ -895,9 +957,6 @@ namespace GlyssenEngine.Quote
 		/// <summary>
 		/// Add the working block to the new list and create a new working block
 		/// </summary>
-		/// <param name="styleTag"></param>
-		/// <param name="nonNarrator"></param>
-		/// <param name="characterUnknown"></param>
 		private void FlushBlock(string styleTag, bool nonNarrator, bool characterUnknown = false)
 		{
 			if (!m_workingBlock.BlockElements.Any())
@@ -993,12 +1052,15 @@ namespace GlyssenEngine.Quote
 				!m_workingBlock.BlockElements.OfType<Verse>().Any() &&
 				// Prevent combining sentences
 				!prevBlock.BlockElements.OfType<ScriptText>().Last().Content.EndsWithSentenceEndingPunctuation() &&
-				// Only combine following poetry pragraphs, etc. (i.e., prevent joining two "normal" paragraphs).
+				// Only combine following poetry paragraphs, etc. (i.e., prevent joining two "normal" paragraphs).
 				m_workingBlock.IsFollowOnParagraphStyle &&
 				// PG-1121: Since indentation (without quotes) is often used to indicate a Scripture quotation, prevent combining following
 				// poetry paragraphs with the preceding "normal" paragraph if a Scripture quote is expected in this verse.
 				(prevBlock.IsFollowOnParagraphStyle ||
-				!m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.AllVerses, m_versification).Any(cv => cv.IsScriptureQuotation)))
+				!m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.AllVerses, m_versification).Any(cv => cv.IsScriptureQuotation)) &&
+				// If we seem to be in a run of poetry blocks that can get set to be an implicit Scripture quote,
+				// we don't want to combine a trailing continuation paragraph.
+				(!m_workingBlock.IsContinuationParagraphStyle || !InRunOfPoetryBlocksThatAreProbablyScripture))
 			{
 				prevBlock.CombineWith(m_workingBlock);
 			}
