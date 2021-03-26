@@ -1678,7 +1678,7 @@ namespace GlyssenEngineTests
 			AddBlockForVerseInProgress(referenceBlocks, "magi (wise men from East)", "“Where is the one who is born King of the Jews? For we saw his star in the east, " +
 				"and have come to worship him.”");
 
-			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks, ReferenceTextType.English);
 
 			refText.ApplyTo(vernBook);
 
@@ -1698,18 +1698,24 @@ namespace GlyssenEngineTests
 		/// any verses that have breaks in the vernacular.
 		/// PG-761: Added secondary reference text to show that it needs to be split also.
 		/// </summary>
-		[Test]
-		public void ApplyTo_ReferenceTextNeedsToBeBrokenAtVerseToMatchVernacular_GoodIllustration_ReferenceTextIsBrokenCorrectly()
+		[TestCase(true)] // This is the more likely real-life scenario
+		[TestCase(false)]
+		public void ApplyTo_ReferenceTextNeedsToBeBrokenAtVerseToMatchVernacular_GoodIllustration_ReferenceTextIsBrokenCorrectly(
+			bool useAmbiguousInVern)
 		{
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(16, "diciendo: ", true, 18, "REV"));
-			AddBlockForVerseInProgress(vernacularBlocks, "merchants of the earth", "«¡Ay, ay, la gran ciudad, que estaba vestida de " +
+			AddBlockForVerseInProgress(vernacularBlocks, useAmbiguousInVern ?
+					CharacterVerseData.kAmbiguousCharacter : "merchants of the earth",
+				"«¡Ay, ay, la gran ciudad, que estaba vestida de " +
 				"lino fino, púrpura y escarlata, y adornada de oro, piedras preciosas y perlas!»");
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(17,
 				"Porque en una hora ha sido arrasada tanta riqueza. Y todos los capitanes, pasajeros y marineros, y todos los que viven " +
 				"del mar, se pararon a lo lejos, ", false, 18, "REV"));
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(18, "y al ver el humo de su incendio gritaban, diciendo: ", false, 18, "REV"));
-			AddBlockForVerseInProgress(vernacularBlocks, "merchants of the earth", "«¿Qué ciudad es semejante a la gran ciudad?»");
+			AddBlockForVerseInProgress(vernacularBlocks, useAmbiguousInVern ?
+				CharacterVerseData.kAmbiguousCharacter : "sea captains, seafarers, sailors",
+				"«¿Qué ciudad es semejante a la gran ciudad?»");
 			var vernBook = new BookScript("REV", vernacularBlocks, m_vernVersification);
 
 			var frenchReferenceBlocks = new List<Block>();
@@ -1720,7 +1726,7 @@ namespace GlyssenEngineTests
 			AddNarratorBlockForVerseInProgress(frenchReferenceBlocks, "Chaque capitaine, et tout le monde qui navigue partout, et les marins, et " +
 				"autant que gagner leur vie en mer, se tenaient loin, ", "REV")
 				.AddVerse(18, "et pleuré comme ils ont regardé la fumée de son embrasement: ");
-			AddBlockForVerseInProgress(frenchReferenceBlocks, "merchants of the earth", "«Qu'est-ce que la grande ville?»");
+			AddBlockForVerseInProgress(frenchReferenceBlocks, "sea captains, seafarers, sailors", "«Qu'est-ce que la grande ville?»");
 
 			var englishReferenceBlocks = new List<Block>();
 			englishReferenceBlocks.Add(CreateNarratorBlockForVerse(16, "saying, ", true, 18, "REV"));
@@ -1730,7 +1736,7 @@ namespace GlyssenEngineTests
 			AddNarratorBlockForVerseInProgress(englishReferenceBlocks, "Every shipmaster, and everyone who sails anywhere, and mariners, and " +
 				"as many as gain their living by sea, stood far away, ", "REV")
 				.AddVerse(18, "and cried out as they looked at the smoke of her burning, saying, ");
-			AddBlockForVerseInProgress(englishReferenceBlocks, "merchants of the earth", "“What is like the great city?”");
+			AddBlockForVerseInProgress(englishReferenceBlocks, "sea captains, seafarers, sailors", "“What is like the great city?”");
 
 			for (int i = 0; i < englishReferenceBlocks.Count; i++)
 				frenchReferenceBlocks[i].SetMatchedReferenceBlock(englishReferenceBlocks[i]);
@@ -1751,11 +1757,13 @@ namespace GlyssenEngineTests
 			Assert.IsTrue(result[1].MatchesReferenceText);
 			Assert.AreEqual(englishReferenceBlocks[1].GetText(true), result[1].ReferenceBlocks.Single().GetPrimaryReferenceText());
 
+			// REVIEW: We might not care whether this is a match (with the two blocks joined into one) or
+			// a mismatch (with them separate)
 			Assert.IsTrue(result[2].MatchesReferenceText);
-			Assert.AreEqual(frenchReferenceBlocks[2].GetText(true) + " " + frenchReferenceBlocks[3].GetText(true),
-				result[2].ReferenceBlocks.Single().GetText(true));
-			Assert.AreEqual(englishReferenceBlocks[2].GetText(true) + " " + englishReferenceBlocks[3].GetText(true),
-				result[2].ReferenceBlocks[0].ReferenceBlocks.Single().GetText(true));
+			Assert.AreEqual(Join(" ", frenchReferenceBlocks.Skip(2).Take(2).Select(b => b.GetText(true))),
+				Join(" ", result[2].ReferenceBlocks.Select(b => b.GetText(true))));
+			Assert.AreEqual(Join(" ", englishReferenceBlocks.Skip(2).Take(2).Select(b => b.GetText(true))),
+				Join(" ", result[2].ReferenceBlocks.SelectMany(b => b.ReferenceBlocks).Select(b => b.GetText(true))));
 
 			Assert.AreEqual("{18}\u00A0et pleuré comme ils ont regardé la fumée de son embrasement: ", result[3].ReferenceBlocks.Single().GetText(true));
 			Assert.IsTrue(result[3].MatchesReferenceText);
@@ -4382,6 +4390,41 @@ namespace GlyssenEngineTests
 			Assert.IsFalse(blocks[iMat21v33 + 1].ReferenceBlocks.Single().ContainsVerseNumber);
 		}
 		#endregion
+
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_VernBlockSplitAtVerseWhichIsNotSplitInRefText_RefTextSplitToMatchVern()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(7, "Dadi, pigupokatan nog glupaꞌ nog konaꞌ Hudyu. ", false, 27)
+				.AddVerse(8, "Saꞌan ituꞌ nog Piktolongan nog Duguꞌ. ")
+				.AddVerse(9, "Sog bianbian koni, mituman og inulat ni Dyerimaya nog,"));
+			AddBlockForVerseInProgress(vernacularBlocks, "scripture", "“Inalap nilan og puluꞌ buk solapiꞌ gotow Israꞌel.", "q1");
+			vernacularBlocks.Add(CreateBlockForVerse("scripture", 10, "Bu piksaluy nilan og dondagan nog Mikpongon.”", false, 27, "q1"));
+			vernacularBlocks.Add(new Block("s", 27, 10)
+			{
+				CharacterId = "extra-MAT",
+				BlockElements = new List<BlockElement> (new BlockElement[] {new ScriptText("Piksakan si Isus ni Pilatu") }),
+			});
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(11, "Dangan nilan si Isus diani Pilatu, sinakan non si Isus nog,"));
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "“Ika taꞌ og datuꞌ kituꞌ nog bansa Hudyu?” ");
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Tinumabal si Isus nog, ");
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "“Ika na og miktaluꞌ dun.” ");
+
+			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
+
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refTextBlocks = refText.GetBook("MAT").GetBlocksForVerse(27, 9).ToList();
+			Assert.AreEqual(10, refTextBlocks.Last().LastVerseNum,
+				"SETUP check - expected English reference text to have verse 10 included with the last block for MAT 27:9.");
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
+			var result = matchup.CorrelatedBlocks;
+
+			var scriptureBlocks = result.Where(b => b.CharacterId == "scripture").ToList();
+			Assert.IsTrue(scriptureBlocks.All(b => b.MatchesReferenceText &&
+				b.InitialStartVerseNumber == b.ReferenceBlocks.Single().InitialStartVerseNumber));
+			Assert.AreEqual("10", ((Verse)scriptureBlocks.Last().ReferenceBlocks.Single().BlockElements.First()).Number);
+		}
 
 		#region PG-1395 (modified for PG-1396 and PG-1403)
 		[TestCase(false)]
