@@ -522,6 +522,7 @@ namespace GlyssenEngine
 
 				var omittedHeSaids = new List<Tuple<int, string>>(2);
 				string verseFromOmittedHeSaidBlockToPrepend = null;
+				var lookForReportingClauses = reportingClauses != null && reportingClauses.Any();
 
 				for (int i = 0; i < numberOfVernBlocksInVerseChunk && i < numberOfRefBlocksInVerseChunk; i++)
 				{
@@ -578,7 +579,7 @@ namespace GlyssenEngine
 								break;
 							}
 
-							if (omittedHeSaids.Any() &&
+							if (lookForReportingClauses && omittedHeSaids.Any() &&
 								vernBlockInVerseChunk.CharacterIs(bookId, CharacterVerseData.StandardCharacter.Narrator) &&
 								BlockIsOmissibleReportingClause(refBlockInVerseChunk, out var nextModifiedOmittedHeSaidText) &&
 								TryMatchToReportingClause(bookNum, vernBlockList, indexOfVernVerseStart + i, reportingClauses, omittedHeSaids, vernacularVersification))
@@ -606,7 +607,8 @@ namespace GlyssenEngine
 
 							handled = true;
 						}
-						else if (vernBlockInVerseChunk.IsQuote &&
+						else if (lookForReportingClauses &&
+							vernBlockInVerseChunk.IsQuote &&
 							refBlockInVerseChunk.CharacterIs(bookId, CharacterVerseData.StandardCharacter.Narrator) &&
 							BlockIsOmissibleReportingClause(refBlockInVerseChunk, out var nextModifiedOmittedHeSaidText))
 						{
@@ -667,6 +669,18 @@ namespace GlyssenEngine
 					}
 					if (!handled)
 					{
+						if (lookForReportingClauses && omittedHeSaids.Any() && i == 0)
+						{
+							// We made no progress in the top-down pass. But since we found a
+							// possible he-said with no matching vernacular, this verse may have reporting
+							// clauses that have not yet been identified. Let's try to match without
+							// considering he-saids. We won't get a perfect, well-ordered match, but at
+							// least we won't have reference text lines go AWOL.
+							omittedHeSaids.Clear();
+							i--; // it's going to get re-incremented in the for loop.
+							lookForReportingClauses = false;
+							continue;
+						}
 						iVernBlock = indexOfVernVerseStart + i;
 						if (vernBlockList[iVernBlock].CharacterIs(bookId, CharacterVerseData.StandardCharacter.ExtraBiblical))
 							iVernBlock++;
@@ -806,8 +820,20 @@ namespace GlyssenEngine
 															if (subsequentRefBlock.StartsAtVerseStart)
 															{
 																var refVerse = subsequentRefBlock.BlockElements.First(e => e is Verse);
-																vernBlockList[iVernBlock].ReferenceBlocks.First().BlockElements.Insert(0, refVerse);
+																var refBlockToStartWithVerse = vernBlockList[iVernBlock].ReferenceBlocks.First();
+																refBlockToStartWithVerse.BlockElements.Insert(0, refVerse);
 																subsequentRefBlock.BlockElements.Remove(refVerse);
+																if (HasSecondaryReferenceText && refBlockToStartWithVerse.MatchesReferenceText)
+																{
+																	if (subsequentRefBlock.MatchesReferenceText)
+																	{
+																		var subsequentEnglishRefBlock = subsequentRefBlock.ReferenceBlocks[0];
+																		refVerse = subsequentEnglishRefBlock.BlockElements.First(e => e is Verse);
+																		refBlockToStartWithVerse = refBlockToStartWithVerse.ReferenceBlocks[0];
+																		refBlockToStartWithVerse.BlockElements.Insert(0, refVerse);
+																		subsequentEnglishRefBlock.BlockElements.Remove(refVerse);
+																	}
+																}
 																m_modifiedBooks.Add(bookId);
 																break;
 															}
