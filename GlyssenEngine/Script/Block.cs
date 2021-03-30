@@ -422,6 +422,11 @@ namespace GlyssenEngine.Script
 		/// that the user might actually wish to review.</remarks>
 		public bool TryMatchToReportingClause(IReadOnlyCollection<string> reportingClauses, ReferenceText referenceText, int bookNum, ScrVers vernacularVersification)
 		{
+			// ENHANCE: To better support languages that consistently use punctuation (e.g., a
+			// leading dash) to indicate a reporting clause, we could either add a new (quotation
+			// mark?) setting or guess at it (e.g., if there are two or more known reporting
+			// clauses and they all start with the same punctuation) and use that as a pattern for
+			// other probably reporting clauses.
 			if (MatchesReferenceText || reportingClauses == null ||
 				!reportingClauses.Contains(BlockElements.OfType<ScriptText>().OnlyOrDefault()?.Content.Trim()))
 			{

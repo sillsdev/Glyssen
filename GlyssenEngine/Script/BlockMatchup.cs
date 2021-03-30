@@ -185,7 +185,8 @@ namespace GlyssenEngine.Script
 
 			if (CountOfBlocksAddedBySplitting > 0)
 			{
-				m_vernacularBook.ReplaceBlocks(IndexOfStartBlockInBook, OriginalBlockCount, CorrelatedBlocks.Select(b => b.Clone()).ToList());
+				m_vernacularBook.ReplaceBlocks(IndexOfStartBlockInBook, OriginalBlockCount,
+					CorrelatedBlocks.Select(b => b.Clone()).ToList(), false);
 			}
 			int bookNum = BCVRef.BookToNumber(BookId);
 			var origBlocks = m_vernacularBook.GetScriptBlocks();
@@ -210,12 +211,9 @@ namespace GlyssenEngine.Script
 					vernBlock.UserConfirmed = true;
 				vernBlock.SplitId = CorrelatedBlocks[i].SplitId;
 			}
-			// No need to update following continuation blocks here if m_numberOfBlocksAddedBySplitting > 0 because the call to
-			// ReplaceBlocks (above) already did it.
-			if (CountOfBlocksAddedBySplitting == 0)
-				m_vernacularBook.UpdateFollowingContinuationBlocks(IndexOfStartBlockInBook + OriginalBlockCount - 1);
-			else
-				CountOfBlocksAddedBySplitting = 0;
+
+			m_vernacularBook.UpdateFollowingContinuationBlocks(IndexOfStartBlockInBook + OriginalBlockCount + CountOfBlocksAddedBySplitting - 1);
+			CountOfBlocksAddedBySplitting = 0;
 
 			for (int i = IndexOfStartBlockInBook; i < IndexOfStartBlockInBook + CorrelatedBlocks.Count; i++)
 			{

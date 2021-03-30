@@ -1002,7 +1002,43 @@ namespace GlyssenEngine.Script
 			}
 		}
 
+		/// <summary>
+		/// Replaces the specified blocks in this book script's list of blocks with the
+		/// supplied replacement blocks and updates the MultiBlockQuote property of any
+		/// following block(s) to correct the multi-block chain and ensure it is left in
+		/// a consistent state.
+		/// </summary>
+		/// <param name="iStartBlock">Index of the first block to replace in this book script's list
+		/// of blocks</param>
+		/// <param name="count">Number of blocks to replace</param>
+		/// <param name="replacementBlocks">Blocks that will be inserted. This method does not
+		/// clone the blocks; if that is required, caller is responsible for doing it.</param>
+		/// <remarks>This public version is used in unit tests.</remarks>
 		public void ReplaceBlocks(int iStartBlock, int count, IReadOnlyCollection<Block> replacementBlocks)
+		{
+			ReplaceBlocks(iStartBlock, count, replacementBlocks, true);
+		}
+
+		/// <summary>
+		/// Replaces the specified blocks in this book script's list of blocks with the
+		/// supplied replacement blocks.
+		/// </summary>
+		/// <param name="iStartBlock">Index of the first block to replace in this book script's list
+		/// of blocks</param>
+		/// <param name="count">Number of blocks to replace</param>
+		/// <param name="replacementBlocks">Blocks that will be inserted. This method does not
+		/// clone the blocks; if that is required, caller is responsible for doing it.</param>
+		/// <param name="updateFollowingBlocks">Flag indicating whether this method should also
+		/// call UpdateFollowingContinuationBlocks to look at any following block(s) and correct
+		/// the multi-block chain to ensure it is left in a consistent state. Although this is
+		/// logically required as part of this operation, the caller can take responsibility for
+		/// it.</param>
+		/// <remarks>This is internal to avoid an unnecessary and potentially bad situation
+		/// where an external caller might not make the needed call to
+		/// UpdateFollowingContinuationBlocks. It turns out that this is the version needed in
+		/// production code.</remarks>
+		internal void ReplaceBlocks(int iStartBlock, int count, IReadOnlyCollection<Block> replacementBlocks,
+			bool updateFollowingBlocks)
 		{
 			m_blocks.RemoveRange(iStartBlock, count);
 			m_blocks.InsertRange(iStartBlock, replacementBlocks);
@@ -1012,8 +1048,12 @@ namespace GlyssenEngine.Script
 				m_blocks[iStartBlock - 1].MultiBlockQuote = MultiBlockQuote.None;
 			}
 
-			var iLastInserted = iStartBlock + replacementBlocks.Count - 1;
-			UpdateFollowingContinuationBlocks(iLastInserted);
+			if (updateFollowingBlocks)
+			{
+				var iLastInserted = iStartBlock + replacementBlocks.Count - 1;
+				UpdateFollowingContinuationBlocks(iLastInserted);
+			}
+
 			OnBlocksInserted(iStartBlock, replacementBlocks.Count - count);
 		}
 
@@ -1032,6 +1072,7 @@ namespace GlyssenEngine.Script
 			if (m_blocks.Count > iNextBlock && m_blocks[iNextBlock].IsContinuationOfPreviousBlockQuote)
 			{
 				var baseBlock = m_blocks[iBlock];
+
 				if (baseBlock.MultiBlockQuote == MultiBlockQuote.None)
 				{
 					if (m_blocks.Count > iNextBlock + 1 && m_blocks[iNextBlock + 1].IsContinuationOfPreviousBlockQuote)
