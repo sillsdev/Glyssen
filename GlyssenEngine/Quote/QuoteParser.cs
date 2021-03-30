@@ -170,6 +170,9 @@ namespace GlyssenEngine.Quote
 
 		private static string BuildQuoteMatcherRegex(IList<string> splitters)
 		{
+			if (splitters.All(String.IsNullOrEmpty))
+				return @"\b\B"; // Guaranteed to match nothing!
+
 			var sbQuoteMatcher = new StringBuilder();
 
 			foreach (var qm in splitters.Where(s => !string.IsNullOrEmpty(s)).Distinct())
