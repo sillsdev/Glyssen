@@ -503,11 +503,20 @@ namespace GlyssenEngine
 						continue;
 					}
 
-					// Since there's only one vernacular block for this verse (or verse bridge), just combine all
-					// ref blocks into one and call it a match unless the start verses don't match (in which case
-					// we're probably dealing with a mapping that involved a verse split).
+					// Since there's only one vernacular block for this verse (or verse bridge),
+					// just combine all ref blocks into one and call it a match unless:
+					// 1) the start verses don't match (in which case we're probably dealing with
+					// a mapping that involved a verse split).
+					// 2) The end refs don't match and the ref block has a character speaking in
+					// that is unexpected for the end ref (in which case the reference text
+					// probably has a mistake and should be looked at).
 					var correspondingReferenceBlocks = refBlockList.Skip(indexOfRefVerseStart).Take(numberOfRefBlocksInVerseChunk).ToList();
-					if (correspondingReferenceBlocks.First().StartRef(bookNum, Versification).CompareTo(vernInitStartVerse) == 0)
+					var lastRefBlock = correspondingReferenceBlocks.Last();
+					var endRef = lastRefBlock.EndRef(bookNum, Versification);
+					if (correspondingReferenceBlocks.First().StartRef(bookNum, Versification).CompareTo(vernInitStartVerse) == 0 &&
+						(endRef.CompareTo(lastVernVerseFound) == 0 ||
+						!lastRefBlock.IsQuote ||
+						ControlCharacterVerseData.Singleton.GetCharacters(bookNum, endRef.ChapterNum, endRef.VerseNum).Any(cv => cv.Character ==  lastRefBlock.CharacterId)))
 					{
 						currentVernBlock.SetMatchedReferenceBlock(bookNum, vernacularVersification, this,
 							correspondingReferenceBlocks);
