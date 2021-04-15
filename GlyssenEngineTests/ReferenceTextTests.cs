@@ -5149,6 +5149,69 @@ namespace GlyssenEngineTests
 		}
 		#endregion
 
+		#region PG-1458
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_ErrantRefTextBlockMatchesBlockForPrecedingVerseWithUnexpecteSpeaker_TreatedAsMismatch()
+		{
+			// This is a test for a scenario where a reference text (not English) has a block whose speaker is
+			// expected to speak in a preceding verse but (according to the CV file) NOT for the following verse.
+			// This is actually an error in the reference text but because Glyssen has no control over custom
+			// reference texts, the logic in ReferenceText cannot assume that the reference text will be correct.
+			// Unfortunately, there is a slight discrepancy in the logic when matching up "BlockMatchup" objects
+			// for ISP vs. hooking up everything for export. So we need to ensure that in this scenario the
+			// link to the reference block is not actually considered a "match" so the scripter will have a chance
+			// to look at it and figure out what to do.
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(29, "De o ngo Maria duru mataoko itiai ma malaekata ai gea. ", book:"LUK")
+				.AddVerse(30, "Masara o Gabiriele wotemoli munangika wato, "));
+			AddBlockForVerseInProgress(vernacularBlocks, "Gabriel", "“Maria, ngaro ufa nohawana ngonaika hiadono ngona. ")
+				.AddVerse(31, "Abeika ahi demo tonihingahu ngonaika! Abe ani ngofaka o nauru de Una nihiromanga o Yesusu. ")
+				.AddVerse("32-33", "De ani ngofaka gea Una ai Ngofaka. De nanga Baluhu Ma Jou wihidadi nia koano" +
+					"Una ai tofora o Dautu o Isiraele ma nyawa. Ho gea wodadi ti ngini o Yakubu. De ka Unangohi kuahaka!”");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(34, "De o ngo Maria mopaluhu o malaekatika mato, ", book: "LUK"));
+			AddBlockForVerseInProgress(vernacularBlocks, "Mary, Jesus' mother", "“Masara ngohi ko ma moiuahi tamake o ngofaka gea?” ");
+
+			var vernBook = new BookScript("LUK", vernacularBlocks, m_vernVersification);
+
+			var referenceBlocks = new List<Block>();
+			var refBlock = CreateNarratorBlockForVerse(29, "Maria terkejut mendengar perkataan itu, apakah arti salam itu.", book:"LUK")
+				.AddVerse(30, "Kata malaikat itu kepadanya:");
+			referenceBlocks.Add(refBlock);
+			refBlock.SetMatchedReferenceBlock(CreateNarratorBlockForVerse(29, "But she was troubled, wondering what kind of greeting this was.", book:"LUK")
+				.AddVerse(30, "The angel said to her,"));
+			refBlock = AddBlockForVerseInProgress(referenceBlocks, "Gabriel", "«Jangan takut, sebab engkau di hadapan Allah.");
+			refBlock.SetMatchedReferenceBlock("«Don’t be afraid, Mary, for you have found favor with God.");
+			refBlock = CreateBlockForVerse("Gabriel", 31, "Sesungguhnya engkau akan mengandung dan hendaklah engkau menamai Dia Yesus.");
+			referenceBlocks.Add(refBlock);
+			refBlock.SetMatchedReferenceBlock(CreateBlockForVerse("Gabriel", 31, "You will have a son. Name him ‹Jesus.›"));
+			refBlock = CreateBlockForVerse("Gabriel", 32, "Ia akan menjadi Anak Allah Yang Mahatinggi. Dan Tuhan Allah akan takhta Daud, leluhur-Nya.");
+			referenceBlocks.Add(refBlock);
+			refBlock.SetMatchedReferenceBlock(CreateBlockForVerse("Gabriel", 32, "He will be the Son of God and will reign in place of David."));
+			refBlock = CreateBlockForVerse("Gabriel", 33, "La akan menjadi raja atas kaum Kerajaan-Nya tidak akan berkesudahan.")
+				.AddVerse(34, "Bagaimana hal itu mungkin terjadi,» "); // Note: this is the part that is incorrect. This should be Mary.
+			referenceBlocks.Add(refBlock);
+			refBlock.SetMatchedReferenceBlock(CreateBlockForVerse("Gabriel", 33, "He will rule Jacob forever with no end to his Kingdom.» "));
+			refBlock = AddNarratorBlockForVerseInProgress(referenceBlocks, "Kata Maria kepada malaikat itu:", "LUK");
+			refBlock.SetMatchedReferenceBlock(CreateNarratorBlockForVerse(34, "Mary said to the angel,", book:"LUK"));
+			refBlock = AddBlockForVerseInProgress(referenceBlocks, "Mary, Jesus' mother", "«karena aku belum bersuami?» ");
+			refBlock.SetMatchedReferenceBlock("«How can this be, since I am a virgin?»");
+
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks, ReferenceTextType.Custom);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
+			var result = matchup.CorrelatedBlocks;
+
+			Assert.AreEqual(6, result.Count);
+			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.IsTrue(result[1].MatchesReferenceText);
+			Assert.IsTrue(result[2].MatchesReferenceText);
+			Assert.IsFalse(result[3].MatchesReferenceText);
+			Assert.IsTrue(result[4].MatchesReferenceText);
+			Assert.IsTrue(result[5].MatchesReferenceText);
+			Assert.IsTrue(result.All(b => b.ReferenceBlocks.All(ind => ind.MatchesReferenceText)));
+		}
+		#endregion
+
 		#region private helper methods
 		private Block NewChapterBlock(string bookId, int chapterNum, string text = null)
 		{
