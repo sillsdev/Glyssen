@@ -5212,6 +5212,44 @@ namespace GlyssenEngineTests
 		}
 		#endregion
 
+		#region PG-1459
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_ErrantRefTextBlockWithMisspelledSpeaker_TextIsNotLost()
+		{
+			// This is a test for a scenario where a reference text (not English) has a biblical character
+			// name spelled differently from the control file. This is actually an error in the reference
+			// text but because Glyssen has no control over custom reference texts, this kind of error
+			// should not result in lost text.
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(8, "Zach stands and declares: ", false, 19, "LUK"));
+			AddBlockForVerseInProgress(vernacularBlocks, "Zacchaeus", "“Lord Jesus, I am done with my life of crime!”");
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "he said.");
+
+			var vernBook = new BookScript("LUK", vernacularBlocks, m_vernVersification);
+
+			var referenceBlocks = new List<Block>();
+			var refBlock = CreateNarratorBlockForVerse(8,
+				"Tetapi Zakheus berdiri dan berkata kepada Tuhan:", true, 19, "LUK");
+			referenceBlocks.Add(refBlock);
+			refBlock.SetMatchedReferenceBlock(CreateNarratorBlockForVerse(29,
+					"Zacchaeus stood and said to the Lord,", true, 19, "LUK"));
+			refBlock = AddBlockForVerseInProgress(referenceBlocks, "Zachary",
+				"“Tuhan, setengah dari seseorang akan empat kali lipat.”");
+			refBlock.SetMatchedReferenceBlock("“Lord, I give half to the poor. I will repay stolen stuff fourfold.”");
+
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks, ReferenceTextType.Custom);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
+			var result = matchup.CorrelatedBlocks;
+
+			Assert.AreEqual(3, result.Count);
+			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.IsTrue(!result[1].MatchesReferenceText || !result[2].MatchesReferenceText);
+			Assert.AreEqual(referenceBlocks.Last().GetText(true), result.Skip(1).SelectMany(s => s.ReferenceBlocks).Single().GetText(true));
+			Assert.IsTrue(result.All(b => b.ReferenceBlocks.All(ind => ind.MatchesReferenceText)));
+		}
+		#endregion
+
 		#region private helper methods
 		private Block NewChapterBlock(string bookId, int chapterNum, string text = null)
 		{
