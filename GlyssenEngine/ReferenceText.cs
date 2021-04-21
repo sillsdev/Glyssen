@@ -1077,6 +1077,7 @@ namespace GlyssenEngine
 						vernEndRef.VerseNum == refBlock.LastVerseNum)
 					{
 						int vernSplitVerse = 0;
+						var didSplit = false;
 						// For each vern block that starts with a verse num, break the ref block at that
 						// same verse num (after converting versification)
 						for (var i = 0; i < vernBlocks.Count; i++)
@@ -1105,6 +1106,7 @@ namespace GlyssenEngine
 								Debug.Assert(newBlock.StartsAtVerseStart && newBlock.InitialStartVerseNumber == vernStartVerse);
 								vernBlocks[i - 1].SetMatchedReferenceBlock(refBlockList[iRefBlock]);
 								vernBlock.SetMatchedReferenceBlock(newBlock);
+								didSplit = true;
 							}
 							else
 							{
@@ -1112,7 +1114,7 @@ namespace GlyssenEngine
 							}
 						}
 
-						return true;
+						return didSplit;
 					}
 				}
 			}
