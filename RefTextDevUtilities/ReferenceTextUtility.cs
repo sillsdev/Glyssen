@@ -577,9 +577,13 @@ namespace Glyssen.RefTextDevUtilities
 						{
 							existingRefBlockForLanguage = existingEnglishRefBlock;
 						}
+						else if (existingRefBlocksForLanguage == null)
+						{
+							existingRefBlockForLanguage = null;
+						}
 						else
 						{
-							if (existingRefBlocksForLanguage?.Count <= iBlockInExistingRefBookForLanguage)
+							if (existingRefBlocksForLanguage.Count <= iBlockInExistingRefBookForLanguage)
 							{
 								if (mode == Mode.FindDifferencesBetweenCurrentVersionAndNewText)
 								{
@@ -942,8 +946,14 @@ namespace Glyssen.RefTextDevUtilities
 					do
 					{
 						WriteOutput($"   Skipping past existing ref text block: {existingRefBlock}");
+						if (blocks.Count <= iBlock)
+						{
+							existingRefBlock = null;
+							WriteOutput("   Could not find a block to align to.", true);
+							return;
+						}
 						existingRefBlock = blocks[iBlock++];
-					} while (existingRefBlock.InitialStartVerseNumber < currVerse ||
+					} while ((existingRefBlock.InitialStartVerseNumber < currVerse && existingRefBlock.ChapterNumber <= currChapter) ||
 						CharacterVerseData.IsCharacterExtraBiblical(existingRefBlock.CharacterId));
 				}
 
