@@ -160,8 +160,7 @@ namespace Glyssen.ReferenceTextUtility
 			{
 				foreach (var newRefTextRow in m_dataGridRefTexts.Rows.OfType<DataGridViewRow>().Where(r => s_createActions.Contains((string)r.Cells[colAction.Index].Value)))
 				{
-					var updateVersionOnly = newRefTextRow.Cells[colHeSaidText.Index].ReadOnly ||
-						!newRefTextRow.Cells[colIsoCode.Index].ReadOnly;
+					var updateVersionOnly = false;
 					var updated = false;
 					// Generate a new metadata file with the above info
 					var languageName = (string)newRefTextRow.Cells[colName.Index].Value;
@@ -171,6 +170,8 @@ namespace Glyssen.ReferenceTextUtility
 					if (File.Exists(projectPath))
 					{
 						metadata = XmlSerializationHelper.DeserializeFromFile<GlyssenDblTextMetadata>(projectPath);
+						updateVersionOnly = newRefTextRow.Cells[colHeSaidText.Index].ReadOnly &&
+							newRefTextRow.Cells[colIsoCode.Index].ReadOnly;
 						if (!updateVersionOnly)
 						{
 							if (metadata.Language == null)
@@ -182,15 +183,20 @@ namespace Glyssen.ReferenceTextUtility
 					{
 						updated = true;
 						metadata = XmlSerializationHelper.DeserializeFromString<GlyssenDblTextMetadata>(Resources.refTextMetadata);
-						if (!updateVersionOnly)
-						{
+						if (metadata.Language == null)
 							metadata.Language = new GlyssenDblMetadataLanguage();
+
+						if (metadata.AvailableBooks == null)
 							metadata.AvailableBooks = new List<Book>();
-							ProjectRepository.ForEachBookFileInProject(folder,
-								(bookId, fileName) => metadata.AvailableBooks.Add(new Book {Code = bookId, IncludeInScript = true}));
-						}
+
+						ProjectRepository.ForEachBookFileInProject(folder,
+							(bookId, fileName) =>
+							{
+								if (!metadata.AvailableBooks.Any(b => b.Code == bookId))
+									metadata.AvailableBooks.Add(new Book {Code = bookId, IncludeInScript = true});
+							});
 					}
-					if (!updateVersionOnly)
+					if (!updateVersionOnly || metadata.Language.Name == null)
 						updated |= SetLanguageInfo(metadata.Language, newRefTextRow, languageName);
 					if (m_numericUpDownOT.Enabled)
 						updated |= UpdateDirectorGuideVersion(metadata, FcbhTestament.OT, m_numericUpDownOT.Value);
@@ -254,7 +260,10 @@ namespace Glyssen.ReferenceTextUtility
 				testament = metadata.Identification.SystemIds.FirstOrDefault(id => id.Type == idTestament);
 
 			if (testament == null)
+			{
 				testament = new DblMetadataSystemId {Type = idTestament};
+				metadata.Identification.SystemIds.Add(testament);
+			}
 
 			var newVersion = value.ToString();
 			if (testament.Id != newVersion)

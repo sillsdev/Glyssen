@@ -577,9 +577,13 @@ namespace Glyssen.RefTextDevUtilities
 						{
 							existingRefBlockForLanguage = existingEnglishRefBlock;
 						}
+						else if (existingRefBlocksForLanguage == null)
+						{
+							existingRefBlockForLanguage = null;
+						}
 						else
 						{
-							if (existingRefBlocksForLanguage?.Count <= iBlockInExistingRefBookForLanguage)
+							if (existingRefBlocksForLanguage.Count <= iBlockInExistingRefBookForLanguage)
 							{
 								if (mode == Mode.FindDifferencesBetweenCurrentVersionAndNewText)
 								{
