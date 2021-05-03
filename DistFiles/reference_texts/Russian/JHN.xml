@@ -500,7 +500,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="42" characterId="Jesus">
       <text>«You are Simon the son of Jonah. You shall be called Cephas.»</text>
     </ReferenceBlocks>
-    <text>ты—Симон, сын Ионин; ты наречешься Кифа,»</text>
+    <text>«ты—Симон, сын Ионин; ты наречешься Кифа,»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="42" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="42" characterId="narrator-JHN">
