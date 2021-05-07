@@ -2756,7 +2756,6 @@ namespace GlyssenEngineTests
 			}
 			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, kPoetian));
 
-			ReflectionHelper.SetField(primaryReferenceText, "m_vers", ScrVers.English);
 			var books = (List<BookScript>)primaryReferenceText.Books;
 			var refBook = new BookScript(testProject.Books[0].BookId, referenceBlocks, primaryReferenceText.Versification);
 			books.Add(refBook);
@@ -5216,9 +5215,8 @@ namespace GlyssenEngineTests
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_ErrantRefTextBlockWithMisspelledSpeaker_TextIsNotLost()
 		{
-			// This is a test for a scenario where a reference text (not English) has a biblical character
-			// name spelled differently from the control file. This is actually an error in the reference
-			// text but because Glyssen has no control over custom reference texts, this kind of error
+			// This is a test for a scenario where a reference text (not English) has an outdated biblical character
+			// no longer in the control file. Because Glyssen has no control over custom reference texts, this
 			// should not result in lost text.
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(8, "Zach stands and declares: ", false, 19, "LUK"));
@@ -5247,6 +5245,43 @@ namespace GlyssenEngineTests
 			Assert.IsTrue(!result[1].MatchesReferenceText || !result[2].MatchesReferenceText);
 			Assert.AreEqual(referenceBlocks.Last().GetText(true), result.Skip(1).SelectMany(s => s.ReferenceBlocks).Single().GetText(true));
 			Assert.IsTrue(result.All(b => b.ReferenceBlocks.All(ind => ind.MatchesReferenceText)));
+		}
+
+		[TestCase()]
+		[TestCase("—jai.")]
+		[TestCase("—jai fariseowi.", "—jai.", "—jaibeje.")]
+		[TestCase("—jai fariseowi.", "—jaibeje.")]
+		public void GetBlocksForVerseMatchedToReferenceText_ErrantRefTextBlockWithMisspelledSpeaker_TextIsNotLost(params string[] knownHeSaids)
+		{
+			// This is a test for a scenario where a reference text (not English) has an outdated biblical character
+			// different from the control file. This is actually an error in the reference
+			// text but because Glyssen has no control over custom reference texts, this kind of error
+			// should not result in lost text.
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(5, "Itsamatacabi, Jesús pija-apóstolewi jumaitsi Jesús-jawabelia:", false, 17, "LUK"));
+			AddBlockForVerseInProgress(vernacularBlocks, "disciples", "—¡Patajatuxanenë, paneyawenonare patajamatabëcuenewitsabinexa pata-itaxutuajamatejemajawa Diosojawabelia! ");
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "—jai.");
+
+			var vernBook = new BookScript("LUK", vernacularBlocks, m_vernVersification);
+
+			var referenceBlocks = new List<Block>();
+			var refBlock = CreateNarratorBlockForVerse(5,
+				"Los apóstoles le pidieron al Señor:", true, 17, "LUK");
+			referenceBlocks.Add(refBlock);
+			refBlock.SetMatchedReferenceBlock(CreateNarratorBlockForVerse(5,
+				"The apostles said to the Lord,", true, 17, "LUK"));
+			refBlock = AddBlockForVerseInProgress(referenceBlocks, "apostles",
+				"“Aumente nuestro fe.”");
+			refBlock.SetMatchedReferenceBlock("“Increase our faith.”");
+
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, knownHeSaids);
+			var result = matchup.CorrelatedBlocks;
+
+			Assert.AreEqual(3, result.Count);
+			var attachedRefTexts = result.SelectMany(r => r.ReferenceBlocks).Select(b => b.GetText(false)).ToList();
+			Assert.That(referenceBlocks.Select(b => b.GetText(false)).All(t => attachedRefTexts.Contains(t)));
 		}
 		#endregion
 

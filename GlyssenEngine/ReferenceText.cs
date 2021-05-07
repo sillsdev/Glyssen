@@ -767,11 +767,14 @@ namespace GlyssenEngine
 										omittedHeSaids.RemoveAt(iLastOmittedHeSaid);
 									}
 									else
+									{
+										j -= numberOfUnexpectedReportingClausesMatched;
 										break;
+									}
 								}
 							}
 						}
-						var numberOfUnmatchedRefBlocks = numberOfRefBlocksInVerseChunk - i - j;
+						var numberOfUnmatchedRefBlocks = numberOfRefBlocksInVerseChunk - i - j /* + numberOfUnexpectedReportingClausesMatched */;
 						var remainingRefBlocks = refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfUnmatchedRefBlocks).ToList();
 						if (numberOfVernBlocksInVerseChunk == 1 && numberOfUnmatchedRefBlocks > 1)
 						{
