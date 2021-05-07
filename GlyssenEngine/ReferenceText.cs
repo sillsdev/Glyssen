@@ -767,7 +767,10 @@ namespace GlyssenEngine
 										omittedHeSaids.RemoveAt(iLastOmittedHeSaid);
 									}
 									else
+									{
+										j -= numberOfUnexpectedReportingClausesMatched;
 										break;
+									}
 								}
 							}
 						}
