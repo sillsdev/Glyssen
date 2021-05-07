@@ -774,7 +774,7 @@ namespace GlyssenEngine
 								}
 							}
 						}
-						var numberOfUnmatchedRefBlocks = numberOfRefBlocksInVerseChunk - i - j /* + numberOfUnexpectedReportingClausesMatched */;
+						var numberOfUnmatchedRefBlocks = numberOfRefBlocksInVerseChunk - i - j;
 						var remainingRefBlocks = refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfUnmatchedRefBlocks).ToList();
 						if (numberOfVernBlocksInVerseChunk == 1 && numberOfUnmatchedRefBlocks > 1)
 						{

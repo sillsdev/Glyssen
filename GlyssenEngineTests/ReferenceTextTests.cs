@@ -5251,12 +5251,15 @@ namespace GlyssenEngineTests
 		[TestCase("—jai.")]
 		[TestCase("—jai fariseowi.", "—jai.", "—jaibeje.")]
 		[TestCase("—jai fariseowi.", "—jaibeje.")]
-		public void GetBlocksForVerseMatchedToReferenceText_ErrantRefTextBlockWithMisspelledSpeaker_TextIsNotLost(params string[] knownHeSaids)
+		public void GetBlocksForVerseMatchedToReferenceText_KnownTrailingHeSaidAfterMiddleMismatchedBlock_TextOfRefTextIsNotLost(params string[] knownHeSaids)
 		{
-			// This is a test for a scenario where a reference text (not English) has an outdated biblical character
-			// different from the control file. This is actually an error in the reference
-			// text but because Glyssen has no control over custom reference texts, this kind of error
-			// should not result in lost text.
+			// This test was written for a scenario where a reference text (not English) has an
+			// outdated biblical character ID (different from the control file). This was actually
+			// an error in the reference text but because Glyssen has no control over custom
+			// reference texts, this kind of error should not result in lost text. For this
+			// scenario, two of the four test cases failed.
+			// However, also note that the fix for this also fixed several other real-life
+			// scenarios that were not caused by problems in the reference text.
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(5, "Itsamatacabi, Jesús pija-apóstolewi jumaitsi Jesús-jawabelia:", false, 17, "LUK"));
 			AddBlockForVerseInProgress(vernacularBlocks, "disciples", "—¡Patajatuxanenë, paneyawenonare patajamatabëcuenewitsabinexa pata-itaxutuajamatejemajawa Diosojawabelia! ");
