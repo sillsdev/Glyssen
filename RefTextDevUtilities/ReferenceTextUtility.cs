@@ -603,10 +603,12 @@ namespace Glyssen.RefTextDevUtilities
 							// get back in sync.
 							if (mode == Mode.FindDifferencesBetweenCurrentVersionAndNewText || (mode == Mode.Generate && !languageInfo.IsEnglish))
 							{
-								Debug.Assert(existingRefBlockForLanguage != null);
-								EnsureAlignmentToExistingReferenceText(currBookId, currChapter, currVerse,
-									ref existingRefBlockForLanguage, existingRefBlocksForLanguage,
-									languageInfo.Name, ref iBlockInExistingRefBookForLanguage);
+								if (existingRefBlockForLanguage != null)
+								{
+									EnsureAlignmentToExistingReferenceText(currBookId, currChapter, currVerse,
+										ref existingRefBlockForLanguage, existingRefBlocksForLanguage,
+										languageInfo.Name, ref iBlockInExistingRefBookForLanguage);
+								}
 							}
 						}
 
