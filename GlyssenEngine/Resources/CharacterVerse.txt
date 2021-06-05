@@ -19122,6 +19122,8 @@ ACT	5	8	Peter (Simon)			Dialogue
 ACT	5	8	Sapphira, wife of Ananias of Jerusalem			Dialogue		
 ACT	5	9	Peter (Simon)			Dialogue		
 ACT	5	20	angel	commanding	angel of the Lord	Normal		
+ACT	5	22	Needs Review			Potential		
+ACT	5	22	officers	perplexed		Rare		
 ACT	5	23	officers	perplexed		Normal		
 ACT	5	24	Ananias (Annas), the high priest (father-in-law of Caiaphas)/captain of the temple guard/chief priests			Indirect		
 ACT	5	25	person who told the guards and priests where the apostles were	excited		Normal		
