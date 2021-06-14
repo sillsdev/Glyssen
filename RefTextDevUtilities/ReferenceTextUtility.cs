@@ -61,7 +61,7 @@ namespace Glyssen.RefTextDevUtilities
 		//private static readonly Regex s_singleCloseQuote = new Regex("(>|›)", RegexOptions.Compiled);
 		//private static readonly Regex s_closeDoubleChevrons = new Regex("»", RegexOptions.Compiled);
 		//private static readonly Regex s_openDoubleChevrons = new Regex("«", RegexOptions.Compiled);
-		private static readonly Regex s_FcbhNarrator = new Regex("Narr_\\d+: ", RegexOptions.Compiled);
+		private static readonly Regex s_FcbhNarrator = new Regex("Narr_\\d+(: )|(_)", RegexOptions.Compiled);
 		private static readonly Regex s_regexDupName = new Regex(@"(([1-3] )?[^\s\n\r]+)[\s\n\r]+\1[\s\n\r]+(?<chapterLabel>[^\s\n\r]*)", RegexOptions.Compiled);
 
 		private static Regex s_regexStartQuoteMarks;
@@ -618,7 +618,8 @@ namespace Glyssen.RefTextDevUtilities
 						}
 
 						var existingCharacterId = (existingRefBlockForLanguage ?? existingEnglishRefBlock)?.CharacterId;
-						var characterIdBasedOnExcelEntry = GetCharacterIdFromFCBHCharacterLabel(referenceTextRow.CharacterId, currBookId, existingEnglishRefBlock, referenceTextRow.Verse);
+						var referenceBlock = existingEnglishRefBlock ?? new Block("?", currChapter, Int32.Parse(referenceTextRow.Verse));
+						var characterIdBasedOnExcelEntry = GetCharacterIdFromFCBHCharacterLabel(referenceTextRow.CharacterId, currBookId, referenceBlock, referenceTextRow.Verse);
 						if (mode != Mode.GenerateEnglish)
 						{
 							if (characterIdBasedOnExcelEntry == CharacterVerseData.kAmbiguousCharacter ||
@@ -653,6 +654,14 @@ namespace Glyssen.RefTextDevUtilities
 								blockToAdd.CharacterId = languageInfo.IsEnglish ? characterIdBasedOnExcelEntry : existingEnglishRefBlock.CharacterId;
 								if (!languageInfo.IsEnglish)
 									blockToAdd.Delivery = existingEnglishRefBlock.Delivery;
+								else if (blockToAdd.CharacterIs(currBookId, CharacterVerseData.StandardCharacter.Narrator))
+									blockToAdd.Delivery = null;
+								else if (blockToAdd.Delivery != null)
+								{
+									WriteOutput("Delivery being preserved even though character ID is changing from" +
+										$" {existingRefBlockForLanguage.CharacterId} to {blockToAdd.CharacterId} in :" +
+										blockToAdd.GetReferenceString(currBookId));
+								}
 							}
 							newBlocks.Add(blockToAdd);
 							foreach (var split in s_verseNumberMarkupRegex.Split(modifiedText)
@@ -666,7 +675,7 @@ namespace Glyssen.RefTextDevUtilities
 											AttemptParseOfControlFileAnnotation(mode, s, languageInfo, currBookId, referenceTextRow, existingEnglishRefBlock, annotationsToOutput);
 									}
 									else if (string.IsNullOrWhiteSpace(s.TrimStart()))
-										WriteOutput("No text found between annotations:" + referenceTextRow, true);
+										WriteOutput("No text found between annotations: " + referenceTextRow, true);
 								}
 							}
 
@@ -999,7 +1008,8 @@ namespace Glyssen.RefTextDevUtilities
 			{
 				currentTitleAndChapterLabelInfo.ChapterTwoInfoFromXls = referenceTextRow.GetText(language);
 				var chapterLabelForCurrentBook = currentTitleAndChapterLabelInfo.ChapterTwoInfoFromXls.TrimEnd(' ', '2').TrimStart();
-				if (justTheWordForChapter == null && chapterLabelForPrevBook != null && !isFirstBookInTestament)
+				if (justTheWordForChapter == null && chapterLabelForPrevBook != null && !isFirstBookInTestament &&
+					!char.IsDigit(chapterLabelForPrevBook[0]) && !char.IsDigit(chapterLabelForCurrentBook[0]))
 				{
 					// We're going to try to find just the word for chapter in case we later hit a single-chapter book that doesn't have it.
 					int iStartOfWord = chapterLabelForPrevBook.Length;

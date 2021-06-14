@@ -28,11 +28,11 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="6" characterId="narrator-PRO">
     <verse num="6" />
-    <text>to understand a proverb, and parables, the words and riddles of the wise.</text>
+    <text>to understand a proverb and parables, the words and riddles of the wise.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="7" characterId="narrator-PRO">
     <verse num="7" />
-    <text>The fear of God is the beginning of knowledge; but the foolish despise wisdom and instruction.</text>
+    <text>The fear of Yahweh is the beginning of knowledge; but the foolish despise wisdom and instruction.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="8" characterId="narrator-PRO">
     <verse num="8" />
@@ -44,7 +44,9 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="10" characterId="narrator-PRO">
     <verse num="10" />
-    <text>My son, if sinners entice you, don’t consent. </text>
+    <text>My son, if sinners entice you, don’t consent.</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="11" characterId="narrator-PRO">
     <verse num="11" />
     <text>If they say,</text>
   </block>
@@ -57,7 +59,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="13" characterId="sinners">
     <verse num="13" />
-    <text>We’ll find all valuable wealth. We’ll fill our houses with spoil.</text>
+    <text>We’ll find all valuable wealth. We’ll fill our houses with plunder.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="14" characterId="sinners">
     <verse num="14" />
@@ -65,15 +67,19 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="15" characterId="narrator-PRO">
     <verse num="15" />
-    <text>My son, don’t walk in the way with them. Keep your foot from their path, </text>
+    <text>My son, don’t walk on the path with them. Keep your foot from their path,</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="16" characterId="narrator-PRO">
     <verse num="16" />
     <text>for their feet run to evil. They hurry to shed blood.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="17" characterId="narrator-PRO">
     <verse num="17" />
-    <text>For in vain is the net spread in the sight of any bird: </text>
+    <text>For the net is spread in vain in the sight of any bird;</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="18" characterId="narrator-PRO">
     <verse num="18" />
-    <text>but these lay wait for their own blood. They lurk secretly for their own lives.</text>
+    <text>but these lay in wait for their own blood. They lurk secretly for their own lives.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="19" characterId="narrator-PRO">
     <verse num="19" />
@@ -89,7 +95,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="22" characterId="Wisdom">
     <verse num="22" />
-    <text>How long, you simple ones, will you love simplicity? How long will mockers delight themselves in mockery, and fools hate knowledge?</text>
+    <text>«How long, you simple ones, will you love simplicity? How long will mockers delight themselves in mockery, and fools hate knowledge?</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="23" characterId="Wisdom">
     <verse num="23" />
@@ -117,7 +123,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="29" characterId="Wisdom">
     <verse num="29" />
-    <text>because they hated knowledge, and didn’t choose the fear of God.</text>
+    <text>because they hated knowledge, and didn’t choose the fear of Yahweh.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="30" characterId="Wisdom">
     <verse num="30" />
@@ -133,7 +139,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="33" characterId="Wisdom">
     <verse num="33" />
-    <text>But whoever listens to me will dwell securely, and will be at ease, without fear of harm.</text>
+    <text>But whoever listens to me will dwell securely, and will be at ease, without fear of harm.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="PRO" initialStartVerse="0" characterId="BC-PRO">
     <text>2</text>
@@ -156,11 +162,11 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="5" characterId="narrator-PRO">
     <verse num="5" />
-    <text>then you will understand the fear of God, and find the knowledge of God.</text>
+    <text>then you will understand the fear of Yahweh, and find the knowledge of God.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-PRO">
     <verse num="6" />
-    <text>For God gives wisdom. Out of his mouth comes knowledge and understanding.</text>
+    <text>For Yahweh gives wisdom. Out of his mouth comes knowledge and understanding.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="7" characterId="narrator-PRO">
     <verse num="7" />
@@ -180,9 +186,11 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="11" characterId="narrator-PRO">
     <verse num="11" />
-    <text>Discretion will watch over you. Understanding will keep you, </text>
+    <text>Discretion will watch over you. Understanding will keep you,</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="12" characterId="narrator-PRO">
     <verse num="12" />
-    <text>to deliver you from the way of evil, from the men who speak perverse things;</text>
+    <text>to deliver you from the way of evil, from the men who speak perverse things,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="13" characterId="narrator-PRO">
     <verse num="13" />
@@ -206,7 +214,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="18" characterId="narrator-PRO">
     <verse num="18" />
-    <text>for her house leads down to death, her paths to the dead.</text>
+    <text>for her house leads down to death, her paths to the departed spirits.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="19" characterId="narrator-PRO">
     <verse num="19" />
@@ -214,7 +222,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="20" characterId="narrator-PRO">
     <verse num="20" />
-    <text>that you may walk in the way of good men, and keep the paths of the righteous.</text>
+    <text>So you may walk in the way of good men, and keep the paths of the righteous.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="21" characterId="narrator-PRO">
     <verse num="21" />
@@ -233,7 +241,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="2" characterId="narrator-PRO">
     <verse num="2" />
-    <text>for length of days, and years of life, and peace, will they add to you.</text>
+    <text>for they will add to you length of days, years of life, and peace.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="3" characterId="narrator-PRO">
     <verse num="3" />
@@ -245,7 +253,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-PRO">
     <verse num="5" />
-    <text>Trust in God with all your heart, and don’t lean on your own understanding.</text>
+    <text>Trust in Yahweh with all your heart, and don’t lean on your own understanding.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="6" characterId="narrator-PRO">
     <verse num="6" />
@@ -253,7 +261,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="7" characterId="narrator-PRO">
     <verse num="7" />
-    <text>Don’t be wise in your own eyes. Fear God, and depart from evil.</text>
+    <text>Don’t be wise in your own eyes. Fear Yahweh, and depart from evil.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="8" characterId="narrator-PRO">
     <verse num="8" />
@@ -261,19 +269,25 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="9" characterId="narrator-PRO">
     <verse num="9" />
-    <text>Honor God with your substance, with the first fruits of all your increase: </text>
+    <text>Honor Yahweh with your substance, with the first fruits of all your increase:</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="10" characterId="narrator-PRO">
     <verse num="10" />
     <text>so your barns will be filled with plenty, and your vats will overflow with new wine.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="11" characterId="narrator-PRO">
     <verse num="11" />
-    <text>My son, don’t despise God’s discipline, neither be weary of his reproof: </text>
+    <text>My son, don’t despise Yahweh’s discipline, neither be weary of his correction;</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="12" characterId="narrator-PRO">
     <verse num="12" />
-    <text>for whom God loves, he reproves; even as a father reproves the son in whom he delights.</text>
+    <text>for whom Yahweh loves, he corrects, even as a father reproves the son in whom he delights.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="13" characterId="narrator-PRO">
     <verse num="13" />
-    <text>Happy is the man who finds wisdom, the man who gets understanding. </text>
+    <text>Happy is the man who finds wisdom, the man who gets understanding.</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="14" characterId="narrator-PRO">
     <verse num="14" />
     <text>For her good profit is better than getting silver, and her return is better than fine gold.</text>
   </block>
@@ -283,7 +297,9 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="16" characterId="narrator-PRO">
     <verse num="16" />
-    <text>Length of days is in her right hand. In her left hand are riches and honor. </text>
+    <text>Length of days is in her right hand. In her left hand are riches and honor.</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="17" characterId="narrator-PRO">
     <verse num="17" />
     <text>Her ways are ways of pleasantness. All her paths are peace.</text>
   </block>
@@ -293,7 +309,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="19" characterId="narrator-PRO">
     <verse num="19" />
-    <text>By wisdom God founded the earth. By understanding, he established the heavens.</text>
+    <text>By wisdom Yahweh founded the earth. By understanding, he established the heavens.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="20" characterId="narrator-PRO">
     <verse num="20" />
@@ -301,21 +317,27 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="21" characterId="narrator-PRO">
     <verse num="21" />
-    <text>My son, let them not depart from your eyes. Keep sound wisdom and discretion: </text>
+    <text>My son, let them not depart from your eyes. Keep sound wisdom and discretion:</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="22" characterId="narrator-PRO">
     <verse num="22" />
     <text>so they will be life to your soul, and grace for your neck.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="23" characterId="narrator-PRO">
     <verse num="23" />
-    <text>Then you shall walk in your way securely. Your foot won’t stumble. </text>
+    <text>Then you shall walk in your way securely. Your foot won’t stumble.</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="24" characterId="narrator-PRO">
     <verse num="24" />
     <text>When you lie down, you will not be afraid. Yes, you will lie down, and your sleep will be sweet.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="25" characterId="narrator-PRO">
     <verse num="25" />
-    <text>Don’t be afraid of sudden fear, neither of the desolation of the wicked, when it comes: </text>
+    <text>Don’t be afraid of sudden fear, neither of the desolation of the wicked, when it comes;</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="26" characterId="narrator-PRO">
     <verse num="26" />
-    <text>for God will be your confidence, and will keep your foot from being taken.</text>
+    <text>for Yahweh will be your confidence, and will keep your foot from being taken.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="27" characterId="narrator-PRO">
     <verse num="27" />
@@ -327,19 +349,25 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="29" characterId="narrator-PRO">
     <verse num="29" />
-    <text>Don’t devise evil against your neighbor, since he dwells securely by you. </text>
+    <text>Don’t devise evil against your neighbor, since he dwells securely by you.</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="30" characterId="narrator-PRO">
     <verse num="30" />
     <text>Don’t strive with a man without cause, if he has done you no harm.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="31" characterId="narrator-PRO">
     <verse num="31" />
-    <text>Don’t envy the man of violence. Choose none of his ways. </text>
+    <text>Don’t envy the man of violence. Choose none of his ways.</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="32" characterId="narrator-PRO">
     <verse num="32" />
-    <text>For the perverse is an abomination to God, but his friendship is with the upright.</text>
+    <text>For the perverse is an abomination to Yahweh, but his friendship is with the upright.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="33" characterId="narrator-PRO">
     <verse num="33" />
-    <text>God’s curse is in the house of the wicked, but he blesses the habitation of the righteous. </text>
+    <text>Yahweh’s curse is in the house of the wicked, but he blesses the habitation of the righteous.</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="34" characterId="narrator-PRO">
     <verse num="34" />
     <text>Surely he mocks the mockers, but he gives grace to the humble.</text>
   </block>
@@ -360,7 +388,9 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="3" characterId="narrator-PRO">
     <verse num="3" />
-    <text>For I was a son to my father, tender and an only child in the sight of my mother. </text>
+    <text>For I was a son to my father, tender and an only child in the sight of my mother.</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="4" characterId="narrator-PRO">
     <verse num="4" />
     <text>He taught me, and said to me:</text>
   </block>
@@ -369,7 +399,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="5" characterId="David">
     <verse num="5" />
-    <text>Get wisdom. Get understanding. Don’t forget, neither swerve from the words of my mouth.</text>
+    <text>Get wisdom. Get understanding. Don’t forget, and don’t deviate from the words of my mouth.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="6" characterId="David">
     <verse num="6" />
@@ -381,7 +411,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="8" characterId="David">
     <verse num="8" />
-    <text>Esteem her, and she will exalt you. She will bring you to honor, when you embrace her.</text>
+    <text>Esteem her, and she will exalt you. She will bring you to honor when you embrace her.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="9" characterId="David">
     <verse num="9" />
@@ -393,7 +423,9 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="11" characterId="narrator-PRO">
     <verse num="11" />
-    <text>I have taught you in the way of wisdom. I have led you in straight paths. </text>
+    <text>I have taught you in the way of wisdom. I have led you in straight paths.</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="12" characterId="narrator-PRO">
     <verse num="12" />
     <text>When you go, your steps will not be hampered. When you run, you will not stumble.</text>
   </block>
@@ -403,19 +435,23 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="14" characterId="narrator-PRO">
     <verse num="14" />
-    <text>Don’t enter into the path of the wicked. Don’t walk in the way of evil men. </text>
+    <text>Don’t enter into the path of the wicked. Don’t walk in the way of evil men.</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="15" characterId="narrator-PRO">
     <verse num="15" />
     <text>Avoid it, and don’t pass by it. Turn from it, and pass on.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="16" characterId="narrator-PRO">
     <verse num="16" />
-    <text>For they don’t sleep, unless they do evil. Their sleep is taken away, unless they make someone fall. </text>
+    <text>For they don’t sleep unless they do evil. Their sleep is taken away, unless they make someone fall.</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="17" characterId="narrator-PRO">
     <verse num="17" />
-    <text>For they eat the bread of wickedness, and drink the wine of violence.</text>
+    <text>For they eat the bread of wickedness and drink the wine of violence.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="18" characterId="narrator-PRO">
     <verse num="18" />
-    <text>But the path of the righteous is like the dawning light, that shines more and more until the perfect day.</text>
+    <text>But the path of the righteous is like the dawning light that shines more and more until the perfect day.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="19" characterId="narrator-PRO">
     <verse num="19" />
@@ -427,19 +463,25 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="21" characterId="narrator-PRO">
     <verse num="21" />
-    <text>Let them not depart from your eyes. Keep them in the midst of your heart. </text>
+    <text>Let them not depart from your eyes. Keep them in the center of your heart.</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="22" characterId="narrator-PRO">
     <verse num="22" />
     <text>For they are life to those who find them, and health to their whole body.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="23" characterId="narrator-PRO">
     <verse num="23" />
-    <text>Keep your heart with all diligence, for out of it is the wellspring of life. </text>
+    <text>Keep your heart with all diligence, for out of it is the wellspring of life.</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="24" characterId="narrator-PRO">
     <verse num="24" />
     <text>Put away from yourself a perverse mouth. Put corrupt lips far from you.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="25" characterId="narrator-PRO">
     <verse num="25" />
-    <text>Let your eyes look straight ahead. Fix your gaze directly before you. </text>
+    <text>Let your eyes look straight ahead. Fix your gaze directly before you.</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="26" characterId="narrator-PRO">
     <verse num="26" />
     <text>Make the path of your feet level. Let all of your ways be established.</text>
   </block>
@@ -492,7 +534,9 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="11" characterId="narrator-PRO">
     <verse num="11" />
-    <text>You will groan at your latter end, when your flesh and your body are consumed, </text>
+    <text>You will groan at your latter end, when your flesh and your body are consumed,</text>
+  </block>
+  <block style="p" chapter="5" initialStartVerse="12" characterId="narrator-PRO">
     <verse num="12" />
     <text>and say,</text>
   </block>
@@ -501,11 +545,11 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="13" characterId="sons (hypothetical), at end of life">
     <verse num="13" />
-    <text>neither have I obeyed the voice of my teachers, nor turned my ear to those who instructed me!</text>
+    <text>I haven’t obeyed the voice of my teachers, nor turned my ear to those who instructed me!</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="14" characterId="sons (hypothetical), at end of life">
     <verse num="14" />
-    <text>I have come to the brink of utter ruin, in the midst of the gathered assembly.»</text>
+    <text>I have come to the brink of utter ruin, among the gathered assembly.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="15" characterId="narrator-PRO">
     <verse num="15" />
@@ -513,7 +557,9 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="16" characterId="narrator-PRO">
     <verse num="16" />
-    <text>Should your springs overflow in the streets, streams of water in the public squares? </text>
+    <text>Should your springs overflow in the streets, streams of water in the public squares?</text>
+  </block>
+  <block style="p" chapter="5" initialStartVerse="17" characterId="narrator-PRO">
     <verse num="17" />
     <text>Let them be for yourself alone, not for strangers with you.</text>
   </block>
@@ -523,7 +569,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="19" characterId="narrator-PRO">
     <verse num="19" />
-    <text>A loving doe and a graceful deer-- let her breasts satisfy you at all times. Be captivated always with her love.</text>
+    <text>A loving doe and a graceful deer— let her breasts satisfy you at all times. Be captivated always with her love.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="20" characterId="narrator-PRO">
     <verse num="20" />
@@ -531,7 +577,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="21" characterId="narrator-PRO">
     <verse num="21" />
-    <text>For the ways of man are before the eyes of God. He examines all his paths.</text>
+    <text>For the ways of man are before Yahweh’s eyes. He examines all his paths.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="22" characterId="narrator-PRO">
     <verse num="22" />
@@ -582,7 +628,9 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="10" characterId="narrator-PRO">
     <verse num="10" />
-    <text>A little sleep, a little slumber, a little folding of the hands to sleep: </text>
+    <text>A little sleep, a little slumber, a little folding of the hands to sleep:</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="11" characterId="narrator-PRO">
     <verse num="11" />
     <text>so your poverty will come as a robber, and your scarcity as an armed man.</text>
   </block>
@@ -592,7 +640,9 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="13" characterId="narrator-PRO">
     <verse num="13" />
-    <text>who winks with his eyes, who signals with his feet, who motions with his fingers; </text>
+    <text>who winks with his eyes, who signals with his feet, who motions with his fingers,</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="14" characterId="narrator-PRO">
     <verse num="14" />
     <text>in whose heart is perverseness, who devises evil continually, who always sows discord.</text>
   </block>
@@ -602,19 +652,25 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="16" characterId="narrator-PRO">
     <verse num="16" />
-    <text>There are six things which God hates; yes, seven which are an abomination to him:</text>
+    <text>There are six things which Yahweh hates; yes, seven which are an abomination to him:</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="17" characterId="narrator-PRO">
     <verse num="17" />
-    <text>haughty eyes, a lying tongue, hands that shed innocent blood; </text>
+    <text>arrogant eyes, a lying tongue, hands that shed innocent blood,</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="18" characterId="narrator-PRO">
     <verse num="18" />
-    <text>a heart that devises wicked schemes, feet that are swift in running to mischief, </text>
+    <text>a heart that devises wicked schemes, feet that are swift in running to mischief,</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="19" characterId="narrator-PRO">
     <verse num="19" />
     <text>a false witness who utters lies, and he who sows discord among brothers.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="20" characterId="narrator-PRO">
     <verse num="20" />
-    <text>My son, keep your father’s commandment, and don’t forsake your mother’s teaching. </text>
+    <text>My son, keep your father’s commandment, and don’t forsake your mother’s teaching.</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="21" characterId="narrator-PRO">
     <verse num="21" />
     <text>Bind them continually on your heart. Tie them around your neck.</text>
   </block>
@@ -624,7 +680,9 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="23" characterId="narrator-PRO">
     <verse num="23" />
-    <text>For the commandment is a lamp, and the law is light. Reproofs of instruction are the way of life, </text>
+    <text>For the commandment is a lamp, and the law is light. Reproofs of instruction are the way of life,</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="24" characterId="narrator-PRO">
     <verse num="24" />
     <text>to keep you from the immoral woman, from the flattery of the wayward wife’s tongue.</text>
   </block>
@@ -638,7 +696,9 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="27" characterId="narrator-PRO">
     <verse num="27" />
-    <text>Can a man scoop fire into his lap, and his clothes not be burned? </text>
+    <text>Can a man scoop fire into his lap, and his clothes not be burned?</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="28" characterId="narrator-PRO">
     <verse num="28" />
     <text>Or can one walk on hot coals, and his feet not be scorched?</text>
   </block>
@@ -648,7 +708,9 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="30" characterId="narrator-PRO">
     <verse num="30" />
-    <text>Men don’t despise a thief, if he steals to satisfy himself when he is hungry: </text>
+    <text>Men don’t despise a thief if he steals to satisfy himself when he is hungry;</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="31" characterId="narrator-PRO">
     <verse num="31" />
     <text>but if he is found, he shall restore seven times. He shall give all the wealth of his house.</text>
   </block>
@@ -658,7 +720,9 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="33" characterId="narrator-PRO">
     <verse num="33" />
-    <text>He will get wounds and dishonor. His reproach will not be wiped away. </text>
+    <text>He will get wounds and dishonor. His reproach will not be wiped away.</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="34" characterId="narrator-PRO">
     <verse num="34" />
     <text>For jealousy arouses the fury of the husband. He won’t spare in the day of vengeance.</text>
   </block>
@@ -683,7 +747,13 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="4" characterId="narrator-PRO">
     <verse num="4" />
-    <text>Tell wisdom, «You are my sister.» Call understanding your relative,</text>
+    <text>Tell wisdom,</text>
+  </block>
+  <block style="p" chapter="7" initialStartVerse="4" characterId="son (receiving instructions)">
+    <text>«You are my sister.»</text>
+  </block>
+  <block style="p" chapter="7" initialStartVerse="4" characterId="narrator-PRO">
+    <text>Call understanding your relative,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="5" characterId="narrator-PRO">
     <verse num="5" />
@@ -711,7 +781,9 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="11" characterId="narrator-PRO">
     <verse num="11" />
-    <text>She is loud and defiant. Her feet don’t stay in her house. </text>
+    <text>She is loud and defiant. Her feet don’t stay in her house.</text>
+  </block>
+  <block style="p" chapter="7" initialStartVerse="12" characterId="narrator-PRO">
     <verse num="12" />
     <text>Now she is in the streets, now in the squares, and lurking at every corner.</text>
   </block>
@@ -721,7 +793,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="14" characterId="immoral woman">
     <verse num="14" />
-    <text>Sacrifices of peace offerings are with me. This day I have paid my vows.</text>
+    <text>«Sacrifices of peace offerings are with me. Today I have paid my vows.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="15" characterId="immoral woman">
     <verse num="15" />
@@ -745,7 +817,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="20" characterId="immoral woman">
     <verse num="20" />
-    <text>He has taken a bag of money with him. He will come home at the full moon.</text>
+    <text>He has taken a bag of money with him. He will come home at the full moon.»</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="21" characterId="narrator-PRO">
     <verse num="21" />
@@ -753,15 +825,21 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="22" characterId="narrator-PRO">
     <verse num="22" />
-    <text>He followed her immediately, as an ox goes to the slaughter, as a fool stepping into a noose. </text>
+    <text>He followed her immediately, as an ox goes to the slaughter, as a fool stepping into a noose.</text>
+  </block>
+  <block style="p" chapter="7" initialStartVerse="23" characterId="narrator-PRO">
     <verse num="23" />
     <text>Until an arrow strikes through his liver, as a bird hurries to the snare, and doesn’t know that it will cost his life.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="24" characterId="narrator-PRO">
     <verse num="24" />
-    <text>Now therefore, sons, listen to me. Pay attention to the words of my mouth. </text>
+    <text>Now therefore, sons, listen to me. Pay attention to the words of my mouth.</text>
+  </block>
+  <block style="p" chapter="7" initialStartVerse="25" characterId="narrator-PRO">
     <verse num="25" />
-    <text>Don’t let your heart turn to her ways. Don’t go astray in her paths, </text>
+    <text>Don’t let your heart turn to her ways. Don’t go astray in her paths,</text>
+  </block>
+  <block style="p" chapter="7" initialStartVerse="26" characterId="narrator-PRO">
     <verse num="26" />
     <text>for she has thrown down many wounded. Yes, all her slain are a mighty army.</text>
   </block>
@@ -822,7 +900,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="13" characterId="Wisdom">
     <verse num="13" />
-    <text>The fear of God is to hate evil. I hate pride, arrogance, the evil way, and the perverse mouth.</text>
+    <text>The fear of Yahweh is to hate evil. I hate pride, arrogance, the evil way, and the perverse mouth.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="14" characterId="Wisdom">
     <verse num="14" />
@@ -850,13 +928,15 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="20" characterId="Wisdom">
     <verse num="20" />
-    <text>I walk in the way of righteousness, in the midst of the paths of justice; </text>
+    <text>I walk in the way of righteousness, in the middle of the paths of justice,</text>
+  </block>
+  <block style="p" chapter="8" initialStartVerse="21" characterId="Wisdom">
     <verse num="21" />
-    <text>That I may give wealth to those who love me. I fill their treasuries.</text>
+    <text>that I may give wealth to those who love me. I fill their treasuries.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="22" characterId="Wisdom">
     <verse num="22" />
-    <text>God possessed me in the beginning of his work, before his deeds of old.</text>
+    <text>Yahweh possessed me in the beginning of his work, before his deeds of old.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="23" characterId="Wisdom">
     <verse num="23" />
@@ -864,27 +944,35 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="24" characterId="Wisdom">
     <verse num="24" />
-    <text>When there were no depths, I was brought forth, when there were no springs abounding with water.</text>
+    <text>When there were no depths, I was born, when there were no springs abounding with water.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="25" characterId="Wisdom">
     <verse num="25" />
-    <text>Before the mountains were settled in place, before the hills, I was brought forth; </text>
+    <text>Before the mountains were settled in place, before the hills, I was born;</text>
+  </block>
+  <block style="p" chapter="8" initialStartVerse="26" characterId="Wisdom">
     <verse num="26" />
     <text>while as yet he had not made the earth, nor the fields, nor the beginning of the dust of the world.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="27" characterId="Wisdom">
     <verse num="27" />
-    <text>When he established the heavens, I was there; when he set a circle on the surface of the deep, </text>
+    <text>When he established the heavens, I was there. When he set a circle on the surface of the deep,</text>
+  </block>
+  <block style="p" chapter="8" initialStartVerse="28" characterId="Wisdom">
     <verse num="28" />
-    <text>when he established the clouds above, when the springs of the deep became strong, </text>
+    <text>when he established the clouds above, when the springs of the deep became strong,</text>
+  </block>
+  <block style="p" chapter="8" initialStartVerse="29" characterId="Wisdom">
     <verse num="29" />
-    <text>when he gave to the sea its boundary, that the waters should not violate his commandment, when he marked out the foundations of the earth;</text>
+    <text>when he gave to the sea its boundary, that the waters should not violate his commandment, when he marked out the foundations of the earth,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="30" characterId="Wisdom">
     <verse num="30" />
-    <text>then I was the craftsman by his side. I was a delight day by day, always rejoicing before him, </text>
+    <text>then I was the craftsman by his side. I was a delight day by day, always rejoicing before him,</text>
+  </block>
+  <block style="p" chapter="8" initialStartVerse="31" characterId="Wisdom">
     <verse num="31" />
-    <text>Rejoicing in his whole world. My delight was with the sons of men.</text>
+    <text>rejoicing in his whole world. My delight was with the sons of men.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="32" characterId="Wisdom">
     <verse num="32" />
@@ -900,7 +988,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="35" characterId="Wisdom">
     <verse num="35" />
-    <text>For whoever finds me, finds life, and will obtain favor from God.</text>
+    <text>For whoever finds me, finds life, and will obtain favor from Yahweh.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="36" characterId="Wisdom">
     <verse num="36" />
@@ -923,34 +1011,34 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="4" characterId="Wisdom">
     <verse num="4" />
-    <text>Whoever is simple, let him turn in here!</text>
+    <text>«Whoever is simple, let him turn in here!»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="4" characterId="narrator-PRO">
     <text>As for him who is void of understanding, she says to him,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="5" characterId="Wisdom">
     <verse num="5" />
-    <text>Come, eat some of my bread, Drink some of the wine which I have mixed!</text>
+    <text>«Come, eat some of my bread, Drink some of the wine which I have mixed!</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="6" characterId="Wisdom">
     <verse num="6" />
-    <text>Leave your simple ways, and live. Walk in the way of understanding.</text>
+    <text>Leave your simple ways, and live. Walk in the way of understanding.»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="7" characterId="Wisdom">
     <verse num="7" />
-    <text>He who corrects a mocker invites insult. He who reproves a wicked man invites abuse.</text>
+    <text>One who corrects a mocker invites insult. One who reproves a wicked man invites abuse.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="8" characterId="Wisdom">
     <verse num="8" />
-    <text>Don’t reprove a scoffer, lest he hate you. Reprove a wise man, and he will love you.</text>
+    <text>Don’t reprove a scoffer, lest he hate you. Reprove a wise person, and he will love you.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="9" characterId="Wisdom">
     <verse num="9" />
-    <text>Instruct a wise man, and he will be still wiser. Teach a righteous man, and he will increase in learning.</text>
+    <text>Instruct a wise person, and he will be still wiser. Teach a righteous person, and he will increase in learning.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="10" characterId="Wisdom">
     <verse num="10" />
-    <text>The fear of God is the beginning of wisdom. The knowledge of the Holy One is understanding.</text>
+    <text>The fear of Yahweh is the beginning of wisdom. The knowledge of the Holy One is understanding.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="11" characterId="Wisdom">
     <verse num="11" />
@@ -966,24 +1054,26 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="14" characterId="narrator-PRO">
     <verse num="14" />
-    <text>She sits at the door of her house, on a seat in the high places of the city, </text>
+    <text>She sits at the door of her house, on a seat in the high places of the city,</text>
+  </block>
+  <block style="p" chapter="9" initialStartVerse="15" characterId="narrator-PRO">
     <verse num="15" />
-    <text>To call to those who pass by, who go straight on their ways,</text>
+    <text>to call to those who pass by, who go straight on their ways,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="16" characterId="Folly">
     <verse num="16" />
-    <text>Whoever is simple, let him turn in here.</text>
+    <text>«Whoever is simple, let him turn in here.»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="16" characterId="narrator-PRO">
     <text>as for him who is void of understanding, she says to him,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="17" characterId="Folly">
     <verse num="17" />
-    <text>Stolen water is sweet. Food eaten in secret is pleasant.</text>
+    <text>«Stolen water is sweet. Food eaten in secret is pleasant.»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="18" characterId="narrator-PRO">
     <verse num="18" />
-    <text>But he doesn’t know that the dead are there, that her guests are in the depths of Sheol.</text>
+    <text>But he doesn’t know that the departed spirits are there, that her guests are in the depths of Sheol.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="PRO" initialStartVerse="0" characterId="BC-PRO">
     <text>10</text>
@@ -993,7 +1083,7 @@
     <text>The proverbs of Solomon.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="1" characterId="narrator-PRO">
-    <text>A wise son makes a glad father; but a foolish son brings grief to his mother.</text>
+    <text>A wise son makes a glad father;but a foolish son brings grief to his mother.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="2" characterId="narrator-PRO">
     <verse num="2" />
@@ -1001,7 +1091,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="3" characterId="narrator-PRO">
     <verse num="3" />
-    <text>God will not allow the soul of the righteous to go hungry, but he thrusts away the desire of the wicked.</text>
+    <text>Yahweh will not allow the soul of the righteous to go hungry, but he thrusts away the desire of the wicked.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="4" characterId="narrator-PRO">
     <verse num="4" />
@@ -1077,7 +1167,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="22" characterId="narrator-PRO">
     <verse num="22" />
-    <text>God’s blessing brings wealth, and he adds no trouble to it.</text>
+    <text>Yahweh’s blessing brings wealth, and he adds no trouble to it.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="23" characterId="narrator-PRO">
     <verse num="23" />
@@ -1085,7 +1175,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="24" characterId="narrator-PRO">
     <verse num="24" />
-    <text>What the wicked fear, will overtake them, but the desire of the righteous will be granted.</text>
+    <text>What the wicked fear will overtake them, but the desire of the righteous will be granted.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="25" characterId="narrator-PRO">
     <verse num="25" />
@@ -1097,7 +1187,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="27" characterId="narrator-PRO">
     <verse num="27" />
-    <text>The fear of God prolongs days, but the years of the wicked shall be shortened.</text>
+    <text>The fear of Yahweh prolongs days, but the years of the wicked shall be shortened.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="28" characterId="narrator-PRO">
     <verse num="28" />
@@ -1105,7 +1195,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="29" characterId="narrator-PRO">
     <verse num="29" />
-    <text>The way of God is a stronghold to the upright, but it is a destruction to the workers of iniquity.</text>
+    <text>The way of Yahweh is a stronghold to the upright, but it is a destruction to the workers of iniquity.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="30" characterId="narrator-PRO">
     <verse num="30" />
@@ -1113,7 +1203,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="31" characterId="narrator-PRO">
     <verse num="31" />
-    <text>The mouth of the righteous brings forth wisdom, but the perverse tongue will be cut off.</text>
+    <text>The mouth of the righteous produces wisdom, but the perverse tongue will be cut off.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="32" characterId="narrator-PRO">
     <verse num="32" />
@@ -1124,7 +1214,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="1" characterId="narrator-PRO">
     <verse num="1" />
-    <text>A false balance is an abomination to God, but accurate weights are his delight.</text>
+    <text>A false balance is an abomination to Yahweh, but accurate weights are his delight.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="2" characterId="narrator-PRO">
     <verse num="2" />
@@ -1200,11 +1290,11 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="20" characterId="narrator-PRO">
     <verse num="20" />
-    <text>Those who are perverse in heart are an abomination to God, but those whose ways are blameless are his delight.</text>
+    <text>Those who are perverse in heart are an abomination to Yahweh, but those whose ways are blameless are his delight.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="21" characterId="narrator-PRO">
     <verse num="21" />
-    <text>Most certainly, the evil man will not be unpunished, but the seed of the righteous will be delivered.</text>
+    <text>Most certainly, the evil man will not be unpunished, but the offspring of the righteous will be delivered.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="22" characterId="narrator-PRO">
     <verse num="22" />
@@ -1255,7 +1345,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="2" characterId="narrator-PRO">
     <verse num="2" />
-    <text>A good man shall obtain favor from God, but he will condemn a man of wicked devices.</text>
+    <text>A good man shall obtain favor from Yahweh, but he will condemn a man of wicked plans.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="3" characterId="narrator-PRO">
     <verse num="3" />
@@ -1283,7 +1373,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="9" characterId="narrator-PRO">
     <verse num="9" />
-    <text>Better is he who is lightly esteemed, and has a servant, than he who honors himself, and lacks bread.</text>
+    <text>Better is he who is little known, and has a servant, than he who honors himself, and lacks bread.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="10" characterId="narrator-PRO">
     <verse num="10" />
@@ -1335,7 +1425,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="22" characterId="narrator-PRO">
     <verse num="22" />
-    <text>Lying lips are an abomination to God, but those who do the truth are his delight.</text>
+    <text>Lying lips are an abomination to Yahweh, but those who do the truth are his delight.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="23" characterId="narrator-PRO">
     <verse num="23" />
@@ -1402,7 +1492,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="10" characterId="narrator-PRO">
     <verse num="10" />
-    <text>Pride only breeds quarrels, but with ones who take advice is wisdom.</text>
+    <text>Pride only breeds quarrels, but wisdom is with people who take advice.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="11" characterId="narrator-PRO">
     <verse num="11" />
@@ -1473,7 +1563,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="2" characterId="narrator-PRO">
     <verse num="2" />
-    <text>He who walks in his uprightness fears God, but he who is perverse in his ways despises him.</text>
+    <text>He who walks in his uprightness fears Yahweh, but he who is perverse in his ways despises him.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="3" characterId="narrator-PRO">
     <verse num="3" />
@@ -1569,11 +1659,11 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="26" characterId="narrator-PRO">
     <verse num="26" />
-    <text>In the fear of God is a secure fortress, and he will be a refuge for his children.</text>
+    <text>In the fear of Yahweh is a secure fortress, and he will be a refuge for his children.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="27" characterId="narrator-PRO">
     <verse num="27" />
-    <text>The fear of God is a fountain of life, turning people from the snares of death.</text>
+    <text>The fear of Yahweh is a fountain of life, turning people from the snares of death.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="28" characterId="narrator-PRO">
     <verse num="28" />
@@ -1620,7 +1710,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="3" characterId="narrator-PRO">
     <verse num="3" />
-    <text>God’s eyes are everywhere, keeping watch on the evil and the good.</text>
+    <text>Yahweh’s eyes are everywhere, keeping watch on the evil and the good.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="4" characterId="narrator-PRO">
     <verse num="4" />
@@ -1640,11 +1730,11 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="8" characterId="narrator-PRO">
     <verse num="8" />
-    <text>The sacrifice made by the wicked is an abomination to God, but the prayer of the upright is his delight.</text>
+    <text>The sacrifice made by the wicked is an abomination to Yahweh, but the prayer of the upright is his delight.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="9" characterId="narrator-PRO">
     <verse num="9" />
-    <text>The way of the wicked is an abomination to God, but he loves him who follows after righteousness.</text>
+    <text>The way of the wicked is an abomination to Yahweh, but he loves him who follows after righteousness.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="10" characterId="narrator-PRO">
     <verse num="10" />
@@ -1652,7 +1742,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="11" characterId="narrator-PRO">
     <verse num="11" />
-    <text>Sheol and Abaddon are before God-- how much more then the hearts of the children of men!</text>
+    <text>Sheol and Abaddon are before Yahweh— how much more then the hearts of the children of men!</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="12" characterId="narrator-PRO">
     <verse num="12" />
@@ -1672,7 +1762,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="16" characterId="narrator-PRO">
     <verse num="16" />
-    <text>Better is little, with the fear of God, than great treasure with trouble.</text>
+    <text>Better is little, with the fear of Yahweh, than great treasure with trouble.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="17" characterId="narrator-PRO">
     <verse num="17" />
@@ -1708,11 +1798,11 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="25" characterId="narrator-PRO">
     <verse num="25" />
-    <text>God will uproot the house of the proud, but he will keep the widow’s borders intact.</text>
+    <text>Yahweh will uproot the house of the proud, but he will keep the widow’s borders intact.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="26" characterId="narrator-PRO">
     <verse num="26" />
-    <text>God detests the thoughts of the wicked, but the thoughts of the pure are pleasing.</text>
+    <text>Yahweh detests the thoughts of the wicked, but the thoughts of the pure are pleasing.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="27" characterId="narrator-PRO">
     <verse num="27" />
@@ -1724,7 +1814,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="29" characterId="narrator-PRO">
     <verse num="29" />
-    <text>God is far from the wicked, but he hears the prayer of the righteous.</text>
+    <text>Yahweh is far from the wicked, but he hears the prayer of the righteous.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="30" characterId="narrator-PRO">
     <verse num="30" />
@@ -1740,38 +1830,38 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="33" characterId="narrator-PRO">
     <verse num="33" />
-    <text>The fear of God teaches wisdom. Before honor is humility.</text>
+    <text>The fear of Yahweh teaches wisdom. Before honor is humility.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="16" book="PRO" initialStartVerse="0" characterId="BC-PRO">
     <text>16</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="1" characterId="narrator-PRO">
     <verse num="1" />
-    <text>The plans of the heart belong to man, but the answer of the tongue is from God.</text>
+    <text>The plans of the heart belong to man, but the answer of the tongue is from Yahweh.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="2" characterId="narrator-PRO">
     <verse num="2" />
-    <text>All the ways of a man are clean in his own eyes; but God weighs the motives.</text>
+    <text>All the ways of a man are clean in his own eyes; but Yahweh weighs the motives.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="3" characterId="narrator-PRO">
     <verse num="3" />
-    <text>Commit your deeds to God, and your plans shall succeed.</text>
+    <text>Commit your deeds to Yahweh, and your plans shall succeed.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="4" characterId="narrator-PRO">
     <verse num="4" />
-    <text>God has made everything for its own end-- yes, even the wicked for the day of evil.</text>
+    <text>Yahweh has made everything for its own end— yes, even the wicked for the day of evil.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="5" characterId="narrator-PRO">
     <verse num="5" />
-    <text>Everyone who is proud in heart is an abomination to God: they shall certainly not be unpunished.</text>
+    <text>Everyone who is proud in heart is an abomination to Yahweh: they shall certainly not be unpunished.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="6" characterId="narrator-PRO">
     <verse num="6" />
-    <text>By mercy and truth iniquity is atoned for. By the fear of God men depart from evil.</text>
+    <text>By mercy and truth iniquity is atoned for. By the fear of Yahweh men depart from evil.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="7" characterId="narrator-PRO">
     <verse num="7" />
-    <text>When a man’s ways please God, he makes even his enemies to be at peace with him.</text>
+    <text>When a man’s ways please Yahweh, he makes even his enemies to be at peace with him.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="8" characterId="narrator-PRO">
     <verse num="8" />
@@ -1779,7 +1869,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="9" characterId="narrator-PRO">
     <verse num="9" />
-    <text>A man’s heart plans his course, but God directs his steps.</text>
+    <text>A man’s heart plans his course, but Yahweh directs his steps.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="10" characterId="narrator-PRO">
     <verse num="10" />
@@ -1787,7 +1877,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="11" characterId="narrator-PRO">
     <verse num="11" />
-    <text>Honest balances and scales are God’s; all the weights in the bag are his work.</text>
+    <text>Honest balances and scales are Yahweh’s; all the weights in the bag are his work.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="12" characterId="narrator-PRO">
     <verse num="12" />
@@ -1815,7 +1905,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="18" characterId="narrator-PRO">
     <verse num="18" />
-    <text>Pride goes before destruction, and a haughty spirit before a fall.</text>
+    <text>Pride goes before destruction, and an arrogant spirit before a fall.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="19" characterId="narrator-PRO">
     <verse num="19" />
@@ -1823,7 +1913,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="20" characterId="narrator-PRO">
     <verse num="20" />
-    <text>He who heeds the Word finds prosperity. Whoever trusts in God is blessed.</text>
+    <text>He who heeds the Word finds prosperity. Whoever trusts in Yahweh is blessed.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="21" characterId="narrator-PRO">
     <verse num="21" />
@@ -1875,7 +1965,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="33" characterId="narrator-PRO">
     <verse num="33" />
-    <text>The lot is cast into the lap, but its every decision is from God.</text>
+    <text>The lot is cast into the lap, but its every decision is from Yahweh.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="17" book="PRO" initialStartVerse="0" characterId="BC-PRO">
     <text>17</text>
@@ -1890,7 +1980,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="3" characterId="narrator-PRO">
     <verse num="3" />
-    <text>The refining pot is for silver, and the furnace for gold, but God tests the hearts.</text>
+    <text>The refining pot is for silver, and the furnace for gold, but Yahweh tests the hearts.</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="4" characterId="narrator-PRO">
     <verse num="4" />
@@ -1906,7 +1996,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="7" characterId="narrator-PRO">
     <verse num="7" />
-    <text>Arrogant speech isn’t fitting for a fool, much less do lying lips fit a prince.</text>
+    <text>Excellent speech isn’t fitting for a fool, much less do lying lips fit a prince.</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="8" characterId="narrator-PRO">
     <verse num="8" />
@@ -1938,7 +2028,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="15" characterId="narrator-PRO">
     <verse num="15" />
-    <text>He who justifies the wicked, and he who condemns the righteous, both of them alike are an abomination to God.</text>
+    <text>He who justifies the wicked, and he who condemns the righteous, both of them alike are an abomination to Yahweh.</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="16" characterId="narrator-PRO">
     <verse num="16" />
@@ -1997,7 +2087,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="1" characterId="narrator-PRO">
     <verse num="1" />
-    <text>An unfriendly man pursues selfishness, and defies all sound judgment.</text>
+    <text>A man who isolates himself pursues selfishness, and defies all sound judgment.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="2" characterId="narrator-PRO">
     <verse num="2" />
@@ -2033,7 +2123,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="10" characterId="narrator-PRO">
     <verse num="10" />
-    <text>The name of God is a strong tower: the righteous run to him, and are safe.</text>
+    <text>Yahweh’s name is a strong tower: the righteous run to him, and are safe.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="11" characterId="narrator-PRO">
     <verse num="11" />
@@ -2045,7 +2135,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="13" characterId="narrator-PRO">
     <verse num="13" />
-    <text>He who gives answer before he hears, that is folly and shame to him.</text>
+    <text>He who answers before he hears, that is folly and shame to him.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="14" characterId="narrator-PRO">
     <verse num="14" />
@@ -2069,7 +2159,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="19" characterId="narrator-PRO">
     <verse num="19" />
-    <text>A brother offended is more difficult than a fortified city; and disputes are like the bars of a castle.</text>
+    <text>A brother offended is more difficult than a fortified city. Disputes are like the bars of a fortress.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="20" characterId="narrator-PRO">
     <verse num="20" />
@@ -2081,7 +2171,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="22" characterId="narrator-PRO">
     <verse num="22" />
-    <text>Whoever finds a wife finds a good thing, and obtains favor of God.</text>
+    <text>Whoever finds a wife finds a good thing, and obtains favor of Yahweh.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="23" characterId="narrator-PRO">
     <verse num="23" />
@@ -2104,7 +2194,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="3" characterId="narrator-PRO">
     <verse num="3" />
-    <text>The foolishness of man subverts his way; his heart rages against God.</text>
+    <text>The foolishness of man subverts his way; his heart rages against Yahweh.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="4" characterId="narrator-PRO">
     <verse num="4" />
@@ -2148,7 +2238,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="14" characterId="narrator-PRO">
     <verse num="14" />
-    <text>House and riches are an inheritance from fathers, but a prudent wife is from God.</text>
+    <text>House and riches are an inheritance from fathers, but a prudent wife is from Yahweh.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="15" characterId="narrator-PRO">
     <verse num="15" />
@@ -2160,7 +2250,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="17" characterId="narrator-PRO">
     <verse num="17" />
-    <text>He who has pity on the poor lends to God; he will reward him.</text>
+    <text>He who has pity on the poor lends to Yahweh; he will reward him.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="18" characterId="narrator-PRO">
     <verse num="18" />
@@ -2176,7 +2266,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="21" characterId="narrator-PRO">
     <verse num="21" />
-    <text>There are many plans in a man’s heart, but God’s counsel will prevail.</text>
+    <text>There are many plans in a man’s heart, but Yahweh’s counsel will prevail.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="22" characterId="narrator-PRO">
     <verse num="22" />
@@ -2184,7 +2274,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="23" characterId="narrator-PRO">
     <verse num="23" />
-    <text>The fear of God leads to life, then contentment; he rests and will not be touched by trouble.</text>
+    <text>The fear of Yahweh leads to life, then contentment; he rests and will not be touched by trouble.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="24" characterId="narrator-PRO">
     <verse num="24" />
@@ -2196,7 +2286,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="26" characterId="narrator-PRO">
     <verse num="26" />
-    <text>He who robs his father and drives away his mother, is a son who causes shame and brings reproach.</text>
+    <text>He who robs his father and drives away his mother is a son who causes shame and brings reproach.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="27" characterId="narrator-PRO">
     <verse num="27" />
@@ -2215,7 +2305,7 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="1" characterId="narrator-PRO">
     <verse num="1" />
-    <text>Wine is a mocker, and beer is a brawler. Whoever is led astray by them is not wise.</text>
+    <text>Wine is a mocker and beer is a brawler. Whoever is led astray by them is not wise.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="2" characterId="narrator-PRO">
     <verse num="2" />
@@ -2243,16 +2333,15 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="8" characterId="narrator-PRO">
     <verse num="8" />
-    <text>A king who sits on the throne of judgment scatters away all evil with his eyes. </text>
-    <verse num="9" />
-    <text>Who can say,</text>
+    <text>A king who sits on the throne of judgment scatters away all evil with his eyes.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="9" characterId="narrator-PRO">
-    <text>«I have made my heart pure. I am clean and without sin?»</text>
+    <verse num="9" />
+    <text>Who can say, «I have made my heart pure. I am clean and without sin?»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="10" characterId="narrator-PRO">
     <verse num="10" />
-    <text>Differing weights and differing measures, both of them alike are an abomination to God.</text>
+    <text>Differing weights and differing measures, both of them alike are an abomination to Yahweh.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="11" characterId="narrator-PRO">
     <verse num="11" />
@@ -2260,15 +2349,18 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="12" characterId="narrator-PRO">
     <verse num="12" />
-    <text>The hearing ear, and the seeing eye, God has made even both of them.</text>
+    <text>The hearing ear, and the seeing eye, Yahweh has made even both of them.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="13" characterId="narrator-PRO">
     <verse num="13" />
     <text>Don’t love sleep, lest you come to poverty. Open your eyes, and you shall be satisfied with bread.</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="14" characterId="narrator-PRO">
+  <block style="p" chapter="20" initialStartVerse="14" characterId="buyer">
     <verse num="14" />
-    <text>It’s no good, it’s no good, says the buyer; but when he is gone his way, then he boasts.</text>
+    <text>«It’s no good, it’s no good,»</text>
+  </block>
+  <block style="p" chapter="20" initialStartVerse="14" characterId="narrator-PRO">
+    <text>says the buyer; but when he is gone his way, then he boasts.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="15" characterId="narrator-PRO">
     <verse num="15" />
@@ -2300,15 +2392,15 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="22" characterId="narrator-PRO">
     <verse num="22" />
-    <text>Don’t say, «I will pay back evil.» Wait for God, and he will save you.</text>
+    <text>Don’t say, «I will pay back evil.» Wait for Yahweh, and he will save you.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="23" characterId="narrator-PRO">
     <verse num="23" />
-    <text>God detests differing weights, and dishonest scales are not pleasing.</text>
+    <text>Yahweh detests differing weights, and dishonest scales are not pleasing.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="24" characterId="narrator-PRO">
     <verse num="24" />
-    <text>A man’s steps are from God; how then can man understand his way?</text>
+    <text>A man’s steps are from Yahweh; how then can man understand his way?</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="25" characterId="narrator-PRO">
     <verse num="25" />
@@ -2320,7 +2412,7 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="27" characterId="narrator-PRO">
     <verse num="27" />
-    <text>The spirit of man is God’s lamp, searching all his innermost parts.</text>
+    <text>The spirit of man is Yahweh’s lamp, searching all his innermost parts.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="28" characterId="narrator-PRO">
     <verse num="28" />
@@ -2339,19 +2431,19 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="1" characterId="narrator-PRO">
     <verse num="1" />
-    <text>The king’s heart is in God’s hand like the watercourses. He turns it wherever he desires.</text>
+    <text>The king’s heart is in Yahweh’s hand like the watercourses. He turns it wherever he desires.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="2" characterId="narrator-PRO">
     <verse num="2" />
-    <text>Every way of a man is right in his own eyes, but God weighs the hearts.</text>
+    <text>Every way of a man is right in his own eyes, but Yahweh weighs the hearts.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="3" characterId="narrator-PRO">
     <verse num="3" />
-    <text>To do righteousness and justice is more acceptable to God than sacrifice.</text>
+    <text>To do righteousness and justice is more acceptable to Yahweh than sacrifice.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="4" characterId="narrator-PRO">
     <verse num="4" />
-    <text>A high look, and a proud heart, the lamp of the wicked, is sin.</text>
+    <text>A high look and a proud heart, the lamp of the wicked, is sin.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="5" characterId="narrator-PRO">
     <verse num="5" />
@@ -2371,7 +2463,7 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="9" characterId="narrator-PRO">
     <verse num="9" />
-    <text>It is better to dwell in the corner of the housetop, than to share a house with a contentious woman.</text>
+    <text>It is better to dwell in the corner of the housetop than to share a house with a contentious woman.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="10" characterId="narrator-PRO">
     <verse num="10" />
@@ -2399,11 +2491,11 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="16" characterId="narrator-PRO">
     <verse num="16" />
-    <text>The man who wanders out of the way of understanding shall rest in the assembly of the dead.</text>
+    <text>The man who wanders out of the way of understanding shall rest in the assembly of the departed spirits.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="17" characterId="narrator-PRO">
     <verse num="17" />
-    <text>He who loves pleasure shall be a poor man. He who loves wine and oil shall not be rich.</text>
+    <text>He who loves pleasure will be a poor man. He who loves wine and oil won’t be rich.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="18" characterId="narrator-PRO">
     <verse num="18" />
@@ -2431,7 +2523,7 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="24" characterId="narrator-PRO">
     <verse num="24" />
-    <text>The proud and haughty man, «scoffer» is his name; he works in the arrogance of pride.</text>
+    <text>The proud and arrogant man— «Scoffer» is his name— he works in the arrogance of pride.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="25" characterId="narrator-PRO">
     <verse num="25" />
@@ -2447,7 +2539,7 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="28" characterId="narrator-PRO">
     <verse num="28" />
-    <text>A false witness will perish, and a man who listens speaks to eternity.</text>
+    <text>A false witness will perish. A man who listens speaks to eternity.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="29" characterId="narrator-PRO">
     <verse num="29" />
@@ -2455,11 +2547,11 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="30" characterId="narrator-PRO">
     <verse num="30" />
-    <text>There is no wisdom nor understanding nor counsel against God.</text>
+    <text>There is no wisdom nor understanding nor counsel against Yahweh.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="31" characterId="narrator-PRO">
     <verse num="31" />
-    <text>The horse is prepared for the day of battle; but victory is with God.</text>
+    <text>The horse is prepared for the day of battle; but victory is with Yahweh.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="22" book="PRO" initialStartVerse="0" characterId="BC-PRO">
     <text>22</text>
@@ -2470,15 +2562,15 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="2" characterId="narrator-PRO">
     <verse num="2" />
-    <text>The rich and the poor have this in common: God is the maker of them all.</text>
+    <text>The rich and the poor have this in common: Yahweh is the maker of them all.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="3" characterId="narrator-PRO">
     <verse num="3" />
-    <text>A prudent man sees danger, and hides himself; but the simple pass on, and suffer for it.</text>
+    <text>A prudent man sees danger and hides himself; but the simple pass on, and suffer for it.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="4" characterId="narrator-PRO">
     <verse num="4" />
-    <text>The result of humility and the fear of God is wealth, honor, and life.</text>
+    <text>The result of humility and the fear of Yahweh is wealth, honor, and life.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="5" characterId="narrator-PRO">
     <verse num="5" />
@@ -2510,16 +2602,18 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="12" characterId="narrator-PRO">
     <verse num="12" />
-    <text>The eyes of God watch over knowledge; but he frustrates the words of the unfaithful. </text>
+    <text>Yahweh’s eyes watch over knowledge; but he frustrates the words of the unfaithful.</text>
+  </block>
+  <block style="p" chapter="22" initialStartVerse="13" characterId="narrator-PRO">
     <verse num="13" />
     <text>The sluggard says,</text>
   </block>
-  <block style="p" chapter="22" initialStartVerse="13" characterId="narrator-PRO">
+  <block style="p" chapter="22" initialStartVerse="13" characterId="sluggard">
     <text>«There is a lion outside! I will be killed in the streets!»</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="14" characterId="narrator-PRO">
     <verse num="14" />
-    <text>The mouth of an adulteress is a deep pit: he who is under God’s wrath will fall into it.</text>
+    <text>The mouth of an adulteress is a deep pit. He who is under Yahweh’s wrath will fall into it.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="15" characterId="narrator-PRO">
     <verse num="15" />
@@ -2539,35 +2633,43 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="19" characterId="narrator-PRO">
     <verse num="19" />
-    <text>That your trust may be in God, I teach you today, even you.</text>
+    <text>I teach you today, even you, So that your trust may be in Yahweh.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="20" characterId="narrator-PRO">
     <verse num="20" />
-    <text>Haven’t I written to you thirty excellent things of counsel and knowledge, </text>
+    <text>Haven’t I written to you thirty excellent things of counsel and knowledge,</text>
+  </block>
+  <block style="p" chapter="22" initialStartVerse="21" characterId="narrator-PRO">
     <verse num="21" />
     <text>To teach you truth, reliable words, to give sound answers to the ones who sent you?</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="22" characterId="narrator-PRO">
     <verse num="22" />
-    <text>Don’t exploit the poor, because he is poor; and don’t crush the needy in court; </text>
+    <text>Don’t exploit the poor, because he is poor; and don’t crush the needy in court;</text>
+  </block>
+  <block style="p" chapter="22" initialStartVerse="23" characterId="narrator-PRO">
     <verse num="23" />
-    <text>for God will plead their case, and plunder the life of those who plunder them.</text>
+    <text>for Yahweh will plead their case, and plunder the life of those who plunder them.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="24" characterId="narrator-PRO">
     <verse num="24" />
-    <text>Don’t befriend a hot-tempered man, and don’t associate with one who harbors anger: </text>
+    <text>Don’t befriend a hot-tempered man, and don’t associate with one who harbors anger:</text>
+  </block>
+  <block style="p" chapter="22" initialStartVerse="25" characterId="narrator-PRO">
     <verse num="25" />
     <text>lest you learn his ways, and ensnare your soul.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="26" characterId="narrator-PRO">
     <verse num="26" />
-    <text>Don’t you be one of those who strike hands, of those who are collateral for debts. </text>
+    <text>Don’t you be one of those who strike hands, of those who are collateral for debts.</text>
+  </block>
+  <block style="p" chapter="22" initialStartVerse="27" characterId="narrator-PRO">
     <verse num="27" />
     <text>If you don’t have means to pay, why should he take away your bed from under you?</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="28" characterId="narrator-PRO">
     <verse num="28" />
-    <text>Don’t move the ancient boundary stone, which your fathers have set up.</text>
+    <text>Don’t move the ancient boundary stone which your fathers have set up.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="29" characterId="narrator-PRO">
     <verse num="29" />
@@ -2586,7 +2688,7 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="3" characterId="narrator-PRO">
     <verse num="3" />
-    <text>Don’t be desirous of his delicacies, since they are deceitful food.</text>
+    <text>Don’t be desirous of his dainties, since they are deceitful food.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="4" characterId="narrator-PRO">
     <verse num="4" />
@@ -2602,7 +2704,13 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="7" characterId="narrator-PRO">
     <verse num="7" />
-    <text>for as he thinks about the cost, so he is. «Eat and drink!» he says to you, but his heart is not with you.</text>
+    <text>for as he thinks about the cost, so he is.</text>
+  </block>
+  <block style="p" chapter="23" initialStartVerse="7" characterId="stingy man">
+    <text>«Eat and drink!»</text>
+  </block>
+  <block style="p" chapter="23" initialStartVerse="7" characterId="narrator-PRO">
+    <text>he says to you, but his heart is not with you.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="8" characterId="narrator-PRO">
     <verse num="8" />
@@ -2614,7 +2722,9 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="10" characterId="narrator-PRO">
     <verse num="10" />
-    <text>Don’t move the ancient boundary stone. Don’t encroach on the fields of the fatherless: </text>
+    <text>Don’t move the ancient boundary stone. Don’t encroach on the fields of the fatherless,</text>
+  </block>
+  <block style="p" chapter="23" initialStartVerse="11" characterId="narrator-PRO">
     <verse num="11" />
     <text>for their Defender is strong. He will plead their case against you.</text>
   </block>
@@ -2624,19 +2734,23 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="13" characterId="narrator-PRO">
     <verse num="13" />
-    <text>Don’t withhold correction from a child. If you punish him with the rod, he will not die. </text>
+    <text>Don’t withhold correction from a child. If you punish him with the rod, he will not die.</text>
+  </block>
+  <block style="p" chapter="23" initialStartVerse="14" characterId="narrator-PRO">
     <verse num="14" />
     <text>Punish him with the rod, and save his soul from Sheol.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="15" characterId="narrator-PRO">
     <verse num="15" />
-    <text>My son, if your heart is wise, then my heart will be glad, even mine: </text>
+    <text>My son, if your heart is wise, then my heart will be glad, even mine.</text>
+  </block>
+  <block style="p" chapter="23" initialStartVerse="16" characterId="narrator-PRO">
     <verse num="16" />
-    <text>yes, my heart will rejoice, when your lips speak what is right.</text>
+    <text>Yes, my heart will rejoice when your lips speak what is right.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="17" characterId="narrator-PRO">
     <verse num="17" />
-    <text>Don’t let your heart envy sinners; but rather fear God all the day long.</text>
+    <text>Don’t let your heart envy sinners, but rather fear Yahweh all day long.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="18" characterId="narrator-PRO">
     <verse num="18" />
@@ -2648,7 +2762,9 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="20" characterId="narrator-PRO">
     <verse num="20" />
-    <text>Don’t be among ones drinking too much wine, or those who gorge themselves on meat: </text>
+    <text>Don’t be among ones drinking too much wine, or those who gorge themselves on meat:</text>
+  </block>
+  <block style="p" chapter="23" initialStartVerse="21" characterId="narrator-PRO">
     <verse num="21" />
     <text>for the drunkard and the glutton shall become poor; and drowsiness clothes them in rags.</text>
   </block>
@@ -2670,7 +2786,9 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="26" characterId="narrator-PRO">
     <verse num="26" />
-    <text>My son, give me your heart; and let your eyes keep in my ways. </text>
+    <text>My son, give me your heart; and let your eyes keep in my ways.</text>
+  </block>
+  <block style="p" chapter="23" initialStartVerse="27" characterId="narrator-PRO">
     <verse num="27" />
     <text>For a prostitute is a deep pit; and a wayward wife is a narrow well.</text>
   </block>
@@ -2680,25 +2798,31 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="29" characterId="narrator-PRO">
     <verse num="29" />
-    <text>Who has woe? Who has sorrow? Who has strife? Who has complaints? Who has needless bruises? Who has bloodshot eyes? </text>
+    <text>Who has woe? Who has sorrow? Who has strife? Who has complaints? Who has needless bruises? Who has bloodshot eyes?</text>
+  </block>
+  <block style="p" chapter="23" initialStartVerse="30" characterId="narrator-PRO">
     <verse num="30" />
     <text>Those who stay long at the wine; those who go to seek out mixed wine.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="31" characterId="narrator-PRO">
     <verse num="31" />
-    <text>Don’t look at the wine when it is red, when it sparkles in the cup, when it goes down smoothly. </text>
+    <text>Don’t look at the wine when it is red, when it sparkles in the cup, when it goes down smoothly.</text>
+  </block>
+  <block style="p" chapter="23" initialStartVerse="32" characterId="narrator-PRO">
     <verse num="32" />
     <text>In the end, it bites like a snake, and poisons like a viper.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="33" characterId="narrator-PRO">
     <verse num="33" />
-    <text>Your eyes will see strange things, and your mind will imagine confusing things. </text>
-    <verse num="34" />
-    <text>Yes, you will be as he who lies down in the midst of the sea, or as he who lies on top of the rigging:</text>
+    <text>Your eyes will see strange things, and your mind will imagine confusing things.</text>
   </block>
-  <block style="p" chapter="23" initialStartVerse="35" characterId="narrator-PRO">
+  <block style="p" chapter="23" initialStartVerse="34" characterId="narrator-PRO">
+    <verse num="34" />
+    <text>Yes, you will be as he who lies down in the middle of the sea, or as he who lies on top of the rigging:</text>
+  </block>
+  <block style="p" chapter="23" initialStartVerse="35" characterId="drunkard">
     <verse num="35" />
-    <text>They hit me, and I was not hurt! They beat me, and I don’t feel it! When will I wake up? I can do it again. I can find another.</text>
+    <text>«They hit me, and I was not hurt! They beat me, and I don’t feel it! When will I wake up? I can do it again. I can find another.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="24" book="PRO" initialStartVerse="0" characterId="BC-PRO">
     <text>24</text>
@@ -2709,7 +2833,7 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="2" characterId="narrator-PRO">
     <verse num="2" />
-    <text>for their hearts plot violence, and their lips talk about mischief.</text>
+    <text>for their hearts plot violence and their lips talk about mischief.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="3" characterId="narrator-PRO">
     <verse num="3" />
@@ -2745,12 +2869,14 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="11" characterId="narrator-PRO">
     <verse num="11" />
-    <text>Rescue those who are being led away to death! Indeed, hold back those who are staggering to the slaughter! </text>
+    <text>Rescue those who are being led away to death! Indeed, hold back those who are staggering to the slaughter!</text>
+  </block>
+  <block style="p" chapter="24" initialStartVerse="12" characterId="narrator-PRO">
     <verse num="12" />
     <text>If you say,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="12" characterId="you (hypothetical)">
-    <text>«Behold, we didn’t know this;»</text>
+    <text>«Behold, we didn’t know this,»</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="12" characterId="narrator-PRO">
     <text>doesn’t he who weighs the hearts consider it? He who keeps your soul, doesn’t he know it? Shall he not render to every man according to his work?</text>
@@ -2769,25 +2895,31 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="16" characterId="narrator-PRO">
     <verse num="16" />
-    <text>for a righteous man falls seven times, and rises up again; but the wicked are overthrown by calamity.</text>
+    <text>for a righteous man falls seven times and rises up again; but the wicked are overthrown by calamity.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="17" characterId="narrator-PRO">
     <verse num="17" />
-    <text>Don’t rejoice when your enemy falls. Don’t let your heart be glad when he is overthrown; </text>
+    <text>Don’t rejoice when your enemy falls. Don’t let your heart be glad when he is overthrown,</text>
+  </block>
+  <block style="p" chapter="24" initialStartVerse="18" characterId="narrator-PRO">
     <verse num="18" />
-    <text>lest God see it, and it displease him, and he turn away his wrath from him.</text>
+    <text>lest Yahweh see it, and it displease him, and he turn away his wrath from him.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="19" characterId="narrator-PRO">
     <verse num="19" />
-    <text>Don’t fret yourself because of evildoers; neither be envious of the wicked: </text>
+    <text>Don’t fret yourself because of evildoers, neither be envious of the wicked;</text>
+  </block>
+  <block style="p" chapter="24" initialStartVerse="20" characterId="narrator-PRO">
     <verse num="20" />
-    <text>for there will be no reward to the evil man; and the lamp of the wicked shall be snuffed out.</text>
+    <text>for there will be no reward to the evil man. The lamp of the wicked will be snuffed out.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="21" characterId="narrator-PRO">
     <verse num="21" />
-    <text>My son, fear God and the king. Don’t join those who are rebellious: </text>
+    <text>My son, fear Yahweh and the king. Don’t join those who are rebellious;</text>
+  </block>
+  <block style="p" chapter="24" initialStartVerse="22" characterId="narrator-PRO">
     <verse num="22" />
-    <text>for their calamity will rise suddenly; the destruction from them both--who knows?</text>
+    <text>for their calamity will rise suddenly. Who knows what destruction may come from them both?</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="23" characterId="narrator-PRO">
     <verse num="23" />
@@ -2795,11 +2927,19 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="24" characterId="narrator-PRO">
     <verse num="24" />
-    <text>He who says to the wicked, «You are righteous;» peoples shall curse him, and nations shall abhor him--</text>
+    <text>He who says to the wicked,</text>
+  </block>
+  <block style="p" chapter="24" initialStartVerse="24" characterId="judge (corrupt)">
+    <text>«You are righteous,»</text>
+  </block>
+  <block style="p" chapter="24" initialStartVerse="24" characterId="narrator-PRO">
+    <text>peoples will curse him, and nations will abhor him—</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="25" characterId="narrator-PRO">
     <verse num="25" />
-    <text>but it will go well with those who convict the guilty, and a rich blessing will come on them. </text>
+    <text>but it will go well with those who convict the guilty, and a rich blessing will come on them.</text>
+  </block>
+  <block style="p" chapter="24" initialStartVerse="26" characterId="narrator-PRO">
     <verse num="26" />
     <text>An honest answer is like a kiss on the lips.</text>
   </block>
@@ -2809,9 +2949,11 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="28" characterId="narrator-PRO">
     <verse num="28" />
-    <text>Don’t be a witness against your neighbor without cause. Don’t deceive with your lips. </text>
+    <text>Don’t be a witness against your neighbor without cause. Don’t deceive with your lips.</text>
+  </block>
+  <block style="p" chapter="24" initialStartVerse="29" characterId="narrator-PRO">
     <verse num="29" />
-    <text>Don’t say, «I will do to him as he has done to me; I will render to the man according to his work.»</text>
+    <text>Don’t say, «I will do to him as he has done to me; I will repay the man according to his work.»</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="30" characterId="narrator-PRO">
     <verse num="30" />
@@ -2827,9 +2969,11 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="33" characterId="narrator-PRO">
     <verse num="33" />
-    <text>a little sleep, a little slumber, a little folding of the hands to sleep; </text>
+    <text>a little sleep, a little slumber, a little folding of the hands to sleep,</text>
+  </block>
+  <block style="p" chapter="24" initialStartVerse="34" characterId="narrator-PRO">
     <verse num="34" />
-    <text>so your poverty will come as a robber, and your want as an armed man.</text>
+    <text>so your poverty will come as a robber and your want as an armed man.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="25" book="PRO" initialStartVerse="0" characterId="BC-PRO">
     <text>25</text>
@@ -2860,7 +3004,13 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="7" characterId="narrator-PRO">
     <verse num="7" />
-    <text>for it is better that it be said to you, «Come up here,» than that you should be put lower in the presence of the prince, whom your eyes have seen.</text>
+    <text>for it is better that it be said to you,</text>
+  </block>
+  <block style="p" chapter="25" initialStartVerse="7" characterId="king">
+    <text>«Come up here,»</text>
+  </block>
+  <block style="p" chapter="25" initialStartVerse="7" characterId="narrator-PRO">
+    <text>than that you should be put lower in the presence of the prince, whom your eyes have seen.</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="8" characterId="narrator-PRO">
     <verse num="8" />
@@ -2868,13 +3018,17 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="9" characterId="narrator-PRO">
     <verse num="9" />
-    <text>Debate your case with your neighbor, and don’t betray the confidence of another; </text>
+    <text>Debate your case with your neighbor, and don’t betray the confidence of another,</text>
+  </block>
+  <block style="p" chapter="25" initialStartVerse="10" characterId="narrator-PRO">
     <verse num="10" />
     <text>lest one who hears it put you to shame, and your bad reputation never depart.</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="11" characterId="narrator-PRO">
     <verse num="11" />
-    <text>A word fitly spoken is like apples of gold in settings of silver. </text>
+    <text>A word fitly spoken is like apples of gold in settings of silver.</text>
+  </block>
+  <block style="p" chapter="25" initialStartVerse="12" characterId="narrator-PRO">
     <verse num="12" />
     <text>As an earring of gold, and an ornament of fine gold, so is a wise reprover to an obedient ear.</text>
   </block>
@@ -2904,7 +3058,7 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="19" characterId="narrator-PRO">
     <verse num="19" />
-    <text>Confidence in someone unfaithful in time of trouble is like a bad tooth, or a lame foot.</text>
+    <text>Confidence in someone unfaithful in time of trouble is like a bad tooth or a lame foot.</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="20" characterId="narrator-PRO">
     <verse num="20" />
@@ -2916,15 +3070,15 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="22" characterId="narrator-PRO">
     <verse num="22" />
-    <text>for you will heap coals of fire on his head, and God will reward you.</text>
+    <text>for you will heap coals of fire on his head, and Yahweh will reward you.</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="23" characterId="narrator-PRO">
     <verse num="23" />
-    <text>The north wind brings forth rain: so a backbiting tongue brings an angry face.</text>
+    <text>The north wind produces rain; so a backbiting tongue brings an angry face.</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="24" characterId="narrator-PRO">
     <verse num="24" />
-    <text>It is better to dwell in the corner of the housetop, than to share a house with a contentious woman.</text>
+    <text>It is better to dwell in the corner of the housetop than to share a house with a contentious woman.</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="25" characterId="narrator-PRO">
     <verse num="25" />
@@ -2932,7 +3086,7 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="26" characterId="narrator-PRO">
     <verse num="26" />
-    <text>Like a muddied spring, and a polluted well, so is a righteous man who gives way before the wicked.</text>
+    <text>Like a muddied spring and a polluted well, so is a righteous man who gives way before the wicked.</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="27" characterId="narrator-PRO">
     <verse num="27" />
@@ -2979,7 +3133,7 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="9" characterId="narrator-PRO">
     <verse num="9" />
-    <text>Like a thornbush that goes into the hand of a drunkard, so is a parable in the mouth of fools.</text>
+    <text>Like a thorn bush that goes into the hand of a drunkard, so is a parable in the mouth of fools.</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="10" characterId="narrator-PRO">
     <verse num="10" />
@@ -2991,11 +3145,13 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="12" characterId="narrator-PRO">
     <verse num="12" />
-    <text>Do you see a man wise in his own eyes? There is more hope for a fool than for him. </text>
+    <text>Do you see a man wise in his own eyes? There is more hope for a fool than for him.</text>
+  </block>
+  <block style="p" chapter="26" initialStartVerse="13" characterId="narrator-PRO">
     <verse num="13" />
     <text>The sluggard says,</text>
   </block>
-  <block style="p" chapter="26" initialStartVerse="13" characterId="narrator-PRO">
+  <block style="p" chapter="26" initialStartVerse="13" characterId="sluggard">
     <text>«There is a lion in the road! A fierce lion roams the streets!»</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="14" characterId="narrator-PRO">
@@ -3016,13 +3172,20 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="18" characterId="narrator-PRO">
     <verse num="18" />
-    <text>Like a madman who shoots torches, arrows, and death, </text>
+    <text>Like a madman who shoots torches, arrows, and death,</text>
+  </block>
+  <block style="p" chapter="26" initialStartVerse="19" characterId="narrator-PRO">
     <verse num="19" />
-    <text>is the man who deceives his neighbor and says, «Am I not joking?»</text>
+    <text>is the man who deceives his neighbor and says,</text>
+  </block>
+  <block style="p" chapter="26" initialStartVerse="19" characterId="man, deceitful">
+    <text>«Am I not joking?»</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="20" characterId="narrator-PRO">
     <verse num="20" />
-    <text>For lack of wood a fire goes out. Without gossip, a quarrel dies down. </text>
+    <text>For lack of wood a fire goes out. Without gossip, a quarrel dies down.</text>
+  </block>
+  <block style="p" chapter="26" initialStartVerse="21" characterId="narrator-PRO">
     <verse num="21" />
     <text>As coals are to hot embers, and wood to fire, so is a contentious man to kindling strife.</text>
   </block>
@@ -3059,7 +3222,7 @@
   </block>
   <block style="p" chapter="27" initialStartVerse="1" characterId="narrator-PRO">
     <verse num="1" />
-    <text>Don’t boast about tomorrow; for you don’t know what a day may bring forth.</text>
+    <text>Don’t boast about tomorrow; for you don’t know what a day may bring.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="2" characterId="narrator-PRO">
     <verse num="2" />
@@ -3115,7 +3278,9 @@
   </block>
   <block style="p" chapter="27" initialStartVerse="15" characterId="narrator-PRO">
     <verse num="15" />
-    <text>A continual dropping on a rainy day and a contentious wife are alike: </text>
+    <text>A continual dropping on a rainy day and a contentious wife are alike:</text>
+  </block>
+  <block style="p" chapter="27" initialStartVerse="16" characterId="narrator-PRO">
     <verse num="16" />
     <text>restraining her is like restraining the wind, or like grasping oil in his right hand.</text>
   </block>
@@ -3145,13 +3310,17 @@
   </block>
   <block style="p" chapter="27" initialStartVerse="23" characterId="narrator-PRO">
     <verse num="23" />
-    <text>Know well the state of your flocks, and pay attention to your herds: </text>
+    <text>Know well the state of your flocks, and pay attention to your herds:</text>
+  </block>
+  <block style="p" chapter="27" initialStartVerse="24" characterId="narrator-PRO">
     <verse num="24" />
-    <text>for riches are not forever, nor does even the crown endure to all generations.</text>
+    <text>for riches are not forever, nor does the crown endure to all generations.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="25" characterId="narrator-PRO">
     <verse num="25" />
-    <text>The hay is removed, and the new growth appears, the grasses of the hills are gathered in. </text>
+    <text>The hay is removed, and the new growth appears, the grasses of the hills are gathered in.</text>
+  </block>
+  <block style="p" chapter="27" initialStartVerse="26" characterId="narrator-PRO">
     <verse num="26" />
     <text>The lambs are for your clothing, and the goats are the price of a field.</text>
   </block>
@@ -3180,7 +3349,7 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="5" characterId="narrator-PRO">
     <verse num="5" />
-    <text>Evil men don’t understand justice; but those who seek God understand it fully.</text>
+    <text>Evil men don’t understand justice; but those who seek Yahweh understand it fully.</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="6" characterId="narrator-PRO">
     <verse num="6" />
@@ -3256,11 +3425,17 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="24" characterId="narrator-PRO">
     <verse num="24" />
-    <text>Whoever robs his father or his mother, and says, «It’s not wrong.» He is a partner with a destroyer.</text>
+    <text>Whoever robs his father or his mother and says,</text>
+  </block>
+  <block style="p" chapter="28" initialStartVerse="24" characterId="man (hypothetical)">
+    <text>«It’s not wrong,»</text>
+  </block>
+  <block style="p" chapter="28" initialStartVerse="24" characterId="narrator-PRO">
+    <text>is a partner with a destroyer.</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="25" characterId="narrator-PRO">
     <verse num="25" />
-    <text>One who is greedy stirs up strife; but one who trusts in God will prosper.</text>
+    <text>One who is greedy stirs up strife; but one who trusts in Yahweh will prosper.</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="26" characterId="narrator-PRO">
     <verse num="26" />
@@ -3327,7 +3502,7 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="13" characterId="narrator-PRO">
     <verse num="13" />
-    <text>The poor man and the oppressor have this in common: God gives sight to the eyes of both.</text>
+    <text>The poor man and the oppressor have this in common: Yahweh gives sight to the eyes of both.</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="14" characterId="narrator-PRO">
     <verse num="14" />
@@ -3375,11 +3550,11 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="25" characterId="narrator-PRO">
     <verse num="25" />
-    <text>The fear of man proves to be a snare, but whoever puts his trust in God is kept safe.</text>
+    <text>The fear of man proves to be a snare, but whoever puts his trust in Yahweh is kept safe.</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="26" characterId="narrator-PRO">
     <verse num="26" />
-    <text>Many seek the ruler’s favor, but a man’s justice comes from God.</text>
+    <text>Many seek the ruler’s favor, but a man’s justice comes from Yahweh.</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="27" characterId="narrator-PRO">
     <verse num="27" />
@@ -3390,11 +3565,11 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="1" characterId="narrator-PRO">
     <verse num="1" />
-    <text>The words of Agur the son of Jakeh, the oracle: the man says to Ithiel, to Ithiel and Ucal:</text>
+    <text>The words of Agur the son of Jakeh; the revelation: the man says to Ithiel, to Ithiel and Ucal:</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="2" characterId="narrator-PRO">
     <verse num="2" />
-    <text>Surely I am the most ignorant man, and don’t have a man’s understanding.</text>
+    <text>«Surely I am the most ignorant man, and don’t have a man’s understanding.</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="3" characterId="narrator-PRO">
     <verse num="3" />
@@ -3422,7 +3597,7 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="9" characterId="narrator-PRO">
     <verse num="9" />
-    <text>lest I be full, deny you, and say, ‹Who is God?› or lest I be poor, and steal, and so dishonor the name of my God.</text>
+    <text>lest I be full, deny you, and say, ‹Who is Yahweh?› or lest I be poor, and steal, and so dishonor the name of my God.</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="10" characterId="narrator-PRO">
     <verse num="10" />
@@ -3462,7 +3637,7 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="19" characterId="narrator-PRO">
     <verse num="19" />
-    <text>The way of an eagle in the air; the way of a serpent on a rock; the way of a ship in the midst of the sea; and the way of a man with a maiden.</text>
+    <text>The way of an eagle in the air, the way of a serpent on a rock, the way of a ship in the middle of the sea, and the way of a man with a maiden.</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="20" characterId="narrator-PRO">
     <verse num="20" />
@@ -3473,7 +3648,7 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="21" characterId="narrator-PRO">
     <verse num="21" />
-    <text>For three things the earth tremble, and under four, it can’t bear up:</text>
+    <text>For three things the earth trembles, and under four, it can’t bear up:</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="22" characterId="narrator-PRO">
     <verse num="22" />
@@ -3481,7 +3656,7 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="23" characterId="narrator-PRO">
     <verse num="23" />
-    <text>for an unloved woman when she is married; and a handmaid who is heir to her mistress.</text>
+    <text>for an unloved woman when she is married, and a servant who is heir to her mistress.</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="24" characterId="narrator-PRO">
     <verse num="24" />
@@ -3493,7 +3668,7 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="26" characterId="narrator-PRO">
     <verse num="26" />
-    <text>The conies are but a feeble folk, yet make they their houses in the rocks.</text>
+    <text>The hyraxes are but a feeble folk, yet make they their houses in the rocks.</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="27" characterId="narrator-PRO">
     <verse num="27" />
@@ -3513,7 +3688,7 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="31" characterId="narrator-PRO">
     <verse num="31" />
-    <text>the greyhound, the male goat also; and the king against whom there is no rising up.</text>
+    <text>the greyhound; the male goat; and the king against whom there is no rising up.</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="32" characterId="narrator-PRO">
     <verse num="32" />
@@ -3521,18 +3696,18 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="33" characterId="narrator-PRO">
     <verse num="33" />
-    <text>For as the churning of milk brings forth butter, and the wringing of the nose brings forth blood; so the forcing of wrath brings forth strife.</text>
+    <text>For as the churning of milk produces butter, and the wringing of the nose produces blood; so the forcing of wrath produces strife.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="31" book="PRO" initialStartVerse="0" characterId="BC-PRO">
     <text>31</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="1" characterId="narrator-PRO">
     <verse num="1" />
-    <text>The words of king Lemuel; the oracle which his mother taught him.</text>
+    <text>The words of king Lemuel; the revelation which his mother taught him.</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="2" characterId="narrator-PRO">
     <verse num="2" />
-    <text>Oh, my son! Oh, son of my womb! Oh, son of my vows!</text>
+    <text>«Oh, my son! Oh, son of my womb! Oh, son of my vows!</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="3" characterId="narrator-PRO">
     <verse num="3" />
@@ -3560,93 +3735,93 @@
   </block>
   <block style="p" chapter="31" initialStartVerse="9" characterId="narrator-PRO">
     <verse num="9" />
-    <text>Open your mouth, judge righteously, and serve justice to the poor and needy.</text>
+    <text>Open your mouth, judge righteously, and serve justice to the poor and needy.»</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="10" characterId="King Lemuel's mother/King Lemuel">
+  <block style="p" chapter="31" initialStartVerse="10" characterId="narrator-PRO">
     <verse num="10" />
     <text>Who can find a worthy woman? For her price is far above rubies.</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="11" characterId="King Lemuel's mother/King Lemuel">
+  <block style="p" chapter="31" initialStartVerse="11" characterId="narrator-PRO">
     <verse num="11" />
     <text>The heart of her husband trusts in her. He shall have no lack of gain.</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="12" characterId="King Lemuel's mother/King Lemuel">
+  <block style="p" chapter="31" initialStartVerse="12" characterId="narrator-PRO">
     <verse num="12" />
     <text>She does him good, and not harm, all the days of her life.</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="13" characterId="King Lemuel's mother/King Lemuel">
+  <block style="p" chapter="31" initialStartVerse="13" characterId="narrator-PRO">
     <verse num="13" />
     <text>She seeks wool and flax, and works eagerly with her hands.</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="14" characterId="King Lemuel's mother/King Lemuel">
+  <block style="p" chapter="31" initialStartVerse="14" characterId="narrator-PRO">
     <verse num="14" />
     <text>She is like the merchant ships. She brings her bread from afar.</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="15" characterId="King Lemuel's mother/King Lemuel">
+  <block style="p" chapter="31" initialStartVerse="15" characterId="narrator-PRO">
     <verse num="15" />
     <text>She rises also while it is yet night, gives food to her household, and portions for her servant girls.</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="16" characterId="King Lemuel's mother/King Lemuel">
+  <block style="p" chapter="31" initialStartVerse="16" characterId="narrator-PRO">
     <verse num="16" />
     <text>She considers a field, and buys it. With the fruit of her hands, she plants a vineyard.</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="17" characterId="King Lemuel's mother/King Lemuel">
+  <block style="p" chapter="31" initialStartVerse="17" characterId="narrator-PRO">
     <verse num="17" />
     <text>She arms her waist with strength, and makes her arms strong.</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="18" characterId="King Lemuel's mother/King Lemuel">
+  <block style="p" chapter="31" initialStartVerse="18" characterId="narrator-PRO">
     <verse num="18" />
     <text>She perceives that her merchandise is profitable. Her lamp doesn’t go out by night.</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="19" characterId="King Lemuel's mother/King Lemuel">
+  <block style="p" chapter="31" initialStartVerse="19" characterId="narrator-PRO">
     <verse num="19" />
     <text>She lays her hands to the distaff, and her hands hold the spindle.</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="20" characterId="King Lemuel's mother/King Lemuel">
+  <block style="p" chapter="31" initialStartVerse="20" characterId="narrator-PRO">
     <verse num="20" />
     <text>She opens her arms to the poor; yes, she extends her hands to the needy.</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="21" characterId="King Lemuel's mother/King Lemuel">
+  <block style="p" chapter="31" initialStartVerse="21" characterId="narrator-PRO">
     <verse num="21" />
     <text>She is not afraid of the snow for her household; for all her household are clothed with scarlet.</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="22" characterId="King Lemuel's mother/King Lemuel">
+  <block style="p" chapter="31" initialStartVerse="22" characterId="narrator-PRO">
     <verse num="22" />
     <text>She makes for herself carpets of tapestry. Her clothing is fine linen and purple.</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="23" characterId="King Lemuel's mother/King Lemuel">
+  <block style="p" chapter="31" initialStartVerse="23" characterId="narrator-PRO">
     <verse num="23" />
     <text>Her husband is respected in the gates, when he sits among the elders of the land.</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="24" characterId="King Lemuel's mother/King Lemuel">
+  <block style="p" chapter="31" initialStartVerse="24" characterId="narrator-PRO">
     <verse num="24" />
     <text>She makes linen garments and sells them, and delivers sashes to the merchant.</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="25" characterId="King Lemuel's mother/King Lemuel">
+  <block style="p" chapter="31" initialStartVerse="25" characterId="narrator-PRO">
     <verse num="25" />
     <text>Strength and dignity are her clothing. She laughs at the time to come.</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="26" characterId="King Lemuel's mother/King Lemuel">
+  <block style="p" chapter="31" initialStartVerse="26" characterId="narrator-PRO">
     <verse num="26" />
-    <text>She opens her mouth with wisdom. Faithful instruction is on her tongue.</text>
+    <text>She opens her mouth with wisdom. Kind instruction is on her tongue.</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="27" characterId="King Lemuel's mother/King Lemuel">
+  <block style="p" chapter="31" initialStartVerse="27" characterId="narrator-PRO">
     <verse num="27" />
     <text>She looks well to the ways of her household, and doesn’t eat the bread of idleness.</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="28" characterId="King Lemuel's mother/King Lemuel">
+  <block style="p" chapter="31" initialStartVerse="28" characterId="narrator-PRO">
     <verse num="28" />
     <text>Her children rise up and call her blessed. Her husband also praises her:</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="29" characterId="King Lemuel's mother/King Lemuel">
+  <block style="p" chapter="31" initialStartVerse="29" characterId="husband of excellent wife">
     <verse num="29" />
-    <text>Many women do noble things, but you excel them all.</text>
+    <text>«Many women do noble things, but you excel them all.»</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="30" characterId="King Lemuel's mother/King Lemuel">
+  <block style="p" chapter="31" initialStartVerse="30" characterId="narrator-PRO">
     <verse num="30" />
-    <text>Charm is deceitful, and beauty is vain; but a woman who fears God, she shall be praised.</text>
+    <text>Charm is deceitful, and beauty is vain; but a woman who fears Yahweh, she shall be praised.</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="31" characterId="King Lemuel's mother/King Lemuel">
+  <block style="p" chapter="31" initialStartVerse="31" characterId="narrator-PRO">
     <verse num="31" />
     <text>Give her of the fruit of her hands! Let her works praise her in the gates!</text>
   </block>

@@ -67,6 +67,9 @@ namespace GlyssenEngine.Character
 		/// d) A self-quote by the narrator (especially where the narrator refers to himself in the
 		/// first person). * ENHANCE: We might want to consider breaking this case out into a
 		/// distinct type.
+		/// e) In verses where the text could be read by the narrator but there is also a reasonable
+		/// narrator override, the non-narrator option(s) will be listed as potential speakers, so
+		/// scripter can choose the override character if so desired.
 		/// For now, Potential quotes will be treated just like <seealso cref="Indirect"/> quotes --
 		/// they will not be considered as "expected" quotes.
 		/// </summary>

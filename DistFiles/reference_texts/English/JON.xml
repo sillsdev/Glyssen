@@ -8,19 +8,19 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="1" characterId="narrator-JON">
     <verse num="1" />
-    <text>Now the word of God came to Jonah the son of Amittai, saying,</text>
+    <text>Now Yahweh’s word came to Jonah the son of Amittai, saying,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>Arise, go to Nineveh, that great city, and preach against it, for their wickedness has come up before me.</text>
+    <text>«Arise, go to Nineveh, that great city, and preach against it, for their wickedness has come up before me.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="3" characterId="narrator-JON">
     <verse num="3" />
-    <text>But Jonah rose up to flee to Tarshish from the presence of God. He went down to Joppa, and found a ship going to Tarshish; so he paid its fare, and went down into it, to go with them to Tarshish from the presence of God.</text>
+    <text>But Jonah rose up to flee to Tarshish from the presence of Yahweh. He went down to Joppa, and found a ship going to Tarshish; so he paid its fare, and went down into it, to go with them to Tarshish from the presence of Yahweh.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="4" characterId="narrator-JON">
     <verse num="4" />
-    <text>But God sent out a great wind on the sea, and there was a mighty storm on the sea, so that the ship was likely to break up.</text>
+    <text>But Yahweh sent out a great wind on the sea, and there was a mighty storm on the sea, so that the ship was likely to break up.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="5" characterId="narrator-JON">
     <verse num="5" />
@@ -38,10 +38,12 @@
     <text>They all said to each other,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="7" characterId="sailors on ship to Tarshish">
-    <text>«Come, let us cast lots, that we may know who is responsible for this evil that is on us.»</text>
+    <text>«Come! Let’s cast lots, that we may know who is responsible for this evil that is on us.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="7" characterId="narrator-JON">
-    <text>So they cast lots, and the lot fell on Jonah. </text>
+    <text>So they cast lots, and the lot fell on Jonah.</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="8" characterId="narrator-JON">
     <verse num="8" />
     <text>Then they asked him,</text>
   </block>
@@ -53,17 +55,19 @@
     <text>He said to them,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="Jonah">
-    <text>«I am a Hebrew, and I fear God, the God of heaven, who has made the sea and the dry land.»</text>
+    <text>«I am a Hebrew, and I fear Yahweh, the God of heaven, who has made the sea and the dry land.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="10" characterId="narrator-JON">
     <verse num="10" />
-    <text>Then were the men exceedingly afraid, and said to him,</text>
+    <text>Then the men were exceedingly afraid, and said to him,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="10" characterId="captain of ship to Tarshish" delivery="fearful">
-    <text>«What is this that you have done?»</text>
+    <text>«What have you done?»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="10" characterId="narrator-JON">
-    <text>For the men knew that he was fleeing from the presence of God, because he had told them. </text>
+    <text>For the men knew that he was fleeing from the presence of Yahweh, because he had told them.</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="11" characterId="narrator-JON">
     <verse num="11" />
     <text>Then they said to him,</text>
   </block>
@@ -71,7 +75,9 @@
     <text>«What shall we do to you, that the sea may be calm to us?»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="11" characterId="narrator-JON">
-    <text>For the sea grew more and more stormy. </text>
+    <text>For the sea grew more and more stormy.</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="12" characterId="narrator-JON">
     <verse num="12" />
     <text>He said to them,</text>
   </block>
@@ -80,12 +86,14 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="13" characterId="narrator-JON">
     <verse num="13" />
-    <text>Nevertheless the men rowed hard to get them back to the land; but they could not, for the sea grew more and more stormy against them. </text>
+    <text>Nevertheless the men rowed hard to get them back to the land; but they could not, for the sea grew more and more stormy against them.</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="14" characterId="narrator-JON">
     <verse num="14" />
-    <text>Therefore they cried to God, and said,</text>
+    <text>Therefore they cried to Yahweh, and said,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="14" characterId="captain of ship to Tarshish" delivery="praying">
-    <text>«We beg you, God, we beg you, don’t let us die for this man’s life, and don’t lay on us innocent blood; for you, God, have done as it pleased you.»</text>
+    <text>«We beg you, Yahweh, we beg you, don’t let us die for this man’s life, and don’t lay on us innocent blood; for you, Yahweh, have done as it pleased you.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="15" characterId="narrator-JON">
     <verse num="15" />
@@ -93,23 +101,25 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="16" characterId="narrator-JON">
     <verse num="16" />
-    <text>Then the men feared God exceedingly; and they offered a sacrifice to God, and made vows.</text>
+    <text>Then the men feared Yahweh exceedingly; and they offered a sacrifice to Yahweh, and made vows.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="17" characterId="narrator-JON">
     <verse num="17" />
-    <text>God prepared a great fish to swallow up Jonah, and Jonah was in the belly of the fish three days and three nights.</text>
+    <text>Yahweh prepared a huge fish to swallow up Jonah, and Jonah was in the belly of the fish three days and three nights.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="JON" initialStartVerse="0" characterId="BC-JON">
     <text>2</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="1" characterId="narrator-JON">
     <verse num="1" />
-    <text>Then Jonah prayed to God, his God, out of the fish’s belly. </text>
+    <text>Then Jonah prayed to Yahweh, his God, out of the fish’s belly.</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-JON">
     <verse num="2" />
     <text>He said,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="Jonah" delivery="praying">
-    <text>«I called because of my affliction to God. He answered me. Out of the belly of Sheol I cried. You heard my voice.</text>
+    <text>«I called because of my affliction to Yahweh. He answered me. Out of the belly of Sheol I cried. You heard my voice.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="Jonah" delivery="praying">
     <verse num="3" />
@@ -125,11 +135,11 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="Jonah" delivery="praying">
     <verse num="6" />
-    <text>I went down to the bottoms of the mountains. The earth barred me in forever: yet have you brought up my life from the pit, God my God.</text>
+    <text>I went down to the bottoms of the mountains. The earth barred me in forever: yet you have brought my life up from the pit, Yahweh my God.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="7" characterId="Jonah" delivery="praying">
     <verse num="7" />
-    <text>When my soul fainted within me, I remembered God. My prayer came in to you, into your holy temple.</text>
+    <text>When my soul fainted within me, I remembered Yahweh. My prayer came in to you, into your holy temple.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="8" characterId="Jonah" delivery="praying">
     <verse num="8" />
@@ -137,26 +147,26 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="9" characterId="Jonah" delivery="praying">
     <verse num="9" />
-    <text>But I will sacrifice to you with the voice of thanksgiving. I will pay that which I have vowed. Salvation belongs to God.</text>
+    <text>But I will sacrifice to you with the voice of thanksgiving. I will pay that which I have vowed. Salvation belongs to Yahweh.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="10" characterId="narrator-JON">
     <verse num="10" />
-    <text>God spoke to the fish, and it vomited out Jonah on the dry land.</text>
+    <text>Then Yahweh spoke to the fish, and it vomited out Jonah on the dry land.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="JON" initialStartVerse="0" characterId="BC-JON">
     <text>3</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="1" characterId="narrator-JON">
     <verse num="1" />
-    <text>The word of God came to Jonah the second time, saying,</text>
+    <text>Yahweh’s word came to Jonah the second time, saying,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>Arise, go to Nineveh, that great city, and preach to it the message that I give you.</text>
+    <text>«Arise, go to Nineveh, that great city, and preach to it the message that I give you.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="3" characterId="narrator-JON">
     <verse num="3" />
-    <text>So Jonah arose, and went to Nineveh, according to the word of God. Now Nineveh was an exceedingly great city, three days’ journey across.</text>
+    <text>So Jonah arose, and went to Nineveh, according to Yahweh’s word. Now Nineveh was an exceedingly great city, three days’ journey across.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="4" characterId="narrator-JON">
     <verse num="4" />
@@ -167,7 +177,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-JON">
     <verse num="5" />
-    <text>The people of Nineveh believed God; and they proclaimed a fast, and put on sackcloth, from the greatest of them even to the least of them.</text>
+    <text>The people of Nineveh believed God; and they proclaimed a fast, and put on sackcloth, from their greatest even to their least.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="6" characterId="narrator-JON">
     <verse num="6" />
@@ -197,20 +207,22 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="1" characterId="narrator-JON">
     <verse num="1" />
-    <text>But it displeased Jonah exceedingly, and he was angry. </text>
+    <text>But it displeased Jonah exceedingly, and he was angry.</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="2" characterId="narrator-JON" delivery="praying">
     <verse num="2" />
-    <text>He prayed to God, and said,</text>
+    <text>He prayed to Yahweh, and said,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="2" characterId="Jonah" delivery="praying">
-    <text>«Please, God, wasn’t this what I said when I was still in my own country? Therefore I hurried to flee to Tarshish, for I knew that you are a gracious God, and merciful, slow to anger, and abundant in loving kindness, and you relent of doing harm.</text>
+    <text>«Please, Yahweh, wasn’t this what I said when I was still in my own country? Therefore I hurried to flee to Tarshish, for I knew that you are a gracious God, and merciful, slow to anger, and abundant in loving kindness, and you relent of doing harm.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="3" characterId="Jonah" delivery="praying">
     <verse num="3" />
-    <text>Therefore now, God, take, I beg you, my life from me; for it is better for me to die than to live.»</text>
+    <text>Therefore now, Yahweh, take, I beg you, my life from me; for it is better for me to die than to live.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="4" characterId="narrator-JON">
     <verse num="4" />
-    <text>God said,</text>
+    <text>Yahweh said,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="4" characterId="God">
     <text>«Is it right for you to be angry?»</text>
@@ -221,7 +233,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="6" characterId="narrator-JON">
     <verse num="6" />
-    <text>God prepared a vine, and made it to come up over Jonah, that it might be a shade over his head, to deliver him from his discomfort. So Jonah was exceedingly glad because of the vine.</text>
+    <text>Yahweh God prepared a vine, and made it to come up over Jonah, that it might be a shade over his head, to deliver him from his discomfort. So Jonah was exceedingly glad because of the vine.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="7" characterId="narrator-JON">
     <verse num="7" />
@@ -229,7 +241,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="8" characterId="narrator-JON">
     <verse num="8" />
-    <text>It happened, when the sun arose, that God prepared a sultry east wind; and the sun beat on Jonah’s head, so that he fainted, and requested for himself that he might die, and said,</text>
+    <text>When the sun arose, God prepared a sultry east wind; and the sun beat on Jonah’s head, so that he fainted, and requested for himself that he might die, and said,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="8" characterId="Jonah">
     <text>«It is better for me to die than to live.»</text>
@@ -249,7 +261,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="10" characterId="narrator-JON">
     <verse num="10" />
-    <text>God said,</text>
+    <text>Yahweh said,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="10" characterId="God">
     <text>«You have been concerned for the vine, for which you have not labored, neither made it grow; which came up in a night, and perished in a night.</text>

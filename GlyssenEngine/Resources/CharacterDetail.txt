@@ -40,6 +40,7 @@ all in Nazareth synagogue	-1		Adult			LUK 4:22
 all in temple	-1		Adult			PSA 29:9
 all seeking God	-1		Adult			PSA 40:16
 all the elders	-1	Male	Elder		elders of the church in Jerusalem	MRK 15:1 <-(5 more)-> ACT 21:25
+all the earth	-1					PSA 96:10
 all who heard (in synagogues)	-1		Adult			ACT 9:21
 altar	1	PreferMale	Adult			REV 16:7
 Amasa	1	Male	Adult		leader in Ephraim	2CH 28:13
@@ -237,7 +238,7 @@ Daniel	1	Male	Adult			DAN 1:12 <-(98 more)-> DAN 10:19
 Danites	-1		Adult			JDG 18:2 <-(2 more)-> JDG 18:25
 Darius, king of Medes and Persians	1	Male	Adult			EZR 6:1 <-(15 more)-> DAN 6:27
 Dathan	1	Male			son of Eliab (Reubenite)	NUM 16:3 <-(2 more)-> NUM 16:14
-daughter of Zion	1	Female				JER 4:31 <-(18 more)-> LAM 2:22
+daughter of Zion	-1	Female				JER 4:31 <-(18 more)-> LAM 2:22
 daughters of Philip the evangelist	4	Female				ACT 20:12
 daughters of Zelophehad	-1	Female				NUM 27:3 <-(1 more)-> JOS 17:4	Daughter of Zelophehad (female)
 David	1	Male	Adult			1SA 17:26 <-(401 more)-> PRO 4:9
@@ -652,6 +653,7 @@ man who says 'I know him'	1	Male				1JN 2:4
 man who says 'we remain in union with God'	1	Male				1JN 2:6
 man with measuring line (in vision)	1	Male				ZEC 2:2
 man with sponge	1	Male				MRK 15:36
+man, deceitful	1	Male				PRO 26:19
 man, still another	1	Male				LUK 9:61
 man, wicked	1	Male				PSA 10:6 <-(1 more)-> PSA 10:13
 Manoah, father of Samson	1	Male				JDG 13:8 <-(5 more)-> JDG 14:3	Manoah
@@ -819,6 +821,7 @@ one of you	-1					ROM 9:19 & JAS 2:16
 one of the others who stood on the river bank	1	Male				DAN 12:6
 one who allowed Paul to live by himself	-1	Male				ACT 28:16
 one who brings good news	-1	PreferMale				ISA 40:9 & ISA 52:7
+one who robs his father or mother	1	Male				PRO 28:24
 onlookers	-1					ISA 14:16 & ISA 14:17
 oppressors of poor	-1					AMO 8:5 & AMO 8:6
 Orpah	1	Female				RUT 1:10
@@ -1105,7 +1108,7 @@ soldiers	-1	Male	Adult			NAM 2:9 <-(3 more)-> ACT 27:42
 soldiers, Assyrian	-1	Male	Adult			ISA 10:29
 soldiers, Roman	-1	Male	Adult			MAT 27:29 <-(7 more)-> JHN 19:24
 soldiers, some (near Jordan River)	-1	Male	Adult			LUK 3:14
-Solomon, king	1	Male				1KI 1:52 <-(178 more)-> SNG 8:13
+Solomon, king	1	Male				1KI 1:52 <-(178 more)-> SNG 8:13	Solomon
 some convinced by Paul	-1	Male				ACT 28:24
 some people (quoted by Paul)	-1					2CO 10:10
 someone	-1					ECC 1:10 <-(8 more)-> JAS 4:13
@@ -1140,7 +1143,6 @@ Tamar, daughter of David	1	Female				2SA 13:12 <-(1 more)-> 2SA 13:16	Tamar 2nd 
 Tamar, daughter-in-law of Judah	1	Female				GEN 38:16 <-(1 more)-> GEN 38:18	Tamar 1st (female)
 Tattenai, governor	1	Male				EZR 5:3 <-(11 more)-> EZR 5:17
 tax collectors	-1	Male				LUK 3:12
-teacher (Preacher)	1	Male			It is generally accepted that this is King Solomon	ECC 3:19 <-(1 more)-> ECC 3:21	Preacher
 teacher of religious law	1	Male				MAT 8:19 & LUK 9:57
 teachers of religious law	-1	Male				MAT 2:5 <-(50 more)-> ACT 5:40
 temple guards	-1	Male				JHN 7:46
@@ -1224,11 +1226,13 @@ women who oppress the poor ("cows of Bashan")	-1	Female				AMO 4:1	Woman of Bash
 women, dancing	-1	Female				1SA 18:7
 women, remnant of the king of Judah's house	7	Female				JER 38:22
 women, seven	7	Female				ISA 4:1	Daughter of Zion (female)
-worshipers	-1	Male				PSA 122:1
+women playing tambourines	-1	Female				PSA 68:26
+worshipers	-1					PSA 122:1
 worshipers of the beast	-1					REV 13:4
 Xerxes, king of Persia and Media (Ahasuerus)	1	Male				EST 1:15 <-(15 more)-> EST 9:12	Ahasuerus
 you (hypothetical Gentile)	1					ROM 11:19
 you (hypothetical)	-1					PSA 66:3 <-(38 more)-> 1PE 1:17
+you (old)	1	Male	Elder			ECC 12:1	Man (old)
 you (people of Zion, restored)	-1					ISA 14:4 <-(17 more)-> JER 31:7
 you ought to say	1					JAS 4:15
 young man	1	Male	YoungAdult			NUM 11:27 & AMO 8:14

@@ -4835,6 +4835,8 @@ JDG	21	21	Israelite assembly, elders of			Normal
 JDG	21	22	Israelite assembly, elders of			Normal		
 RUT	1	8	Naomi			Normal		
 RUT	1	9	Naomi			Normal		
+RUT	1	9	Orpah/Ruth	weeping		Rare	Orpah	
+RUT	1	9	Needs Review			Rare		
 RUT	1	10	Orpah/Ruth			Normal	Orpah	
 RUT	1	11	Naomi			Normal		
 RUT	1	12	Naomi			Normal		
@@ -6698,7 +6700,7 @@ RUT	4	17	women of Bethlehem			Normal
 1CH	14	10	David		David, king	Normal		
 1CH	14	10	God		God (the LORD)	Normal		
 1CH	14	11	David		David, king	Normal		
-1CH	14	14	God		God (the LORD)	Normal		
+1CH	14	14	God			Normal		
 1CH	14	15	God		God (the LORD)	Normal		
 1CH	15	2	David		David, king	Normal		
 1CH	15	12	David		David, king	Normal		
@@ -8525,6 +8527,9 @@ PSA	68	22	God		God (the LORD)	Quotation
 PSA	68	22	narrator-PSA			Alternate		
 PSA	68	23	God		God (the LORD)	Quotation		
 PSA	68	23	narrator-PSA			Alternate		
+PSA	68	26	singers			Hypothetical		
+PSA	68	26	women playing tambourines			Hypothetical		
+PSA	68	26	Needs Review			Potential		
 PSA	69	0	narrator-PSA			Quotation		
 PSA	70	3	David's enemies			Normal		
 PSA	70	4	those who seek God			Normal		
@@ -8538,6 +8543,7 @@ PSA	75	2	God		God (the LORD)	Potential
 PSA	75	3	God		God (the LORD)	Potential		
 PSA	75	4	God		God (the LORD)	Normal		
 PSA	75	5	God		God (the LORD)	Normal		
+PSA	75	10	God			Potential		
 PSA	77	7	narrator-PSA			Quotation		
 PSA	77	8	narrator-PSA			Quotation		
 PSA	77	9	narrator-PSA			Quotation		
@@ -8610,6 +8616,8 @@ PSA	92	15	narrator-PSA			Quotation
 PSA	94	7	wicked, the			Normal		
 PSA	95	10	God		God (the LORD)	Quotation		
 PSA	95	11	God		God (the LORD)	Quotation		
+PSA	96	10	narrator-PSA			Quotation		
+PSA	96	10	all the earth			Hypothetical		
 PSA	102	24	narrator-PSA			Quotation		
 PSA	102	25	narrator-PSA			Quotation		
 PSA	102	26	narrator-PSA			Quotation		
@@ -8728,7 +8736,8 @@ PRO	9	8	Wisdom			Implicit
 PRO	9	9	Wisdom			Implicit		
 PRO	9	10	Wisdom			Implicit		
 PRO	9	11	Wisdom			Implicit		
-PRO	9	12	Wisdom			Implicit		
+PRO	9	11	God		God (Yahweh)	Alternate		
+PRO	9	12	Wisdom			Potential		
 PRO	9	16	Folly			Normal		
 PRO	9	17	Folly			Implicit		
 PRO	19	3	narrator-PRO			Quotation		
@@ -8744,6 +8753,8 @@ PRO	24	24	judge (corrupt)		judge who says the wicked are innocent	Hypothetical
 PRO	24	29	you (hypothetical)			Hypothetical		
 PRO	25	7	king			Hypothetical		
 PRO	26	13	sluggard			Hypothetical		
+PRO	26	19	man, deceitful			Hypothetical		
+PRO	28	24	one who robs his father or mother			Hypothetical		
 PRO	30	1	Agur			Potential		
 # Because of the difficult textual/translation issue in v. 1, if there are not explicit
 # quotes, it should be reviewed. The English reference text takes the traditional interpretation,
@@ -8756,66 +8767,80 @@ PRO	30	15	leech's two daughters			Hypothetical
 PRO	30	15	narrator-PRO			Quotation		
 PRO	30	16	narrator-PRO			Quotation		
 PRO	30	20	immoral woman			Hypothetical		
-PRO	31	2	King Lemuel's mother/King Lemuel			Implicit		
-PRO	31	3	King Lemuel's mother/King Lemuel			Implicit		
-PRO	31	4	King Lemuel's mother/King Lemuel			Implicit		
+PRO	31	1	King Lemuel			Potential		
+PRO	31	2	King Lemuel's mother			Potential		
+PRO	31	2	King Lemuel			Alternate		
+PRO	31	3	King Lemuel's mother			Potential		
+PRO	31	3	King Lemuel			Alternate		
+PRO	31	4	King Lemuel's mother			Potential		
+PRO	31	4	King Lemuel			Alternate		
 # Unfortunately, if this hypothetical speech is in first-level quotes (which is likely), it
 # will mess up the logic that makes this whole verse implicitly spoken by King Lemuel's mother.
 # In any case, we don't want to dramatize it as being spoken by the princes, so we'll omit this:
 # PRO	31	4	princes			Hypothetical		
-PRO	31	5	King Lemuel's mother/King Lemuel			Implicit		
-PRO	31	6	King Lemuel's mother/King Lemuel			Implicit		
-PRO	31	7	King Lemuel's mother/King Lemuel			Implicit		
-PRO	31	8	King Lemuel's mother/King Lemuel			Implicit		
-PRO	31	9	King Lemuel's mother/King Lemuel			Implicit		
-PRO	31	10	King Lemuel's mother/King Lemuel			Potential		
-PRO	31	11	King Lemuel's mother/King Lemuel			Potential		
-PRO	31	12	King Lemuel's mother/King Lemuel			Potential		
-PRO	31	13	King Lemuel's mother/King Lemuel			Potential		
-PRO	31	14	King Lemuel's mother/King Lemuel			Potential		
-PRO	31	15	King Lemuel's mother/King Lemuel			Potential		
-PRO	31	16	King Lemuel's mother/King Lemuel			Potential		
-PRO	31	17	King Lemuel's mother/King Lemuel			Potential		
-PRO	31	18	King Lemuel's mother/King Lemuel			Potential		
-PRO	31	19	King Lemuel's mother/King Lemuel			Potential		
-PRO	31	20	King Lemuel's mother/King Lemuel			Potential		
-PRO	31	21	King Lemuel's mother/King Lemuel			Potential		
-PRO	31	22	King Lemuel's mother/King Lemuel			Potential		
-PRO	31	23	King Lemuel's mother/King Lemuel			Potential		
-PRO	31	24	King Lemuel's mother/King Lemuel			Potential		
-PRO	31	25	King Lemuel's mother/King Lemuel			Potential		
-PRO	31	26	King Lemuel's mother/King Lemuel			Potential		
-PRO	31	27	King Lemuel's mother/King Lemuel			Potential		
-PRO	31	28	King Lemuel's mother/King Lemuel			Potential		
+PRO	31	5	King Lemuel's mother			Potential		
+PRO	31	5	King Lemuel			Alternate		
+PRO	31	6	King Lemuel's mother			Potential		
+PRO	31	6	King Lemuel			Alternate		
+PRO	31	7	King Lemuel's mother			Potential		
+PRO	31	7	King Lemuel			Alternate		
+PRO	31	8	King Lemuel's mother			Potential		
+PRO	31	8	King Lemuel			Alternate		
+PRO	31	9	King Lemuel's mother			Potential		
+PRO	31	9	King Lemuel			Alternate		
+PRO	31	10-28	King Lemuel's mother			Potential		
+PRO	31	10-28	King Lemuel			Potential		
+# Including this for now since that's haw FCBH dramatizes this:
+PRO	31	10-28	Solomon, king			Potential		
 PRO	31	28	children of excellent wife			Indirect		
-PRO	31	29	King Lemuel's mother/King Lemuel			Potential		
 PRO	31	29	husband of excellent wife			Hypothetical		
-PRO	31	30	King Lemuel's mother/King Lemuel			Potential		
-PRO	31	31	King Lemuel's mother/King Lemuel			Potential		
+PRO	31	29-31	King Lemuel's mother			Potential		
+PRO	31	29-31	King Lemuel			Potential		
+# Including this for now since that's haw FCBH dramatizes this:
+PRO	31	29-31	Solomon, king			Potential		
+# Although King Solomon is generally accepted as the author (i.e., the teacher/preacher) of
+# Ecclesiastes, since he is not named by name, an alternate character ID is provided as an option.
 ECC	1	2	narrator-ECC			Quotation		
+ECC	1	2	Solomon, king		teacher (Preacher)	Quotation		
 ECC	1	10	someone			Hypothetical		
 ECC	1	16	narrator-ECC			Quotation		
+ECC	1	16	Solomon, king		teacher (Preacher)	Quotation		
 ECC	2	1	narrator-ECC			Quotation		
+ECC	2	1	Solomon, king		teacher (Preacher)	Quotation		
 ECC	2	2	narrator-ECC			Quotation		
+ECC	2	2	Solomon, king		teacher (Preacher)	Quotation		
 ECC	2	15	narrator-ECC	said/thought in heart		Quotation		
+ECC	2	15	Solomon, king	said/thought in heart	teacher (Preacher)	Quotation		
 ECC	3	17	narrator-ECC	said/thought in heart		Quotation		
+ECC	3	17	Solomon, king	said/thought in heart	teacher (Preacher)	Quotation		
 ECC	3	18	narrator-ECC	said/thought in heart		Quotation		
-ECC	3	19	teacher (Preacher)	said/thought in heart		Normal		
-ECC	3	20	teacher (Preacher)	said/thought in heart		Normal		
-ECC	3	21	teacher (Preacher)	said/thought in heart		Normal		
+ECC	3	18	Solomon, king	said/thought in heart	teacher (Preacher)	Quotation		
+ECC	3	19	narrator-ECC	said/thought in heart		Quotation		
+ECC	3	19	Solomon, king	said/thought in heart	teacher (Preacher)	Quotation		
+ECC	3	20	narrator-ECC	said/thought in heart		Quotation		
+ECC	3	20	Solomon, king	said/thought in heart	teacher (Preacher)	Quotation		
+ECC	3	21	narrator-ECC	said/thought in heart		Quotation		
+ECC	3	21	Solomon, king	said/thought in heart	teacher (Preacher)	Quotation		
 ECC	4	8	man all alone			Hypothetical		
 ECC	5	6	narrator-ECC			Quotation		
 ECC	7	10	fool			Hypothetical		
 ECC	7	23	narrator-ECC			Quotation		
 ECC	7	27	narrator-ECC			Quotation		
+ECC	7	27	Solomon, king		teacher (Preacher)	Quotation		
 ECC	7	28	narrator-ECC			Quotation		
+ECC	7	28	Solomon, king		teacher (Preacher)	Quotation		
 ECC	7	29	narrator-ECC			Quotation		
+ECC	7	29	Solomon, king		teacher (Preacher)	Quotation		
 ECC	8	2	narrator-ECC			Quotation		
 ECC	8	4	narrator-ECC			Quotation		
+ECC	8	4	man (hypothetical)			Hypothetical		
 ECC	9	16	narrator-ECC			Quotation		
 ECC	10	20	narrator-ECC			Potential		
-ECC	12	1	you (hypothetical)			Hypothetical		
+ECC	12	1	you (old)			Hypothetical		
 ECC	12	8	narrator-ECC			Quotation		
+ECC	12	8	Solomon, king		teacher (Preacher)	Quotation		
+ECC	12	13	narrator-ECC			Quotation		
+ECC	12	14	narrator-ECC			Quotation		
 SNG	1	2	beloved			Potential		
 SNG	1	3	beloved			Potential		
 SNG	1	4	beloved			Potential		
@@ -9144,7 +9169,12 @@ ISA	7	7	Isaiah			Normal
 ISA	7	7	God		God (the LORD)	Normal		
 ISA	7	8	God		God (the LORD)	Implicit		
 ISA	7	9	God		God (the LORD)	Implicit		
-ISA	7	11	God		God (the LORD)	Implicit		
+# The text says that God spoke, but since it is directed to Ahaz, the words were presumably
+# delivered through Isaiah. A native speaker should review this to make sure the dramatization
+# makes sense in the target language.
+ISA	7	11	Needs Review			Implicit		
+ISA	7	11	God		God (the LORD)	Alternate		
+ISA	7	11	Isaiah			Alternate		
 ISA	7	12	Ahaz, king of Judah			Dialogue		
 ISA	7	13	Isaiah			Normal		
 # Although the pronoun is ambiguous, the wording in this verse makes it very unlikely that
@@ -9171,25 +9201,26 @@ ISA	7	22	Isaiah			Potential
 ISA	7	23	Isaiah			Potential		
 ISA	7	24	Isaiah			Potential		
 ISA	7	25	Isaiah			Potential		
-ISA	8	1	God		God (the LORD)	Normal		
-ISA	8	2	God		God (the LORD)	Normal		
-ISA	8	3	God		God (the LORD)	Normal		
-ISA	8	4	God		God (the LORD)	Normal		
-ISA	8	6	God		God (the LORD)	Implicit		
-ISA	8	7	God		God (the LORD)	Implicit		
-ISA	8	8	God		God (the LORD)	Implicit		
+ISA	8	1	God		God (Yahweh)	Normal		
+ISA	8	2	God		God (Yahweh)	Normal		
+ISA	8	3	God		God (Yahweh)	Normal		
+ISA	8	4	God		God (Yahweh)	Normal		
+ISA	8	6	God		God (Yahweh)	Implicit		
+ISA	8	7	God		God (Yahweh)	Implicit		
+ISA	8	8	God		God (Yahweh)	Implicit		
+ISA	8	9	God		God (Yahweh)	Potential		
 ISA	8	9	Isaiah			Potential		
-ISA	8	10	God		God (the LORD)	Potential		
+ISA	8	10	God		God (Yahweh)	Potential		
 ISA	8	11	Isaiah			Potential		
-ISA	8	12	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
-ISA	8	13	God		God (the LORD)	Implicit		
+ISA	8	12	God		God (Yahweh)	ImplicitWithPotentialSelfQuote		
+ISA	8	13	God		God (Yahweh)	Implicit		
 ISA	8	13	Isaiah			Alternate		
-ISA	8	14	God		God (the LORD)	Implicit		
+ISA	8	14	God		God (Yahweh)	Implicit		
 ISA	8	14	Isaiah			Alternate		
-ISA	8	15	God		God (the LORD)	Implicit		
+ISA	8	15	God		God (Yahweh)	Implicit		
 ISA	8	15	Isaiah			Alternate		
 ISA	8	16	Isaiah			Potential		
-ISA	8	16	God		God (the LORD)	Alternate		
+ISA	8	16	God		God (Yahweh)	Alternate		
 ISA	8	17	Isaiah			Potential		
 ISA	8	18	Isaiah			Potential		
 ISA	8	19	Isaiah			Alternate		
@@ -9365,6 +9396,7 @@ ISA	14	19	you (people of Zion, restored)			Hypothetical
 ISA	14	19	Isaiah			Potential		
 ISA	14	20	you (people of Zion, restored)			Hypothetical		
 ISA	14	20	Isaiah			Potential		
+ISA	14	21	you (people of Zion, restored)			Hypothetical		
 ISA	14	21	Isaiah			Potential		
 ISA	14	21	God		God (the LORD)	Alternate		
 ISA	14	22	God		God (the LORD)	Normal		
@@ -9527,8 +9559,11 @@ ISA	28	10	hearers	mocking		Potential
 ISA	28	10	Needs Review			Potential		
 ISA	28	10	God		God (the LORD)	Quotation		
 ISA	28	12	God		God (the LORD)	Quotation		
-ISA	28	13	God	mocking	God (the LORD)	Normal		
+ISA	28	13	Isaiah			Potential		
+ISA	28	13	God	mocking	God (the LORD)	Quotation		
 ISA	28	15	scoffers who rule people in Jerusalem	boasting		Hypothetical		
+ISA	28	15	God		God (the LORD)	Normal		
+ISA	28	15	Isaiah			Alternate		
 ISA	28	16	God		God (the LORD)	Normal		
 ISA	28	17	God		God (the LORD)	Normal		
 ISA	28	18	God		God (the LORD)	Potential		
@@ -9607,7 +9642,8 @@ ISA	30	17	God		God (the LORD)	Implicit
 ISA	30	18	Isaiah			Potential		
 ISA	30	18	God		God (the LORD)	Alternate		
 ISA	30	20	narrator-ISA			Quotation		
-ISA	30	21	God		voice behind you (God)	Normal		
+ISA	30	21	God		God's voice	Hypothetical		
+ISA	30	21	voice (God?)		voice behind you (God?)	Hypothetical		
 ISA	30	22	you (people of Zion, restored)			Hypothetical		
 ISA	31	4	God		God (the LORD)	Normal		
 ISA	31	5	God		God (the LORD)	Normal		
@@ -11230,13 +11266,14 @@ JER	25	37	Jeremiah			Potential
 JER	25	37	God		God (the LORD)	Potential		
 JER	25	38	Jeremiah			Potential		
 JER	25	38	God		God (the LORD)	Potential		
-JER	26	2	Jeremiah			Potential		
 JER	26	2	God		God (the LORD)	Normal		
 JER	26	3	God		God (the LORD)	Implicit		
 JER	26	4	God		God (the LORD)	Normal		
-JER	26	4	Jeremiah			Potential		
-JER	26	5	God		God (the LORD)	Implicit		
-JER	26	6	God		God (the LORD)	Implicit		
+JER	26	4	Jeremiah			Normal		
+JER	26	5	Jeremiah			Normal		
+JER	26	5	God		God (the LORD)	Alternate		
+JER	26	6	Jeremiah			Normal		
+JER	26	6	God		God (the LORD)	Alternate		
 JER	26	7	Jeremiah			Indirect		
 JER	26	8	priests/Levites		priests/prophets/all the people	Normal		
 JER	26	9	priests/Levites		priests/prophets/all the people	Normal		
@@ -11328,10 +11365,10 @@ JER	28	14	Jeremiah			Alternate
 JER	28	15	Jeremiah			Normal		
 JER	28	16	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	28	16	God		God (the LORD)	Quotation		
-JER	29	4-23	Jeremiah	letter	Jeremiah (the LORD says)	Implicit		
+JER	29	4-23	Jeremiah	letter	Jeremiah (the LORD says)	Normal		
 JER	29	4-23	Elasah, son of Shaphan/Gemariah, son of Hilkiah	letter		Alternate		
 JER	29	4-23	God		God (the LORD)	Alternate		
-JER	29	24	God		God (the LORD)	Implicit		
+JER	29	24	God		God (the LORD)	Potential		
 JER	29	25	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	29	25	God		God (the LORD)	Normal		
 JER	29	26	Shemaiah the Nehelamite			Quotation		
@@ -12103,13 +12140,23 @@ JER	51	7	Jeremiah		Jeremiah (the LORD says)	Potential
 JER	51	7	God		God (the LORD)	Potential		
 JER	51	8	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	51	8	God		God (the LORD)	Potential		
+JER	51	9	God		God (the LORD)	Potential		
 JER	51	9	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	10	God		God (the LORD)	Potential		
 JER	51	10	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	11	God		God (the LORD)	Potential		
 JER	51	11	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	12	God		God (the LORD)	Potential		
 JER	51	12	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	13	God		God (the LORD)	Potential		
 JER	51	13	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	51	14	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	51	14	God		God (the LORD)	Normal		
+JER	51	15	God		God (the LORD)	Potential		
+JER	51	16	God		God (the LORD)	Potential		
+JER	51	17	God		God (the LORD)	Potential		
+JER	51	18	God		God (the LORD)	Potential		
+JER	51	19	God		God (the LORD)	Potential		
 JER	51	20	God		God (the LORD)	Implicit		
 JER	51	21	God		God (the LORD)	Implicit		
 JER	51	22	God		God (the LORD)	Implicit		
@@ -12124,6 +12171,10 @@ JER	51	27	God		God (the LORD)	Potential
 JER	51	27	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	51	28	God		God (the LORD)	Potential		
 JER	51	28	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	29	God		God (the LORD)	Potential		
+JER	51	30	God		God (the LORD)	Potential		
+JER	51	31	God		God (the LORD)	Potential		
+JER	51	32	God		God (the LORD)	Potential		
 JER	51	33	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	51	33	God		God (the LORD)	Normal		
 JER	51	34	Jerusalem (personified)			Hypothetical		
@@ -12143,13 +12194,18 @@ JER	51	41	God		God (the LORD)	Implicit
 JER	51	42	God		God (the LORD)	Implicit		
 JER	51	43	God		God (the LORD)	Implicit		
 JER	51	44	God		God (the LORD)	Implicit		
+JER	51	45	God		God (the LORD)	Potential		
+JER	51	46	God		God (the LORD)	Potential		
 JER	51	47	God		God (the LORD)	Implicit		
 JER	51	48	God		God (the LORD)	Normal		
 JER	51	48	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	51	49	God		God (the LORD)	Potential		
-JER	51	49	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	49	Jeremiah			Potential		
+JER	51	49	man (hypothetical)			Hypothetical		
 JER	51	50	God		God (the LORD)	Potential		
-JER	51	50	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	50	Jeremiah			Potential		
+JER	51	50	man (hypothetical)			Hypothetical		
+JER	51	51	man (hypothetical)			Hypothetical		
 JER	51	52	God		God (the LORD)	Normal		
 JER	51	52	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	51	53	God		God (the LORD)	Normal		
@@ -12250,10 +12306,22 @@ EZK	3	19	God		God (the LORD)	Implicit
 EZK	3	20	God		God (the LORD)	Implicit		
 EZK	3	21	God		God (the LORD)	Implicit		
 EZK	3	22	God		God (the LORD)	Normal		
-EZK	3	24	Holy Spirit, the			Normal		
-EZK	3	25	Holy Spirit, the			Implicit		
-EZK	3	26	Holy Spirit, the			Implicit		
-EZK	3	27	Holy Spirit, the			Implicit		
+# The text in v. 24 indicates that the Spirit is speaking, but in the subsequent verses
+# it transitions back to having God speak. Although a voice change is in one sense warranted,
+# it might just cause confusion. (In reality, there is no good reason to suspect that Ezekiel
+# heard a different voice.)
+EZK	3	24	Holy Spirit, the			Alternate		
+EZK	3	24	God		God (the Spirit)	Normal		
+EZK	3	24	Needs Review			Normal		
+EZK	3	25	Needs Review			Implicit		
+EZK	3	25	Holy Spirit, the			Alternate		
+EZK	3	25	God		God (the Lord Yahweh)	Alternate		
+EZK	3	26	Needs Review			Implicit		
+EZK	3	26	Holy Spirit, the			Alternate		
+EZK	3	26	God		God (the Lord Yahweh)	Alternate		
+EZK	3	27	Needs Review			Implicit		
+EZK	3	27	Holy Spirit, the			Alternate		
+EZK	3	27	God		God (the Lord Yahweh)	Alternate		
 EZK	3	27	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	4	1	God		God (the LORD)	Implicit		
 EZK	4	1	Holy Spirit, the			Alternate		
@@ -12628,7 +12696,7 @@ EZK	16	33	God		God (the LORD)	Implicit
 EZK	16	33	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	16	34	God		God (the LORD)	Implicit		
 EZK	16	34	Ezekiel		Ezekiel (the LORD says)	Alternate		
-EZK	16	35	God		God (the LORD)	Alternate		
+EZK	16	35	God		God (the LORD)	Potential		
 EZK	16	35	Ezekiel		Ezekiel (the LORD says)	Potential		
 EZK	16	36	God		God (the LORD)	Normal		
 EZK	16	36	Ezekiel		Ezekiel (the LORD says)	Potential		
@@ -12757,31 +12825,35 @@ EZK	18	30	Ezekiel		Ezekiel (the LORD says)	Potential
 EZK	18	31	God		God (the LORD)	Implicit		
 EZK	18	32	God		God (the LORD)	Normal		
 EZK	18	32	Ezekiel		Ezekiel (the LORD says)	Potential		
-EZK	19	1	God	lament	God (the LORD)	Implicit		
-EZK	19	2	God	lament	God (the LORD)	Alternate		
-EZK	19	2	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
-EZK	19	3	God	lament	God (the LORD)	Alternate		
-EZK	19	3	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
-EZK	19	4	God	lament	God (the LORD)	Alternate		
-EZK	19	4	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
-EZK	19	5	God	lament	God (the LORD)	Alternate		
-EZK	19	5	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
-EZK	19	6	God	lament	God (the LORD)	Alternate		
-EZK	19	6	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
-EZK	19	7	God	lament	God (the LORD)	Alternate		
-EZK	19	7	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
-EZK	19	8	God	lament	God (the LORD)	Alternate		
-EZK	19	8	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
-EZK	19	9	God	lament	God (the LORD)	Alternate		
-EZK	19	9	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
-EZK	19	10	God	lament	God (the LORD)	Alternate		
-EZK	19	10	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
-EZK	19	11	God	lament	God (the LORD)	Alternate		
-EZK	19	11	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
-EZK	19	12	God	lament	God (the LORD)	Alternate		
-EZK	19	12	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
-EZK	19	13	God	lament	God (the LORD)	Alternate		
-EZK	19	13	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
+# 19:1 is implicitly attributed to God, regardless of whether there is an opening quote. From verse 2b-14b, it could be either God or
+# Ezekiel speaking the words of the lament. FCBH has God speaak it and also includes the "This is a lament" line at the end of 19:14.
+# However, some translations clearly treat it more as a parenthetical aside or scribal note, in which case it should more properly be
+# spoken by the narrator.
+EZK	19	1	God		God (the LORD)	Implicit		
+EZK	19	2	God	lament	God (the LORD)	Implicit		
+EZK	19	2	Ezekiel	lament	Ezekiel (the LORD says)	Alternate		
+EZK	19	3	God	lament	God (the LORD)	Implicit		
+EZK	19	3	Ezekiel	lament	Ezekiel (the LORD says)	Alternate		
+EZK	19	4	God	lament	God (the LORD)	Implicit		
+EZK	19	4	Ezekiel	lament	Ezekiel (the LORD says)	Alternate		
+EZK	19	5	God	lament	God (the LORD)	Implicit		
+EZK	19	5	Ezekiel	lament	Ezekiel (the LORD says)	Alternate		
+EZK	19	6	God	lament	God (the LORD)	Implicit		
+EZK	19	6	Ezekiel	lament	Ezekiel (the LORD says)	Alternate		
+EZK	19	7	God	lament	God (the LORD)	Implicit		
+EZK	19	7	Ezekiel	lament	Ezekiel (the LORD says)	Alternate		
+EZK	19	8	God	lament	God (the LORD)	Implicit		
+EZK	19	8	Ezekiel	lament	Ezekiel (the LORD says)	Alternate		
+EZK	19	9	God	lament	God (the LORD)	Implicit		
+EZK	19	9	Ezekiel	lament	Ezekiel (the LORD says)	Alternate		
+EZK	19	10	God	lament	God (the LORD)	Implicit		
+EZK	19	10	Ezekiel	lament	Ezekiel (the LORD says)	Alternate		
+EZK	19	11	God	lament	God (the LORD)	Implicit		
+EZK	19	11	Ezekiel	lament	Ezekiel (the LORD says)	Alternate		
+EZK	19	12	God	lament	God (the LORD)	Implicit		
+EZK	19	12	Ezekiel	lament	Ezekiel (the LORD says)	Alternate		
+EZK	19	13	God	lament	God (the LORD)	Implicit		
+EZK	19	13	Ezekiel	lament	Ezekiel (the LORD says)	Alternate		
 EZK	19	14	God	lament	God (the LORD)	Potential		
 EZK	19	14	God	instructing	God (the LORD)	Potential		
 EZK	19	14	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
@@ -13509,7 +13581,7 @@ EZK	34	7	God		God (the LORD)	Alternate
 EZK	34	8	God		God (the LORD)	Normal		
 EZK	34	8	Ezekiel		Ezekiel (the LORD says)	Potential		
 EZK	34	9	Ezekiel		Ezekiel (the LORD says)	Potential		
-EZK	34	9	God		God (the LORD)	Alternate		
+EZK	34	9	God		God (the LORD)	Potential		
 EZK	34	10	Ezekiel		Ezekiel (the LORD says)	Potential		
 EZK	34	10	God		God (the LORD)	Normal		
 EZK	34	11	Ezekiel		Ezekiel (the LORD says)	Potential		
@@ -14902,8 +14974,10 @@ MIC	2	3	Micah, prophet			Potential
 MIC	2	3	God		God (the LORD)	Normal		
 MIC	2	4	God		God (the LORD)	Normal		
 MIC	2	4	people	lament	taunt or dirge	Hypothetical		
-MIC	2	6	Micah, prophet			Normal		
+MIC	2	5	God		God (the LORD)	Potential		
+MIC	2	6	God		God (the LORD)	Potential		
 MIC	2	6	false prophets			Quotation		
+MIC	2	6	Micah, prophet			Alternate		
 MIC	2	7	God		God (the LORD)	Potential		
 MIC	2	7	Micah, prophet			Potential		
 MIC	2	7	false prophets			Hypothetical		
@@ -15123,10 +15197,12 @@ ZEP	3	15	Zephaniah, prophet			Potential
 ZEP	3	15	God		God (the LORD)	Potential		
 ZEP	3	16	God	prophecy	God (the LORD)	Potential		
 ZEP	3	16	God	encouraging	God (the LORD)	Hypothetical		
-ZEP	3	16	person encouraging Jerusalem			Hypothetical		
+ZEP	3	16	daughter of Zion	encouraging		Hypothetical		
+ZEP	3	16	person encouraging Jerusalem	encouraging		Hypothetical		
 ZEP	3	16	Needs Review			Normal		
 ZEP	3	17	God	encouraging	God (the LORD)	Hypothetical		
-ZEP	3	17	person encouraging Jerusalem			Hypothetical		
+ZEP	3	17	daughter of Zion	encouraging		Hypothetical		
+ZEP	3	17	person encouraging Jerusalem	encouraging		Hypothetical		
 ZEP	3	17	Needs Review			Normal		
 ZEP	3	18	God		God (the LORD)	Implicit		
 ZEP	3	18	Zephaniah, prophet		Zephaniah (the LORD says)	Alternate		
@@ -15276,23 +15352,31 @@ ZEC	2	9	God		God (the LORD) (in vision)	Normal
 ZEC	2	9	Needs Review			Normal		
 ZEC	2	10	God		God (the LORD) (in vision)	Normal		
 ZEC	2	10	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
-ZEC	2	11	God		God (the LORD) (in vision)	Implicit		
-ZEC	2	12	God		God (the LORD) (in vision)	Implicit		
-ZEC	2	13	God		God (the LORD)(vision	Implicit		
+ZEC	2	11	God		God (the LORD) (in vision)	Alternate		
+ZEC	2	11	angel who talked with Zechariah		angel of the LORD (in vision)	Alternate		
+ZEC	2	11	Needs Review			Implicit		
+ZEC	2	12	God		God (the LORD) (in vision)	Alternate		
+ZEC	2	12	angel who talked with Zechariah		angel of the LORD (in vision)	Alternate		
+ZEC	2	12	Needs Review			Implicit		
+ZEC	2	13	God		God (the LORD) (in vision)	Alternate		
+ZEC	2	13	angel who talked with Zechariah		angel of the LORD (in vision)	Alternate		
+ZEC	2	13	Needs Review			Implicit		
 ZEC	3	2	God		God (the LORD) (in vision)	Normal		
 ZEC	3	2	angel who talked with Zechariah		angel of the LORD (in vision)	Normal		
 ZEC	3	2	Needs Review			Normal		
 ZEC	3	4	angel who talked with Zechariah		angel of the LORD (in vision)	Normal		
 ZEC	3	5	narrator-ZEC			Quotation		
 ZEC	3	7	angel who talked with Zechariah		angel of the LORD (in vision)	Normal		
-ZEC	3	7	God		God (the LORD) (in vision)	Normal		
-ZEC	3	8	God		God (the LORD) (in vision)	Normal		
-ZEC	3	9	God		God (the LORD) (in vision)	Normal		
-ZEC	3	9	angel who talked with Zechariah		angel of the LORD (in vision)	Normal		
-ZEC	3	9	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
-ZEC	3	10	God		God (the LORD) (in vision)	Normal		
-ZEC	3	10	angel who talked with Zechariah		angel of the LORD (in vision)	Normal		
-ZEC	3	10	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
+ZEC	3	7	God		God (Yahweh of Armies) (in vision)	Quotation		
+ZEC	3	8	God		God (Yahweh of Armies) (in vision)	Quotation		
+ZEC	3	8	angel who talked with Zechariah		angel of the LORD (in vision)	Normal		
+ZEC	3	9	Needs Review			Implicit		
+ZEC	3	9	God		God (Yahweh of Armies) (in vision)	Alternate		
+ZEC	3	9	angel who talked with Zechariah		angel of the LORD (in vision)	Alternate		
+ZEC	3	10	Needs Review			Implicit		
+ZEC	3	10	God		God (the LORD) (in vision)	Alternate		
+ZEC	3	10	angel who talked with Zechariah		angel of the LORD (in vision)	Alternate		
+ZEC	3	10	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Alternate		
 ZEC	4	2	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
 ZEC	4	2	narrator-ZEC			Quotation		
 ZEC	4	3	narrator-ZEC			Quotation		
@@ -15501,20 +15585,22 @@ ZEC	12	5	Zechariah the prophet, son of Berechiah		Zechariah (the LORD says)	Alte
 ZEC	12	5	Judah, leaders of			Hypothetical		
 ZEC	12	6	God		God (the LORD)	Implicit		
 ZEC	12	6	Zechariah the prophet, son of Berechiah		Zechariah (the LORD says)	Alternate		
-ZEC	12	7	Zechariah the prophet, son of Berechiah			Potential		
-ZEC	12	7	God		God (the LORD)	Alternate		
-ZEC	12	8	Zechariah the prophet, son of Berechiah			Potential		
-ZEC	12	8	God		God (the LORD)	Alternate		
+ZEC	12	7	Zechariah the prophet, son of Berechiah			Alternate		
+ZEC	12	7	God		God (the LORD)	Potential		
+ZEC	12	8	Zechariah the prophet, son of Berechiah			Alternate		
+ZEC	12	8	God		God (the LORD)	Potential		
 ZEC	12	9	God		God (the LORD)	Implicit		
 ZEC	12	9	Zechariah the prophet, son of Berechiah		Zechariah (the LORD says)	Alternate		
 ZEC	12	10	God		God (the LORD)	Implicit		
 ZEC	12	10	Zechariah the prophet, son of Berechiah		Zechariah (the LORD says)	Alternate		
-ZEC	12	11	Zechariah the prophet, son of Berechiah			Potential		
-ZEC	12	11	God		God (the LORD)	Alternate		
-ZEC	12	12	Zechariah the prophet, son of Berechiah			Potential		
-ZEC	12	12	God		God (the LORD)	Alternate		
-ZEC	12	13	Zechariah the prophet, son of Berechiah			Potential		
-ZEC	12	13	God		God (the LORD)	Alternate		
+ZEC	12	11	Zechariah the prophet, son of Berechiah			Alternate		
+ZEC	12	11	God		God (the LORD)	Potential		
+ZEC	12	12	Zechariah the prophet, son of Berechiah			Alternate		
+ZEC	12	12	God		God (the LORD)	Potential		
+ZEC	12	13	Zechariah the prophet, son of Berechiah			Alternate		
+ZEC	12	13	God		God (the LORD)	Potential		
+ZEC	12	14	Zechariah the prophet, son of Berechiah			Alternate		
+ZEC	12	14	God		God (the LORD)	Potential		
 ZEC	13	1	God		God (the LORD)	Implicit		
 ZEC	13	1	Zechariah the prophet, son of Berechiah		Zechariah (the LORD says)	Alternate		
 ZEC	13	2	God		God (the LORD)	Normal		
@@ -15572,9 +15658,16 @@ MAL	2	6	God		God (the LORD)	Implicit
 MAL	2	7	God		God (the LORD)	Implicit		
 MAL	2	8	God		God (the LORD)	Normal		
 MAL	2	9	God		God (the LORD)	Normal		
+MAL	2	10	God		God (the LORD)	Potential		
+MAL	2	11	God		God (the LORD)	Potential		
+MAL	2	12	God		God (the LORD)	Potential		
+MAL	2	13	God		God (the LORD)	Potential		
+MAL	2	14	God		God (the LORD)	Potential		
 MAL	2	14	people		you (people of Judah)	Hypothetical		
+MAL	2	15	God		God (the LORD)	Potential		
 MAL	2	16	God		God (the LORD)	Normal		
 MAL	2	17	people		you (people of Judah)	Hypothetical		
+MAL	2	17	God		God (the LORD)	Potential		
 MAL	3	1	God		God (the LORD)	Normal		
 MAL	3	2	God		God (the LORD)	Potential		
 MAL	3	3	God		God (the LORD)	Potential		
@@ -15595,6 +15688,7 @@ MAL	3	14	God		God (the LORD)	Normal
 MAL	3	14	people		you (people of Judah)	Hypothetical		
 MAL	3	15	people		you (people of Judah)	Hypothetical		
 MAL	3	15	God		God (the LORD)	Alternate		
+MAL	3	16	God		God (Yahweh)	Potential		
 MAL	3	17	God		God (the LORD)	Normal		
 MAL	3	18	God		God (the LORD)	Normal		
 MAL	4	1	God		God (the LORD)	Normal		
