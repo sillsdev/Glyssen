@@ -1117,20 +1117,20 @@
         <note>ID: CharacterName.Jeremiah</note>
         <target xml:lang="pt-PT" state="translated">Jeremiah</target>
       </trans-unit>
-      <trans-unit id="CharacterName.Jeremiah (the LORD says)" sil:dynamic="true">
-        <source xml:lang="en">Jeremiah (the LORD says)</source>
-        <note>ID: CharacterName.Jeremiah (the LORD says)</note>
-        <target xml:lang="pt-PT" state="translated">Jeremiah ***(the*** ***LORD*** ***says)***</target>
+      <trans-unit id="CharacterName.Jeremiah(Yahweh says)" sil:dynamic="true">
+        <source xml:lang="en">Jeremiah(Yahweh says)</source>
+        <note>ID: CharacterName.Jeremiah(Yahweh says)</note>
+        <target xml:lang="pt-PT" state="translated">Jeremias ***(the*** ***LORD*** ***says)***</target>
       </trans-unit>
       <trans-unit id="CharacterName.Jeremiah quoting the prophets" sil:dynamic="true">
         <source xml:lang="en">Jeremiah quoting the prophets</source>
         <note>ID: CharacterName.Jeremiah quoting the prophets</note>
-        <target xml:lang="pt-PT" state="translated">Jeremiah ***quoting*** ***the*** ***prophets***</target>
+        <target xml:lang="pt-PT" state="translated">Jeremias ***quoting*** ***the*** ***prophets***</target>
       </trans-unit>
       <trans-unit id="CharacterName.Jeremiah quoting the wicked who live in the land" sil:dynamic="true">
         <source xml:lang="en">Jeremiah quoting the wicked who live in the land</source>
         <note>ID: CharacterName.Jeremiah quoting the wicked who live in the land</note>
-        <target xml:lang="pt-PT" state="translated">Jeremiah ***quoting*** ***the*** ***wicked*** ***who*** viver ***in*** ***the*** ***land***</target>
+        <target xml:lang="pt-PT" state="translated">Jeremias ***quoting*** ***the*** ***wicked*** ***who*** viver ***in*** ***the*** ***land***</target>
       </trans-unit>
       <trans-unit id="CharacterName.Jeroboam" sil:dynamic="true">
         <source xml:lang="en">Jeroboam</source>
@@ -2012,35 +2012,35 @@
         <note>ID: CharacterName.Zechariah</note>
         <target xml:lang="pt-PT" state="translated">Zechariah</target>
       </trans-unit>
-      <trans-unit id="CharacterName.Zechariah (the LORD says)" sil:dynamic="true">
-        <source xml:lang="en">Zechariah (the LORD says)</source>
-        <note>ID: CharacterName.Zechariah (the LORD says)</note>
-        <target xml:lang="pt-PT" state="translated">Zechariah ***(the*** ***LORD*** ***says)***</target>
+      <trans-unit id="CharacterName.Zechariah(Yahweh says)" sil:dynamic="true">
+        <source xml:lang="en">Zechariah(Yahweh says)</source>
+        <note>ID: CharacterName.Zechariah(Yahweh says)</note>
+        <target xml:lang="pt-PT" state="translated">Zacarias ***(the*** ***LORD*** ***says)***</target>
       </trans-unit>
       <trans-unit id="CharacterName.Zechariah, son of Jehoiada the priest" sil:dynamic="true">
         <source xml:lang="en">Zechariah, son of Jehoiada the priest</source>
         <note>ID: CharacterName.Zechariah, son of Jehoiada the priest</note>
-        <target xml:lang="pt-PT" state="translated">Zechariah, ***son*** ***of*** Jehoiada ***the*** priest</target>
+        <target xml:lang="pt-PT" state="translated">Zacarias, ***son*** ***of*** Jehoiada ***the*** priest</target>
       </trans-unit>
       <trans-unit id="CharacterName.Zedekiah" sil:dynamic="true">
         <source xml:lang="en">Zedekiah</source>
         <note>ID: CharacterName.Zedekiah</note>
-        <target xml:lang="pt-PT" state="translated">Zedekiah</target>
+        <target xml:lang="pt-PT" state="translated">Zedequias</target>
       </trans-unit>
       <trans-unit id="CharacterName.Zedekiah, son of Hananiah" sil:dynamic="true">
         <source xml:lang="en">Zedekiah, son of Hananiah</source>
         <note>ID: CharacterName.Zedekiah, son of Hananiah</note>
-        <target xml:lang="pt-PT" state="translated">Zedekiah, ***son*** ***of*** Hananiah</target>
+        <target xml:lang="pt-PT" state="translated">Zedequias, ***son*** ***of*** Hananiah</target>
       </trans-unit>
       <trans-unit id="CharacterName.Zedekiah, son of Kenaanah, false prophet" sil:dynamic="true">
         <source xml:lang="en">Zedekiah, son of Kenaanah, false prophet</source>
         <note>ID: CharacterName.Zedekiah, son of Kenaanah, false prophet</note>
-        <target xml:lang="pt-PT" state="translated">Zedekiah, ***son*** ***of*** ***Kenaanah,*** ***false*** prophet</target>
+        <target xml:lang="pt-PT" state="translated">Zedequias, ***son*** ***of*** ***Kenaanah,*** ***false*** prophet</target>
       </trans-unit>
       <trans-unit id="CharacterName.Zephaniah, priest" sil:dynamic="true">
         <source xml:lang="en">Zephaniah, priest</source>
         <note>ID: CharacterName.Zephaniah, priest</note>
-        <target xml:lang="pt-PT" state="translated">Zephaniah, priest</target>
+        <target xml:lang="pt-PT" state="translated">Sofonias, priest</target>
       </trans-unit>
       <trans-unit id="CharacterName.Zeresh, wife of Haman" sil:dynamic="true">
         <source xml:lang="en">Zeresh, wife of Haman</source>

@@ -1107,9 +1107,9 @@
         <note>ID: CharacterName.Jeremiah</note>
         <target xml:lang="fr" state="translated">Jérémie</target>
       </trans-unit>
-      <trans-unit id="CharacterName.Jeremiah (the LORD says)" sil:dynamic="true">
-        <source xml:lang="en">Jeremiah (the LORD says)</source>
-        <note>ID: CharacterName.Jeremiah (the LORD says)</note>
+      <trans-unit id="CharacterName.Jeremiah(Yahweh says)" sil:dynamic="true">
+        <source xml:lang="en">Jeremiah(Yahweh says)</source>
+        <note>ID: CharacterName.Jeremiah(Yahweh says)</note>
         <target xml:lang="fr" state="translated">Jérémie ***(the*** ***LORD*** ***says)***</target>
       </trans-unit>
       <trans-unit id="CharacterName.Jeremiah quoting the prophets" sil:dynamic="true">
@@ -1997,9 +1997,9 @@
         <note>ID: CharacterName.Zechariah</note>
         <target xml:lang="fr" state="translated">Zacharie</target>
       </trans-unit>
-      <trans-unit id="CharacterName.Zechariah (the LORD says)" sil:dynamic="true">
-        <source xml:lang="en">Zechariah (the LORD says)</source>
-        <note>ID: CharacterName.Zechariah (the LORD says)</note>
+      <trans-unit id="CharacterName.Zechariah(Yahweh says)" sil:dynamic="true">
+        <source xml:lang="en">Zechariah(Yahweh says)</source>
+        <note>ID: CharacterName.Zechariah(Yahweh says)</note>
         <target xml:lang="fr" state="translated">Zacharie ***(the*** ***LORD*** ***says)***</target>
       </trans-unit>
       <trans-unit id="CharacterName.Zechariah, son of Jehoiada the priest" sil:dynamic="true">

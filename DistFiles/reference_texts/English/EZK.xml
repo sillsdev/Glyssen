@@ -1908,11 +1908,10 @@
   <block style="p" chapter="19" initialStartVerse="1" characterId="God">
     <verse num="1" />
     <text>«Moreover, take up a lamentation for the princes of Israel,</text>
-    <verse num="2" />
-    <text>and say,</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="2" characterId="God" delivery="lament">
-    <text>‹What was your mother? A lioness. She couched among lions, in the middle of the young lions she nourished her cubs.</text>
+    <verse num="2" />
+    <text>and say, ‹What was your mother? A lioness. She couched among lions, in the middle of the young lions she nourished her cubs.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="3" characterId="God" delivery="lament">
     <verse num="3" />

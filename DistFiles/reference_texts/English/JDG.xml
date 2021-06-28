@@ -1511,10 +1511,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="47" characterId="narrator-JDG">
     <verse num="47" />
-    <text>Abimelech was told,</text>
-  </block>
-  <block style="p" chapter="9" initialStartVerse="47" characterId="messenger to Abimelech">
-    <text>«All the men of the tower of Shechem are gathered together.»</text>
+    <text>Abimelech was told that all the men of the tower of Shechem were gathered together.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="48" characterId="narrator-JDG">
     <verse num="48" />

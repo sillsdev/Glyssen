@@ -8,7 +8,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="1" characterId="narrator-JOL">
     <verse num="1" />
-    <text>The Word of God that came to Joel, the son of Pethuel.</text>
+    <text>Yahweh’s word that came to Joel, the son of Pethuel.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="2" characterId="narrator-JOL">
     <verse num="2" />
@@ -40,7 +40,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="narrator-JOL">
     <verse num="9" />
-    <text>The meal offering and the drink offering are cut off from God’s house. The priests, God’s ministers, mourn.</text>
+    <text>The meal offering and the drink offering are cut off from Yahweh’s house. The priests, Yahweh’s ministers, mourn.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="10" characterId="narrator-JOL">
     <verse num="10" />
@@ -60,11 +60,11 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="14" characterId="narrator-JOL">
     <verse num="14" />
-    <text>Sanctify a fast. Call a solemn assembly. Gather the elders, and all the inhabitants of the land, to the house of God, your God, and cry to God.</text>
+    <text>Sanctify a fast. Call a solemn assembly. Gather the elders, and all the inhabitants of the land, to the house of Yahweh, your God, and cry to Yahweh.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="15" characterId="narrator-JOL">
     <verse num="15" />
-    <text>Alas for the day! For the day of God is at hand, and it will come as destruction from the Almighty.</text>
+    <text>Alas for the day! For the day of Yahweh is at hand, and it will come as destruction from the Almighty.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="16" characterId="narrator-JOL">
     <verse num="16" />
@@ -80,7 +80,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="19" characterId="narrator-JOL">
     <verse num="19" />
-    <text>God, I cry to you, For the fire has devoured the pastures of the wilderness, and the flame has burned all the trees of the field.</text>
+    <text>Yahweh, I cry to you, For the fire has devoured the pastures of the wilderness, and the flame has burned all the trees of the field.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="20" characterId="narrator-JOL">
     <verse num="20" />
@@ -91,7 +91,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="1" characterId="narrator-JOL">
     <verse num="1" />
-    <text>Blow the trumpet in Zion, and sound an alarm in my holy mountain! Let all the inhabitants of the land tremble, for the day of God comes, for it is close at hand:</text>
+    <text>Blow the trumpet in Zion, and sound an alarm in my holy mountain! Let all the inhabitants of the land tremble, for the day of Yahweh comes, for it is close at hand:</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-JOL">
     <verse num="2" />
@@ -103,7 +103,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-JOL">
     <verse num="4" />
-    <text>The appearance of them is as the appearance of horses, and as horsemen, so do they run.</text>
+    <text>Their appearance is as the appearance of horses, and they run as horsemen.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="5" characterId="narrator-JOL">
     <verse num="5" />
@@ -119,7 +119,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="8" characterId="narrator-JOL">
     <verse num="8" />
-    <text>Neither does one jostle another; they march everyone in his path, and they burst through the defenses, and don’t break ranks.</text>
+    <text>One doesn’t jostle another. They each march in their own path. They burst through the defenses and don’t break ranks.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="9" characterId="narrator-JOL">
     <verse num="9" />
@@ -131,25 +131,25 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="11" characterId="narrator-JOL">
     <verse num="11" />
-    <text>God thunders his voice before his army; for his forces are very great; for he is strong who obeys his command; for the day of God is great and very awesome, and who can endure it?</text>
+    <text>Yahweh thunders his voice before his army; for his forces are very great; for he is strong who obeys his command; for the day of Yahweh is great and very awesome, and who can endure it?</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="12" characterId="God">
     <verse num="12" />
     <text>«Yet even now,»</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="11" characterId="narrator-JOL">
-    <text>says God,</text>
+  <block style="p" chapter="2" initialStartVerse="12" characterId="narrator-JOL">
+    <text>says Yahweh,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="12" characterId="God">
     <text>«turn to me with all your heart, and with fasting, and with weeping, and with mourning.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="13" characterId="narrator-JOL">
     <verse num="13" />
-    <text>Tear your heart, and not your garments, and turn to God, your God; for he is gracious and merciful, slow to anger, and abundant in loving kindness, and relents from sending calamity.</text>
+    <text>Tear your heart, and not your garments, and turn to Yahweh, your God; for he is gracious and merciful, slow to anger, and abundant in loving kindness, and relents from sending calamity.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="14" characterId="narrator-JOL">
     <verse num="14" />
-    <text>Who knows? He may turn and relent, and leave a blessing behind him, even a meal offering and a drink offering to God, your God.</text>
+    <text>Who knows? He may turn and relent, and leave a blessing behind him, even a meal offering and a drink offering to Yahweh, your God.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="15" characterId="narrator-JOL">
     <verse num="15" />
@@ -157,20 +157,22 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="16" characterId="narrator-JOL">
     <verse num="16" />
-    <text>Gather the people. Sanctify the assembly. Assemble the elders. Gather the children, and those who nurse from breasts. Let the bridegroom go forth from his room, and the bride out of her room.</text>
+    <text>Gather the people. Sanctify the assembly. Assemble the elders. Gather the children, and those who nurse from breasts. Let the bridegroom go out of his room, and the bride out of her room.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="17" characterId="narrator-JOL">
     <verse num="17" />
-    <text>Let the priests, the ministers of God, weep between the porch and the altar, and let them say,</text>
+    <text>Let the priests, the ministers of Yahweh, weep between the porch and the altar, and let them say,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="17" characterId="priests" delivery="weeping, pleading">
-    <text>«Spare your people, God, and don’t give your heritage to reproach, that the nations should rule over them. Why should they say among the peoples, ‹Where is their God?› »</text>
+    <text>«Spare your people, Yahweh, and don’t give your heritage to reproach, that the nations should rule over them. Why should they say among the peoples, ‹Where is their God?› »</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="18" characterId="narrator-JOL">
     <verse num="18" />
-    <text>Then God was jealous for his land, And had pity on his people. </text>
+    <text>Then Yahweh was jealous for his land, And had pity on his people.</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="19" characterId="narrator-JOL">
     <verse num="19" />
-    <text>God answered his people,</text>
+    <text>Yahweh answered his people,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="19" characterId="God">
     <text>«Behold, I will send you grain, new wine, and oil, and you will be satisfied with them; and I will no more make you a reproach among the nations.</text>
@@ -180,19 +182,21 @@
     <text>But I will remove the northern army far away from you, and will drive it into a barren and desolate land, its front into the eastern sea, and its back into the western sea; and its stench will come up, and its bad smell will rise.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="20" characterId="narrator-JOL">
-    <text>Surely he has done great things. </text>
+    <text>Surely he has done great things.</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="21" characterId="narrator-JOL">
     <verse num="21" />
-    <text>Land, don’t be afraid. Be glad and rejoice, for God has done great things.</text>
+    <text>Land, don’t be afraid. Be glad and rejoice, for Yahweh has done great things.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="22" characterId="narrator-JOL">
     <verse num="22" />
     <text>Don’t be afraid, you animals of the field; for the pastures of the wilderness spring up, for the tree bears its fruit. The fig tree and the vine yield their strength.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="23" characterId="narrator-JOL">
+  <block style="p" chapter="2" initialStartVerse="23" characterId="God">
     <verse num="23" />
-    <text>Be glad then, you children of Zion, and rejoice in God, your God; for he gives you the former rain in just measure, and he causes the rain to come down for you, the former rain and the latter rain, as before.</text>
+    <text>«Be glad then, you children of Zion, and rejoice in Yahweh, your God; for he gives you the early rain in just measure, and he causes the rain to come down for you, the early rain and the latter rain, as before.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="24" characterId="narrator-JOL">
+  <block style="p" chapter="2" initialStartVerse="24" characterId="God">
     <verse num="24" />
     <text>The threshing floors will be full of wheat, and the vats will overflow with new wine and oil.</text>
   </block>
@@ -202,11 +206,11 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="26" characterId="God">
     <verse num="26" />
-    <text>You will have plenty to eat, and be satisfied, and will praise the name of God, your God, who has dealt wondrously with you; and my people will never again be disappointed.</text>
+    <text>You will have plenty to eat, and be satisfied, and will praise the name of Yahweh, your God, who has dealt wondrously with you; and my people will never again be disappointed.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="27" characterId="God">
     <verse num="27" />
-    <text>You will know that I am in the midst of Israel, and that I am God, your God, and there is no one else; and my people will never again be disappointed.</text>
+    <text>You will know that I am among Israel, and that I am Yahweh, your God, and there is no one else; and my people will never again be disappointed.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="28" characterId="God">
     <verse num="28" />
@@ -222,18 +226,18 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="31" characterId="God">
     <verse num="31" />
-    <text>The sun will be turned into darkness, and the moon into blood, before the great and terrible day of God comes.</text>
+    <text>The sun will be turned into darkness, and the moon into blood, before the great and terrible day of Yahweh comes.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="32" characterId="God">
     <verse num="32" />
-    <text>It will happen that whoever will call on God’s name shall be saved; for in Mount Zion and in Jerusalem there will be those who escape, as God has said, and among the remnant, those whom God calls.</text>
+    <text>It will happen that whoever will call on Yahweh’s name shall be saved; for in Mount Zion and in Jerusalem there will be those who escape, as Yahweh has said, and among the remnant, those whom Yahweh calls.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="JOL" initialStartVerse="0" characterId="BC-JOL">
     <text>3</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="1" characterId="God">
     <verse num="1" />
-    <text>For, behold, in those days, and in that time, when I restore the fortunes of Judah and Jerusalem,</text>
+    <text>«For, behold, in those days, and in that time, when I restore the fortunes of Judah and Jerusalem,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="2" characterId="God">
     <verse num="2" />
@@ -261,7 +265,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>and I will sell your sons and your daughters into the hands of the children of Judah, and they will sell them to the men of Sheba, to a faraway nation, for God has spoken it.»</text>
+    <text>and I will sell your sons and your daughters into the hands of the children of Judah, and they will sell them to the men of Sheba, to a faraway nation, for Yahweh has spoken it.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="9" characterId="narrator-JOL">
     <verse num="9" />
@@ -279,19 +283,19 @@
     <text>Hurry and come, all you surrounding nations, and gather yourselves together.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="11" characterId="narrator-JOL">
-    <text>Cause your mighty ones to come down there, God.</text>
+    <text>Cause your mighty ones to come down there, Yahweh.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>Let the nations arouse themselves, and come up to the valley of Jehoshaphat; for there will I sit to judge all the surrounding nations.</text>
+    <text>«Let the nations arouse themselves, and come up to the valley of Jehoshaphat; for there I will sit to judge all the surrounding nations.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>Put in the sickle; for the harvest is ripe. Come, tread, for the winepress is full, the vats overflow, for their wickedness is great.</text>
+    <text>Put in the sickle; for the harvest is ripe. Come, tread, for the wine press is full, the vats overflow, for their wickedness is great.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="14" characterId="narrator-JOL">
     <verse num="14" />
-    <text>Multitudes, multitudes in the valley of decision! For the day of God is near, in the valley of decision.</text>
+    <text>Multitudes, multitudes in the valley of decision! For the day of Yahweh is near, in the valley of decision.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="15" characterId="narrator-JOL">
     <verse num="15" />
@@ -299,30 +303,27 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="16" characterId="narrator-JOL">
     <verse num="16" />
-    <text>God will roar from Zion, and thunder from Jerusalem; and the heavens and the earth will shake; but God will be a refuge to his people, and a stronghold to the children of Israel.</text>
+    <text>Yahweh will roar from Zion, and thunder from Jerusalem; and the heavens and the earth will shake; but Yahweh will be a refuge to his people, and a stronghold to the children of Israel.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="17" characterId="God">
     <verse num="17" />
-    <text>So you will know that I am God, your God, dwelling in Zion, my holy mountain. Then Jerusalem will be holy, and no strangers will pass through her any more.</text>
+    <text>«So you will know that I am Yahweh, your God, dwelling in Zion, my holy mountain. Then Jerusalem will be holy, and no strangers will pass through her any more.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="18" characterId="narrator-JOL">
+  <block style="p" chapter="3" initialStartVerse="18" characterId="God">
     <verse num="18" />
-    <text>It will happen in that day, that the mountains will drop down sweet wine, the hills will flow with milk, all the brooks of Judah will flow with waters, and a fountain will come forth from the house of God, and will water the valley of Shittim.</text>
+    <text>It will happen in that day, that the mountains will drop down sweet wine, the hills will flow with milk, all the brooks of Judah will flow with waters, and a fountain will flow out from Yahweh’s house, and will water the valley of Shittim.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="19" characterId="narrator-JOL">
+  <block style="p" chapter="3" initialStartVerse="19" characterId="God">
     <verse num="19" />
     <text>Egypt will be a desolation, and Edom will be a desolate wilderness, for the violence done to the children of Judah, because they have shed innocent blood in their land.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="20" characterId="narrator-JOL">
+  <block style="p" chapter="3" initialStartVerse="20" characterId="God">
     <verse num="20" />
     <text>But Judah will be inhabited forever, and Jerusalem from generation to generation.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="21" characterId="God">
     <verse num="21" />
-    <text>I will cleanse their blood, that I have not cleansed,</text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="21" characterId="narrator-JOL">
-    <text>for God dwells in Zion.</text>
+    <text>I will cleanse their blood, that I have not cleansed: for Yahweh dwells in Zion.»</text>
   </block>
   <UnappliedSplits />
 </book>

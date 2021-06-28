@@ -308,11 +308,13 @@ namespace Glyssen.ReferenceTextUtility
 				return;
 			}
 
-			if (!task.IsCanceled) // Doesn't look like this is ever true
+			if (!task.IsCanceled)
 			{
 				if (task.Exception != null)
 				{
 					MessageBox.Show(this, $"The file {m_lblSpreadsheetFilePath.Text} could not be read.", "Invalid Excel Spreadsheet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+					lock(this)
+						m_lblLoading.Visible = false;
 					return;
 				}
 

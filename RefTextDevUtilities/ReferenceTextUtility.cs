@@ -40,6 +40,7 @@ namespace Glyssen.RefTextDevUtilities
 		private const string kCharacterHeaderAlt1 = "CHARACTER";
 		private const string kCharacterHeaderAlt2 = "Char";
 		private const string kEnglishHeader = "ENGLISH";
+		private const string kEnglishHeaderAlt = "Text - English";
 		private const string kEnglishHeaderAltEnglishOnly = "Text";
 		private const string kSporadicAddlCharNamesPrefixIgnore = "Sporadic";
 		private const string kPrompts = "Prompts";
@@ -166,9 +167,9 @@ namespace Glyssen.RefTextDevUtilities
 		private static string NormalizeLanguageColumnHeaderName(string nameFromExcelFile)
 		{
 			// Not sure why FCBH spells it "PISON", but we'll just fix it up here.
-			var nameParts = nameFromExcelFile.Replace("PISON", "PISIN").Split(' ', '\n');
+			var nameParts = nameFromExcelFile.Replace("PISON", "PISIN").Split(' ', '\n', '-');
 			var sb = new StringBuilder();
-			foreach (var part in nameParts.Where(p => !string.IsNullOrEmpty(p)))
+			foreach (var part in nameParts.Where(p => !string.IsNullOrEmpty(p) && !p.StartsWith("Text")))
 			{
 				if (part.StartsWith("("))
 					break;
@@ -687,11 +688,14 @@ namespace Glyssen.RefTextDevUtilities
 						Block newBlock;
 						if (existingEnglishRefBlock != null)
 						{
+							string characterId = languageInfo.IsEnglish ? characterIdBasedOnExcelEntry : existingEnglishRefBlock.CharacterId;
+							string delivery = characterId == CharacterVerseData.GetStandardCharacterId(currBookId, CharacterVerseData.StandardCharacter.Narrator) ?
+								null : existingEnglishRefBlock.Delivery;
 							newBlock = new Block(existingEnglishRefBlock.StyleTag, currChapter,
 								currVerse)
 							{
-								CharacterId = languageInfo.IsEnglish ? characterIdBasedOnExcelEntry : existingEnglishRefBlock.CharacterId,
-								Delivery = existingEnglishRefBlock.Delivery,
+								CharacterId = characterId,
+								Delivery = delivery,
 								IsParagraphStart = existingEnglishRefBlock.IsParagraphStart,
 								MultiBlockQuote = existingEnglishRefBlock.MultiBlockQuote
 							};
@@ -941,13 +945,13 @@ namespace Glyssen.RefTextDevUtilities
 				WriteOutput($"   Aligned to existing {languageName} ref text block: {existingRefBlock}");
 			}
 
-			if (currVerse != existingRefBlock.InitialStartVerseNumber &&
+			if ((currVerse < existingRefBlock.InitialStartVerseNumber || currVerse > existingRefBlock.LastVerseNum) &&
 				(currBookId != "PSA" || currVerse > 1 || existingRefBlock.InitialStartVerseNumber > 0))
 			{
 				WriteOutput($"Verse number does not align with existing {languageName} reference text. Book: {currBookId}, Ch: {currChapter}, " +
 					$"Excel: {currVerse}, Existing: {existingRefBlock.InitialStartVerseNumber}", true);
 
-				if (existingRefBlock.InitialStartVerseNumber > currVerse)
+				if (existingRefBlock.LastVerseNum > currVerse)
 				{
 					do
 					{
@@ -1300,8 +1304,11 @@ namespace Glyssen.RefTextDevUtilities
 			return silBookCode;
 		}
 
-		private static IEnumerable<CharacterSpeakingMode> GetAllCharacters(int bookNum, Block block)
+		private static IEnumerable<CharacterSpeakingMode> GetAllCharacters(int bookNum, Block block, string overrideVerseNum = null)
 		{
+			if (!string.IsNullOrEmpty(overrideVerseNum))
+				return ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, new Verse(overrideVerseNum), includeAlternatesAndRareQuotes:true);
+
 			return ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, block.AllVerses, includeAlternatesAndRareQuotes:true);
 		}
 
@@ -1331,7 +1338,7 @@ namespace Glyssen.RefTextDevUtilities
 			if (GetMatchingNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber) != null)
 				return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
 
-			var characters = GetAllCharacters(bookNum, block).Distinct(s_characterDeliveryEqualityComparer).ToList();
+			var characters = GetAllCharacters(bookNum, block, overrideVerseNum).Distinct(s_characterDeliveryEqualityComparer).ToList();
 			var implicitChar = characters.SingleOrDefault(c => c.IsImplicit);
 			if (implicitChar != null)
 				characters.RemoveAll(c => c != implicitChar && c.Character == implicitChar.Character && c.Delivery == implicitChar.Delivery);
@@ -1704,6 +1711,8 @@ namespace Glyssen.RefTextDevUtilities
 						// Language headers can now be in a row BEFORE the other column headers
 						// English is required and must come first!
 						iCol = nonNullCellAddresses.FindIndex(a => cells[a.Address].Value.Equals(kEnglishHeader));
+						if (iCol < 0)
+							iCol = nonNullCellAddresses.FindIndex(a => cells[a.Address].Value.Equals(kEnglishHeaderAlt));
 						if (iCol >= 0)
 						{
 							var englishAddress = nonNullCellAddresses[iCol].Address;
@@ -1744,6 +1753,7 @@ namespace Glyssen.RefTextDevUtilities
 								value = "English";
 								goto case kEnglishHeader;
 							case kEnglishHeader: // English is required and must come first!
+							case kEnglishHeaderAlt:
 								allLanguages.Clear();
 								allLanguages[NormalizeLanguageColumnHeaderName(value)] = col;
 								languageHeaderRow = iRow;
