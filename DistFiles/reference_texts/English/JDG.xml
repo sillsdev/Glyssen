@@ -190,14 +190,14 @@
     <verse num="1" />
     <text>Yahweh’s angel came up from Gilgal to Bochim. He said,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="1" characterId="angel of the LORD, the">
+  <block style="p" chapter="2" initialStartVerse="1" characterId="Yahweh's angel">
     <text>«I brought you out of Egypt, and have brought you to the land which I swore to give your fathers. I said, ‹I will never break my covenant with you.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="2" characterId="angel of the LORD, the">
+  <block style="p" chapter="2" initialStartVerse="2" characterId="Yahweh's angel">
     <verse num="2" />
     <text>You shall make no covenant with the inhabitants of this land. You shall break down their altars.› But you have not listened to my voice. Why have you done this?</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="3" characterId="angel of the LORD, the">
+  <block style="p" chapter="2" initialStartVerse="3" characterId="Yahweh's angel">
     <verse num="3" />
     <text>Therefore I also said, ‹I will not drive them out from before you; but they shall be in your sides, and their gods will be a snare to you.› »</text>
   </block>
@@ -741,14 +741,14 @@
     <verse num="8" />
     <text>Yahweh sent a prophet to the children of Israel; and he said to them,</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="8" characterId="prophet">
+  <block style="p" chapter="6" initialStartVerse="8" characterId="prophet of Yahweh sent to Israel">
     <text>«Yahweh, the God of Israel, says, ‹I brought you up from Egypt, and brought you out of the house of bondage.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="9" characterId="prophet">
+  <block style="p" chapter="6" initialStartVerse="9" characterId="prophet of Yahweh sent to Israel">
     <verse num="9" />
     <text>I delivered you out of the hand of the Egyptians and out of the hand of all who oppressed you, and drove them out from before you, and gave you their land.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="10" characterId="prophet">
+  <block style="p" chapter="6" initialStartVerse="10" characterId="prophet of Yahweh sent to Israel">
     <verse num="10" />
     <text>I said to you, «I am Yahweh your God. You shall not fear the gods of the Amorites, in whose land you dwell.» But you have not listened to my voice.› »</text>
   </block>
@@ -760,7 +760,7 @@
     <verse num="12" />
     <text>Yahweh’s angel appeared to him, and said to him,</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="12" characterId="angel of the LORD, the">
+  <block style="p" chapter="6" initialStartVerse="12" characterId="Yahweh's angel">
     <text>«Yahweh is with you, you mighty man of valor!»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="13" characterId="narrator-JDG">
@@ -816,7 +816,7 @@
     <verse num="20" />
     <text>The angel of God said to him,</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="20" characterId="angel of the LORD, the">
+  <block style="p" chapter="6" initialStartVerse="20" characterId="Yahweh's angel">
     <text>«Take the meat and the unleavened cakes, and lay them on this rock, and pour out the broth.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="20" characterId="narrator-JDG">
@@ -1971,14 +1971,14 @@
     <verse num="3" />
     <text>Yahweh’s angel appeared to the woman, and said to her,</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="3" characterId="angel of the LORD, the">
+  <block style="p" chapter="13" initialStartVerse="3" characterId="Yahweh's angel">
     <text>«See now, you are barren and childless; but you shall conceive and bear a son.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="4" characterId="angel of the LORD, the">
+  <block style="p" chapter="13" initialStartVerse="4" characterId="Yahweh's angel">
     <verse num="4" />
     <text>Now therefore please beware and drink no wine nor strong drink, and don’t eat any unclean thing:</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="5" characterId="angel of the LORD, the">
+  <block style="p" chapter="13" initialStartVerse="5" characterId="Yahweh's angel">
     <verse num="5" />
     <text>for, behold, you shall conceive, and bear a son; and no razor shall come on his head; for the child shall be a Nazirite to God from the womb: and he shall begin to save Israel out of the hand of the Philistines.»</text>
   </block>
@@ -2035,10 +2035,10 @@
     <verse num="13" />
     <text>Yahweh’s angel said to Manoah,</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="13" characterId="angel of the LORD, the">
+  <block style="p" chapter="13" initialStartVerse="13" characterId="Yahweh's angel">
     <text>«Of all that I said to the woman let her beware.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="14" characterId="angel of the LORD, the">
+  <block style="p" chapter="13" initialStartVerse="14" characterId="Yahweh's angel">
     <verse num="14" />
     <text>She may not eat of anything that comes of the vine, neither let her drink wine or strong drink, nor eat any unclean thing; all that I commanded her let her observe.»</text>
   </block>
@@ -2053,7 +2053,7 @@
     <verse num="16" />
     <text>Yahweh’s angel said to Manoah,</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="16" characterId="angel of the LORD, the">
+  <block style="p" chapter="13" initialStartVerse="16" characterId="Yahweh's angel">
     <text>«Though you detain me, I won’t eat your bread. If you will prepare a burnt offering, you must offer it to Yahweh.»</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="16" characterId="narrator-JDG">
@@ -2070,7 +2070,7 @@
     <verse num="18" />
     <text>Yahweh’s angel said to him,</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="18" characterId="angel of the LORD, the">
+  <block style="p" chapter="13" initialStartVerse="18" characterId="Yahweh's angel">
     <text>«Why do you ask about my name, since it is incomprehensible?»</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="19" characterId="narrator-JDG">

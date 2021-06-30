@@ -104,7 +104,6 @@ Asher	1	Male	Adult			GEN 37:8 <-(33 more)-> GEN 50:18
 assembly, whole	-1		Adult			EZR 10:12 <-(2 more)-> NEH 5:13
 astrologers	-1	Male	Adult			DAN 2:4 <-(6 more)-> DAN 3:12	Chaldean
 Athaliah, mother of Ahaziah (Queen)	1	Female	Adult			2KI 11:14 & 2CH 23:13
-attendants to Xerxes, king	-1	Male	Adult			EST 2:2 <-(3 more)-> EST 6:5
 attendents of Phineas' wife	-1	Female	Adult			1SA 4:20
 authorities, governing	-1	Male	Adult			ROM 13:3
 authorities, Philippi	-1	Male	Adult			ACT 16:22 & ACT 16:23
@@ -590,6 +589,8 @@ king of Bela	1	Male				GEN 14:4
 king of Jericho	1	Male				JOS 2:3
 king of Nineveh	1	Male				JON 3:7 <-(1 more)-> JON 3:9
 king of the Ammonites	1	Male				JDG 11:13
+King Xerxes' personal servants	-1	Male	Adult			EST 2:2 <-(3 more)-> EST 6:5
+King Xerxes' servants at the gate	-1	Male				EST 3:3
 kings of the earth	-1	Male				PSA 2:3 & REV 18:10
 kings over the nations	-1	Male				ISA 14:10
 kings, princes, generals, rich, powerful, slave and free	-1	Male				REV 6:16 & REV 6:17
@@ -811,7 +812,6 @@ officials of Samaria	-1	Male				2KI 10:4 & 2KI 10:5	Elder
 officials of Succoth	-1	Male				JDG 8:6	Prince of Succoth
 officials of Trans-Euphrates	-1	Male				EZR 5:3 <-(11 more)-> EZR 5:17
 officials, Ephesus (friends of Paul)	-1	Male				ACT 19:31
-officials, royal, to Xerxes, king	-1	Male				EST 3:3
 old man in Gibeah	1	Male	Elder			JDG 19:17 <-(2 more)-> JDG 19:24
 old prophet in Bethel	1	Male	Elder			1KI 13:12 <-(9 more)-> 1KI 13:32	Prophet (old)
 older daughter of Lot	1	Female				GEN 19:31 <-(1 more)-> GEN 19:34	Daughter of Lot (female)

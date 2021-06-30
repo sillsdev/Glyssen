@@ -689,6 +689,7 @@ namespace Glyssen.RefTextDevUtilities
 						if (existingEnglishRefBlock != null)
 						{
 							string characterId = languageInfo.IsEnglish ? characterIdBasedOnExcelEntry : existingEnglishRefBlock.CharacterId;
+							string characterIdOverride = languageInfo.IsEnglish ? null : existingEnglishRefBlock.CharacterIdOverrideForScript;
 							string delivery = characterId == CharacterVerseData.GetStandardCharacterId(currBookId, CharacterVerseData.StandardCharacter.Narrator) ?
 								null : existingEnglishRefBlock.Delivery;
 							newBlock = new Block(existingEnglishRefBlock.StyleTag, currChapter,
@@ -696,6 +697,7 @@ namespace Glyssen.RefTextDevUtilities
 							{
 								CharacterId = characterId,
 								Delivery = delivery,
+								CharacterIdOverrideForScript = characterIdOverride,
 								IsParagraphStart = existingEnglishRefBlock.IsParagraphStart,
 								MultiBlockQuote = existingEnglishRefBlock.MultiBlockQuote
 							};
