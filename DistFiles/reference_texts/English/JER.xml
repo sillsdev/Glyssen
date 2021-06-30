@@ -5263,7 +5263,7 @@
     <verse num="16" />
     <text>then it will happen that the sword, which you fear, will overtake you there in the land of Egypt; and the famine, about which you are afraid, will follow close behind you there in Egypt; and you will die there.</text>
   </block>
-  <block style="p" chapter="42" initialStartVerse="17" characterId=Jeremiah">
+  <block style="p" chapter="42" initialStartVerse="17" characterId="Jeremiah">
     <verse num="17" />
     <text>So will it be with all the men who set their faces to go into Egypt to live there. They will die by the sword, by the famine, and by the pestilence. None of them will remain or escape from the evil that I will bring on them.›</text>
   </block>
