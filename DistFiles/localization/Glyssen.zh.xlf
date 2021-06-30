@@ -1220,9 +1220,9 @@
         <note>ID: CharacterName.Jeremiah</note>
         <target xml:lang="zh-TW" state="translated">耶利米</target>
       </trans-unit>
-      <trans-unit id="CharacterName.Jeremiah(Yahweh says)" sil:dynamic="true">
-        <source xml:lang="en">Jeremiah(Yahweh says)</source>
-        <note>ID: CharacterName.Jeremiah(Yahweh says)</note>
+      <trans-unit id="CharacterName.Jeremiah (Yahweh says)" sil:dynamic="true">
+        <source xml:lang="en">Jeremiah (Yahweh says)</source>
+        <note>ID: CharacterName.Jeremiah (Yahweh says)</note>
         <target xml:lang="zh-TW" state="translated">耶利米 ***(the*** ***LORD*** ***says)***</target>
       </trans-unit>
       <trans-unit id="CharacterName.Jeremiah quoting the prophets" sil:dynamic="true">
