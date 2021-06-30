@@ -8545,9 +8545,9 @@ PSA	66	3	you (hypothetical)			Hypothetical
 PSA	66	4	you (hypothetical)			Hypothetical		
 PSA	68	12	proclaimers of God's word			Normal		
 PSA	68	13	proclaimers of God's word			Potential		
-PSA	68	22	God		God (Yahweh)	Quotation		
+PSA	68	22	God		God (the Lord)	Quotation		
 PSA	68	22	narrator-PSA			Alternate		
-PSA	68	23	God		God (Yahweh)	Quotation		
+PSA	68	23	God		God (the Lord)	Quotation		
 PSA	68	23	narrator-PSA			Alternate		
 PSA	68	26	singers			Hypothetical		
 PSA	68	26	women playing tambourines			Hypothetical		
@@ -9511,7 +9511,7 @@ ISA	21	2	God		God (Yahweh) (in vision)	Potential
 ISA	21	3	Isaiah			Potential		
 ISA	21	4	Isaiah			Potential		
 ISA	21	5	Isaiah			Potential		
-ISA	21	6	God		God (Yahweh)	Normal		
+ISA	21	6	God		God (the Lord)	Normal		
 ISA	21	7	God		God (Yahweh)	Implicit		
 ISA	21	8	lookout			Normal		
 ISA	21	9	lookout			Normal		
@@ -9524,7 +9524,7 @@ ISA	21	10	someone			Normal
 ISA	21	10	Needs Review			Normal		
 ISA	21	11	someone from Seir			Normal		
 ISA	21	12	watchman			Normal		
-ISA	21	16	God		God (Yahweh)	Normal		
+ISA	21	16	God		God (the Lord)	Normal		
 ISA	21	17	God		God (Yahweh)	Normal		
 ISA	22	4	Isaiah			Quotation		
 ISA	22	5	Isaiah			Quotation		
@@ -9624,7 +9624,7 @@ ISA	29	12	Isaiah			Potential
 ISA	29	12	God		God (Yahweh)	Alternate		
 ISA	29	12	person asking someone to read a sealed book			Hypothetical		
 ISA	29	12	non-reader			Normal		
-ISA	29	13	God		God (Yahweh)	Normal		
+ISA	29	13	God		God (the Lord)	Normal		
 ISA	29	14	God		God (Yahweh)	Implicit		
 ISA	29	15	Isaiah			Potential		
 ISA	29	15	God		God (Yahweh)	Alternate		
@@ -10715,7 +10715,7 @@ JER	8	17	Jeremiah			Potential
 JER	8	18	Jeremiah			Potential		
 JER	8	19	Jeremiah			Potential		
 JER	8	19	people			Hypothetical		
-JER	8	19	God		God (Yahweh)	Normal		
+JER	8	19	God		God (Yahweh)	Potential		
 JER	8	20	people			Hypothetical		
 JER	8	20	Jeremiah			Potential		
 JER	8	21	Jeremiah			Implicit		
@@ -10901,15 +10901,15 @@ JER	14	5	God		God (Yahweh)	Alternate
 JER	14	5	Jeremiah			Potential		
 JER	14	6	God		God (Yahweh)	Alternate		
 JER	14	6	Jeremiah			Potential		
-JER	14	7	Jeremiah			Alternate		
-JER	14	7	people, repentant			Implicit		
-JER	14	7	Needs Review			Alternate		
-JER	14	8	Jeremiah			Alternate		
-JER	14	8	people, repentant			Implicit		
-JER	14	8	Needs Review			Alternate		
-JER	14	9	Jeremiah			Alternate		
-JER	14	9	people, repentant			Implicit		
-JER	14	9	Needs Review			Alternate		
+JER	14	7	Jeremiah			Potential		
+JER	14	7	people, repentant			Potential		
+JER	14	7	Needs Review			Implicit		
+JER	14	8	Jeremiah			Potential		
+JER	14	8	people, repentant			Potential		
+JER	14	8	Needs Review			Implicit		
+JER	14	9	Jeremiah			Potential		
+JER	14	9	people, repentant			Potential		
+JER	14	9	Needs Review			Implicit		
 JER	14	10	God		God (Yahweh)	Normal		
 JER	14	11	God		God (Yahweh)	Normal		
 JER	14	12	God		God (Yahweh)	Implicit		
@@ -11255,8 +11255,10 @@ JER	24	10	God		God (Yahweh)	Implicit
 JER	25	3	Jeremiah			Potential		
 JER	25	4	Jeremiah			Potential		
 JER	25	5	Jeremiah		Jeremiah quoting the prophets	Normal		
+JER	25	5	God		God (Yahweh)	Normal		
 JER	25	5	prophets			Quotation		
 JER	25	6	Jeremiah		Jeremiah quoting the prophets	Normal		
+JER	25	6	God		God (Yahweh)	Normal		
 JER	25	6	prophets			Quotation		
 JER	25	7	God		God (Yahweh)	Normal		
 JER	25	8	God		God (Yahweh)	Normal		
@@ -11313,8 +11315,6 @@ JER	26	18	elders of the land			Normal
 JER	26	18	Micah, prophet			Quotation		
 JER	26	19	elders of the land			Implicit		
 # Most translations (including WEB) do not have vv. 20-23 in quotes. It is a commentary by the narrator (some make it parenthetical).
-# However, FCBH has the elders of the land speak this chunk, and it may be that other projects will want to follow suit even if it is
-# not in quotes.
 JER	26	20	elders of the land			Potential		
 JER	26	20	Needs Review			Potential		
 JER	26	21	elders of the land			Potential		
@@ -11351,31 +11351,39 @@ JER	27	11	Jeremiah		Jeremiah (Yahweh says)	Potential
 JER	27	11	messenger			Hypothetical		
 JER	27	12	Jeremiah		Jeremiah (Yahweh says)	Quotation		
 JER	27	12	God		God (Yahweh)	Alternate		
+JER	27	12	Needs Review			Normal		
 JER	27	13	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	27	13	God		God (Yahweh)	Alternate		
+JER	27	13	Needs Review			Implicit		
 JER	27	14	God		God (Yahweh)	Normal		
 JER	27	14	Jeremiah		Jeremiah (Yahweh says)	Normal		
-JER	27	14	Needs Review			Normal		
+JER	27	14	Needs Review			Implicit		
 JER	27	14	false prophets			Quotation		
 JER	27	15	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	27	15	God		God (Yahweh)	Normal		
-JER	27	15	Needs Review			Normal		
+JER	27	15	Needs Review			Implicit		
 JER	27	16	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	27	16	God		God (Yahweh)	Alternate		
 JER	27	16	false prophets			Quotation		
 JER	27	16	Needs Review			Normal		
 JER	27	17	Jeremiah		Jeremiah (Yahweh says)	Normal		
-JER	27	17	God		God (Yahweh)	Alternate		
+JER	27	17	God		God (Yahweh)	Normal		
+JER	27	17	Needs Review			Implicit		
 JER	27	18	Jeremiah		Jeremiah (Yahweh says)	Normal		
-JER	27	18	God		God (Yahweh)	Alternate		
+JER	27	18	God		God (Yahweh)	Normal		
+JER	27	18	Needs Review			Implicit		
 JER	27	19	Jeremiah		Jeremiah (Yahweh says)	Normal		
-JER	27	19	God		God (Yahweh)	Alternate		
+JER	27	19	God		God (Yahweh)	Normal		
+JER	27	19	Needs Review			Implicit		
 JER	27	20	Jeremiah		Jeremiah (Yahweh says)	Normal		
-JER	27	20	God		God (Yahweh)	Alternate		
+JER	27	20	God		God (Yahweh)	Normal		
+JER	27	20	Needs Review			Implicit		
 JER	27	21	Jeremiah		Jeremiah (Yahweh says)	Normal		
-JER	27	21	God		God (Yahweh)	Alternate		
+JER	27	21	God		God (Yahweh)	Normal		
+JER	27	21	Needs Review			Implicit		
 JER	27	22	Jeremiah		Jeremiah (Yahweh says)	Potential		
 JER	27	22	God		God (Yahweh)	Normal		
+JER	27	22	Needs Review			Implicit		
 JER	28	2	Hananiah, false prophet			Implicit		
 JER	28	3	Hananiah, false prophet			Implicit		
 JER	28	4	Hananiah, false prophet			Implicit		
@@ -11395,6 +11403,7 @@ JER	29	4-23	Jeremiah	letter	Jeremiah (Yahweh says)	Normal
 JER	29	4-23	Elasah, son of Shaphan/Gemariah, son of Hilkiah	letter		Alternate		
 JER	29	4-23	God		God (Yahweh)	Alternate		
 JER	29	24	God		God (Yahweh)	Potential		
+JER	29	24	Needs Review			Implicit		
 JER	29	25	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	29	25	God		God (Yahweh)	Normal		
 JER	29	26	Shemaiah the Nehelamite			Quotation		
@@ -11593,20 +11602,20 @@ JER	32	44	God		God (Yahweh)	Normal
 JER	32	44	Jeremiah		Jeremiah (Yahweh says)	Potential		
 JER	33	2	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	33	2	God		God (Yahweh)	Normal		
-JER	33	3	God		God (Yahweh)	Implicit		
-JER	33	3	Jeremiah		Jeremiah (Yahweh says)	Alternate		
+JER	33	3	God		God (Yahweh)	Normal		
+JER	33	3	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	33	4	Jeremiah		Jeremiah (Yahweh says)	Potential		
 JER	33	4	God		God (Yahweh)	Alternate		
-JER	33	5	God		God (Yahweh)	Implicit		
-JER	33	5	Jeremiah		Jeremiah (Yahweh says)	Alternate		
-JER	33	6	God		God (Yahweh)	Implicit		
-JER	33	6	Jeremiah		Jeremiah (Yahweh says)	Alternate		
-JER	33	7	God		God (Yahweh)	Implicit		
-JER	33	7	Jeremiah		Jeremiah (Yahweh says)	Alternate		
-JER	33	8	God		God (Yahweh)	Implicit		
-JER	33	8	Jeremiah		Jeremiah (Yahweh says)	Alternate		
-JER	33	9	God		God (Yahweh)	Implicit		
-JER	33	9	Jeremiah		Jeremiah (Yahweh says)	Alternate		
+JER	33	5	God		God (Yahweh)	Normal		
+JER	33	5	Jeremiah		Jeremiah (Yahweh says)	Normal		
+JER	33	6	God		God (Yahweh)	Normal		
+JER	33	6	Jeremiah		Jeremiah (Yahweh says)	Normal		
+JER	33	7	God		God (Yahweh)	Normal		
+JER	33	7	Jeremiah		Jeremiah (Yahweh says)	Normal		
+JER	33	8	God		God (Yahweh)	Normal		
+JER	33	8	Jeremiah		Jeremiah (Yahweh says)	Normal		
+JER	33	9	God		God (Yahweh)	Normal		
+JER	33	9	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	33	10	Jeremiah		Jeremiah (Yahweh says)	Potential		
 JER	33	10	God		God (Yahweh)	Normal		
 JER	33	10	you (hypothetical)			Hypothetical		
@@ -11629,10 +11638,10 @@ JER	33	18	God		God (Yahweh)	Implicit
 JER	33	18	Jeremiah		Jeremiah (Yahweh says)	Alternate		
 JER	33	20	Jeremiah		Jeremiah (Yahweh says)	Potential		
 JER	33	20	God		God (Yahweh)	Normal		
-JER	33	21	God		God (Yahweh)	Implicit		
-JER	33	21	Jeremiah		Jeremiah (Yahweh says)	Alternate		
-JER	33	22	God		God (Yahweh)	Implicit		
-JER	33	22	Jeremiah		Jeremiah (Yahweh says)	Alternate		
+JER	33	21	God		God (Yahweh)	Normal		
+JER	33	21	Jeremiah		Jeremiah (Yahweh says)	Normal		
+JER	33	22	God		God (Yahweh)	Normal		
+JER	33	22	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	33	24	God		God (Yahweh)	Implicit		
 JER	33	24	Jeremiah		Jeremiah (Yahweh says)	Alternate		
 JER	33	25	Jeremiah		Jeremiah (Yahweh says)	Potential		
@@ -11653,12 +11662,12 @@ JER	34	9	Zedekiah, king of Judah			Indirect
 JER	34	10	officials/people			Indirect		
 JER	34	13	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	34	13	God		God (Yahweh)	Normal		
-JER	34	14	God		God (Yahweh)	Implicit		
-JER	34	14	Jeremiah		Jeremiah (Yahweh says)	Alternate		
-JER	34	15	God		God (Yahweh)	Implicit		
-JER	34	15	Jeremiah		Jeremiah (Yahweh says)	Alternate		
-JER	34	16	God		God (Yahweh)	Implicit		
-JER	34	16	Jeremiah		Jeremiah (Yahweh says)	Alternate		
+JER	34	14	God		God (Yahweh)	Normal		
+JER	34	14	Jeremiah		Jeremiah (Yahweh says)	Normal		
+JER	34	15	God		God (Yahweh)	Normal		
+JER	34	15	Jeremiah		Jeremiah (Yahweh says)	Normal		
+JER	34	16	God		God (Yahweh)	Normal		
+JER	34	16	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	34	17	Jeremiah		Jeremiah (Yahweh says)	Potential		
 JER	34	17	God		God (Yahweh)	Normal		
 JER	34	18	God		God (Yahweh)	Implicit		
@@ -11681,12 +11690,12 @@ JER	35	10	Rechabite family, men of			Implicit
 JER	35	11	Rechabite family, men of			Implicit		
 JER	35	13	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	35	13	God		God (Yahweh)	Normal		
-JER	35	14	God		God (Yahweh)	Implicit		
-JER	35	14	Jeremiah		Jeremiah (Yahweh says)	Alternate		
+JER	35	14	God		God (Yahweh)	Normal		
+JER	35	14	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	35	15	God		God (Yahweh)	Normal		
 JER	35	15	prophets			Quotation		
-JER	35	16	God		God (Yahweh)	Implicit		
-JER	35	16	Jeremiah		Jeremiah (Yahweh says)	Alternate		
+JER	35	16	God		God (Yahweh)	Normal		
+JER	35	16	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	35	17	Jeremiah		Jeremiah (Yahweh says)	Potential		
 JER	35	17	God		God (Yahweh)	Normal		
 JER	35	18	Jeremiah		Jeremiah (Yahweh says)	Normal		
@@ -11717,13 +11726,13 @@ JER	37	3	Jehucal/Zephaniah, priest			Normal
 JER	37	3	Zedekiah, king of Judah			Alternate		
 JER	37	7	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	37	7	God		God (Yahweh)	Normal		
-JER	37	8	God		God (Yahweh)	Implicit		
-JER	37	8	Jeremiah		Jeremiah (Yahweh says)	Alternate		
+JER	37	8	God		God (Yahweh)	Normal		
+JER	37	8	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	37	9	Jeremiah		Jeremiah (Yahweh says)	Potential		
 JER	37	9	Zedekiah, king of Judah			Hypothetical		
 JER	37	9	God		God (Yahweh)	Normal		
-JER	37	10	God		God (Yahweh)	Implicit		
-JER	37	10	Jeremiah		Jeremiah (Yahweh says)	Alternate		
+JER	37	10	God		God (Yahweh)	Normal		
+JER	37	10	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	37	13	Irijah, captain of the guard of Judah			Normal		
 JER	37	14	Jeremiah			Normal		
 JER	37	17	Jeremiah			Normal		
@@ -11751,11 +11760,11 @@ JER	38	18	Jeremiah		Jeremiah (Yahweh says)	Normal
 JER	38	19	Zedekiah, king of Judah			Normal		
 JER	38	20	Jeremiah			Normal		
 JER	38	21	Jeremiah			Implicit		
-JER	38	22	God		God (Yahweh)	Implicit		
-JER	38	22	Jeremiah		Jeremiah (Yahweh says)	Alternate		
+JER	38	22	God		God (Yahweh)	Alternate		
+JER	38	22	Jeremiah		Jeremiah (Yahweh says)	Implicit		
 JER	38	22	women, remnant of the king of Judah's house			Hypothetical		
-JER	38	23	God		God (Yahweh)	Implicit		
-JER	38	23	Jeremiah		Jeremiah (Yahweh says)	Alternate		
+JER	38	23	God		God (Yahweh)	Alternate		
+JER	38	23	Jeremiah		Jeremiah (Yahweh says)	Implicit		
 JER	38	24	Zedekiah, king of Judah			Normal		
 JER	38	25	Zedekiah, king of Judah			Implicit		
 JER	38	25	Shephatiah/Gedaliah, son of Pashur/Jehucal/Pashur		officials (Shephatiah, Gedaliah, Jehucal, and Pashur)	Hypothetical		
@@ -11787,24 +11796,24 @@ JER	42	4	Jeremiah			Normal
 JER	42	5	Johanan/army officers/people, all the		all the army officers, including Johanan and Jezaniah/all the people	Normal	Johanan	
 JER	42	6	Johanan/army officers/people, all the		all the army officers, including Johanan and Jezaniah/all the people	Implicit	Johanan	
 JER	42	9	Jeremiah		Jeremiah (Yahweh says)	Normal		
-JER	42	10	God		God (Yahweh)	Implicit		
-JER	42	10	Jeremiah		Jeremiah (Yahweh says)	Alternate		
+JER	42	10	Jeremiah		Jeremiah (Yahweh says)	Implicit		
+JER	42	10	God		God (Yahweh)	Alternate		
 JER	42	11	God		God (Yahweh)	Normal		
 JER	42	11	Jeremiah		Jeremiah (Yahweh says)	Normal		
-JER	42	12	God		God (Yahweh)	Implicit		
-JER	42	12	Jeremiah		Jeremiah (Yahweh says)	Alternate		
-JER	42	13	God		God (Yahweh)	Implicit		
-JER	42	13	Jeremiah		Jeremiah (Yahweh says)	Alternate		
+JER	42	12	God		God (Yahweh)	Quotation		
+JER	42	12	Jeremiah		Jeremiah (Yahweh says)	Normal		
+JER	42	13	God		God (Yahweh)	Quotation		
+JER	42	13	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	42	13	Judah, remnant of			Hypothetical		
-JER	42	14	God		God (Yahweh)	Implicit		
-JER	42	14	Jeremiah		Jeremiah (Yahweh says)	Alternate		
+JER	42	14	God		God (Yahweh)	Quotation		
+JER	42	14	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	42	14	Judah, remnant of			Hypothetical		
 JER	42	15	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	42	15	God		God (Yahweh)	Normal		
-JER	42	16	God		God (Yahweh)	Implicit		
-JER	42	16	Jeremiah		Jeremiah (Yahweh says)	Alternate		
-JER	42	17	God		God (Yahweh)	Implicit		
-JER	42	17	Jeremiah		Jeremiah (Yahweh says)	Alternate		
+JER	42	16	God		God (Yahweh)	Quotation		
+JER	42	16	Jeremiah		Jeremiah (Yahweh says)	Normal		
+JER	42	17	God		God (Yahweh)	Quotation		
+JER	42	17	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	42	18	Jeremiah			Normal		
 JER	42	18	God		God (Yahweh)	Normal		
 JER	42	19	Jeremiah			Normal		
@@ -11825,31 +11834,31 @@ JER	43	13	God		God (Yahweh)	Implicit
 JER	43	13	Jeremiah		Jeremiah (Yahweh says)	Alternate		
 JER	44	2	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	44	2	God		God (Yahweh)	Normal		
-JER	44	3	God		God (Yahweh)	Implicit		
-JER	44	3	Jeremiah		Jeremiah (Yahweh says)	Alternate		
+JER	44	3	God		God (Yahweh)	Normal		
+JER	44	3	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	44	4	God		God (Yahweh)	Normal		
 JER	44	4	prophets			Quotation		
-JER	44	4	Jeremiah		Jeremiah (Yahweh says)	Alternate		
-JER	44	5	God		God (Yahweh)	Implicit		
-JER	44	5	Jeremiah		Jeremiah (Yahweh says)	Alternate		
-JER	44	6	God		God (Yahweh)	Implicit		
-JER	44	6	Jeremiah		Jeremiah (Yahweh says)	Alternate		
+JER	44	4	Jeremiah		Jeremiah (Yahweh says)	Normal		
+JER	44	5	God		God (Yahweh)	Normal		
+JER	44	5	Jeremiah		Jeremiah (Yahweh says)	Normal		
+JER	44	6	God		God (Yahweh)	Normal		
+JER	44	6	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	44	7	Jeremiah		Jeremiah (Yahweh says)	Potential		
 JER	44	7	God		God (Yahweh)	Normal		
-JER	44	8	God		God (Yahweh)	Implicit		
-JER	44	8	Jeremiah		Jeremiah (Yahweh says)	Alternate		
-JER	44	9	God		God (Yahweh)	Implicit		
-JER	44	9	Jeremiah		Jeremiah (Yahweh says)	Alternate		
-JER	44	10	God		God (Yahweh)	Implicit		
-JER	44	10	Jeremiah		Jeremiah (Yahweh says)	Alternate		
+JER	44	8	God		God (Yahweh)	Normal		
+JER	44	8	Jeremiah		Jeremiah (Yahweh says)	Normal		
+JER	44	9	God		God (Yahweh)	Normal		
+JER	44	9	Jeremiah		Jeremiah (Yahweh says)	Normal		
+JER	44	10	God		God (Yahweh)	Normal		
+JER	44	10	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	44	11	Jeremiah		Jeremiah (Yahweh says)	Potential		
 JER	44	11	God		God (Yahweh)	Normal		
-JER	44	12	God		God (Yahweh)	Implicit		
-JER	44	12	Jeremiah		Jeremiah (Yahweh says)	Alternate		
-JER	44	13	God		God (Yahweh)	Implicit		
-JER	44	13	Jeremiah		Jeremiah (Yahweh says)	Alternate		
-JER	44	14	God		God (Yahweh)	Implicit		
-JER	44	14	Jeremiah		Jeremiah (Yahweh says)	Alternate		
+JER	44	12	God		God (Yahweh)	Normal		
+JER	44	12	Jeremiah		Jeremiah (Yahweh says)	Normal		
+JER	44	13	God		God (Yahweh)	Normal		
+JER	44	13	Jeremiah		Jeremiah (Yahweh says)	Normal		
+JER	44	14	God		God (Yahweh)	Normal		
+JER	44	14	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	44	16	idolaters from Judah (men)/idolaters from Judah (women)			Implicit	idolaters from Judah (men)	
 JER	44	17	idolaters from Judah (men)/idolaters from Judah (women)			Implicit	idolaters from Judah (men)	
 JER	44	18	idolaters from Judah (men)/idolaters from Judah (women)			Implicit	idolaters from Judah (men)	
@@ -11863,10 +11872,10 @@ JER	44	25	God		God (Yahweh)	Normal
 JER	44	25	idolaters from Judah (men)			Quotation		
 JER	44	26	Jeremiah			Normal		
 JER	44	26	God		God (Yahweh)	Normal		
-JER	44	27	Jeremiah		Jeremiah (Yahweh says)	Alternate		
-JER	44	27	God		God (Yahweh)	Implicit		
-JER	44	28	Jeremiah		Jeremiah (Yahweh says)	Alternate		
-JER	44	28	God		God (Yahweh)	Implicit		
+JER	44	27	Jeremiah		Jeremiah (Yahweh says)	Normal		
+JER	44	27	God		God (Yahweh)	Normal		
+JER	44	28	Jeremiah		Jeremiah (Yahweh says)	Normal		
+JER	44	28	God		God (Yahweh)	Normal		
 JER	44	29	Jeremiah			Normal		
 JER	44	29	God		God (Yahweh)	Normal		
 JER	44	30	Jeremiah			Normal		
@@ -12054,7 +12063,8 @@ JER	49	33	God		God (Yahweh)	Implicit
 JER	49	33	Jeremiah		Jeremiah (Yahweh says)	Alternate		
 JER	49	35	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	49	35	God		God (Yahweh)	Normal		
-JER	49	36	God		God (Yahweh)	Implicit		
+JER	49	36	God		God (Yahweh)	Normal		
+JER	49	36	Jeremiah		Jeremiah (Yahweh says)	Potential		
 JER	49	37	God		God (Yahweh)	Normal		
 JER	49	37	Jeremiah		Jeremiah (Yahweh says)	Potential		
 JER	49	38	God		God (Yahweh)	Normal		
@@ -12127,7 +12137,7 @@ JER	50	32	God		God (Yahweh)	Implicit
 JER	50	32	Jeremiah		Jeremiah (Yahweh says)	Alternate		
 JER	50	33	God		God (Yahweh)	Normal		
 JER	50	33	Jeremiah		Jeremiah (Yahweh says)	Potential		
-JER	50	34	God		God (Yahweh)	Alternate		
+JER	50	34	God		God (Yahweh)	Potential		
 JER	50	34	Jeremiah		Jeremiah (Yahweh says)	Potential		
 JER	50	35	God		God (Yahweh)	Normal		
 JER	50	35	Jeremiah		Jeremiah (Yahweh says)	Potential		
@@ -14833,7 +14843,7 @@ AMO	7	5	Amos			Quotation
 AMO	7	6	God		God (Yahweh)	Normal		
 AMO	7	6	Amos		Amos (Yahweh says)	Alternate		
 AMO	7	8	Amos			Quotation		
-AMO	7	8	God		God (Yahweh)	Dialogue		
+AMO	7	8	God		God (Yahweh/Lord)	Dialogue		
 AMO	7	9	God		God (Yahweh)	Dialogue		
 AMO	7	10	Amaziah, priest of Bethel			Normal		
 AMO	7	11	Amaziah, priest of Bethel			Normal		
