@@ -964,46 +964,43 @@
     <verse num="5" />
     <text>At the evening offering I rose up from my humiliation, even with my garment and my robe torn; and I fell on my knees, and spread out my hands to Yahweh my God;</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="6" characterId="narrator-EZR"">
+  <block style="p" chapter="9" initialStartVerse="6" characterId="narrator-EZR">
     <verse num="6" />
-    <text>and I said,</text>
+    <text>and I said, «My God, I am ashamed and blush to lift up my face to you, my God; for our iniquities have increased over our head, and our guiltiness has grown up to the heavens.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="6" characterId="Ezra, priest and teacher" delivery="prayer (ashamed and disgraced)">
-    <text>«My God, I am ashamed and blush to lift up my face to you, my God; for our iniquities have increased over our head, and our guiltiness has grown up to the heavens.</text>
-  </block>
-  <block style="p" chapter="9" initialStartVerse="7" characterId="Ezra, priest and teacher" delivery="prayer (ashamed and disgraced)">
+  <block style="p" chapter="9" initialStartVerse="7" characterId="narrator-EZR">
     <verse num="7" />
     <text>Since the days of our fathers we have been exceedingly guilty to this day; and for our iniquities we, our kings, and our priests, have been delivered into the hand of the kings of the lands, to the sword, to captivity, to plunder, and to confusion of face, as it is this day.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="8" characterId="Ezra, priest and teacher" delivery="prayer (ashamed and disgraced)">
+  <block style="p" chapter="9" initialStartVerse="8" characterId="narrator-EZR">
     <verse num="8" />
     <text>Now for a little moment grace has been shown from Yahweh our God, to leave us a remnant to escape, and to give us a nail in his holy place, that our God may lighten our eyes, and revive us a little in our bondage.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="9" characterId="Ezra, priest and teacher" delivery="prayer (ashamed and disgraced)">
+  <block style="p" chapter="9" initialStartVerse="9" characterId="narrator-EZR">
     <verse num="9" />
     <text>For we are bondservants; yet our God has not forsaken us in our bondage, but has extended loving kindness to us in the sight of the kings of Persia, to revive us, to set up the house of our God, and to repair its ruins, and to give us a wall in Judah and in Jerusalem.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="10" characterId="Ezra, priest and teacher" delivery="prayer (ashamed and disgraced)">
+  <block style="p" chapter="9" initialStartVerse="10" characterId="narrator-EZR">
     <verse num="10" />
     <text>Now, our God, what shall we say after this? For we have forsaken your commandments,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="11" characterId="Ezra, priest and teacher" delivery="prayer (ashamed and disgraced)">
+  <block style="p" chapter="9" initialStartVerse="11" characterId="narrator-EZR">
     <verse num="11" />
     <text>which you have commanded by your servants the prophets, saying, ‹The land, to which you go to possess it, is an unclean land through the uncleanness of the peoples of the lands, through their abominations, which have filled it from one end to another with their filthiness.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="12" characterId="Ezra, priest and teacher" delivery="prayer (ashamed and disgraced)">
+  <block style="p" chapter="9" initialStartVerse="12" characterId="narrator-EZR">
     <verse num="12" />
     <text>Now therefore don’t give your daughters to their sons. Don’t take their daughters to your sons, nor seek their peace or their prosperity forever; that you may be strong, and eat the good of the land, and leave it for an inheritance to your children forever.›</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="13" characterId="Ezra, priest and teacher" delivery="prayer (ashamed and disgraced)">
+  <block style="p" chapter="9" initialStartVerse="13" characterId="narrator-EZR">
     <verse num="13" />
     <text>After all that has come on us for our evil deeds, and for our great guilt, since you, our God, have punished us less than our iniquities deserve, and have given us such a remnant,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="14" characterId="Ezra, priest and teacher" delivery="prayer (ashamed and disgraced)">
+  <block style="p" chapter="9" initialStartVerse="14" characterId="narrator-EZR">
     <verse num="14" />
     <text>shall we again break your commandments, and join ourselves with the peoples that do these abominations? Wouldn’t you be angry with us until you had consumed us, so that there would be no remnant, nor any to escape?</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="15" characterId="Ezra, priest and teacher" delivery="prayer (ashamed and disgraced)">
+  <block style="p" chapter="9" initialStartVerse="15" characterId="narrator-EZR">
     <verse num="15" />
     <text>Yahweh, the God of Israel, you are righteous; for we are left a remnant that has escaped, as it is today. Behold, we are before you in our guiltiness; for no one can stand before you because of this.»</text>
   </block>

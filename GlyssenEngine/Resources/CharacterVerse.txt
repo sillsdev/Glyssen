@@ -1,4 +1,4 @@
-Control File Version	162
+Control File Version	163
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5
 GEN	1	3	God		God (Yahweh)	Normal		
@@ -7196,18 +7196,22 @@ EZR	7	23	Artaxerxes, king of Persia	letter		Implicit
 EZR	7	24	Artaxerxes, king of Persia	letter		Implicit		
 EZR	7	25	Artaxerxes, king of Persia	letter		Implicit		
 EZR	7	26	Artaxerxes, king of Persia	letter		Implicit		
+EZR	8	22	narrator-EZR			Quotation		
+EZR	8	28	narrator-EZR			Quotation		
+EZR	8	29	narrator-EZR			Quotation		
 EZR	9	1	leaders			Normal		
 EZR	9	2	leaders			Normal		
-EZR	9	6	Ezra, priest and teacher	prayer (ashamed and disgraced)		Quotation		
-EZR	9	7	Ezra, priest and teacher	prayer (ashamed and disgraced)		Quotation		
-EZR	9	8	Ezra, priest and teacher	prayer (ashamed and disgraced)		Quotation		
-EZR	9	9	Ezra, priest and teacher	prayer (ashamed and disgraced)		Quotation		
-EZR	9	10	Ezra, priest and teacher	prayer (ashamed and disgraced)		Quotation		
-EZR	9	11	Ezra, priest and teacher	prayer (ashamed and disgraced)		Quotation		
-EZR	9	12	Ezra, priest and teacher	prayer (ashamed and disgraced)		Quotation		
-EZR	9	13	Ezra, priest and teacher	prayer (ashamed and disgraced)		Quotation		
-EZR	9	14	Ezra, priest and teacher	prayer (ashamed and disgraced)		Quotation		
-EZR	9	15	Ezra, priest and teacher	prayer (ashamed and disgraced)		Quotation		
+EZR	9	6-15	narrator-EZR			ImplicitWithPotentialSelfQuote		
+EZR	9	6	Ezra, priest and teacher	prayer (ashamed and disgraced)		Alternate		
+EZR	9	7	Ezra, priest and teacher	prayer (ashamed and disgraced)		Alternate		
+EZR	9	8	Ezra, priest and teacher	prayer (ashamed and disgraced)		Alternate		
+EZR	9	9	Ezra, priest and teacher	prayer (ashamed and disgraced)		Alternate		
+EZR	9	10	Ezra, priest and teacher	prayer (ashamed and disgraced)		Alternate		
+EZR	9	11	Ezra, priest and teacher	prayer (ashamed and disgraced)		Alternate		
+EZR	9	12	Ezra, priest and teacher	prayer (ashamed and disgraced)		Alternate		
+EZR	9	13	Ezra, priest and teacher	prayer (ashamed and disgraced)		Alternate		
+EZR	9	14	Ezra, priest and teacher	prayer (ashamed and disgraced)		Alternate		
+EZR	9	15	Ezra, priest and teacher	prayer (ashamed and disgraced)		Alternate		
 EZR	10	2	Shecaniah, son of Jehiel	suggesting solution		Normal		
 EZR	10	3	Shecaniah, son of Jehiel	suggesting solution		Normal		
 EZR	10	4	Shecaniah, son of Jehiel	suggesting solution		Normal		
@@ -7222,15 +7226,17 @@ EZR	10	14	assembly, whole			Normal
 # then let Glyssen apply the narrator override to the second block.
 NEH	1	2	Nehemiah			Indirect		
 NEH	1	3	Hanani, brother of Nehemiah/Judah, men of		Hanani/men of Judah	Normal	Hanani, brother of Nehemiah	
-NEH	1	5	Nehemiah	praying		Normal		
-NEH	1	6	Nehemiah	praying		Normal		
-NEH	1	7	Nehemiah	praying		Normal		
-NEH	1	8	Nehemiah	praying		Normal		
-NEH	1	9	Nehemiah	praying		Normal		
-NEH	1	10	Nehemiah	praying		Normal		
-NEH	1	11	Nehemiah	praying		Normal		
+NEH	1	5-11	narrator-NEH			ImplicitWithPotentialSelfQuote		
+NEH	1	5	Nehemiah	praying		Alternate		
+NEH	1	6	Nehemiah	praying		Alternate		
+NEH	1	7	Nehemiah	praying		Alternate		
+NEH	1	8	Nehemiah	praying		Alternate		
+NEH	1	9	Nehemiah	praying		Alternate		
+NEH	1	10	Nehemiah	praying		Alternate		
+NEH	1	11	Nehemiah	praying		Alternate		
 NEH	2	2	Artaxerxes, king of Persia			Normal		
-NEH	2	3	Nehemiah	sad, very afraid, with respect		Normal		
+NEH	2	3	narrator-NEH			ImplicitWithPotentialSelfQuote		
+NEH	2	3	Nehemiah	sad, very afraid, with respect		Alternate		
 NEH	2	4	Artaxerxes, king of Persia			Normal		
 NEH	2	5	Nehemiah			Normal		
 NEH	2	6	Artaxerxes, king of Persia			Normal		
@@ -7343,7 +7349,10 @@ NEH	9	34	Levites	praying		Normal
 NEH	9	35	Levites	praying		Normal		
 NEH	9	36	Levites	praying		Normal		
 NEH	9	37	Levites	praying		Normal		
+NEH	9	38	leaders/Levites/priests			Normal		
+NEH	9	38	people			Normal		
 NEH	9	38	Levites			Normal		
+NEH	9	38	Nehemiah			Normal		
 NEH	10	29	priests/Levites/people			Indirect	Levites	
 NEH	10	30	priests/Levites/people			Indirect	Levites	
 NEH	10	31	priests/Levites/people			Indirect	Levites	
@@ -8780,6 +8789,7 @@ PRO	19	3	narrator-PRO			Quotation
 PRO	20	9	person claiming to have a pure heart			Hypothetical		
 PRO	20	14	buyer			Hypothetical		
 PRO	20	22	you (hypothetical)			Hypothetical		
+PRO	21	24	narrator-PRO			Quotation		
 PRO	22	13	sluggard			Hypothetical		
 PRO	23	7	stingy man			Hypothetical		
 PRO	23	35	drunkard			Hypothetical		
@@ -11090,10 +11100,10 @@ JER	19	15	God		God (Yahweh)	Normal
 JER	20	3	Jeremiah			Normal		
 JER	20	4	Jeremiah			Normal		
 JER	20	4	God		God (Yahweh)	Normal		
-JER	20	5	God		God (Yahweh)	Implicit		
-JER	20	5	Jeremiah			Alternate		
-JER	20	6	God		God (Yahweh)	Implicit		
-JER	20	6	Jeremiah			Alternate		
+JER	20	5	God		God (Yahweh)	Normal		
+JER	20	5	Jeremiah			Normal		
+JER	20	6	God		God (Yahweh)	Normal		
+JER	20	6	Jeremiah			Normal		
 JER	20	7	Jeremiah			Potential		
 JER	20	8	Jeremiah			Potential		
 JER	20	8	narrator-JER			Quotation		
@@ -11258,7 +11268,7 @@ JER	23	38	you (hypothetical)			Hypothetical
 JER	23	39	God		God (Yahweh)	Implicit		
 JER	23	40	God		God (Yahweh)	Implicit		
 JER	24	3	God		God (Yahweh)	Normal		
-JER	24	3	Jeremiah			Normal		
+JER	24	3	Jeremiah			Quotation		
 JER	24	5	God		God (Yahweh)	Implicit		
 JER	24	6	God		God (Yahweh)	Implicit		
 JER	24	7	God		God (Yahweh)	Implicit		
@@ -13187,13 +13197,13 @@ EZK	24	17	God		God (Yahweh)	Implicit
 EZK	24	19	people			Normal		
 EZK	24	20	Ezekiel			Quotation		
 EZK	24	21	Ezekiel			Normal		
-EZK	24	21	God		God (Yahweh)	Normal		
-EZK	24	22	God		God (Yahweh)	Implicit		
-EZK	24	22	Ezekiel		Ezekiel (Yahweh says)	Alternate		
-EZK	24	23	God		God (Yahweh)	Implicit		
-EZK	24	23	Ezekiel		Ezekiel (Yahweh says)	Alternate		
-EZK	24	24	God		God (Yahweh)	Implicit		
-EZK	24	24	Ezekiel		Ezekiel (Yahweh says)	Alternate		
+EZK	24	21	God		God (Yahweh)	Quotation		
+EZK	24	22	God		God (Yahweh)	Quotation		
+EZK	24	22	Ezekiel		Ezekiel (Yahweh says)	Normal		
+EZK	24	23	God		God (Yahweh)	Quotation		
+EZK	24	23	Ezekiel		Ezekiel (Yahweh says)	Normal		
+EZK	24	24	God		God (Yahweh)	Quotation		
+EZK	24	24	Ezekiel		Ezekiel (Yahweh says)	Normal		
 EZK	24	25	God		God (Yahweh)	Implicit		
 EZK	24	26	God		God (Yahweh)	Implicit		
 EZK	24	27	God		God (Yahweh)	Implicit		
@@ -13771,7 +13781,7 @@ EZK	36	37	Ezekiel		Ezekiel (Yahweh says)	Alternate
 EZK	36	37	God		God (Yahweh)	Normal		
 EZK	36	38	God		God (Yahweh)	Normal		
 EZK	36	38	Ezekiel		Ezekiel (Yahweh says)	Alternate		
-EZK	37	3	Ezekiel			Normal		
+EZK	37	3	Ezekiel			Quotation		
 EZK	37	3	God		God (Yahweh) (in vision)	Normal		
 EZK	37	4	God		God (Yahweh) (in vision)	Normal		
 EZK	37	4	Ezekiel		Ezekiel (Yahweh says)	Alternate		
@@ -14357,22 +14367,8 @@ DAN	8	23	Gabriel			Implicit
 DAN	8	24	Gabriel			Implicit		
 DAN	8	25	Gabriel			Implicit		
 DAN	8	26	Gabriel			Implicit		
-DAN	9	4	Daniel	pleading		Normal		
-DAN	9	5	Daniel	pleading		Normal		
-DAN	9	6	Daniel	pleading		Normal		
-DAN	9	7	Daniel	pleading		Normal		
-DAN	9	8	Daniel	pleading		Normal		
-DAN	9	9	Daniel	pleading		Normal		
-DAN	9	10	Daniel	pleading		Normal		
-DAN	9	11	Daniel	pleading		Normal		
-DAN	9	12	Daniel	pleading		Normal		
-DAN	9	13	Daniel	pleading		Normal		
-DAN	9	14	Daniel	pleading		Normal		
-DAN	9	15	Daniel	pleading		Normal		
-DAN	9	16	Daniel	pleading		Normal		
-DAN	9	17	Daniel	pleading		Normal		
-DAN	9	18	Daniel	pleading		Normal		
-DAN	9	19	Daniel	pleading		Normal		
+DAN	9	4-19	narrator-DAN			ImplicitWithPotentialSelfQuote		
+DAN	9	4-19	Daniel	prayer of repentance		Alternate		
 DAN	9	22	Gabriel			Normal		
 DAN	9	23	Gabriel			Implicit		
 DAN	9	24	Gabriel			Implicit		
@@ -14493,7 +14489,7 @@ HOS	2	22	Hosea		Hosea (Yahweh says)	Alternate
 HOS	2	23	God		God (Yahweh)	ImplicitWithPotentialSelfQuote		
 HOS	2	23	people, God's			Hypothetical		
 HOS	3	1	God		God (Yahweh)	Normal		
-HOS	3	3	Hosea			Quotation		
+HOS	3	3	narrator-HOS			Quotation		
 HOS	4	1	Hosea			Normal		
 HOS	4	1	God		God (Yahweh)	Normal		
 HOS	4	2	God		God (Yahweh)	Implicit		
@@ -15332,10 +15328,10 @@ ZEC	1	3	Zechariah the prophet, son of Berechiah			Normal
 ZEC	1	4	God		God (Yahweh)	Normal		
 ZEC	1	4	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	1	4	prophets		former prophets	Quotation		
-ZEC	1	5	God		God (Yahweh)	Implicit		
-ZEC	1	5	Zechariah the prophet, son of Berechiah		Zechariah (Yahweh says)	Alternate		
+ZEC	1	5	God		God (Yahweh)	Normal		
+ZEC	1	5	Zechariah the prophet, son of Berechiah		Zechariah (Yahweh says)	Normal		
 ZEC	1	6	God		God (Yahweh)	Normal		
-ZEC	1	6	Zechariah the prophet, son of Berechiah		Zechariah (Yahweh says)	Alternate		
+ZEC	1	6	Zechariah the prophet, son of Berechiah		Zechariah (Yahweh says)	Normal		
 ZEC	1	6	Judah, repentant leaders			Quotation		
 ZEC	1	8	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	1	9	narrator-ZEC			Quotation		
@@ -15343,11 +15339,11 @@ ZEC	1	9	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential
 ZEC	1	9	angel who talked with Zechariah			Normal		
 ZEC	1	10	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	1	10	angel who talked with Zechariah	vision		Alternate		
-ZEC	1	10	angel standing among myrtle trees	vision	man (angel) who stood among the myrtle trees	Normal		
+ZEC	1	10	Yahweh's angel	vision	man (angel) who stood among the myrtle trees	Normal		
 ZEC	1	11	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	1	11	angelic riders or horses (in vision)			Normal		
 ZEC	1	12	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
-ZEC	1	12	angel standing among myrtle trees	vision	Yahweh's angel (who stood among the myrtle trees)	Normal		
+ZEC	1	12	Yahweh's angel	vision	Yahweh's angel (who stood among the myrtle trees)	Normal		
 ZEC	1	13	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	1	13	God		God (Yahweh)	Potential		
 ZEC	1	14	Zechariah the prophet, son of Berechiah	(relating the events in the vision)	Zechariah (in vision)	Potential		
@@ -15380,44 +15376,56 @@ ZEC	1	21	angel who talked with Zechariah		angel who talked with Zechariah (in vi
 ZEC	1	21	Needs Review			Normal		
 ZEC	2	2	narrator-ZEC			Quotation		
 ZEC	2	2	man with measuring line (in vision)			Normal		
-ZEC	2	4	angel, another (in vision)			Normal		
+# The other angel in chapter 2 might not be the same "Yahweh's angel" who speaks in chapter 3,
+# but FCBH has cast it that way, and it makes sense since the angel in chapter 2 is speaking on
+# behalf of Yahweh in a manner similar to that in the following chapter.
+ZEC	2	4	Yahweh's angel		angel, another (in vision)	Normal		
 ZEC	2	4	angel who talked with Zechariah	proclamation	angel who talked with Zechariah (in vision)	Normal		
 ZEC	2	4	God	proclamation	God (Yahweh) (in vision)	Normal		
 ZEC	2	4	Needs Review			Normal		
 ZEC	2	5	God	proclamation	God (Yahweh) (in vision)	Normal		
-ZEC	2	5	angel, another (in vision)			Normal		
-ZEC	2	5	angel who talked with Zechariah	proclamation	angel who talked with Zechariah (in vision)	Normal		
+ZEC	2	5	Yahweh's angel		angel, another (in vision)	Normal		
+ZEC	2	5	angel who talked with Zechariah	proclamation	angel who talked with Zechariah (in vision)	Alternate		
 ZEC	2	5	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	2	5	Needs Review			Normal		
+ZEC	2	6	Yahweh's angel		angel, another (in vision)	Normal		
 ZEC	2	6	God		God (Yahweh) (in vision)	Normal		
-ZEC	2	6	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
+ZEC	2	6	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Alternate		
 ZEC	2	6	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	2	6	Needs Review			Normal		
+ZEC	2	7	Yahweh's angel		angel, another (in vision)	Normal		
 ZEC	2	7	God		God (Yahweh) (in vision)	Normal		
-ZEC	2	7	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
+ZEC	2	7	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Alternate		
 ZEC	2	7	Needs Review			Normal		
 # See: https://trello.com/c/woNC42W0/51-zec-28-9-god-vs-angel-of-the-lord
+ZEC	2	8	Yahweh's angel		angel, another (in vision)	Normal		
 ZEC	2	8	God		God (Yahweh) (in vision)	Normal		
-ZEC	2	8	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
+ZEC	2	8	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Alternate		
 ZEC	2	8	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	2	8	Needs Review			Normal		
-ZEC	2	9	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
+ZEC	2	9	Yahweh's angel		angel, another (in vision)	Normal		
+ZEC	2	9	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Alternate		
 ZEC	2	9	God		God (Yahweh) (in vision)	Normal		
 ZEC	2	9	Needs Review			Normal		
+ZEC	2	10	Yahweh's angel		angel, another (in vision)	Normal		
 ZEC	2	10	God		God (Yahweh) (in vision)	Normal		
 ZEC	2	10	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
+ZEC	2	11	Yahweh's angel		angel, another (in vision)	Normal		
 ZEC	2	11	God		God (Yahweh) (in vision)	Alternate		
 ZEC	2	11	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Alternate		
 ZEC	2	11	Needs Review			Implicit		
+ZEC	2	12	Yahweh's angel		angel, another (in vision)	Normal		
 ZEC	2	12	God		God (Yahweh) (in vision)	Alternate		
 ZEC	2	12	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Alternate		
 ZEC	2	12	Needs Review			Implicit		
+ZEC	2	13	Yahweh's angel		angel, another (in vision)	Normal		
 ZEC	2	13	God		God (Yahweh) (in vision)	Alternate		
 ZEC	2	13	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Alternate		
 ZEC	2	13	Needs Review			Implicit		
-ZEC	3	2	God	rebuking	God (Yahweh) (in vision)	Normal		
-# Some translations say the angel of the LORD speaks this rebuke
-ZEC	3	2	Yahweh's angel	rebuking		Normal		
+# Some translations say the angel of the LORD speaks this rebuke. Even though God is the best option,
+# making them both Alternates will force a review.
+ZEC	3	2	God	rebuking	God (Yahweh) (in vision)	Alternate		
+ZEC	3	2	Yahweh's angel	rebuking		Alternate		
 ZEC	3	2	Needs Review			Normal		
 # The text merely says "he." Some translations make it explicit, but they do not agree
 ZEC	3	4	angel who talked with Zechariah			Normal		
@@ -15557,13 +15565,13 @@ ZEC	9	4	God			Alternate
 ZEC	9	5	Zechariah the prophet, son of Berechiah		Zechariah (Yahweh says)	Potential		
 ZEC	9	5	God			Alternate		
 ZEC	9	6	Zechariah the prophet, son of Berechiah		Zechariah (Yahweh says)	Potential		
-ZEC	9	6	God			Alternate		
+ZEC	9	6	God			Potential		
 ZEC	9	7	Zechariah the prophet, son of Berechiah		Zechariah (Yahweh says)	Potential		
 ZEC	9	7	God			Potential		
 ZEC	9	8	Zechariah the prophet, son of Berechiah		Zechariah (Yahweh says)	Potential		
 ZEC	9	8	God			Potential		
 ZEC	9	9	Zechariah the prophet, son of Berechiah		Zechariah (Yahweh says)	Potential		
-ZEC	9	9	God			Alternate		
+ZEC	9	9	God			Potential		
 ZEC	9	10	Zechariah the prophet, son of Berechiah		Zechariah (Yahweh says)	Potential		
 ZEC	9	10	God			Potential		
 ZEC	9	11	Zechariah the prophet, son of Berechiah		Zechariah (Yahweh says)	Potential		
@@ -15593,7 +15601,7 @@ ZEC	10	5	God		God (Yahweh)	Alternate
 ZEC	10	6	God		God (Yahweh)	Implicit		
 ZEC	10	6	Zechariah the prophet, son of Berechiah		Zechariah	Alternate		
 ZEC	10	7	Zechariah the prophet, son of Berechiah		Zechariah	Potential		
-ZEC	10	7	God		God (Yahweh)	Alternate		
+ZEC	10	7	God		God (Yahweh)	Potential		
 ZEC	10	8	God		God (Yahweh)	Implicit		
 ZEC	10	8	Zechariah the prophet, son of Berechiah		Zechariah	Alternate		
 ZEC	10	9	God		God (Yahweh)	Implicit		
@@ -15601,7 +15609,7 @@ ZEC	10	9	Zechariah the prophet, son of Berechiah		Zechariah	Alternate
 ZEC	10	10	God		God (Yahweh)	Implicit		
 ZEC	10	10	Zechariah the prophet, son of Berechiah		Zechariah	Alternate		
 ZEC	10	11	Zechariah the prophet, son of Berechiah		Zechariah	Potential		
-ZEC	10	11	God		God (Yahweh)	Alternate		
+ZEC	10	11	God		God (Yahweh)	Potential		
 ZEC	10	12	God		God (Yahweh)	Normal		
 ZEC	10	12	Zechariah the prophet, son of Berechiah		Zechariah	Potential		
 ZEC	11	1	God		God (Yahweh)	Potential		
@@ -15635,7 +15643,7 @@ ZEC	12	4	God		God (Yahweh)	Normal
 ZEC	12	4	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	12	5	God		God (Yahweh)	Normal		
 ZEC	12	5	Zechariah the prophet, son of Berechiah		Zechariah (Yahweh says)	Alternate		
-ZEC	12	5	Judah, leaders of			Hypothetical		
+ZEC	12	5	Judah, leaders of		chieftains of Judah	Hypothetical		
 ZEC	12	6	God		God (Yahweh)	Implicit		
 ZEC	12	6	Zechariah the prophet, son of Berechiah		Zechariah (Yahweh says)	Alternate		
 ZEC	12	7	Zechariah the prophet, son of Berechiah			Alternate		

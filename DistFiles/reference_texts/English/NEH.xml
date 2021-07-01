@@ -1114,11 +1114,11 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="37" characterId="Levites" delivery="praying">
     <verse num="37" />
-    <text>It yields much increase to the kings whom you have set over us because of our sins: also they have power over our bodies, and over our livestock, at their pleasure, and we are in great distress.</text>
+    <text>It yields much increase to the kings whom you have set over us because of our sins. Also they have power over our bodies and over our livestock, at their pleasure, and we are in great distress.» </text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="38" characterId="Levites">
+  <block style="p" chapter="9" initialStartVerse="38" characterId="Nehemiah">
     <verse num="38" />
-    <text>Yet for all this, we make a sure covenant, and write it; and our princes, our Levites, and our priests, seal to it.»</text>
+    <text>«Yet for all this, we make a sure covenant, and write it; and our princes, our Levites, and our priests, seal it.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="NEH" initialStartVerse="0" characterId="BC-NEH">
     <text>10</text>

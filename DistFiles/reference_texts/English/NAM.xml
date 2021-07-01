@@ -8,15 +8,15 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="1" characterId="narrator-NAM">
     <verse num="1" />
-    <text>An oracle about Nineveh. The book of the vision of Nahum the Elkoshite.</text>
+    <text>A revelation about Nineveh. The book of the vision of Nahum the Elkoshite.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="2" characterId="narrator-NAM">
     <verse num="2" />
-    <text>God is a jealous God and avenges. God avenges and is full of wrath. God takes vengeance on his adversaries, and he maintains wrath against his enemies.</text>
+    <text>Yahweh is a jealous God and avenges. Yahweh avenges and is full of wrath. Yahweh takes vengeance on his adversaries, and he maintains wrath against his enemies.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="3" characterId="narrator-NAM">
     <verse num="3" />
-    <text>God is slow to anger, and great in power, and will by no means leave the guilty unpunished. God has his way in the whirlwind and in the storm, and the clouds are the dust of his feet.</text>
+    <text>Yahweh is slow to anger, and great in power, and will by no means leave the guilty unpunished. Yahweh has his way in the whirlwind and in the storm, and the clouds are the dust of his feet.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="4" characterId="narrator-NAM">
     <verse num="4" />
@@ -32,7 +32,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="7" characterId="narrator-NAM">
     <verse num="7" />
-    <text>God is good, a stronghold in the day of trouble; and he knows those who take refuge in him.</text>
+    <text>Yahweh is good, a stronghold in the day of trouble; and he knows those who take refuge in him.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="8" characterId="narrator-NAM">
     <verse num="8" />
@@ -40,7 +40,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="narrator-NAM">
     <verse num="9" />
-    <text>What do you plot against God? He will make a full end. Affliction won’t rise up the second time.</text>
+    <text>What do you plot against Yahweh? He will make a full end. Affliction won’t rise up the second time.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="10" characterId="narrator-NAM">
     <verse num="10" />
@@ -48,11 +48,11 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="11" characterId="narrator-NAM">
     <verse num="11" />
-    <text>There is one gone forth out of you, who devises evil against God, who counsels wickedness.</text>
+    <text>One has gone out of you who devises evil against Yahweh, who counsels wickedness.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="12" characterId="narrator-NAM">
     <verse num="12" />
-    <text>Thus says God:</text>
+    <text>Yahweh says:</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="12" characterId="God">
     <text>«Though they be in full strength, and likewise many, even so they will be cut down, and he shall pass away. Though I have afflicted you, I will afflict you no more.</text>
@@ -63,7 +63,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="14" characterId="narrator-NAM">
     <verse num="14" />
-    <text>God has commanded concerning you:</text>
+    <text>Yahweh has commanded concerning you:</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="14" characterId="God">
     <text>«No more descendants will bear your name. Out of the house of your gods, will I cut off the engraved image and the molten image. I will make your grave, for you are vile.»</text>
@@ -81,7 +81,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-NAM">
     <verse num="2" />
-    <text>For God restores the excellency of Jacob, as the excellency of Israel; for the destroyers have destroyed them, and ruined their vine branches.</text>
+    <text>For Yahweh restores the excellency of Jacob, as the excellency of Israel, for the destroyers have destroyed them and ruined their vine branches.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="narrator-NAM">
     <verse num="3" />
@@ -89,7 +89,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-NAM">
     <verse num="4" />
-    <text>The chariots rage in the streets. They rush back and forth in the broad ways. Their appearance is like torches. They run like the lightnings.</text>
+    <text>The chariots rage in the streets. They rush back and forth in the wide ways. Their appearance is like torches. They run like the lightnings.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="5" characterId="narrator-NAM">
     <verse num="5" />
@@ -101,7 +101,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="7" characterId="narrator-NAM">
     <verse num="7" />
-    <text>It is decreed: she is uncovered, she is carried away; and her handmaids moan as with the voice of doves, beating on their breasts.</text>
+    <text>It is decreed: she is uncovered, she is carried away; and her servants moan as with the voice of doves, beating on their breasts.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="8" characterId="narrator-NAM">
     <verse num="8" />
@@ -111,9 +111,11 @@
     <text>«Stop! Stop!»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="8" characterId="narrator-NAM">
-    <text>they cry, but no one looks back. </text>
+    <text>they cry, but no one looks back.</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="9" characterId="narrator-NAM">
     <verse num="9" />
-    <text>Take the spoil of silver. Take the spoil of gold, for there is no end of the store, the glory of all goodly furniture.</text>
+    <text>Take the plunder of silver. Take the plunder of gold, for there is no end of the store, the glory of all goodly furniture.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="10" characterId="narrator-NAM">
     <verse num="10" />
@@ -129,10 +131,10 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>Behold, I am against you,</text>
+    <text>«Behold, I am against you,»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="13" characterId="narrator-NAM">
-    <text>says God of Armies,</text>
+    <text>says Yahweh of Armies,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="13" characterId="God">
     <text>«and I will burn her chariots in the smoke, and the sword will devour your young lions; and I will cut off your prey from the earth, and the voice of your messengers will no longer be heard.»</text>
@@ -158,10 +160,10 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>Behold, I am against you,</text>
+    <text>«Behold, I am against you,»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-NAM">
-    <text>says God of Armies,</text>
+    <text>says Yahweh of Armies,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="God">
     <text>«and I will lift your skirts over your face. I will show the nations your nakedness, and the kingdoms your shame.</text>
@@ -172,13 +174,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>It will happen that all those who look at you will flee from you, and say,</text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="7" characterId="people who see Nineveh's destruction">
-    <text>‹Nineveh is laid waste! Who will mourn for her?›</text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="7" characterId="God">
-    <text>Where will I seek comforters for you?»</text>
+    <text>It will happen that all those who look at you will flee from you, and say, ‹Nineveh is laid waste! Who will mourn for her?› Where will I seek comforters for you?»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="8" characterId="narrator-NAM">
     <verse num="8" />
@@ -202,7 +198,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="13" characterId="narrator-NAM">
     <verse num="13" />
-    <text>Behold, your troops in your midst are women. The gates of your land are set wide open to your enemies. The fire has devoured your bars.</text>
+    <text>Behold, your troops among you are women. The gates of your land are set wide open to your enemies. The fire has devoured your bars.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="14" characterId="narrator-NAM">
     <verse num="14" />
@@ -214,7 +210,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="16" characterId="narrator-NAM">
     <verse num="16" />
-    <text>You have increased your merchants more than the stars of the skies. The grasshopper strips, and flees away.</text>
+    <text>You have increased your merchants more than the stars of the skies. The grasshopper strips and flees away.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="17" characterId="narrator-NAM">
     <verse num="17" />

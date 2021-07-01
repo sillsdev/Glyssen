@@ -237,10 +237,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="19" characterId="narrator-HAB">
     <verse num="19" />
-    <text>Yahweh, the Lord, is my strength. He makes my feet like deer’s feet, and enables me to go in high places.</text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="19" characterId="narrator-HAB">
-    <text>For the music director, on my stringed instruments.</text>
+    <text>Yahweh, the Lord, is my strength. He makes my feet like deer’s feet, and enables me to go in high places. For the music director, on my stringed instruments.</text>
   </block>
   <UnappliedSplits />
 </book>
