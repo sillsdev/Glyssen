@@ -123,6 +123,7 @@ Baruch	1	Male	Adult			JER 36:18
 Barzillai	1	Male	Adult		Gileadite	2SA 17:29
 Barzillai (old)	1	Male	Elder		Gileadite	2SA 19:34 <-(2 more)-> 2SA 19:37
 Bathsheba	1	Female	Adult			2SA 11:5 <-(11 more)-> 1KI 2:21
+beam	1					HAB 2:12
 beast from out of the earth	1		Adult			REV 13:14
 believers who came with Peter	-1	Male	Adult			ACT 10:45
 believers who were Pharisees	-1	Male	Adult			ACT 15:5

@@ -26,33 +26,39 @@
     <verse num="4" />
     <text>It happened, when I heard these words, that I sat down and wept, and mourned certain days; and I fasted and prayed before the God of heaven,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="5" characterId="narrator-NEH" delivery="praying">
+  <block style="p" chapter="1" initialStartVerse="5" characterId="narrator-NEH">
     <verse num="5" />
-    <text>and said, «I beg you, God, the God of heaven, the great and awesome God, who keeps covenant and loving kindness with those who love him and keep his commandments:</text>
+    <text>and said,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="6" characterId="narrator-NEH" delivery="praying">
+  <block style="p" chapter="1" initialStartVerse="5" characterId="Nehemiah" delivery="praying">
+    <text>«I beg you, God, the God of heaven, the great and awesome God, who keeps covenant and loving kindness with those who love him and keep his commandments:</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="6" characterId="Nehemiah" delivery="praying">
     <verse num="6" />
     <text>Let your ear now be attentive, and your eyes open, that you may listen to the prayer of your servant, which I pray before you at this time, day and night, for the children of Israel your servants while I confess the sins of the children of Israel, which we have sinned against you. Yes, I and my father’s house have sinned.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="7" characterId="narrator-NEH" delivery="praying">
+  <block style="p" chapter="1" initialStartVerse="7" characterId="Nehemiah" delivery="praying">
     <verse num="7" />
     <text>We have dealt very corruptly against you, and have not kept the commandments, nor the statutes, nor the ordinances, which you commanded your servant Moses.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="8" characterId="narrator-NEH" delivery="praying">
+  <block style="p" chapter="1" initialStartVerse="8" characterId="Nehemiah" delivery="praying">
     <verse num="8" />
     <text>Remember, I beg you, the word that you commanded your servant Moses, saying, ‹If you trespass, I will scatter you abroad among the peoples;</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="9" characterId="narrator-NEH" delivery="praying">
+  <block style="p" chapter="1" initialStartVerse="9" characterId="Nehemiah" delivery="praying">
     <verse num="9" />
     <text>but if you return to me, and keep my commandments and do them, though your outcasts were in the uttermost part of the heavens, yet will I gather them from there, and will bring them to the place that I have chosen, to cause my name to dwell there.›</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="10" characterId="narrator-NEH" delivery="praying">
+  <block style="p" chapter="1" initialStartVerse="10" characterId="Nehemiah" delivery="praying">
     <verse num="10" />
     <text>Now these are your servants and your people, whom you have redeemed by your great power, and by your strong hand.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="11" characterId="narrator-NEH" delivery="praying">
+  <block style="p" chapter="1" initialStartVerse="11" characterId="Nehemiah" delivery="praying">
     <verse num="11" />
-    <text>Lord, I beg you, let your ear be attentive now to the prayer of your servant, and to the prayer of your servants, who delight to fear your name; and please prosper your servant this day, and grant him mercy in the sight of this man.» Now I was cup bearer to the king.</text>
+    <text>Lord, I beg you, let your ear be attentive now to the prayer of your servant, and to the prayer of your servants, who delight to fear your name; and please prosper your servant this day, and grant him mercy in the sight of this man.»</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="11" characterId="narrator-NEH">
+    <text>Now I was cup bearer to the king.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="NEH" initialStartVerse="0" characterId="BC-NEH">
     <text>2</text>
@@ -71,7 +77,7 @@
     <verse num="3" />
     <text>I said to the king,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="3" characterId="narrator-NEH" delivery="sad, very afraid, with respect">
+  <block style="p" chapter="2" initialStartVerse="3" characterId="Nehemiah" delivery="sad, very afraid, with respect">
     <text>«Let the king live forever! Why shouldn’t my face be sad, when the city, the place of my fathers’ tombs, lies waste, and its gates have been consumed with fire?»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-NEH">
@@ -83,10 +89,12 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-NEH">
     <text>So I prayed to the God of heaven. </text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="5" characterId="narrator-NEH">
     <verse num="5" />
     <text>I said to the king,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="5" characterId="narrator-NEH">
+  <block style="p" chapter="2" initialStartVerse="5" characterId="Nehemiah">
     <text>«If it pleases the king, and if your servant has found favor in your sight, that you would send me to Judah, to the city of my fathers’ tombs, that I may build it.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-NEH">
@@ -101,10 +109,10 @@
     <verse num="7" />
     <text>Moreover I said to the king,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="7" characterId="narrator-NEH">
+  <block style="p" chapter="2" initialStartVerse="7" characterId="Nehemiah">
     <text>«If it pleases the king, let letters be given me to the governors beyond the River, that they may let me pass through until I come to Judah;</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="8" characterId="narrator-NEH">
+  <block style="p" chapter="2" initialStartVerse="8" characterId="Nehemiah">
     <verse num="8" />
     <text>and a letter to Asaph the keeper of the king’s forest, that he may give me timber to make beams for the gates of the citadel by the temple, for the wall of the city, and for the house that I shall enter into.»</text>
   </block>
@@ -324,11 +332,11 @@
   <block style="p" chapter="4" initialStartVerse="3" characterId="Tobiah the Ammonite official" delivery="mocking">
     <text>«What they are building, if a fox climbed up it, he would break down their stone wall.»</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="4" characterId="narrator-NEH" delivery="praying">
+  <block style="p" chapter="4" initialStartVerse="4" characterId="Nehemiah" delivery="praying">
     <verse num="4" />
     <text>Hear, our God; for we are despised; and turn back their reproach on their own head, give them up for a spoil in a land of captivity;</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="5" characterId="narrator-NEH" delivery="praying">
+  <block style="p" chapter="4" initialStartVerse="5" characterId="Nehemiah" delivery="praying">
     <verse num="5" />
     <text>don’t cover their iniquity, and don’t let their sin be blotted out from before you; for they have insulted the builders.</text>
   </block>
@@ -504,7 +512,7 @@
     <verse num="18" />
     <text>Now that which was prepared for one day was one ox and six choice sheep; also fowls were prepared for me, and once in ten days store of all sorts of wine: yet for all this I didn’t demand the bread of the governor, because the bondage was heavy on this people.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="19" characterId="narrator-NEH" delivery="praying">
+  <block style="p" chapter="5" initialStartVerse="19" characterId="Nehemiah" delivery="praying">
     <verse num="19" />
     <text>Remember to me, my God, for good, all that I have done for this people.</text>
   </block>
@@ -545,11 +553,11 @@
     <verse num="7" />
     <text>You have also appointed prophets to preach of you at Jerusalem, saying, ‹There is a king in Judah!› Now it will be reported to the king according to these words. Come now therefore, and let us take counsel together.»</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="8" characterId="narrator-NEH" delivery="message">
+  <block style="p" chapter="6" initialStartVerse="8" characterId="narrator-NEH">
     <verse num="8" />
     <text>Then I sent to him, saying, «There are no such things done as you say, but you imagine them out of your own heart.»</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="9" characterId="narrator-NEH" delivery="praying">
+  <block style="p" chapter="6" initialStartVerse="9" characterId="narrator-NEH">
     <verse num="9" />
     <text>For they all would have made us afraid, saying, «Their hands will be weakened from the work, that it not be done.» But now, God, strengthen my hands.</text>
   </block>
@@ -572,7 +580,7 @@
     <verse num="13" />
     <text>He hired so that I would be afraid, do so, and sin, and that they might have material for an evil report, that they might reproach me.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="14" characterId="narrator-NEH" delivery="praying">
+  <block style="p" chapter="6" initialStartVerse="14" characterId="narrator-NEH">
     <verse num="14" />
     <text>Remember, my God, Tobiah and Sanballat according to these their works, and also the prophetess Noadiah, and the rest of the prophets, that would have put me in fear.</text>
   </block>
@@ -1596,7 +1604,7 @@
     <verse num="13" />
     <text>I made treasurers over the treasuries, Shelemiah the priest, and Zadok the scribe, and of the Levites, Pedaiah: and next to them was Hanan the son of Zaccur, the son of Mattaniah; for they were counted faithful, and their business was to distribute to their brothers.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="14" characterId="narrator-NEH" delivery="praying">
+  <block style="p" chapter="13" initialStartVerse="14" characterId="narrator-NEH">
     <verse num="14" />
     <text>Remember me, my God, concerning this, and don’t wipe out my good deeds that I have done for the house of my God, and for its observances.</text>
   </block>
@@ -1656,7 +1664,7 @@
     <verse num="28" />
     <text>One of the sons of Joiada, the son of Eliashib the high priest, was son-in-law to Sanballat the Horonite: therefore I chased him from me.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="29" characterId="narrator-NEH" delivery="praying">
+  <block style="p" chapter="13" initialStartVerse="29" characterId="narrator-NEH">
     <verse num="29" />
     <text>Remember them, my God, because they have defiled the priesthood, and the covenant of the priesthood, and of the Levites.</text>
   </block>
@@ -1664,7 +1672,7 @@
     <verse num="30" />
     <text>Thus I cleansed them from all foreigners, and appointed duties for the priests and for the Levites, everyone in his work;</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="31" characterId="narrator-NEH" delivery="praying">
+  <block style="p" chapter="13" initialStartVerse="31" characterId="narrator-NEH">
     <verse num="31" />
     <text>and for the wood offering, at times appointed, and for the first fruits. Remember me, my God, for good.</text>
   </block>

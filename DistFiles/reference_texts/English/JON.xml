@@ -209,7 +209,7 @@
     <verse num="1" />
     <text>But it displeased Jonah exceedingly, and he was angry.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="2" characterId="narrator-JON" delivery="praying">
+  <block style="p" chapter="4" initialStartVerse="2" characterId="narrator-JON">
     <verse num="2" />
     <text>He prayed to Yahweh, and said,</text>
   </block>

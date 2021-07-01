@@ -14,7 +14,7 @@
     <verse num="2" />
     <text>Yahweh, how long will I cry, and you will not hear? I cry out to you «Violence!» and will you not save?</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="3" characterId="narrator-HAB" delivery="complaining">
+  <block style="p" chapter="1" initialStartVerse="3" characterId="Habakkuk" delivery="complaining">
     <verse num="3" />
     <text>Why do you show me iniquity, and look at perversity? For destruction and violence are before me. There is strife, and contention rises up.</text>
   </block>

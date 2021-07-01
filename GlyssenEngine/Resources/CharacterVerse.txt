@@ -838,6 +838,7 @@ GEN	48	4	Jacob (Israel)			Normal
 GEN	48	5	Jacob (Israel)			Normal		
 GEN	48	6	Jacob (Israel)			Normal		
 GEN	48	7	Jacob (Israel)			Normal		
+GEN	48	7	narrator-GEN			Interruption		
 GEN	48	8	Jacob (Israel)			Normal		
 GEN	48	9	Joseph			Normal		
 GEN	48	9	Jacob (Israel)			Normal		
@@ -4413,6 +4414,8 @@ JOS	14	11	Caleb			Normal
 JOS	14	12	Caleb			Normal		
 JOS	15	16	Caleb			Normal		
 JOS	15	18	Caleb			Normal		
+JOS	15	18	Achsah, Caleb's daughter			Rare		
+JOS	15	18	Needs Review			Rare		
 JOS	15	19	Achsah, Caleb's daughter			Normal		
 JOS	17	4	daughters of Zelophehad		Mahlah/Noah/Hoglah/Milcah/Tirzah, daughters of Zelophehad	Normal		
 JOS	17	14	Joseph, people of			Normal		
@@ -7125,8 +7128,13 @@ EZR	1	4	Cyrus, king of Persia	written proclamation		Implicit
 EZR	3	11	priests/Levites	singing		Normal		
 EZR	4	2	enemies of Judah and Benjamin			Normal		
 EZR	4	3	Zerubbabel/Jeshua/rest of heads of families			Normal		
-EZR	4	9	Rehum, commanding officer/Shimshai, secretary	letter		Implicit		
-EZR	4	10	Rehum, commanding officer/Shimshai, secretary	letter		Implicit		
+# Verses 9-10 are not in quotes in most English translations, but verse 8 sometimes ends in a
+# colon, implying that these two verses are part of the letter. They might be heading, salutation
+# or "envelope" information. In the WEB, it is hard to tell what the translators intended.
+EZR	4	9	Rehum, commanding officer/Shimshai, secretary	letter		Potential		
+EZR	4	9	Needs Review			Implicit		
+EZR	4	10	Rehum, commanding officer/Shimshai, secretary	letter		Potential		
+EZR	4	10	Needs Review			Implicit		
 EZR	4	11	Rehum, commanding officer/Shimshai, secretary	letter		Potential		
 EZR	4	12	Rehum, commanding officer/Shimshai, secretary	letter		Implicit		
 EZR	4	13	Rehum, commanding officer/Shimshai, secretary	letter		Implicit		
@@ -7140,9 +7148,13 @@ EZR	4	20	Artaxerxes, king of Persia	letter		Implicit
 EZR	4	21	Artaxerxes, king of Persia	letter		Implicit		
 EZR	4	22	Artaxerxes, king of Persia	letter		Implicit		
 EZR	5	3	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates			Normal		
+# EZR 5:4 is a tricky verse to translate. Some translations make it a direct quote and some make it
+# indirect. In some it is a statement, and in others it is a question. Some have Tattenai and co.
+# speak, while others have Ezra and/or the Jews answer.
 EZR	5	4	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates			Indirect		
 EZR	5	4	Jews, the			Indirect		
 EZR	5	4	Ezra, priest and teacher			Indirect		
+EZR	5	4	Needs Review			Implicit		
 EZR	5	7	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter		Potential		
 EZR	5	8	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter		Implicit		
 EZR	5	9	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter		Implicit		
@@ -7234,8 +7246,8 @@ NEH	4	1	report to Sanballat and Tobiah			Rare
 NEH	4	1	Needs Review			Potential		
 NEH	4	2	Sanballat the Horonite	angry	Sanballat	Normal		
 NEH	4	3	Tobiah the Ammonite official	mocking	Tobiah the Ammonite	Normal		
-NEH	4	4	Nehemiah	praying		Potential		
-NEH	4	5	Nehemiah	praying		Potential		
+NEH	4	4	Nehemiah	praying		Implicit		
+NEH	4	5	Nehemiah	praying		Implicit		
 NEH	4	7	report to Sanballat and Tobiah			Potential		
 NEH	4	8	Sanballat the Horonite/Tobiah the Ammonite official/men of Ashdod	conspiring		Potential	Sanballat the Horonite	
 NEH	4	10	Judah, people in			Normal		
@@ -15125,6 +15137,7 @@ NAM	3	7	people who see Nineveh's destruction			Hypothetical
 NAM	3	8-19	Nahum			Potential		
 NAM	3	8-19	God		God (Yahweh)	Potential		
 HAB	1	2	Habakkuk	crying		Hypothetical		
+HAB	1	2	Habakkuk	complaining		Hypothetical		
 HAB	1	3	Habakkuk	complaining		Potential		
 HAB	1	4	Habakkuk	complaining		Potential		
 HAB	1	5	God			Implicit		
@@ -15159,6 +15172,8 @@ HAB	2	11	God		God (Yahweh)	Potential
 HAB	2	11	Habakkuk			Alternate		
 HAB	2	12	God		God (Yahweh)	Potential		
 HAB	2	12	Habakkuk			Alternate		
+HAB	2	12	beam			Hypothetical		
+HAB	2	12	Needs Review			Rare		
 HAB	2	13	God		God (Yahweh)	Potential		
 HAB	2	13	Habakkuk			Alternate		
 HAB	2	14	God		God (Yahweh)	Potential		

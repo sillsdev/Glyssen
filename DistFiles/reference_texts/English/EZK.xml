@@ -3091,11 +3091,11 @@
     <verse num="10" />
     <text>You will die the death of the uncircumcised by the hand of strangers; for I have spoken it,» says the Lord Yahweh.› »</text>
   </block>
-  <block style="p" chapter="28" initialStartVerse="11" characterId="narrator-EZK" delivery="commanding">
+  <block style="p" chapter="28" initialStartVerse="11" characterId="narrator-EZK">
     <verse num="11" />
     <text>Moreover Yahweh’s word came to me, saying,</text>
   </block>
-  <block style="p" chapter="28" initialStartVerse="12" characterId="God">
+  <block style="p" chapter="28" initialStartVerse="12" characterId="God" delivery="commanding">
     <verse num="12" />
     <text>«Son of man, take up a lamentation over the king of Tyre, and tell him, ‹The Lord Yahweh says: «You were the seal of full measure, full of wisdom, and perfect in beauty.</text>
   </block>
