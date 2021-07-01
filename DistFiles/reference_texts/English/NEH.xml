@@ -28,37 +28,31 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="5" characterId="narrator-NEH">
     <verse num="5" />
-    <text>and said,</text>
+    <text>and said, «I beg you, God, the God of heaven, the great and awesome God, who keeps covenant and loving kindness with those who love him and keep his commandments:</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="5" characterId="Nehemiah" delivery="praying">
-    <text>«I beg you, God, the God of heaven, the great and awesome God, who keeps covenant and loving kindness with those who love him and keep his commandments:</text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="6" characterId="Nehemiah" delivery="praying">
+  <block style="p" chapter="1" initialStartVerse="6" characterId="narrator-NEH">
     <verse num="6" />
     <text>Let your ear now be attentive, and your eyes open, that you may listen to the prayer of your servant, which I pray before you at this time, day and night, for the children of Israel your servants while I confess the sins of the children of Israel, which we have sinned against you. Yes, I and my father’s house have sinned.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="7" characterId="Nehemiah" delivery="praying">
+  <block style="p" chapter="1" initialStartVerse="7" characterId="narrator-NEH">
     <verse num="7" />
     <text>We have dealt very corruptly against you, and have not kept the commandments, nor the statutes, nor the ordinances, which you commanded your servant Moses.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="8" characterId="Nehemiah" delivery="praying">
+  <block style="p" chapter="1" initialStartVerse="8" characterId="narrator-NEH">
     <verse num="8" />
     <text>Remember, I beg you, the word that you commanded your servant Moses, saying, ‹If you trespass, I will scatter you abroad among the peoples;</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="9" characterId="Nehemiah" delivery="praying">
+  <block style="p" chapter="1" initialStartVerse="9" characterId="narrator-NEH">
     <verse num="9" />
     <text>but if you return to me, and keep my commandments and do them, though your outcasts were in the uttermost part of the heavens, yet will I gather them from there, and will bring them to the place that I have chosen, to cause my name to dwell there.›</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="10" characterId="Nehemiah" delivery="praying">
+  <block style="p" chapter="1" initialStartVerse="10" characterId="narrator-NEH">
     <verse num="10" />
     <text>Now these are your servants and your people, whom you have redeemed by your great power, and by your strong hand.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="11" characterId="Nehemiah" delivery="praying">
-    <verse num="11" />
-    <text>Lord, I beg you, let your ear be attentive now to the prayer of your servant, and to the prayer of your servants, who delight to fear your name; and please prosper your servant this day, and grant him mercy in the sight of this man.»</text>
-  </block>
   <block style="p" chapter="1" initialStartVerse="11" characterId="narrator-NEH">
-    <text>Now I was cup bearer to the king.</text>
+    <verse num="11" />
+    <text>Lord, I beg you, let your ear be attentive now to the prayer of your servant, and to the prayer of your servants, who delight to fear your name; and please prosper your servant this day, and grant him mercy in the sight of this man.» Now I was cup bearer to the king.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="NEH" initialStartVerse="0" characterId="BC-NEH">
     <text>2</text>
@@ -74,11 +68,10 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-NEH">
     <text>Then I was very much afraid. </text>
-    <verse num="3" />
-    <text>I said to the king,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="3" characterId="Nehemiah" delivery="sad, very afraid, with respect">
-    <text>«Let the king live forever! Why shouldn’t my face be sad, when the city, the place of my fathers’ tombs, lies waste, and its gates have been consumed with fire?»</text>
+  <block style="p" chapter="2" initialStartVerse="3" characterId="narrator-NEH">
+    <verse num="3" />
+    <text>I said to the king, «Let the king live forever! Why shouldn’t my face be sad, when the city, the place of my fathers’ tombs, lies waste, and its gates have been consumed with fire?»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-NEH">
     <verse num="4" />
