@@ -1112,7 +1112,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="25" characterId="God">
     <verse num="25" />
-    <text>For I am Yahweh. I will speak, and the word that I speak will be performed. It will be no more deferred; for in your days, rebellious house, I will speak the word, and will perform it,»says the Lord Yahweh.› »</text>
+    <text>For I am Yahweh. I will speak, and the word that I speak will be performed. It will be no more deferred; for in your days, rebellious house, I will speak the word, and will perform it,» says the Lord Yahweh.› »</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="26" characterId="narrator-EZK">
     <verse num="26" />
@@ -2709,7 +2709,7 @@
     <text>The people asked me,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="19" characterId="people">
-    <text>«Won’t you tell us what these things are to us, that you do so?»</text>
+    <text>«Won’t you tell us what these things mean to us, that you act like this?»</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="20" characterId="narrator-EZK">
     <verse num="20" />

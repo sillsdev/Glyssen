@@ -8,17 +8,14 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="1" characterId="narrator-MAL">
     <verse num="1" />
-    <text>An oracle: the word of God to Israel by Malachi.</text>
+    <text>A revelation, Yahweh’s word to Israel by Malachi.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>I have loved you,</text>
+    <text>«I have loved you,»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="2" characterId="narrator-MAL">
-    <text>says God.</text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="2" characterId="God">
-    <text>Yet you say,</text>
+    <text>says Yahweh. Yet you say,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="2" characterId="Israel">
     <text>«How have you loved us?»</text>
@@ -27,12 +24,16 @@
     <text>«Wasn’t Esau Jacob’s brother?»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="2" characterId="narrator-MAL">
-    <text>says God,</text>
+    <text>says Yahweh,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="2" characterId="God">
-    <text>«Yet I loved Jacob; </text>
+    <text>«Yet I loved Jacob;</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="3" characterId="God">
     <verse num="3" />
-    <text>but Esau I hated, and made his mountains a desolation, and gave his heritage to the jackals of the wilderness.» </text>
+    <text>but Esau I hated, and made his mountains a desolation, and gave his heritage to the jackals of the wilderness.»</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="4" characterId="narrator-MAL">
     <verse num="4" />
     <text>Whereas Edom says,</text>
   </block>
@@ -40,108 +41,80 @@
     <text>«We are beaten down, but we will return and build the waste places;»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="4" characterId="narrator-MAL">
-    <text>thus says God of Armies,</text>
+    <text>Yahweh of Armies says,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="4" characterId="God">
-    <text>«They shall build, but I will throw down; and men will call them ‹The Wicked Land,› even the people against whom God shows wrath forever.» </text>
+    <text>«They shall build, but I will throw down; and men will call them ‹The Wicked Land,› even the people against whom Yahweh shows wrath forever.»</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="5" characterId="narrator-MAL">
     <verse num="5" />
     <text>Your eyes will see, and you will say,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="5" characterId="you (hypothetical)">
-    <text>«God is great--even beyond the border of Israel!»</text>
+    <text>«Yahweh is great—even beyond the border of Israel!»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>A son honors his father, and a servant his master. If I am a father, then where is my honor? And if I am a master, where is the respect due me?</text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="6" characterId="narrator-MAL">
-    <text>Says God of Armies</text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="6" characterId="God">
-    <text>to you, priests, who despise my name. You say,</text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="6" characterId="priests">
-    <text>How have we despised your name?›</text>
+    <text>«A son honors his father, and a servant his master. If I am a father, then where is my honor? And if I am a master, where is the respect due me? Says Yahweh of Armies to you, priests, who despise my name. You say, ‹How have we despised your name?›</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>You offer polluted bread on my altar. You say,</text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="7" characterId="priests">
-    <text>How have we polluted you?›</text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="7" characterId="God">
-    <text>In that you say,</text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="7" characterId="priests">
-    <text>‹God’s table contemptible.›</text>
+    <text>You offer polluted bread on my altar. You say, ‹How have we polluted you?› In that you say, ‹Yahweh’s table is contemptible.›</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>When you offer the blind for sacrifice, isn’t that evil? And when you offer the lame and sick, isn’t that evil? Present it now to your governor! Will he be pleased with you? Or will he accept your person?</text>
+    <text>When you offer the blind for sacrifice, isn’t that evil? And when you offer the lame and sick, isn’t that evil? Present it now to your governor! Will he be pleased with you? Or will he accept your person?»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="8" characterId="narrator-MAL">
-    <text>says God of Armies.</text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="9" characterId="priests">
-    <verse num="9" />
-    <text>Now, please entreat the favor of God, that he may be gracious to us.</text>
+    <text>says Yahweh of Armies.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="God">
-    <text>With this, will he accept any of you?</text>
+    <verse num="9" />
+    <text>«Now, please entreat the favor of God, that he may be gracious to us. With this, will he accept any of you?»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="narrator-MAL">
-    <text>says God of Armies.</text>
+    <text>says Yahweh of Armies.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="10" characterId="God">
     <verse num="10" />
-    <text>Oh that there were one among you who would shut the doors, that you might not kindle fire on my altar in vain! I have no pleasure in you,</text>
+    <text>«Oh that there were one among you who would shut the doors, that you might not kindle fire on my altar in vain! I have no pleasure in you,»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="10" characterId="narrator-MAL">
-    <text>says God of Armies,</text>
+    <text>says Yahweh of Armies,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="10" characterId="God">
     <text>«neither will I accept an offering at your hand.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="11" characterId="God">
     <verse num="11" />
-    <text>For from the rising of the sun even to the going down of the same, my name is great among the nations, and in every place incense will be offered to my name, and a pure offering: for my name is great among the nations,»</text>
+    <text>For from the rising of the sun even to its going down, my name is great among the nations, and in every place incense will be offered to my name, and a pure offering: for my name is great among the nations,»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="11" characterId="narrator-MAL">
-    <text>says God of Armies.</text>
+    <text>says Yahweh of Armies.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>«But you profane it, in that you say,</text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="12" characterId="priests">
-    <text>‹God’s table is polluted, and its fruit, even its food, is contemptible.›</text>
+    <text>«But you profane it, in that you say, ‹Yahweh’s table is polluted, and its fruit, even its food, is contemptible.›</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>You say also,</text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="13" characterId="priests">
-    <text>‹Behold, what a weariness it is!›</text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="13" characterId="God">
-    <text>and you have sniffed at it,»</text>
+    <text>You say also, ‹Behold, what a weariness it is!› and you have sniffed at it»,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="13" characterId="narrator-MAL">
-    <text>says God of Armies;</text>
+    <text>says Yahweh of Armies;</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="13" characterId="God">
     <text>«and you have brought that which was taken by violence, the lame, and the sick; thus you bring the offering. Should I accept this at your hand?»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="13" characterId="narrator-MAL">
-    <text>says God.</text>
+    <text>says Yahweh.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="14" characterId="God">
     <verse num="14" />
     <text>«But the deceiver is cursed, who has in his flock a male, and vows, and sacrifices to the Lord a blemished thing; for I am a great King,»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="14" characterId="narrator-MAL">
-    <text>says God of Armies,</text>
+    <text>says Yahweh of Armies,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="14" characterId="God">
     <text>«and my name is awesome among the nations.»</text>
@@ -149,30 +122,30 @@
   <block style="c" paragraphStart="true" chapter="2" book="MAL" initialStartVerse="0" characterId="BC-MAL">
     <text>2</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="1" characterId="narrator-MAL">
+  <block style="p" chapter="2" initialStartVerse="1" characterId="God">
     <verse num="1" />
-    <text>Now, you priests, this commandment is for you.</text>
+    <text>«Now, you priests, this commandment is for you.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="God">
     <verse num="2" />
     <text>«If you will not listen, and if you will not lay it to heart, to give glory to my name,»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-MAL">
-    <text>says God of Armies,</text>
+    <text>says Yahweh of Armies,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="God">
-    <text>«then will I send the curse on you, and I will curse your blessings. Indeed, I have cursed them already, because you do not lay it to heart.</text>
+    <text>«then I will send the curse on you, and I will curse your blessings. Indeed, I have cursed them already, because you do not take it to heart.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="God">
     <verse num="3" />
-    <text>Behold, I will rebuke your seed, and will spread dung on your faces, even the dung of your feasts; and you will be taken away with it.</text>
+    <text>Behold, I will rebuke your offspring, and will spread dung on your faces, even the dung of your feasts; and you will be taken away with it.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="God">
     <verse num="4" />
     <text>You will know that I have sent this commandment to you, that my covenant may be with Levi,»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-MAL">
-    <text>says God of Armies.</text>
+    <text>says Yahweh of Armies.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="5" characterId="God">
     <verse num="5" />
@@ -184,132 +157,111 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>For the priest’s lips should keep knowledge, and they should seek the law at his mouth; for he is the messenger of God of Armies.</text>
+    <text>For the priest’s lips should keep knowledge, and they should seek the law at his mouth; for he is the messenger of Yahweh of Armies.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>But you have turned aside out of the way. You have caused many to stumble in the law. You have corrupted the covenant of Levi,»</text>
+    <text>But you have turned away from the path. You have caused many to stumble in the law. You have corrupted the covenant of Levi,»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="8" characterId="narrator-MAL">
-    <text>says God of Armies.</text>
+    <text>says Yahweh of Armies.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="9" characterId="God">
     <verse num="9" />
-    <text>«Therefore I have also made you contemptible and base before all the people, according to the way you have not kept my ways, but have had respect for persons in the law.»</text>
+    <text>«Therefore I have also made you contemptible and wicked before all the people, according to the way you have not kept my ways, but have had respect for persons in the law.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="10" characterId="narrator-MAL">
+  <block style="p" chapter="2" initialStartVerse="10" characterId="God">
     <verse num="10" />
     <text>Don’t we all have one father? Hasn’t one God created us? Why do we deal treacherously every man against his brother, profaning the covenant of our fathers?</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="11" characterId="narrator-MAL">
+  <block style="p" chapter="2" initialStartVerse="11" characterId="God">
     <verse num="11" />
-    <text>Judah has dealt treacherously, and an abomination is committed in Israel and in Jerusalem; for Judah has profaned the holiness of God which he loves, and has married the daughter of a foreign god.</text>
+    <text>Judah has dealt treacherously, and an abomination is committed in Israel and in Jerusalem; for Judah has profaned the holiness of Yahweh which he loves, and has married the daughter of a foreign god.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="12" characterId="narrator-MAL">
+  <block style="p" chapter="2" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>God will cut off, to the man who does this, him who wakes and him who answers, out of the tents of Jacob, and him who offers an offering to God of Armies.</text>
+    <text>Yahweh will cut off, to the man who does this, him who wakes and him who answers, out of the tents of Jacob, and him who offers an offering to Yahweh of Armies.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="13" characterId="narrator-MAL">
+  <block style="p" chapter="2" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>This again you do: you cover the altar of God with tears, with weeping, and with sighing, because he doesn’t regard the offering any more, neither receives it with good will at your hand. </text>
+    <text>This again you do: you cover Yahweh’s altar with tears, with weeping, and with sighing, because he doesn’t regard the offering any more, neither receives it with good will at your hand.</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="14" characterId="God">
     <verse num="14" />
-    <text>Yet you say,</text>
+    <text>Yet you say, ‹Why?› Because Yahweh has been witness between you and the wife of your youth, against whom you have dealt treacherously, though she is your companion, and the wife of your covenant.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="14" characterId="people">
-    <text>‹Why?›</text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="14" characterId="narrator-MAL">
-    <text>Because God has been witness between you and the wife of your youth, against whom you have dealt treacherously, though she is your companion, and the wife of your covenant.</text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="15" characterId="narrator-MAL">
+  <block style="p" chapter="2" initialStartVerse="15" characterId="God">
     <verse num="15" />
-    <text>Did he not make you one, although he had the residue of the Spirit? Why one? He sought a godly seed. Therefore take heed to your spirit, and let no one deal treacherously against the wife of his youth.</text>
+    <text>Did he not make you one, although he had the residue of the Spirit? Why one? He sought godly offspring. Therefore take heed to your spirit, and let no one deal treacherously against the wife of his youth.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="16" characterId="God">
     <verse num="16" />
-    <text>For I hate divorce,</text>
+    <text>One who hates and divorces»,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="16" characterId="narrator-MAL">
-    <text>says God, the God of Israel,</text>
+    <text>says Yahweh, the God of Israel,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="16" characterId="God">
-    <text>«and him who covers his garment with violence!»</text>
+    <text>«covers his garment with violence!»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="16" characterId="narrator-MAL">
-    <text>says God of Armies.</text>
+    <text>says Yahweh of Armies.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="16" characterId="God">
-    <text>«Therefore take heed to your spirit, that you don’t deal treacherously.</text>
+    <text>«Therefore pay attention to your spirit, that you don’t be unfaithful.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="17" characterId="narrator-MAL">
+  <block style="p" chapter="2" initialStartVerse="17" characterId="God">
     <verse num="17" />
-    <text>You have wearied God with your words. Yet you say,</text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="17" characterId="people">
-    <text>‹How have we wearied him?›</text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="17" characterId="narrator-MAL">
-    <text>In that you say,</text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="17" characterId="people">
-    <text>‹Everyone who does evil is good in the sight of God, and he delights in them;› or ‹Where is the God of justice?›</text>
+    <text>You have wearied Yahweh with your words. Yet you say, ‹How have we wearied him?› In that you say, ‹Everyone who does evil is good in Yahweh’s sight, and he delights in them;› or ‹Where is the God of justice?› »</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="MAL" initialStartVerse="0" characterId="BC-MAL">
     <text>3</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="1" characterId="God">
     <verse num="1" />
-    <text>Behold, I send my messenger, and he will prepare the way before me; and the Lord, whom you seek, will suddenly come to his temple; and the messenger of the covenant, whom you desire, behold, he comes!</text>
+    <text>«Behold, I send my messenger, and he will prepare the way before me; and the Lord, whom you seek, will suddenly come to his temple; and the messenger of the covenant, whom you desire, behold, he comes!»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="1" characterId="narrator-MAL">
-    <text>says God of Armies. </text>
+    <text>says Yahweh of Armies.</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="2" characterId="narrator-MAL">
     <verse num="2" />
-    <text>But who can endure the day of his coming? And who will stand when he appears? For he is like a refiner’s fire, and like launderer’s soap;</text>
+    <text>But who can endure the day of his coming? And who will stand when he appears? For he is like a refiner’s fire, and like launderers’ soap;</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="3" characterId="narrator-MAL">
     <verse num="3" />
-    <text>and he will sit as a refiner and purifier of silver, and he will purify the sons of Levi, and refine them as gold and silver; and they shall offer to God offerings in righteousness.</text>
+    <text>and he will sit as a refiner and purifier of silver, and he will purify the sons of Levi, and refine them as gold and silver; and they shall offer to Yahweh offerings in righteousness.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="4" characterId="narrator-MAL">
     <verse num="4" />
-    <text>Then the offering of Judah and Jerusalem will be pleasant to God, as in the days of old, and as in ancient years.</text>
+    <text>Then the offering of Judah and Jerusalem will be pleasant to Yahweh, as in the days of old, and as in ancient years.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>I will come near to you to judgment; and I will be a swift witness against the sorcerers, and against the adulterers, and against the perjurers, and against those who oppress the hireling in his wages, the widow, and the fatherless, and who deprive the foreigner of justice, and don’t fear me,</text>
+    <text>«I will come near to you to judgment; and I will be a swift witness against the sorcerers, and against the adulterers, and against the perjurers, and against those who oppress the hireling in his wages, the widow, and the fatherless, and who deprive the foreigner of justice, and don’t fear me,»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-MAL">
-    <text>says God of Armies.</text>
+    <text>says Yahweh of Armies.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>For I, God, don’t change; therefore you, sons of Jacob, are not consumed.</text>
+    <text>«For I, Yahweh, don’t change; therefore you, sons of Jacob, are not consumed.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="7" characterId="God">
     <verse num="7" />
     <text>From the days of your fathers you have turned aside from my ordinances, and have not kept them. Return to me, and I will return to you,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="7" characterId="narrator-MAL">
-    <text>says God of Armies.</text>
+    <text>says Yahweh of Armies.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="7" characterId="God">
-    <text>«But you say,</text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="7" characterId="people">
-    <text>‹How shall we return?›</text>
+    <text>«But you say, ‹How shall we return?›</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>Will a man rob God? Yet you rob me!</text>
+    <text>Will a man rob God? Yet you rob me! But you say, ‹How have we robbed you?› In tithes and offerings.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="8" characterId="narrator-MAL">
-    <text>But you say,</text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="8" characterId="people">
-    <text>‹How have we robbed you?›</text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="8" characterId="God">
-    <text>In tithes and offerings. </text>
+  <block style="p" chapter="3" initialStartVerse="9" characterId="God">
     <verse num="9" />
     <text>You are cursed with the curse; for you rob me, even this whole nation.</text>
   </block>
@@ -318,46 +270,40 @@
     <text>Bring the whole tithe into the storehouse, that there may be food in my house, and test me now in this,»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="10" characterId="narrator-MAL">
-    <text>says God of Armies,</text>
+    <text>says Yahweh of Armies,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="10" characterId="God">
-    <text>«if I will not open you the windows of heaven, and pour you out a blessing, that there shall not be room enough for.</text>
+    <text>«if I will not open you the windows of heaven, and pour you out a blessing, that there will not be room enough for.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="11" characterId="God">
     <verse num="11" />
     <text>I will rebuke the devourer for your sakes, and he shall not destroy the fruits of your ground; neither shall your vine cast its fruit before its time in the field,»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="11" characterId="narrator-MAL">
-    <text>says God of Armies.</text>
+    <text>says Yahweh of Armies.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>All nations shall call you blessed, for you will be a delightful land,</text>
+    <text>«All nations shall call you blessed, for you will be a delightful land,»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="12" characterId="narrator-MAL">
-    <text>says God of Armies.</text>
+    <text>says Yahweh of Armies.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>Your words have been harsh against me,</text>
+    <text>«Your words have been stout against me,»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="13" characterId="narrator-MAL">
-    <text>says God.</text>
+    <text>says Yahweh.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="13" characterId="God">
-    <text>«Yet you say,</text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="13" characterId="people">
-    <text>What have we spoken against you?›</text>
+    <text>«Yet you say, ‹What have we spoken against you?›</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="14" characterId="God">
     <verse num="14" />
-    <text>You have said,</text>
+    <text>You have said, ‹It is vain to serve God;› and ‹What profit is it that we have followed his instructions, and that we have walked mournfully before Yahweh of Armies?</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="14" characterId="people">
-    <text>‹It is vain to serve God;› and ‹What profit is it that we have followed his instructions, and that we have walked mournfully before God of Armies?</text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="15" characterId="people">
+  <block style="p" chapter="3" initialStartVerse="15" characterId="God">
     <verse num="15" />
     <text>Now we call the proud happy; yes, those who work wickedness are built up; yes, they tempt God, and escape.›</text>
   </block>
@@ -370,24 +316,24 @@
     <text>They shall be mine,»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="17" characterId="narrator-MAL">
-    <text>says God of Armies,</text>
+    <text>says Yahweh of Armies,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="17" characterId="God">
     <text>«my own possession in the day that I make, and I will spare them, as a man spares his own son who serves him.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="18" characterId="God">
     <verse num="18" />
-    <text>Then you shall return and discern between the righteous and the wicked, between him who serves God and him who doesn’t serve him.</text>
+    <text>Then you shall return and discern between the righteous and the wicked, between him who serves God and him who doesn’t serve him.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="MAL" initialStartVerse="0" characterId="BC-MAL">
     <text>4</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="1" characterId="God">
     <verse num="1" />
-    <text>For, behold, the day comes, it burns as a furnace; and all the proud, and all who work wickedness, will be stubble; and the day that comes will burn them up,</text>
+    <text>«For, behold, the day comes, it burns as a furnace; and all the proud, and all who work wickedness, will be stubble; and the day that comes will burn them up,»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="1" characterId="narrator-MAL">
-    <text>says God of Armies,</text>
+    <text>says Yahweh of Armies,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="1" characterId="God">
     <text>«that it shall leave them neither root nor branch.</text>
@@ -401,19 +347,19 @@
     <text>You shall tread down the wicked; for they will be ashes under the soles of your feet in the day that I make,»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="3" characterId="narrator-MAL">
-    <text>says God of Armies.</text>
+    <text>says Yahweh of Armies.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>Remember the law of Moses my servant, which I commanded to him in Horeb for all Israel, even statutes and ordinances.</text>
+    <text>«Remember the law of Moses my servant, which I commanded to him in Horeb for all Israel, even statutes and ordinances.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>Behold, I will send you Elijah the prophet before the great and terrible day of God comes.</text>
+    <text>Behold, I will send you Elijah the prophet before the great and terrible day of Yahweh comes.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>He will turn the hearts of the fathers to the children, and the hearts of the children to their fathers, lest I come and strike the earth with a curse.</text>
+    <text>He will turn the hearts of the fathers to the children, and the hearts of the children to their fathers, lest I come and strike the earth with a curse.»</text>
   </block>
   <UnappliedSplits />
 </book>

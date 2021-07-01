@@ -15278,8 +15278,9 @@ HAG	1	10	God		God (Yahweh)	Implicit
 HAG	1	10	Haggai			Alternate		
 HAG	1	11	God		God (Yahweh)	Implicit		
 HAG	1	11	Haggai			Alternate		
-HAG	1	13	Haggai			Normal		
+HAG	1	13	Haggai		Haggai (Yahweh says)	Normal		
 HAG	1	13	God		God (Yahweh)	Potential		
+HAG	1	13	Needs Review			Normal		
 HAG	2	2	God		God (Yahweh)	Implicit		
 HAG	2	2	Haggai			Alternate		
 HAG	2	3	Haggai			Implicit		
