@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="OBA" singlevoice="false" pageheader="Obadiah">
   <block style="mt" chapter="0" book="OBA" initialStartVerse="0" characterId="BC-OBA">
-    <text>Obadiah
-</text>
+    <text>Obadiah</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="OBA" initialStartVerse="0" characterId="BC-OBA">
     <text>1</text>
@@ -12,14 +11,14 @@
     <text>The vision of Obadiah.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="1" characterId="narrator-OBA">
-    <text>This is what the Lord God says about Edom. We have heard news from God, and an ambassador is sent among the nations, saying,</text>
+    <text>This is what the Lord Yahweh says about Edom. We have heard news from Yahweh, and an ambassador is sent among the nations, saying,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="1" characterId="ambassador">
-    <text>«Arise, and let’s rise up against her in battle.</text>
+    <text>«Arise, and let’s rise up against her in battle.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>Behold, I have made you small among the nations. You are greatly despised.</text>
+    <text>«Behold, I have made you small among the nations. You are greatly despised.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="3" characterId="God">
     <verse num="3" />
@@ -30,7 +29,7 @@
     <text>Though you mount on high as the eagle, and though your nest is set among the stars, I will bring you down from there,»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="4" characterId="narrator-OBA">
-    <text>says God.</text>
+    <text>says Yahweh.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="5" characterId="God">
     <verse num="5" />
@@ -46,10 +45,10 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>Won’t I in that day,</text>
+    <text>Won’t I in that day»,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="8" characterId="narrator-OBA">
-    <text>says God,</text>
+    <text>says Yahweh,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="8" characterId="God">
     <text>«destroy the wise men out of Edom, and understanding out of the mountain of Esau?</text>
@@ -80,7 +79,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="15" characterId="God">
     <verse num="15" />
-    <text>For the day of God is near all the nations! As you have done, it will be done to you. Your deeds will return upon your own head.</text>
+    <text>For the day of Yahweh is near all the nations! As you have done, it will be done to you. Your deeds will return upon your own head.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="16" characterId="God">
     <verse num="16" />
@@ -92,10 +91,12 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="18" characterId="God">
     <verse num="18" />
-    <text>The house of Jacob will be a fire, the house of Joseph a flame, and the house of Esau for stubble. They will burn among them, and devour them. There will not be any remaining to the house of Esau.»</text>
+    <text>The house of Jacob will be a fire, the house of Joseph a flame, and the house of Esau for stubble. They will burn among them and devour them. There will not be any remaining to the house of Esau.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="18" characterId="narrator-OBA">
-    <text>Indeed, God has spoken. </text>
+    <text>Indeed, Yahweh has spoken.</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="19" characterId="narrator-OBA">
     <verse num="19" />
     <text>Those of the South will possess the mountain of Esau, and those of the lowland, the Philistines. They will possess the field of Ephraim, and the field of Samaria. Benjamin will possess Gilead.</text>
   </block>
@@ -105,7 +106,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="21" characterId="narrator-OBA">
     <verse num="21" />
-    <text>Saviors will go up on Mount Zion to judge the mountains of Esau, and the kingdom will be God’s.</text>
+    <text>Saviors will go up on Mount Zion to judge the mountains of Esau, and the kingdom will be Yahweh’s.</text>
   </block>
   <UnappliedSplits />
 </book>
