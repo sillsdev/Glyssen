@@ -2173,6 +2173,7 @@
     <text>David was displeased, because Yahweh had broken out against Uzza. He called that place Perez Uzza, to this day.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="12" characterId="narrator-1CH">
+    <verse num="12" />
     <text>David was afraid of God that day, saying,</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="12" characterId="David">
