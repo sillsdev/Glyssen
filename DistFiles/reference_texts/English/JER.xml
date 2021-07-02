@@ -753,11 +753,11 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="3" characterId="God">
     <verse num="3" />
-    <text>Shepherds with their flocks will come to her. They will pitch their tents against her all around. They will feed everyone in his place.</text>
+    <text>Shepherds with their flocks will come to her. They will pitch their tents against her all around. They will feed everyone in his place.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="4" characterId="invaders">
     <verse num="4" />
-    <text>Prepare war against her! Arise! Let’s go up at noon. Woe to us! For the day declines, for the shadows of the evening are stretched out.</text>
+    <text>«Prepare war against her! Arise! Let’s go up at noon. Woe to us! For the day declines, for the shadows of the evening are stretched out.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="5" characterId="invaders">
     <verse num="5" />
@@ -1121,11 +1121,11 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>I will utterly consume them, says Yahweh. No grapes will be on the vine, no figs on the fig tree, and the leaf will fade. The things that I have given them will pass away from them.›</text>
+    <text>I will utterly consume them, says Yahweh. No grapes will be on the vine, no figs on the fig tree, and the leaf will fade. The things that I have given them will pass away from them.› »</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="14" characterId="narrator-JER">
     <verse num="14" />
-    <text>Why do we sit still? Assemble yourselves! Let’s enter into the fortified cities, and let’s be silent there; for Yahweh our God has put us to silence, and given us poisoned water to drink, because we have sinned against Yahweh.</text>
+    <text>«Why do we sit still? Assemble yourselves! Let’s enter into the fortified cities, and let’s be silent there; for Yahweh our God has put us to silence, and given us poisoned water to drink, because we have sinned against Yahweh.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="15" characterId="narrator-JER">
     <verse num="15" />
@@ -1133,11 +1133,11 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="16" characterId="narrator-JER">
     <verse num="16" />
-    <text>The snorting of his horses is heard from Dan. The whole land trembles at the sound of the neighing of his strong ones; for they have come, and have devoured the land and all that is in it, the city and those who dwell therein.</text>
+    <text>The snorting of his horses is heard from Dan. The whole land trembles at the sound of the neighing of his strong ones; for they have come, and have devoured the land and all that is in it, the city and those who dwell therein.»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="17" characterId="God">
     <verse num="17" />
-    <text>For, behold, I will send serpents, adders among you, which will not be charmed; and they will bite you,»</text>
+    <text>«For, behold, I will send serpents, adders among you, which will not be charmed; and they will bite you,»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="17" characterId="narrator-JER">
     <text>says Yahweh.</text>
@@ -3313,59 +3313,47 @@
     <verse num="11" />
     <text>But the nation that brings their neck under the yoke of the king of Babylon and serves him, that nation I will let remain in their own land,› says Yahweh; ‹and they will till it and dwell in it.› » › »</text>
   </block>
-  <block style="p" chapter="27" initialStartVerse="12" characterId="Jeremiah">
+  <block style="p" chapter="27" initialStartVerse="12" characterId="narrator-JER">
     <verse num="12" />
-    <text>I spoke to Zedekiah king of Judah according to all these words, saying,</text>
+    <text>I spoke to Zedekiah king of Judah according to all these words, saying, «Bring your necks under the yoke of the king of Babylon, and serve him and his people, and live.</text>
   </block>
-  <block style="p" chapter="27" initialStartVerse="12" characterId="Needs Review">
-    <text>«Bring your necks under the yoke of the king of Babylon, and serve him and his people, and live.</text>
-  </block>
-  <block style="p" chapter="27" initialStartVerse="13" characterId="Needs Review">
+  <block style="p" chapter="27" initialStartVerse="13" characterId="narrator-JER">
     <verse num="13" />
     <text>Why will you die, you and your people, by the sword, by the famine, and by the pestilence, as Yahweh has spoken concerning the nation that will not serve the king of Babylon?</text>
   </block>
-  <block style="p" chapter="27" initialStartVerse="14" characterId="Needs Review">
+  <block style="p" chapter="27" initialStartVerse="14" characterId="narrator-JER">
     <verse num="14" />
     <text>Don’t listen to the words of the prophets who speak to you, saying, ‹You shall not serve the king of Babylon;› for they prophesy a lie to you.</text>
   </block>
-  <block style="p" chapter="27" initialStartVerse="15" characterId="Needs Review">
+  <block style="p" chapter="27" initialStartVerse="15" characterId="narrator-JER">
     <verse num="15" />
-    <text>For I have not sent them,»</text>
-  </block>
-  <block style="p" chapter="27" initialStartVerse="15" characterId="Needs Review">
-    <text>says Yahweh,</text>
-  </block>
-  <block style="p" chapter="27" initialStartVerse="15" characterId="Needs Review">
-    <text>«but they prophesy falsely in my name; that I may drive you out, and that you may perish, you, and the prophets who prophesy to you.»</text>
+    <text>‹For I have not sent them,› says Yahweh, ‹but they prophesy falsely in my name; that I may drive you out, and that you may perish, you, and the prophets who prophesy to you.› »</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="16" characterId="narrator-JER">
     <verse num="16" />
-    <text>Also I spoke to the priests and to all this people, saying, Yahweh says,</text>
+    <text>Also I spoke to the priests and to all this people, saying, Yahweh says, «Don’t listen to the words of your prophets who prophesy to you, saying, ‹Behold, the vessels of Yahweh’s house will now shortly be brought again from Babylon;› for they prophesy a lie to you.</text>
   </block>
-  <block style="p" chapter="27" initialStartVerse="16" characterId="Needs Review">
-    <text>«Don’t listen to the words of your prophets who prophesy to you, saying, ‹Behold, the vessels of Yahweh’s house will now shortly be brought again from Babylon;› for they prophesy a lie to you.</text>
-  </block>
-  <block style="p" chapter="27" initialStartVerse="17" characterId="Needs Review">
+  <block style="p" chapter="27" initialStartVerse="17" characterId="narrator-JER">
     <verse num="17" />
     <text>Don’t listen to them; serve the king of Babylon, and live: why should this city become a desolation?</text>
   </block>
-  <block style="p" chapter="27" initialStartVerse="18" characterId="Needs Review">
+  <block style="p" chapter="27" initialStartVerse="18" characterId="narrator-JER">
     <verse num="18" />
     <text>But if they are prophets, and if Yahweh’s word is with them, let them now make intercession to Yahweh of Armies, that the vessels which are left in Yahweh’s house, in the house of the king of Judah, and at Jerusalem, don’t go to Babylon.</text>
   </block>
-  <block style="p" chapter="27" initialStartVerse="19" characterId="Needs Review">
+  <block style="p" chapter="27" initialStartVerse="19" characterId="narrator-JER">
     <verse num="19" />
     <text>For Yahweh of Armies says concerning the pillars, concerning the sea, concerning the bases, and concerning the rest of the vessels that are left in this city,</text>
   </block>
-  <block style="p" chapter="27" initialStartVerse="20" characterId="Needs Review">
+  <block style="p" chapter="27" initialStartVerse="20" characterId="narrator-JER">
     <verse num="20" />
     <text>which Nebuchadnezzar king of Babylon didn’t take when he carried away captive Jeconiah the son of Jehoiakim, king of Judah, from Jerusalem to Babylon, and all the nobles of Judah and Jerusalem;</text>
   </block>
-  <block style="p" chapter="27" initialStartVerse="21" characterId="Needs Review">
+  <block style="p" chapter="27" initialStartVerse="21" characterId="narrator-JER">
     <verse num="21" />
     <text>yes, Yahweh of Armies, the God of Israel, says concerning the vessels that are left in Yahweh’s house, and in the house of the king of Judah, and at Jerusalem:</text>
   </block>
-  <block style="p" chapter="27" initialStartVerse="22" characterId="Needs Review">
+  <block style="p" chapter="27" initialStartVerse="22" characterId="narrator-JER">
     <verse num="22" />
     <text>‹They will be carried to Babylon, and there they will be, until the day that I visit them,› says Yahweh; ‹then I will bring them up, and restore them to this place.› »</text>
   </block>
@@ -3485,34 +3473,19 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="8" characterId="Jeremiah" delivery="letter">
     <verse num="8" />
-    <text>For Yahweh of Armies, the God of Israel says:</text>
-  </block>
-  <block style="p" chapter="29" initialStartVerse="8" characterId="Jeremiah" delivery="letter">
-    <text>«Don’t let your prophets who are among you and your diviners deceive you. Don’t listen to your dreams which you cause to be dreamed.</text>
+    <text>For Yahweh of Armies, the God of Israel says: «Don’t let your prophets who are among you and your diviners deceive you. Don’t listen to your dreams which you cause to be dreamed.</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="9" characterId="Jeremiah" delivery="letter">
     <verse num="9" />
-    <text>For they prophesy falsely to you in my name. I have not sent them,»</text>
-  </block>
-  <block style="p" chapter="29" initialStartVerse="9" characterId="Jeremiah" delivery="letter">
-    <text>says Yahweh.</text>
+    <text>For they prophesy falsely to you in my name. I have not sent them,» says Yahweh.</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="10" characterId="Jeremiah" delivery="letter">
     <verse num="10" />
-    <text>For Yahweh says,</text>
-  </block>
-  <block style="p" chapter="29" initialStartVerse="10" characterId="Jeremiah" delivery="letter">
-    <text>«After seventy years are accomplished for Babylon, I will visit you and perform my good word toward you, in causing you to return to this place.</text>
+    <text>For Yahweh says, «After seventy years are accomplished for Babylon, I will visit you and perform my good word toward you, in causing you to return to this place.</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="11" characterId="Jeremiah" delivery="letter">
     <verse num="11" />
-    <text>For I know the thoughts that I think toward you,»</text>
-  </block>
-  <block style="p" chapter="29" initialStartVerse="11" characterId="Jeremiah" delivery="letter">
-    <text>says Yahweh,</text>
-  </block>
-  <block style="p" chapter="29" initialStartVerse="11" characterId="Jeremiah" delivery="letter">
-    <text>«thoughts of peace, and not of evil, to give you hope and a future.</text>
+    <text>For I know the thoughts that I think toward you,» says Yahweh, «thoughts of peace, and not of evil, to give you hope and a future.</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="12" characterId="Jeremiah" delivery="letter">
     <verse num="12" />
@@ -3524,20 +3497,11 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="14" characterId="Jeremiah" delivery="letter">
     <verse num="14" />
-    <text>I will be found by you,»</text>
-  </block>
-  <block style="p" chapter="29" initialStartVerse="14" characterId="Jeremiah" delivery="letter">
-    <text>says Yahweh,</text>
-  </block>
-  <block style="p" chapter="29" initialStartVerse="14" characterId="Jeremiah" delivery="letter">
-    <text>«and I will turn again your captivity, and I will gather you from all the nations, and from all the places where I have driven you, says Yahweh. I will bring you again to the place from where I caused you to be carried away captive.»</text>
+    <text>I will be found by you,» says Yahweh, «and I will turn again your captivity, and I will gather you from all the nations, and from all the places where I have driven you, says Yahweh. I will bring you again to the place from where I caused you to be carried away captive.»</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="15" characterId="Jeremiah" delivery="letter">
     <verse num="15" />
-    <text>Because you have said,</text>
-  </block>
-  <block style="p" chapter="29" initialStartVerse="15" characterId="Jeremiah" delivery="letter">
-    <text>«Yahweh has raised us up prophets in Babylon;»</text>
+    <text>Because you have said, «Yahweh has raised us up prophets in Babylon;»</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="16" characterId="Jeremiah" delivery="letter">
     <verse num="16" />
@@ -3545,10 +3509,7 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="17" characterId="Jeremiah" delivery="letter">
     <verse num="17" />
-    <text>Yahweh of Armies says:</text>
-  </block>
-  <block style="p" chapter="29" initialStartVerse="17" characterId="Jeremiah" delivery="letter">
-    <text>«Behold, I will send on them the sword, the famine, and the pestilence, and will make them like rotten figs that can’t be eaten, they are so bad.</text>
+    <text>Yahweh of Armies says: «Behold, I will send on them the sword, the famine, and the pestilence, and will make them like rotten figs that can’t be eaten, they are so bad.</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="18" characterId="Jeremiah" delivery="letter">
     <verse num="18" />
@@ -3556,16 +3517,7 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="19" characterId="Jeremiah" delivery="letter">
     <verse num="19" />
-    <text>because they have not listened to my words,»</text>
-  </block>
-  <block style="p" chapter="29" initialStartVerse="19" characterId="Jeremiah" delivery="letter">
-    <text>says Yahweh,</text>
-  </block>
-  <block style="p" chapter="29" initialStartVerse="19" characterId="Jeremiah" delivery="letter">
-    <text>«with which I sent to them my servants the prophets, rising up early and sending them; but you would not hear,»</text>
-  </block>
-  <block style="p" chapter="29" initialStartVerse="19" characterId="Jeremiah" delivery="letter">
-    <text>says Yahweh.</text>
+    <text>because they have not listened to my words,» says Yahweh, «with which I sent to them my servants the prophets, rising up early and sending them; but you would not hear,» says Yahweh.</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="20" characterId="Jeremiah" delivery="letter">
     <verse num="20" />
@@ -3573,10 +3525,7 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="21" characterId="Jeremiah" delivery="letter">
     <verse num="21" />
-    <text>Yahweh of Armies, the God of Israel, says concerning Ahab the son of Kolaiah, and concerning Zedekiah the son of Maaseiah, who prophesy a lie to you in my name:</text>
-  </block>
-  <block style="p" chapter="29" initialStartVerse="21" characterId="Jeremiah" delivery="letter">
-    <text>«Behold, I will deliver them into the hand of Nebuchadnezzar king of Babylon; and he will kill them before your eyes.</text>
+    <text>Yahweh of Armies, the God of Israel, says concerning Ahab the son of Kolaiah, and concerning Zedekiah the son of Maaseiah, who prophesy a lie to you in my name: «Behold, I will deliver them into the hand of Nebuchadnezzar king of Babylon; and he will kill them before your eyes.</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="22" characterId="Jeremiah" delivery="letter">
     <verse num="22" />
@@ -3584,12 +3533,9 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="23" characterId="Jeremiah" delivery="letter">
     <verse num="23" />
-    <text>because they have done foolish things in Israel, and have committed adultery with their neighbors’ wives, and have spoken words in my name falsely, which I didn’t command them. I am he who knows, and am witness,»</text>
+    <text>because they have done foolish things in Israel, and have committed adultery with their neighbors’ wives, and have spoken words in my name falsely, which I didn’t command them. I am he who knows, and am witness,» says Yahweh.</text>
   </block>
-  <block style="p" chapter="29" initialStartVerse="23" characterId="Jeremiah" delivery="letter">
-    <text>says Yahweh.</text>
-  </block>
-  <block style="p" chapter="29" initialStartVerse="24" characterId="Needs Review">
+  <block style="p" chapter="29" initialStartVerse="24" characterId="God">
     <verse num="24" />
     <text>Concerning Shemaiah the Nehelamite you shall speak, saying,</text>
   </block>
@@ -4193,35 +4139,35 @@
     <verse num="1" />
     <text>Moreover Yahweh’s word came to Jeremiah the second time, while he was still locked up in the court of the guard, saying,</text>
   </block>
-  <block style="p" chapter="33" initialStartVerse="2" characterId="God">
+  <block style="p" chapter="33" initialStartVerse="2" characterId="Jeremiah">
     <verse num="2" />
     <text>«Yahweh who does it, Yahweh who forms it to establish it—Yahweh is his name, says:</text>
   </block>
-  <block style="p" chapter="33" initialStartVerse="3" characterId="God">
+  <block style="p" chapter="33" initialStartVerse="3" characterId="Jeremiah">
     <verse num="3" />
     <text>‹Call to me, and I will answer you, and will show you great and difficult things, which you don’t know.›</text>
   </block>
-  <block style="p" chapter="33" initialStartVerse="4" characterId="God">
+  <block style="p" chapter="33" initialStartVerse="4" characterId="Jeremiah">
     <verse num="4" />
     <text>For Yahweh, the God of Israel, says concerning the houses of this city and concerning the houses of the kings of Judah, which are broken down to make a defense against the mounds and against the sword;</text>
   </block>
-  <block style="p" chapter="33" initialStartVerse="5" characterId="God">
+  <block style="p" chapter="33" initialStartVerse="5" characterId="Jeremiah">
     <verse num="5" />
     <text>while men come to fight with the Chaldeans, and to fill them with the dead bodies of men, whom I have killed in my anger and in my wrath, and for all whose wickedness I have hidden my face from this city:</text>
   </block>
-  <block style="p" chapter="33" initialStartVerse="6" characterId="God">
+  <block style="p" chapter="33" initialStartVerse="6" characterId="Jeremiah">
     <verse num="6" />
     <text>‹Behold, I will bring it health and cure, and I will cure them; and I will reveal to them abundance of peace and truth.</text>
   </block>
-  <block style="p" chapter="33" initialStartVerse="7" characterId="God">
+  <block style="p" chapter="33" initialStartVerse="7" characterId="Jeremiah">
     <verse num="7" />
     <text>I will cause the captivity of Judah and the captivity of Israel to return, and will build them, as at the first.</text>
   </block>
-  <block style="p" chapter="33" initialStartVerse="8" characterId="God">
+  <block style="p" chapter="33" initialStartVerse="8" characterId="Jeremiah">
     <verse num="8" />
     <text>I will cleanse them from all their iniquity by which they have sinned against me. I will pardon all their iniquities by which they have sinned against me and by which they have transgressed against me.</text>
   </block>
-  <block style="p" chapter="33" initialStartVerse="9" characterId="God">
+  <block style="p" chapter="33" initialStartVerse="9" characterId="Jeremiah">
     <verse num="9" />
     <text>This city will be to me for a name of joy, for praise, and for glory, before all the nations of the earth, which will hear all the good that I do to them, and will fear and tremble for all the good and for all the peace that I provide to it.› »</text>
   </block>
@@ -4286,15 +4232,15 @@
     <verse num="19" />
     <text>Yahweh’s word came to Jeremiah, saying,</text>
   </block>
-  <block style="p" chapter="33" initialStartVerse="20" characterId="God">
+  <block style="p" chapter="33" initialStartVerse="20" characterId="Jeremiah">
     <verse num="20" />
     <text>«Yahweh says: ‹If you can break my covenant of the day and my covenant of the night, so that there will not be day and night in their time,</text>
   </block>
-  <block style="p" chapter="33" initialStartVerse="21" characterId="God">
+  <block style="p" chapter="33" initialStartVerse="21" characterId="Jeremiah">
     <verse num="21" />
     <text>then my covenant could also be broken with David my servant, that he won’t have a son to reign on his throne; and with the Levites the priests, my ministers.</text>
   </block>
-  <block style="p" chapter="33" initialStartVerse="22" characterId="God">
+  <block style="p" chapter="33" initialStartVerse="22" characterId="Jeremiah">
     <verse num="22" />
     <text>As the army of the sky can’t be counted, and the sand of the sea can’t be measured; so I will multiply the offspring of David my servant and the Levites who minister to me.› »</text>
   </block>
@@ -4368,19 +4314,19 @@
     <verse num="12" />
     <text>Therefore Yahweh’s word came to Jeremiah from Yahweh, saying,</text>
   </block>
-  <block style="p" chapter="34" initialStartVerse="13" characterId="God">
+  <block style="p" chapter="34" initialStartVerse="13" characterId="Jeremiah">
     <verse num="13" />
     <text>«Yahweh, the God of Israel, says: ‹I made a covenant with your fathers in the day that I brought them out of the land of Egypt, out of the house of bondage, saying:</text>
   </block>
-  <block style="p" chapter="34" initialStartVerse="14" characterId="God">
+  <block style="p" chapter="34" initialStartVerse="14" characterId="Jeremiah">
     <verse num="14" />
     <text>At the end of seven years, every man of you shall release his brother who is a Hebrew, who has been sold to you, and has served you six years. You shall let him go free from you. But your fathers didn’t listen to me, and didn’t incline their ear.</text>
   </block>
-  <block style="p" chapter="34" initialStartVerse="15" characterId="God">
+  <block style="p" chapter="34" initialStartVerse="15" characterId="Jeremiah">
     <verse num="15" />
     <text>You had now turned, and had done that which is right in my eyes, in every man proclaiming liberty to his neighbor. You had made a covenant before me in the house which is called by my name;</text>
   </block>
-  <block style="p" chapter="34" initialStartVerse="16" characterId="God">
+  <block style="p" chapter="34" initialStartVerse="16" characterId="Jeremiah">
     <verse num="16" />
     <text>but you turned and profaned my name, and every man caused his servant, and every man his handmaid, whom you had let go free at their pleasure, to return. You brought them into subjection, to be to you for servants and for handmaids.› »</text>
   </block>
@@ -4477,23 +4423,23 @@
     <verse num="12" />
     <text>Then Yahweh’s word came to Jeremiah, saying,</text>
   </block>
-  <block style="p" chapter="35" initialStartVerse="13" characterId="God">
+  <block style="p" chapter="35" initialStartVerse="13" characterId="Jeremiah">
     <verse num="13" />
     <text>«Yahweh of Armies, the God of Israel, says: ‹Go and tell the men of Judah and the inhabitants of Jerusalem, «Will you not receive instruction to listen to my words?» says Yahweh.</text>
   </block>
-  <block style="p" chapter="35" initialStartVerse="14" characterId="God">
+  <block style="p" chapter="35" initialStartVerse="14" characterId="Jeremiah">
     <verse num="14" />
     <text>The words of Jonadab the son of Rechab, that he commanded his sons, not to drink wine, are performed; and to this day they drink none, for they obey their father’s commandment: but I have spoken to you, rising up early and speaking; and you have not listened to me.</text>
   </block>
-  <block style="p" chapter="35" initialStartVerse="15" characterId="God">
+  <block style="p" chapter="35" initialStartVerse="15" characterId="Jeremiah">
     <verse num="15" />
     <text>I have sent also to you all my servants the prophets, rising up early and sending them, saying, ‹Every one of you must return now from his evil way, amend your doings, and don’t go after other gods to serve them, then you will dwell in the land which I have given to you and to your fathers:› but you have not inclined your ear, nor listened to me.</text>
   </block>
-  <block style="p" chapter="35" initialStartVerse="16" characterId="God">
+  <block style="p" chapter="35" initialStartVerse="16" characterId="Jeremiah">
     <verse num="16" />
     <text>The sons of Jonadab the son of Rechab have performed the commandment of their father which he commanded them, but this people has not listened to me.» ›</text>
   </block>
-  <block style="p" chapter="35" initialStartVerse="17" characterId="God">
+  <block style="p" chapter="35" initialStartVerse="17" characterId="Jeremiah">
     <verse num="17" />
     <text>Therefore Yahweh, the God of Armies, the God of Israel, says: ‹Behold, I will bring on Judah and on all the inhabitants of Jerusalem all the evil that I have pronounced against them; because I have spoken to them, but they have not heard; and I have called to them, but they have not answered.› »</text>
   </block>
@@ -4696,19 +4642,19 @@
     <verse num="6" />
     <text>Then Yahweh’s word came to the prophet Jeremiah, saying,</text>
   </block>
-  <block style="p" chapter="37" initialStartVerse="7" characterId="God">
+  <block style="p" chapter="37" initialStartVerse="7" characterId="Jeremiah">
     <verse num="7" />
     <text>«Yahweh, the God of Israel, says, ‹You shall tell the king of Judah, who sent you to me to inquire of me: «Behold, Pharaoh’s army, which has come out to help you, will return to Egypt into their own land.</text>
   </block>
-  <block style="p" chapter="37" initialStartVerse="8" characterId="God">
+  <block style="p" chapter="37" initialStartVerse="8" characterId="Jeremiah">
     <verse num="8" />
     <text>The Chaldeans will come again, and fight against this city. They will take it and burn it with fire.» ›</text>
   </block>
-  <block style="p" chapter="37" initialStartVerse="9" characterId="God">
+  <block style="p" chapter="37" initialStartVerse="9" characterId="Jeremiah">
     <verse num="9" />
     <text>Yahweh says, ‹Don’t deceive yourselves, saying, «The Chaldeans will surely depart from us;» for they will not depart.</text>
   </block>
-  <block style="p" chapter="37" initialStartVerse="10" characterId="God">
+  <block style="p" chapter="37" initialStartVerse="10" characterId="Jeremiah">
     <verse num="10" />
     <text>For though you had struck the whole army of the Chaldeans who fight against you, and only wounded men remained among them, they would each rise up in his tent and burn this city with fire.› »</text>
   </block>

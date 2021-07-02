@@ -618,9 +618,15 @@ namespace Glyssen.RefTextDevUtilities
 							}
 						}
 
+						var noTextChangesWeCareAbout = IsUnchanged(modifiedText, existingRefBlockForLanguage, currBookId);
+
 						var existingCharacterId = (existingRefBlockForLanguage ?? existingEnglishRefBlock)?.CharacterId;
 						var referenceBlock = existingEnglishRefBlock ?? new Block("?", currChapter, Int32.Parse(referenceTextRow.Verse));
-						var characterIdBasedOnExcelEntry = GetCharacterIdFromFCBHCharacterLabel(referenceTextRow.CharacterId, currBookId, referenceBlock, referenceTextRow.Verse);
+						// If we've previously decided that a block should be "Needs Review" and the text is unchanged, keep it as
+						// "Needs Review" so we don't have to keep looking at the changes and reverting them.
+						var characterIdBasedOnExcelEntry = languageInfo.IsEnglish && noTextChangesWeCareAbout && existingEnglishRefBlock?.CharacterId == CharacterVerseData.kNeedsReview ?
+							CharacterVerseData.kNeedsReview :
+							GetCharacterIdFromFCBHCharacterLabel(referenceTextRow.CharacterId, currBookId, referenceBlock, referenceTextRow.Verse);
 						if (mode != Mode.GenerateEnglish)
 						{
 							if (characterIdBasedOnExcelEntry == CharacterVerseData.kAmbiguousCharacter ||
@@ -639,8 +645,6 @@ namespace Glyssen.RefTextDevUtilities
 							WriteOutput($"Character change at {currBookId} {referenceTextRow.Chapter}:{referenceTextRow.Verse}");
 							WriteOutput($"   From {existingCharacterId ?? "null"} ==> {characterIdBasedOnExcelEntry}");
 						}
-
-						var noTextChangesWeCareAbout = IsUnchanged(modifiedText, existingRefBlockForLanguage, currBookId);
 
 						if (mode != Mode.Generate && mode != Mode.GenerateEnglish)
 							continue;
@@ -1337,8 +1341,13 @@ namespace Glyssen.RefTextDevUtilities
 			var bookNum = BCVRef.BookToNumber(bookId);
 
 			// See REVIEW note in GetMatchingNarratorOverride
-			if (GetMatchingNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber) != null)
+			var overrideChar = GetMatchingNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber);
+			if (overrideChar != null)
+			{
+				if (overrideChar == block.CharacterId)
+					return overrideChar; // Preserve the status quo
 				return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
+			}
 
 			var characters = GetAllCharacters(bookNum, block, overrideVerseNum).Distinct(s_characterDeliveryEqualityComparer).ToList();
 			var implicitChar = characters.SingleOrDefault(c => c.IsImplicit);
@@ -1347,7 +1356,6 @@ namespace Glyssen.RefTextDevUtilities
 			else
 				characters.RemoveAll(c => c.Character == CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator));
 			var bcvRef = new BCVRef(bookNum, block.ChapterNumber, overrideVerseNum == null ? block.InitialStartVerseNumber : Int32.Parse(overrideVerseNum));
-			string overrideChar;
 			switch (characters.Count)
 			{
 				case 1:
@@ -1419,9 +1427,9 @@ namespace Glyssen.RefTextDevUtilities
 							return single.Item2.Character;
 						}
 
-						overrideChar = GetMatchingNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber);
-						if (overrideChar != null)
-							return overrideChar;
+						//overrideChar = GetMatchingNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber);
+						//if (overrideChar != null)
+						//	return overrideChar;
 					}
 					catch (InvalidOperationException)
 					{
@@ -1476,7 +1484,7 @@ namespace Glyssen.RefTextDevUtilities
 			//    advantage. Anyway, it is probably nearly impossible to determine with certainty, plus FCBH doesn't usually split on quotes
 			//    in such cases, so a lot of blocks would be a mix.
 			// 4) Minimize the change from the status quo by leaving existing narrator blocks as narrator and only explicitly assigning the
-			//    override character if the block is already thus assigned (or is misassigned to some other character).
+			//    override character if the block is already thus assigned (or is assigned incorrectly to some other character).
 			//return overrideCharacter != null && block.CharacterIs(BCVRef.NumberToBookCode(bookNum), CharacterVerseData.StandardCharacter.Narrator) ?
 			//	block.CharacterId : overrideCharacter;
 		}
@@ -1625,8 +1633,7 @@ namespace Glyssen.RefTextDevUtilities
 		{
 			switch (fcbhCharacterLabel)
 			{
-				case "Angel": return glyssenCharacterId.StartsWith("angel", StringComparison.OrdinalIgnoreCase) ||
-					glyssenCharacterId == "horses (or their angelic riders) (in vision)";
+				case "Angel": return glyssenCharacterId.IndexOf("angel", StringComparison.OrdinalIgnoreCase) >= 0;
 				case "Son of Jacob": return glyssenCharacterId == "Joseph's brothers";
 				case "Rehab": return glyssenCharacterId == "Rahab";
 				case "Judean": return glyssenCharacterId == "Judah, men of";
@@ -1655,7 +1662,8 @@ namespace Glyssen.RefTextDevUtilities
 					return glyssenCharacterId == "man like bronze with measuring rod (in vision)" ||
 						glyssenCharacterId == "man's voice from the Ulai (in vision)" ||
 						glyssenCharacterId == "one who looked like a man" ||
-						glyssenCharacterId == "man in linen above river";
+						glyssenCharacterId == "man in linen above river" ||
+						glyssenCharacterId.IndexOf("angel", StringComparison.OrdinalIgnoreCase) >= 0;
 				default: return false;
 			}
 		}

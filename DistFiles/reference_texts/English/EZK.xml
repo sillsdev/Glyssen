@@ -1959,10 +1959,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="14" characterId="God" delivery="lament">
     <verse num="14" />
-    <text>Fire has gone out of its branches. It has devoured its fruit, so that there is in it no strong branch to be a scepter to rule.›</text>
-  </block>
-  <block style="p" chapter="19" initialStartVerse="14" characterId="Needs Review">
-    <text>This is a lamentation, and shall be for a lamentation.»</text>
+    <text>Fire has gone out of its branches. It has devoured its fruit, so that there is in it no strong branch to be a scepter to rule.› This is a lamentation, and shall be for a lamentation.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="20" book="EZK" initialStartVerse="0" characterId="BC-EZK">
     <text>20</text>

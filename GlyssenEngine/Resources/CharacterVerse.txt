@@ -5030,13 +5030,13 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	8	22	Samuel			Normal		
 1SA	9	3	Kish, father of Saul			Normal		
 1SA	9	5	Saul			Normal		
-1SA	9	6	servant of Saul			Normal		
+1SA	9	6	servant of Saul (and of his father Kish)			Normal		
 1SA	9	7	Saul			Normal		
-1SA	9	8	servant of Saul			Normal		
+1SA	9	8	servant of Saul (and of his father Kish)			Normal		
 1SA	9	9	saying about seer			Hypothetical		
 1SA	9	9	narrator-1SA			Quotation		
 1SA	9	10	Saul			Normal		
-1SA	9	11	Saul/Saul's servant			Normal	Saul	
+1SA	9	11	Saul/servant of Saul (and of his father Kish)			Normal	servant of Saul (and of his father Kish)	
 1SA	9	12	young women (maidens)			Normal		
 1SA	9	13	young women (maidens)			Normal		
 1SA	9	16	God		God (Yahweh)	Normal		
@@ -5192,10 +5192,10 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	16	11	Jesse			Normal		
 1SA	16	11	Samuel			Normal		
 1SA	16	12	God		God (Yahweh)	Normal		
-1SA	16	15	Saul's attendants			Normal		
-1SA	16	16	Saul's attendants			Normal		
+1SA	16	15	Saul's servants			Normal		
+1SA	16	16	Saul's servants			Normal		
 1SA	16	17	Saul			Normal		
-1SA	16	18	Saul's servant			Normal		
+1SA	16	18	Saul's servant (young)			Normal		
 1SA	16	19	Saul's messengers to Jesse			Normal		
 1SA	16	19	Saul		Saul (via messenger)	Quotation		
 1SA	16	19	Needs Review			Normal		
@@ -5239,7 +5239,7 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	18	21	Saul			Normal		
 1SA	18	22	Saul			Normal		
 1SA	18	23	David			Normal		
-1SA	18	24	Saul's servant			Indirect		
+1SA	18	24	Saul's servants			Indirect		
 1SA	18	25	Saul			Normal		
 1SA	19	2	Jonathan			Normal		
 1SA	19	3	Jonathan			Normal		
@@ -5415,7 +5415,7 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	28	2	Achish, king of Gath			Normal		
 1SA	28	2	David			Normal		
 1SA	28	7	Saul			Normal		
-1SA	28	7	Saul's attendants			Normal		
+1SA	28	7	Saul's servants			Normal		
 1SA	28	8	Saul			Normal		
 1SA	28	9	woman medium			Normal		
 1SA	28	10	Saul			Normal		
@@ -7136,6 +7136,7 @@ EZR	4	9	Needs Review			Implicit
 EZR	4	10	Rehum, commanding officer/Shimshai, secretary	letter		Potential		
 EZR	4	10	Needs Review			Implicit		
 EZR	4	11	Rehum, commanding officer/Shimshai, secretary	letter		Potential		
+EZR	4	11	Needs Review			Implicit		
 EZR	4	12	Rehum, commanding officer/Shimshai, secretary	letter		Implicit		
 EZR	4	13	Rehum, commanding officer/Shimshai, secretary	letter		Implicit		
 EZR	4	14	Rehum, commanding officer/Shimshai, secretary	letter		Implicit		
@@ -7366,6 +7367,7 @@ NEH	10	38	priests/Levites/people			Indirect	Levites
 NEH	10	39	priests/Levites/people			Indirect	Levites	
 # The following line is under review. The obvious switch to first-person happens in v. 31.
 NEH	13	1	scripture			Indirect		
+NEH	13	1	priests/Levites			Indirect		
 NEH	13	11	Nehemiah			Normal		
 NEH	13	14	Nehemiah	praying		Potential		
 NEH	13	17	Nehemiah			Normal		
@@ -15047,7 +15049,7 @@ MIC	3	2	Micah, prophet			Quotation
 MIC	3	3	Micah, prophet			Quotation		
 MIC	3	4	Micah, prophet			Quotation		
 MIC	3	5	Micah, prophet		Micah (Yahweh says)	Potential		
-MIC	3	5	God		God (Yahweh)	Normal		
+MIC	3	5	God		God (Yahweh)	Potential		
 MIC	3	5	false prophets			Hypothetical		
 MIC	3	6	God		God (Yahweh)	Potential		
 MIC	3	6	Micah, prophet		Micah (Yahweh says)	Potential		
@@ -15064,6 +15066,7 @@ MIC	4	7	God		God (Yahweh)	Implicit
 MIC	4	8	God		God (Yahweh)	Potential		
 MIC	4	11	nations		nations, many	Quotation		
 MIC	4	13	God		God (Yahweh)	Potential		
+MIC	4	13	Needs Review			Implicit		
 MIC	5	1	God		God (Yahweh)	Potential		
 MIC	5	1	Micah, prophet			Potential		
 MIC	5	2	God		God (Yahweh)	Potential		
@@ -15252,7 +15255,7 @@ ZEP	3	16	Needs Review			Normal
 ZEP	3	17	God	encouraging	God (Yahweh)	Hypothetical		
 ZEP	3	17	daughter of Zion	encouraging		Hypothetical		
 ZEP	3	17	person encouraging Jerusalem	encouraging		Hypothetical		
-ZEP	3	17	Needs Review			Normal		
+ZEP	3	17	Needs Review			Implicit		
 ZEP	3	18	God		God (Yahweh)	Implicit		
 ZEP	3	18	Zephaniah, prophet		Zephaniah (Yahweh says)	Alternate		
 ZEP	3	19	God		God (Yahweh)	Implicit		
@@ -15324,8 +15327,8 @@ HAG	2	23	God		God (Yahweh)	Normal
 HAG	2	23	Haggai			Potential		
 ZEC	1	2	Zechariah the prophet, son of Berechiah			Normal		
 ZEC	1	2	God		God (Yahweh)	Alternate		
-ZEC	1	3	God		God (Yahweh)	Normal		
 ZEC	1	3	Zechariah the prophet, son of Berechiah			Normal		
+ZEC	1	3	God		God (Yahweh)	Normal		
 ZEC	1	4	God		God (Yahweh)	Normal		
 ZEC	1	4	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	1	4	prophets		former prophets	Quotation		

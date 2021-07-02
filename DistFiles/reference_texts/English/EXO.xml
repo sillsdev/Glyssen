@@ -1518,11 +1518,11 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="7" characterId="Moses">
     <verse num="7" />
-    <text>But against any of the children of Israel a dog won’t even bark or move its tongue, against man or animal, that you may know that Yahweh makes a distinction between the Egyptians and Israel.›</text>
+    <text>But against any of the children of Israel a dog won’t even bark or move its tongue, against man or animal, that you may know that Yahweh makes a distinction between the Egyptians and Israel.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="8" characterId="Moses">
     <verse num="8" />
-    <text>All these servants of yours will come down to me, and bow down themselves to me, saying, «Get out, with all the people who follow you;» and after that I will go out. »</text>
+    <text>All these servants of yours will come down to me, and bow down themselves to me, saying, «Get out, with all the people who follow you;» and after that I will go out.› »</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="8" characterId="narrator-EXO">
     <text>He went out from Pharaoh in hot anger.</text>
@@ -2020,7 +2020,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="2" characterId="Moses/Israelites" characterIdOverrideForScript="Moses" delivery="singing">
     <verse num="2" />
-    <text>Yah is my strength and song. He has become my salvation. This is my God, and I will praise him; my father’s God, and I will exalt him.</text>
+    <text>Yahweh is my strength and song. He has become my salvation. This is my God, and I will praise him; my father’s God, and I will exalt him.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="3" characterId="Moses/Israelites" characterIdOverrideForScript="Moses" delivery="singing">
     <verse num="3" />
@@ -2418,7 +2418,7 @@
     <text>He said,</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="16" characterId="Moses">
-    <text>«Yah has sworn: ‹Yahweh will have war with Amalek from generation to generation.› »</text>
+    <text>«Yahweh has sworn: ‹Yahweh will have war with Amalek from generation to generation.› »</text>
   </block>
   <block style="c" paragraphStart="true" chapter="18" book="EXO" initialStartVerse="0" characterId="BC-EXO">
     <text>18</text>

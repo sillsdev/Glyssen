@@ -465,6 +465,7 @@
     <text>Now Haman had come into the outer court of the king’s house, to speak to the king about hanging Mordecai on the gallows that he had prepared for him.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="5" characterId="narrator-EST">
+    <verse num="5" />
     <text>The king’s servants said to him,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="5" characterId="King Xerxes' personal servants">

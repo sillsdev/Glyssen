@@ -133,10 +133,10 @@
     <verse num="4" />
     <text>and said to him,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="4" characterId="angel, another (in vision)">
+  <block style="p" chapter="2" initialStartVerse="4" characterId="Yahweh's angel">
     <text>«Run, speak to this young man, saying, ‹Jerusalem will be inhabited as villages without walls, because of the multitude of men and livestock in it.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="5" characterId="angel, another (in vision)">
+  <block style="p" chapter="2" initialStartVerse="5" characterId="Yahweh's angel">
     <verse num="5" />
     <text>For I,› says Yahweh, ‹will be to her a wall of fire around it, and I will be the glory in the middle of her.</text>
   </block>
@@ -321,6 +321,7 @@
     <text>Then again I lifted up my eyes, and saw, and behold, a flying scroll.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="2" characterId="narrator-ZEC">
+    <verse num="2" />
     <text>He said to me,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="2" characterId="angel who talked with Zechariah">

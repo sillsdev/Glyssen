@@ -10,15 +10,15 @@
     <verse num="1" />
     <text>The revelation which Habakkuk the prophet saw.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="2" characterId="Habakkuk" delivery="complaining">
+  <block style="p" chapter="1" initialStartVerse="2" characterId="narrator-HAB">
     <verse num="2" />
     <text>Yahweh, how long will I cry, and you will not hear? I cry out to you «Violence!» and will you not save?</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="3" characterId="Habakkuk" delivery="complaining">
+  <block style="p" chapter="1" initialStartVerse="3" characterId="narrator-HAB">
     <verse num="3" />
     <text>Why do you show me iniquity, and look at perversity? For destruction and violence are before me. There is strife, and contention rises up.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="4" characterId="Habakkuk" delivery="complaining">
+  <block style="p" chapter="1" initialStartVerse="4" characterId="narrator-HAB">
     <verse num="4" />
     <text>Therefore the law is paralyzed, and justice never prevails; for the wicked surround the righteous; therefore justice comes out perverted.</text>
   </block>
@@ -50,27 +50,27 @@
     <verse num="11" />
     <text>Then he sweeps by like the wind, and goes on. He is indeed guilty, whose strength is his god.»</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="12" characterId="Habakkuk" delivery="complaining">
+  <block style="p" chapter="1" initialStartVerse="12" characterId="narrator-HAB">
     <verse num="12" />
     <text>Aren’t you from everlasting, Yahweh my God, my Holy One? We will not die. Yahweh, you have appointed him for judgment. You, Rock, have established him to punish.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="13" characterId="Habakkuk" delivery="complaining">
+  <block style="p" chapter="1" initialStartVerse="13" characterId="narrator-HAB">
     <verse num="13" />
     <text>You who have purer eyes than to see evil, and who cannot look on perversity, why do you tolerate those who deal treacherously, and keep silent when the wicked swallows up the man who is more righteous than he,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="14" characterId="Habakkuk" delivery="complaining">
+  <block style="p" chapter="1" initialStartVerse="14" characterId="narrator-HAB">
     <verse num="14" />
     <text>and make men like the fish of the sea, like the creeping things, that have no ruler over them?</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="15" characterId="Habakkuk" delivery="complaining">
+  <block style="p" chapter="1" initialStartVerse="15" characterId="narrator-HAB">
     <verse num="15" />
     <text>He takes up all of them with the hook. He catches them in his net, and gathers them in his dragnet. Therefore he rejoices and is glad.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="16" characterId="Habakkuk" delivery="complaining">
+  <block style="p" chapter="1" initialStartVerse="16" characterId="narrator-HAB">
     <verse num="16" />
     <text>Therefore he sacrifices to his net, and burns incense to his dragnet, because by them his life is luxurious, and his food is good.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="17" characterId="Habakkuk" delivery="complaining">
+  <block style="p" chapter="1" initialStartVerse="17" characterId="narrator-HAB">
     <verse num="17" />
     <text>Will he therefore continually empty his net, and kill the nations without mercy?</text>
   </block>

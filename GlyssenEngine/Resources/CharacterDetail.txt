@@ -611,7 +611,7 @@ letter from apostles and elders	1	PreferMale				ACT 15:23 <-(5 more)-> ACT 15:29
 Levi	1	Male				GEN 34:14 <-(38 more)-> GEN 50:18	Son of Jacob
 Levite husband of concubine	1	Male				JDG 19:12 <-(7 more)-> JDG 20:7
 Levite, young, from Bethlehem	1	Male	YoungAdult			JDG 17:9 <-(2 more)-> JDG 18:18
-Levites	8	Male				2CH 7:6 <-(59 more)-> JHN 1:25
+Levites	8	Male				2CH 7:6 <-(60 more)-> JHN 1:25
 Levites, family heads of	-1	Male				JOS 21:2
 living creature, first	1					REV 4:8 <-(4 more)-> REV 19:4
 living creature, fourth	1					REV 4:8 <-(4 more)-> REV 19:4
@@ -926,7 +926,7 @@ poets	-1					NUM 21:27 <-(2 more)-> NUM 21:30
 Potiphar's wife	1	Female				GEN 39:7 <-(6 more)-> GEN 39:19
 priest	-1	Male				NUM 5:19 <-(5 more)-> JER 23:33
 priest of Jupiter	1	Male				ACT 14:13
-priests	-1	Male				DEU 27:9 <-(36 more)-> ACT 4:1
+priests	-1	Male				DEU 27:9 <-(37 more)-> ACT 4:1
 prince of Tyre	1	Male				EZK 28:2 & EZK 28:9
 princes of the sea	-1	Male				EZK 26:17 & EZK 26:18	Prince of the Sea
 proclaimers of God's word	-1					PSA 68:12 & PSA 68:13
@@ -1008,9 +1008,9 @@ Satan (Devil)	1	Male			In the OT, FCBH uses "Satan" as the label	1CH 21:1 <-(15 
 satraps	-1	Male				DAN 6:5 <-(5 more)-> DAN 6:15
 Saul	1	Male				1SA 9:5 <-(90 more)-> 1CH 10:4
 Saul's announcement	1	Male				1SA 13:4
-Saul's attendants	-1	Male				1SA 16:15 <-(1 more)-> 1SA 28:7
 Saul's messengers to Jesse	-1	Male				1SA 16:19 & 1SA 16:22
-Saul's servant	1	Male				1SA 9:11 <-(1 more)-> 1SA 18:24
+Saul's servant (young)	1	Male	YoungAdult			1SA 16:18
+Saul's servants	-1	Male				1SA 16:15 <-(2 more)-> 1SA 28:7
 Saul's uncle	1	Male				1SA 10:14 & 1SA 10:15	Uncle
 saying (lie about disciples stealing Jesus' body)	1	Male				MAT 28:15
 saying (proverb)	1					GEN 22:14
@@ -1056,7 +1056,7 @@ servant of Elijah	1	Male				1KI 18:43 & 1KI 18:44
 servant of Naaman's wife (young girl)	1	Female	Child			2KI 5:3 & 2KI 5:4	Slave Girl (female)
 servant of Nabal	1	Male	YoungAdult		na?ar, nah'-ar; from H5287; a boy, from the age of infancy to adolescence	1SA 25:14 <-(2 more)-> 1SA 25:17
 servant of priest	1	Male				1SA 2:15 & 1SA 2:16
-servant of Saul	1	Male	YoungAdult		na?ar, nah'-ar; from H5287; a boy, from the age of infancy to adolescence	1SA 9:6 & 1SA 9:8
+servant of Saul (and of his father Kish)	1	Male	YoungAdult		na?ar, nah'-ar; from H5287; a boy, from the age of infancy to adolescence	1SA 9:6 <-(1 more)-> 1SA 9:11
 servants of Achish, king of Gath	-1	Male				1SA 21:11
 servants of David	-1	Male				1SA 25:40 <-(3 more)-> 1KI 1:2
 servants of Eglon, king of Moab	-1	Male				JDG 3:24
