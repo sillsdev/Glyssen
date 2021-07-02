@@ -7862,7 +7862,7 @@
   <block style="c" paragraphStart="true" chapter="107" book="PSA" initialStartVerse="0" characterId="BC-PSA">
     <text>107</text>
   </block>
-  <block style="p" chapter="107" initialStartVerse="1" characterId="Unknown">
+  <block style="p" chapter="107" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
     <text>Give thanks to Yahweh, for he is good, for his loving kindness endures forever.</text>
   </block>
@@ -8727,7 +8727,7 @@
   <block style="c" paragraphStart="true" chapter="119" book="PSA" initialStartVerse="0" characterId="BC-PSA">
     <text>119</text>
   </block>
-  <block style="p" chapter="119" initialStartVerse="1" characterId="Unknown">
+  <block style="p" chapter="119" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
     <text>Blessed are those whose ways are blameless, who walk according to Yahweh’s law.</text>
   </block>
