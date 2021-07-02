@@ -6720,12 +6720,14 @@ RUT	4	17	women of Bethlehem			Normal
 1CH	12	17	David			Normal		
 1CH	12	18	Amasai, chief of thirty			Normal		
 1CH	12	19	Philistine rulers			Normal		
-1CH	13	2	David		David, king	Normal		
-1CH	13	3	David		David, king	Normal		
-1CH	13	12	David		David, king	Normal		
-1CH	14	10	David		David, king	Normal		
+1CH	13	2	David			Normal		
+1CH	13	3	David			Normal		
+1CH	13	12	David			Normal		
+1CH	14	10	David			Normal		
 1CH	14	10	God		God (Yahweh)	Normal		
-1CH	14	11	David		David, king	Normal		
+1CH	14	11	David			Normal		
+1CH	14	12	David			Rare		
+1CH	14	12	Needs Review			Potential		
 1CH	14	14	God			Normal		
 1CH	14	15	God		God (Yahweh)	Normal		
 1CH	15	2	David		David, king	Normal		
@@ -6789,9 +6791,9 @@ RUT	4	17	women of Bethlehem			Normal
 1CH	17	25	David		David, king	Normal		
 1CH	17	26	David		David, king	Normal		
 1CH	17	27	David		David, king	Normal		
-1CH	19	2	David	thought	David, king	Normal		
+1CH	19	2	David			Normal		
 1CH	19	3	Ammonite nobles			Normal		2SA 10:3; 1CH 19:3
-1CH	19	5	David		David, king	Normal		
+1CH	19	5	David			Normal		
 1CH	19	12	Joab			Normal		
 1CH	19	13	Joab			Normal		
 1CH	21	2	David		David, king	Normal		
