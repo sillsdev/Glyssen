@@ -2894,7 +2894,7 @@
     <verse num="24" />
     <text>The servants of Saul told him, saying,</text>
   </block>
-  <block style="p" chapter="18" initialStartVerse="24" characterId="Saul's servant">
+  <block style="p" chapter="18" initialStartVerse="24" characterId="Saul's servants">
     <text>«David spoke like this.»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="25" characterId="narrator-1SA">
