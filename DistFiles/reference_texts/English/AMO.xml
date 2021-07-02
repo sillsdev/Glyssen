@@ -8,14 +8,18 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="1" characterId="narrator-AMO">
     <verse num="1" />
-    <text>The words of Amos, who was among the herdsmen of Tekoa, which he saw concerning Israel in the days of Uzziah king of Judah, and in the days of Jeroboam the son of Joash king of Israel, two years before the earthquake. </text>
+    <text>The words of Amos, who was among the herdsmen of Tekoa, which he saw concerning Israel in the days of Uzziah king of Judah, and in the days of Jeroboam the son of Joash king of Israel, two years before the earthquake.</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="2" characterId="narrator-AMO">
     <verse num="2" />
     <text>He said:</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="2" characterId="narrator-AMO">
-    <text>«God will roar from Zion, and utter his voice from Jerusalem; and the pastures of the shepherds will mourn, and the top of Carmel will wither.» </text>
+    <text>«Yahweh will roar from Zion, and utter his voice from Jerusalem; and utter his voice from Jerusalem; and the pastures of the shepherds will mourn, and the top of Carmel will wither.»</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="3" characterId="narrator-AMO">
     <verse num="3" />
-    <text>Thus says God:</text>
+    <text>Yahweh says:</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="3" characterId="God">
     <text>«For three transgressions of Damascus, yes, for four, I will not turn away its punishment; because they have threshed Gilead with threshing instruments of iron;</text>
@@ -29,9 +33,11 @@
     <text>I will break the bar of Damascus, and cut off the inhabitant from the valley of Aven, and him who holds the scepter from the house of Eden; and the people of Syria shall go into captivity to Kir,»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="5" characterId="narrator-AMO">
-    <text>says God. </text>
+    <text>says Yahweh.</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="6" characterId="narrator-AMO">
     <verse num="6" />
-    <text>Thus says God:</text>
+    <text>Yahweh says:</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="6" characterId="God">
     <text>«For three transgressions of Gaza, yes, for four, I will not turn away its punishment; because they carried away captive the whole community, to deliver them up to Edom;</text>
@@ -45,9 +51,11 @@
     <text>I will cut off the inhabitant from Ashdod, and him who holds the scepter from Ashkelon; and I will turn my hand against Ekron; and the remnant of the Philistines will perish,»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="8" characterId="narrator-AMO">
-    <text>says the Lord God. </text>
+    <text>says the Lord Yahweh.</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="9" characterId="narrator-AMO">
     <verse num="9" />
-    <text>Thus says God:</text>
+    <text>Yahweh says:</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="God">
     <text>«For three transgressions of Tyre, yes, for four, I will not turn away its punishment; because they delivered up the whole community to Edom, and didn’t remember the brotherly covenant;</text>
@@ -58,16 +66,18 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="11" characterId="narrator-AMO">
     <verse num="11" />
-    <text>Thus says God:</text>
+    <text>Yahweh says:</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="11" characterId="God">
-    <text>«For three transgressions of Edom, yes, for four, I will not turn away its punishment; because he pursued his brother with the sword, and cast off all pity, and his anger raged continually, and he kept his wrath forever; </text>
+    <text>«For three transgressions of Edom, yes, for four, I will not turn away its punishment; because he pursued his brother with the sword, and cast off all pity, and his anger raged continually, and he kept his wrath forever;</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="12" characterId="God">
     <verse num="12" />
     <text>but I will send a fire on Teman, and it will devour the palaces of Bozrah.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="13" characterId="narrator-AMO">
     <verse num="13" />
-    <text>Thus says God:</text>
+    <text>Yahweh says:</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="13" characterId="God">
     <text>«For three transgressions of the children of Ammon, yes, for four, I will not turn away its punishment; because they have ripped open the pregnant women of Gilead, that they may enlarge their border.</text>
@@ -81,14 +91,14 @@
     <text>and their king will go into captivity, he and his princes together,»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="15" characterId="narrator-AMO">
-    <text>says God.</text>
+    <text>says Yahweh.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="AMO" initialStartVerse="0" characterId="BC-AMO">
     <text>2</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="1" characterId="narrator-AMO">
     <verse num="1" />
-    <text>Thus says God:</text>
+    <text>Yahweh says:</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="1" characterId="God">
     <text>«For three transgressions of Moab, yes, for four, I will not turn away its punishment; because he burned the bones of the king of Edom into lime;</text>
@@ -99,15 +109,17 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="God">
     <verse num="3" />
-    <text>and I will cut off the judge from their midst, and will kill all its princes with him,»</text>
+    <text>and I will cut off the judge from among them, and will kill all its princes with him,»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="narrator-AMO">
-    <text>says God. </text>
+    <text>says Yahweh.</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-AMO">
     <verse num="4" />
-    <text>Thus says God:</text>
+    <text>Yahweh says:</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="God">
-    <text>«For three transgressions of Judah, yes, for four, I will not turn away its punishment; because they have rejected God’s law, and have not kept his statutes, and their lies have led them astray, after which their fathers walked;</text>
+    <text>«For three transgressions of Judah, yes, for four, I will not turn away its punishment; because they have rejected Yahweh’s law, and have not kept his statutes, and their lies have led them astray, after which their fathers walked;</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="5" characterId="God">
     <verse num="5" />
@@ -115,10 +127,10 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-AMO">
     <verse num="6" />
-    <text>Thus says God:</text>
+    <text>Yahweh says:</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="God">
-    <text>«For three transgressions of Israel, yes, for four, I will not turn away its punishment; because they have sold the righteous for silver, and the needy for a pair of shoes;</text>
+    <text>«For three transgressions of Israel, yes, for four, I will not turn away its punishment; because they have sold the righteous for silver, and the needy for a pair of sandals;</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="7" characterId="God">
     <verse num="7" />
@@ -141,11 +153,11 @@
     <text>I raised up some of your sons for prophets, and some of your young men for Nazirites. Isn’t this true, you children of Israel?»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="11" characterId="narrator-AMO">
-    <text>says God.</text>
+    <text>says Yahweh.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>But you gave the Nazirites wine to drink, and commanded the prophets, saying, ‹Don’t prophesy!›</text>
+    <text>«But you gave the Nazirites wine to drink, and commanded the prophets, saying, ‹Don’t prophesy!›</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="13" characterId="God">
     <verse num="13" />
@@ -161,100 +173,94 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="16" characterId="God">
     <verse num="16" />
-    <text>and he who is courageous among the mighty will flee away naked on that day,</text>
+    <text>and he who is courageous among the mighty will flee away naked on that day,»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="16" characterId="narrator-AMO">
-    <text>says God.</text>
+    <text>says Yahweh.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="AMO" initialStartVerse="0" characterId="BC-AMO">
     <text>3</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="1" characterId="narrator-AMO">
     <verse num="1" />
-    <text>Hear this word that God has spoken against you, children of Israel,</text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="1" characterId="God">
-    <text>against the whole family which I brought up out of the land of Egypt,</text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="1" characterId="narrator-AMO">
-    <text>saying:</text>
+    <text>Hear this word that Yahweh has spoken against you, children of Israel, against the whole family which I brought up out of the land of Egypt, saying:</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>You only have I chosen of all the families of the earth. Therefore I will punish you for all of your sins.</text>
+    <text>«I have only chosen you of all the families of the earth. Therefore I will punish you for all of your sins.»</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="3" characterId="God">
+  <block style="p" chapter="3" initialStartVerse="3" characterId="narrator-AMO">
     <verse num="3" />
     <text>Do two walk together, unless they have agreed?</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="4" characterId="God">
+  <block style="p" chapter="3" initialStartVerse="4" characterId="narrator-AMO">
     <verse num="4" />
     <text>Will a lion roar in the thicket, when he has no prey? Does a young lion cry out of his den, if he has caught nothing?</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="5" characterId="God">
+  <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-AMO">
     <verse num="5" />
     <text>Can a bird fall in a trap on the earth, where no snare is set for him? Does a snare spring up from the ground, when there is nothing to catch?</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="6" characterId="God">
+  <block style="p" chapter="3" initialStartVerse="6" characterId="narrator-AMO">
     <verse num="6" />
-    <text>Does the trumpet alarm sound in a city, without the people being afraid? Does evil happen to a city, and God hasn’t done it?</text>
+    <text>Does the trumpet alarm sound in a city, without the people being afraid? Does evil happen to a city, and Yahweh hasn’t done it?</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="7" characterId="God">
+  <block style="p" chapter="3" initialStartVerse="7" characterId="narrator-AMO">
     <verse num="7" />
-    <text>Surely the Lord God will do nothing, unless he reveals his secret to his servants the prophets.</text>
+    <text>Surely the Lord Yahweh will do nothing, unless he reveals his secret to his servants the prophets.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="8" characterId="God">
+  <block style="p" chapter="3" initialStartVerse="8" characterId="narrator-AMO">
     <verse num="8" />
-    <text>The lion has roared. Who will not fear? The Lord God has spoken. Who can but prophesy?</text>
+    <text>The lion has roared. Who will not fear? The Lord Yahweh has spoken. Who can but prophesy?</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="9" characterId="God">
+  <block style="p" chapter="3" initialStartVerse="9" characterId="narrator-AMO">
     <verse num="9" />
     <text>Proclaim in the palaces at Ashdod, and in the palaces in the land of Egypt, and say,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="9" characterId="narrator-AMO">
-    <text>«Assemble yourselves on the mountains of Samaria, and see what unrest is in her, and what oppression is among them.»</text>
+  <block style="p" chapter="3" initialStartVerse="9" characterId="God">
+    <text>«Assemble yourselves on the mountains of Samaria, and see what unrest is in her, and what oppression is among them.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="10" characterId="God">
     <verse num="10" />
-    <text>Indeed they don’t know to do right,</text>
+    <text>Indeed they don’t know to do right,»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="10" characterId="narrator-AMO">
-    <text>says God,</text>
+    <text>says Yahweh,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="10" characterId="God">
     <text>«Who hoard plunder and loot in their palaces.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="11" characterId="narrator-AMO">
     <verse num="11" />
-    <text>Therefore thus says the Lord God:</text>
+    <text>Therefore the Lord Yahweh says:</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="11" characterId="God">
     <text>«An adversary will overrun the land; and he will pull down your strongholds, and your fortresses will be plundered.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="12" characterId="narrator-AMO">
     <verse num="12" />
-    <text>Thus says God:</text>
+    <text>Yahweh says:</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="12" characterId="God">
-    <text>«As the shepherd rescues out of the mouth of the lion two legs, or a piece of an ear, so shall the children of Israel be rescued who sit in Samaria on the corner of a couch, and on the silken cushions of a bed.»</text>
+    <text>«As the shepherd rescues out of the mouth of the lion two legs, or a piece of an ear, so shall the children of Israel be rescued who sit in Samaria on the corner of a couch, and on the silken cushions of a bed.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>Listen, and testify against the house of Jacob,</text>
+    <text>Listen, and testify against the house of Jacob,»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="13" characterId="narrator-AMO">
-    <text>says the Lord God, the God of Armies.</text>
+    <text>says the Lord Yahweh, the God of Armies.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="14" characterId="God">
     <verse num="14" />
-    <text>For in the day that I visit the transgressions of Israel on him, I will also visit the altars of Bethel; and the horns of the altar will be cut off, and fall to the ground.</text>
+    <text>«For in the day that I visit the transgressions of Israel on him, I will also visit the altars of Bethel; and the horns of the altar will be cut off, and fall to the ground.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="15" characterId="God">
     <verse num="15" />
-    <text>I will strike the winter house with the summer house; and the houses of ivory will perish, and the great houses will have an end,</text>
+    <text>I will strike the winter house with the summer house; and the houses of ivory will perish, and the great houses will have an end,»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="15" characterId="narrator-AMO">
-    <text>says God.</text>
+    <text>says Yahweh.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="AMO" initialStartVerse="0" characterId="BC-AMO">
     <text>4</text>
@@ -268,7 +274,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="2" characterId="narrator-AMO">
     <verse num="2" />
-    <text>The Lord God has sworn by his holiness that behold,</text>
+    <text>The Lord Yahweh has sworn by his holiness that behold,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="2" characterId="God">
     <text>«The days shall come on you that they will take you away with hooks, and the last of you with fish hooks.</text>
@@ -278,65 +284,65 @@
     <text>You will go out at the breaks in the wall, everyone straight before her; and you will cast yourselves into Harmon,»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="3" characterId="narrator-AMO">
-    <text>says God.</text>
+    <text>says Yahweh.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>Go to Bethel, and sin; to Gilgal, and sin more. Bring your sacrifices every morning, your tithes every three days,</text>
+    <text>«Go to Bethel, and sin; to Gilgal, and sin more. Bring your sacrifices every morning, your tithes every three days,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>offer a sacrifice of thanksgiving of that which is leavened, and proclaim free will offerings and brag about them: for this pleases you, you children of Israel,</text>
+    <text>offer a sacrifice of thanksgiving of that which is leavened, and proclaim free will offerings and brag about them: for this pleases you, you children of Israel,»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="5" characterId="narrator-AMO">
-    <text>says the Lord God.</text>
+    <text>says the Lord Yahweh.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>I also have given you cleanness of teeth in all your cities, and lack of bread in every town; yet you haven’t returned to me,</text>
+    <text>«I also have given you cleanness of teeth in all your cities, and lack of bread in every town; yet you haven’t returned to me,»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="6" characterId="narrator-AMO">
-    <text>says God.</text>
+    <text>says Yahweh.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>I also have withheld the rain from you, when there were yet three months to the harvest; and I caused it to rain on one city, and caused it not to rain on another city. One place was rained on, and the piece where it didn’t rain withered.</text>
+    <text>«I also have withheld the rain from you, when there were yet three months to the harvest; and I caused it to rain on one city, and caused it not to rain on another city. One field was rained on, and the field where it didn’t rain withered.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>So two or three cities staggered to one city to drink water, and were not satisfied: yet you haven’t returned to me,</text>
+    <text>So two or three cities staggered to one city to drink water, and were not satisfied: yet you haven’t returned to me,»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="8" characterId="narrator-AMO">
-    <text>says God.</text>
+    <text>says Yahweh.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="9" characterId="God">
     <verse num="9" />
-    <text>I struck you with blight and mildew many times in your gardens and your vineyards; and your fig trees and your olive trees have the swarming locust devoured: yet you haven’t returned to me,</text>
+    <text>«I struck you with blight and mildew many times in your gardens and your vineyards; and the swarming locusts have devoured your fig trees and your olive trees; yet you haven’t returned to me,»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="9" characterId="narrator-AMO">
-    <text>says God.</text>
+    <text>says Yahweh.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="10" characterId="God">
     <verse num="10" />
-    <text>I sent plagues among you like I did Egypt. I have slain your young men with the sword, and have carried away your horses; and I filled your nostrils with the stench of your camp, yet you haven’t returned to me,</text>
+    <text>«I sent plagues among you like I did Egypt. I have slain your young men with the sword, and have carried away your horses; and I filled your nostrils with the stench of your camp, yet you haven’t returned to me,»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="10" characterId="narrator-AMO">
-    <text>says God.</text>
+    <text>says Yahweh.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="11" characterId="God">
     <verse num="11" />
-    <text>I have overthrown some of you, as when God overthrew Sodom and Gomorrah, and you were like a burning stick plucked out of the fire; yet you haven’t returned to me,</text>
+    <text>«I have overthrown some of you, as when God overthrew Sodom and Gomorrah, and you were like a burning stick plucked out of the fire; yet you haven’t returned to me,»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="11" characterId="narrator-AMO">
-    <text>says God.</text>
+    <text>says Yahweh.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>Therefore thus will I do to you, Israel; because I will do this to you, prepare to meet your God, Israel.</text>
+    <text>«Therefore I will do this to you, Israel; because I will do this to you, prepare to meet your God, Israel.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="13" characterId="narrator-AMO">
+  <block style="p" chapter="4" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>For, behold, he who forms the mountains, and creates the wind, and declares to man what is his thought; who makes the morning darkness, and treads on the high places of the Earth: God, the God of Armies, is his name.</text>
+    <text>For, behold, he who forms the mountains, creates the wind, and declares to man what is his thought; who makes the morning darkness and treads on the high places of the earth: Yahweh, the God of Armies, is his name.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="AMO" initialStartVerse="0" characterId="BC-AMO">
     <text>5</text>
@@ -345,27 +351,31 @@
     <verse num="1" />
     <text>Listen to this word which I take up for a lamentation over you, O house of Israel.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="2" characterId="narrator-AMO" delivery="lament">
+  <block style="p" chapter="5" initialStartVerse="2" characterId="narrator-AMO">
     <verse num="2" />
-    <text>The virgin of Israel has fallen; She shall rise no more. She is cast down on her land; there is no one to raise her up. </text>
+    <text>«The virgin of Israel has fallen; She shall rise no more. She is cast down on her land; there is no one to raise her up.»</text>
+  </block>
+  <block style="p" chapter="5" initialStartVerse="3" characterId="narrator-AMO">
     <verse num="3" />
-    <text>For thus says the Lord God:</text>
+    <text>For the Lord Yahweh says:</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="3" characterId="God">
-    <text>«The city that went forth a thousand shall have a hundred left, and that which went forth one hundred shall have ten left to the house of Israel.»</text>
+    <text>«The city that went out a thousand shall have a hundred left, and that which went out one hundred shall have ten left to the house of Israel.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="4" characterId="narrator-AMO">
     <verse num="4" />
-    <text>For thus says God to the house of Israel:</text>
+    <text>For Yahweh says to the house of Israel:</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="4" characterId="God">
-    <text>«Seek me, and you will live; </text>
+    <text>«Seek me, and you will live;</text>
+  </block>
+  <block style="p" chapter="5" initialStartVerse="5" characterId="God">
     <verse num="5" />
     <text>but don’t seek Bethel, nor enter into Gilgal, and don’t pass to Beersheba: for Gilgal shall surely go into captivity, and Bethel shall come to nothing.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>Seek God, and you will live; lest he break out like fire in the house of Joseph, and it devour, and there be no one to quench it in Bethel.</text>
+    <text>Seek Yahweh, and you will live; lest he break out like fire in the house of Joseph, and it devour, and there be no one to quench it in Bethel.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="7" characterId="God">
     <verse num="7" />
@@ -373,7 +383,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>seek him who made the Pleiades and Orion, and turns the shadow of death into the morning, and makes the day dark with night; who calls for the waters of the sea, and pours them out on the surface of the earth, God is his name,</text>
+    <text>seek him who made the Pleiades and Orion, and turns the shadow of death into the morning, and makes the day dark with night; who calls for the waters of the sea, and pours them out on the surface of the earth, Yahweh is his name,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="9" characterId="God">
     <verse num="9" />
@@ -385,11 +395,11 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="11" characterId="God">
     <verse num="11" />
-    <text>Forasmuch therefore as you trample on the poor, and take taxes from him of wheat: You have built houses of cut stone, but you will not dwell in them. You have planted pleasant vineyards, but you shall not drink their wine.</text>
+    <text>Therefore, because you trample on the poor and take taxes from him of wheat, you have built houses of cut stone, but you will not dwell in them. You have planted pleasant vineyards, but you shall not drink their wine.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>For I know how many your offenses, and how great are your sins-- you who afflict the just, who take a bribe, and who turn aside the needy in the courts.</text>
+    <text>For I know how many are your offenses, and how great are your sins— you who afflict the just, who take a bribe, and who turn away the needy in the courts.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="13" characterId="God">
     <verse num="13" />
@@ -397,29 +407,29 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="14" characterId="God">
     <verse num="14" />
-    <text>Seek good, and not evil, that you may live; and so God, the God of Armies, will be with you, as you say.</text>
+    <text>Seek good, and not evil, that you may live; and so Yahweh, the God of Armies, will be with you, as you say.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="15" characterId="God">
     <verse num="15" />
-    <text>Hate evil, love good, and establish justice in the courts. It may be that God, the God of Armies, will be gracious to the remnant of Joseph.»</text>
+    <text>Hate evil, love good, and establish justice in the courts. It may be that Yahweh, the God of Armies, will be gracious to the remnant of Joseph.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="16" characterId="narrator-AMO">
     <verse num="16" />
-    <text>Therefore thus says God, the God of Armies, the Lord:</text>
+    <text>Therefore Yahweh, the God of Armies, the Lord, says:</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="16" characterId="God">
-    <text>«Wailing will be in all the broad ways; and they will say in all the streets, ‹Alas! Alas!› and they will call the farmer to mourning, and those who are skillful in lamentation to wailing.</text>
+    <text>«Wailing will be in all the wide ways; and they will say in all the streets, ‹Alas! Alas!› and they will call the farmer to mourning, and those who are skillful in lamentation to wailing.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="17" characterId="God">
     <verse num="17" />
-    <text>In all vineyards there will be wailing; for I will pass through the midst of you,»</text>
+    <text>In all vineyards there will be wailing; for I will pass through the middle of you,»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="17" characterId="narrator-AMO">
-    <text>says God.</text>
+    <text>says Yahweh.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="18" characterId="God">
     <verse num="18" />
-    <text>Woe to you who desire the day of God! Why do you long for the day of God? It is darkness, and not light.</text>
+    <text>«Woe to you who desire the day of Yahweh! Why do you long for the day of Yahweh? It is darkness, and not light.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="19" characterId="God">
     <verse num="19" />
@@ -427,7 +437,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="20" characterId="God">
     <verse num="20" />
-    <text>Won’t the day of God be darkness, and not light? Even very dark, and no brightness in it?</text>
+    <text>Won’t the day of Yahweh be darkness, and not light? Even very dark, and no brightness in it?</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="21" characterId="God">
     <verse num="21" />
@@ -439,7 +449,9 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="23" characterId="God">
     <verse num="23" />
-    <text>Take away from me the noise of your songs! I will not listen to the music of your harps. </text>
+    <text>Take away from me the noise of your songs! I will not listen to the music of your harps.</text>
+  </block>
+  <block style="p" chapter="5" initialStartVerse="24" characterId="God">
     <verse num="24" />
     <text>But let justice roll on like rivers, and righteousness like a mighty stream.</text>
   </block>
@@ -456,7 +468,7 @@
     <text>Therefore will I cause you to go into captivity beyond Damascus,»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="27" characterId="narrator-AMO">
-    <text>says God, whose name is the God of Armies.</text>
+    <text>says Yahweh, whose name is the God of Armies.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="AMO" initialStartVerse="0" characterId="BC-AMO">
     <text>6</text>
@@ -471,11 +483,11 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="3" characterId="narrator-AMO">
     <verse num="3" />
-    <text>Those who put far away the evil day, and cause the seat of violence to come near;</text>
+    <text>Alas for those who put far away the evil day, and cause the seat of violence to come near,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="4" characterId="narrator-AMO">
     <verse num="4" />
-    <text>Who lie on beds of ivory, and stretch themselves on their couches, and eat the lambs out of the flock, and the calves out of the midst of the stall;</text>
+    <text>who lie on beds of ivory, and stretch themselves on their couches, and eat the lambs out of the flock, and the calves out of the middle of the stall,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="5" characterId="narrator-AMO">
     <verse num="5" />
@@ -489,57 +501,42 @@
     <verse num="7" />
     <text>Therefore they will now go captive with the first who go captive; and the feasting and lounging will end.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="8" characterId="narrator-AMO">
+  <block style="p" chapter="6" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>The Lord God has sworn by himself, says God, the God of Armies:</text>
+    <text>«The Lord Yahweh has sworn by himself,»</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="8" characterId="narrator-AMO">
+    <text>says Yahweh, the God of Armies:</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="8" characterId="God">
     <text>«I abhor the pride of Jacob, and detest his fortresses. Therefore I will deliver up the city with all that is in it.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="9" characterId="narrator-AMO">
+  <block style="p" chapter="6" initialStartVerse="9" characterId="God">
     <verse num="9" />
-    <text>It will happen, if there remain ten men in one house, that they shall die.</text>
+    <text>It will happen that if ten men remain in one house, they will die.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="10" characterId="narrator-AMO">
+  <block style="p" chapter="6" initialStartVerse="10" characterId="God">
     <verse num="10" />
-    <text>When a man’s relative carries him, even he who burns him, to bring bodies out of the house, and asks him who is in the innermost parts of the house,</text>
+    <text>When a man’s relative carries him, even he who burns him, to bring bodies out of the house, and asks him who is in the innermost parts of the house, ‹Is there yet any with you?› And he says, ‹No;› then he will say, ‹Hush! Indeed we must not mention Yahweh’s name.›</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="10" characterId="relative">
-    <text>Is there yet any with you?›</text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="10" characterId="narrator-AMO">
-    <text>And he says,</text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="10" characterId="someone hiding">
-    <text>‹No;</text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="10" characterId="narrator-AMO">
-    <text>then he will say,</text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="10" characterId="relative">
-    <text>Hush! Indeed we must not mention the name of God.›</text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="11" characterId="narrator-AMO">
+  <block style="p" chapter="6" initialStartVerse="11" characterId="God">
     <verse num="11" />
-    <text>For, behold, God commands, and the great house will be smashed to pieces, and the little house into bits.</text>
+    <text>For, behold, Yahweh commands, and the great house will be smashed to pieces, and the little house into bits.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="12" characterId="narrator-AMO">
+  <block style="p" chapter="6" initialStartVerse="12" characterId="God">
     <verse num="12" />
     <text>Do horses run on the rocky crags? Does one plow there with oxen? But you have turned justice into poison, and the fruit of righteousness into bitterness;</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="13" characterId="narrator-AMO">
+  <block style="p" chapter="6" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>you who rejoice in a thing of nothing, who say,</text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="13" characterId="conquerors of Lo Debar">
-    <text>Haven’t we taken for ourselves horns by our own strength?›</text>
+    <text>you who rejoice in a thing of nothing, who say, ‹Haven’t we taken for ourselves horns by our own strength?›</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="14" characterId="God">
     <verse num="14" />
     <text>For, behold, I will raise up against you a nation, house of Israel,»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="14" characterId="narrator-AMO">
-    <text>says God, the God of Armies;</text>
+    <text>says Yahweh, the God of Armies;</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="14" characterId="God">
     <text>«and they will afflict you from the entrance of Hamath to the brook of the Arabah.»</text>
@@ -549,37 +546,47 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="1" characterId="narrator-AMO">
     <verse num="1" />
-    <text>Thus the Lord God showed me: and behold, he formed locusts in the beginning of the shooting up of the latter growth; and behold, it was the latter growth after the king’s harvest.</text>
+    <text>Thus the Lord Yahweh showed me: and behold, he formed locusts in the beginning of the shooting up of the latter growth; and behold, it was the latter growth after the king’s harvest.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="2" characterId="narrator-AMO">
     <verse num="2" />
-    <text>It happened that, when they made an end of eating the grass of the land, then I said, «Lord God, forgive, I beg you! How could Jacob stand? For he is small.» </text>
+    <text>When they finished eating the grass of the land, then I said, «Lord Yahweh, forgive, I beg you! How could Jacob stand? For he is small.»</text>
+  </block>
+  <block style="p" chapter="7" initialStartVerse="3" characterId="narrator-AMO">
     <verse num="3" />
-    <text>God relented concerning this.</text>
+    <text>Yahweh relented concerning this.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="3" characterId="God">
     <text>«It shall not be,»</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="3" characterId="narrator-AMO">
-    <text>says God. </text>
+    <text>says Yahweh.</text>
+  </block>
+  <block style="p" chapter="7" initialStartVerse="4" characterId="narrator-AMO">
     <verse num="4" />
-    <text>Thus the Lord God showed me and behold, the Lord God called for judgment by fire; and it dried up the great deep, and would have devoured the land.</text>
+    <text>Thus the Lord Yahweh showed me and behold, the Lord Yahweh called for judgment by fire; and it dried up the great deep, and would have devoured the land.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="5" characterId="narrator-AMO">
     <verse num="5" />
-    <text>Then I said, «Lord God, stop, I beg you! How could Jacob stand? For he is small.» </text>
+    <text>Then I said, «Lord Yahweh, stop, I beg you! How could Jacob stand? For he is small.»</text>
+  </block>
+  <block style="p" chapter="7" initialStartVerse="6" characterId="narrator-AMO">
     <verse num="6" />
-    <text>God relented concerning this.</text>
+    <text>Yahweh relented concerning this.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="6" characterId="God">
     <text>«This also shall not be,»</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="6" characterId="narrator-AMO">
-    <text>says the Lord God. </text>
+    <text>says the Lord Yahweh.</text>
+  </block>
+  <block style="p" chapter="7" initialStartVerse="7" characterId="narrator-AMO">
     <verse num="7" />
-    <text>Thus he showed me and behold, the Lord stood beside a wall made by a plumb line, with a plumb line in his hand. </text>
+    <text>Thus he showed me and behold, the Lord stood beside a wall made by a plumb line, with a plumb line in his hand.</text>
+  </block>
+  <block style="p" chapter="7" initialStartVerse="8" characterId="narrator-AMO">
     <verse num="8" />
-    <text>God said to me,</text>
+    <text>Yahweh said to me,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="8" characterId="God">
     <text>«Amos, what do you see?»</text>
@@ -588,7 +595,7 @@
     <text>I said, «A plumb line.» Then the Lord said,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="8" characterId="God">
-    <text>«Behold, I will set a plumb line in the midst of my people Israel. I will not again pass by them any more.</text>
+    <text>«Behold, I will set a plumb line in the middle of my people Israel. I will not again pass by them any more.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="9" characterId="God">
     <verse num="9" />
@@ -599,7 +606,7 @@
     <text>Then Amaziah the priest of Bethel sent to Jeroboam king of Israel, saying,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="10" characterId="Amaziah, priest of Bethel">
-    <text>«Amos has conspired against you in the midst of the house of Israel. The land is not able to bear all his words.</text>
+    <text>«Amos has conspired against you in the middle of the house of Israel. The land is not able to bear all his words.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="11" characterId="Amaziah, priest of Bethel">
     <verse num="11" />
@@ -625,26 +632,24 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="15" characterId="Amos">
     <verse num="15" />
-    <text>and God took me from following the flock, and God said to me,</text>
-  </block>
-  <block style="p" chapter="7" initialStartVerse="15" characterId="God">
-    <text>‹Go, prophesy to my people Israel.›</text>
+    <text>and Yahweh took me from following the flock, and Yahweh said to me, ‹Go, prophesy to my people Israel.›</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="16" characterId="Amos">
     <verse num="16" />
-    <text>Now therefore listen to the word of God: ‹You say, Don’t prophesy against Israel, and don’t preach against the house of Isaac.› </text>
-    <verse num="17" />
-    <text>Therefore thus says God:</text>
+    <text>Now therefore listen to Yahweh’s word: ‹You say, Don’t prophesy against Israel, and don’t preach against the house of Isaac.›</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="17" characterId="God">
-    <text>‹Your wife shall be a prostitute in the city, and your sons and your daughters shall fall by the sword, and your land shall be divided by line; and you yourself shall die in a land that is unclean, and Israel shall surely be led away captive out of his land.› »</text>
+  <block style="p" chapter="7" initialStartVerse="17" characterId="Amos">
+    <verse num="17" />
+    <text>Therefore Yahweh says: ‹Your wife shall be a prostitute in the city, and your sons and your daughters shall fall by the sword, and your land shall be divided by line; and you yourself shall die in a land that is unclean, and Israel shall surely be led away captive out of his land.› »</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="AMO" initialStartVerse="0" characterId="BC-AMO">
     <text>8</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="1" characterId="narrator-AMO">
     <verse num="1" />
-    <text>Thus the Lord God showed me: behold, a basket of summer fruit. </text>
+    <text>Thus the Lord Yahweh showed me: behold, a basket of summer fruit.</text>
+  </block>
+  <block style="p" chapter="8" initialStartVerse="2" characterId="narrator-AMO">
     <verse num="2" />
     <text>He said,</text>
   </block>
@@ -652,37 +657,36 @@
     <text>«Amos, what do you see?»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="2" characterId="narrator-AMO">
-    <text>I said, «A basket of summer fruit.» Then God said to me,</text>
+    <text>I said, «A basket of summer fruit.» Then Yahweh said to me,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="2" characterId="God">
     <text>«The end has come on my people Israel. I will not again pass by them any more.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="3" characterId="God">
     <verse num="3" />
-    <text>The songs of the temple will be wailings in that day,»</text>
+    <text>The songs of the temple will be wailing in that day,»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="3" characterId="narrator-AMO">
-    <text>says the Lord God.</text>
+    <text>says the Lord Yahweh.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="3" characterId="God">
     <text>«The dead bodies will be many. In every place they will throw them out with silence.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>Hear this, you who desire to swallow up the needy, and cause the poor of the land to fail, </text>
+    <text>Hear this, you who desire to swallow up the needy, and cause the poor of the land to fail,</text>
+  </block>
+  <block style="p" chapter="8" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>Saying,</text>
+    <text>Saying, ‹When will the new moon be gone, that we may sell grain? And the Sabbath, that we may market wheat, making the ephah small, and the shekel large, and dealing falsely with balances of deceit;</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="5" characterId="oppressors of poor">
-    <text>‹When will the new moon be gone, that we may sell grain? And the Sabbath, that we may market wheat, making the ephah small, and the shekel large, and dealing falsely with balances of deceit;</text>
-  </block>
-  <block style="p" chapter="8" initialStartVerse="6" characterId="oppressors of poor">
+  <block style="p" chapter="8" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>that we may buy the poor for silver, and the needy for a pair of shoes, and sell the sweepings with the wheat?› »</text>
+    <text>that we may buy the poor for silver, and the needy for a pair of sandals, and sell the sweepings with the wheat?› »</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="7" characterId="narrator-AMO">
     <verse num="7" />
-    <text>God has sworn by the pride of Jacob,</text>
+    <text>Yahweh has sworn by the pride of Jacob,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="7" characterId="God">
     <text>«Surely I will never forget any of their works.</text>
@@ -696,26 +700,28 @@
     <text>It will happen in that day,»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="9" characterId="narrator-AMO">
-    <text>says the Lord God,</text>
+    <text>says the Lord Yahweh,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="9" characterId="God">
     <text>«that I will cause the sun to go down at noon, and I will darken the earth in the clear day.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="10" characterId="God">
     <verse num="10" />
-    <text>I will turn your feasts into mourning, and all your songs into lamentation; and I will make you wear sackcloth on all your bodies, and baldness on every head. I will make it like the mourning for an only son, and its end like a bitter day. </text>
+    <text>I will turn your feasts into mourning, and all your songs into lamentation; and I will make you wear sackcloth on all your bodies, and baldness on every head. I will make it like the mourning for an only son, and its end like a bitter day.</text>
+  </block>
+  <block style="p" chapter="8" initialStartVerse="11" characterId="God">
     <verse num="11" />
     <text>Behold, the days come,»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="11" characterId="narrator-AMO">
-    <text>says the Lord God,</text>
+    <text>says the Lord Yahweh,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="11" characterId="God">
-    <text>«that I will send a famine in the land, not a famine of bread, nor a thirst for water, but of hearing the words of God.</text>
+    <text>«that I will send a famine in the land, not a famine of bread, nor a thirst for water, but of hearing Yahweh’s words.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>They will wander from sea to sea, and from the north even to the east; they will run back and forth to seek the word of God, and will not find it.</text>
+    <text>They will wander from sea to sea, and from the north even to the east; they will run back and forth to seek Yahweh’s word, and will not find it.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="13" characterId="God">
     <verse num="13" />
@@ -741,47 +747,44 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="3" characterId="God">
     <verse num="3" />
-    <text>Though they hide themselves in the top of Carmel, I will search and take them out there; and though they be hidden from my sight in the bottom of the sea, there I will command the serpent, and it will bite them.</text>
+    <text>Though they hide themselves in the top of Carmel, I will search and take them out from there; and though they be hidden from my sight in the bottom of the sea, there I will command the serpent, and it will bite them.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="4" characterId="God">
     <verse num="4" />
     <text>Though they go into captivity before their enemies, there I will command the sword, and it will kill them. I will set my eyes on them for evil, and not for good.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="5" characterId="narrator-AMO">
+  <block style="p" chapter="9" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>For the Lord, God of Armies, is he who touches the land and it melts, and all who dwell in it will mourn; and it will rise up wholly like the River, and will sink again, like the River of Egypt.</text>
+    <text>For the Lord, Yahweh of Armies, is he who touches the land and it melts, and all who dwell in it will mourn; and it will rise up wholly like the River, and will sink again, like the River of Egypt.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="6" characterId="narrator-AMO">
+  <block style="p" chapter="9" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>It is he who builds his rooms in the heavens, and has founded his vault on the earth; he who calls for the waters of the sea, and pours them out on the surface of the earth; God is his name.</text>
+    <text>It is he who builds his rooms in the heavens, and has founded his vault on the earth; he who calls for the waters of the sea, and pours them out on the surface of the earth; Yahweh is his name.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="7" characterId="God">
     <verse num="7" />
     <text>Are you not like the children of the Ethiopians to me, children of Israel?»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="7" characterId="narrator-AMO">
-    <text>says God.</text>
+    <text>says Yahweh.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="7" characterId="God">
     <text>«Haven’t I brought up Israel out of the land of Egypt, and the Philistines from Caphtor, and the Syrians from Kir?</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>Behold, the eyes of the Lord God are on the sinful kingdom, and I will destroy it from off the surface of the earth; except that I will not utterly destroy the house of Jacob,»</text>
+    <text>Behold, the eyes of the Lord Yahweh are on the sinful kingdom, and I will destroy it from off the surface of the earth; except that I will not utterly destroy the house of Jacob,»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="8" characterId="narrator-AMO">
-    <text>says God.</text>
+    <text>says Yahweh.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="9" characterId="God">
     <verse num="9" />
-    <text>For, behold, I will command, and I will sift the house of Israel among all the nations, as grain is sifted in a sieve, yet not the least kernel will fall on the earth.</text>
+    <text>«For, behold, I will command, and I will sift the house of Israel among all the nations, as grain is sifted in a sieve, yet not the least kernel will fall on the earth.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="10" characterId="God">
     <verse num="10" />
-    <text>All the sinners of my people will die by the sword, who say,›</text>
-  </block>
-  <block style="p" chapter="9" initialStartVerse="10" characterId="sinners">
-    <text>Evil won’t overtake nor meet us.›</text>
+    <text>All the sinners of my people will die by the sword, who say, ‹Evil won’t overtake nor meet us.›</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="11" characterId="God">
     <verse num="11" />
@@ -789,31 +792,31 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>that they may possess the remnant of Edom, and all the nations who are called by my name,</text>
+    <text>that they may possess the remnant of Edom, and all the nations who are called by my name,»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="12" characterId="narrator-AMO">
-    <text>says God who does this.</text>
+    <text>says Yahweh who does this.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>Behold, the days come,</text>
+    <text>«Behold, the days come,»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="13" characterId="narrator-AMO">
-    <text>says God,</text>
+    <text>says Yahweh,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="13" characterId="God">
     <text>«that the plowman shall overtake the reaper, and the one treading grapes him who sows seed; and sweet wine will drip from the mountains, and flow from the hills.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="14" characterId="God">
     <verse num="14" />
-    <text>I will bring my people Israel back from captivity, and they will rebuild the ruined cities, and inhabit them; and they will plant vineyards, and drink wine from them. They shall also make gardens, and eat the fruit of them.</text>
+    <text>I will bring my people Israel back from captivity, and they will rebuild the ruined cities, and inhabit them; and they will plant vineyards, and drink wine from them. They shall also make gardens, and eat their fruit.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="15" characterId="God">
     <verse num="15" />
     <text>I will plant them on their land, and they will no more be plucked up out of their land which I have given them,»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="15" characterId="narrator-AMO">
-    <text>says God your God.</text>
+    <text>says Yahweh your God.</text>
   </block>
   <UnappliedSplits />
 </book>
