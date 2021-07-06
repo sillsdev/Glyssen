@@ -657,7 +657,7 @@ man's brother (hypothetical)	1	Male				ISA 3:7
 man's voice from the Ulai (in vision)	1	Male				DAN 8:16
 man, deceitful	1	Male				PRO 26:19
 man, still another	1	Male				LUK 9:61
-man, wicked	1	Male				PSA 10:6 <-(1 more)-> PSA 10:13
+man, wicked	1	Male				PSA 10:4 <-(2 more)-> PSA 10:13
 Manoah's wife, mother of Samson	1	Female				JDG 13:6 <-(4 more)-> JDG 14:3	Mother of Samson (female)
 Manoah, father of Samson	1	Male				JDG 13:8 <-(5 more)-> JDG 14:3	Manoah
 many in crowd	-1					MRK 9:26
@@ -729,6 +729,7 @@ messengers of Ben-Hadad, king of Aram	-1	Male				1KI 20:2 <-(3 more)-> 1KI 20:10
 messengers of Jabesh	-1	Male				1SA 11:4 & 1SA 11:9
 messengers of Saul	-1	Male				1SA 11:7
 messengers sent by Jacob	-1	Male				GEN 32:6
+messenger telling about Zimri's conspiracy	1	Male				1KI 16:16
 messengers to Jezebel	-1	Male				1KI 21:14
 messengers to Joab	-1	PreferMale				2SA 3:23
 messengers to Saul	-1	PreferMale				1SA 14:33

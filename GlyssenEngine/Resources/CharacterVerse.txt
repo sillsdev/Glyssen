@@ -6150,6 +6150,7 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	16	2	God		God (Yahweh)	Normal		
 1KI	16	3	God		God (Yahweh)	Normal		
 1KI	16	4	God		God (Yahweh)	Normal		
+1KI	16	16	messenger telling about Zimri's conspiracy			Indirect		
 1KI	17	1	Elijah			Normal		
 1KI	17	3	God		God (Yahweh)	Normal		
 1KI	17	4	God		God (Yahweh)	Normal		
@@ -8463,6 +8464,7 @@ PSA	3	2	narrator-PSA			Quotation
 PSA	4	6	David's enemies		David's foes, many	Normal		
 PSA	4	6	men, many			Normal		
 PSA	9	0	narrator-PSA			Quotation		
+PSA	10	4	man, wicked	thinking		Hypothetical		
 PSA	10	6	man, wicked			Hypothetical		
 PSA	10	11	man, wicked			Hypothetical		
 PSA	10	13	man, wicked			Hypothetical		

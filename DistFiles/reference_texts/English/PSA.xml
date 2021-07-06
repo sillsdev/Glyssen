@@ -493,7 +493,7 @@
     <verse num="4" />
     <text>The wicked, in the pride of his face, thinks,</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="4" characterId="Unknown">
+  <block style="p" chapter="10" initialStartVerse="4" characterId="man, wicked" delivery="thinking">
     <text>«I have no room for God.»</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="5" characterId="narrator-PSA">
