@@ -558,6 +558,7 @@ Jonathan	1	Male				1SA 14:1 <-(35 more)-> 1SA 23:17
 Jonathan's armor bearer	1	Male				1SA 14:7	Armor-bearer
 Jonathan, son of Abiathar	1	Male				2SA 17:21 <-(5 more)-> 1KI 1:48	Jonathan (priest)
 Joram (Jehoram), king of Israel	1	Male				2KI 3:7 <-(16 more)-> 2KI 9:23	Jehoram
+Joram, son of Toi	1	Male				2SA 8:10
 Joseph	1	Male				GEN 37:6 <-(84 more)-> EXO 13:19
 Joseph of Arimathaea	1	Male				MAT 27:58 <-(4 more)-> JHN 19:38
 Joseph, people of	1	Male				JOS 17:14 & JOS 17:16
@@ -1166,6 +1167,7 @@ three administrators	3	Male				DAN 6:6 <-(4 more)-> DAN 6:15
 Timothy	1	Male				1TI 6:17 & 1TI 6:18
 Titus	1	Male				2CO 8:17
 Tobiah the Ammonite official	1	Male				NEH 2:19 <-(3 more)-> NEH 6:9
+Toi, king of Hamath	1	Male				2SA 8:10
 townsmen of Ophrah	-1	Male				JDG 6:29 <-(1 more)-> JDG 6:32
 troublemakers	-1	Male				1SA 10:27
 twenty-four elders	24	Male				REV 4:11 <-(4 more)-> REV 19:4

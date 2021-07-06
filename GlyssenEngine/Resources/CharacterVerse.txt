@@ -5564,9 +5564,14 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	7	27	David		David, king	Normal		
 2SA	7	28	David		David, king	Normal		
 2SA	7	29	David		David, king	Normal		
+2SA	8	10	Joram, son of Toi			Rare		
+2SA	8	10	Toi, king of Hamath			Rare		
+2SA	8	10	Needs Review			Potential		
 2SA	9	1	David		David, king	Normal		
 2SA	9	2	David		David, king	Dialogue		
 2SA	9	2	Ziba, servant of Saul's household			Dialogue		
+2SA	9	2	officials of David			Rare		
+2SA	9	2	Needs Review			Rare		
 2SA	9	3	David		David, king	Dialogue		
 2SA	9	3	Ziba, servant of Saul's household			Dialogue		
 2SA	9	4	David		David, king	Dialogue		
@@ -5579,7 +5584,7 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	9	9	David		David, king	Dialogue		
 2SA	9	10	David		David, king	Dialogue		
 2SA	9	11	Ziba, servant of Saul's household			Dialogue		
-2SA	10	2	David	thought	David, king	Normal		
+2SA	10	2	David		David, king	Normal		
 2SA	10	3	Ammonite nobles			Normal		2SA 10:3; 1CH 19:3
 2SA	10	5	David		David, king	Normal		
 2SA	10	11	Joab			Normal		
@@ -5806,7 +5811,7 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	19	41	Israel		Israel, all the men of	Normal		
 2SA	19	42	Judah, men of			Normal		
 2SA	19	43	Israel, men of			Normal		
-2SA	20	1	Sheba, son of Bicri	troublemaker		Normal		
+2SA	20	1	Sheba, son of Bicri			Normal		
 2SA	20	4	David		David, king	Normal		
 2SA	20	6	David		David, king	Normal		
 2SA	20	9	Joab			Normal		
@@ -6380,6 +6385,8 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	4	6	son of widow			Dialogue		
 2KI	4	6	widow (from company of prophets)			Dialogue		
 2KI	4	7	Elisha			Dialogue		
+2KI	4	7	widow (from company of prophets)			Rare		
+2KI	4	7	Needs Review			Rare		
 2KI	4	9	Shunammite woman			Normal		
 2KI	4	10	Shunammite woman			Normal		
 2KI	4	12	Elisha			Dialogue		
@@ -6553,9 +6560,9 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	10	13	Jehu, son of Nimshi			Normal		
 2KI	10	13	relatives of Ahaziah, king of Judah			Normal		
 2KI	10	14	Jehu, son of Nimshi			Normal		
-2KI	10	15	Jehonadab, son of Rechab			Normal		
-2KI	10	15	Jehu, son of Nimshi			Normal		
-2KI	10	16	Jehu, son of Nimshi			Normal		
+2KI	10	15	Jehonadab, son of Rechab			Dialogue		
+2KI	10	15	Jehu, son of Nimshi			Dialogue		
+2KI	10	16	Jehu, son of Nimshi			Dialogue		
 2KI	10	18	Jehu, son of Nimshi			Normal		
 2KI	10	19	Jehu, son of Nimshi			Normal		
 2KI	10	20	Jehu, son of Nimshi			Normal		
@@ -9462,16 +9469,16 @@ ISA	14	24	God		God (Yahweh)	Normal
 ISA	14	24	Isaiah			Alternate		
 ISA	14	25	God		God (Yahweh)	Implicit		
 ISA	14	25	Isaiah			Alternate		
-ISA	14	26	Isaiah			Potential		
-ISA	14	26	God		God (Yahweh)	Alternate		
-ISA	14	27	Isaiah			Potential		
-ISA	14	27	God		God (Yahweh)	Alternate		
-ISA	14	29	God		God (Yahweh)	Implicit		
-ISA	14	29	Isaiah			Alternate		
-ISA	14	30	God		God (Yahweh)	Implicit		
-ISA	14	30	Isaiah			Alternate		
-ISA	14	31	God		God (Yahweh)	Implicit		
-ISA	14	31	Isaiah			Alternate		
+ISA	14	26	God		God (Yahweh)	Potential		
+ISA	14	26	Isaiah			Alternate		
+ISA	14	27	God		God (Yahweh)	Potential		
+ISA	14	27	Isaiah			Alternate		
+ISA	14	29	God		God (Yahweh)	Potential		
+ISA	14	29	Isaiah			Potential		
+ISA	14	30	God		God (Yahweh)	Potential		
+ISA	14	30	Isaiah			Potential		
+ISA	14	31	God		God (Yahweh)	Potential		
+ISA	14	31	Isaiah			Potential		
 ISA	14	32	Needs Review			Implicit		
 ISA	14	32	God		God (Yahweh)	Alternate		
 ISA	14	32	Isaiah			Alternate		
@@ -9613,7 +9620,11 @@ ISA	28	9	Needs Review			Potential
 ISA	28	10	hearers	mocking		Potential		
 ISA	28	10	Needs Review			Potential		
 ISA	28	10	God		God (Yahweh)	Quotation		
+# A translation may either have two quotes by God here or combine them into a single quote.
+# If it is left as two quotes, it might be possible (and sound better) to give the connecting
+# "and" to God as well, but this would of course depend on the target language.
 ISA	28	12	God		God (Yahweh)	Quotation		
+ISA	28	12	Needs Review			Rare		
 ISA	28	13	Isaiah			Potential		
 ISA	28	13	God	mocking	God (Yahweh)	Quotation		
 ISA	28	15	scoffers who rule people in Jerusalem	boasting		Hypothetical		
@@ -9657,7 +9668,11 @@ ISA	29	13	God		God (the Lord)	Normal
 ISA	29	14	God		God (Yahweh)	Implicit		
 ISA	29	15	Isaiah			Potential		
 ISA	29	15	God		God (Yahweh)	Alternate		
+# A translation may either have two quotes by those hiding from Yahweh here or combine them into a single quote.
+# If it is left as two quotes, it might be possible (and sound better) to give the connecting
+# "and" to those hiding from Yahweh as well, but this would of course depend on the target language.
 ISA	29	15	those hiding from Yahweh			Hypothetical		
+ISA	29	15	Needs Review			Rare		
 ISA	29	16	Isaiah			Potential		
 ISA	29	16	God		God (Yahweh)	Alternate		
 ISA	29	16	what is formed			Hypothetical		
