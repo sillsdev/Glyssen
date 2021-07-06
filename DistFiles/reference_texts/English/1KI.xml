@@ -2660,7 +2660,13 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="16" characterId="narrator-1KI">
     <verse num="16" />
-    <text>The people who were encamped heard say, Zimri has conspired, and has also struck the king: therefore all Israel made Omri, the captain of the army, king over Israel that day in the camp.</text>
+    <text>The people who were encamped heard that</text>
+  </block>
+  <block style="p" chapter="16" initialStartVerse="16" characterId="messenger telling about Zimri's conspiracy">
+    <text>Zimri had conspired, and had also killed the king.</text>
+  </block>
+  <block style="p" chapter="16" initialStartVerse="16" characterId="narrator-1KI">
+    <text>Therefore all Israel made Omri, the captain of the army, king over Israel that day in the camp.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="17" characterId="narrator-1KI">
     <verse num="17" />

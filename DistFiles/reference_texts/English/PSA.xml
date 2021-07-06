@@ -473,11 +473,16 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
-    <text>The wicked, in the pride of his face, has no room in his thoughts for God.</text>
+    <text>The wicked, in the pride of his face, thinks,</text>
+  </block>
+  <block style="p" chapter="10" initialStartVerse="4" characterId="man, wicked" delivery="thinking">
+    <text>«I have no room for God.»</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>His ways are prosperous at all times. He is haughty, and your laws are far from his sight. As for all his adversaries, he sneers at them. </text>
+    <text>His ways are prosperous at all times. He is arrogant, and your laws are far from his sight. As for all his adversaries, he sneers at them.</text>
+  </block>
+  <block style="p" chapter="10" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>He says in his heart,</text>
   </block>
