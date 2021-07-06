@@ -6120,7 +6120,7 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	13	12	old prophet in Bethel			Normal		
 1KI	13	13	old prophet in Bethel			Normal		
 1KI	13	14	man of God from Judah			Normal		
-1KI	13	14	old prophet in Bethel	deceitful		Normal		
+1KI	13	14	old prophet in Bethel			Normal		
 1KI	13	15	old prophet in Bethel	deceitful		Normal		
 1KI	13	16	man of God from Judah			Normal		
 1KI	13	17	man of God from Judah			Normal		
@@ -14755,8 +14755,10 @@ AMO	3	7	God		God (Yahweh)	Potential
 AMO	3	8	God		God (Yahweh)	Potential		
 AMO	3	9	God		God (Yahweh)	Normal		
 AMO	3	9	Amos			Normal		
+AMO	3	9	Needs Review			Implicit		
 AMO	3	10	God		God (Yahweh)	Normal		
 AMO	3	10	Amos		Amos (Yahweh says)	Potential		
+AMO	3	10	Needs Review			Implicit		
 AMO	3	11	Amos		Amos (Yahweh says)	Alternate		
 AMO	3	11	God		God (Yahweh)	Normal		
 AMO	3	12	Amos		Amos (Yahweh says)	Alternate		
@@ -14854,7 +14856,7 @@ AMO	7	2	Amos			Quotation
 AMO	7	3	God		God (Yahweh)	Normal		
 AMO	7	3	Amos		Amos (Yahweh says)	Alternate		
 AMO	7	4	God		God (Yahweh)	Potential		
-AMO	7	5	Amos			Quotation		
+AMO	7	5	narrator-AMO			ImplicitWithPotentialSelfQuote		
 AMO	7	6	God		God (Yahweh)	Normal		
 AMO	7	6	Amos		Amos (Yahweh says)	Alternate		
 AMO	7	8	Amos			Quotation		

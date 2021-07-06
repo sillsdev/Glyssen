@@ -53,7 +53,7 @@ ambassador sent by sea	-1	Male	Adult			ISA 18:2	Ambassador
 Ammonite nobles	-1	Male	Adult			2SA 10:3 & 1CH 19:3	Noble
 Ammonites	-1	Male	Adult			EZK 25:3
 Amnon, son of David	1	Male	Adult			2SA 13:4 <-(5 more)-> 2SA 13:17
-Amos	1	Male	Adult			AMO 1:2 <-(87 more)-> AMO 9:15
+Amos	1	Male	Adult			AMO 1:2 <-(86 more)-> AMO 9:15
 Ananias (Annas), the high priest (father-in-law of Caiaphas)	1	Male	Elder			JHN 18:19 <-(9 more)-> ACT 23:2
 Ananias of Damascus	1	Male	Adult			ACT 9:10 <-(2 more)-> ACT 9:17
 Ananias of Jerusalem	1	Male	Adult			ACT 5:2 & ACT 5:5
@@ -1248,7 +1248,7 @@ Zalmunna	1	Male				JDG 8:18 & JDG 8:21
 Zebah	1	Male				JDG 8:18 & JDG 8:21
 Zebul, governor of Shechem	1	Male				JDG 9:31 <-(3 more)-> JDG 9:38
 Zebulun	1	Male				GEN 37:8 <-(33 more)-> GEN 50:18
-Zechariah the prophet, son of Berechiah	1	Male				ZEC 1:2 <-(118 more)-> ZEC 13:9
+Zechariah the prophet, son of Berechiah	1	Male				ZEC 1:2 <-(118 more)-> ZEC 13:9	Zechariah
 Zechariah, son of Jehoiada the priest	1	Male				2CH 24:20 & 2CH 24:22
 Zedekiah, king of Judah	1	Male				JER 32:3 <-(16 more)-> JER 38:26	Zedekiah (king)
 Zedekiah, son of Hananiah	1	Male				JER 36:15 <-(2 more)-> JER 36:19

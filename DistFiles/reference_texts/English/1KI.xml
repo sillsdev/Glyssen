@@ -2169,10 +2169,10 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="24" characterId="God">
     <verse num="24" />
-    <text>‹Yahweh says, «You shall not go up or fight against your brothers, the children of Israel. Everyone return to his house; for this thing is from me.»</text>
+    <text>‹Yahweh says, «You shall not go up or fight against your brothers, the children of Israel. Everyone return to his house; for this thing is from me.» › » </text>
   </block>
   <block style="p" chapter="12" initialStartVerse="24" characterId="narrator-1KI">
-    <text>› » So they listened to Yahweh’s word, and returned and went their way, according to Yahweh’s word.</text>
+    <text>So they listened to Yahweh’s word, and returned and went their way, according to Yahweh’s word.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="25" characterId="narrator-1KI">
     <verse num="25" />
