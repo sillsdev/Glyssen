@@ -7033,13 +7033,13 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	20	10	Jehoshaphat, king of Judah	praying		Normal		
 2CH	20	11	Jehoshaphat, king of Judah	praying		Normal		
 2CH	20	12	Jehoshaphat, king of Judah	praying		Normal		
-2CH	20	15	Jahaziel (Spirit of the Lord on)			Normal		
-2CH	20	16	Jahaziel (Spirit of the Lord on)			Normal		
-2CH	20	17	Jahaziel (Spirit of the Lord on)			Normal		
+2CH	20	15	Jahaziel			Normal		
+2CH	20	16	Jahaziel			Normal		
+2CH	20	17	Jahaziel			Normal		
 2CH	20	20	Jehoshaphat, king of Judah			Normal		
 2CH	20	21	men appointed to sing and praise	singing		Normal		
 2CH	20	26	narrator-2CH			Quotation		
-2CH	20	37	Eliezer, prophet of the Lord			Normal		
+2CH	20	37	Eliezer the prophet, son of Dodavahu			Normal		
 2CH	21	12	Elijah	letter		Normal		
 2CH	21	13	Elijah	letter		Normal		
 2CH	21	14	Elijah	letter		Normal		
@@ -7072,9 +7072,9 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	25	19	Jehoash, king of Israel		Joash (Jehoash), king of Israel	Normal		
 2CH	26	18	Azariah the priest (during reign of Uzziah)/eighty other priests	courageous	Azariah the priest/eighty other priests	Normal	Azariah the priest (during reign of Uzziah)	
 2CH	26	23	people			Normal		
-2CH	28	9	Oded, prophet of the Lord			Normal		
-2CH	28	10	Oded, prophet of the Lord			Normal		
-2CH	28	11	Oded, prophet of the Lord			Normal		
+2CH	28	9	Oded, prophet			Normal		
+2CH	28	10	Oded, prophet			Normal		
+2CH	28	11	Oded, prophet			Normal		
 2CH	28	13	Azariah, son of Jehohanan/Berekiah/Jehizkiah/Amasa		leaders in Ephraim (Azariah/Berekiah/Jehizkiah/Amasa)	Normal		
 2CH	28	23	Ahaz, king of Judah	thought		Normal		
 2CH	29	5	Hezekiah, king of Judah			Normal		
@@ -8488,16 +8488,16 @@ PSA	22	8	men/people	mocking		Normal
 PSA	27	8	God			Quotation		
 PSA	27	8	narrator-PSA			Quotation		
 PSA	29	9	all in temple	praising		Hypothetical		
-PSA	30	6	narrator-PSA	feeling secure		Quotation		
-PSA	30	9	narrator-PSA	crying		Quotation		
-PSA	30	10	narrator-PSA	crying		Quotation		
-PSA	31	14	narrator-PSA	trusting God		Quotation		
-PSA	31	22	narrator-PSA	alarmed		Quotation		
-PSA	32	5	narrator-PSA	acknowledging sin		Quotation		
+PSA	30	6	narrator-PSA			Quotation		
+PSA	30	9	narrator-PSA			Quotation		
+PSA	30	10	narrator-PSA			Quotation		
+PSA	31	14	narrator-PSA			Quotation		
+PSA	31	22	narrator-PSA			Quotation		
+PSA	32	5	narrator-PSA			Quotation		
 PSA	35	3	God			Hypothetical		
-PSA	35	10	narrator-PSA	wholeheartedly		Quotation		
+PSA	35	10	narrator-PSA			Quotation		
 PSA	35	21	David's enemies	accusing		Normal		
-PSA	35	25	David's enemies	accusing		Normal		
+PSA	35	25	David's enemies	gloating		Normal		
 PSA	35	27	David's supporters	shouting		Normal		
 PSA	36	1	narrator-PSA			Potential		
 PSA	38	16	narrator-PSA			Quotation		
@@ -8629,6 +8629,8 @@ PSA	82	6	God		God (Yahweh)	Potential
 PSA	82	7	God		God (Yahweh)	Potential		
 PSA	83	4	enemies of Israel			Normal		
 PSA	83	12	enemies of Israel			Normal		
+PSA	83	12	Zebah/Zalmunna			Quotation		
+PSA	83	12	Needs Review			Normal		
 PSA	87	4	God			Implicit		
 PSA	87	4	saying about Gentile nations			Hypothetical		
 PSA	87	5	God			Normal		
@@ -8691,7 +8693,7 @@ PSA	110	4	God		God (Yahweh)	Normal
 PSA	115	2	nations			Quotation		
 PSA	118	2	Israel			Hypothetical		
 PSA	118	3	house of Aaron, the			Hypothetical		
-PSA	118	4	those who fear the Lord			Hypothetical		
+PSA	118	4	those who fear Yahweh			Hypothetical		
 PSA	118	15	sound of rejoicing and victory			Hypothetical		
 PSA	118	16	sound of rejoicing and victory			Hypothetical		
 PSA	122	1	worshipers		they (worshipers)	Quotation		
@@ -8871,17 +8873,17 @@ ECC	2	1	narrator-ECC			Quotation
 ECC	2	1	Solomon, king		teacher (Preacher)	Quotation		
 ECC	2	2	narrator-ECC			Quotation		
 ECC	2	2	Solomon, king		teacher (Preacher)	Quotation		
-ECC	2	15	narrator-ECC	said/thought in heart		Quotation		
+ECC	2	15	narrator-ECC			Quotation		
 ECC	2	15	Solomon, king	said/thought in heart	teacher (Preacher)	Quotation		
-ECC	3	17	narrator-ECC	said/thought in heart		Quotation		
+ECC	3	17	narrator-ECC			Quotation		
 ECC	3	17	Solomon, king	said/thought in heart	teacher (Preacher)	Quotation		
-ECC	3	18	narrator-ECC	said/thought in heart		Quotation		
+ECC	3	18	narrator-ECC			Quotation		
 ECC	3	18	Solomon, king	said/thought in heart	teacher (Preacher)	Quotation		
-ECC	3	19	narrator-ECC	said/thought in heart		Quotation		
+ECC	3	19	narrator-ECC			Quotation		
 ECC	3	19	Solomon, king	said/thought in heart	teacher (Preacher)	Quotation		
-ECC	3	20	narrator-ECC	said/thought in heart		Quotation		
+ECC	3	20	narrator-ECC			Quotation		
 ECC	3	20	Solomon, king	said/thought in heart	teacher (Preacher)	Quotation		
-ECC	3	21	narrator-ECC	said/thought in heart		Quotation		
+ECC	3	21	narrator-ECC			Quotation		
 ECC	3	21	Solomon, king	said/thought in heart	teacher (Preacher)	Quotation		
 ECC	4	8	man all alone			Hypothetical		
 ECC	5	6	narrator-ECC			Quotation		
@@ -10266,7 +10268,7 @@ ISA	55	13	Isaiah			Alternate
 ISA	56	1	God		God (Yahweh)	Normal		
 ISA	56	2	God		God (Yahweh)	Normal		
 ISA	56	3	narrator-ISA			Quotation		
-ISA	56	3	foreigner who has joined himself to the Lord			Hypothetical		
+ISA	56	3	foreigner who has joined himself to Yahweh			Hypothetical		
 ISA	56	3	eunuch			Hypothetical		
 ISA	56	4	God		God (Yahweh)	Normal		
 ISA	56	5	God		God (Yahweh)	Implicit		

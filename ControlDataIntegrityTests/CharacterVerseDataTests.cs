@@ -401,6 +401,23 @@ namespace ControlDataIntegrityTests
 			Assert.IsFalse(hypotheticalNarrators.Any(), "Hypothetical narrator quotes are not permitted:" + Environment.NewLine +
 				string.Join(Environment.NewLine, hypotheticalNarrators.Select(cv => $"{cv.BcvRef.AsString}")));
 		}
+
+		/// <summary>
+		/// Although the narrator does need to read with good expression, particularly in poetic and prophetic books where
+		/// the narrator is sometimes also the author. Glyssen does not display or save deliveries along with the narrator
+		/// character. Therefore, it makes no sense to have these in the control file. Presumably, the narrator will have
+		/// a pretty good idea of the context and required tone since he is recording pretty much the whole text. In any
+		/// case, the deliveries are only of minimal value and no substitute for good coaching during the recording and
+		/// good feedback during the review process.
+		/// </summary>
+		[Test]
+		public void DataIntegrity_NarratorCannotHaveDelivery()
+		{
+			var narratorsWithDelivery = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Where(i => i.Character.StartsWith("narrator-") &&
+				!String.IsNullOrEmpty(i.Delivery)).ToList();
+			Assert.IsFalse(narratorsWithDelivery.Any(), "Narrator quotes are not permitted to have delivery info:" + Environment.NewLine +
+				string.Join(Environment.NewLine, narratorsWithDelivery.Select(cv => $"{cv.BcvRef.AsString}")));
+		}
 		 
 		/// <summary>
 		/// The Rare quote type must always be accompanied by a Needs Review entry, because this type of quote nearly always requires

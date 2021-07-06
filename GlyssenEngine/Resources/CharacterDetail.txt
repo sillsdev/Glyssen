@@ -292,7 +292,7 @@ Eleven	11	Male	Adult		This should be spoken by one of the 11 disciples (excludin
 Eli	1	Male	Elder			1SA 1:14 <-(12 more)-> 1SA 4:16
 Eliab, David's brother	1	Male				1SA 17:28
 Eliakim	1	Male				2KI 18:26 <-(4 more)-> ISA 37:4
-Eliezer, prophet of the Lord	1	Male				2CH 20:37
+Eliezer the prophet, son of Dodavahu	1	Male				2CH 20:37
 Elihu, son of Barakel	1	Male				JOB 32:6 <-(155 more)-> JOB 37:24
 Elijah	1	Male				1KI 17:1 <-(48 more)-> JAS 5:17
 Eliphaz the Temanite	1	Male				JOB 4:2 <-(108 more)-> JOB 22:30
@@ -364,7 +364,7 @@ followers of Jesus	-1					LUK 22:49
 Folly	-1	Female				PRO 9:16 & PRO 9:17
 fool	1					PSA 14:1 <-(1 more)-> ECC 7:10
 foot	1	Neuter				1CO 12:15
-foreigner who has joined himself to the Lord	-1	Male				ISA 56:3	Foreigner
+foreigner who has joined himself to Yahweh	-1	Male				ISA 56:3	Foreigner
 foreman	1	Male				RUT 2:6 & RUT 2:7
 formerly mute demon-possessed man	1	Male				LUK 11:14
 fortune telling slave girl	1	Female	YoungAdult			ACT 16:17
@@ -492,7 +492,7 @@ Jabez	1	Male				1CH 4:10
 Jabez's mother	1	Female				1CH 4:9
 Jacob (Israel)	1	Male				GEN 25:31 <-(142 more)-> GEN 49:32
 Jael	1	Female				JDG 4:18 & JDG 4:22
-Jahaziel (Spirit of the Lord on)	1	Male				2CH 20:15 <-(1 more)-> 2CH 20:17
+Jahaziel	1	Male				2CH 20:15 <-(1 more)-> 2CH 20:17
 jailer in Philippi	1	Male				ACT 16:27 <-(2 more)-> ACT 16:36
 Jairus (synagogue leader)	1	Male				MAT 9:18 <-(2 more)-> LUK 8:41
 Jairus' wife	1	Female				MRK 5:42
@@ -793,7 +793,7 @@ non-reader	1					ISA 29:12
 oarsmen, mariners, pilots of the sea	-1		Adult			EZK 27:32 <-(3 more)-> EZK 27:36
 Obadiah, manager of Ahab's palace	1	Male				1KI 18:7 <-(5 more)-> 1KI 18:14
 Obadiah, prophet	1	Male				OBA 1:4 <-(1 more)-> OBA 1:18
-Oded, prophet of the Lord	1	Male				2CH 28:9 <-(1 more)-> 2CH 28:11	Oded (prophet)
+Oded, prophet	1	Male				2CH 28:9 <-(1 more)-> 2CH 28:11	Oded (prophet)
 officer of King Jehoshaphat of Israel	1	Male				2KI 3:11
 officer of King Joram of Israel	1	Male				2KI 7:13
 officer of king of Israel, on whose arm the king leaned	1	Male				2KI 7:2 & 2KI 7:19
@@ -807,7 +807,7 @@ officials	-1	Male				JER 26:16 <-(5 more)-> JHN 19:6
 officials from chief priests and Pharisees	-1	Male				JHN 18:5 & JHN 18:7
 officials of Belshazzar	-1	Male				DAN 5:4
 officials of Ben-Hadad, king of Aram	-1	Male				1KI 20:23 <-(4 more)-> 1KI 20:33
-officials of David	-1	Male				2SA 15:15
+officials of David	-1	Male				2SA 9:2 & 2SA 15:15
 officials of high priest, one of the	1	Male				JHN 18:22	Officer
 officials of Samaria	-1	Male				2KI 10:4 & 2KI 10:5	Elder
 officials of Succoth	-1	Male				JDG 8:6	Prince of Succoth
@@ -1158,7 +1158,7 @@ those standing near	-1	Male			accusers of Peter in courtyard	MAT 26:73 <-(1 more
 those standing near Paul in Sanhedrin	-1	Male				ACT 23:4
 those who afflict Jerusalem	-1	Male				ISA 51:23
 those who call on God	-1					ROM 10:14
-those who fear the Lord	-1					PSA 118:4
+those who fear Yahweh	-1					PSA 118:4
 those who go by	-1	Male			PSA 129:8	PSA 129:8
 those who heard	-1					HEB 12:19
 those who seek God	-1					PSA 70:4
@@ -1206,7 +1206,7 @@ whole earth	-1					REV 13:3
 wicked men of Gibeah	-1	Male				JDG 19:22
 wicked, the	-1					PSA 94:7 <-(1 more)-> JER 12:4
 widow	1	Female				DEU 25:7 <-(1 more)-> ACT 9:39
-widow (from company of prophets)	1	Female				2KI 4:1 <-(1 more)-> 2KI 4:6
+widow (from company of prophets)	1	Female				2KI 4:1 <-(2 more)-> 2KI 4:7
 widow at Zarephath	1	Female				1KI 17:12 <-(1 more)-> 1KI 17:24
 wife suspected of infidelity	1	Female				NUM 5:22
 Wisdom	1	Female				PRO 1:22 <-(52 more)-> PRO 9:12
@@ -1246,8 +1246,8 @@ young men (advisors of Rehoboam)	-1	Male	YoungAdult			1KI 12:10 <-(2 more)-> 2CH
 young women (maidens)	-1	Female	YoungAdult			1SA 9:12 & 1SA 9:13	Maiden (girl)
 Zacchaeus	1	Male				LUK 19:4 & LUK 19:8
 Zacharias (Zechariah)	1	Male				LUK 1:18 <-(12 more)-> LUK 1:79	Zechariah
-Zalmunna	1	Male				JDG 8:18 & JDG 8:21
-Zebah	1	Male				JDG 8:18 & JDG 8:21
+Zalmunna	1	Male				JDG 8:18 <-(1 more)-> PSA 83:12
+Zebah	1	Male				JDG 8:18 <-(1 more)-> PSA 83:12
 Zebul, governor of Shechem	1	Male				JDG 9:31 <-(3 more)-> JDG 9:38
 Zebulun	1	Male				GEN 37:8 <-(33 more)-> GEN 50:18
 Zechariah the prophet, son of Berechiah	1	Male				ZEC 1:2 <-(118 more)-> ZEC 13:9	Zechariah
