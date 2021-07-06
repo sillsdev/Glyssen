@@ -10,7 +10,7 @@
     <verse num="1" />
     <text>In the eighth month, in the second year of Darius, Yahweh’s word came to Zechariah the son of Berechiah, the son of Iddo, the prophet, saying,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="2" characterId="Zechariah">
+  <block style="p" chapter="1" initialStartVerse="2" characterId="Zechariah the prophet, son of Berechiah">
     <verse num="2" />
     <text>«Yahweh was very displeased with your fathers.</text>
   </block>
@@ -18,15 +18,15 @@
     <verse num="3" />
     <text>Therefore tell them: Yahweh of Armies says: ‹Return to me,› says Yahweh of Armies, ‹and I will return to you,› says Yahweh of Armies.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="4" characterId="Zechariah">
+  <block style="p" chapter="1" initialStartVerse="4" characterId="Zechariah the prophet, son of Berechiah">
     <verse num="4" />
     <text>Don’t you be like your fathers, to whom the former prophets proclaimed, saying: Yahweh of Armies says, ‹Return now from your evil ways, and from your evil doings;› but they didn’t hear, nor listen to me, says Yahweh.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="5" characterId="Zechariah">
+  <block style="p" chapter="1" initialStartVerse="5" characterId="Zechariah the prophet, son of Berechiah">
     <verse num="5" />
     <text>Your fathers, where are they? And the prophets, do they live forever?</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="6" characterId="Zechariah">
+  <block style="p" chapter="1" initialStartVerse="6" characterId="Zechariah the prophet, son of Berechiah">
     <verse num="6" />
     <text>But my words and my decrees, which I commanded my servants the prophets, didn’t they overtake your fathers? Then they repented and said, ‹Just as Yahweh of Armies determined to do to us, according to our ways, and according to our practices, so he has dealt with us.› »</text>
   </block>
