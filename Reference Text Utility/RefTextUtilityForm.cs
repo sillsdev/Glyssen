@@ -32,7 +32,7 @@ namespace Glyssen.ReferenceTextUtility
 		private static readonly string[] s_createActions = { "Create in Temp Folder", "Create/Overwrite" };
 
 		private static readonly Regex s_regexNumber = new Regex(@"\d+", RegexOptions.Compiled | RegexOptions.RightToLeft);
-		private string DefaultLogFilePath => Path.Combine(Path.GetTempPath(), "Reference Text Utlity Log.txt");
+		private string DefaultLogFilePath => Path.Combine(Path.GetTempPath(), "Reference Text Utility Log.txt");
 		private BackgroundWorker BackgroundProcessor { get; }
 		private ReferenceTextData Data
 		{
