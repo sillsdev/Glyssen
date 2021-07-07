@@ -355,6 +355,7 @@ Felix, governor of Judea	1	Male				ACT 23:34 <-(6 more)-> ACT 24:27
 fellow prophet who refused to strike him	1	Male				1KI 20:35
 Festus, governor of Judea	1	Male				ACT 25:4 <-(19 more)-> ACT 26:31
 figure like that of a man (in vision)	1	Male			Default character should be Jesus	EZK 8:5 <-(8 more)-> EZK 9:1
+fir trees and cedars of Lebanon	-1	Neuter				ISA 14:8	Tree
 flatterers	-1					PSA 12:4
 follower of Apollos	1					1CO 1:12 & 1CO 3:4
 follower of Cephas (Peter)	1					1CO 1:12
@@ -391,7 +392,7 @@ Gideon (Jerubbaal)	1	Male				JDG 6:13 <-(21 more)-> JDG 8:24
 Gilead, elders of	-1	Male				JDG 11:6 <-(1 more)-> JDG 11:10	Elder
 Gilead, leaders of	-1	Male				JDG 10:18	Elder
 Gilead, men of	-1	Male				JDG 12:5 & JDG 12:6	Gileadite
-God	1	Male		Y		GEN 1:3 <-(5882 more)-> REV 21:8
+God	1	Male		Y		GEN 1:3 <-(5885 more)-> REV 21:8
 God's chosen (beloved) friend or ally	1	Male				ISA 48:16
 Gog	1	Male				EZK 38:11 & EZK 38:12
 Goliath, Philistine champion	1	Male	Adult			1SA 17:8 <-(3 more)-> 1SA 17:44
@@ -923,7 +924,6 @@ Phineas the priest	1	Male				JOS 22:16 <-(5 more)-> JOS 22:32	Phinehas
 Phineas' wife (daughter-in-law of Eli)	1	Female				1SA 4:21 & 1SA 4:22	Mother of Ichabod (female)
 Pilate	1	Male				MAT 27:11 <-(47 more)-> JHN 19:22
 Pilate's wife	1	Female				MAT 27:19
-pine trees and cedars of Lebanon	-1	Neuter				ISA 14:8	Tree
 poets	-1					NUM 21:27 <-(2 more)-> NUM 21:30
 Potiphar's wife	1	Female				GEN 39:7 <-(6 more)-> GEN 39:19
 priest	-1	Male				NUM 5:19 <-(5 more)-> JER 23:33

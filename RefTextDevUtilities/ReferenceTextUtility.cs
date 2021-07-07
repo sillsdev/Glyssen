@@ -464,7 +464,8 @@ namespace Glyssen.RefTextDevUtilities
 						if (referenceTextRow.IsSectionHead)
 							continue;
 						
-						var currBookId = GetBookIdFromFcbhBookCode(referenceTextRow.Book, out var currBookNum);
+						var currBookId = referenceTextRow.Book;
+						var currBookNum = referenceTextRow.BookNum;
 
 						if (skippingBook == currBookNum)
 							continue;
@@ -579,6 +580,11 @@ namespace Glyssen.RefTextDevUtilities
 						}
 
 						var verseNumberFixedText = s_verseNumberInExcelRegex.Replace(originalText, "{$1}\u00A0");
+
+						if (currBookId == "ISA" && referenceTextRow.Chapter == "19" && referenceTextRow.Verse == "1")
+							System.Diagnostics.Trace.WriteLine("ISA 19:1");
+						if (currBookId == "PSA" && referenceTextRow.Chapter == "119" && referenceTextRow.Verse == "0")
+							System.Diagnostics.Trace.WriteLine("PSA 119:0");
 
 						var modifiedText = verseNumberFixedText.Replace("\n ", " ").Replace('\n', ' ').Replace("_x000D_", "");
 
@@ -1278,48 +1284,6 @@ namespace Glyssen.RefTextDevUtilities
 			}
 		}
 
-		private static string GetBookIdFromFcbhBookCode(string fcbhBookCode, out int bookNum)
-		{
-			bookNum = BCVRef.BookToNumber(fcbhBookCode);
-			if (bookNum > 0)
-				return fcbhBookCode;
-
-			string silBookCode = null;
-			switch (fcbhBookCode)
-			{
-				case "1SM":
-					silBookCode = "1SA";
-					break;
-				case "2SM":
-					silBookCode = "2SA";
-					break;
-				case "PSM":
-					silBookCode = "PSA";
-					break;
-				case "PRV":
-					silBookCode = "PRO";
-					break;
-				case "SOS":
-					silBookCode = "SNG";
-					break;
-				case "EZE":
-					silBookCode = "EZK";
-					break;
-				case "JOE":
-					silBookCode = "JOL";
-					break;
-				case "NAH":
-					silBookCode = "NAM";
-					break;
-				default:
-					WriteOutput($"Unexpected Book code: {fcbhBookCode}", true);
-					return fcbhBookCode;
-			}
-
-			bookNum = BCVRef.BookToNumber(silBookCode);
-			return silBookCode;
-		}
-
 		private static IEnumerable<CharacterSpeakingMode> GetAllCharacters(int bookNum, Block block, string overrideVerseNum = null)
 		{
 			if (!string.IsNullOrEmpty(overrideVerseNum))
@@ -1844,12 +1808,19 @@ namespace Glyssen.RefTextDevUtilities
 						break;
 					}
 					var verseStr = verseValue as string ?? ((double)verseValue).ToString(CultureInfo.InvariantCulture);
-					data.ReferenceTextRows.Add(new ReferenceTextRow(
-						ConvertFcbhBookCodeToSilBookCode((string)bookValue),
-						((double)cells[chapterCol + row].Value).ToString(CultureInfo.InvariantCulture),
-						verseStr,
-						(string)cells[characterCol + row].Value,
-						allLanguages.ToDictionary(kvp => kvp.Key, kvp => cells[kvp.Value + row].Value?.ToString())));
+					try
+					{
+						data.ReferenceTextRows.Add(new ReferenceTextRow(
+							(string)bookValue,
+							((double)cells[chapterCol + row].Value).ToString(CultureInfo.InvariantCulture),
+							verseStr,
+							(string)cells[characterCol + row].Value,
+							allLanguages.ToDictionary(kvp => kvp.Key, kvp => cells[kvp.Value + row].Value?.ToString())));
+					}
+					catch (ArgumentOutOfRangeException e)
+					{
+						WriteOutput(e.Message, true);
+					}
 
 					if (cancellationToken.IsCancellationRequested)
 						return null;
@@ -1983,19 +1954,6 @@ namespace Glyssen.RefTextDevUtilities
 			return false;
 		}
 
-		private static string ConvertFcbhBookCodeToSilBookCode(string bookCode)
-		{
-			switch (bookCode)
-			{
-				case "TTS":
-					return "TIT";
-				case "JMS":
-					return "JAS";
-				default:
-					return bookCode;
-			}
-		}
-
 		private static bool IsUnchanged(string excelStr, Block existingBlock, string bookId)
 		{
 			if (existingBlock == null)
@@ -2068,6 +2026,7 @@ namespace Glyssen.RefTextDevUtilities
 							break;
 					}
 				}
+
 				if (s_charactersToExcludeWhenComparing != null)
 				{
 					if (s_charactersToExcludeWhenComparing.IsMatch(c1.ToString()))
@@ -2081,8 +2040,10 @@ namespace Glyssen.RefTextDevUtilities
 							i1--; // recheck current character in s1 against next character in s2
 						else
 							return Math.Min(i1, i2); // mismatch
-					} 
+					}
 				}
+				else
+					break;
 			}
 
 			if (i1 == lim1 && i2 == lim2)

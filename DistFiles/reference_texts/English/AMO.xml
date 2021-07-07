@@ -123,7 +123,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>But I will send a fire on Judah, and it will devour the palaces of Jerusalem.»</text>
+    <text>but I will send a fire on Judah, and it will devour the palaces of Jerusalem.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-AMO">
     <verse num="6" />
@@ -465,7 +465,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="27" characterId="God">
     <verse num="27" />
-    <text>Therefore will I cause you to go into captivity beyond Damascus,»</text>
+    <text>Therefore I will cause you to go into captivity beyond Damascus,»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="27" characterId="narrator-AMO">
     <text>says Yahweh, whose name is the God of Armies.</text>
@@ -491,11 +491,11 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="5" characterId="narrator-AMO">
     <verse num="5" />
-    <text>who strum on the strings of a harp; who invent for themselves instruments of music, like David;</text>
+    <text>who strum on the strings of a harp, who invent for themselves instruments of music, like David;</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="6" characterId="narrator-AMO">
     <verse num="6" />
-    <text>who drink wine in bowls, and anoint themselves with the best oils; but they are not grieved for the affliction of Joseph.</text>
+    <text>who drink wine in bowls, and anoint themselves with the best oils, but they are not grieved for the affliction of Joseph.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="7" characterId="narrator-AMO">
     <verse num="7" />

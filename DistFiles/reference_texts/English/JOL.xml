@@ -48,11 +48,11 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="11" characterId="narrator-JOL">
     <verse num="11" />
-    <text>Be confounded, you farmers! Wail, you vineyard keepers; for the wheat and for the barley; for the harvest of the field has perished.</text>
+    <text>Be confounded, you farmers! Wail, you vineyard keepers, for the wheat and for the barley; for the harvest of the field has perished.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="12" characterId="narrator-JOL">
     <verse num="12" />
-    <text>The vine has dried up, and the fig tree withered; the pomegranate tree, the palm tree also, and the apple tree, even all of the trees of the field are withered; for joy has withered away from the sons of men.</text>
+    <text>The vine has dried up, and the fig tree withered— the pomegranate tree, the palm tree also, and the apple tree, even all of the trees of the field are withered; for joy has withered away from the sons of men.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="13" characterId="narrator-JOL">
     <verse num="13" />
@@ -68,7 +68,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="16" characterId="narrator-JOL">
     <verse num="16" />
-    <text>Isn’t the food cut off before our eyes; joy and gladness from the house of our God?</text>
+    <text>Isn’t the food cut off before our eyes, joy and gladness from the house of our God?</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="17" characterId="narrator-JOL">
     <verse num="17" />
@@ -84,7 +84,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="20" characterId="narrator-JOL">
     <verse num="20" />
-    <text>Yes, the animals of the field pant to you, for the water brooks have dried up, And the fire has devoured the pastures of the wilderness.</text>
+    <text>Yes, the animals of the field pant to you, for the water brooks have dried up, and the fire has devoured the pastures of the wilderness.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="JOL" initialStartVerse="0" characterId="BC-JOL">
     <text>2</text>
@@ -107,7 +107,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="5" characterId="narrator-JOL">
     <verse num="5" />
-    <text>Like the noise of chariots on the tops of the mountains do they leap, like the noise of a flame of fire that devours the stubble, as a strong people set in battle array.</text>
+    <text>Like the noise of chariots on the tops of the mountains, they leap, like the noise of a flame of fire that devours the stubble, like a strong people set in battle array.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-JOL">
     <verse num="6" />

@@ -98,14 +98,14 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="22" characterId="daughter of Zion">
     <verse num="22" />
-    <text>Let all their wickedness come before you; Do to them, as you have done to me for all my transgressions: For my sighs are many, and my heart is faint.</text>
+    <text>Let all their wickedness come before you. Do to them as you have done to me for all my transgressions. For my sighs are many, and my heart is faint.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="LAM" initialStartVerse="0" characterId="BC-LAM">
     <text>2</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="1" characterId="narrator-LAM">
     <verse num="1" />
-    <text>How has the Lord covered the daughter of Zion with a cloud in his anger! He has cast down from heaven to the earth the beauty of Israel, And hasn’t remembered his footstool in the day of his anger.</text>
+    <text>How has the Lord covered the daughter of Zion with a cloud in his anger! He has cast the beauty of Israel down from heaven to the earth, and hasn’t remembered his footstool in the day of his anger.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-LAM">
     <verse num="2" />
@@ -113,7 +113,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="narrator-LAM">
     <verse num="3" />
-    <text>He has cut off in fierce anger all the horn of Israel; He has drawn back his right hand from before the enemy: He has burned up Jacob like a flaming fire, which devours all around.</text>
+    <text>He has cut off all the horn of Israel in fierce anger. He has drawn back his right hand from before the enemy. He has burned up Jacob like a flaming fire, which devours all around.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-LAM">
     <verse num="4" />
@@ -133,7 +133,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="8" characterId="narrator-LAM">
     <verse num="8" />
-    <text>God has purposed to destroy the wall of the daughter of Zion; He has stretched out the line, he has not withdrawn his hand from destroying; He has made the rampart and wall to lament; they languish together.</text>
+    <text>Yahweh has purposed to destroy the wall of the daughter of Zion. He has stretched out the line. He has not withdrawn his hand from destroying; He has made the rampart and wall lament. They languish together.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="9" characterId="narrator-LAM">
     <verse num="9" />
@@ -141,7 +141,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="10" characterId="narrator-LAM">
     <verse num="10" />
-    <text>The elders of the daughter of Zion sit on the ground, they keep silence; They have cast up dust on their heads; they have clothed themselves with sackcloth: The virgins of Jerusalem hang down their heads to the ground.</text>
+    <text>The elders of the daughter of Zion sit on the ground. They keep silence. They have cast up dust on their heads. They have clothed themselves with sackcloth. The virgins of Jerusalem hang down their heads to the ground.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="11" characterId="narrator-LAM">
     <verse num="11" />
@@ -155,7 +155,7 @@
     <text>«Where is grain and wine?»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="12" characterId="narrator-LAM">
-    <text>When they swoon as the wounded in the streets of the city, when their soul is poured out into their mothers’ bosom.</text>
+    <text>when they swoon as the wounded in the streets of the city, when their soul is poured out into their mothers’ bosom.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="13" characterId="narrator-LAM">
     <verse num="13" />
@@ -170,7 +170,7 @@
     <text>All that pass by clap their hands at you. They hiss and wag their head at the daughter of Jerusalem, saying,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="15" characterId="passers by">
-    <text>«Is this the city that men called ‹The perfection of beauty, The joy of the whole earth’?»</text>
+    <text>«Is this the city that men called ‹The perfection of beauty, the joy of the whole earth›?»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="16" characterId="narrator-LAM">
     <verse num="16" />
@@ -220,7 +220,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="4" characterId="narrator-LAM">
     <verse num="4" />
-    <text>My flesh and my skin has he made old; he has broken my bones.</text>
+    <text>He has made my flesh and my skin old. He has broken my bones.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-LAM">
     <verse num="5" />
@@ -240,7 +240,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="9" characterId="narrator-LAM">
     <verse num="9" />
-    <text>He has walled up my ways with cut stone; he has made my paths crooked.</text>
+    <text>He has walled up my ways with cut stone. He has made my paths crooked.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="10" characterId="narrator-LAM">
     <verse num="10" />
@@ -432,14 +432,14 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="57" characterId="narrator-LAM">
     <verse num="57" />
-    <text>You drew near in the day that I called on you; you said,</text>
+    <text>You came near in the day that I called on you. You said,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="57" characterId="God">
     <text>«Don’t be afraid.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="58" characterId="narrator-LAM">
     <verse num="58" />
-    <text>Lord, you have pleaded the causes of my soul; you have redeemed my life.</text>
+    <text>Lord, you have pleaded the causes of my soul. You have redeemed my life.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="59" characterId="narrator-LAM">
     <verse num="59" />
@@ -482,7 +482,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="2" characterId="narrator-LAM">
     <verse num="2" />
-    <text>The precious sons of Zion, comparable to fine gold, How are they esteemed as earthen pitchers, the work of the hands of the potter!</text>
+    <text>The precious sons of Zion, comparable to fine gold, how they are esteemed as earthen pitchers, the work of the hands of the potter!</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="3" characterId="narrator-LAM">
     <verse num="3" />
@@ -510,11 +510,11 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="9" characterId="narrator-LAM">
     <verse num="9" />
-    <text>Those who are killed with the sword are better than those who are killed with hunger; For these pine away, stricken through, for want of the fruits of the field.</text>
+    <text>Those who are killed with the sword are better than those who are killed with hunger; For these pine away, stricken through, for lack of the fruits of the field.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="10" characterId="narrator-LAM">
     <verse num="10" />
-    <text>The hands of the pitiful women have boiled their own children; They were their food in the destruction of the daughter of my people.</text>
+    <text>The hands of the pitiful women have boiled their own children. They were their food in the destruction of the daughter of my people.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="11" characterId="narrator-LAM">
     <verse num="11" />
@@ -526,18 +526,18 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="13" characterId="narrator-LAM">
     <verse num="13" />
-    <text>It is because of the sins of her prophets, and the iniquities of her priests, That have shed the blood of the just in the midst of her.</text>
+    <text>It is because of the sins of her prophets and the iniquities of her priests, that have shed the blood of the just in the middle of her.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="14" characterId="narrator-LAM">
     <verse num="14" />
-    <text>They wander as blind men in the streets, they are polluted with blood, So that men can’t touch their garments.</text>
+    <text>They wander as blind men in the streets. They are polluted with blood, So that men can’t touch their garments.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="15" characterId="men">
     <verse num="15" />
     <text>«Go away!»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="15" characterId="narrator-LAM">
-    <text>they cried to them,</text>
+    <text>they cried to them.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="15" characterId="men">
     <text>«Unclean! Go away! Go away! Don’t touch!»</text>
@@ -554,7 +554,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="17" characterId="narrator-LAM">
     <verse num="17" />
-    <text>Our eyes do yet fail in looking for our vain help: In our watching we have watched for a nation that could not save.</text>
+    <text>Our eyes still fail, looking in vain for our help. In our watching we have watched for a nation that could not save.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="18" characterId="narrator-LAM">
     <verse num="18" />
@@ -574,7 +574,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="22" characterId="narrator-LAM">
     <verse num="22" />
-    <text>The punishment of your iniquity is accomplished, daughter of Zion; he will no more carry you away into captivity: He will visit your iniquity, daughter of Edom; he will uncover your sins.</text>
+    <text>The punishment of your iniquity is accomplished, daughter of Zion. He will no more carry you away into captivity. He will visit your iniquity, daughter of Edom. He will uncover your sins.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="LAM" initialStartVerse="0" characterId="BC-LAM">
     <text>5</text>
@@ -589,15 +589,15 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="3" characterId="narrator-LAM">
     <verse num="3" />
-    <text>We are orphans and fatherless; Our mothers are as widows.</text>
+    <text>We are orphans and fatherless. Our mothers are as widows.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="4" characterId="narrator-LAM">
     <verse num="4" />
-    <text>We have drunken our water for money; Our wood is sold to us.</text>
+    <text>We have drunken our water for money. Our wood is sold to us.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="5" characterId="narrator-LAM">
     <verse num="5" />
-    <text>Our pursuers are on our necks: We are weary, and have no rest.</text>
+    <text>Our pursuers are on our necks. We are weary, and have no rest.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="6" characterId="narrator-LAM">
     <verse num="6" />
@@ -605,7 +605,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="7" characterId="narrator-LAM">
     <verse num="7" />
-    <text>Our fathers sinned, and are no more; We have borne their iniquities.</text>
+    <text>Our fathers sinned, and are no more. We have borne their iniquities.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="8" characterId="narrator-LAM">
     <verse num="8" />

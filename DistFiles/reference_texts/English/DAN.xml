@@ -8,7 +8,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="1" characterId="narrator-DAN">
     <verse num="1" />
-    <text>In the third year of the reign of Jehoiakim king of Judah came Nebuchadnezzar king of Babylon to Jerusalem, and besieged it.</text>
+    <text>In the third year of the reign of Jehoiakim king of Judah, Nebuchadnezzar king of Babylon came to Jerusalem and besieged it.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="2" characterId="narrator-DAN">
     <verse num="2" />
@@ -75,7 +75,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="17" characterId="narrator-DAN">
     <verse num="17" />
-    <text>Now as for these four youths, God gave them knowledge and skill in all learning and wisdom: and Daniel had understanding in all visions and dreams.</text>
+    <text>Now as for these four youths, God gave them knowledge and skill in all learning and wisdom; and Daniel had understanding in all visions and dreams.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="18" characterId="narrator-DAN">
     <verse num="18" />
@@ -113,7 +113,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-DAN">
     <verse num="4" />
-    <text>Then spoke the Chaldeans to the king in the Syrian language,</text>
+    <text>Then the Chaldeans spoke to the king in the Syrian language,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="astrologers">
     <text>«O king, live forever! Tell your servants the dream, and we will show the interpretation.»</text>
@@ -123,11 +123,11 @@
     <text>The king answered the Chaldeans,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="5" characterId="Nebuchadnezzar, king of Babylon">
-    <text>The thing is gone from me: if you don’t make known to me the dream and its interpretation, you shall be cut in pieces, and your houses shall be made a dunghill.</text>
+    <text>«The thing has gone from me. If you don’t make known to me the dream and its interpretation, you will be cut in pieces, and your houses will be made a dunghill.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="Nebuchadnezzar, king of Babylon">
     <verse num="6" />
-    <text>But if you show the dream and its interpretation, you shall receive of me gifts and rewards and great honor: therefore show me the dream and its interpretation.</text>
+    <text>But if you show the dream and its interpretation, you will receive from me gifts, rewards, and great honor. Therefore show me the dream and its interpretation.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="7" characterId="narrator-DAN">
     <verse num="7" />
@@ -172,7 +172,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="15" characterId="narrator-DAN">
     <verse num="15" />
-    <text>he answered Arioch the king’s captain,</text>
+    <text>He answered Arioch the king’s captain,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="15" characterId="Daniel">
     <text>«Why is the decree so urgent from the king?»</text>
@@ -209,7 +209,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="22" characterId="Daniel">
     <verse num="22" />
-    <text>he reveals the deep and secret things; he knows what is in the darkness, and the light dwells with him.</text>
+    <text>He reveals the deep and secret things. He knows what is in the darkness, and the light dwells with him.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="23" characterId="Daniel">
     <verse num="23" />
@@ -217,14 +217,14 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="24" characterId="narrator-DAN">
     <verse num="24" />
-    <text>Therefore Daniel went in to Arioch, whom the king had appointed to destroy the wise men of Babylon; he went and said thus to him:</text>
+    <text>Therefore Daniel went in to Arioch, whom the king had appointed to destroy the wise men of Babylon. He went and said this to him:</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="24" characterId="Daniel">
     <text>«Don’t destroy the wise men of Babylon. Bring me in before the king, and I will show to the king the interpretation.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="25" characterId="narrator-DAN">
     <verse num="25" />
-    <text>Then Arioch brought in Daniel before the king in haste, and said thus to him,</text>
+    <text>Then Arioch brought in Daniel before the king in haste, and said this to him:</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="25" characterId="Arioch">
     <text>«I have found a man of the children of the captivity of Judah who will make known to the king the interpretation.»</text>
@@ -241,7 +241,7 @@
     <text>Daniel answered before the king, and said,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="27" characterId="Daniel">
-    <text>The secret which the king has demanded can neither wise men, enchanters, magicians, nor soothsayers, show to the king;</text>
+    <text>«The secret which the king has demanded can’t be shown to the king by wise men, enchanters, magicians, or soothsayers;</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="28" characterId="Daniel">
     <verse num="28" />
@@ -358,7 +358,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="herald">
     <verse num="5" />
-    <text>that whenever you hear the sound of the horn, flute, zither, lyre, harp, pipe, and all kinds of music, you fall down and worship the golden image that Nebuchadnezzar the king has set up;</text>
+    <text>that whenever you hear the sound of the horn, flute, zither, lyre, harp, pipe, and all kinds of music, you fall down and worship the golden image that Nebuchadnezzar the king has set up.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="6" characterId="herald">
     <verse num="6" />
@@ -431,7 +431,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="21" characterId="narrator-DAN">
     <verse num="21" />
-    <text>Then these men were bound in their pants, their tunics, and their mantles, and their other garments, and were cast into the midst of the burning fiery furnace.</text>
+    <text>Then these men were bound in their pants, their tunics, and their mantles, and their other clothes, and were cast into the middle of the burning fiery furnace.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="22" characterId="narrator-DAN">
     <verse num="22" />
@@ -443,7 +443,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="24" characterId="narrator-DAN">
     <verse num="24" />
-    <text>Then Nebuchadnezzar the king was astonished, and rose up in haste: he spoke and said to his counselors</text>
+    <text>Then Nebuchadnezzar the king was astonished and rose up in haste. He spoke and said to his counselors,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="24" characterId="Nebuchadnezzar, king of Babylon">
     <text>«Didn’t we cast three men bound into the middle of the fire?»</text>
@@ -463,10 +463,10 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="26" characterId="narrator-DAN">
     <verse num="26" />
-    <text>Then Nebuchadnezzar came near to the mouth of the burning fiery furnace: he spoke and said,</text>
+    <text>Then Nebuchadnezzar came near to the mouth of the burning fiery furnace. He spoke and said,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="26" characterId="Nebuchadnezzar, king of Babylon">
-    <text>Shadrach, Meshach, and Abednego, you servants of the Most High God, come forth, and come here.</text>
+    <text>«Shadrach, Meshach, and Abednego, you servants of the Most High God, come out, and come here!»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="26" characterId="narrator-DAN">
     <text>Then Shadrach, Meshach, and Abednego came out of the middle of the fire.</text>
@@ -480,7 +480,7 @@
     <text>Nebuchadnezzar spoke and said,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="28" characterId="Nebuchadnezzar, king of Babylon">
-    <text>Blessed be the God of Shadrach, Meshach, and Abednego, who has sent his angel, and delivered his servants who trusted in him, and have changed the king’s word, and have yielded their bodies, that they might not serve nor worship any god, except their own God.</text>
+    <text>«Blessed be the God of Shadrach, Meshach, and Abednego, who has sent his angel and delivered his servants who trusted in him, and have changed the king’s word, and have yielded their bodies, that they might not serve nor worship any god, except their own God.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="29" characterId="Nebuchadnezzar, king of Babylon">
     <verse num="29" />
@@ -515,7 +515,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="6" characterId="Nebuchadnezzar, king of Babylon" delivery="letter">
     <verse num="6" />
-    <text>Therefore made I a decree to bring in all the wise men of Babylon before me, that they might make known to me the interpretation of the dream.</text>
+    <text>Therefore I made a decree to bring in all the wise men of Babylon before me, that they might make known to me the interpretation of the dream.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="7" characterId="Nebuchadnezzar, king of Babylon" delivery="letter">
     <verse num="7" />
@@ -547,7 +547,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="14" characterId="Nebuchadnezzar, king of Babylon" delivery="letter">
     <verse num="14" />
-    <text>He cried aloud, and said thus, Cut down the tree, and cut off its branches, shake off its leaves, and scatter its fruit: let the animals get away from under it, and the fowls from its branches.</text>
+    <text>He cried aloud, and said this, ‹Cut down the tree, and cut off its branches! Shake off its leaves and scatter its fruit! Let the animals get away from under it, and the fowls from its branches.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="15" characterId="Nebuchadnezzar, king of Babylon" delivery="letter">
     <verse num="15" />
@@ -696,7 +696,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="9" characterId="narrator-DAN">
     <verse num="9" />
-    <text>Then was king Belshazzar greatly troubled, and his face was changed in him, and his lords were perplexed.</text>
+    <text>Then king Belshazzar was greatly troubled, and his face was changed in him, and his lords were perplexed.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="10" characterId="narrator-DAN">
     <verse num="10" />
@@ -715,7 +715,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="13" characterId="narrator-DAN">
     <verse num="13" />
-    <text>Then was Daniel brought in before the king. The king spoke and said to Daniel,</text>
+    <text>Then Daniel was brought in before the king. The king spoke and said to Daniel,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="13" characterId="Belshazzar, king of Babylon">
     <text>«Are you that Daniel of the children of the captivity of Judah, whom the king my father brought out of Judah?</text>
@@ -749,7 +749,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="20" characterId="Daniel">
     <verse num="20" />
-    <text>But when his heart was lifted up, and his spirit was hardened so that he dealt proudly, he was deposed from his kingly throne, and they took his glory from him:</text>
+    <text>But when his heart was lifted up, and his spirit was hardened so that he dealt proudly, he was deposed from his kingly throne, and they took his glory from him.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="21" characterId="Daniel">
     <verse num="21" />
@@ -765,7 +765,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="24" characterId="Daniel">
     <verse num="24" />
-    <text>Then was the part of the hand sent from before him, and this writing was inscribed.</text>
+    <text>Then the part of the hand was sent from before him, and this writing was inscribed.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="25" characterId="Daniel">
     <verse num="25" />
@@ -785,7 +785,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="29" characterId="narrator-DAN">
     <verse num="29" />
-    <text>Then commanded Belshazzar, and they clothed Daniel with purple, and put a chain of gold about his neck, and made proclamation concerning him, that he should be the third ruler in the kingdom.</text>
+    <text>Then Belshazzar commanded, and they clothed Daniel with purple, and put a chain of gold about his neck, and made proclamation concerning him, that he should be the third ruler in the kingdom.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="30" characterId="narrator-DAN">
     <verse num="30" />
@@ -863,7 +863,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="13" characterId="narrator-DAN">
     <verse num="13" />
-    <text>Then answered they and said before the king,</text>
+    <text>Then they answered and said before the king,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="13" characterId="satraps/three administrators">
     <text>«That Daniel, who is of the children of the captivity of Judah, doesn’t respect you, O king, nor the decree that you have signed, but makes his petition three times a day.»</text>
@@ -963,7 +963,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="4" characterId="Daniel">
     <verse num="4" />
-    <text>The first was like a lion, and had eagle’s wings: I saw until its wings were plucked, and it was lifted up from the earth, and made to stand on two feet as a man; and a man’s heart was given to it.</text>
+    <text>The first was like a lion, and had eagle’s wings. I watched until its wings were plucked, and it was lifted up from the earth, and made to stand on two feet as a man. A man’s heart was given to it.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="5" characterId="Daniel">
     <verse num="5" />
@@ -971,11 +971,11 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="6" characterId="Daniel">
     <verse num="6" />
-    <text>After this I saw, and behold, another, like a leopard, which had on its back four wings of a bird; the animal had also four heads; and dominion was given to it.</text>
+    <text>After this I saw, and behold, another, like a leopard, which had on its back four wings of a bird. The animal also had four heads; and dominion was given to it.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="7" characterId="Daniel">
     <verse num="7" />
-    <text>After this I saw in the night visions, and, behold, a fourth animal, awesome and powerful, and strong exceedingly; and it had great iron teeth; it devoured and broke in pieces, and stamped the residue with its feet: and it was diverse from all the animals that were before it; and it had ten horns.</text>
+    <text>After this I saw in the night visions, and, behold, there was a fourth animal, awesome and powerful, and exceedingly strong. It had great iron teeth. It devoured and broke in pieces, and stamped the residue with its feet. It was different from all the animals that were before it. It had ten horns.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="8" characterId="Daniel">
     <verse num="8" />
@@ -995,7 +995,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="12" characterId="Daniel">
     <verse num="12" />
-    <text>As for the rest of the animals, their dominion was taken away: yet their lives were prolonged for a season and a time.</text>
+    <text>As for the rest of the animals, their dominion was taken away; yet their lives were prolonged for a season and a time.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="13" characterId="Daniel">
     <verse num="13" />
@@ -1015,11 +1015,11 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="17" characterId="Daniel">
     <verse num="17" />
-    <text>These great animals, which are four, are four kings, who shall arise out of the earth.</text>
+    <text>‹These great animals, which are four, are four kings, who will arise out of the earth.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="18" characterId="Daniel">
     <verse num="18" />
-    <text>But the saints of the Most High shall receive the kingdom, and possess the kingdom forever, even forever and ever.</text>
+    <text>But the saints of the Most High will receive the kingdom, and possess the kingdom forever, even forever and ever.›</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="19" characterId="Daniel">
     <verse num="19" />
@@ -1031,7 +1031,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="21" characterId="Daniel">
     <verse num="21" />
-    <text>I saw, and the same horn made war with the saints, and prevailed against them;</text>
+    <text>I saw, and the same horn made war with the saints, and prevailed against them,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="22" characterId="Daniel">
     <verse num="22" />
@@ -1098,11 +1098,11 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="9" characterId="narrator-DAN">
     <verse num="9" />
-    <text>Out of one of them came forth a little horn, which grew exceeding great, toward the south, and toward the east, and toward the glorious land.</text>
+    <text>Out of one of them came out a little horn, which grew exceedingly great, toward the south, and toward the east, and toward the glorious land.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="10" characterId="narrator-DAN">
     <verse num="10" />
-    <text>It grew great, even to the army of the sky; and some of the army and of the stars it cast down to the ground, and trampled on them.</text>
+    <text>It grew great, even to the army of the sky; and it cast down some of the army and of the stars to the ground, and trampled on them.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="11" characterId="narrator-DAN">
     <verse num="11" />
@@ -1139,7 +1139,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="17" characterId="narrator-DAN">
     <verse num="17" />
-    <text>So he came near where I stood; and when he came, I was frightened, and fell on my face: but he said to me,</text>
+    <text>So he came near where I stood; and when he came, I was frightened, and fell on my face; but he said to me,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="17" characterId="Gabriel">
     <text>«Understand, son of man; for the vision belongs to the time of the end.»</text>
@@ -1153,7 +1153,7 @@
     <text>He said,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="19" characterId="Gabriel">
-    <text>Behold, I will make you know what shall be in the latter time of the indignation; for it belongs to the appointed time of the end.</text>
+    <text>«Behold, I will make you know what will be in the latter time of the indignation; for it belongs to the appointed time of the end.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="20" characterId="Gabriel">
     <verse num="20" />
@@ -1169,7 +1169,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="23" characterId="Gabriel">
     <verse num="23" />
-    <text>In the latter time of their kingdom, when the transgressors are come to the full, a king of fierce face, and understanding dark sentences, shall stand up.</text>
+    <text>In the latter time of their kingdom, when the transgressors have come to the full, a king of fierce face, and understanding dark sentences, will stand up.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="24" characterId="Gabriel">
     <verse num="24" />
@@ -1216,7 +1216,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="7" characterId="narrator-DAN">
     <verse num="7" />
-    <text>Lord, righteousness belongs to you, but to us confusion of face, as at this day; to the men of Judah, and to the inhabitants of Jerusalem, and to all Israel, who are near, and who are far off, through all the countries where you have driven them, because of their trespass that they have trespassed against you.</text>
+    <text>Lord, righteousness belongs to you, but to us confusion of face, as it is today; to the men of Judah, and to the inhabitants of Jerusalem, and to all Israel, who are near, and who are far off, through all the countries where you have driven them, because of their trespass that they have trespassed against you.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="8" characterId="narrator-DAN">
     <verse num="8" />
@@ -1224,7 +1224,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="9" characterId="narrator-DAN">
     <verse num="9" />
-    <text>To the Lord our God belong mercies and forgiveness; for we have rebelled against him;</text>
+    <text>To the Lord our God belong mercies and forgiveness; for we have rebelled against him.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="10" characterId="narrator-DAN">
     <verse num="10" />
@@ -1232,7 +1232,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="11" characterId="narrator-DAN">
     <verse num="11" />
-    <text>Yes, all Israel have transgressed your law, turning aside, that they should not obey your voice: therefore the curse and the oath written in the law of Moses the servant of God has been poured out on us; for we have sinned against him.</text>
+    <text>Yes, all Israel have transgressed your law, turning aside, that they should not obey your voice. Therefore the curse and the oath written in the law of Moses the servant of God has been poured out on us; for we have sinned against him.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="12" characterId="narrator-DAN">
     <verse num="12" />
@@ -1260,7 +1260,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="18" characterId="narrator-DAN">
     <verse num="18" />
-    <text>My God, turn your ear, and hear; open your eyes, and see our desolations, and the city which is called by your name: for we do not present our petitions before you for our righteousness, but for your great mercies’ sake.</text>
+    <text>My God, turn your ear, and hear. Open your eyes, and see our desolations, and the city which is called by your name; for we do not present our petitions before you for our righteousness, but for your great mercies’ sake.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="19" characterId="narrator-DAN">
     <verse num="19" />
@@ -1367,7 +1367,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="14" characterId="man in linen above river">
     <verse num="14" />
-    <text>Now I have come to make you understand what shall happen to your people in the latter days; for the vision is yet for many days:</text>
+    <text>Now I have come to make you understand what will happen to your people in the latter days; for the vision is yet for many days.»</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="15" characterId="narrator-DAN">
     <verse num="15" />
@@ -1535,11 +1535,11 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="32" characterId="man in linen above river">
     <verse num="32" />
-    <text>Such as do wickedly against the covenant shall he pervert by flatteries; but the people who know their God shall be strong, and do exploits.</text>
+    <text>He will corrupt those who do wickedly against the covenant by flatteries; but the people who know their God will be strong, and take action.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="33" characterId="man in linen above river">
     <verse num="33" />
-    <text>Those who are wise among the people shall instruct many; yet they shall fall by the sword and by flame, by captivity and by spoil, many days.</text>
+    <text>Those who are wise among the people will instruct many; yet they will fall by the sword and by flame, by captivity and by plunder, many days.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="34" characterId="man in linen above river">
     <verse num="34" />
@@ -1587,7 +1587,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="45" characterId="man in linen above river">
     <verse num="45" />
-    <text>He shall plant the tents of his palace between the sea and the glorious holy mountain; yet he shall come to his end, and none shall help him.</text>
+    <text>He will plant the tents of his palace between the sea and the glorious holy mountain; yet he will come to his end, and no one will help him.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="DAN" initialStartVerse="0" characterId="BC-DAN">
     <text>12</text>

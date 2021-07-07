@@ -9151,9 +9151,18 @@ ISA	2	20	Isaiah			Potential
 ISA	2	21	Isaiah			Potential		
 ISA	2	22	Isaiah			Potential		
 ISA	3	1	Isaiah			Potential		
+ISA	3	1	God		God (Yahweh)	Alternate		
 ISA	3	2	Isaiah			Potential		
+ISA	3	2	God		God (Yahweh)	Alternate		
 ISA	3	3	Isaiah			Potential		
-ISA	3	4	God		God (Yahweh)	Implicit		
+ISA	3	3	God		God (Yahweh)	Alternate		
+# This verse used to be given implicitly to God based on the wording. There is nothing in the text that
+# appears to make it a quote, unless you make everything from 4-15a a quote by God. Many English translations
+# do put v. 4 in quotes and a few of the less literal ones add a reporting clause. Since the WEB does not do this,
+# the English reference text now keeps it as narrator (Isaiah). (As the prophet, he can certainly speak on God's
+# behalf.) By implicitly marking this verse as Needs Review, it should get the required scrutiny.
+ISA	3	4	Needs Review			Implicit		
+ISA	3	4	God		God (Yahweh)	Potential		
 ISA	3	5	God		God (Yahweh)	Potential		
 ISA	3	5	Isaiah			Potential		
 ISA	3	6	man (hypothetical)			Hypothetical		
@@ -9398,7 +9407,8 @@ ISA	12	5	Isaiah			Alternate
 ISA	12	6	Israel			Hypothetical		
 ISA	12	6	Isaiah			Alternate		
 ISA	13	2	Isaiah			Potential		
-ISA	13	2	God		God (Yahweh)	Alternate		
+ISA	13	2	God		God (Yahweh)	Potential		
+ISA	13	3	Needs Review			Alternate		
 ISA	13	3	God		God (Yahweh)	Implicit		
 # This is unlikely, but some translations (e.g., CEV) may turn v. 3 into 3rd-person.
 ISA	13	3	Isaiah			Alternate		
@@ -9417,8 +9427,11 @@ ISA	13	9	God		God (Yahweh)	Alternate
 ISA	13	10	Isaiah			Potential		
 ISA	13	10	God		God (Yahweh)	Alternate		
 ISA	13	11	God			Implicit		
+ISA	13	11	Needs Review			Alternate		
 ISA	13	12	God			Implicit		
+ISA	13	12	Needs Review			Alternate		
 ISA	13	13	God			Implicit		
+ISA	13	13	Needs Review			Alternate		
 ISA	13	14	Isaiah			Potential		
 ISA	13	14	God		God (Yahweh)	Alternate		
 ISA	13	15	Isaiah			Potential		
@@ -9426,6 +9439,7 @@ ISA	13	15	God		God (Yahweh)	Alternate
 ISA	13	16	Isaiah			Potential		
 ISA	13	16	God		God (Yahweh)	Alternate		
 ISA	13	17	God			Implicit		
+ISA	13	17	Needs Review			Alternate		
 ISA	13	18	Isaiah			Potential		
 ISA	13	18	God		God (Yahweh)	Alternate		
 ISA	13	19	Isaiah			Potential		
@@ -9448,7 +9462,7 @@ ISA	14	6	Isaiah			Potential
 ISA	14	7	you (people of Zion, restored)			Hypothetical		
 ISA	14	7	Isaiah			Potential		
 ISA	14	8	you (people of Zion, restored)			Hypothetical		
-ISA	14	8	pine trees and cedars of Lebanon			Hypothetical		
+ISA	14	8	fir trees and cedars of Lebanon			Hypothetical		
 ISA	14	8	Isaiah			Potential		
 ISA	14	9	you (people of Zion, restored)			Hypothetical		
 ISA	14	9	Isaiah			Potential		

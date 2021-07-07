@@ -40,7 +40,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="narrator-EZK">
     <verse num="9" />
-    <text>their wings were joined one to another; they didn’t turn when they went; each one went straight forward.</text>
+    <text>Their wings were joined to one another. They didn’t turn when they went. Each one went straight forward.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="10" characterId="narrator-EZK">
     <verse num="10" />
@@ -52,7 +52,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="12" characterId="narrator-EZK">
     <verse num="12" />
-    <text>Each one went straight forward: where the spirit was to go, they went; they didn’t turn when they went.</text>
+    <text>Each one went straight forward: where the spirit was to go, they went. They didn’t turn when they went.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="13" characterId="narrator-EZK">
     <verse num="13" />
@@ -72,7 +72,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="17" characterId="narrator-EZK">
     <verse num="17" />
-    <text>When they went, they went in their four directions: they didn’t turn when they went.</text>
+    <text>When they went, they went in their four directions. They didn’t turn when they went.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="18" characterId="narrator-EZK">
     <verse num="18" />
@@ -100,11 +100,11 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="24" characterId="narrator-EZK">
     <verse num="24" />
-    <text>When they went, I heard the noise of their wings like the noise of great waters, like the voice of the Almighty, a noise of tumult like the noise of an army: when they stood, they let down their wings.</text>
+    <text>When they went, I heard the noise of their wings like the noise of great waters, like the voice of the Almighty, a noise of tumult like the noise of an army. When they stood, they let down their wings.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="25" characterId="narrator-EZK">
     <verse num="25" />
-    <text>There was a voice above the expanse that was over their heads: when they stood, they let down their wings.</text>
+    <text>There was a voice above the expanse that was over their heads. When they stood, they let down their wings.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="26" characterId="narrator-EZK">
     <verse num="26" />
@@ -208,7 +208,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>But the house of Israel will not listen to you; for they will not listen to me: for all the house of Israel are obstinate and hard-hearted.</text>
+    <text>But the house of Israel will not listen to you, for they will not listen to me; for all the house of Israel are obstinate and hard-hearted.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="8" characterId="God">
     <verse num="8" />
@@ -234,7 +234,7 @@
     <text>Then the Spirit lifted me up, and I heard behind me the voice of a great rushing, saying,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="12" characterId="rumbling sound" delivery="loud (thundering)">
-    <text>Blessed be the glory of God from his place.</text>
+    <text>«Blessed be Yahweh’s glory from his place.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="13" characterId="narrator-EZK">
     <verse num="13" />
@@ -270,14 +270,14 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="21" characterId="God">
     <verse num="21" />
-    <text>Nevertheless if you warn the righteous man, that the righteous not sin, and he does not sin, he shall surely live, because he took warning; and you have delivered your soul.</text>
+    <text>Nevertheless if you warn the righteous man, that the righteous not sin, and he does not sin, he will surely live, because he took warning; and you have delivered your soul.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="22" characterId="narrator-EZK">
     <verse num="22" />
     <text>Yahweh’s hand was there on me; and he said to me,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="22" characterId="God">
-    <text>Arise, go forth into the plain, and I will there talk with you.</text>
+    <text>«Arise, go out into the plain, and I will talk with you there.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="23" characterId="narrator-EZK">
     <verse num="23" />
@@ -319,11 +319,11 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>Moreover lie on your left side, and lay the iniquity of the house of Israel on it; according to the number of the days that you shall lie on it, you shall bear their iniquity.</text>
+    <text>Moreover lie on your left side, and lay the iniquity of the house of Israel on it. According to the number of the days that you shall lie on it, you shall bear their iniquity.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>For I have appointed the years of their iniquity to be to you a number of days, even three hundred ninety days: so you shall bear the iniquity of the house of Israel.</text>
+    <text>For I have appointed the years of their iniquity to be to you a number of days, even three hundred ninety days. So you shall bear the iniquity of the house of Israel.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="6" characterId="God">
     <verse num="6" />
@@ -343,11 +343,11 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="10" characterId="God">
     <verse num="10" />
-    <text>Your food which you shall eat shall be by weight, twenty shekels a day: from time to time you shall eat it.</text>
+    <text>Your food which you shall eat shall be by weight, twenty shekels a day. From time to time you shall eat it.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="11" characterId="God">
     <verse num="11" />
-    <text>You shall drink water by measure, the sixth part of a hin: from time to time you shall drink.</text>
+    <text>You shall drink water by measure, the sixth part of a hin. From time to time you shall drink.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="12" characterId="God">
     <verse num="12" />
@@ -369,7 +369,7 @@
     <text>Then he said to me,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="15" characterId="God">
-    <text>Behold, I have given you cow’s dung for man’s dung, and you shall prepare your bread thereon.</text>
+    <text>«Behold, I have given you cow’s dung for man’s dung, and you shall prepare your bread on it.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="16" characterId="narrator-EZK">
     <verse num="16" />
@@ -541,7 +541,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>Your doom has come to you, inhabitant of the land: the time has come, the day is near, a day of tumult, and not of joyful shouting, on the mountains.</text>
+    <text>Your doom has come to you, inhabitant of the land! The time has come! The day is near, a day of tumult, and not of joyful shouting, on the mountains.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="8" characterId="God">
     <verse num="8" />
@@ -561,7 +561,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>The time has come, the day draws near: don’t let the buyer rejoice, nor the seller mourn; for wrath is on all its multitude.</text>
+    <text>The time has come! The day draws near. Don’t let the buyer rejoice, nor the seller mourn; for wrath is on all its multitude.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="13" characterId="God">
     <verse num="13" />
@@ -605,7 +605,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="23" characterId="God">
     <verse num="23" />
-    <text>Make chains; for the land is full of bloody crimes, and the city is full of violence.</text>
+    <text>Make chains, for the land is full of bloody crimes, and the city is full of violence.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="24" characterId="God">
     <verse num="24" />
@@ -772,7 +772,7 @@
     <text>He said to them,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="7" characterId="God">
-    <text>Defile the house, and fill the courts with the slain. Go forth!</text>
+    <text>«Defile the house, and fill the courts with the slain. Go out!»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="7" characterId="narrator-EZK">
     <text>They went out, and struck in the city.</text>
@@ -856,7 +856,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="11" characterId="narrator-EZK">
     <verse num="11" />
-    <text>When they went, they went in their four directions: they didn’t turn as they went, but to the place where the head looked they followed it; they didn’t turn as they went.</text>
+    <text>When they went, they went in their four directions. They didn’t turn as they went, but to the place where the head looked they followed it. They didn’t turn as they went.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="12" characterId="narrator-EZK">
     <verse num="12" />
@@ -872,7 +872,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="15" characterId="narrator-EZK">
     <verse num="15" />
-    <text>The cherubim mounted up: this is the living creature that I saw by the river Chebar.</text>
+    <text>The cherubim mounted up. This is the living creature that I saw by the river Chebar.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="16" characterId="narrator-EZK">
     <verse num="16" />
@@ -1135,7 +1135,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>Son of man, prophesy against the prophets of Israel who prophesy, and say to those who prophesy out of their own heart, Hear the word of God:</text>
+    <text>«Son of man, prophesy against the prophets of Israel who prophesy, and say to those who prophesy out of their own heart, ‹Hear Yahweh’s word:</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="3" characterId="God">
     <verse num="3" />
@@ -1215,7 +1215,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="22" characterId="God">
     <verse num="22" />
-    <text>Because with lies you have grieved the heart of the righteous, whom I have not made sad; and strengthened the hands of the wicked, that he should not return from his wicked way, and be saved alive:</text>
+    <text>Because with lies you have grieved the heart of the righteous, whom I have not made sad; and strengthened the hands of the wicked, that he should not return from his wicked way, and be saved alive.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="23" characterId="God">
     <verse num="23" />
@@ -1262,7 +1262,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="10" characterId="God">
     <verse num="10" />
-    <text>They will bear their iniquity. The iniquity of the prophet will be even as the iniquity of him who seeks him,</text>
+    <text>They will bear their iniquity. The iniquity of the prophet will be even as the iniquity of him who seeks him;</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="11" characterId="God">
     <verse num="11" />
@@ -1338,7 +1338,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="23" characterId="God">
     <verse num="23" />
-    <text>They shall comfort you, when you see their way and their doings; and you shall know that I have not done without cause all that I have done in it,</text>
+    <text>They will comfort you, when you see their way and their doings; then you will know that I have not done all that I have done in it without cause,»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="23" characterId="narrator-EZK">
     <text>says the Lord Yahweh.</text>
@@ -1453,7 +1453,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="17" characterId="God">
     <verse num="17" />
-    <text>You also took your beautiful jewels of my gold and of my silver, which I had given you, and made for yourself images of men, and played the prostitute with them;</text>
+    <text>You also took your beautiful jewels of my gold and of my silver, which I had given you, and made for yourself images of men, and played the prostitute with them.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="18" characterId="God">
     <verse num="18" />
@@ -1553,7 +1553,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="42" characterId="God">
     <verse num="42" />
-    <text>So will I cause my wrath toward you to rest, and my jealousy shall depart from you, and I will be quiet, and will be no more angry.</text>
+    <text>So I will cause my wrath toward you to rest, and my jealousy will depart from you. I will be quiet, and will not be angry any more.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="43" characterId="God">
     <verse num="43" />
@@ -1565,7 +1565,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="45" characterId="God">
     <verse num="45" />
-    <text>You are the daughter of your mother, who loathes her husband and her children; and you are the sister of your sisters, who loathed their husbands and their children: your mother was a Hittite, and your father an Amorite.</text>
+    <text>You are the daughter of your mother, who loathes her husband and her children; and you are the sister of your sisters, who loathed their husbands and their children. Your mother was a Hittite, and your father an Amorite.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="46" characterId="God">
     <verse num="46" />
@@ -1581,7 +1581,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="49" characterId="God">
     <verse num="49" />
-    <text>Behold, this was the iniquity of your sister Sodom: pride, fullness of bread, and prosperous ease was in her and in her daughters; neither did she strengthen the hand of the poor and needy.</text>
+    <text>Behold, this was the iniquity of your sister Sodom: pride, fullness of bread, and prosperous ease was in her and in her daughters. She also didn’t strengthen the hand of the poor and needy.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="50" characterId="God">
     <verse num="50" />
@@ -1767,7 +1767,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>Behold, all souls are mine; as the soul of the father, so also the soul of the son is mine: the soul who sins, he shall die.</text>
+    <text>Behold, all souls are mine; as the soul of the father, so also the soul of the son is mine. The soul who sins, he shall die.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="5" characterId="God">
     <verse num="5" />
@@ -1834,7 +1834,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="20" characterId="God">
     <verse num="20" />
-    <text>The soul who sins, he shall die: the son shall not bear the iniquity of the father, neither shall the father bear the iniquity of the son; the righteousness of the righteous shall be on him, and the wickedness of the wicked shall be on him.</text>
+    <text>The soul who sins, he shall die. The son shall not bear the iniquity of the father, neither shall the father bear the iniquity of the son. The righteousness of the righteous shall be on him, and the wickedness of the wicked shall be on him.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="21" characterId="God">
     <verse num="21" />
@@ -1842,7 +1842,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="22" characterId="God">
     <verse num="22" />
-    <text>None of his transgressions that he has committed shall be remembered against him: in his righteousness that he has done he shall live.</text>
+    <text>None of his transgressions that he has committed will be remembered against him. In his righteousness that he has done, he shall live.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="23" characterId="God">
     <verse num="23" />
@@ -1856,7 +1856,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="24" characterId="God">
     <verse num="24" />
-    <text>But when the righteous turns away from his righteousness, and commits iniquity, and does according to all the abominations that the wicked man does, shall he live? None of his righteous deeds that he has done shall be remembered: in his trespass that he has trespassed, and in his sin that he has sinned, in them shall he die.</text>
+    <text>But when the righteous turns away from his righteousness, and commits iniquity, and does according to all the abominations that the wicked man does, should he live? None of his righteous deeds that he has done will be remembered. In his trespass that he has trespassed, and in his sin that he has sinned, in them he shall die.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="25" characterId="God">
     <verse num="25" />
@@ -1864,7 +1864,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="26" characterId="God">
     <verse num="26" />
-    <text>When the righteous man turns away from his righteousness, and commits iniquity, and dies therein; in his iniquity that he has done shall he die.</text>
+    <text>When the righteous man turns away from his righteousness, and commits iniquity, and dies therein; in his iniquity that he has done he shall die.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="27" characterId="God">
     <verse num="27" />
@@ -1872,7 +1872,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="28" characterId="God">
     <verse num="28" />
-    <text>Because he considers, and turns away from all his transgressions that he has committed, he shall surely live, he shall not die.</text>
+    <text>Because he considers, and turns away from all his transgressions that he has committed, he shall surely live. He shall not die.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="29" characterId="God">
     <verse num="29" />
@@ -1886,7 +1886,7 @@
     <text>says the Lord Yahweh.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="30" characterId="God">
-    <text>Return, and turn yourselves from all your transgressions; so iniquity shall not be your ruin.</text>
+    <text>«Return, and turn yourselves from all your transgressions; so iniquity will not be your ruin.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="31" characterId="God">
     <verse num="31" />
@@ -1919,7 +1919,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="4" characterId="God" delivery="lament">
     <verse num="4" />
-    <text>The nations also heard of him; he was taken in their pit; and they brought him with hooks to the land of Egypt.</text>
+    <text>The nations also heard of him. He was taken in their pit; and they brought him with hooks to the land of Egypt.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="5" characterId="God" delivery="lament">
     <verse num="5" />
@@ -2026,7 +2026,7 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="16" characterId="God">
     <verse num="16" />
-    <text>because they rejected my ordinances, and didn’t walk in my statutes, and profaned my Sabbaths: for their heart went after their idols.</text>
+    <text>because they rejected my ordinances, and didn’t walk in my statutes, and profaned my Sabbaths; for their heart went after their idols.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="17" characterId="God">
     <verse num="17" />
@@ -2062,7 +2062,7 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="25" characterId="God">
     <verse num="25" />
-    <text>Moreover also I gave them statutes that were not good, and ordinances in which they should not live;</text>
+    <text>Moreover also I gave them statutes that were not good, and ordinances in which they should not live.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="26" characterId="God">
     <verse num="26" />
@@ -2224,7 +2224,7 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="15" characterId="God">
     <verse num="15" />
-    <text>I have set the threatening sword against all their gates, that their heart may melt, and their stumblings be multiplied: ah! it is made as lightning, it is pointed for slaughter.</text>
+    <text>I have set the threatening sword against all their gates, that their heart may melt, and their stumblings be multiplied. Ah! It is made as lightning. It is pointed for slaughter.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="16" characterId="God">
     <verse num="16" />
@@ -2248,7 +2248,7 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="21" characterId="God">
     <verse num="21" />
-    <text>For the king of Babylon stood at the parting of the way, at the head of the two ways, to use divination: he shook the arrows back and forth, he consulted the teraphim, he looked in the liver.</text>
+    <text>For the king of Babylon stood at the parting of the way, at the head of the two ways, to use divination. He shook the arrows back and forth. He consulted the teraphim. He looked in the liver.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="22" characterId="God">
     <verse num="22" />
@@ -2284,7 +2284,7 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="30" characterId="God">
     <verse num="30" />
-    <text>Cause it to return into its sheath. In the place where you were created, in the land of your birth, will I judge you.</text>
+    <text>Cause it to return into its sheath. In the place where you were created, in the land of your birth, I will judge you.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="31" characterId="God">
     <verse num="31" />
@@ -2335,7 +2335,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="10" characterId="God">
     <verse num="10" />
-    <text>In you have they uncovered their fathers’ nakedness; in you have they humbled her who was unclean in her impurity.</text>
+    <text>In you have they uncovered their fathers’ nakedness. In you have they humbled her who was unclean in her impurity.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="11" characterId="God">
     <verse num="11" />
@@ -2604,7 +2604,7 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="44" characterId="God">
     <verse num="44" />
-    <text>They went in to her, as they go in to a prostitute: so went they in to Oholah and to Oholibah, the lewd women.</text>
+    <text>They went in to her, as they go in to a prostitute. So they went in to Oholah and to Oholibah, the lewd women.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="45" characterId="God">
     <verse num="45" />
@@ -2785,7 +2785,7 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="11" characterId="God">
     <verse num="11" />
-    <text>and I will execute judgments on Moab; and they shall know that I am God.</text>
+    <text>I will execute judgments on Moab. Then they will know that I am Yahweh.»</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="12" characterId="God">
     <verse num="12" />
@@ -2915,7 +2915,7 @@
   </block>
   <block style="p" chapter="27" initialStartVerse="4" characterId="God" delivery="lament">
     <verse num="4" />
-    <text>Your borders are in the heart of the seas; your builders have perfected your beauty.</text>
+    <text>Your borders are in the heart of the seas. Your builders have perfected your beauty.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="5" characterId="God" delivery="lament">
     <verse num="5" />
@@ -2927,11 +2927,11 @@
   </block>
   <block style="p" chapter="27" initialStartVerse="7" characterId="God" delivery="lament">
     <verse num="7" />
-    <text>Of fine linen with embroidered work from Egypt was your sail, that it might be to you for a banner; blue and purple from the islands of Elishah was your awning.</text>
+    <text>Your sail was of fine linen with embroidered work from Egypt, that it might be to you for a banner. Blue and purple from the islands of Elishah was your awning.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="8" characterId="God" delivery="lament">
     <verse num="8" />
-    <text>The inhabitants of Sidon and Arvad were your rowers: your wise men, Tyre, were in you, they were your pilots.</text>
+    <text>The inhabitants of Sidon and Arvad were your rowers. Your wise men, Tyre, were in you. They were your pilots.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="9" characterId="God" delivery="lament">
     <verse num="9" />
@@ -3003,7 +3003,7 @@
   </block>
   <block style="p" chapter="27" initialStartVerse="26" characterId="God" delivery="lament">
     <verse num="26" />
-    <text>Your rowers have brought you into great waters: the east wind has broken you in the heart of the seas.</text>
+    <text>Your rowers have brought you into great waters. The east wind has broken you in the heart of the seas.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="27" characterId="God" delivery="lament">
     <verse num="27" />
@@ -3039,7 +3039,7 @@
   </block>
   <block style="p" chapter="27" initialStartVerse="35" characterId="God" delivery="lament">
     <verse num="35" />
-    <text>All the inhabitants of the islands are astonished at you, and their kings are horribly afraid; they are troubled in their face.</text>
+    <text>All the inhabitants of the islands are astonished at you, and their kings are horribly afraid. They are troubled in their face.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="36" characterId="God" delivery="lament">
     <verse num="36" />
@@ -3066,7 +3066,7 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>by your great wisdom and by your traffic you have increased your riches, and your heart is lifted up because of your riches--</text>
+    <text>by your great wisdom and by your trading you have increased your riches, and your heart is lifted up because of your riches—»</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="6" characterId="God">
     <verse num="6" />
@@ -3098,7 +3098,7 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="13" characterId="God" delivery="lament">
     <verse num="13" />
-    <text>You were in Eden, the garden of God; every precious stone adorned you: ruby, topaz, emerald, chrysolite, onyx, jasper, sapphire, turquoise, and beryl. Gold work of tambourines and of pipes was in you. In the day that you were created they were prepared.</text>
+    <text>You were in Eden, the garden of God. Every precious stone adorned you: ruby, topaz, emerald, chrysolite, onyx, jasper, sapphire, turquoise, and beryl. Gold work of tambourines and of pipes was in you. They were prepared in the day that you were created.</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="14" characterId="God" delivery="lament">
     <verse num="14" />
@@ -3288,7 +3288,7 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>I will make the rivers dry, and will sell the land into the hand of evil men; and I will make the land desolate, and all that is therein, by the hand of strangers: I, God, have spoken it.</text>
+    <text>I will make the rivers dry, and will sell the land into the hand of evil men. I will make the land desolate, and all that is therein, by the hand of strangers: I, Yahweh, have spoken it.»</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="13" characterId="God">
     <verse num="13" />
@@ -3363,7 +3363,7 @@
   </block>
   <block style="p" chapter="31" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>The waters nourished it, the deep made it to grow: its rivers ran all around its plantation; and it sent out its channels to all the trees of the field.</text>
+    <text>The waters nourished it. The deep made it to grow. Its rivers ran all around its plantation; and it sent out its channels to all the trees of the field.</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="5" characterId="God">
     <verse num="5" />
@@ -3375,7 +3375,7 @@
   </block>
   <block style="p" chapter="31" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>Thus was it beautiful in its greatness, in the length of its branches; for its root was by many waters.</text>
+    <text>Thus it was beautiful in its greatness, in the length of its branches; for its root was by many waters.</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="8" characterId="God">
     <verse num="8" />
@@ -3415,7 +3415,7 @@
   </block>
   <block style="p" chapter="31" initialStartVerse="17" characterId="God">
     <verse num="17" />
-    <text>They also went down into Sheol with him to those who are slain by the sword; yes, those who were his arm, that lived under his shadow in the midst of the nations.</text>
+    <text>They also went down into Sheol with him to those who are slain by the sword; yes, those who were his arm, who lived under his shadow in the middle of the nations.</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="18" characterId="God">
     <verse num="18" />
@@ -3494,7 +3494,7 @@
   </block>
   <block style="p" chapter="32" initialStartVerse="18" characterId="God">
     <verse num="18" />
-    <text>Son of man, wail for the multitude of Egypt, and cast them down, even her, and the daughters of the famous nations, to the lower parts of the earth, with those who go down into the pit.</text>
+    <text>«Son of man, wail for the multitude of Egypt, and cast them down, even her and the daughters of the famous nations, to the lower parts of the earth, with those who go down into the pit.</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="19" characterId="God">
     <verse num="19" />
@@ -3514,7 +3514,7 @@
   </block>
   <block style="p" chapter="32" initialStartVerse="23" characterId="God">
     <verse num="23" />
-    <text>whose graves are set in the uttermost parts of the pit, and her company is around her grave; all of them slain, fallen by the sword, who caused terror in the land of the living.</text>
+    <text>whose graves are set in the uttermost parts of the pit, and her company is around her grave, all of them slain, fallen by the sword, who caused terror in the land of the living.</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="24" characterId="God">
     <verse num="24" />
@@ -3526,11 +3526,11 @@
   </block>
   <block style="p" chapter="32" initialStartVerse="26" characterId="God">
     <verse num="26" />
-    <text>There is Meshech, Tubal, and all their multitude; their graves are around them; all of them uncircumcised, slain by the sword; for they caused their terror in the land of the living.</text>
+    <text>There is Meshech, Tubal, and all their multitude. Their graves are around them, all of them uncircumcised, slain by the sword; for they caused their terror in the land of the living.</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="27" characterId="God">
     <verse num="27" />
-    <text>They shall not lie with the mighty who are fallen of the uncircumcised, who are gone down to Sheol with their weapons of war, and have laid their swords under their heads, and their iniquities are on their bones; for they were the terror of the mighty in the land of the living.</text>
+    <text>They will not lie with the mighty who are fallen of the uncircumcised, who have gone down to Sheol with their weapons of war, and have laid their swords under their heads, and their iniquities are on their bones; for they were the terror of the mighty in the land of the living.</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="28" characterId="God">
     <verse num="28" />
@@ -3538,7 +3538,7 @@
   </block>
   <block style="p" chapter="32" initialStartVerse="29" characterId="God">
     <verse num="29" />
-    <text>There is Edom, her kings and all her princes, who in their might are laid with those who are slain by the sword: they shall lie with the uncircumcised, and with those who go down to the pit.</text>
+    <text>There is Edom, her kings, and all her princes, who in their might are laid with those who are slain by the sword. They will lie with the uncircumcised, and with those who go down to the pit.</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="30" characterId="God">
     <verse num="30" />
@@ -3591,7 +3591,7 @@
   </block>
   <block style="p" chapter="33" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>When I tell the wicked, O wicked man, you shall surely die, and you don’t speak to warn the wicked from his way; that wicked man shall die in his iniquity, but his blood will I require at your hand.</text>
+    <text>When I tell the wicked, ‹O wicked man, you will surely die,› and you don’t speak to warn the wicked from his way, that wicked man will die in his iniquity, but I will require his blood at your hand.</text>
   </block>
   <block style="p" chapter="33" initialStartVerse="9" characterId="God">
     <verse num="9" />
@@ -3769,7 +3769,7 @@
   </block>
   <block style="p" chapter="34" initialStartVerse="18" characterId="God">
     <verse num="18" />
-    <text>Does it seem a small thing to you to have fed on the good pasture, but you must tread down with your feet the residue of your pasture? and to have drunk of the clear waters, but you must foul the residue with your feet?</text>
+    <text>Does it seem a small thing to you to have fed on the good pasture, but you must tread down with your feet the residue of your pasture? And to have drunk of the clear waters, but must you foul the residue with your feet?</text>
   </block>
   <block style="p" chapter="34" initialStartVerse="19" characterId="God">
     <verse num="19" />
@@ -3805,7 +3805,7 @@
   </block>
   <block style="p" chapter="34" initialStartVerse="27" characterId="God">
     <verse num="27" />
-    <text>The tree of the field shall yield its fruit, and the earth shall yield its increase, and they shall be secure in their land; and they shall know that I am God, when I have broken the bars of their yoke, and have delivered them out of the hand of those who made slaves of them.</text>
+    <text>The tree of the field will yield its fruit, and the earth will yield its increase, and they will be secure in their land. Then they will know that I am Yahweh, when I have broken the bars of their yoke, and have delivered them out of the hand of those who made slaves of them.</text>
   </block>
   <block style="p" chapter="34" initialStartVerse="28" characterId="God">
     <verse num="28" />
@@ -3852,7 +3852,7 @@
   </block>
   <block style="p" chapter="35" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>Thus will I make Mount Seir an astonishment and a desolation. I will cut off from it him who passes through and him who returns.</text>
+    <text>Thus I will make Mount Seir an astonishment and a desolation. I will cut off from it him who passes through and him who returns.</text>
   </block>
   <block style="p" chapter="35" initialStartVerse="8" characterId="God">
     <verse num="8" />
@@ -3959,7 +3959,7 @@
   </block>
   <block style="p" chapter="36" initialStartVerse="18" characterId="God">
     <verse num="18" />
-    <text>Therefore I poured out my wrath on them for the blood which they had poured out on the land, and because they had defiled it with their idols;</text>
+    <text>Therefore I poured out my wrath on them for the blood which they had poured out on the land, and because they had defiled it with their idols.</text>
   </block>
   <block style="p" chapter="36" initialStartVerse="19" characterId="God">
     <verse num="19" />
@@ -4067,7 +4067,7 @@
     <text>Again he said to me,</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="4" characterId="God">
-    <text>Prophesy over these bones, and tell them, you dry bones, hear the word of God.</text>
+    <text>«Prophesy over these bones, and tell them, ‹You dry bones, hear Yahweh’s word.</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="5" characterId="God">
     <verse num="5" />
@@ -4303,7 +4303,7 @@
   </block>
   <block style="p" chapter="39" initialStartVerse="9" characterId="God">
     <verse num="9" />
-    <text>Those who dwell in the cities of Israel shall go forth, and shall make fires of the weapons and burn them, both the shields and the bucklers, the bows and the arrows, and the war clubs, and the spears, and they shall make fires of them seven years;</text>
+    <text>Those who dwell in the cities of Israel will go out, and will make fires of the weapons and burn them, both the shields and the bucklers, the bows and the arrows, and the war clubs and the spears, and they will make fires with them for seven years;</text>
   </block>
   <block style="p" chapter="39" initialStartVerse="10" characterId="God">
     <verse num="10" />
@@ -4323,7 +4323,7 @@
   </block>
   <block style="p" chapter="39" initialStartVerse="14" characterId="God">
     <verse num="14" />
-    <text>They shall set apart men of continual employment, who shall pass through the land, and, with those who pass through, those who bury those who remain on the surface of the land, to cleanse it: after the end of seven months shall they search.</text>
+    <text>«They will set apart men of continual employment, who will pass through the land. Those who pass through will go with those who bury those who remain on the surface of the land, to cleanse it. After the end of seven months they will search.</text>
   </block>
   <block style="p" chapter="39" initialStartVerse="15" characterId="God">
     <verse num="15" />
@@ -4351,7 +4351,7 @@
   </block>
   <block style="p" chapter="39" initialStartVerse="21" characterId="God">
     <verse num="21" />
-    <text>I will set my glory among the nations; and all the nations shall see my judgment that I have executed, and my hand that I have laid on them.</text>
+    <text>I will set my glory among the nations. Then all the nations will see my judgment that I have executed, and my hand that I have laid on them.</text>
   </block>
   <block style="p" chapter="39" initialStartVerse="22" characterId="God">
     <verse num="22" />
@@ -4425,7 +4425,7 @@
   </block>
   <block style="p" chapter="40" initialStartVerse="9" characterId="narrator-EZK">
     <verse num="9" />
-    <text>Then measured he the porch of the gate, eight cubits; and its posts, two cubits; and the porch of the gate was toward the house.</text>
+    <text>Then he measured the porch of the gate, eight cubits; and its posts, two cubits; and the porch of the gate was toward the house.</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="10" characterId="narrator-EZK">
     <verse num="10" />
@@ -4445,7 +4445,7 @@
   </block>
   <block style="p" chapter="40" initialStartVerse="14" characterId="narrator-EZK">
     <verse num="14" />
-    <text>He made also posts, sixty cubits; and the court reached to the posts, around the gate.</text>
+    <text>He also made posts, sixty cubits; and the court reached to the posts, around the gate.</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="15" characterId="narrator-EZK">
     <verse num="15" />
@@ -4473,7 +4473,7 @@
   </block>
   <block style="p" chapter="40" initialStartVerse="21" characterId="narrator-EZK">
     <verse num="21" />
-    <text>The lodges of it were three on this side and three on that side; and its posts and its arches were after the measure of the first gate: its length was fifty cubits, and the breadth twenty-five cubits.</text>
+    <text>The lodges of it were three on this side and three on that side. Its posts and its arches were the same as the measure of the first gate: its length was fifty cubits, and the width twenty-five cubits.</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="22" characterId="narrator-EZK">
     <verse num="22" />
@@ -4501,7 +4501,7 @@
   </block>
   <block style="p" chapter="40" initialStartVerse="28" characterId="narrator-EZK">
     <verse num="28" />
-    <text>Then he brought me to the inner court by the south gate: and he measured the south gate according to these measures;</text>
+    <text>Then he brought me to the inner court by the south gate. He measured the south gate according to these measurements;</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="29" characterId="narrator-EZK">
     <verse num="29" />
@@ -4517,7 +4517,7 @@
   </block>
   <block style="p" chapter="40" initialStartVerse="32" characterId="narrator-EZK">
     <verse num="32" />
-    <text>He brought me into the inner court toward the east: and he measured the gate according to these measures;</text>
+    <text>He brought me into the inner court toward the east. He measured the gate according to these measurements;</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="33" characterId="narrator-EZK">
     <verse num="33" />
@@ -4541,7 +4541,7 @@
   </block>
   <block style="p" chapter="40" initialStartVerse="38" characterId="narrator-EZK">
     <verse num="38" />
-    <text>A room with its door was by the posts at the gates; there they washed the burnt offering.</text>
+    <text>A room with its door was by the posts at the gates. They washed the burnt offering there.</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="39" characterId="narrator-EZK">
     <verse num="39" />
@@ -4626,7 +4626,7 @@
   </block>
   <block style="p" chapter="41" initialStartVerse="8" characterId="narrator-EZK">
     <verse num="8" />
-    <text>I saw also that the house had a raised base all around: the foundations of the side rooms were a full reed of six great cubits.</text>
+    <text>I saw also that the house had a raised base all around. The foundations of the side rooms were a full reed of six great cubits.</text>
   </block>
   <block style="p" chapter="41" initialStartVerse="9" characterId="narrator-EZK">
     <verse num="9" />
@@ -4841,7 +4841,7 @@
   </block>
   <block style="p" chapter="43" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>This is the law of the house: on the top of the mountain the whole limit around it shall be most holy. Behold, this is the law of the house.</text>
+    <text>This is the law of the house. On the top of the mountain the whole limit around it shall be most holy. Behold, this is the law of the house.</text>
   </block>
   <block style="p" chapter="43" initialStartVerse="13" characterId="God">
     <verse num="13" />
@@ -4900,7 +4900,7 @@
   </block>
   <block style="p" chapter="43" initialStartVerse="26" characterId="God">
     <verse num="26" />
-    <text>Seven days shall they make atonement for the altar and purify it; so shall they consecrate it.</text>
+    <text>Seven days shall they make atonement for the altar and purify it. So shall they consecrate it.</text>
   </block>
   <block style="p" chapter="43" initialStartVerse="27" characterId="God">
     <verse num="27" />
@@ -4957,7 +4957,7 @@
   </block>
   <block style="p" chapter="44" initialStartVerse="11" characterId="God">
     <verse num="11" />
-    <text>Yet they shall be ministers in my sanctuary, having oversight at the gates of the house, and ministering in the house: they shall kill the burnt offering and the sacrifice for the people, and they shall stand before them to minister to them.</text>
+    <text>Yet they shall be ministers in my sanctuary, having oversight at the gates of the house, and ministering in the house. They shall kill the burnt offering and the sacrifice for the people, and they shall stand before them to minister to them.</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="12" characterId="God">
     <verse num="12" />
@@ -5033,7 +5033,7 @@
   </block>
   <block style="p" chapter="44" initialStartVerse="30" characterId="God">
     <verse num="30" />
-    <text>The first of all the first fruits of every thing, and every offering of everything, of all your offerings, shall be for the priest: you shall also give to the priests the first of your dough, to cause a blessing to rest on your house.</text>
+    <text>The first of all the first fruits of every thing, and every offering of everything, of all your offerings, shall be for the priest. You shall also give to the priests the first of your dough, to cause a blessing to rest on your house.</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="31" characterId="God">
     <verse num="31" />
@@ -5044,7 +5044,7 @@
   </block>
   <block style="p" chapter="45" initialStartVerse="1" characterId="God">
     <verse num="1" />
-    <text>Moreover, when you shall divide by lot the land for inheritance, you shall offer an offering to God, a holy portion of the land; the length shall be the length of twenty-five thousand reeds, and the breadth shall be ten thousand: it shall be holy in all its border all around.</text>
+    <text>« ‹ «Moreover, when you divide by lot the land for inheritance, you shall offer an offering to Yahweh, a holy portion of the land. The length shall be the length of twenty-five thousand reeds, and the width shall be ten thousand. It shall be holy in all its border all around.</text>
   </block>
   <block style="p" chapter="45" initialStartVerse="2" characterId="God">
     <verse num="2" />
@@ -5120,7 +5120,7 @@
   </block>
   <block style="p" chapter="45" initialStartVerse="20" characterId="God">
     <verse num="20" />
-    <text>So you shall do on the seventh day of the month for everyone who errs, and for him who is simple: so you shall make atonement for the house.</text>
+    <text>So you shall do on the seventh day of the month for everyone who errs, and for him who is simple. So you shall make atonement for the house.</text>
   </block>
   <block style="p" chapter="45" initialStartVerse="21" characterId="God">
     <verse num="21" />
@@ -5128,7 +5128,7 @@
   </block>
   <block style="p" chapter="45" initialStartVerse="22" characterId="God">
     <verse num="22" />
-    <text>On that day shall the prince prepare for himself and for all the people of the land a bull for a sin offering.</text>
+    <text>On that day the prince shall prepare for himself and for all the people of the land a bull for a sin offering.</text>
   </block>
   <block style="p" chapter="45" initialStartVerse="23" characterId="God">
     <verse num="23" />
@@ -5215,7 +5215,7 @@
   </block>
   <block style="p" chapter="46" initialStartVerse="18" characterId="God">
     <verse num="18" />
-    <text>Moreover the prince shall not take of the people’s inheritance, to thrust them out of their possession; he shall give inheritance to his sons out of his own possession, that my people not be scattered every man from his possession.</text>
+    <text>Moreover the prince shall not take of the people’s inheritance, to thrust them out of their possession. He shall give inheritance to his sons out of his own possession, that my people not each be scattered from his possession.» › »</text>
   </block>
   <block style="p" chapter="46" initialStartVerse="19" characterId="narrator-EZK">
     <verse num="19" />
@@ -5226,7 +5226,7 @@
     <text>He said to me,</text>
   </block>
   <block style="p" chapter="46" initialStartVerse="20" characterId="man like bronze with measuring rod (in vision)">
-    <text>This is the place where the priests shall boil the trespass offering and the sin offering, and where they shall bake the meal offering; that they not bring them forth into the outer court, to sanctify the people.</text>
+    <text>«This is the place where the priests shall boil the trespass offering and the sin offering, and where they shall bake the meal offering; that they not bring them out into the outer court, to sanctify the people.»</text>
   </block>
   <block style="p" chapter="46" initialStartVerse="21" characterId="narrator-EZK">
     <verse num="21" />
@@ -5362,7 +5362,7 @@
   </block>
   <block style="p" chapter="48" initialStartVerse="1" characterId="God">
     <verse num="1" />
-    <text>Now these are the names of the tribes: From the north end, beside the way of Hethlon to the entrance of Hamath, Hazar Enan at the border of Damascus, northward beside Hamath, (and they shall have their sides east and west), Dan, one portion.</text>
+    <text>«Now these are the names of the tribes: From the north end, beside the way of Hethlon to the entrance of Hamath, Hazar Enan at the border of Damascus, northward beside Hamath (and they shall have their sides east and west), Dan, one portion.</text>
   </block>
   <block style="p" chapter="48" initialStartVerse="2" characterId="God">
     <verse num="2" />
@@ -5406,7 +5406,7 @@
   </block>
   <block style="p" chapter="48" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>It shall be to them an offering from the offering of the land, a thing most holy, by the border of the Levites.</text>
+    <text>It shall be to them an offering from the offering of the land, a most holy thing, by the border of the Levites.</text>
   </block>
   <block style="p" chapter="48" initialStartVerse="13" characterId="God">
     <verse num="13" />
