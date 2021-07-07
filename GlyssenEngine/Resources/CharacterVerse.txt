@@ -577,6 +577,7 @@ GEN	35	3	Jacob (Israel)			Normal
 GEN	35	10	God	blessing	God (Yahweh)	Normal		
 GEN	35	11	God		God (Yahweh)	Normal		
 GEN	35	12	God		God (Yahweh)	Normal		
+GEN	35	15	narrator-GEN			Quotation		
 GEN	35	17	midwife of Rachel			Normal		
 GEN	37	6	Joseph			Normal		
 GEN	37	7	Joseph			Normal		
@@ -8558,6 +8559,7 @@ PSA	50	23	narrator-PSA			Quotation
 PSA	52	0	Doeg the Edomite			Quotation	narrator-PSA	
 PSA	52	0	narrator-PSA			Quotation		
 PSA	52	7	people, righteous	laughing		Hypothetical		
+PSA	53	0	narrator-PSA			Quotation		
 PSA	53	1	fool			Hypothetical		
 PSA	54	0	Ziphites			Quotation		
 PSA	54	0	narrator-PSA			Quotation		
@@ -8631,8 +8633,9 @@ PSA	83	4	enemies of Israel			Normal
 PSA	83	12	enemies of Israel			Normal		
 PSA	83	12	Zebah/Zalmunna			Quotation		
 PSA	83	12	Needs Review			Normal		
-PSA	87	4	God			Implicit		
+PSA	87	4	God			Potential		
 PSA	87	4	saying about Gentile nations			Hypothetical		
+PSA	87	4	Needs Review			ImplicitWithPotentialSelfQuote		
 PSA	87	5	God			Normal		
 # Two options supplied here since, if it is decided to dramatize this hypothetical speech, it could be the same speaker as in the previous verse or a different one.
 PSA	87	5	saying about Gentile nations			Hypothetical		
@@ -8641,6 +8644,7 @@ PSA	87	5	Needs Review			Potential
 PSA	87	6	God		God (Yahweh) will write	Hypothetical		
 PSA	87	6	Needs Review			Potential		
 PSA	87	7	musicians			Normal		
+PSA	88	0	narrator-PSA			Quotation		
 PSA	89	2	narrator-PSA			Quotation		
 PSA	89	3	God		God (Yahweh)	Quotation		
 PSA	89	4	God		God (Yahweh)	Quotation		
@@ -8673,6 +8677,9 @@ PSA	91	16	God		God (Yahweh)	Potential
 PSA	92	15	people, righteous			Hypothetical		
 PSA	92	15	narrator-PSA			Quotation		
 PSA	94	7	wicked, the			Normal		
+PSA	94	18	narrator-PSA			Quotation		
+PSA	95	8	God		God (Yahweh)	Quotation		
+PSA	95	9	God		God (Yahweh)	Quotation		
 PSA	95	10	God		God (Yahweh)	Quotation		
 PSA	95	11	God		God (Yahweh)	Quotation		
 PSA	96	10	narrator-PSA			Quotation		
@@ -8691,23 +8698,28 @@ PSA	108	9	God		God (Yahweh)	Normal
 PSA	110	1	God		God (Yahweh)	Normal		
 PSA	110	4	God		God (Yahweh)	Normal		
 PSA	115	2	nations			Quotation		
+PSA	116	4	narrator-PSA			Quotation		
+PSA	116	10	narrator-PSA			Quotation		
+PSA	116	11	narrator-PSA			Quotation		
 PSA	118	2	Israel			Hypothetical		
 PSA	118	3	house of Aaron, the			Hypothetical		
 PSA	118	4	those who fear Yahweh			Hypothetical		
-PSA	118	15	sound of rejoicing and victory			Hypothetical		
-PSA	118	16	sound of rejoicing and victory			Hypothetical		
+PSA	118	15	voice of rejoicing and salvation			Hypothetical		
+PSA	118	16	voice of rejoicing and salvation			Hypothetical		
+PSA	119	82	narrator-PSA			Quotation		
 PSA	122	1	worshipers		they (worshipers)	Quotation		
+PSA	122	8	narrator-PSA			Quotation		
 PSA	126	2	nations			Hypothetical		
-PSA	129	1	narrator-PSA			Quotation		
 PSA	129	1	Israel			Hypothetical		
-PSA	129	2	narrator-PSA			Quotation		
 PSA	129	2	Israel			Hypothetical		
-PSA	129	3	narrator-PSA			Quotation		
 PSA	129	3	Israel			Hypothetical		
-PSA	129	8	those who go by	do not say		Hypothetical		
+PSA	129	8	those who go by			Hypothetical		
 PSA	132	3	David			Quotation		
 PSA	132	4	David			Quotation		
 PSA	132	5	David			Quotation		
+PSA	132	7	narrator-PSA			Quotation		
+PSA	132	8	narrator-PSA			Quotation		
+PSA	132	9	narrator-PSA			Quotation		
 PSA	132	11	God		God (Yahweh)	Normal		
 PSA	132	12	God		God (Yahweh)	Normal		
 PSA	132	14	God		God (Yahweh)	Normal		
@@ -8718,7 +8730,14 @@ PSA	132	18	God		God (Yahweh)	Normal
 PSA	137	3	captors, our			Normal		
 PSA	137	7	Edomites			Normal		
 PSA	138	1	narrator-PSA			Quotation		
+PSA	139	11	narrator-PSA			Quotation		
+PSA	140	6	narrator-PSA			Quotation		
+# Most translations do not have quotation marks at all in this verse, but the ones
+# that do disagree as to whether the words are those of the psalmist or of the wicked.
 PSA	141	7	wicked, the			Hypothetical		
+PSA	141	7	narrator-PSA			Quotation		
+PSA	141	7	Needs Review			Potential		
+PSA	142	5	narrator-PSA			Quotation		
 PRO	1	11	sinners			Hypothetical		
 PRO	1	12	sinners			Hypothetical		
 PRO	1	13	sinners			Hypothetical		
@@ -9536,6 +9555,7 @@ ISA	19	14	God		God (Yahweh)	Potential
 ISA	19	14	Isaiah			Potential		
 ISA	19	15	God		God (Yahweh)	Potential		
 ISA	19	15	Isaiah			Potential		
+ISA	19	18	narrator-ISA			Quotation		
 ISA	19	25	God		God (Yahweh)	Normal		
 ISA	20	2	God		God (Yahweh)	Normal		
 ISA	20	3	God		God (Yahweh)	Normal		
@@ -9757,6 +9777,7 @@ ISA	33	24	narrator-ISA			Quotation
 ISA	34	5	God		God (Yahweh)	Implicit		
 ISA	34	5	Isaiah			Alternate		
 ISA	35	4	you (hypothetical)			Hypothetical		
+ISA	35	8	narrator-ISA			Quotation		
 ISA	36	4	Rabshakeh			Normal		2KI 18:19; 2CH 32:10; ISA 36:4
 ISA	36	5	Rabshakeh			Implicit		2KI 18:20; ISA 36:5
 ISA	36	6	Rabshakeh			Implicit		2KI 18:21; ISA 36:6
@@ -14459,6 +14480,7 @@ DAN	12	3	man in linen above river			Implicit
 DAN	12	4	man in linen above river			Implicit		
 DAN	12	6	one of the others who stood on the river bank			Normal		
 DAN	12	7	man in linen above river			Indirect		
+DAN	12	8	narrator-DAN			Quotation		
 DAN	12	9	man in linen above river			Normal		
 DAN	12	10	man in linen above river			Normal		
 DAN	12	11	man in linen above river			Normal		
@@ -20241,6 +20263,7 @@ PHP	4	3	narrator-PHP			Potential
 PHP	4	4	narrator-PHP			Potential		
 COL	2	18	narrator-COL			Quotation		
 COL	2	21	rules of the world			Hypothetical		
+COL	4	10	narrator-COL			Quotation		
 COL	4	17	narrator-COL			Quotation		
 1TH	4	12	unbelievers			Indirect		
 1TH	5	3	people			Hypothetical		

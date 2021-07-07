@@ -459,8 +459,11 @@ namespace Glyssen.RefTextDevUtilities
 
 					var referenceTextRowsToProcess = dataSet.ReferenceTextRows;
 
-					foreach (var referenceTextRow in referenceTextRowsToProcess.Where(r => !r.CharacterId.StartsWith("Section Head_")))
+					foreach (var referenceTextRow in referenceTextRowsToProcess)
 					{
+						if (referenceTextRow.IsSectionHead)
+							continue;
+						
 						var currBookId = GetBookIdFromFcbhBookCode(referenceTextRow.Book, out var currBookNum);
 
 						if (skippingBook == currBookNum)
@@ -545,7 +548,11 @@ namespace Glyssen.RefTextDevUtilities
 							// We theoretically need to check to make sure we don't go out of range, but in
 							// practice, a book should never end with an extra-biblical block.
 							while (CharacterVerseData.IsCharacterExtraBiblical(existingEnglishRefBlock.CharacterId))
+							{
+								if (referenceTextRow.IsAcrosticHead && existingEnglishRefBlock.StyleTag == "qa")
+									break;
 								existingEnglishRefBlock = blocks[iBlockInExistingEnglishRefBook++];
+							}
 
 							// When generating a new English reference text, blocks can be inserted or removed, so we don't
 							// necessarily expect it to align verse-by-verse to the old version. However, we want to try
@@ -602,7 +609,11 @@ namespace Glyssen.RefTextDevUtilities
 							{
 								existingRefBlockForLanguage = existingRefBlocksForLanguage[iBlockInExistingRefBookForLanguage++];
 								while (CharacterVerseData.IsCharacterExtraBiblical(existingRefBlockForLanguage.CharacterId))
+								{
+									if (referenceTextRow.IsAcrosticHead && existingEnglishRefBlock.StyleTag == "qa")
+										break;
 									existingRefBlockForLanguage = existingRefBlocksForLanguage[iBlockInExistingRefBookForLanguage++];
+								}
 							}
 
 							// If we've gotten out of C/V alignment with the existing reference text, we need to try to
@@ -626,7 +637,7 @@ namespace Glyssen.RefTextDevUtilities
 						// "Needs Review" so we don't have to keep looking at the changes and reverting them.
 						var characterIdBasedOnExcelEntry = languageInfo.IsEnglish && noTextChangesWeCareAbout && existingEnglishRefBlock?.CharacterId == CharacterVerseData.kNeedsReview ?
 							CharacterVerseData.kNeedsReview :
-							GetCharacterIdFromFCBHCharacterLabel(referenceTextRow.CharacterId, currBookId, referenceBlock, referenceTextRow.Verse);
+							GetCharacterIdFromFCBHCharacterLabel(referenceTextRow, currBookId, referenceBlock, referenceTextRow.Verse);
 						if (mode != Mode.GenerateEnglish)
 						{
 							if (characterIdBasedOnExcelEntry == CharacterVerseData.kAmbiguousCharacter ||
@@ -708,9 +719,8 @@ namespace Glyssen.RefTextDevUtilities
 						}
 						else
 						{
-							newBlock = new Block("p", currChapter, currVerse);
-							newBlock.CharacterId =
-								GetCharacterIdFromFCBHCharacterLabel(referenceTextRow.CharacterId, currBookId, newBlock);
+							newBlock = new Block(referenceTextRow.IsAcrosticHead ? "qa" : "p", currChapter, currVerse);
+							newBlock.CharacterId = GetCharacterIdFromFCBHCharacterLabel(referenceTextRow, currBookId, newBlock);
 						}
 
 						BlockElement lastElementInBlock = null;
@@ -1329,8 +1339,12 @@ namespace Glyssen.RefTextDevUtilities
 		static readonly Regex s_matchFcbhProperNameWithLabel = new Regex(@"\w+: (?<name>([A-Z](\w|-|')+))", RegexOptions.Compiled);
 		static readonly Regex s_matchGlyssenFirstWordCapitalized = new Regex(@"^(?<name>([A-Z](\w|-|')+))", RegexOptions.Compiled);
 
-		private static string GetCharacterIdFromFCBHCharacterLabel(string fcbhCharacterLabel, string bookId, Block block, string overrideVerseNum = null)
+		private static string GetCharacterIdFromFCBHCharacterLabel(ReferenceTextRow referenceTextRow, string bookId, Block block, string overrideVerseNum = null)
 		{
+			if (referenceTextRow.IsAcrosticHead)
+				return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.BookOrChapter);
+
+			string fcbhCharacterLabel = referenceTextRow.CharacterId;
 			if (s_FcbhNarrator.IsMatch(fcbhCharacterLabel))
 				return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
 			

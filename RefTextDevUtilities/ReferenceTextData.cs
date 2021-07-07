@@ -71,13 +71,22 @@ namespace Glyssen.RefTextDevUtilities
 			m_text = text;
 			if (!m_text.ContainsKey("English"))
 				throw new ArgumentException("English is required", nameof(text));
+
+			IsSectionHead = CharacterId.StartsWith("Section Head_");
+			if (IsSectionHead)
+			{
+				IsAcrosticHead = CharacterId.EndsWith(")");
+				IsSectionHead = !IsAcrosticHead;
+			}
 		}
 
-		public string Book { get; set; }
-		public string Chapter { get; set; }
-		public string Verse { get; set; }
-		public string CharacterId { get; set; }
+		public string Book { get; }
+		public string Chapter { get; }
+		public string Verse { get; }
+		public string CharacterId { get; }
 		public string English => m_text["English"];
+		public bool IsSectionHead { get; }
+		public bool IsAcrosticHead { get; }
 
 		public string GetText(string language)
 		{
