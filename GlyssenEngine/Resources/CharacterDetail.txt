@@ -619,7 +619,7 @@ living creature, first	1					REV 4:8 <-(4 more)-> REV 19:4
 living creature, fourth	1					REV 4:8 <-(4 more)-> REV 19:4
 living creature, second	1					REV 4:8 <-(4 more)-> REV 19:4
 living creature, third	1					REV 4:8 <-(4 more)-> REV 19:4
-lookout	1	Male				ISA 21:8 <-(1 more)-> ISA 21:10
+lookout	1	Male				ISA 21:8 <-(1 more)-> ISA 21:10	Watchman
 lookout in Jezreel	1	Male				2KI 9:17 <-(1 more)-> 2KI 9:20
 Lot	1	Male				GEN 19:2 <-(5 more)-> GEN 19:20
 Lydia	1	Female				ACT 16:15
@@ -1127,8 +1127,8 @@ son of Paul's sister (young man)	1	Male	YoungAdult			ACT 23:20 & ACT 23:21	Child
 son of Shelomith (whose father was an Egyptian)	1	Male				LEV 24:11 & LEV 24:23
 son of Shunammite	1	Male	Child			2KI 4:19	Boy
 son of widow	1	Male				2KI 4:6
-song about the prostitute	1	Either				ISA 23:16
-song of the prostitute	1	Female				ISA 23:16
+song about the prostitute	1	Either				ISA 23:16	Song of Prostitute
+song of the prostitute (female)	1	Female				ISA 23:16
 sons (hypothetical), at end of life	-1	Male	Elder			PRO 5:12 <-(1 more)-> PRO 5:14
 sons of God	-1	Male	Child		could be spoken by any age actor, but a child's voice might provide best dramatic effect	GAL 4:6
 sons of Korah	-1	Male				PSA 42:3 & PSA 42:9	Son of Korah
@@ -1200,7 +1200,7 @@ watchmen of Israel	-1	Male				ISA 56:12	Watchman
 waves	-1					ISA 51:15
 we (believers)	-1					ROM 8:15
 weakling	1					JOL 3:10
-what is formed	1					ISA 29:16
+thing formed from clay	1					ISA 29:16
 whoever has doubts	1					ROM 14:23
 whole earth	-1					REV 13:3
 wicked men of Gibeah	-1	Male				JDG 19:22

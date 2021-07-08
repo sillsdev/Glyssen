@@ -581,11 +581,6 @@ namespace Glyssen.RefTextDevUtilities
 
 						var verseNumberFixedText = s_verseNumberInExcelRegex.Replace(originalText, "{$1}\u00A0");
 
-						if (currBookId == "ISA" && referenceTextRow.Chapter == "19" && referenceTextRow.Verse == "1")
-							System.Diagnostics.Trace.WriteLine("ISA 19:1");
-						if (currBookId == "PSA" && referenceTextRow.Chapter == "119" && referenceTextRow.Verse == "0")
-							System.Diagnostics.Trace.WriteLine("PSA 119:0");
-
 						var modifiedText = verseNumberFixedText.Replace("\n ", " ").Replace('\n', ' ').Replace("_x000D_", "");
 
 						if (languageInfo.IsEnglish) // REVIEW: Do we want to enforce this for all languages?
