@@ -119,11 +119,11 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="7" characterId="narrator-ECC">
     <verse num="7" />
-    <text>I bought male servants and female servants, and had servants born in my house. I also had great possessions of herds and flocks, above all who were before me in Jerusalem;</text>
+    <text>I bought male servants and female servants, and had servants born in my house. I also had great possessions of herds and flocks, above all who were before me in Jerusalem.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="8" characterId="narrator-ECC">
     <verse num="8" />
-    <text>I also gathered silver and gold for myself, and the treasure of kings and of the provinces. I got myself male and female singers, and the delights of the sons of men--musical instruments, and that of all sorts.</text>
+    <text>I also gathered silver and gold for myself, and the treasure of kings and of the provinces. I got myself male and female singers, and the delights of the sons of men: musical instruments, and that of all sorts.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="9" characterId="narrator-ECC">
     <verse num="9" />
@@ -139,7 +139,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="12" characterId="narrator-ECC">
     <verse num="12" />
-    <text>I turned myself to consider wisdom, madness, and folly: for what can the king’s successor do? Just that which has been done long ago.</text>
+    <text>I turned myself to consider wisdom, madness, and folly; for what can the king’s successor do? Just that which has been done long ago.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="13" characterId="narrator-ECC">
     <verse num="13" />
@@ -274,7 +274,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="19" characterId="narrator-ECC">
     <verse num="19" />
-    <text>For that which happens to the sons of men happens to animals. Even one thing happens to them. As the one dies, so the other dies. Yes, they have all one breath; and man has no advantage over the animals: for all is vanity.</text>
+    <text>For that which happens to the sons of men happens to animals. Even one thing happens to them. As the one dies, so the other dies. Yes, they have all one breath; and man has no advantage over the animals; for all is vanity.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="20" characterId="narrator-ECC">
     <verse num="20" />
@@ -390,11 +390,11 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="7" characterId="narrator-ECC">
     <verse num="7" />
-    <text>For in the multitude of dreams there are vanities, as well as in many words: but you must fear God.</text>
+    <text>For in the multitude of dreams there are vanities, as well as in many words; but you must fear God.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="8" characterId="narrator-ECC">
     <verse num="8" />
-    <text>If you see the oppression of the poor, and the violent taking away of justice and righteousness in a district, don’t marvel at the matter: for one official is eyed by a higher one; and there are officials over them.</text>
+    <text>If you see the oppression of the poor, and the violent taking away of justice and righteousness in a district, don’t marvel at the matter, for one official is eyed by a higher one, and there are officials over them.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="9" characterId="narrator-ECC">
     <verse num="9" />
@@ -504,7 +504,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="2" characterId="narrator-ECC">
     <verse num="2" />
-    <text>It is better to go to the house of mourning than to go to the house of feasting: for that is the end of all men, and the living should take this to heart.</text>
+    <text>It is better to go to the house of mourning than to go to the house of feasting; for that is the end of all men, and the living should take this to heart.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="3" characterId="narrator-ECC">
     <verse num="3" />
@@ -556,7 +556,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="15" characterId="narrator-ECC">
     <verse num="15" />
-    <text>All this have I seen in my days of vanity: there is a righteous man who perishes in his righteousness, and there is a wicked man who lives long in his evildoing.</text>
+    <text>All this I have seen in my days of vanity: there is a righteous man who perishes in his righteousness, and there is a wicked man who lives long in his evildoing.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="16" characterId="narrator-ECC">
     <verse num="16" />
@@ -608,11 +608,11 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="28" characterId="narrator-ECC">
     <verse num="28" />
-    <text>which my soul still seeks; but I have not found. One man among a thousand have I found; but I have not found a woman among all those.</text>
+    <text>which my soul still seeks, but I have not found. I have found one man among a thousand, but I have not found a woman among all those.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="29" characterId="narrator-ECC">
     <verse num="29" />
-    <text>Behold, this only have I found: that God made man upright; but they search for many schemes.»</text>
+    <text>Behold, I have only found this: that God made man upright; but they search for many schemes.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="ECC" initialStartVerse="0" characterId="BC-ECC">
     <text>8</text>
@@ -651,7 +651,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="9" characterId="narrator-ECC">
     <verse num="9" />
-    <text>All this have I seen, and applied my mind to every work that is done under the sun. There is a time in which one man has power over another to his hurt.</text>
+    <text>All this I have seen, and applied my mind to every work that is done under the sun. There is a time in which one man has power over another to his hurt.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="10" characterId="narrator-ECC">
     <verse num="10" />
@@ -667,7 +667,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="13" characterId="narrator-ECC">
     <verse num="13" />
-    <text>But it shall not be well with the wicked, neither shall he lengthen days like a shadow; because he doesn’t fear God.</text>
+    <text>But it shall not be well with the wicked, neither shall he lengthen days like a shadow, because he doesn’t fear God.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="14" characterId="narrator-ECC">
     <verse num="14" />
@@ -722,7 +722,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="9" characterId="narrator-ECC">
     <verse num="9" />
-    <text>Live joyfully with the wife whom you love all the days of your life of vanity, which he has given you under the sun, all your days of vanity: for that is your portion in life, and in your labor in which you labor under the sun.</text>
+    <text>Live joyfully with the wife whom you love all the days of your life of vanity, which he has given you under the sun, all your days of vanity, for that is your portion in life, and in your labor in which you labor under the sun.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="10" characterId="narrator-ECC">
     <verse num="10" />
@@ -872,7 +872,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="7" characterId="narrator-ECC">
     <verse num="7" />
-    <text>Truly the light is sweet, and a pleasant thing it is for the eyes to see the sun.</text>
+    <text>Truly the light is sweet, and it is a pleasant thing for the eyes to see the sun.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="8" characterId="narrator-ECC">
     <verse num="8" />
@@ -910,7 +910,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="5" characterId="narrator-ECC">
     <verse num="5" />
-    <text>yes, they shall be afraid of heights, and terrors will be in the way; and the almond tree shall blossom, and the grasshopper shall be a burden, and desire shall fail; because man goes to his everlasting home, and the mourners go about the streets:</text>
+    <text>yes, they shall be afraid of heights, and terrors will be on the way; and the almond tree shall blossom, and the grasshopper shall be a burden, and desire shall fail; because man goes to his everlasting home, and the mourners go about the streets:</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="6" characterId="narrator-ECC">
     <verse num="6" />

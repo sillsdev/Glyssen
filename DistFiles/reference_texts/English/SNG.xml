@@ -266,7 +266,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="16" characterId="narrator-SNG">
     <verse num="16" />
-    <text>Awake, north wind; and come, you south! Blow on my garden, that its spices may flow out. Let my beloved come into his garden, and taste his precious fruits.</text>
+    <text>Awake, north wind, and come, you south! Blow on my garden, that its spices may flow out. Let my beloved come into his garden, and taste his precious fruits.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="SNG" initialStartVerse="0" characterId="BC-SNG">
     <text>5</text>
@@ -299,7 +299,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="6" characterId="narrator-SNG">
     <verse num="6" />
-    <text>I opened to my beloved; but my beloved left; and had gone away. My heart went out when he spoke. I looked for him, but I didn’t find him. I called him, but he didn’t answer.</text>
+    <text>I opened to my beloved; but my beloved left, and had gone away. My heart went out when he spoke. I looked for him, but I didn’t find him. I called him, but he didn’t answer.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="7" characterId="narrator-SNG">
     <verse num="7" />
@@ -354,7 +354,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="3" characterId="narrator-SNG">
     <verse num="3" />
-    <text>I am my beloved’s, and my beloved is mine. He browses among the lilies,</text>
+    <text>I am my beloved’s, and my beloved is mine. He browses among the lilies.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="4" characterId="narrator-SNG">
     <verse num="4" />
@@ -506,7 +506,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="12" characterId="narrator-SNG">
     <verse num="12" />
-    <text>My own vineyard is before me. The thousand are for you, Solomon; two hundred for those who tend its fruit.</text>
+    <text>My own vineyard is before me. The thousand are for you, Solomon, two hundred for those who tend its fruit.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="13" characterId="narrator-SNG">
     <verse num="13" />

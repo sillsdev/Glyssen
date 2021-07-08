@@ -145,7 +145,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="24" characterId="David">
     <verse num="24" />
-    <text>You daughters of Israel, weep over Saul, who clothed you in scarlet delicately, who put ornaments of gold on your clothing.</text>
+    <text>You daughters of Israel, weep over Saul, who clothed you delicately in scarlet, who put ornaments of gold on your clothing.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="25" characterId="David">
     <verse num="25" />
@@ -379,7 +379,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="7" characterId="narrator-2SA">
     <verse num="7" />
-    <text>Now Saul had a concubine, whose name was Rizpah, the daughter of Aiah: and Ishbosheth said to Abner,</text>
+    <text>Now Saul had a concubine, whose name was Rizpah, the daughter of Aiah; and Ishbosheth said to Abner,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="7" characterId="Ish-Bosheth, son of Saul">
     <text>«Why have you gone in to my father’s concubine?»</text>
@@ -581,7 +581,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="2" characterId="narrator-2SA">
     <verse num="2" />
-    <text>Ishbosheth, Saul’s son, had two men who were captains of bands: the name of the one was Baanah, and the name of the other Rechab, the sons of Rimmon the Beerothite, of the children of Benjamin (for Beeroth also is reckoned to Benjamin:</text>
+    <text>Saul’s son had two men who were captains of raiding bands. The name of one was Baanah, and the name of the other Rechab, the sons of Rimmon the Beerothite, of the children of Benjamin (for Beeroth also is considered a part of Benjamin:</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="3" characterId="narrator-2SA">
     <verse num="3" />
@@ -634,7 +634,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="1" characterId="narrator-2SA">
     <verse num="1" />
-    <text>Then came all the tribes of Israel to David to Hebron, and spoke, saying,</text>
+    <text>Then all the tribes of Israel came to David at Hebron, and spoke, saying,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="1" characterId="Israel, all the tribes">
     <text>«Behold, we are your bone and your flesh.</text>
@@ -769,7 +769,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="25" characterId="narrator-2SA">
     <verse num="25" />
-    <text>David did so, as God commanded him, and struck the Philistines from Geba until you come to Gezer.</text>
+    <text>David did so, as Yahweh commanded him, and struck the Philistines all the way from Geba to Gezer.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="2SA" initialStartVerse="0" characterId="BC-2SA">
     <text>6</text>
@@ -912,7 +912,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>For I have not lived in a house since the day that I brought up the children of Israel out of Egypt, even to this day, but have moved around in a tent and in a tabernacle.</text>
+    <text>For I have not lived in a house since the day that I brought the children of Israel up out of Egypt, even to this day, but have moved around in a tent and in a tabernacle.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="7" characterId="God">
     <verse num="7" />
@@ -1022,7 +1022,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="3" characterId="narrator-2SA">
     <verse num="3" />
-    <text>David struck also Hadadezer the son of Rehob, king of Zobah, as he went to recover his dominion at the River.</text>
+    <text>David also struck Hadadezer the son of Rehob, king of Zobah, as he went to recover his dominion at the River.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="4" characterId="narrator-2SA">
     <verse num="4" />
@@ -1054,7 +1054,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="11" characterId="narrator-2SA">
     <verse num="11" />
-    <text>These also did king David dedicate to God, with the silver and gold that he dedicated of all the nations which he subdued;</text>
+    <text>King David also dedicated these to Yahweh, with the silver and gold that he dedicated of all the nations which he subdued;</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="12" characterId="narrator-2SA">
     <verse num="12" />
@@ -1135,7 +1135,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="5" characterId="narrator-2SA">
     <verse num="5" />
-    <text>Then king David sent, and fetched him out of the house of Machir the son of Ammiel, from Lo Debar.</text>
+    <text>Then king David sent, and brought him out of the house of Machir the son of Ammiel, from Lo Debar.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="6" characterId="narrator-2SA">
     <verse num="6" />
@@ -1162,7 +1162,7 @@
     <text>He bowed down, and said,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="8" characterId="Mephibosheth, son of Jonathan">
-    <text>«What is your servant, that you should look on such a dead dog as I am?»</text>
+    <text>«What is your servant, that you should look at such a dead dog as I am?»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="9" characterId="narrator-2SA">
     <verse num="9" />
@@ -1245,7 +1245,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="9" characterId="narrator-2SA">
     <verse num="9" />
-    <text>Now when Joab saw that the battle was set against him before and behind, he chose of all the choice men of Israel, and put them in array against the Syrians:</text>
+    <text>Now when Joab saw that the battle was set against him before and behind, he chose of all the choice men of Israel, and put them in array against the Syrians.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="10" characterId="narrator-2SA">
     <verse num="10" />
@@ -1260,11 +1260,11 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="12" characterId="Joab">
     <verse num="12" />
-    <text>Be courageous, and let us be strong for our people, and for the cities of our God; and God do that which seems good to him.»</text>
+    <text>Be courageous, and let’s be strong for our people, and for the cities of our God; and may Yahweh do what seems good to him.»</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="13" characterId="narrator-2SA">
     <verse num="13" />
-    <text>So Joab and the people who were with him drew near to the battle against the Syrians: and they fled before him.</text>
+    <text>So Joab and the people who were with him came near to the battle against the Syrians, and they fled before him.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="14" characterId="narrator-2SA">
     <verse num="14" />
@@ -1379,7 +1379,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="13" characterId="narrator-2SA">
     <verse num="13" />
-    <text>When David had called him, he ate and drink before him; and he made him drunk. At evening, he went out to lie on his bed with the servants of his lord, but didn’t go down to his house.</text>
+    <text>When David had called him, he ate and drank before him; and he made him drunk. At evening, he went out to lie on his bed with the servants of his lord, but didn’t go down to his house.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="14" characterId="narrator-2SA">
     <verse num="14" />
@@ -1417,7 +1417,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="21" characterId="Joab">
     <verse num="21" />
-    <text>who struck Abimelech the son of Jerubbesheth? Didn’t a woman cast an upper millstone on him from the wall, so that he died at Thebez? Why did you go so near the wall?› then you shall say, ‹Your servant Uriah the Hittite is dead also.› »</text>
+    <text>Who struck Abimelech the son of Jerubbesheth? Didn’t a woman cast an upper millstone on him from the wall, so that he died at Thebez? Why did you go so near the wall?› then you shall say, ‹Your servant Uriah the Hittite is also dead.› »</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="22" characterId="narrator-2SA">
     <verse num="22" />
@@ -1432,7 +1432,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="24" characterId="messenger from battle to David">
     <verse num="24" />
-    <text>The shooters shot at your servants from off the wall; and some of the king’s servants are dead, and your servant Uriah the Hittite is dead also.»</text>
+    <text>The shooters shot at your servants from off the wall; and some of the king’s servants are dead, and your servant Uriah the Hittite is also dead.»</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="25" characterId="narrator-2SA">
     <verse num="25" />
@@ -1465,7 +1465,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="3" characterId="Nathan">
     <verse num="3" />
-    <text>but the poor man had nothing, except one little ewe lamb, which he had bought and raised. It grew up together with him, and with his children. It ate of his own food, drank of his own cup, and lay in his bosom, and was to him like a daughter.</text>
+    <text>but the poor man had nothing, except one little ewe lamb, which he had bought and raised. It grew up together with him, and with his children. It ate of his own food, drank of his own cup, and lay in his bosom, and was like a daughter to him.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="4" characterId="Nathan">
     <verse num="4" />
@@ -1567,7 +1567,7 @@
     <text>Then his servants said to him,</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="21" characterId="servants of David">
-    <text>«What is this that you have done? You fasted and wept for the child while he was alive; but when the child was dead, you rose up and ate bread.»</text>
+    <text>«What is this that you have done? You fasted and wept for the child while he was alive, but when the child was dead, you rose up and ate bread.»</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="22" characterId="narrator-2SA">
     <verse num="22" />
@@ -1609,7 +1609,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="30" characterId="narrator-2SA">
     <verse num="30" />
-    <text>He took the crown of their king from off his head; and its weight was a talent of gold, and in it were precious stones; and it was set on David’s head. He brought forth the spoil of the city, exceeding much.</text>
+    <text>He took the crown of their king from off his head; and its weight was a talent of gold, and in it were precious stones; and it was set on David’s head. He brought a great quantity of plunder out of the city.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="31" characterId="narrator-2SA">
     <verse num="31" />
@@ -1732,7 +1732,7 @@
     <text>Then he called his servant who ministered to him, and said,</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="17" characterId="Amnon, son of David">
-    <text>«Put now this woman out from me, and bolt the door after her.»</text>
+    <text>«Now put this woman out from me, and bolt the door after her.»</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="18" characterId="narrator-2SA">
     <verse num="18" />
@@ -1829,7 +1829,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="33" characterId="Jonadab" delivery="shrewd">
     <verse num="33" />
-    <text>Now therefore don’t let my lord the king take the thing to his heart, to think that all the king’s sons are dead; for Amnon only is dead.»</text>
+    <text>Now therefore don’t let my lord the king take the thing to his heart, to think that all the king’s sons are dead; for only Amnon is dead.»</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="34" characterId="narrator-2SA">
     <verse num="34" />
@@ -1926,7 +1926,7 @@
     <text>The king said,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="10" characterId="David">
-    <text>«Whoever says anything to you, bring him to me, and he shall not touch you any more.»</text>
+    <text>«Whoever says anything to you, bring him to me, and he will not bother you any more.»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="11" characterId="narrator-2SA">
     <verse num="11" />
@@ -2005,7 +2005,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="20" characterId="woman from Tekoa">
     <verse num="20" />
-    <text>to change the face of the matter has your servant Joab done this thing. My lord is wise, according to the wisdom of an angel of God, to know all things that are in the earth.»</text>
+    <text>Your servant Joab has done this thing to change the face of the matter. My lord is wise, according to the wisdom of an angel of God, to know all things that are in the earth.»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="21" characterId="narrator-2SA">
     <verse num="21" />
@@ -2049,7 +2049,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="28" characterId="narrator-2SA">
     <verse num="28" />
-    <text>Absalom lived two full years in Jerusalem; and he didn’t see the king’s face.</text>
+    <text>Absalom lived two full years in Jerusalem, and he didn’t see the king’s face.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="29" characterId="narrator-2SA">
     <verse num="29" />
@@ -2081,7 +2081,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="33" characterId="narrator-2SA">
     <verse num="33" />
-    <text>So Joab came to the king, and told him; and when he had called for Absalom, he came to the king, and bowed himself on his face to the ground before the king: and the king kissed Absalom.</text>
+    <text>So Joab came to the king, and told him; and when he had called for Absalom, he came to the king, and bowed himself on his face to the ground before the king; and the king kissed Absalom.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="2SA" initialStartVerse="0" characterId="BC-2SA">
     <text>15</text>
@@ -2224,7 +2224,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="23" characterId="narrator-2SA">
     <verse num="23" />
-    <text>All the country wept with a loud voice, and all the people passed over: the king also himself passed over the brook Kidron, and all the people passed over, toward the way of the wilderness.</text>
+    <text>All the country wept with a loud voice, and all the people passed over. The king also himself passed over the brook Kidron, and all the people passed over, toward the way of the wilderness.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="24" characterId="narrator-2SA">
     <verse num="24" />
@@ -2286,7 +2286,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="34" characterId="David">
     <verse num="34" />
-    <text>but if you return to the city, and tell Absalom, ‹I will be your servant, O king. As I have been your father’s servant in time past, so will I now be your servant; then will you defeat for me the counsel of Ahithophel.›</text>
+    <text>but if you return to the city, and tell Absalom, ‹I will be your servant, O king. As I have been your father’s servant in time past, so I will now be your servant; then will you defeat for me the counsel of Ahithophel.›</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="35" characterId="David">
     <verse num="35" />
@@ -2425,7 +2425,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="19" characterId="Hushai, David's friend">
     <verse num="19" />
-    <text>Again, whom should I serve? Shouldn’t I serve in the presence of his son? As I have served in your father’s presence, so will I be in your presence.»</text>
+    <text>Again, whom should I serve? Shouldn’t I serve in the presence of his son? As I have served in your father’s presence, so I will be in your presence.»</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="20" characterId="narrator-2SA">
     <verse num="20" />
@@ -2480,7 +2480,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="6" characterId="narrator-2SA">
     <verse num="6" />
-    <text>When Hushai was come to Absalom, Absalom spoke to him, saying,</text>
+    <text>When Hushai had come to Absalom, Absalom spoke to him, saying,</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="6" characterId="Absalom, son of David">
     <text>«Ahithophel has spoken like this. Shall we do what he says? If not, speak up.»</text>
@@ -2517,7 +2517,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="13" characterId="Hushai, David's friend">
     <verse num="13" />
-    <text>Moreover, if he be gone into a city, then shall all Israel bring ropes to that city, and we will draw it into the river, until there isn’t one small stone found there.»</text>
+    <text>Moreover, if he has gone into a city, then all Israel will bring ropes to that city, and we will draw it into the river, until there isn’t one small stone found there.»</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="14" characterId="narrator-2SA">
     <verse num="14" />
@@ -2550,7 +2550,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="19" characterId="narrator-2SA">
     <verse num="19" />
-    <text>The woman took and spread the covering over the well’s mouth, and spread out bruised grain on it; and nothing was known.</text>
+    <text>The woman took and spread the covering over the well’s mouth, and spread out crushed grain on it; and nothing was known.</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="20" characterId="narrator-2SA">
     <verse num="20" />
@@ -2653,7 +2653,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="6" characterId="narrator-2SA">
     <verse num="6" />
-    <text>So the people went out into the field against Israel: and the battle was in the forest of Ephraim.</text>
+    <text>So the people went out into the field against Israel; and the battle was in the forest of Ephraim.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="7" characterId="narrator-2SA">
     <verse num="7" />
@@ -2661,7 +2661,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="8" characterId="narrator-2SA">
     <verse num="8" />
-    <text>For the battle was there spread over the surface of all the country; and the forest devoured more people that day than the sword devoured.</text>
+    <text>For the battle was there spread over the surface of all the country, and the forest devoured more people that day than the sword devoured.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="9" characterId="narrator-2SA">
     <verse num="9" />
@@ -2708,7 +2708,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="16" characterId="narrator-2SA">
     <verse num="16" />
-    <text>Joab blew the trumpet, and the people returned from pursuing after Israel; for Joab held back the people.</text>
+    <text>Joab blew the trumpet, and the people returned from pursuing after Israel; for Joab held the people back.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="17" characterId="narrator-2SA">
     <verse num="17" />
@@ -2782,7 +2782,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="24" characterId="narrator-2SA">
     <verse num="24" />
-    <text>Now David was sitting between the two gates: and the watchman went up to the roof of the gate to the wall, and lifted up his eyes, and looked, and, behold, a man running alone.</text>
+    <text>Now David was sitting between the two gates; and the watchman went up to the roof of the gate to the wall, and lifted up his eyes, and looked, and, behold, a man running alone.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="25" characterId="narrator-2SA">
     <verse num="25" />
@@ -2861,7 +2861,7 @@
     <text>Behold, the Cushite came. The Cushite said,</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="31" characterId="messenger, Cushite">
-    <text>«News for my lord the king; for God has avenged you this day of all those who rose up against you.»</text>
+    <text>«News for my lord the king, for Yahweh has avenged you today of all those who rose up against you.»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="32" characterId="narrator-2SA">
     <verse num="32" />
@@ -2956,7 +2956,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="12" characterId="David">
     <verse num="12" />
-    <text>You are my brothers, you are my bone and my flesh. Why then are you the last to bring back the king?›</text>
+    <text>You are my brothers. You are my bone and my flesh. Why then are you the last to bring back the king?›</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="13" characterId="David">
     <verse num="13" />
@@ -3040,7 +3040,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="27" characterId="Mephibosheth, son of Jonathan">
     <verse num="27" />
-    <text>He has slandered your servant to my lord the king; but my lord the king is as an angel of God. Do therefore what is good in your eyes.</text>
+    <text>He has slandered your servant to my lord the king, but my lord the king is as an angel of God. Therefore do what is good in your eyes.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="28" characterId="Mephibosheth, son of Jonathan">
     <verse num="28" />
@@ -3099,7 +3099,7 @@
     <text>The king answered,</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="38" characterId="David">
-    <text>«Chimham shall go over with me, and I will do to him that which shall seem good to you. Whatever you require of me, that I will do for you.»</text>
+    <text>«Chimham shall go over with me, and I will do to him that which shall seem good to you. Whatever you request of me, that I will do for you.»</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="39" characterId="narrator-2SA">
     <verse num="39" />
@@ -3167,7 +3167,7 @@
     <text>David said to Abishai,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="6" characterId="David">
-    <text>«Now Sheba the son of Bichri will do us more harm than did Absalom. Take your lord’s servants, and pursue after him, lest he get himself fortified cities, and escape out of our sight.»</text>
+    <text>«Now Sheba the son of Bichri will do us more harm than Absalom did. Take your lord’s servants, and pursue after him, lest he get himself fortified cities, and escape out of our sight.»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="7" characterId="narrator-2SA">
     <verse num="7" />
@@ -3266,7 +3266,7 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="21" characterId="Joab">
     <verse num="21" />
-    <text>The matter is not so. But a man of the hill country of Ephraim, Sheba the son of Bichri by name, has lifted up his hand against the king, even against David. Deliver him only, and I will depart from the city.»</text>
+    <text>The matter is not so. But a man of the hill country of Ephraim, Sheba the son of Bichri by name, has lifted up his hand against the king, even against David. Just deliver him, and I will depart from the city.»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="21" characterId="narrator-2SA">
     <text>The woman said to Joab,</text>
@@ -3302,7 +3302,7 @@
     <text>There was a famine in the days of David for three years, year after year; and David sought the face of Yahweh. Yahweh said,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="1" characterId="God">
-    <text>«It is for Saul, and for his bloody house, because he put to death the Gibeonites.»</text>
+    <text>«It is for Saul, and for his bloody house, because he put the Gibeonites to death.»</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="2" characterId="narrator-2SA">
     <verse num="2" />
@@ -3313,7 +3313,7 @@
     <text>and David said to the Gibeonites,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="3" characterId="David">
-    <text>«What shall I do for you? And with what shall I make atonement, that you may bless the inheritance of God?»</text>
+    <text>«What should I do for you? And with what should I make atonement, that you may bless Yahweh’s inheritance?»</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="4" characterId="narrator-2SA">
     <verse num="4" />
@@ -3359,7 +3359,7 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="10" characterId="narrator-2SA">
     <verse num="10" />
-    <text>Rizpah the daughter of Aiah took sackcloth, and spread it for her on the rock, from the beginning of harvest until water was poured on them from the sky. She allowed neither the birds of the sky to rest on them by day, nor the animals of the field by night.</text>
+    <text>Rizpah the daughter of Aiah took sackcloth, and spread it for herself on the rock, from the beginning of harvest until water poured on them from the sky. She allowed neither the birds of the sky to rest on them by day, nor the animals of the field by night.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="11" characterId="narrator-2SA">
     <verse num="11" />
@@ -3464,7 +3464,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="12" characterId="David">
     <verse num="12" />
-    <text>He made darkness pavilions around himself: gathering of waters, and thick clouds of the skies.</text>
+    <text>He made darkness a shelter around himself: gathering of waters, and thick clouds of the skies.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="13" characterId="David">
     <verse num="13" />
@@ -3712,7 +3712,7 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="20" characterId="narrator-2SA">
     <verse num="20" />
-    <text>Benaiah the son of Jehoiada, the son of a valiant man of Kabzeel, who had done mighty deeds, he killed the two sons of Ariel of Moab: he went down also and killed a lion in the midst of a pit in time of snow.</text>
+    <text>Benaiah the son of Jehoiada, the son of a valiant man of Kabzeel, who had done mighty deeds, killed the two sons of Ariel of Moab. He also went down and killed a lion in the middle of a pit in a time of snow.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="21" characterId="narrator-2SA">
     <verse num="21" />
@@ -3720,7 +3720,7 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="22" characterId="narrator-2SA">
     <verse num="22" />
-    <text>These things did Benaiah the son of Jehoiada, and had a name among the three mighty men.</text>
+    <text>Benaiah the son of Jehoiada did these things, and had a name among the three mighty men.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="23" characterId="narrator-2SA">
     <verse num="23" />
@@ -3820,7 +3820,7 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="5" characterId="narrator-2SA">
     <verse num="5" />
-    <text>They passed over the Jordan, and encamped in Aroer, on the right side of the city that is in the middle of the valley of Gad, and to Jazer:</text>
+    <text>They passed over the Jordan, and encamped in Aroer, on the right side of the city that is in the middle of the valley of Gad, and to Jazer;</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="6" characterId="narrator-2SA">
     <verse num="6" />
@@ -3921,7 +3921,7 @@
     <text>Araunah said to David,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="22" characterId="Araunah, the Jebusite">
-    <text>«Let my lord the king take and offer up what seems good to him. Behold, the cattle for the burnt offering, and the threshing instruments and the yokes of the oxen for the wood:</text>
+    <text>«Let my lord the king take and offer up what seems good to him. Behold, the cattle for the burnt offering, and the threshing instruments and the yokes of the oxen for the wood.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="23" characterId="Araunah, the Jebusite">
     <verse num="23" />

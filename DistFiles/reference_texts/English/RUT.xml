@@ -108,7 +108,7 @@
     <text>She said to them,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="20" characterId="Naomi">
-    <text>«Don’t call me Naomi. Call me Mara; for the Almighty has dealt very bitterly with me.</text>
+    <text>«Don’t call me Naomi. Call me Mara, for the Almighty has dealt very bitterly with me.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="21" characterId="Naomi">
     <verse num="21" />
@@ -140,7 +140,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="narrator-RUT">
     <verse num="3" />
-    <text>She went, and came and gleaned in the field after the reapers: and she happened to come to the portion of the field belonging to Boaz, who was of the family of Elimelech.</text>
+    <text>She went, and came and gleaned in the field after the reapers; and she happened to come to the portion of the field belonging to Boaz, who was of the family of Elimelech.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-RUT">
     <verse num="4" />
@@ -298,7 +298,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="3" characterId="Naomi">
     <verse num="3" />
-    <text>Therefore wash yourself, anoint yourself, get dressed, and go down to the threshing floor, but don’t make yourself known to the man until he has finished eating and drinking.</text>
+    <text>Therefore wash yourself, anoint yourself, get dressed, and go down to the threshing floor; but don’t make yourself known to the man until he has finished eating and drinking.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="4" characterId="Naomi">
     <verse num="4" />
@@ -459,10 +459,10 @@
     <text>So the near kinsman said to Boaz,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="8" characterId="kinsman-redeemer">
-    <text>«Buy it for yourself.»</text>
+    <text>«Buy it for yourself,»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="8" characterId="narrator-RUT">
-    <text>Then he took off his sandal.</text>
+    <text>then he took off his sandal.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="9" characterId="narrator-RUT">
     <verse num="9" />

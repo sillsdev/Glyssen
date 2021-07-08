@@ -22,7 +22,7 @@
     <text>They said to me,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="3" characterId="Hanani, brother of Nehemiah/Judah, men of">
-    <text>«The remnant who are left of the captivity there in the province are in great affliction and reproach. The wall of Jerusalem also is broken down, and its gates are burned with fire.»</text>
+    <text>«The remnant who are left of the captivity there in the province are in great affliction and reproach. The wall of Jerusalem is also broken down, and its gates are burned with fire.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="4" characterId="narrator-NEH">
     <verse num="4" />
@@ -46,7 +46,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="narrator-NEH">
     <verse num="9" />
-    <text>but if you return to me, and keep my commandments and do them, though your outcasts were in the uttermost part of the heavens, yet will I gather them from there, and will bring them to the place that I have chosen, to cause my name to dwell there.›</text>
+    <text>but if you return to me, and keep my commandments and do them, though your outcasts were in the uttermost part of the heavens, yet I will gather them from there, and will bring them to the place that I have chosen, to cause my name to dwell there.›</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="10" characterId="narrator-NEH">
     <verse num="10" />
@@ -111,7 +111,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="9" characterId="narrator-NEH">
     <verse num="9" />
-    <text>Then I came to the governors beyond the River, and gave them the king’s letters. Now the king had sent with me captains of the army and horsemen.</text>
+    <text>Then I came to the governors beyond the River, and gave them the king’s letters. Now the king had sent captains of the army and horsemen with me.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="10" characterId="narrator-NEH">
     <verse num="10" />
@@ -131,7 +131,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="14" characterId="narrator-NEH">
     <verse num="14" />
-    <text>Then I went on to the spring gate and to the king’s pool: but there was no place for the animal that was under me to pass.</text>
+    <text>Then I went on to the spring gate and to the king’s pool, but there was no place for the animal that was under me to pass.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="15" characterId="narrator-NEH">
     <verse num="15" />
@@ -171,11 +171,11 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="1" characterId="narrator-NEH">
     <verse num="1" />
-    <text>Then Eliashib the high priest rose up with his brothers the priests, and they built the sheep gate; they sanctified it, and set up its doors; even to the tower of Hammeah they sanctified it, to the tower of Hananel.</text>
+    <text>Then Eliashib the high priest rose up with his brothers the priests, and they built the sheep gate. They sanctified it, and set up its doors. They sanctified it even to the tower of Hammeah, to the tower of Hananel.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="2" characterId="narrator-NEH">
     <verse num="2" />
-    <text>Next to him built the men of Jericho. Next to them built Zaccur the son of Imri.</text>
+    <text>Next to him the men of Jericho built. Next to them Zaccur the son of Imri built.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="3" characterId="narrator-NEH">
     <verse num="3" />
@@ -191,7 +191,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="6" characterId="narrator-NEH">
     <verse num="6" />
-    <text>The old gate repaired Joiada the son of Paseah and Meshullam the son of Besodeiah; they laid its beams, and set up its doors, and its bolts, and its bars.</text>
+    <text>Joiada the son of Paseah and Meshullam the son of Besodeiah repaired the old gate. They laid its beams, and set up its doors, and its bolts, and its bars.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="7" characterId="narrator-NEH">
     <verse num="7" />
@@ -223,7 +223,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="14" characterId="narrator-NEH">
     <verse num="14" />
-    <text>The dung gate repaired Malchijah the son of Rechab, the ruler of the district of Beth Haccherem; he built it, and set up its doors, its bolts, and its bars.</text>
+    <text>Malchijah the son of Rechab, the ruler of the district of Beth Haccherem repaired the dung gate. He built it, and set up its doors, its bolts, and its bars.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="15" characterId="narrator-NEH">
     <verse num="15" />
@@ -243,7 +243,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="19" characterId="narrator-NEH">
     <verse num="19" />
-    <text>Next to him repaired Ezer the son of Jeshua, the ruler of Mizpah, another portion, over against the ascent to the armory at the turning of the wall.</text>
+    <text>Next to him, Ezer the son of Jeshua, the ruler of Mizpah, repaired another portion, across from the ascent to the armory at the turning of the wall.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="20" characterId="narrator-NEH">
     <verse num="20" />
@@ -389,7 +389,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="19" characterId="narrator-NEH">
     <verse num="19" />
-    <text>I said to the nobles, and to the rulers and to the rest of the people, «The work is great and large, and we are separated on the wall, one far from another.</text>
+    <text>I said to the nobles, and to the rulers and to the rest of the people, «The work is great and large, and we are separated on the wall, far from one another.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="20" characterId="narrator-NEH">
     <verse num="20" />
@@ -401,7 +401,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="22" characterId="narrator-NEH">
     <verse num="22" />
-    <text>Likewise at the same time said I to the people, «Let everyone with his servant lodge within Jerusalem, that in the night they may be a guard to us, and may labor in the day.»</text>
+    <text>Likewise at the same time I said to the people, «Let everyone with his servant lodge within Jerusalem, that in the night they may be a guard to us, and may labor in the day.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="23" characterId="narrator-NEH">
     <verse num="23" />
@@ -637,15 +637,15 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="8" characterId="narrator-NEH">
     <verse num="8" />
-    <text>The children of Parosh, two thousand one hundred seventy-two.</text>
+    <text>The children of Parosh: two thousand one hundred seventy-two.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="9" characterId="narrator-NEH">
     <verse num="9" />
-    <text>The children of Shephatiah, three hundred seventy-two.</text>
+    <text>The children of Shephatiah: three hundred seventy-two.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="10" characterId="narrator-NEH">
     <verse num="10" />
-    <text>The children of Arah, six hundred fifty-two.</text>
+    <text>The children of Arah: six hundred fifty-two.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="11" characterId="narrator-NEH">
     <verse num="11" />
@@ -653,79 +653,79 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="12" characterId="narrator-NEH">
     <verse num="12" />
-    <text>The children of Elam, one thousand two hundred fifty-four.</text>
+    <text>The children of Elam: one thousand two hundred fifty-four.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="13" characterId="narrator-NEH">
     <verse num="13" />
-    <text>The children of Zattu, eight hundred forty-five.</text>
+    <text>The children of Zattu: eight hundred forty-five.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="14" characterId="narrator-NEH">
     <verse num="14" />
-    <text>The children of Zaccai, seven hundred sixty.</text>
+    <text>The children of Zaccai: seven hundred sixty.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="15" characterId="narrator-NEH">
     <verse num="15" />
-    <text>The children of Binnui, six hundred forty-eight.</text>
+    <text>The children of Binnui: six hundred forty-eight.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="16" characterId="narrator-NEH">
     <verse num="16" />
-    <text>The children of Bebai, six hundred twenty-eight.</text>
+    <text>The children of Bebai: six hundred twenty-eight.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="17" characterId="narrator-NEH">
     <verse num="17" />
-    <text>The children of Azgad, two thousand three hundred twenty-two.</text>
+    <text>The children of Azgad: two thousand three hundred twenty-two.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="18" characterId="narrator-NEH">
     <verse num="18" />
-    <text>The children of Adonikam, six hundred sixty-seven.</text>
+    <text>The children of Adonikam: six hundred sixty-seven.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="19" characterId="narrator-NEH">
     <verse num="19" />
-    <text>The children of Bigvai, two thousand sixty-seven.</text>
+    <text>The children of Bigvai: two thousand sixty-seven.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="20" characterId="narrator-NEH">
     <verse num="20" />
-    <text>The children of Adin, six hundred fifty-five.</text>
+    <text>The children of Adin: six hundred fifty-five.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="21" characterId="narrator-NEH">
     <verse num="21" />
-    <text>The children of Ater, of Hezekiah, ninety-eight.</text>
+    <text>The children of Ater: of Hezekiah, ninety-eight.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="22" characterId="narrator-NEH">
     <verse num="22" />
-    <text>The children of Hashum, three hundred Twenty-eight.</text>
+    <text>The children of Hashum: three hundred twenty-eight.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="23" characterId="narrator-NEH">
     <verse num="23" />
-    <text>The children of Bezai, three hundred twenty-four.</text>
+    <text>The children of Bezai: three hundred twenty-four.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="24" characterId="narrator-NEH">
     <verse num="24" />
-    <text>The children of Hariph, one hundred twelve.</text>
+    <text>The children of Hariph: one hundred twelve.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="25" characterId="narrator-NEH">
     <verse num="25" />
-    <text>The children of Gibeon, ninety-five.</text>
+    <text>The children of Gibeon: ninety-five.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="26" characterId="narrator-NEH">
     <verse num="26" />
-    <text>The men of Bethlehem and Netophah, one hundred eighty-eight.</text>
+    <text>The men of Bethlehem and Netophah: one hundred eighty-eight.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="27" characterId="narrator-NEH">
     <verse num="27" />
-    <text>The men of Anathoth, one hundred twenty-eight.</text>
+    <text>The men of Anathoth: one hundred twenty-eight.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="28" characterId="narrator-NEH">
     <verse num="28" />
-    <text>The men of Beth Azmaveth, forty-two.</text>
+    <text>The men of Beth Azmaveth: forty-two.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="29" characterId="narrator-NEH">
     <verse num="29" />
-    <text>The men of Kiriath Jearim, Chephirah, and Beeroth, seven hundred forty-three.</text>
+    <text>The men of Kiriath Jearim, Chephirah, and Beeroth: seven hundred forty-three.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="30" characterId="narrator-NEH">
     <verse num="30" />
-    <text>The men of Ramah and Geba, six hundred twenty-one.</text>
+    <text>The men of Ramah and Geba: six hundred twenty-one.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="31" characterId="narrator-NEH">
     <verse num="31" />
@@ -737,39 +737,39 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="33" characterId="narrator-NEH">
     <verse num="33" />
-    <text>The men of the other Nebo, fifty-two.</text>
+    <text>The men of the other Nebo: fifty-two.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="34" characterId="narrator-NEH">
     <verse num="34" />
-    <text>The children of the other Elam, one thousand two hundred fifty-four.</text>
+    <text>The children of the other Elam: one thousand two hundred fifty-four.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="35" characterId="narrator-NEH">
     <verse num="35" />
-    <text>The children of Harim, three hundred twenty.</text>
+    <text>The children of Harim: three hundred twenty.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="36" characterId="narrator-NEH">
     <verse num="36" />
-    <text>The children of Jericho, three hundred forty-five.</text>
+    <text>The children of Jericho: three hundred forty-five.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="37" characterId="narrator-NEH">
     <verse num="37" />
-    <text>The children of Lod, Hadid, and Ono, seven hundred twenty-one.</text>
+    <text>The children of Lod, Hadid, and Ono: seven hundred twenty-one.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="38" characterId="narrator-NEH">
     <verse num="38" />
-    <text>The children of Senaah, three thousand nine hundred thirty.</text>
+    <text>The children of Senaah: three thousand nine hundred thirty.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="39" characterId="narrator-NEH">
     <verse num="39" />
-    <text>The priests: The children of Jedaiah, of the house of Jeshua, nine hundred seventy-three.</text>
+    <text>The priests: The children of Jedaiah, of the house of Jeshua: nine hundred seventy-three.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="40" characterId="narrator-NEH">
     <verse num="40" />
-    <text>The children of Immer, one thousand fifty-two.</text>
+    <text>The children of Immer: one thousand fifty-two.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="41" characterId="narrator-NEH">
     <verse num="41" />
-    <text>The children of Pashhur, one thousand two hundred forty-seven.</text>
+    <text>The children of Pashhur: one thousand two hundred forty-seven.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="42" characterId="narrator-NEH">
     <verse num="42" />
@@ -777,11 +777,11 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="43" characterId="narrator-NEH">
     <verse num="43" />
-    <text>The Levites: the children of Jeshua, of Kadmiel, of the children of Hodevah, seventy-four.</text>
+    <text>The Levites: the children of Jeshua, of Kadmiel, of the children of Hodevah: seventy-four.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="44" characterId="narrator-NEH">
     <verse num="44" />
-    <text>The singers: the children of Asaph, one hundred forty-eight.</text>
+    <text>The singers: the children of Asaph: one hundred forty-eight.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="45" characterId="narrator-NEH">
     <verse num="45" />
@@ -853,7 +853,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="62" characterId="narrator-NEH">
     <verse num="62" />
-    <text>The children of Delaiah, the children of Tobiah, the children of Nekoda, six hundred forty-two.</text>
+    <text>The children of Delaiah, the children of Tobiah, the children of Nekoda: six hundred forty-two.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="63" characterId="narrator-NEH">
     <verse num="63" />
@@ -912,7 +912,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="3" characterId="narrator-NEH">
     <verse num="3" />
-    <text>He read therein before the broad place that was before the water gate from early morning until midday, in the presence of the men and the women, and of those who could understand; and the ears of all the people were attentive to the book of the law.</text>
+    <text>He read from it before the wide place that was in front of the water gate from early morning until midday, in the presence of the men and the women, and of those who could understand. The ears of all the people were attentive to the book of the law.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="4" characterId="narrator-NEH">
     <verse num="4" />
@@ -942,10 +942,10 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="9" characterId="narrator-NEH">
     <verse num="9" />
-    <text>Nehemiah, who was the governor, and Ezra the priest the scribe, and the Levites who taught the people, said to all the people,</text>
+    <text>Nehemiah, who was the governor, and Ezra the priest and scribe, and the Levites who taught the people, said to all the people,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="9" characterId="Nehemiah">
-    <text>«This day is holy to God your God. Don’t mourn, nor weep.»</text>
+    <text>«Today is holy to Yahweh your God. Don’t mourn, nor weep.»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="9" characterId="narrator-NEH">
     <text>For all the people wept when they heard the words of the law.</text>
@@ -955,7 +955,7 @@
     <text>Then he said to them,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="10" characterId="Nehemiah">
-    <text>«Go your way. Eat the fat, drink the sweet, and send portions to him for whom nothing is prepared; for this day is holy to our Lord. Don’t be grieved; for the joy of God is your strength.»</text>
+    <text>«Go your way. Eat the fat, drink the sweet, and send portions to him for whom nothing is prepared, for today is holy to our Lord. Don’t be grieved, for the joy of Yahweh is your strength.»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="11" characterId="narrator-NEH">
     <verse num="11" />
@@ -981,7 +981,7 @@
     <text>and that they should publish and proclaim in all their cities, and in Jerusalem, saying,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="15" characterId="Ezra, priest and teacher" delivery="proclamation">
-    <text>«Go out to the mountain, and get olive branches, and branches of wild olive, and myrtle branches, and palm branches, and branches of thick trees, to make booths, as it is written.»</text>
+    <text>«Go out to the mountain, and get olive branches, branches of wild olive, myrtle branches, palm branches, and branches of thick trees, to make temporary shelters, as it is written.»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="16" characterId="narrator-NEH">
     <verse num="16" />
@@ -1008,7 +1008,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="3" characterId="narrator-NEH">
     <verse num="3" />
-    <text>They stood up in their place, and read in the book of the law of God their God a fourth part of the day; and another fourth part they confessed, and worshiped God their God.</text>
+    <text>They stood up in their place, and read in the book of the law of Yahweh their God a fourth part of the day; and a fourth part they confessed, and worshiped Yahweh their God.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="4" characterId="narrator-NEH">
     <verse num="4" />
@@ -1135,7 +1135,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="34" characterId="Levites" delivery="praying">
     <verse num="34" />
-    <text>neither have our kings, our princes, our priests, nor our fathers, kept your law, nor listened to your commandments and your testimonies with which you testified against them.</text>
+    <text>Also our kings, our princes, our priests, and our fathers have not kept your law, nor listened to your commandments and your testimonies with which you testified against them.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="35" characterId="Levites" delivery="praying">
     <verse num="35" />
@@ -1317,7 +1317,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="1" characterId="narrator-NEH">
     <verse num="1" />
-    <text>The princes of the people lived in Jerusalem: the rest of the people also cast lots, to bring one of ten to dwell in Jerusalem the holy city, and nine parts in the other cities.</text>
+    <text>The princes of the people lived in Jerusalem. The rest of the people also cast lots, to bring one of ten to dwell in Jerusalem the holy city, and nine parts in the other cities.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="2" characterId="narrator-NEH">
     <verse num="2" />
@@ -1484,7 +1484,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="6" characterId="narrator-NEH">
     <verse num="6" />
-    <text>Shemaiah, and Joiarib, Jedaiah.</text>
+    <text>Shemaiah, and Joiarib, Jedaiah,</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="7" characterId="narrator-NEH">
     <verse num="7" />
@@ -1564,7 +1564,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="26" characterId="narrator-NEH">
     <verse num="26" />
-    <text>These were in the days of Joiakim the son of Jeshua, the son of Jozadak, and in the days of Nehemiah the governor, and of Ezra the priest the scribe.</text>
+    <text>These were in the days of Joiakim the son of Jeshua, the son of Jozadak, and in the days of Nehemiah the governor, and of Ezra the priest and scribe.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="27" characterId="narrator-NEH">
     <verse num="27" />
@@ -1632,7 +1632,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="43" characterId="narrator-NEH">
     <verse num="43" />
-    <text>They offered great sacrifices that day, and rejoiced; for God had made them rejoice with great joy; and the women also and the children rejoiced: so that the joy of Jerusalem was heard even afar off.</text>
+    <text>They offered great sacrifices that day, and rejoiced; for God had made them rejoice with great joy; and the women and the children also rejoiced; so that the joy of Jerusalem was heard even far away.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="44" characterId="narrator-NEH">
     <verse num="44" />
@@ -1659,11 +1659,11 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="2" characterId="narrator-NEH">
     <verse num="2" />
-    <text>because they didn’t meet the children of Israel with bread and with water, but hired Balaam against them, to curse them: however our God turned the curse into a blessing.</text>
+    <text>because they didn’t meet the children of Israel with bread and with water, but hired Balaam against them, to curse them; however our God turned the curse into a blessing.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="3" characterId="narrator-NEH">
     <verse num="3" />
-    <text>It came to pass, when they had heard the law, that they separated from Israel all the mixed multitude.</text>
+    <text>It came to pass, when they had heard the law, that they separated all the mixed multitude from Israel.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="4" characterId="narrator-NEH">
     <verse num="4" />
@@ -1723,7 +1723,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="18" characterId="narrator-NEH">
     <verse num="18" />
-    <text>Didn’t your fathers do thus, and didn’t our God bring all this evil on us, and on this city? Yet you bring more wrath on Israel by profaning the Sabbath.»</text>
+    <text>Didn’t your fathers do this, and didn’t our God bring all this evil on us, and on this city? Yet you bring more wrath on Israel by profaning the Sabbath.»</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="19" characterId="narrator-NEH">
     <verse num="19" />
@@ -1731,7 +1731,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="20" characterId="narrator-NEH">
     <verse num="20" />
-    <text>So the merchants and sellers of all kinds of wares lodged outside of Jerusalem once or twice.</text>
+    <text>So the merchants and sellers of all kinds of wares camped outside of Jerusalem once or twice.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="21" characterId="narrator-NEH">
     <verse num="21" />
@@ -1739,11 +1739,11 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="22" characterId="narrator-NEH">
     <verse num="22" />
-    <text>I commanded the Levites that they should purify themselves, and that they should come and keep the gates, to sanctify the Sabbath day. Remember to me, my God, this also, and spare me according to the greatness of your loving kindness.</text>
+    <text>I commanded the Levites that they should purify themselves, and that they should come and keep the gates, to sanctify the Sabbath day. Remember me for this also, my God, and spare me according to the greatness of your loving kindness.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="23" characterId="narrator-NEH">
     <verse num="23" />
-    <text>In those days also saw I the Jews who had married women of Ashdod, of Ammon, and of Moab:</text>
+    <text>In those days I also saw the Jews who had married women of Ashdod, of Ammon, and of Moab;</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="24" characterId="narrator-NEH">
     <verse num="24" />
@@ -1763,7 +1763,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="28" characterId="narrator-NEH">
     <verse num="28" />
-    <text>One of the sons of Joiada, the son of Eliashib the high priest, was son-in-law to Sanballat the Horonite: therefore I chased him from me.</text>
+    <text>One of the sons of Joiada, the son of Eliashib the high priest, was son-in-law to Sanballat the Horonite; therefore I chased him from me.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="29" characterId="narrator-NEH">
     <verse num="29" />

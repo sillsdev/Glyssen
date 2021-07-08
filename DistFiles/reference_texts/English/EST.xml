@@ -237,7 +237,7 @@
     <text>Haman said to King Ahasuerus,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="8" characterId="Haman, highest noble to Xerxes, king">
-    <text>«There is a certain people scattered abroad and dispersed among the peoples in all the provinces of your kingdom, and their laws are different than other people’s. They don’t keep the king’s laws. Therefore it is not for the king’s profit to allow them to remain.</text>
+    <text>«There is a certain people scattered abroad and dispersed among the peoples in all the provinces of your kingdom, and their laws are different from other people’s. They don’t keep the king’s laws. Therefore it is not for the king’s profit to allow them to remain.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="9" characterId="Haman, highest noble to Xerxes, king">
     <verse num="9" />
@@ -499,11 +499,11 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="8" characterId="Haman, highest noble to Xerxes, king">
     <verse num="8" />
-    <text>let royal clothing be brought which the king uses to wear, and the horse that the king rides on, and on the head of which a crown royal is set.</text>
+    <text>let royal clothing be brought which the king uses to wear, and the horse that the king rides on, and on the head of which a royal crown is set.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="9" characterId="Haman, highest noble to Xerxes, king">
     <verse num="9" />
-    <text>Let the clothing and the horse be delivered to the hand of one of the king’s most noble princes, that they may array the man whom the king delights to honor with them, and have him ride on horseback through the city square, and proclaim before him, ‹Thus shall it be done to the man whom the king delights to honor!› »</text>
+    <text>Let the clothing and the horse be delivered to the hand of one of the king’s most noble princes, that they may array the man whom the king delights to honor with them, and have him ride on horseback through the city square, and proclaim before him, ‹Thus it shall be done to the man whom the king delights to honor!› »</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="10" characterId="narrator-EST">
     <verse num="10" />
@@ -517,7 +517,7 @@
     <text>Then Haman took the clothing and the horse, and arrayed Mordecai, and had him ride through the city square, and proclaimed before him,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="11" characterId="Haman, highest noble to Xerxes, king">
-    <text>«Thus shall it be done to the man whom the king delights to honor!»</text>
+    <text>«Thus it shall be done to the man whom the king delights to honor!»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="12" characterId="narrator-EST">
     <verse num="12" />
@@ -605,14 +605,14 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="10" characterId="narrator-EST">
     <verse num="10" />
-    <text>So they hanged Haman on the gallows that he had prepared for Mordecai. Then was the king’s wrath pacified.</text>
+    <text>So they hanged Haman on the gallows that he had prepared for Mordecai. Then the king’s wrath was pacified.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="EST" initialStartVerse="0" characterId="BC-EST">
     <text>8</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="1" characterId="narrator-EST">
     <verse num="1" />
-    <text>On that day, King Ahasuerus gave the house of Haman, the Jews› enemy, to Esther the queen. Mordecai came before the king; for Esther had told what he was to her.</text>
+    <text>On that day, King Ahasuerus gave the house of Haman, the Jews’ enemy, to Esther the queen. Mordecai came before the king; for Esther had told what he was to her.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="2" characterId="narrator-EST">
     <verse num="2" />
@@ -642,7 +642,7 @@
     <text>Then King Ahasuerus said to Esther the queen and to Mordecai the Jew,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="7" characterId="Xerxes, king of Persia and Media (Ahasuerus)">
-    <text>«See, I have given Esther the house of Haman, and him they have hanged on the gallows, because he laid his hand on the Jews.</text>
+    <text>«See, I have given Esther the house of Haman, and they have hanged him on the gallows, because he laid his hand on the Jews.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="8" characterId="Xerxes, king of Persia and Media (Ahasuerus)">
     <verse num="8" />
@@ -682,14 +682,14 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="17" characterId="narrator-EST">
     <verse num="17" />
-    <text>In every province, and in every city, wherever the king’s commandment and his decree came, the Jews had gladness, joy, a feast, and a good day. Many from among the peoples of the land became Jews; for the fear of the Jews was fallen on them.</text>
+    <text>In every province, and in every city, wherever the king’s commandment and his decree came, the Jews had gladness, joy, a feast, and a good day. Many from among the peoples of the land became Jews; for the fear of the Jews had fallen on them.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="EST" initialStartVerse="0" characterId="BC-EST">
     <text>9</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="1" characterId="narrator-EST">
     <verse num="1" />
-    <text>Now in the twelfth month, which is the month Adar, on the thirteenth day of the month, when the king’s commandment and his decree drew near to be put in execution, on the day that the enemies of the Jews hoped to conquer them, (but it was turned out the opposite happened, that the Jews conquered those who hated them),</text>
+    <text>Now in the twelfth month, which is the month Adar, on the thirteenth day of the month, when the king’s commandment and his decree came near to be put in execution, on the day that the enemies of the Jews hoped to conquer them, (but it was turned out the opposite happened, that the Jews conquered those who hated them),</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="2" characterId="narrator-EST">
     <verse num="2" />
@@ -787,7 +787,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="24" characterId="narrator-EST">
     <verse num="24" />
-    <text>because Haman the son of Hammedatha, the Agagite, the enemy of all the Jews, had plotted against the Jews to destroy them, and had cast «Pur,» that is the lot, to consume them, and to destroy them;</text>
+    <text>because Haman the son of Hammedatha, the Agagite, the enemy of all the Jews, had plotted against the Jews to destroy them, and had cast «Pur», that is the lot, to consume them, and to destroy them;</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="25" characterId="narrator-EST">
     <verse num="25" />

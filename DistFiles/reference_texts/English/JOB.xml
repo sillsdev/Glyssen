@@ -208,7 +208,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="11" characterId="narrator-JOB">
     <verse num="11" />
-    <text>Now when Job’s three friends heard of all this evil that had come on him, they each came from his own place: Eliphaz the Temanite, Bildad the Shuhite, and Zophar the Naamathite, and they made an appointment together to come to sympathize with him and to comfort him.</text>
+    <text>Now when Job’s three friends heard of all this evil that had come on him, they each came from his own place: Eliphaz the Temanite, Bildad the Shuhite, and Zophar the Naamathite; and they made an appointment together to come to sympathize with him and to comfort him.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="12" characterId="narrator-JOB">
     <verse num="12" />
@@ -239,7 +239,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="Job">
     <verse num="5" />
-    <text>Let darkness and the shadow of death claim it for their own. Let a cloud dwell on it. Let all that makes black the day terrify it.</text>
+    <text>Let darkness and the shadow of death claim it for their own. Let a cloud dwell on it. Let all that makes the day black terrify it.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="6" characterId="Job">
     <verse num="6" />
@@ -342,7 +342,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="4" characterId="Eliphaz the Temanite">
     <verse num="4" />
-    <text>Your words have supported him who was falling, You have made firm the feeble knees.</text>
+    <text>Your words have supported him who was falling, You have made the feeble knees firm.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="5" characterId="Eliphaz the Temanite">
     <verse num="5" />
@@ -536,7 +536,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="3" characterId="Job">
     <verse num="3" />
-    <text>For now it would be heavier than the sand of the seas, therefore have my words been rash.</text>
+    <text>For now it would be heavier than the sand of the seas, therefore my words have been rash.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="4" characterId="Job">
     <verse num="4" />
@@ -659,7 +659,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="3" characterId="Job">
     <verse num="3" />
-    <text>so am I made to possess months of misery, wearisome nights are appointed to me.</text>
+    <text>so I am made to possess months of misery, wearisome nights are appointed to me.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="4" characterId="Job">
     <verse num="4" />
@@ -750,7 +750,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="4" characterId="Bildad the Shuhite">
     <verse num="4" />
-    <text>If your children have sinned against him, He has delivered them into the hand of their disobedience.</text>
+    <text>If your children have sinned against him, he has delivered them into the hand of their disobedience.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="5" characterId="Bildad the Shuhite">
     <verse num="5" />
@@ -1150,7 +1150,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="2" characterId="Job">
     <verse num="2" />
-    <text>No doubt, but you are the people, and wisdom shall die with you.</text>
+    <text>«No doubt, but you are the people, and wisdom will die with you.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="3" characterId="Job">
     <verse num="3" />
@@ -1166,7 +1166,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="6" characterId="Job">
     <verse num="6" />
-    <text>The tents of robbers prosper. Those who provoke God are secure, who carry their God in their hands.</text>
+    <text>The tents of robbers prosper. Those who provoke God are secure, who carry their god in their hands.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="7" characterId="Job">
     <verse num="7" />
@@ -1293,7 +1293,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="12" characterId="Job">
     <verse num="12" />
-    <text>Your memorable sayings are proverbs of ashes, Your defenses are defenses of clay.</text>
+    <text>Your memorable sayings are proverbs of ashes. Your defenses are defenses of clay.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="13" characterId="Job">
     <verse num="13" />
@@ -1325,15 +1325,15 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="20" characterId="Job">
     <verse num="20" />
-    <text>Only don’t do two things to me; then I will not hide myself from your face:</text>
+    <text>Only don’t do two things to me, then I will not hide myself from your face:</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="21" characterId="Job">
     <verse num="21" />
-    <text>withdraw your hand far from me; and don’t let your terror make me afraid.</text>
+    <text>withdraw your hand far from me, and don’t let your terror make me afraid.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="22" characterId="Job">
     <verse num="22" />
-    <text>Then call, and I will answer; or let me speak, and you answer me.</text>
+    <text>Then call, and I will answer, or let me speak, and you answer me.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="23" characterId="Job">
     <verse num="23" />
@@ -1491,7 +1491,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="10" characterId="Eliphaz the Temanite">
     <verse num="10" />
-    <text>With us are both the gray-headed and the very aged men, much elder than your father.</text>
+    <text>With us are both the gray-headed and the very aged men, much older than your father.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="11" characterId="Eliphaz the Temanite">
     <verse num="11" />
@@ -1523,7 +1523,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="18" characterId="Eliphaz the Temanite">
     <verse num="18" />
-    <text>(Which wise men have told by their fathers, and have not hidden it;</text>
+    <text>(which wise men have told by their fathers, and have not hidden it;</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="19" characterId="Eliphaz the Temanite">
     <verse num="19" />
@@ -1622,7 +1622,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="7" characterId="Job">
     <verse num="7" />
-    <text>But now, God, you have surely worn me out. You have made desolate all my company.</text>
+    <text>But now, God, you have surely worn me out. You have made all my company desolate.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="8" characterId="Job">
     <verse num="8" />
@@ -1646,11 +1646,11 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="13" characterId="Job">
     <verse num="13" />
-    <text>His archers surround me. He splits my kidneys apart, and does not spare. He pours out my gall on the ground.</text>
+    <text>His archers surround me. He splits my kidneys apart, and does not spare. He pours out my bile on the ground.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="14" characterId="Job">
     <verse num="14" />
-    <text>He breaks me with breach on breach. He runs on me like a giant.</text>
+    <text>He breaks me with breach on breach. He runs at me like a giant.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="15" characterId="Job">
     <verse num="15" />
@@ -1697,7 +1697,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="3" characterId="Job">
     <verse num="3" />
-    <text>Now give a pledge, be collateral for me with yourself. Who is there who will strike hands with me?</text>
+    <text>Now give a pledge. Be collateral for me with yourself. Who is there who will strike hands with me?</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="4" characterId="Job">
     <verse num="4" />
@@ -1705,7 +1705,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="5" characterId="Job">
     <verse num="5" />
-    <text>He who denounces his friends for a prey, Even the eyes of his children shall fail.</text>
+    <text>He who denounces his friends for plunder, Even the eyes of his children will fail.</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="6" characterId="Job">
     <verse num="6" />
@@ -1729,7 +1729,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="11" characterId="Job">
     <verse num="11" />
-    <text>My days are past, my plans are broken off, as are the thoughts of my heart.</text>
+    <text>My days are past. My plans are broken off, as are the thoughts of my heart.</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="12" characterId="Job">
     <verse num="12" />
@@ -1859,7 +1859,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="5" characterId="Job">
     <verse num="5" />
-    <text>If indeed you will magnify yourselves against me, and plead against me my reproach;</text>
+    <text>If indeed you will magnify yourselves against me, and plead against me my reproach,</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="6" characterId="Job">
     <verse num="6" />
@@ -1923,7 +1923,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="21" characterId="Job">
     <verse num="21" />
-    <text>Have pity on me, have pity on me, you my friends; for the hand of God has touched me.</text>
+    <text>Have pity on me. Have pity on me, you my friends; for the hand of God has touched me.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="22" characterId="Job">
     <verse num="22" />
@@ -2336,7 +2336,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="30" characterId="Eliphaz the Temanite">
     <verse num="30" />
-    <text>He will even deliver him who is not innocent. Yes, he shall be delivered through the cleanness of your hands.</text>
+    <text>He will even deliver him who is not innocent. Yes, he will be delivered through the cleanness of your hands.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="23" book="JOB" initialStartVerse="0" characterId="BC-JOB">
     <text>23</text>
@@ -2607,11 +2607,11 @@
   </block>
   <block style="p" chapter="27" initialStartVerse="2" characterId="Job">
     <verse num="2" />
-    <text>As God lives, who has taken away my right, the Almighty, who has made my soul bitter.</text>
+    <text>«As God lives, who has taken away my right, the Almighty, who has made my soul bitter</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="3" characterId="Job">
     <verse num="3" />
-    <text>(For the length of my life is still in me, and the spirit of God is in my nostrils);</text>
+    <text>(for the length of my life is still in me, and the spirit of God is in my nostrils);</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="4" characterId="Job">
     <verse num="4" />
@@ -2643,7 +2643,7 @@
   </block>
   <block style="p" chapter="27" initialStartVerse="11" characterId="Job">
     <verse num="11" />
-    <text>I will teach you about the hand of God. That which is with the Almighty will I not conceal.</text>
+    <text>I will teach you about the hand of God. I will not conceal that which is with the Almighty.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="12" characterId="Job">
     <verse num="12" />
@@ -2714,7 +2714,7 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="5" characterId="Job">
     <verse num="5" />
-    <text>As for the earth, out of it comes bread; Underneath it is turned up as it were by fire.</text>
+    <text>As for the earth, out of it comes bread. Underneath it is turned up as it were by fire.</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="6" characterId="Job">
     <verse num="6" />
@@ -2916,7 +2916,7 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="1" characterId="Job">
     <verse num="1" />
-    <text>But now those who are younger than I have me in derision, whose fathers I would have disdained to put with my sheep dogs.</text>
+    <text>«But now those who are younger than I have me in derision, whose fathers I considered unworthy to put with my sheep dogs.</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="2" characterId="Job">
     <verse num="2" />
@@ -3004,7 +3004,7 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="23" characterId="Job">
     <verse num="23" />
-    <text>For I know that you will bring me to death, To the house appointed for all living.</text>
+    <text>For I know that you will bring me to death, to the house appointed for all living.</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="24" characterId="Job">
     <verse num="24" />
@@ -3111,7 +3111,7 @@
   </block>
   <block style="p" chapter="31" initialStartVerse="18" characterId="Job">
     <verse num="18" />
-    <text>(no, from my youth he grew up with me as with a father, her have I guided from my mother’s womb);</text>
+    <text>(no, from my youth he grew up with me as with a father, I have guided her from my mother’s womb);</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="19" characterId="Job">
     <verse num="19" />
@@ -3167,7 +3167,7 @@
   </block>
   <block style="p" chapter="31" initialStartVerse="32" characterId="Job">
     <verse num="32" />
-    <text>(the foreigner has not lodged in the street, but I have opened my doors to the traveler);</text>
+    <text>(the foreigner has not camped in the street, but I have opened my doors to the traveler);</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="33" characterId="Job">
     <verse num="33" />
@@ -3240,7 +3240,7 @@
   </block>
   <block style="p" chapter="32" initialStartVerse="8" characterId="Elihu, son of Barakel">
     <verse num="8" />
-    <text>But there is a spirit in man, and the breath of the Almighty gives them understanding.</text>
+    <text>But there is a spirit in man, and the Spirit of the Almighty gives them understanding.</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="9" characterId="Elihu, son of Barakel">
     <verse num="9" />
@@ -3260,7 +3260,7 @@
   </block>
   <block style="p" chapter="32" initialStartVerse="13" characterId="Elihu, son of Barakel">
     <verse num="13" />
-    <text>Beware lest you say, ‹We have found wisdom, God may refute him, not man;›</text>
+    <text>Beware lest you say, ‹We have found wisdom. God may refute him, not man;›</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="14" characterId="Elihu, son of Barakel">
     <verse num="14" />
@@ -3486,7 +3486,7 @@
   </block>
   <block style="p" chapter="34" initialStartVerse="13" characterId="Elihu, son of Barakel">
     <verse num="13" />
-    <text>Who put him in charge of the earth? or who has appointed him over the whole world?</text>
+    <text>Who put him in charge of the earth? Or who has appointed him over the whole world?</text>
   </block>
   <block style="p" chapter="34" initialStartVerse="14" characterId="Elihu, son of Barakel">
     <verse num="14" />
@@ -3502,7 +3502,7 @@
   </block>
   <block style="p" chapter="34" initialStartVerse="17" characterId="Elihu, son of Barakel">
     <verse num="17" />
-    <text>Shall even one who hates justice govern? Will you condemn him who is righteous and mighty?--</text>
+    <text>Should even one who hates justice govern? Will you condemn him who is righteous and mighty?—</text>
   </block>
   <block style="p" chapter="34" initialStartVerse="18" characterId="Elihu, son of Barakel">
     <verse num="18" />
@@ -3530,7 +3530,7 @@
   </block>
   <block style="p" chapter="34" initialStartVerse="24" characterId="Elihu, son of Barakel">
     <verse num="24" />
-    <text>He breaks in pieces mighty men in ways past finding out, and sets others in their place.</text>
+    <text>He breaks mighty men in pieces in ways past finding out, and sets others in their place.</text>
   </block>
   <block style="p" chapter="34" initialStartVerse="25" characterId="Elihu, son of Barakel">
     <verse num="25" />
@@ -3645,11 +3645,11 @@
   </block>
   <block style="p" chapter="35" initialStartVerse="15" characterId="Elihu, son of Barakel">
     <verse num="15" />
-    <text>But now, because he has not visited in his anger, neither does he greatly regard arrogance.</text>
+    <text>But now, because he has not visited in his anger, neither does he greatly regard arrogance,</text>
   </block>
   <block style="p" chapter="35" initialStartVerse="16" characterId="Elihu, son of Barakel">
     <verse num="16" />
-    <text>Therefore Job opens his mouth with empty talk, and he multiplies words without knowledge.»</text>
+    <text>therefore Job opens his mouth with empty talk, and he multiplies words without knowledge.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="36" book="JOB" initialStartVerse="0" characterId="BC-JOB">
     <text>36</text>
@@ -3811,7 +3811,7 @@
   </block>
   <block style="p" chapter="37" initialStartVerse="6" characterId="Elihu, son of Barakel">
     <verse num="6" />
-    <text>For he says to the snow, ‹Fall on the earth;› likewise to the shower of rain, and to the showers of his mighty rain.</text>
+    <text>For he says to the snow, ‹Fall on the earth,› likewise to the shower of rain, and to the showers of his mighty rain.</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="7" characterId="Elihu, son of Barakel">
     <verse num="7" />
@@ -4077,7 +4077,7 @@
   </block>
   <block style="p" chapter="39" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>Whose home I have made the wilderness, and the salt land his dwelling place?</text>
+    <text>whose home I have made the wilderness, and the salt land his dwelling place?</text>
   </block>
   <block style="p" chapter="39" initialStartVerse="7" characterId="God">
     <verse num="7" />
@@ -4192,7 +4192,7 @@
   </block>
   <block style="p" chapter="40" initialStartVerse="4" characterId="Job">
     <verse num="4" />
-    <text>Behold, I am of small account. What shall I answer you? I lay my hand on my mouth.</text>
+    <text>«Behold, I am of small account. What will I answer you? I lay my hand on my mouth.</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="5" characterId="Job">
     <verse num="5" />
