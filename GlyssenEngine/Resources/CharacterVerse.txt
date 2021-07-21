@@ -9408,8 +9408,8 @@ ISA	12	6	Israel			Hypothetical
 ISA	12	6	Isaiah			Alternate		
 ISA	13	2	Isaiah			Potential		
 ISA	13	2	God		God (Yahweh)	Potential		
-ISA	13	3	God		God (Yahweh)	Potential		
-ISA	13	3	Needs Review			Alternate		
+ISA	13	3	God		God (Yahweh)	Alternate		
+ISA	13	3	Needs Review			Implicit		
 ISA	13	3	Isaiah			Alternate		
 ISA	13	4	Isaiah			Potential		
 ISA	13	4	God		God (Yahweh)	Alternate		
@@ -9425,14 +9425,14 @@ ISA	13	9	Isaiah			Potential
 ISA	13	9	God		God (Yahweh)	Alternate		
 ISA	13	10	Isaiah			Potential		
 ISA	13	10	God		God (Yahweh)	Alternate		
-ISA	13	11	God			Potential		
-ISA	13	11	Needs Review			Alternate		
+ISA	13	11	God			Alternate		
+ISA	13	11	Needs Review			Implicit		
 ISA	13	11	Isaiah			Alternate		
-ISA	13	12	God			Potential		
-ISA	13	12	Needs Review			Alternate		
+ISA	13	12	God			Alternate		
+ISA	13	12	Needs Review			Implicit		
 ISA	13	12	Isaiah			Alternate		
-ISA	13	13	God			Potential		
-ISA	13	13	Needs Review			Alternate		
+ISA	13	13	God			Alternate		
+ISA	13	13	Needs Review			Implicit		
 ISA	13	13	Isaiah			Alternate		
 ISA	13	14	Isaiah			Potential		
 ISA	13	14	God		God (Yahweh)	Alternate		
@@ -9440,8 +9440,8 @@ ISA	13	15	Isaiah			Potential
 ISA	13	15	God		God (Yahweh)	Alternate		
 ISA	13	16	Isaiah			Potential		
 ISA	13	16	God		God (Yahweh)	Alternate		
-ISA	13	17	God			Potential		
-ISA	13	17	Needs Review			Alternate		
+ISA	13	17	God			Alternate		
+ISA	13	17	Needs Review			Implicit		
 ISA	13	17	Isaiah			Alternate		
 ISA	13	18	Isaiah			Potential		
 ISA	13	18	God		God (Yahweh)	Alternate		
@@ -10808,6 +10808,7 @@ JER	8	15	people			Hypothetical
 JER	8	16	Jeremiah			Normal		
 JER	8	16	God	saying what the people will say	God (Yahweh)	Alternate		
 JER	8	16	people			Hypothetical		
+JER	8	16	Needs Review			Alternate		
 JER	8	17	God		God (Yahweh)	Normal		
 JER	8	17	Jeremiah			Potential		
 JER	8	18	Jeremiah			Potential		
@@ -14998,6 +14999,7 @@ OBA	1	1	ambassador			Alternate
 OBA	1	1	God		God (Yahweh)	Potential		
 OBA	1	2	God		God (Yahweh)	Implicit		
 OBA	1	3	God		God (Yahweh)	Implicit		
+OBA	1	3	Edom			Hypothetical		
 OBA	1	4	God		God (Yahweh)	Normal		
 OBA	1	4	Obadiah, prophet		Obadiah (Yahweh says)	Potential		
 OBA	1	5	God		God (Yahweh)	Implicit		
