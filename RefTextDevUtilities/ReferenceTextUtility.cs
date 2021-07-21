@@ -496,13 +496,20 @@ namespace Glyssen.RefTextDevUtilities
 								existingRefBlocksForLanguage = existingReferenceTextForLanguage.Books
 									.SingleOrDefault(b => b.BookId == currBookId)?.GetScriptBlocks();
 
-								if (existingRefBlocksForLanguage?.Count != existingEnglishRefBook?.GetScriptBlocks().Count)
+								int existingBlockCount = existingRefBlocksForLanguage?.Count ?? 0;
+
+								if (existingBlockCount != existingEnglishRefBook?.GetScriptBlocks().Count)
 								{
 									// Only regard this as an "error" if the two reference texts claim to be on the same version number.
 									bool isError = currBookNum >= 40 ? s_existingEnglish.EnglishNTVersion == existingReferenceTextForLanguage.EnglishNTVersion :
 										s_existingEnglish.EnglishOTVersion == existingReferenceTextForLanguage.EnglishOTVersion;
-									WriteOutput($"Existing book of {currBookId} for {language} has {existingRefBlocksForLanguage?.Count} blocks, but the existing " +
-										$"English reference text has {existingEnglishRefBook?.GetScriptBlocks().Count} blocks.", isError);
+									if (!isError && existingRefBlocksForLanguage == null)
+										WriteOutput($"Creating book of {currBookId} for {language}.");
+									else
+									{
+										WriteOutput($"Existing book of {currBookId} for {language} has {existingBlockCount} blocks, but the existing " +
+											$"English reference text has {existingEnglishRefBook?.GetScriptBlocks().Count} blocks.", isError);
+									}
 								}
 							}
 
@@ -652,7 +659,7 @@ namespace Glyssen.RefTextDevUtilities
 						}
 
 						var characterIdChanged = existingCharacterId != characterIdBasedOnExcelEntry;
-						if (characterIdChanged)
+						if (characterIdChanged && (noTextChangesWeCareAbout || languageInfo.IsEnglish))
 						{
 							WriteOutput($"Character change at {currBookId} {referenceTextRow.Chapter}:{referenceTextRow.Verse}");
 							WriteOutput($"   From {existingCharacterId ?? "null"} ==> {characterIdBasedOnExcelEntry}");
