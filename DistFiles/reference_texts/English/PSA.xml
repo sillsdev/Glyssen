@@ -1735,7 +1735,10 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
-    <text>Yahweh’s voice makes the deer calve, and strips the forests bare. In his temple everything says, «Glory!»</text>
+    <text>Yahweh’s voice makes the deer calve, and strips the forests bare. In his temple everything says</text>
+  </block>
+  <block style="p" chapter="29" initialStartVerse="9" characterId="all in temple">
+    <text>«Glory!»</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="10" characterId="narrator-PSA">
     <verse num="10" />
@@ -6152,7 +6155,7 @@
   </block>
   <block style="p" chapter="87" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>I will record Rahab and Babylon among those who acknowledge me. Behold, Philistia, Tyre, and also Ethiopia: «This one was born there.»</text>
+    <text>«I will record Rahab and Babylon among those who acknowledge me. Behold, Philistia, Tyre, and also Ethiopia: ‹This one was born there.› »</text>
   </block>
   <block style="p" chapter="87" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
@@ -9794,13 +9797,13 @@
   </block>
   <block style="p" chapter="129" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Many times they have afflicted me from my youth up. Let Israel now say,</text>
+    <text>Many times they have afflicted me from my youth up. Let Israel now say:</text>
   </block>
-  <block style="p" chapter="129" initialStartVerse="2" characterId="Israel">
+  <block style="p" chapter="129" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>many times they have afflicted me from my youth up, yet they have not prevailed against me.</text>
   </block>
-  <block style="p" chapter="129" initialStartVerse="3" characterId="Israel">
+  <block style="p" chapter="129" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>The plowers plowed on my back. They made their furrows long.</text>
   </block>

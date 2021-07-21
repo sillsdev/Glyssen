@@ -260,27 +260,21 @@
     <verse num="3" />
     <text>the captain of fifty, the honorable man, the counselor, the skilled craftsman, and the clever enchanter.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="4" characterId="narrator-ISA">
+  <block style="p" chapter="3" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>I will give boys to be their princes, and children shall rule over them.</text>
+    <text>«I will give boys to be their princes, and children shall rule over them.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-ISA">
+  <block style="p" chapter="3" initialStartVerse="5" characterId="God">
     <verse num="5" />
     <text>The people will be oppressed, everyone by another, and everyone by his neighbor. The child will behave himself proudly against the old man, and the wicked against the honorable.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="6" characterId="narrator-ISA">
+  <block style="p" chapter="3" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>Indeed a man shall take hold of his brother in the house of his father, saying,</text>
+    <text>Indeed a man shall take hold of his brother in the house of his father, saying, ‹You have clothing, you be our ruler, and let this ruin be under your hand.›</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="6" characterId="man (hypothetical)">
-    <text>«You have clothing, you be our ruler, and let this ruin be under your hand.»</text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="7" characterId="narrator-ISA">
+  <block style="p" chapter="3" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>In that day he will cry out, saying,</text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="7" characterId="man's brother (hypothetical)">
-    <text>«I will not be a healer; for in my house is neither bread nor clothing. You shall not make me ruler of the people.»</text>
+    <text>In that day he will cry out, saying, ‹I will not be a healer; for in my house is neither bread nor clothing. You shall not make me ruler of the people.› »</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="8" characterId="narrator-ISA">
     <verse num="8" />
@@ -651,7 +645,7 @@
     <verse num="10" />
     <text>Yahweh spoke again to Ahaz, saying,</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="11" characterId="God">
+  <block style="p" chapter="7" initialStartVerse="11" characterId="Isaiah">
     <verse num="11" />
     <text>«Ask a sign of Yahweh your God; ask it either in the depth, or in the height above.»</text>
   </block>
@@ -956,7 +950,10 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="12" characterId="Isaiah">
     <verse num="12" />
-    <text>Therefore it will happen that when the Lord has performed his whole work on Mount Zion and on Jerusalem, I will punish the fruit of the willful proud heart of the king of Assyria, and the insolence of his arrogant looks.</text>
+    <text>Therefore it will happen that when the Lord has performed his whole work on Mount Zion and on Jerusalem,</text>
+  </block>
+  <block style="p" chapter="10" initialStartVerse="12" characterId="God">
+    <text>«I will punish the fruit of the willful proud heart of the king of Assyria, and the insolence of his arrogant looks.»</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="13" characterId="Isaiah">
     <verse num="13" />
@@ -1131,7 +1128,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="2" characterId="Israel">
     <verse num="2" />
-    <text>Behold, God is my salvation. I will trust, and will not be afraid; for Yahweh, Yahweh, is my strength and song; and he has become my salvation.»</text>
+    <text>Behold, God is my salvation. I will trust, and will not be afraid; for Yahweh, God, is my strength and song; and he has become my salvation.»</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="3" characterId="narrator-ISA">
     <verse num="3" />
@@ -1163,7 +1160,7 @@
     <verse num="2" />
     <text>Set up a banner on the bare mountain! Lift up your voice to them! Wave your hand, that they may go into the gates of the nobles.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="3" characterId="God">
+  <block style="p" chapter="13" initialStartVerse="3" characterId="narrator-ISA">
     <verse num="3" />
     <text>I have commanded my consecrated ones; yes, I have called my mighty men for my anger, even my proudly exulting ones.</text>
   </block>
@@ -1195,15 +1192,15 @@
     <verse num="10" />
     <text>For the stars of the sky and its constellations will not give their light. The sun will be darkened in its going out, and the moon will not cause its light to shine.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="11" characterId="God">
+  <block style="p" chapter="13" initialStartVerse="11" characterId="narrator-ISA">
     <verse num="11" />
     <text>I will punish the world for their evil, and the wicked for their iniquity. I will cause the arrogance of the proud to cease, and will humble the arrogance of the terrible.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="12" characterId="God">
+  <block style="p" chapter="13" initialStartVerse="12" characterId="narrator-ISA">
     <verse num="12" />
     <text>I will make people more rare than fine gold, even a person than the pure gold of Ophir.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="13" characterId="God">
+  <block style="p" chapter="13" initialStartVerse="13" characterId="narrator-ISA">
     <verse num="13" />
     <text>Therefore I will make the heavens tremble, and the earth will be shaken out of its place in Yahweh of Armies’ wrath, and in the day of his fierce anger.</text>
   </block>
@@ -1219,7 +1216,7 @@
     <verse num="16" />
     <text>Their infants also will be dashed in pieces before their eyes. Their houses will be ransacked, and their wives raped.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="17" characterId="God">
+  <block style="p" chapter="13" initialStartVerse="17" characterId="narrator-ISA">
     <verse num="17" />
     <text>Behold, I will stir up the Medes against them, who will not value silver, and as for gold, they will not delight in it.</text>
   </block>
@@ -2401,7 +2398,7 @@
     <text>to whom he said,</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="12" characterId="God">
-    <text>«This is the resting place. Give rest to the weary,» and «This is the refreshing;»</text>
+    <text>«This is the resting place. Give rest to the weary, (and) This is the refreshing;»</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="12" characterId="narrator-ISA">
     <text>yet they would not hear.</text>
@@ -2562,7 +2559,7 @@
     <text>Woe to those who deeply hide their counsel from Yahweh, and whose deeds are in the dark, and who say,</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="15" characterId="those hiding from Yahweh">
-    <text>«Who sees us?» and «Who knows us?»</text>
+    <text>«Who sees us? (and) Who knows us?»</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="16" characterId="narrator-ISA">
     <verse num="16" />
@@ -3454,7 +3451,7 @@
   </block>
   <block style="p" chapter="38" initialStartVerse="11" characterId="Hezekiah, king of Judah" delivery="writing">
     <verse num="11" />
-    <text>I said, «I won’t see Yahweh, Yahweh in the land of the living. I will see man no more with the inhabitants of the world.</text>
+    <text>I said, «I won’t see Yahweh, God in the land of the living. I will see man no more with the inhabitants of the world.</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="12" characterId="Hezekiah, king of Judah" delivery="writing">
     <verse num="12" />

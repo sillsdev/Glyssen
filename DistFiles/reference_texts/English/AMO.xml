@@ -15,7 +15,7 @@
     <text>He said:</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="2" characterId="narrator-AMO">
-    <text>«Yahweh will roar from Zion, and utter his voice from Jerusalem; and utter his voice from Jerusalem; and the pastures of the shepherds will mourn, and the top of Carmel will wither.»</text>
+    <text>«Yahweh will roar from Zion, and utter his voice from Jerusalem; and the pastures of the shepherds will mourn, and the top of Carmel will wither.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="3" characterId="narrator-AMO">
     <verse num="3" />
@@ -213,12 +213,12 @@
     <verse num="8" />
     <text>The lion has roared. Who will not fear? The Lord Yahweh has spoken. Who can but prophesy?</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="9" characterId="God">
+  <block style="p" chapter="3" initialStartVerse="9" characterId="narrator-AMO">
     <verse num="9" />
     <text>Proclaim in the palaces at Ashdod, and in the palaces in the land of Egypt, and say,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="9" characterId="narrator-AMO">
-    <text>«Assemble yourselves on the mountains of Samaria, and see what unrest is in her, and what oppression is among them.»</text>
+  <block style="p" chapter="3" initialStartVerse="9" characterId="God">
+    <text>«Assemble yourselves on the mountains of Samaria, and see what unrest is in her, and what oppression is among them.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="10" characterId="God">
     <verse num="10" />
