@@ -25,12 +25,14 @@ namespace Glyssen.ReferenceTextUtility
 	{
 		private CancellationTokenSource m_cancellationTokenSource;
 		private OutputForm m_outputForm;
+		private StreamWriter m_logFile;
 		private ReferenceTextData m_data;
 		private Stack<RefTextDevUtilities.ReferenceTextUtility.Mode> m_passes = new Stack<RefTextDevUtilities.ReferenceTextUtility.Mode>();
 		private readonly string m_distFilesDir;
 		private static readonly string[] s_createActions = { "Create in Temp Folder", "Create/Overwrite" };
 
 		private static readonly Regex s_regexNumber = new Regex(@"\d+", RegexOptions.Compiled | RegexOptions.RightToLeft);
+		private string DefaultLogFilePath => Path.Combine(Path.GetTempPath(), "Reference Text Utility Log.txt");
 		private BackgroundWorker BackgroundProcessor { get; }
 		private ReferenceTextData Data
 		{
@@ -86,7 +88,7 @@ namespace Glyssen.ReferenceTextUtility
 					if (!String.IsNullOrEmpty(isoCode))
 						m_dataGridRefTexts.Rows[iRow].Cells[colIsoCode.Index].ReadOnly = true;
 
-					m_btnOk.Enabled = m_btnSkipAll.Enabled = true;
+					m_btnOk.Enabled = m_btnSkipAll.Enabled = m_grpLogging.Enabled = true;
 				}
 				m_lblLoading.Visible = false;
 			}
@@ -112,6 +114,8 @@ namespace Glyssen.ReferenceTextUtility
 			}
 			else
 				m_lblSpreadsheetFilePath.Text = "";
+
+			m_txtLogFileName.Text = DefaultLogFilePath;
 		}
 
 		private async void m_btnSelectSpreadsheetFile_Click(object sender, EventArgs e)
@@ -212,6 +216,9 @@ namespace Glyssen.ReferenceTextUtility
 							HandleMessageRaised(error.Message, true);
 					}
 				}
+
+				CloseLogFile();
+
 				m_btnOk.Enabled = m_btnSkipAll.Enabled = true;
 			}
 			else
@@ -308,11 +315,13 @@ namespace Glyssen.ReferenceTextUtility
 				return;
 			}
 
-			if (!task.IsCanceled) // Doesn't look like this is ever true
+			if (!task.IsCanceled)
 			{
 				if (task.Exception != null)
 				{
 					MessageBox.Show(this, $"The file {m_lblSpreadsheetFilePath.Text} could not be read.", "Invalid Excel Spreadsheet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+					lock(this)
+						m_lblLoading.Visible = false;
 					return;
 				}
 
@@ -372,23 +381,48 @@ namespace Glyssen.ReferenceTextUtility
 					m_outputForm = null;
 				}
 
+				CloseLogFile();
+
 				base.OnFormClosed(e);
+			}
+		}
+
+		private void CloseLogFile()
+		{
+			lock (this)
+			{
+				if (m_logFile != null)
+				{
+					m_logFile.Close();
+					m_logFile = null;
+				}
 			}
 		}
 
 		private void m_btnProcess_Click(object sender, EventArgs e)
 		{
-			m_btnOk.Enabled = m_btnSkipAll.Enabled = false;
+			m_btnOk.Enabled = m_btnSkipAll.Enabled = m_grpLogging.Enabled = false;
 			lock (this)
 			{
-				if (m_outputForm == null || m_outputForm.IsDisposed)
+				if (m_chkLogWindow.Checked)
 				{
-					m_outputForm = new OutputForm();
-					m_outputForm.Show(this);
+					if (m_outputForm == null || m_outputForm.IsDisposed)
+					{
+						m_outputForm = new OutputForm();
+						m_outputForm.Show(this);
+					}
+					else
+					{
+						m_outputForm.Clear();
+					}
 				}
-				else
+
+				if (m_chkLogFile.Checked)
 				{
-					m_outputForm.Clear();
+					string dir = Path.GetDirectoryName(m_txtLogFileName.Text);
+					if (!string.IsNullOrEmpty(dir))
+						Directory.CreateDirectory(dir);
+					m_logFile = new StreamWriter(m_txtLogFileName.Text, false);
 				}
 			}
 
@@ -432,7 +466,10 @@ namespace Glyssen.ReferenceTextUtility
 		private void HandleMessageRaised(string message, bool error)
 		{
 			lock (this)
+			{
 				m_outputForm?.DisplayMessage(message, error);
+				m_logFile?.WriteLine(message);
+			}
 		}
 
 		private void m_dataGridRefTexts_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -599,6 +636,32 @@ namespace Glyssen.ReferenceTextUtility
 		private void m_btnSkipAll_Click(object sender, EventArgs e)
 		{
 			SetRowsToSkip();
+		}
+
+		private void m_txtLogFileName_TextChanged(object sender, EventArgs e)
+		{
+			m_chkLogFile.Checked = m_txtLogFileName.Text != String.Empty;
+		}
+
+		private void m_btnBrowseLogFile_Click(object sender, EventArgs e)
+		{
+			var defaultFileName = m_txtLogFileName.Text;
+			if (defaultFileName == String.Empty)
+				defaultFileName = DefaultLogFilePath;
+			using (var dlg = new SaveFileDialog {
+				Title = "Choose Log File",
+				OverwritePrompt = true,
+				InitialDirectory = Path.GetDirectoryName(defaultFileName),
+				AddExtension = true,
+				Filter = "Text files|*.txt; *.log|All Files|*.*",
+				DefaultExt = "txt",
+				FileName = defaultFileName})
+			{
+				if (dlg.ShowDialog() == DialogResult.OK)
+				{
+					m_txtLogFileName.Text = dlg.FileName;
+				}
+			}
 		}
 	}
 }

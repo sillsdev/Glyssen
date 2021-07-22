@@ -2377,8 +2377,9 @@ namespace GlyssenEngineTests
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(22, "Salmo 9-22 (10:1 in English). ", true, 9, "PSA")
 				.AddVerse(23, "Salmo 9-23 (10:2 in English), ")
 				.AddVerse(24, "Salmo 9-24 (10:3 in English), ")
-				.AddVerse(25, "Salmo 9-25 (10:4 in English), ")
-				.AddVerse(26, "Salmo 9-26 (10:5 in English), ")
+				.AddVerse(25, "Salmo 9-25 (10:4 in English), "));
+			AddBlockForVerseInProgress(vernacularBlocks, "man, wicked", "“God is not even on my radar.”", "q1");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(26, "Salmo 9-26 (10:5 in English), ", true, 9, "PSA")
 				.AddVerse(27, "Salmo 9-27 (10:6 in English), "));
 			AddBlockForVerseInProgress(vernacularBlocks, "man, wicked", "“Can't mess with me. I'm on top and my great grandkids have got it made.”", "q1");
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(28, "Salmo 9-28 (10:7 in English). ", true, 9, "PSA")
