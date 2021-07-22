@@ -8,23 +8,23 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="1" characterId="narrator-MIC">
     <verse num="1" />
-    <text>The word of God that came to Micah the Morashtite in the days of Jotham, Ahaz, and Hezekiah, kings of Judah, which he saw concerning Samaria and Jerusalem.</text>
+    <text>Yahweh’s word that came to Micah the Morashtite in the days of Jotham, Ahaz, and Hezekiah, kings of Judah, which he saw concerning Samaria and Jerusalem.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="2" characterId="narrator-MIC">
     <verse num="2" />
-    <text>Hear, you peoples, all of you. Listen, O earth, and all that is therein: and let the Lord God be witness against you, the Lord from his holy temple.</text>
+    <text>Hear, you peoples, all of you. Listen, O earth, and all that is therein: and let the Lord Yahweh be witness against you, the Lord from his holy temple.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="3" characterId="narrator-MIC">
     <verse num="3" />
-    <text>For, behold, God comes forth out of his place, and will come down and tread on the high places of the earth.</text>
+    <text>For, behold, Yahweh comes out of his place, and will come down and tread on the high places of the earth.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="4" characterId="narrator-MIC">
     <verse num="4" />
     <text>The mountains melt under him, and the valleys split apart, like wax before the fire, like waters that are poured down a steep place.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="5" characterId="narrator-MIC">
+  <block style="p" chapter="1" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>All this is for the disobedience of Jacob, and for the sins of the house of Israel. What is the disobedience of Jacob? Isn’t it Samaria? And what are the high places of Judah? Aren’t they Jerusalem?</text>
+    <text>«All this is for the disobedience of Jacob, and for the sins of the house of Israel. What is the disobedience of Jacob? Isn’t it Samaria? And what are the high places of Judah? Aren’t they Jerusalem?</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="6" characterId="God">
     <verse num="6" />
@@ -32,7 +32,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>All her idols will be beaten to pieces, and all her temple gifts will be burned with fire, and all her images I will destroy; for of the hire of a prostitute has she gathered them, and to the hire of a prostitute shall they return.</text>
+    <text>All her idols will be beaten to pieces, all her temple gifts will be burned with fire, and I will destroy all her images; for of the hire of a prostitute has she gathered them, and to the hire of a prostitute shall they return.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="8" characterId="narrator-MIC">
     <verse num="8" />
@@ -52,7 +52,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="12" characterId="narrator-MIC">
     <verse num="12" />
-    <text>For the inhabitant of Maroth waits anxiously for good, because evil has come down from God to the gate of Jerusalem.</text>
+    <text>For the inhabitant of Maroth waits anxiously for good, because evil has come down from Yahweh to the gate of Jerusalem.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="13" characterId="narrator-MIC">
     <verse num="13" />
@@ -64,7 +64,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="15" characterId="narrator-MIC">
     <verse num="15" />
-    <text>I will yet bring to you, inhabitant of Mareshah. He who is the glory of Israel will come to Adullam.</text>
+    <text>I will yet bring to you, inhabitant of Mareshah, him who will possess you. He who is the glory of Israel will come to Adullam.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="16" characterId="narrator-MIC">
     <verse num="16" />
@@ -79,40 +79,30 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-MIC">
     <verse num="2" />
-    <text>They covet fields, and seize them; and houses, and take them away: and they oppress a man and his house, even a man and his heritage. </text>
+    <text>They covet fields and seize them, and houses, then take them away. They oppress a man and his house, even a man and his heritage.</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="3" characterId="narrator-MIC">
     <verse num="3" />
-    <text>Therefore thus says God:</text>
+    <text>Therefore Yahweh says:</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="God">
     <text>«Behold, I am planning against these people a disaster, from which you will not remove your necks, neither will you walk haughtily; for it is an evil time.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>In that day they will take up a parable against you, and lament with a doleful lamentation, saying,</text>
+    <text>In that day they will take up a parable against you, and lament with a doleful lamentation, saying, ‹We are utterly ruined! My people’s possession is divided up. Indeed he takes it from me and assigns our fields to traitors!›</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="4" characterId="people" delivery="lament">
-    <text>We are utterly ruined! My people’s possession is divided up. Indeed he takes it from me and assigns our fields to traitors!› »</text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="5" characterId="narrator-MIC">
+  <block style="p" chapter="2" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>Therefore you will have no one who divides the land by lot in the assembly of God.</text>
+    <text>Therefore you will have no one who divides the land by lot in Yahweh’s assembly.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="6" characterId="false prophets">
+  <block style="p" chapter="2" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>«Don’t prophesy!»</text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-MIC">
-    <text>They prophesy.</text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="6" characterId="false prophets">
-    <text>«Don’t prophesy about these things. Disgrace won’t overtake us.»</text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="7" characterId="narrator-MIC">
-    <verse num="7" />
-    <text>Shall it be said, O house of Jacob: «Is the Spirit of God angry? Are these his doings?</text>
+    <text>‹Don’t prophesy!› They prophesy. ‹Don’t prophesy about these things. Disgrace won’t overtake us.›</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="7" characterId="God">
-    <text>Don’t my words do good to him who walks blamelessly?»</text>
+    <verse num="7" />
+    <text>Shall it be said, O house of Jacob: ‹Is Yahweh’s Spirit angry? Are these his doings?› Don’t my words do good to him who walks blamelessly?</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="8" characterId="God">
     <verse num="8" />
@@ -128,15 +118,15 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="11" characterId="God">
     <verse num="11" />
-    <text>If a man walking in a spirit of falsehood lies: «I will prophesy to you of wine and of strong drink;» he would be the prophet of this people.</text>
+    <text>If a man walking in a spirit of falsehood lies: ‹I will prophesy to you of wine and of strong drink;› he would be the prophet of this people.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>I will surely assemble, Jacob, all of you; I will surely gather the remnant of Israel; I will put them together as the sheep of Bozrah, as a flock in the midst of their pasture; they will swarm with people.</text>
+    <text>I will surely assemble, Jacob, all of you; I will surely gather the remnant of Israel; I will put them together as the sheep of Bozrah, as a flock in the middle of their pasture; they will swarm with people.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>He who breaks open the way goes up before them. They break through the gate, and go out. And their king passes on before them, with God at their head.</text>
+    <text>He who breaks open the way goes up before them. They break through the gate, and go out. Their king passes on before them, with Yahweh at their head.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="MIC" initialStartVerse="0" characterId="BC-MIC">
     <text>3</text>
@@ -151,30 +141,27 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="3" characterId="narrator-MIC">
     <verse num="3" />
-    <text>who also eat the flesh of my people, and flay their skin from off them, and break their bones, and chop them in pieces, as for the pot, and as flesh within the caldron.</text>
+    <text>who also eat the flesh of my people, and peel their skin from off them, and break their bones, and chop them in pieces, as for the pot, and as meat within the cauldron.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="4" characterId="narrator-MIC">
     <verse num="4" />
-    <text>Then they will cry to God, but he will not answer them. Yes, he will hide his face from them at that time, because they made their deeds evil.»</text>
+    <text>Then they will cry to Yahweh, but he will not answer them. Yes, he will hide his face from them at that time, because they made their deeds evil.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-MIC">
     <verse num="5" />
-    <text>Thus says God</text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="5" characterId="God">
-    <text>concerning the prophets who lead my people astray; for those who feed their teeth, they proclaim, «Peace!» and whoever doesn’t provide for their mouths, they prepare war against him:</text>
+    <text>Yahweh says concerning the prophets who lead my people astray; for those who feed their teeth, they proclaim, «Peace!» and whoever doesn’t provide for their mouths, they prepare war against him:</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>Therefore night is over you, with no vision, and it is dark to you, that you may not divine; and the sun will go down on the prophets, and the day will be black over them.</text>
+    <text>«Therefore night is over you, with no vision, and it is dark to you, that you may not divine; and the sun will go down on the prophets, and the day will be black over them.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>The seers shall be disappointed, and the diviners confounded. Yes, they shall all cover their lips; for there is no answer from God.</text>
+    <text>The seers shall be disappointed, and the diviners confounded. Yes, they shall all cover their lips; for there is no answer from God.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="8" characterId="narrator-MIC">
     <verse num="8" />
-    <text>But as for me, I am full of power by the Spirit of God, and of judgment, and of might, to declare to Jacob his disobedience, and to Israel his sin.</text>
+    <text>But as for me, I am full of power by Yahweh’s Spirit, and of judgment, and of might, to declare to Jacob his disobedience, and to Israel his sin.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="9" characterId="narrator-MIC">
     <verse num="9" />
@@ -186,10 +173,10 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="11" characterId="narrator-MIC">
     <verse num="11" />
-    <text>Her leaders judge for bribes, and her priests teach for a price, and her prophets of it tell fortunes for money: yet they lean on God, and say,</text>
+    <text>Her leaders judge for bribes, and her priests teach for a price, and her prophets of it tell fortunes for money: yet they lean on Yahweh, and say,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="11" characterId="leaders/priests/false prophets">
-    <text>«Isn’t God in the midst of us? No disaster will come on us.»</text>
+    <text>«Isn’t Yahweh among us? No disaster will come on us.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="12" characterId="narrator-MIC">
     <verse num="12" />
@@ -200,15 +187,17 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="1" characterId="narrator-MIC">
     <verse num="1" />
-    <text>But in the latter days, it will happen that the mountain of God’s temple will be established on the top of the mountains, and it will be exalted above the hills; and peoples will stream to it. </text>
+    <text>But in the latter days, it will happen that the mountain of Yahweh’s temple will be established on the top of the mountains, and it will be exalted above the hills; and peoples will stream to it.</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="2" characterId="narrator-MIC">
     <verse num="2" />
     <text>Many nations will go and say,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="2" characterId="nations">
-    <text>«Come, and let us go up to the mountain of God, and to the house of the God of Jacob; and he will teach us of his ways, and we will walk in his paths.»</text>
+    <text>«Come! Let’s go up to the mountain of Yahweh, and to the house of the God of Jacob; and he will teach us of his ways, and we will walk in his paths.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="2" characterId="narrator-MIC">
-    <text>For out of Zion will go forth the law, and the word of God from Jerusalem;</text>
+    <text>For the law will go out of Zion, and Yahweh’s word from Jerusalem;</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="3" characterId="narrator-MIC">
     <verse num="3" />
@@ -216,27 +205,27 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="4" characterId="narrator-MIC">
     <verse num="4" />
-    <text>But they will sit every man under his vine and under his fig tree; and no one will make them afraid: For the mouth of God of Armies has spoken.</text>
+    <text>But they will sit every man under his vine and under his fig tree; and no one will make them afraid, for the mouth of Yahweh of Armies has spoken.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="5" characterId="narrator-MIC">
     <verse num="5" />
-    <text>Indeed all the nations may walk in the name of their gods; but we will walk in the name of God our God forever and ever.</text>
+    <text>Indeed all the nations may walk in the name of their gods; but we will walk in the name of Yahweh our God forever and ever.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>In that day,</text>
+    <text>«In that day,»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="6" characterId="narrator-MIC">
-    <text>says God,</text>
+    <text>says Yahweh,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="6" characterId="God">
     <text>«I will assemble that which is lame, and I will gather that which is driven away, and that which I have afflicted;</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>and I will make that which was lame a remnant, and that which was cast far off a strong nation: and God will reign over them on Mount Zion from then on, even forever.»</text>
+    <text>and I will make that which was lame a remnant, and that which was cast far off a strong nation: and Yahweh will reign over them on Mount Zion from then on, even forever.»</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="8" characterId="God">
+  <block style="p" chapter="4" initialStartVerse="8" characterId="narrator-MIC">
     <verse num="8" />
     <text>You, tower of the flock, the hill of the daughter of Zion, to you it will come, yes, the former dominion will come, the kingdom of the daughter of Jerusalem.</text>
   </block>
@@ -246,7 +235,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="10" characterId="narrator-MIC">
     <verse num="10" />
-    <text>Be in pain, and labor to bring forth, daughter of Zion, like a woman in travail; for now you will go forth out of the city, and will dwell in the field, and will come even to Babylon. There you will be rescued. There God will redeem you from the hand of your enemies.</text>
+    <text>Be in pain, and labor to give birth, daughter of Zion, like a woman in travail; for now you will go out of the city, and will dwell in the field, and will come even to Babylon. There you will be rescued. There Yahweh will redeem you from the hand of your enemies.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="11" characterId="narrator-MIC">
     <verse num="11" />
@@ -257,11 +246,11 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="12" characterId="narrator-MIC">
     <verse num="12" />
-    <text>But they don’t know the thoughts of God, neither do they understand his counsel; for he has gathered them like the sheaves to the threshing floor.</text>
+    <text>But they don’t know the thoughts of Yahweh, neither do they understand his counsel; for he has gathered them like the sheaves to the threshing floor.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="13" characterId="God">
+  <block style="p" chapter="4" initialStartVerse="13" characterId="narrator-MIC">
     <verse num="13" />
-    <text>Arise and thresh, daughter of Zion; for I will make your horn iron, and I will make your hoofs brass; and you will beat in pieces many peoples: and I will devote their gain to God, and their substance to the Lord of the whole earth.</text>
+    <text>Arise and thresh, daughter of Zion; for I will make your horn iron, and I will make your hoofs bronze; and you will beat in pieces many peoples: and I will devote their gain to Yahweh, and their substance to the Lord of the whole earth.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="MIC" initialStartVerse="0" characterId="BC-MIC">
     <text>5</text>
@@ -272,7 +261,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="2" characterId="narrator-MIC">
     <verse num="2" />
-    <text>But you, Bethlehem Ephrathah, being small among the clans of Judah, out of you one will come forth to me that is to be ruler in Israel; whose goings forth are from of old, from everlasting.</text>
+    <text>But you, Bethlehem Ephrathah, being small among the clans of Judah, out of you one will come out to me that is to be ruler in Israel; whose goings out are from of old, from ancient times.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="3" characterId="narrator-MIC">
     <verse num="3" />
@@ -280,7 +269,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="4" characterId="narrator-MIC">
     <verse num="4" />
-    <text>He shall stand, and shall shepherd in the strength of God, in the majesty of the name of God his God: and they will live, for then he will be great to the ends of the earth.</text>
+    <text>He shall stand, and shall shepherd in the strength of Yahweh, in the majesty of the name of Yahweh his God. They will live, for then he will be great to the ends of the earth.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="5" characterId="narrator-MIC">
     <verse num="5" />
@@ -292,11 +281,11 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="7" characterId="narrator-MIC">
     <verse num="7" />
-    <text>The remnant of Jacob will be in the midst of many peoples, like dew from God, like showers on the grass, that don’t wait for man, nor wait for the sons of men.</text>
+    <text>The remnant of Jacob will be among many peoples, like dew from Yahweh, like showers on the grass, that don’t wait for man, nor wait for the sons of men.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="8" characterId="narrator-MIC">
     <verse num="8" />
-    <text>The remnant of Jacob will be among the nations, in the midst of many peoples, like a lion among the animals of the forest, like a young lion among the flocks of sheep; who, if he goes through, treads down and tears in pieces, and there is no one to deliver.</text>
+    <text>The remnant of Jacob will be among the nations, among many peoples, like a lion among the animals of the forest, like a young lion among the flocks of sheep; who, if he goes through, treads down and tears in pieces, and there is no one to deliver.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="9" characterId="narrator-MIC">
     <verse num="9" />
@@ -304,13 +293,13 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="10" characterId="God">
     <verse num="10" />
-    <text>It will happen in that day,</text>
+    <text>«It will happen in that day»,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="10" characterId="narrator-MIC">
-    <text>says God,</text>
+    <text>says Yahweh,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="10" characterId="God">
-    <text>«That I will cut off your horses out of the midst of you, and will destroy your chariots.</text>
+    <text>«that I will cut off your horses out from among you, and will destroy your chariots.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="11" characterId="God">
     <verse num="11" />
@@ -322,11 +311,11 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>I will cut off your engraved images and your pillars out of your midst; and you shall no more worship the work of your hands.</text>
+    <text>I will cut off your engraved images and your pillars out from among you; and you shall no more worship the work of your hands.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="14" characterId="God">
     <verse num="14" />
-    <text>I will uproot your Asherim out of your midst; and I will destroy your cities.</text>
+    <text>I will uproot your Asherah poles out from among you; and I will destroy your cities.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="15" characterId="God">
     <verse num="15" />
@@ -337,14 +326,14 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="1" characterId="narrator-MIC">
     <verse num="1" />
-    <text>Listen now to what God says:</text>
+    <text>Listen now to what Yahweh says:</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="1" characterId="God">
     <text>«Arise, plead your case before the mountains, and let the hills hear what you have to say.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>Hear, you mountains, God’s controversy, and you enduring foundations of the earth; for God has a controversy with his people, and he will contend with Israel.</text>
+    <text>Hear, you mountains, Yahweh’s indictment, and you enduring foundations of the earth; for Yahweh has a case against his people, and he will contend with Israel.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="3" characterId="God">
     <verse num="3" />
@@ -356,23 +345,23 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>My people, remember now what Balak king of Moab devised, and what Balaam the son of Beor answered him from Shittim to Gilgal, that you may know the righteous acts of God.»</text>
+    <text>My people, remember now what Balak king of Moab devised, and what Balaam the son of Beor answered him from Shittim to Gilgal, that you may know the righteous acts of Yahweh.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="6" characterId="narrator-MIC">
     <verse num="6" />
-    <text>How shall I come before God, and bow myself before the exalted God? Shall I come before him with burnt offerings, with calves a year old?</text>
+    <text>How shall I come before Yahweh, and bow myself before the exalted God? Shall I come before him with burnt offerings, with calves a year old?</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="7" characterId="narrator-MIC">
     <verse num="7" />
-    <text>Will God be pleased with thousands of rams? With tens of thousands of rivers of oil? Shall I give my firstborn for my disobedience? The fruit of my body for the sin of my soul?</text>
+    <text>Will Yahweh be pleased with thousands of rams? With tens of thousands of rivers of oil? Shall I give my firstborn for my disobedience? The fruit of my body for the sin of my soul?</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="8" characterId="narrator-MIC">
     <verse num="8" />
-    <text>He has shown you, O man, what is good. What does God require of you, but to act justly, to love mercy, and to walk humbly with your God?</text>
+    <text>He has shown you, O man, what is good. What does Yahweh require of you, but to act justly, to love mercy, and to walk humbly with your God?</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="9" characterId="narrator-MIC">
     <verse num="9" />
-    <text>God’s voice calls to the city, and wisdom sees your name:</text>
+    <text>Yahweh’s voice calls to the city, and wisdom sees your name:</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="9" characterId="God">
     <text>«Listen to the rod, and he who appointed it.</text>
@@ -395,7 +384,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="14" characterId="God">
     <verse num="14" />
-    <text>You shall eat, but not be satisfied. Your humiliation will be in your midst. You will store up, but not save; and that which you save I will give up to the sword.</text>
+    <text>You shall eat, but not be satisfied. Your humiliation will be within you. You will store up, but not save; and that which you save I will give up to the sword.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="15" characterId="God">
     <verse num="15" />
@@ -403,7 +392,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="16" characterId="God">
     <verse num="16" />
-    <text>For the statutes of Omri are kept, and all the works of the house of Ahab. You walk in their counsels, that I may make you a ruin, and her inhabitants a hissing; And you will bear the reproach of my people.»</text>
+    <text>For the statutes of Omri are kept, and all the works of Ahab’s house. You walk in their counsels, that I may make you a ruin, and her inhabitants a hissing; and you will bear the reproach of my people.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="MIC" initialStartVerse="0" characterId="BC-MIC">
     <text>7</text>
@@ -434,29 +423,29 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="7" characterId="narrator-MIC">
     <verse num="7" />
-    <text>But as for me, I will look to God. I will wait for the God of my salvation. My God will hear me.</text>
+    <text>But as for me, I will look to Yahweh. I will wait for the God of my salvation. My God will hear me.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="8" characterId="narrator-MIC">
     <verse num="8" />
-    <text>Don’t rejoice against me, my enemy. When I fall, I will arise. When I sit in darkness, God will be a light to me.</text>
+    <text>Don’t rejoice against me, my enemy. When I fall, I will arise. When I sit in darkness, Yahweh will be a light to me.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="9" characterId="narrator-MIC">
     <verse num="9" />
-    <text>I will bear the indignation of God, because I have sinned against him, until he pleads my case, and executes judgment for me. He will bring me forth to the light. I will see his righteousness.</text>
+    <text>I will bear the indignation of Yahweh, because I have sinned against him, until he pleads my case, and executes judgment for me. He will bring me out to the light. I will see his righteousness.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="10" characterId="narrator-MIC">
     <verse num="10" />
     <text>Then my enemy will see it, and shame will cover her who said to me,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="10" characterId="enemy (female)">
-    <text>where is God your God?</text>
+    <text>«Where is Yahweh your God?»</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="10" characterId="narrator-MIC">
     <text>Then my enemy will see me and will cover her shame. Now she will be trodden down like the mire of the streets.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="11" characterId="narrator-MIC">
     <verse num="11" />
-    <text>A day to build your walls-- In that day, he will extend your boundary.</text>
+    <text>A day to build your walls! In that day, he will extend your boundary.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="12" characterId="narrator-MIC">
     <verse num="12" />
@@ -468,11 +457,11 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="14" characterId="narrator-MIC">
     <verse num="14" />
-    <text>Shepherd your people with your staff, the flock of your heritage, who dwell by themselves in a forest, in the midst of fertile pasture land, let them feed; in Bashan and Gilead, as in the days of old.</text>
+    <text>Shepherd your people with your staff, the flock of your heritage, who dwell by themselves in a forest, in the middle of fertile pasture land, let them feed; in Bashan and Gilead, as in the days of old.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="15" characterId="God">
     <verse num="15" />
-    <text>As in the days of your coming forth out of the land of Egypt, I will show them marvelous things.</text>
+    <text>«As in the days of your coming out of the land of Egypt, I will show them marvelous things.»</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="16" characterId="narrator-MIC">
     <verse num="16" />
@@ -480,7 +469,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="17" characterId="narrator-MIC">
     <verse num="17" />
-    <text>They will lick the dust like a serpent. Like crawling things of the earth they shall come trembling out of their dens. They will come with fear to God our God, and will be afraid because of you.</text>
+    <text>They will lick the dust like a serpent. Like crawling things of the earth, they will come trembling out of their dens. They will come with fear to Yahweh our God, and will be afraid because of you.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="18" characterId="narrator-MIC">
     <verse num="18" />

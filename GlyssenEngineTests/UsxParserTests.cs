@@ -136,7 +136,7 @@ namespace GlyssenEngineTests
 		public void Parse_MissingVerseWithOnlyPunctuation_VerseAndPunctuationOmitted(string v10Ending, string punctInMissingVerse)
 		{
 			var doc = UsxDocumentTests.CreateDocFromString(
-				UsxDocumentTests.kUsxFrameStart +
+				UsxDocumentTests.kUsxFrameStart.Replace("MRK", "MAT") +
 				"<para style=\"mt1\">Mateo</para>" + Environment.NewLine +
 				"<chapter number=\"18\" style=\"c\" />" + Environment.NewLine +
 				"<para style=\"p\">" + Environment.NewLine +
@@ -146,7 +146,7 @@ namespace GlyssenEngineTests
 				"<verse number=\"12\" style=\"v\"/>'Nsasa a 'lɛ wɔlɩ ‑naa bha? Gbazɩ nclɔɔ ‑ka 'nyɩ ‑ka mlɔ na, 'ɔ cɩ 'ta 'ka ‑ɛ mlɔ 'lɛ na, mʋ bha? " +
 				"<verse number=\"13\" style=\"v\"/>N solu anyɩ ɩ ‑glɩ ‑nʋawlɛ.</para>" +
 				UsxDocumentTests.kUsxFrameEnd);
-			var parser = GetUsxParser(doc);
+			var parser = GetUsxParser(doc, "MAT");
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual("{10}\u00A0A zʋlʋ pɔlɛ 'kʋ ɩya. N solu 'nylugo ‑laagɔɔn na, ‑deliin" + v10Ending +
@@ -1918,7 +1918,9 @@ namespace GlyssenEngineTests
 				"<chapter number=\"1\" style=\"c\" />" +
 				"<chapter number=\"2\" style=\"c\" />" +
 				UsxDocumentTests.kUsxFrameEnd);
-			var books = UsxParser.ParseBooks(new[] {new UsxDocument(doc)}, new TestStylesheet(), null);
+
+			var books = UsxParser.ParseBooks(new[] {new UsxDocument(doc)}, new TestStylesheet(),
+				null, null);
 			Assert.AreEqual(0, books.Count);
 		}
 
@@ -2272,6 +2274,26 @@ namespace GlyssenEngineTests
 			Assert.AreEqual("{35}\u00A0There will be two grinding grain together. One will be taken and the other will be left.” ", blocks[1].GetText(true));
 			Assert.AreEqual(2, blocks[2].BlockElements.Count);
 			Assert.AreEqual("{37}\u00A0They, answering, asked him, “Where, Lord?”", blocks[2].GetText(true));
+		}
+
+		[Test]
+		public void Parse_AcrosticHeading_BlockAddedWithQaTagAndBCCharacterId()
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
+				UsxDocumentTests.kUsxFrameStart.Replace("MRK", "PSA") +
+				"<para style=\"mt1\">Salmos</para>" + Environment.NewLine +
+				"<chapter number=\"119\" style=\"c\" />" + Environment.NewLine +
+				"<para style=\"qa\">Alef</para>" + Environment.NewLine +
+				"<para style=\"q\">" + Environment.NewLine +
+				"<verse number=\"1\" style=\"v\"/>Bienaventurados los perfectos de camino.</para>" +
+				UsxDocumentTests.kUsxFrameEnd);
+			var parser = GetUsxParser(doc, "PSA");
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(4, blocks.Count);
+			Assert.AreEqual("Alef", blocks[2].GetText(true));
+			Assert.AreEqual("qa", blocks[2].StyleTag);
+			Assert.AreEqual(0, blocks[2].InitialStartVerseNumber);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("PSA", CharacterVerseData.StandardCharacter.BookOrChapter), blocks[2].CharacterId);
 		}
 
 		private UsxParser GetUsxParser(XmlDocument doc, string bookId = "MRK", ICharacterUsageStore characterUsageStore = null)
