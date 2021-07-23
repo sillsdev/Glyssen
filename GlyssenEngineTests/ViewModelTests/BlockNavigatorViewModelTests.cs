@@ -1234,7 +1234,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.CurrentReferenceTextMatchup.SetReferenceText(0, "Some random text: " + Guid.NewGuid());
 			m_model.ApplyCurrentReferenceTextMatchup();
 			var e = Assert.Throws<InvalidOperationException>(() => m_model.ApplyCurrentReferenceTextMatchup());
-			Assert.AreEqual("Current reference text block matchup has no outstanding changes!", e.Message);
+			Assert.That(e.Message, Does.StartWith("Current reference text block matchup has no outstanding changes!");
 		}
 
 		[Test]
