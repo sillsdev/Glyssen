@@ -895,7 +895,11 @@ namespace GlyssenEngine.ViewModels
 				throw new InvalidOperationException("No current reference text block matchup!");
 			Debug.Assert(m_currentRefBlockMatchups != null);
 			if (!m_currentRefBlockMatchups.HasOutstandingChangesToApply)
-				throw new InvalidOperationException("Current reference text block matchup has no outstanding changes!");
+			{
+				throw new InvalidOperationException("Current reference text block matchup has no outstanding changes!\r\n" +
+					m_currentRefBlockMatchups);
+			}
+
 			var insertions = m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting;
 			var insertionIndex = m_currentRelevantIndex;
 
