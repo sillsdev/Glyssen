@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using Glyssen.Shared;
-using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
@@ -274,5 +273,7 @@ namespace GlyssenEngine.ViewModels
 
 			return false;
 		}
+
+		public override string ToString() => $"{OriginalBlockCount} starting with {m_originalBlocks.First()}";
 	}
 }
