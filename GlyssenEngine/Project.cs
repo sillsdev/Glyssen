@@ -1,5 +1,4 @@
 ﻿using Glyssen.Shared;
-using Glyssen.Shared.Bundle;
 using GlyssenEngine.Analysis;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Casting;

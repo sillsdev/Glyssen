@@ -1678,7 +1678,7 @@ namespace GlyssenEngineTests
 			AddBlockForVerseInProgress(referenceBlocks, "magi (wise men from East)", "“Where is the one who is born King of the Jews? For we saw his star in the east, " +
 				"and have come to worship him.”");
 
-			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks, ReferenceTextType.English);
 
 			refText.ApplyTo(vernBook);
 
@@ -1698,18 +1698,24 @@ namespace GlyssenEngineTests
 		/// any verses that have breaks in the vernacular.
 		/// PG-761: Added secondary reference text to show that it needs to be split also.
 		/// </summary>
-		[Test]
-		public void ApplyTo_ReferenceTextNeedsToBeBrokenAtVerseToMatchVernacular_GoodIllustration_ReferenceTextIsBrokenCorrectly()
+		[TestCase(true)] // This is the more likely real-life scenario
+		[TestCase(false)]
+		public void ApplyTo_ReferenceTextNeedsToBeBrokenAtVerseToMatchVernacular_GoodIllustration_ReferenceTextIsBrokenCorrectly(
+			bool useAmbiguousInVern)
 		{
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(16, "diciendo: ", true, 18, "REV"));
-			AddBlockForVerseInProgress(vernacularBlocks, "merchants of the earth", "«¡Ay, ay, la gran ciudad, que estaba vestida de " +
+			AddBlockForVerseInProgress(vernacularBlocks, useAmbiguousInVern ?
+					CharacterVerseData.kAmbiguousCharacter : "merchants of the earth",
+				"«¡Ay, ay, la gran ciudad, que estaba vestida de " +
 				"lino fino, púrpura y escarlata, y adornada de oro, piedras preciosas y perlas!»");
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(17,
 				"Porque en una hora ha sido arrasada tanta riqueza. Y todos los capitanes, pasajeros y marineros, y todos los que viven " +
 				"del mar, se pararon a lo lejos, ", false, 18, "REV"));
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(18, "y al ver el humo de su incendio gritaban, diciendo: ", false, 18, "REV"));
-			AddBlockForVerseInProgress(vernacularBlocks, "merchants of the earth", "«¿Qué ciudad es semejante a la gran ciudad?»");
+			AddBlockForVerseInProgress(vernacularBlocks, useAmbiguousInVern ?
+				CharacterVerseData.kAmbiguousCharacter : "sea captains, seafarers, sailors",
+				"«¿Qué ciudad es semejante a la gran ciudad?»");
 			var vernBook = new BookScript("REV", vernacularBlocks, m_vernVersification);
 
 			var frenchReferenceBlocks = new List<Block>();
@@ -1720,7 +1726,7 @@ namespace GlyssenEngineTests
 			AddNarratorBlockForVerseInProgress(frenchReferenceBlocks, "Chaque capitaine, et tout le monde qui navigue partout, et les marins, et " +
 				"autant que gagner leur vie en mer, se tenaient loin, ", "REV")
 				.AddVerse(18, "et pleuré comme ils ont regardé la fumée de son embrasement: ");
-			AddBlockForVerseInProgress(frenchReferenceBlocks, "merchants of the earth", "«Qu'est-ce que la grande ville?»");
+			AddBlockForVerseInProgress(frenchReferenceBlocks, "sea captains, seafarers, sailors", "«Qu'est-ce que la grande ville?»");
 
 			var englishReferenceBlocks = new List<Block>();
 			englishReferenceBlocks.Add(CreateNarratorBlockForVerse(16, "saying, ", true, 18, "REV"));
@@ -1730,7 +1736,7 @@ namespace GlyssenEngineTests
 			AddNarratorBlockForVerseInProgress(englishReferenceBlocks, "Every shipmaster, and everyone who sails anywhere, and mariners, and " +
 				"as many as gain their living by sea, stood far away, ", "REV")
 				.AddVerse(18, "and cried out as they looked at the smoke of her burning, saying, ");
-			AddBlockForVerseInProgress(englishReferenceBlocks, "merchants of the earth", "“What is like the great city?”");
+			AddBlockForVerseInProgress(englishReferenceBlocks, "sea captains, seafarers, sailors", "“What is like the great city?”");
 
 			for (int i = 0; i < englishReferenceBlocks.Count; i++)
 				frenchReferenceBlocks[i].SetMatchedReferenceBlock(englishReferenceBlocks[i]);
@@ -1751,11 +1757,13 @@ namespace GlyssenEngineTests
 			Assert.IsTrue(result[1].MatchesReferenceText);
 			Assert.AreEqual(englishReferenceBlocks[1].GetText(true), result[1].ReferenceBlocks.Single().GetPrimaryReferenceText());
 
+			// REVIEW: We might not care whether this is a match (with the two blocks joined into one) or
+			// a mismatch (with them separate)
 			Assert.IsTrue(result[2].MatchesReferenceText);
-			Assert.AreEqual(frenchReferenceBlocks[2].GetText(true) + " " + frenchReferenceBlocks[3].GetText(true),
-				result[2].ReferenceBlocks.Single().GetText(true));
-			Assert.AreEqual(englishReferenceBlocks[2].GetText(true) + " " + englishReferenceBlocks[3].GetText(true),
-				result[2].ReferenceBlocks[0].ReferenceBlocks.Single().GetText(true));
+			Assert.AreEqual(Join(" ", frenchReferenceBlocks.Skip(2).Take(2).Select(b => b.GetText(true))),
+				Join(" ", result[2].ReferenceBlocks.Select(b => b.GetText(true))));
+			Assert.AreEqual(Join(" ", englishReferenceBlocks.Skip(2).Take(2).Select(b => b.GetText(true))),
+				Join(" ", result[2].ReferenceBlocks.SelectMany(b => b.ReferenceBlocks).Select(b => b.GetText(true))));
 
 			Assert.AreEqual("{18}\u00A0et pleuré comme ils ont regardé la fumée de son embrasement: ", result[3].ReferenceBlocks.Single().GetText(true));
 			Assert.IsTrue(result[3].MatchesReferenceText);
@@ -2369,8 +2377,9 @@ namespace GlyssenEngineTests
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(22, "Salmo 9-22 (10:1 in English). ", true, 9, "PSA")
 				.AddVerse(23, "Salmo 9-23 (10:2 in English), ")
 				.AddVerse(24, "Salmo 9-24 (10:3 in English), ")
-				.AddVerse(25, "Salmo 9-25 (10:4 in English), ")
-				.AddVerse(26, "Salmo 9-26 (10:5 in English), ")
+				.AddVerse(25, "Salmo 9-25 (10:4 in English), "));
+			AddBlockForVerseInProgress(vernacularBlocks, "man, wicked", "“God is not even on my radar.”", "q1");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(26, "Salmo 9-26 (10:5 in English), ", true, 9, "PSA")
 				.AddVerse(27, "Salmo 9-27 (10:6 in English), "));
 			AddBlockForVerseInProgress(vernacularBlocks, "man, wicked", "“Can't mess with me. I'm on top and my great grandkids have got it made.”", "q1");
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(28, "Salmo 9-28 (10:7 in English). ", true, 9, "PSA")
@@ -2748,7 +2757,6 @@ namespace GlyssenEngineTests
 			}
 			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, kPoetian));
 
-			ReflectionHelper.SetField(primaryReferenceText, "m_vers", ScrVers.English);
 			var books = (List<BookScript>)primaryReferenceText.Books;
 			var refBook = new BookScript(testProject.Books[0].BookId, referenceBlocks, primaryReferenceText.Versification);
 			books.Add(refBook);
@@ -4383,6 +4391,41 @@ namespace GlyssenEngineTests
 		}
 		#endregion
 
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_VernBlockSplitAtVerseWhichIsNotSplitInRefText_RefTextSplitToMatchVern()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(7, "Dadi, pigupokatan nog glupaꞌ nog konaꞌ Hudyu. ", false, 27)
+				.AddVerse(8, "Saꞌan ituꞌ nog Piktolongan nog Duguꞌ. ")
+				.AddVerse(9, "Sog bianbian koni, mituman og inulat ni Dyerimaya nog,"));
+			AddBlockForVerseInProgress(vernacularBlocks, "scripture", "“Inalap nilan og puluꞌ buk solapiꞌ gotow Israꞌel.", "q1");
+			vernacularBlocks.Add(CreateBlockForVerse("scripture", 10, "Bu piksaluy nilan og dondagan nog Mikpongon.”", false, 27, "q1"));
+			vernacularBlocks.Add(new Block("s", 27, 10)
+			{
+				CharacterId = "extra-MAT",
+				BlockElements = new List<BlockElement> (new BlockElement[] {new ScriptText("Piksakan si Isus ni Pilatu") }),
+			});
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(11, "Dangan nilan si Isus diani Pilatu, sinakan non si Isus nog,"));
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "“Ika taꞌ og datuꞌ kituꞌ nog bansa Hudyu?” ");
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Tinumabal si Isus nog, ");
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "“Ika na og miktaluꞌ dun.” ");
+
+			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
+
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refTextBlocks = refText.GetBook("MAT").GetBlocksForVerse(27, 9).ToList();
+			Assert.AreEqual(10, refTextBlocks.Last().LastVerseNum,
+				"SETUP check - expected English reference text to have verse 10 included with the last block for MAT 27:9.");
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
+			var result = matchup.CorrelatedBlocks;
+
+			var scriptureBlocks = result.Where(b => b.CharacterId == "scripture").ToList();
+			Assert.IsTrue(scriptureBlocks.All(b => b.MatchesReferenceText &&
+				b.InitialStartVerseNumber == b.ReferenceBlocks.Single().InitialStartVerseNumber));
+			Assert.AreEqual("10", ((Verse)scriptureBlocks.Last().ReferenceBlocks.Single().BlockElements.First()).Number);
+		}
+
 		#region PG-1395 (modified for PG-1396 and PG-1403)
 		[TestCase(false)]
 		[TestCase(true)]
@@ -5022,18 +5065,20 @@ namespace GlyssenEngineTests
 		#endregion
 
 		#region PG-1431
-		[Test]
-		public void GetBlocksForVerseMatchedToReferenceText_ReportingClausesInRefTextAppearBetweenSpeakingPartsInVern_RefTextReportingClausesCombinedToMatchOnlyNarratorBlock()
+		[TestCase(ReferenceTextType.English)]
+		[TestCase(ReferenceTextType.Russian)]
+		public void GetBlocksForVerseMatchedToReferenceText_ReportingClausesInRefTextAppearBetweenSpeakingPartsInVern_RefTextReportingClausesCombinedToMatchOnlyNarratorBlock(
+			ReferenceTextType refTextType)
 		{
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = ReferenceText.GetStandardReferenceText(refTextType);
 			var refTextJhn = refText.GetBook("JHN");
 			var refTextBlocksJhn8V11 = refTextJhn.GetBlocksForVerse(8, 11).ToList();
 			Assert.AreEqual(4, refTextBlocksJhn8V11.Count,
 				"SETUP check - unexpected number of reference blocks for John 8:11.");
 			Assert.AreEqual("woman, caught in adultery", refTextBlocksJhn8V11[1].CharacterId,
-				"SETUP check - expected English reference text to have woman speak in second block for John 8:11.");
+				$"SETUP check - expected {refTextType} reference text to have woman speak in second block for John 8:11.");
 			Assert.AreEqual("Jesus", refTextBlocksJhn8V11[3].CharacterId,
-				"SETUP check - expected English reference text to have Jesus speak in last block for John 8:11.");
+				$"SETUP check - expected {refTextType} reference text to have Jesus speak in last block for John 8:11.");
 
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 11, "“Ondaꞌidun, Polopanad,” ", true, 8));
@@ -5054,8 +5099,19 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(
 				refTextBlocksJhn8V11.Single(b => b.CharacterId == "woman, caught in adultery").GetText(false),
 				womanRefBlock.GetText(false),
-				"Expected the second block (woman in adultery) in the English reference text for" +
+				$"Expected the second block (woman in adultery) in the {refTextType} reference text for" +
 				" John 8:11 to be matched to the first block of matchup.");
+			if (refText.HasSecondaryReferenceText)
+			{
+				womanRefBlock = womanRefBlock.ReferenceBlocks.Single();
+				Assert.IsTrue(womanRefBlock.StartsAtVerseStart);
+				Assert.AreEqual(result[0].InitialStartVerseNumber, womanRefBlock.InitialStartVerseNumber);
+				Assert.AreEqual(
+					refTextBlocksJhn8V11.Single(b => b.CharacterId == "woman, caught in adultery").GetPrimaryReferenceText(true),
+					womanRefBlock.GetText(false),
+					$"Expected the second block (woman in adultery) in the {refTextType} reference text for" +
+					" John 8:11 to be matched to the first block of matchup.");
+			}
 			Assert.AreEqual(2, result[1].ReferenceBlocks.Count);
 			Assert.AreEqual(refTextBlocksJhn8V11.First(b => !b.IsQuote).GetText(false),
 				result[1].ReferenceBlocks[0].GetText(true),
@@ -5068,8 +5124,214 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(
 				refTextBlocksJhn8V11.Single(b => b.CharacterId == "Jesus").GetText(true),
 				result[2].ReferenceBlocks.Single().GetText(false),
-				"Expected the \"Jesus\" block in the English reference text for" +
+				$"Expected the \"Jesus\" block in the {refTextType} reference text for" +
 				" John 8:11 to be matched to the last block of matchup.");
+		}
+		#endregion
+
+		#region PG-1408
+		[TestCase()]
+		[TestCase("– диэн көрдөспүтэ")]
+		public void GetBlocksForVerseMatchedToReferenceText_MultipleReportingClausesInOppositeOrder_NoReferenceTextIsLost(
+			params string[] knownHeSaids)
+		{
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refTextMat = refText.GetBook("MAT");
+			var refTextBlocksMat15V34 = refTextMat.GetBlocksForVerse(15, 34).ToList();
+			Assert.AreEqual(4, refTextBlocksMat15V34.Count,
+				"SETUP check - unexpected number of reference blocks for Matthew 15:34.");
+			Assert.AreEqual("Jesus", refTextBlocksMat15V34[1].CharacterId,
+				"SETUP check - expected English reference text to have Jesus speak in second block for Matthew 15:34.");
+			Assert.AreEqual("disciples", refTextBlocksMat15V34[3].CharacterId,
+				"SETUP check - expected English reference text to have disciples speak in last block for Matthew 15:34.");
+			
+			var refTextBlocksMat15V35 = refTextMat.GetBlocksForVerse(15, 35).ToList();
+			Assert.AreEqual(2, refTextBlocksMat15V35.Count,
+				"SETUP check - unexpected number of reference blocks for Matthew 15:35.");
+			Assert.AreEqual("Jesus", refTextBlocksMat15V35[1].CharacterId,
+				"SETUP check - expected English reference text to have Jesus speak in second block for Matthew 15:35.");
+
+			for (int v = 36; v <= 39; v++)
+			{
+				Assert.IsTrue(refTextMat.GetBlocksForVerse(15, v).Single()
+						.CharacterIs("MAT", CharacterVerseData.StandardCharacter.Narrator),
+					$"SETUP check - expected single narrator block in English reference text for Matthew 15:{v}");
+			}
+
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 34,
+				"«Эһиги төһө килиэптээххитий?»", true, 15));
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "– Иисус ыйыппыта.");
+			vernacularBlocks.Last().IsParagraphStart = true;
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter,
+				"«Сэттэ килиэби кытта аҕыйах кыра балык баар»,");
+			vernacularBlocks.Last().IsParagraphStart = true;
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "– диэбиттэрэ. ")
+				.AddVerse(35, "Кини дьону сиргэ олордубута. ")
+				.AddVerse(36, "Онтон сэттэ килиэби уонна балыгы ылан, үөрэнээччилэрэ дьоҥҥо үллэрбиттэрэ. ")
+				.AddVerse(37, "Бары тото аһаабыттара; хаалбыт астара сэттэ толору корзина буолбута. ")
+				.AddVerse(38, "Манна оҕону-дьахтары таһынан барыта түөрт тыһыынча эр киһи аһаабыта. ")
+				.AddVerse(39, "Онтон дьону ыыталаан баран, Иисус оҥочоҕо олорон, Магдала сиригэр устубута.");
+			vernacularBlocks.Last().IsParagraphStart = true;
+			var vernBook = new BookScript("MAT", vernacularBlocks, refText.Versification);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, knownHeSaids);
+
+			var result = matchup.CorrelatedBlocks;
+			Assert.AreEqual(9, result.Count);
+
+			var refBlocksAttachedToVern = result.SelectMany(vb => vb.ReferenceBlocks)
+				.Select(rb => rb.GetText(false)).ToList();
+
+			for (int v = 34; v <= 39; v++)
+			{
+				foreach (var rb in refTextMat.GetBlocksForVerse(15, v))
+				{
+					var text = rb.GetText(false);
+					Assert.IsTrue(refBlocksAttachedToVern.Any(t => t.Contains(text)),
+						$"Reference text from verse {v} is missing: {text}");
+				}
+			}
+		}
+		#endregion
+
+		#region PG-1458
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_ErrantRefTextBlockMatchesBlockForPrecedingVerseWithUnexpecteSpeaker_TreatedAsMismatch()
+		{
+			// This is a test for a scenario where a reference text (not English) has a block whose speaker is
+			// expected to speak in a preceding verse but (according to the CV file) NOT for the following verse.
+			// This is actually an error in the reference text but because Glyssen has no control over custom
+			// reference texts, the logic in ReferenceText cannot assume that the reference text will be correct.
+			// Unfortunately, there is a slight discrepancy in the logic when matching up "BlockMatchup" objects
+			// for ISP vs. hooking up everything for export. So we need to ensure that in this scenario the
+			// link to the reference block is not actually considered a "match" so the scripter will have a chance
+			// to look at it and figure out what to do.
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(29, "De o ngo Maria duru mataoko itiai ma malaekata ai gea. ", book:"LUK")
+				.AddVerse(30, "Masara o Gabiriele wotemoli munangika wato, "));
+			AddBlockForVerseInProgress(vernacularBlocks, "Gabriel", "“Maria, ngaro ufa nohawana ngonaika hiadono ngona. ")
+				.AddVerse(31, "Abeika ahi demo tonihingahu ngonaika! Abe ani ngofaka o nauru de Una nihiromanga o Yesusu. ")
+				.AddVerse("32-33", "De ani ngofaka gea Una ai Ngofaka. De nanga Baluhu Ma Jou wihidadi nia koano" +
+					"Una ai tofora o Dautu o Isiraele ma nyawa. Ho gea wodadi ti ngini o Yakubu. De ka Unangohi kuahaka!”");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(34, "De o ngo Maria mopaluhu o malaekatika mato, ", book: "LUK"));
+			AddBlockForVerseInProgress(vernacularBlocks, "Mary, Jesus' mother", "“Masara ngohi ko ma moiuahi tamake o ngofaka gea?” ");
+
+			var vernBook = new BookScript("LUK", vernacularBlocks, m_vernVersification);
+
+			var referenceBlocks = new List<Block>();
+			var refBlock = CreateNarratorBlockForVerse(29, "Maria terkejut mendengar perkataan itu, apakah arti salam itu.", book:"LUK")
+				.AddVerse(30, "Kata malaikat itu kepadanya:");
+			referenceBlocks.Add(refBlock);
+			refBlock.SetMatchedReferenceBlock(CreateNarratorBlockForVerse(29, "But she was troubled, wondering what kind of greeting this was.", book:"LUK")
+				.AddVerse(30, "The angel said to her,"));
+			refBlock = AddBlockForVerseInProgress(referenceBlocks, "Gabriel", "«Jangan takut, sebab engkau di hadapan Allah.");
+			refBlock.SetMatchedReferenceBlock("«Don’t be afraid, Mary, for you have found favor with God.");
+			refBlock = CreateBlockForVerse("Gabriel", 31, "Sesungguhnya engkau akan mengandung dan hendaklah engkau menamai Dia Yesus.");
+			referenceBlocks.Add(refBlock);
+			refBlock.SetMatchedReferenceBlock(CreateBlockForVerse("Gabriel", 31, "You will have a son. Name him ‹Jesus.›"));
+			refBlock = CreateBlockForVerse("Gabriel", 32, "Ia akan menjadi Anak Allah Yang Mahatinggi. Dan Tuhan Allah akan takhta Daud, leluhur-Nya.");
+			referenceBlocks.Add(refBlock);
+			refBlock.SetMatchedReferenceBlock(CreateBlockForVerse("Gabriel", 32, "He will be the Son of God and will reign in place of David."));
+			refBlock = CreateBlockForVerse("Gabriel", 33, "La akan menjadi raja atas kaum Kerajaan-Nya tidak akan berkesudahan.")
+				.AddVerse(34, "Bagaimana hal itu mungkin terjadi,» "); // Note: this is the part that is incorrect. This should be Mary.
+			referenceBlocks.Add(refBlock);
+			refBlock.SetMatchedReferenceBlock(CreateBlockForVerse("Gabriel", 33, "He will rule Jacob forever with no end to his Kingdom.» "));
+			refBlock = AddNarratorBlockForVerseInProgress(referenceBlocks, "Kata Maria kepada malaikat itu:", "LUK");
+			refBlock.SetMatchedReferenceBlock(CreateNarratorBlockForVerse(34, "Mary said to the angel,", book:"LUK"));
+			refBlock = AddBlockForVerseInProgress(referenceBlocks, "Mary, Jesus' mother", "«karena aku belum bersuami?» ");
+			refBlock.SetMatchedReferenceBlock("«How can this be, since I am a virgin?»");
+
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks, ReferenceTextType.Custom);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
+			var result = matchup.CorrelatedBlocks;
+
+			Assert.AreEqual(6, result.Count);
+			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.IsTrue(result[1].MatchesReferenceText);
+			Assert.IsTrue(result[2].MatchesReferenceText);
+			Assert.IsFalse(result[3].MatchesReferenceText);
+			Assert.IsTrue(result[4].MatchesReferenceText);
+			Assert.IsTrue(result[5].MatchesReferenceText);
+			Assert.IsTrue(result.All(b => b.ReferenceBlocks.All(ind => ind.MatchesReferenceText)));
+		}
+		#endregion
+
+		#region PG-1459
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_ErrantRefTextBlockWithMisspelledSpeaker_TextIsNotLost()
+		{
+			// This is a test for a scenario where a reference text (not English) has an outdated biblical character
+			// no longer in the control file. Because Glyssen has no control over custom reference texts, this
+			// should not result in lost text.
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(8, "Zach stands and declares: ", false, 19, "LUK"));
+			AddBlockForVerseInProgress(vernacularBlocks, "Zacchaeus", "“Lord Jesus, I am done with my life of crime!”");
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "he said.");
+
+			var vernBook = new BookScript("LUK", vernacularBlocks, m_vernVersification);
+
+			var referenceBlocks = new List<Block>();
+			var refBlock = CreateNarratorBlockForVerse(8,
+				"Tetapi Zakheus berdiri dan berkata kepada Tuhan:", true, 19, "LUK");
+			referenceBlocks.Add(refBlock);
+			refBlock.SetMatchedReferenceBlock(CreateNarratorBlockForVerse(29,
+					"Zacchaeus stood and said to the Lord,", true, 19, "LUK"));
+			refBlock = AddBlockForVerseInProgress(referenceBlocks, "Zachary",
+				"“Tuhan, setengah dari seseorang akan empat kali lipat.”");
+			refBlock.SetMatchedReferenceBlock("“Lord, I give half to the poor. I will repay stolen stuff fourfold.”");
+
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks, ReferenceTextType.Custom);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
+			var result = matchup.CorrelatedBlocks;
+
+			Assert.AreEqual(3, result.Count);
+			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.IsTrue(!result[1].MatchesReferenceText || !result[2].MatchesReferenceText);
+			Assert.AreEqual(referenceBlocks.Last().GetText(true), result.Skip(1).SelectMany(s => s.ReferenceBlocks).Single().GetText(true));
+			Assert.IsTrue(result.All(b => b.ReferenceBlocks.All(ind => ind.MatchesReferenceText)));
+		}
+
+		[TestCase()]
+		[TestCase("—jai.")]
+		[TestCase("—jai fariseowi.", "—jai.", "—jaibeje.")]
+		[TestCase("—jai fariseowi.", "—jaibeje.")]
+		public void GetBlocksForVerseMatchedToReferenceText_KnownTrailingHeSaidAfterMiddleMismatchedBlock_TextOfRefTextIsNotLost(params string[] knownHeSaids)
+		{
+			// This test was written for a scenario where a reference text (not English) has an
+			// outdated biblical character ID (different from the control file). This was actually
+			// an error in the reference text but because Glyssen has no control over custom
+			// reference texts, this kind of error should not result in lost text. For this
+			// scenario, two of the four test cases failed.
+			// However, also note that the fix for this also fixed several other real-life
+			// scenarios that were not caused by problems in the reference text.
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(5, "Itsamatacabi, Jesús pija-apóstolewi jumaitsi Jesús-jawabelia:", false, 17, "LUK"));
+			AddBlockForVerseInProgress(vernacularBlocks, "disciples", "—¡Patajatuxanenë, paneyawenonare patajamatabëcuenewitsabinexa pata-itaxutuajamatejemajawa Diosojawabelia! ");
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "—jai.");
+
+			var vernBook = new BookScript("LUK", vernacularBlocks, m_vernVersification);
+
+			var referenceBlocks = new List<Block>();
+			var refBlock = CreateNarratorBlockForVerse(5,
+				"Los apóstoles le pidieron al Señor:", true, 17, "LUK");
+			referenceBlocks.Add(refBlock);
+			refBlock.SetMatchedReferenceBlock(CreateNarratorBlockForVerse(5,
+				"The apostles said to the Lord,", true, 17, "LUK"));
+			refBlock = AddBlockForVerseInProgress(referenceBlocks, "apostles",
+				"“Aumente nuestro fe.”");
+			refBlock.SetMatchedReferenceBlock("“Increase our faith.”");
+
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, knownHeSaids);
+			var result = matchup.CorrelatedBlocks;
+
+			Assert.AreEqual(3, result.Count);
+			var attachedRefTexts = result.SelectMany(r => r.ReferenceBlocks).Select(b => b.GetText(false)).ToList();
+			Assert.That(referenceBlocks.Select(b => b.GetText(false)).All(t => attachedRefTexts.Contains(t)));
 		}
 		#endregion
 

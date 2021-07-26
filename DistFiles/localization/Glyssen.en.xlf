@@ -2090,37 +2090,33 @@
         <source xml:lang="en">God (the Lord)</source>
         <note>ID: CharacterName.God (the Lord)</note>
       </trans-unit>
-      <trans-unit id="CharacterName.God (the LORD)" sil:dynamic="true">
-        <source xml:lang="en">God (the LORD)</source>
-        <note>ID: CharacterName.God (the LORD)</note>
+      <trans-unit id="CharacterName.God (Yahweh)" sil:dynamic="true">
+        <source xml:lang="en">God (Yahweh)</source>
+        <note>ID: CharacterName.God (Yahweh)</note>
       </trans-unit>
-      <trans-unit id="CharacterName.God (the LORD) (in vision)" sil:dynamic="true">
-        <source xml:lang="en">God (the LORD) (in vision)</source>
-        <note>ID: CharacterName.God (the LORD) (in vision)</note>
+      <trans-unit id="CharacterName.God (Yahweh) (in vision)" sil:dynamic="true">
+        <source xml:lang="en">God (Yahweh) (in vision)</source>
+        <note>ID: CharacterName.God (Yahweh) (in vision)</note>
       </trans-unit>
-      <trans-unit id="CharacterName.God (the LORD) (three men)" sil:dynamic="true">
-        <source xml:lang="en">God (the LORD) (three men)</source>
-        <note>ID: CharacterName.God (the LORD) (three men)</note>
+      <trans-unit id="CharacterName.God (Yahweh) (three men)" sil:dynamic="true">
+        <source xml:lang="en">God (Yahweh) (three men)</source>
+        <note>ID: CharacterName.God (Yahweh) (three men)</note>
       </trans-unit>
-      <trans-unit id="CharacterName.God (the LORD) had warned through prophets and seers" sil:dynamic="true">
-        <source xml:lang="en">God (the LORD) had warned through prophets and seers</source>
-        <note>ID: CharacterName.God (the LORD) had warned through prophets and seers</note>
+      <trans-unit id="CharacterName.God (Yahweh) had warned through prophets and seers" sil:dynamic="true">
+        <source xml:lang="en">God (Yahweh) had warned through prophets and seers</source>
+        <note>ID: CharacterName.God (Yahweh) had warned through prophets and seers</note>
       </trans-unit>
-      <trans-unit id="CharacterName.God (the LORD) will write" sil:dynamic="true">
-        <source xml:lang="en">God (the LORD) will write</source>
-        <note>ID: CharacterName.God (the LORD) will write</note>
+      <trans-unit id="CharacterName.God (Yahweh) will write" sil:dynamic="true">
+        <source xml:lang="en">God (Yahweh) will write</source>
+        <note>ID: CharacterName.God (Yahweh) will write</note>
       </trans-unit>
-      <trans-unit id="CharacterName.God (the LORD)(the Mighty One)" sil:dynamic="true">
-        <source xml:lang="en">God (the LORD)(the Mighty One)</source>
-        <note>ID: CharacterName.God (the LORD)(the Mighty One)</note>
+      <trans-unit id="CharacterName.God (Yahweh)(the Mighty One)" sil:dynamic="true">
+        <source xml:lang="en">God (Yahweh)(the Mighty One)</source>
+        <note>ID: CharacterName.God (Yahweh)(the Mighty One)</note>
       </trans-unit>
-      <trans-unit id="CharacterName.God (the LORD)(vision" sil:dynamic="true">
-        <source xml:lang="en">God (the LORD)(vision</source>
-        <note>ID: CharacterName.God (the LORD)(vision</note>
-      </trans-unit>
-      <trans-unit id="CharacterName.God (the LORD), commandment of" sil:dynamic="true">
-        <source xml:lang="en">God (the LORD), commandment of</source>
-        <note>ID: CharacterName.God (the LORD), commandment of</note>
+      <trans-unit id="CharacterName.God (Yahweh)(vision)" sil:dynamic="true">
+        <source xml:lang="en">God (Yahweh)(vision)</source>
+        <note>ID: CharacterName.God (Yahweh)(vision)</note>
       </trans-unit>
       <trans-unit id="CharacterName.God (vineyard owner)" sil:dynamic="true">
         <source xml:lang="en">God (vineyard owner)</source>
@@ -2682,9 +2678,9 @@
         <source xml:lang="en">Jeremiah</source>
         <note>ID: CharacterName.Jeremiah</note>
       </trans-unit>
-      <trans-unit id="CharacterName.Jeremiah (the LORD says)" sil:dynamic="true">
-        <source xml:lang="en">Jeremiah (the LORD says)</source>
-        <note>ID: CharacterName.Jeremiah (the LORD says)</note>
+      <trans-unit id="CharacterName.Jeremiah (Yahweh says)" sil:dynamic="true">
+        <source xml:lang="en">Jeremiah (Yahweh says)</source>
+        <note>ID: CharacterName.Jeremiah (Yahweh says)</note>
       </trans-unit>
       <trans-unit id="CharacterName.Jeremiah quoting the prophets" sil:dynamic="true">
         <source xml:lang="en">Jeremiah quoting the prophets</source>
@@ -5846,9 +5842,9 @@
         <source xml:lang="en">Zechariah (in vision)</source>
         <note>ID: CharacterName.Zechariah (in vision)</note>
       </trans-unit>
-      <trans-unit id="CharacterName.Zechariah (the LORD says)" sil:dynamic="true">
-        <source xml:lang="en">Zechariah (the LORD says)</source>
-        <note>ID: CharacterName.Zechariah (the LORD says)</note>
+      <trans-unit id="CharacterName.Zechariah (Yahweh says)" sil:dynamic="true">
+        <source xml:lang="en">Zechariah (Yahweh says)</source>
+        <note>ID: CharacterName.Zechariah (Yahweh says)</note>
       </trans-unit>
       <trans-unit id="CharacterName.Zechariah, son of Jehoiada the priest" sil:dynamic="true">
         <source xml:lang="en">Zechariah, son of Jehoiada the priest</source>
