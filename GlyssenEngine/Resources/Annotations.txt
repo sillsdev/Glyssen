@@ -244,7 +244,7 @@ JHN	20	18	0	<Pause time="2" />
 JHN	20	25	0	<Pause time="2" />
 JHN	21	4	0	<Sound soundType="Sfx" startVerse="4" effectName="Waves" />
 JHN	21	14	0	<Pause time="2" />
-ACT	1	13	0	<Sound soundType="Sfx" startVerse="4" effectName="Men talking" />
+ACT	1	13	0	<Sound soundType="Sfx" startVerse="13" effectName="Men talking" />
 ACT	2	2	0	<Sound startVerse="2" />
 ACT	2	15	0	<Sound startVerse="15" />
 ACT	2	24	0	<Sound startVerse="24" />

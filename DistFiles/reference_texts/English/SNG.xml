@@ -16,11 +16,11 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="3" characterId="narrator-SNG">
     <verse num="3" />
-    <text>Your oils have a pleasing fragrance. Your name is oil poured forth, therefore the virgins love you.</text>
+    <text>Your oils have a pleasing fragrance. Your name is oil poured out, therefore the virgins love you.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="4" characterId="Needs Review">
     <verse num="4" />
-    <text>Take me away with you. Let us hurry. The king has brought me into his rooms.</text>
+    <text>Take me away with you. Let’s hurry. The king has brought me into his rooms.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="4" characterId="Needs Review">
     <text>We will be glad and rejoice in you. We will praise your love more than wine!</text>
@@ -38,7 +38,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="7" characterId="narrator-SNG">
     <verse num="7" />
-    <text>Tell me, you whom my soul loves, where you graze your flock, where you rest them at noon; For why should I be as one who is veiled beside the flocks of your companions?</text>
+    <text>Tell me, you whom my soul loves, where you graze your flock, where you rest them at noon; for why should I be as one who is veiled beside the flocks of your companions?</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="8" characterId="Needs Review">
     <verse num="8" />
@@ -70,7 +70,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="15" characterId="narrator-SNG">
     <verse num="15" />
-    <text>Behold, you are beautiful, my love. Behold, you are beautiful. Your eyes are doves.</text>
+    <text>Behold, you are beautiful, my love. Behold, you are beautiful. Your eyes are like doves.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="16" characterId="narrator-SNG">
     <verse num="16" />
@@ -101,7 +101,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="5" characterId="narrator-SNG">
     <verse num="5" />
-    <text>Strengthen me with raisins, refresh me with apples; For I am faint with love.</text>
+    <text>Strengthen me with raisins, refresh me with apples; for I am faint with love.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-SNG">
     <verse num="6" />
@@ -117,14 +117,18 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="9" characterId="narrator-SNG">
     <verse num="9" />
-    <text>My beloved is like a roe or a young hart. Behold, he stands behind our wall! He looks in at the windows. He glances through the lattice. </text>
+    <text>My beloved is like a roe or a young deer. Behold, he stands behind our wall! He looks in at the windows. He glances through the lattice.</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="10" characterId="narrator-SNG">
     <verse num="10" />
     <text>My beloved spoke, and said to me,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="10" characterId="narrator-SNG">
-    <text>«Rise up, my love, my beautiful one, and come away. </text>
+    <text>«Rise up, my love, my beautiful one, and come away.</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="11" characterId="narrator-SNG">
     <verse num="11" />
-    <text>For, behold, the winter is past. The rain is over and gone.</text>
+    <text>For behold, the winter is past. The rain is over and gone.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="12" characterId="narrator-SNG">
     <verse num="12" />
@@ -132,15 +136,15 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="13" characterId="narrator-SNG">
     <verse num="13" />
-    <text>The fig tree ripens her green figs. The vines are in blossom. They give forth their fragrance. Arise, my love, my beautiful one, and come away.»</text>
+    <text>The fig tree ripens her green figs. The vines are in blossom. They give out their fragrance. Arise, my love, my beautiful one, and come away.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="14" characterId="narrator-SNG">
     <verse num="14" />
-    <text>My dove in the clefts of the rock, In the hiding places of the mountainside, Let me see your face. Let me hear your voice; for your voice is sweet, and your face is lovely.</text>
+    <text>My dove in the clefts of the rock, in the hiding places of the mountainside, let me see your face. Let me hear your voice; for your voice is sweet and your face is lovely.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="15" characterId="Needs Review">
     <verse num="15" />
-    <text>Catch for us the foxes, the little foxes that spoil the vineyards; for our vineyards are in blossom.</text>
+    <text>Catch for us the foxes, the little foxes that plunder the vineyards; for our vineyards are in blossom.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="16" characterId="narrator-SNG">
     <verse num="16" />
@@ -148,7 +152,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="17" characterId="narrator-SNG">
     <verse num="17" />
-    <text>Until the day is cool, and the shadows flee away, turn, my beloved, and be like a roe or a young hart on the mountains of Bether.</text>
+    <text>Until the day is cool, and the shadows flee away, turn, my beloved, and be like a roe or a young deer on the mountains of Bether.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="SNG" initialStartVerse="0" characterId="BC-SNG">
     <text>3</text>
@@ -171,7 +175,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="beloved">
     <verse num="5" />
-    <text>I adjure you, daughters of Jerusalem, by the roes, or by the hinds of the field, that you not stir up, nor awaken love, until it so desires.</text>
+    <text>I adjure you, daughters of Jerusalem, by the roes, or by the hinds of the field, that you not stir up nor awaken love, until it so desires.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="6" characterId="beloved">
     <verse num="6" />
@@ -191,18 +195,18 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="10" characterId="beloved">
     <verse num="10" />
-    <text>He made its pillars of silver, its bottom of gold, its seat of purple, its midst being paved with love, from the daughters of Jerusalem.</text>
+    <text>He made its pillars of silver, its bottom of gold, its seat of purple, the middle of it being paved with love, from the daughters of Jerusalem.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="11" characterId="narrator-SNG">
     <verse num="11" />
-    <text>Go forth, you daughters of Zion, and see king Solomon, with the crown with which his mother has crowned him, in the day of his weddings, in the day of the gladness of his heart.</text>
+    <text>Go out, you daughters of Zion, and see king Solomon, with the crown with which his mother has crowned him, in the day of his weddings, in the day of the gladness of his heart.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="SNG" initialStartVerse="0" characterId="BC-SNG">
     <text>4</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="1" characterId="narrator-SNG">
     <verse num="1" />
-    <text>Behold, you are beautiful, my love. Behold, you are beautiful. Your eyes are doves behind your veil. Your hair is as a flock of goats, that descend from Mount Gilead.</text>
+    <text>Behold, you are beautiful, my love. Behold, you are beautiful. Your eyes are like doves behind your veil. Your hair is as a flock of goats, that descend from Mount Gilead.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="2" characterId="narrator-SNG">
     <verse num="2" />
@@ -214,7 +218,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="4" characterId="narrator-SNG">
     <verse num="4" />
-    <text>Your neck is like David’s tower built for an armory, whereon a thousand shields hang, all the shields of the mighty men.</text>
+    <text>Your neck is like David’s tower built for an armory, on which a thousand shields hang, all the shields of the mighty men.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="5" characterId="narrator-SNG">
     <verse num="5" />
@@ -238,7 +242,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="10" characterId="narrator-SNG">
     <verse num="10" />
-    <text>How beautiful is your love, my sister, my bride! How much better is your love than wine! The fragrance of your perfumes than all kinds of spices!</text>
+    <text>How beautiful is your love, my sister, my bride! How much better is your love than wine, the fragrance of your perfumes than all kinds of spices!</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="11" characterId="narrator-SNG">
     <verse num="11" />
@@ -246,26 +250,33 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="12" characterId="narrator-SNG">
     <verse num="12" />
-    <text>A locked up garden is my sister, my bride; a locked up spring, a sealed fountain.</text>
+    <text>My sister, my bride, is a locked up garden; a locked up spring, a sealed fountain.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="13" characterId="narrator-SNG">
     <verse num="13" />
-    <text>Your shoots are an orchard of pomegranates, with precious fruits: henna with spikenard plants, </text>
+    <text>Your shoots are an orchard of pomegranates, with precious fruits, henna with spikenard plants,</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="14" characterId="narrator-SNG">
     <verse num="14" />
-    <text>spikenard and saffron, calamus and cinnamon, with every kind of incense tree; myrrh and aloes, with all the best spices, </text>
+    <text>spikenard and saffron, calamus and cinnamon, with every kind of incense tree; myrrh and aloes, with all the best spices,</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="15" characterId="narrator-SNG">
     <verse num="15" />
     <text>a fountain of gardens, a well of living waters, flowing streams from Lebanon.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="16" characterId="narrator-SNG">
     <verse num="16" />
-    <text>Awake, north wind; and come, you south! Blow on my garden, that its spices may flow out. Let my beloved come into his garden, and taste his precious fruits.</text>
+    <text>Awake, north wind, and come, you south! Blow on my garden, that its spices may flow out. Let my beloved come into his garden, and taste his precious fruits.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="SNG" initialStartVerse="0" characterId="BC-SNG">
     <text>5</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="1" characterId="Needs Review">
+  <block style="p" chapter="5" initialStartVerse="1" characterId="Solomon, king">
     <verse num="1" />
-    <text>I have come into my garden, my sister, my bride. I have gathered my myrrh with my spice; I have eaten my honeycomb with my honey; I have drunk my wine with my milk. Friends Eat, friends! Drink, yes, drink abundantly, beloved.</text>
+    <text>I have come into my garden, my sister, my bride. I have gathered my myrrh with my spice; I have eaten my honeycomb with my honey; I have drunk my wine with my milk.</text>
+  </block>
+  <block style="p" chapter="5" initialStartVerse="1" characterId="maidens">
+    <text>Eat, friends! Drink, yes, drink abundantly, beloved.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="2" characterId="narrator-SNG">
     <verse num="2" />
@@ -288,7 +299,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="6" characterId="narrator-SNG">
     <verse num="6" />
-    <text>I opened to my beloved; but my beloved left; and had gone away. My heart went out when he spoke. I looked for him, but I didn’t find him. I called him, but he didn’t answer.</text>
+    <text>I opened to my beloved; but my beloved left, and had gone away. My heart went out when he spoke. I looked for him, but I didn’t find him. I called him, but he didn’t answer.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="7" characterId="narrator-SNG">
     <verse num="7" />
@@ -339,11 +350,11 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="2" characterId="narrator-SNG">
     <verse num="2" />
-    <text>My beloved has gone down to his garden, to the beds of spices, to feed in the gardens, and to gather lilies.</text>
+    <text>My beloved has gone down to his garden, to the beds of spices, to pasture his flock in the gardens, and to gather lilies.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="3" characterId="narrator-SNG">
     <verse num="3" />
-    <text>I am my beloved’s, and my beloved is mine. He browses among the lilies,</text>
+    <text>I am my beloved’s, and my beloved is mine. He browses among the lilies.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="4" characterId="narrator-SNG">
     <verse num="4" />
@@ -355,7 +366,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="6" characterId="narrator-SNG">
     <verse num="6" />
-    <text>Your teeth are like a flock of ewes, which have come up from the washing; of which every one has twins; none is bereaved among them.</text>
+    <text>Your teeth are like a flock of ewes, which have come up from the washing, of which every one has twins; not one is bereaved among them.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="7" characterId="narrator-SNG">
     <verse num="7" />
@@ -367,11 +378,11 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="9" characterId="narrator-SNG">
     <verse num="9" />
-    <text>My dove, my perfect one, is unique. She is her mother’s only daughter. She is the favorite one of her who bore her. The daughters saw her, and called her blessed; the queens and the concubines, and they praised her.</text>
+    <text>My dove, my perfect one, is unique. She is her mother’s only daughter. She is the favorite one of her who bore her. The daughters saw her, and called her blessed. The queens and the concubines saw her, and they praised her.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="10" characterId="Needs Review">
     <verse num="10" />
-    <text>Who is she who looks forth as the morning, beautiful as the moon, clear as the sun, and awesome as an army with banners?</text>
+    <text>Who is she who looks out as the morning, beautiful as the moon, clear as the sun, and awesome as an army with banners?</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="11" characterId="Needs Review">
     <verse num="11" />
@@ -417,22 +428,15 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="7" characterId="narrator-SNG">
     <verse num="7" />
-    <text>This, your stature, is like a palm tree, your breasts like its fruit. </text>
+    <text>This, your stature, is like a palm tree, your breasts like its fruit.</text>
+  </block>
+  <block style="p" chapter="7" initialStartVerse="8" characterId="narrator-SNG">
     <verse num="8" />
-    <text>I said,</text>
-  </block>
-  <block style="p" chapter="7" initialStartVerse="8" characterId="narrator-SNG">
-    <text>«I will climb up into the palm tree. I will take hold of its fruit.»</text>
-  </block>
-  <block style="p" chapter="7" initialStartVerse="8" characterId="narrator-SNG">
-    <text>Let your breasts be like clusters of the vine, the smell of your breath like apples,</text>
-  </block>
-  <block style="p" chapter="7" initialStartVerse="9" characterId="narrator-SNG">
-    <verse num="9" />
-    <text>Your mouth is like the best wine.</text>
+    <text>I said, «I will climb up into the palm tree. I will take hold of its fruit.» Let your breasts be like clusters of the vine, the smell of your breath like apples.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="9" characterId="Needs Review">
-    <text>It goes down smoothly for my beloved, gliding through the lips of those who are asleep.</text>
+    <verse num="9" />
+    <text>Your mouth is like the best wine, that goes down smoothly for my beloved, gliding through the lips of those who are asleep.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="10" characterId="narrator-SNG">
     <verse num="10" />
@@ -440,7 +444,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="11" characterId="narrator-SNG">
     <verse num="11" />
-    <text>Come, my beloved, let us go forth into the field. Let us lodge in the villages.</text>
+    <text>Come, my beloved! Let’s go out into the field. Let’s lodge in the villages.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="12" characterId="narrator-SNG">
     <verse num="12" />
@@ -448,7 +452,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="13" characterId="narrator-SNG">
     <verse num="13" />
-    <text>The mandrakes give forth fragrance. At our doors are all kinds of precious fruits, new and old, which I have stored up for you, my beloved.</text>
+    <text>The mandrakes produce fragrance. At our doors are all kinds of precious fruits, new and old, which I have stored up for you, my beloved.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="SNG" initialStartVerse="0" characterId="BC-SNG">
     <text>8</text>
@@ -459,7 +463,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="2" characterId="narrator-SNG">
     <verse num="2" />
-    <text>I would lead you, bringing you into my mother’s house, who would instruct me. I would have you drink spiced wine, of the juice of my pomegranate.</text>
+    <text>I would lead you, bringing you into the house of my mother, who would instruct me. I would have you drink spiced wine, of the juice of my pomegranate.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="3" characterId="narrator-SNG">
     <verse num="3" />
@@ -474,11 +478,11 @@
     <text>Who is this who comes up from the wilderness, leaning on her beloved?</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="5" characterId="narrator-SNG">
-    <text>Under the apple tree I aroused you. There your mother conceived you. There she was in labor and bore you.</text>
+    <text>Under the apple tree I awakened you. There your mother conceived you. There she was in labor and bore you.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="6" characterId="narrator-SNG">
     <verse num="6" />
-    <text>Set me as a seal on your heart, as a seal on your arm; for love is strong as death. Jealousy is as cruel as Sheol. Its flashes are flashes of fire, a very flame of God.</text>
+    <text>Set me as a seal on your heart, as a seal on your arm; for love is strong as death. Jealousy is as cruel as Sheol. Its flashes are flashes of fire, a very flame of Yahweh.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="7" characterId="narrator-SNG">
     <verse num="7" />
@@ -490,7 +494,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="9" characterId="Needs Review">
     <verse num="9" />
-    <text>If she is a wall, we will build on her a turret of silver. if she is a door, we will enclose her with boards of cedar.</text>
+    <text>If she is a wall, we will build on her a turret of silver. If she is a door, we will enclose her with boards of cedar.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="10" characterId="narrator-SNG">
     <verse num="10" />
@@ -502,7 +506,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="12" characterId="narrator-SNG">
     <verse num="12" />
-    <text>My own vineyard is before me. The thousand are for you, Solomon; two hundred for those who tend its fruit.</text>
+    <text>My own vineyard is before me. The thousand are for you, Solomon, two hundred for those who tend its fruit.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="13" characterId="narrator-SNG">
     <verse num="13" />

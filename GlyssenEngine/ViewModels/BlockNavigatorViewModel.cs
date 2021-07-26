@@ -709,11 +709,33 @@ namespace GlyssenEngine.ViewModels
 		{
 			if (IsCurrentLocationRelevant)
 			{
+				int prevIndex = m_currentRelevantIndex;
 				if (BlockGroupingStyle == BlockGroupingType.Quote)
 					m_currentRelevantIndex++;
 				else
 					m_currentRelevantIndex = GetIndexOfNextRelevantBlockNotInCurrentMatchup();
-				SetBlock(m_relevantBookBlockIndices[m_currentRelevantIndex]);
+				try
+				{
+					SetBlock(m_relevantBookBlockIndices[m_currentRelevantIndex]);
+				}
+				catch (ArgumentOutOfRangeException e)
+				{
+					ErrorReport.NotifyUserOfProblem(e, Localizer.GetString(
+						"DialogBoxes.BlockNavigator.LoadNextRelevantBlockIndexOutOfRange",
+						"Sorry! {0} has gotten a little confused and can't go to the next " +
+						"place that matches the filter.\r\n" +
+						"Please click Details and send in a report to notify the developers.\r\n" +
+						"After reporting this error, close the Identify Speaking Parts dialog box " +
+						"and reopen it.", "Parameter is \"Glyssen\" (product name)") +
+						"\r\nInformation for developers (PG-1462):\r\n" +
+						"previous index = {1}\r\n" +
+						"new index = {2}\r\n" +
+						"relevant indices = {3}\r\n" +
+						"grouping style = {4}\r\n" +
+						"current block = {5}",
+						GlyssenInfo.Product, prevIndex, m_currentRelevantIndex, m_relevantBookBlockIndices.Count,
+						BlockGroupingStyle, CurrentBlock);
+				}
 			}
 			else
 				LoadClosestRelevantBlock(false);
