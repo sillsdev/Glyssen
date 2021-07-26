@@ -1194,13 +1194,19 @@ namespace Glyssen.Dialogs
 			Block blockToSplit;
 			if (m_viewModel.BlockGroupingStyle == BlockGroupingType.BlockCorrelation)
 			{
+				if (m_dataGridReferenceText.IsCurrentCellInEditMode)
+					m_dataGridReferenceText.EndEdit(DataGridViewDataErrorContexts.LeaveControl);
+
 				if (IsDirty && m_btnApplyReferenceTextMatches.Enabled && m_userMadeChangesToReferenceTextMatchup)
 				{
 					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UnsavedReferenceTextChangesBeforeSplitting",
 						"The alignment of the reference text to the vernacular script has not been applied. Do you want to save the alignment before splitting this block?");
 					if (MessageBox.Show(this, msg, UnsavedChangesMessageBoxTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
+					{
 						if (!CheckRefTextValuesAndApplyMatchup())
 							return;
+						UpdateAssignOrApplyAndResetButtonState();
+					}
 				}
 
 				var matchup = m_viewModel.CurrentReferenceTextMatchup;
@@ -1220,7 +1226,7 @@ namespace Glyssen.Dialogs
 				blockToSplit = m_viewModel.CurrentBlock;
 			using (var dlg = new SplitBlockDlg(new SplitBlockViewModel(m_viewModel, blockToSplit)))
 			{
-				MainForm.LogDialogDisplay(dlg);
+				MainForm.LogDialogDisplay(dlg, m_viewModel);
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{
 					Logger.WriteMinorEvent($"Split block in {m_scriptureReference.VerseControl.VerseRef} into {dlg.SplitLocations.Count + 1} parts. " +
@@ -1376,6 +1382,7 @@ namespace Glyssen.Dialogs
 				}
 			}
 			m_viewModel.ApplyCurrentReferenceTextMatchup();
+			m_userMadeChangesToReferenceTextMatchup = false;
 			return true;
 		}
 
