@@ -356,7 +356,7 @@ namespace Glyssen
 		internal static void LogDialogDisplay(Form dlg, object modelDetails = null)
 		{
 			Logger.WriteEvent($"Displaying dialog box: {dlg.Text}" + (modelDetails == null ? "" :
-				$"for {modelDetails}"));
+				$" for {modelDetails}"));
 		}
 
 		private void ShowOpenProjectDialog()
