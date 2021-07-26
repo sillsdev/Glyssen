@@ -103,13 +103,37 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(9, blocks[3].InitialStartVerseNumber);
 		}
 
+		/// <summary>
+		/// PG-1434
+		/// </summary>
+		[Test]
+		public void Parse_NoScriptureTextFollowingFinalChapterMarker_FinalChapterOmitted()
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
+				UsxDocumentTests.kUsxFrameStart +
+				"<para style=\"mt1\">Markus</para>" +
+				"<chapter number=\"15\" style=\"c\" />" +
+				"<para style=\"p\"><verse number=\"1\" />This is Scripture text.</para>" +
+				"<chapter number=\"16\" style=\"c\" />" +
+				"<para style=\"s\">A chapter to end all chapters</para>" +
+				UsxDocumentTests.kUsxFrameEnd);
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(3, blocks.Count);
+			var lastBlock = blocks.Last();
+			Assert.IsTrue(lastBlock.IsScripture);
+			Assert.AreEqual("{1}\u00A0This is Scripture text.", lastBlock.GetText(true));
+			Assert.AreEqual(1, lastBlock.InitialStartVerseNumber);
+			Assert.AreEqual(15, lastBlock.ChapterNumber);
+		}
+
 		[TestCase(". ", "*")]
 		[TestCase(".", "?")]
 		[TestCase(". [", "...")]
 		public void Parse_MissingVerseWithOnlyPunctuation_VerseAndPunctuationOmitted(string v10Ending, string punctInMissingVerse)
 		{
 			var doc = UsxDocumentTests.CreateDocFromString(
-				UsxDocumentTests.kUsxFrameStart +
+				UsxDocumentTests.kUsxFrameStart.Replace("MRK", "MAT") +
 				"<para style=\"mt1\">Mateo</para>" + Environment.NewLine +
 				"<chapter number=\"18\" style=\"c\" />" + Environment.NewLine +
 				"<para style=\"p\">" + Environment.NewLine +
@@ -119,7 +143,7 @@ namespace GlyssenEngineTests
 				"<verse number=\"12\" style=\"v\"/>'Nsasa a 'lɛ wɔlɩ ‑naa bha? Gbazɩ nclɔɔ ‑ka 'nyɩ ‑ka mlɔ na, 'ɔ cɩ 'ta 'ka ‑ɛ mlɔ 'lɛ na, mʋ bha? " +
 				"<verse number=\"13\" style=\"v\"/>N solu anyɩ ɩ ‑glɩ ‑nʋawlɛ.</para>" +
 				UsxDocumentTests.kUsxFrameEnd);
-			var parser = GetUsxParser(doc);
+			var parser = GetUsxParser(doc, "MAT");
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual("{10}\u00A0A zʋlʋ pɔlɛ 'kʋ ɩya. N solu 'nylugo ‑laagɔɔn na, ‑deliin" + v10Ending +
@@ -677,7 +701,7 @@ namespace GlyssenEngineTests
 		}
 
 		[Test]
-		public void Parse_TitleFollowedByChapter_TitleIsSimplified()
+		public void Parse_MultiParagraphTitleFollowedByChapter_TitleIsSimplified()
 		{
 			var doc = UsxDocumentTests.CreateDocFromString(
 				UsxDocumentTests.kUsxFrameStart +
@@ -685,10 +709,13 @@ namespace GlyssenEngineTests
 				"<para style=\"mt2\">The Gospel According to</para>" +
 				"<para style=\"mt1\">Mark</para>" +
 				"<chapter number=\"1\" style=\"c\" />" +
+				"<para style=\"p\">" +
+				"<verse number=\"1\" style=\"v\" />" +
+				"Acakki me lok me kwena maber i kom Yecu Kricito</para>" +
 				UsxDocumentTests.kUsxFrameEnd);
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
-			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual("mt", blocks[0].StyleTag);
 			Assert.AreEqual("The Gospel According to Mark", blocks[0].GetText(false));
 			Assert.AreEqual("The Gospel According to Mark", blocks[0].GetText(true));
@@ -697,7 +724,7 @@ namespace GlyssenEngineTests
 		}
 
 		[Test]
-		public void Parse_TitleNotFollowedByChapter_TitleIsSimplified()
+		public void Parse_MultiParagraphTitleNotFollowedByChapter_TitleIsSimplified()
 		{
 			var doc = UsxDocumentTests.CreateDocFromString(
 				UsxDocumentTests.kUsxFrameStart +
@@ -724,17 +751,31 @@ namespace GlyssenEngineTests
 				"<para style=\"h\">Marco</para>" +
 				"<para style=\"mt2\">The Gospel According to</para>" +
 				"<para style=\"mt1\">Markus</para>" +
+				// These chapters will get pruned because you can't end a book with an
+				// empty chapter.
 				"<chapter number=\"1\" style=\"c\" />" +
 				"<chapter number=\"2\" style=\"c\" />" +
 				UsxDocumentTests.kUsxFrameEnd);
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
-			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(1, blocks.Count);
 			Assert.AreEqual("mt", blocks[0].StyleTag);
 			Assert.AreEqual("The Gospel According to Markus", blocks[0].GetText(false));
 			Assert.AreEqual("The Gospel According to Markus", blocks[0].GetText(true));
 			Assert.AreEqual("Marco", parser.PageHeader);
 			Assert.AreEqual("Markus", parser.MainTitle);
+		}
+
+		[Test]
+		public void ParseBooks_OnlyEmptyChapters_EmptyBookNotAdded()
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
+				UsxDocumentTests.kUsxFrameStart +
+				"<chapter number=\"1\" style=\"c\" />" +
+				"<chapter number=\"2\" style=\"c\" />" +
+				UsxDocumentTests.kUsxFrameEnd);
+			var books = UsxParser.ParseBooks(new[] {new UsxDocument(doc)}, new TestStylesheet(), null);
+			Assert.AreEqual(0, books.Count);
 		}
 
 		[Test]
@@ -1087,6 +1128,26 @@ namespace GlyssenEngineTests
 			Assert.AreEqual("{35}\u00A0There will be two grinding grain together. One will be taken and the other will be left.” ", blocks[1].GetText(true));
 			Assert.AreEqual(2, blocks[2].BlockElements.Count);
 			Assert.AreEqual("{37}\u00A0They, answering, asked him, “Where, Lord?”", blocks[2].GetText(true));
+		}
+
+		[Test]
+		public void Parse_AcrosticHeading_BlockAddedWithQaTagAndBCCharacterId()
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
+				UsxDocumentTests.kUsxFrameStart.Replace("MRK", "PSA") +
+				"<para style=\"mt1\">Salmos</para>" + Environment.NewLine +
+				"<chapter number=\"119\" style=\"c\" />" + Environment.NewLine +
+				"<para style=\"qa\">Alef</para>" + Environment.NewLine +
+				"<para style=\"q\">" + Environment.NewLine +
+				"<verse number=\"1\" style=\"v\"/>Bienaventurados los perfectos de camino.</para>" +
+				UsxDocumentTests.kUsxFrameEnd);
+			var parser = GetUsxParser(doc, "PSA");
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(4, blocks.Count);
+			Assert.AreEqual("Alef", blocks[2].GetText(true));
+			Assert.AreEqual("qa", blocks[2].StyleTag);
+			Assert.AreEqual(0, blocks[2].InitialStartVerseNumber);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("PSA", CharacterVerseData.StandardCharacter.BookOrChapter), blocks[2].CharacterId);
 		}
 
 		private UsxParser GetUsxParser(XmlDocument doc, string bookId = "MRK")

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<DBLMetadata id="5453af4c7644271c" type="text" typeVersion="1.4" revision="0" usxparserversion="33" origdblpath="C:\unknown" controlfileversion="91" modifieddate="2016-03-08T13:42:38.5231556-07:00" firstchapterannouncement="true" singlechapterannouncement="true">
+<DBLMetadata id="5453af4c7644271c" type="text" typeVersion="1.4" revision="0" modifieddate="2021-04-01T15:03:37.9070271-04:00" uniqueProjectId="5f65d08d-41cb-42b4-92f0-23b7f0156ea4" usxparserversion="33" origdblpath="C:\unknown" controlfileversion="91" firstchapterannouncement="true" singlechapterannouncement="true">
   <language>
     <iso>rus</iso>
     <name>Russian</name>
@@ -9,26 +9,27 @@
     <numerals />
     <fontFamily>Charis SIL</fontFamily>
     <fontSizeInPoints>14</fontSizeInPoints>
-	<heSaidText>сказал.</heSaidText>
+    <heSaidText>сказал.</heSaidText>
+    <reportingClause>сказал.</reportingClause>
   </language>
   <identification>
     <name>Synodal Translation (1876)</name>
     <nameLocal />
-    <systemId type="fcbhOT"></systemId>
-    <systemId type="fcbhNT">106</systemId>
+    <systemId type="fcbhOT" />
+    <systemId type="fcbhNT">107</systemId>
   </identification>
   <copyright>
     <statement contentType="xhtml">
       <p>Public Domain.</p>
-	  <p>See: http://newchristianbiblestudy.org/bible/russian-synodal-1876/</p>
+      <p>See: http://newchristianbiblestudy.org/bible/russian-synodal-1876/</p>
     </statement>
   </copyright>
   <promotion>
     <promoVersionInfo contentType="xhtml" />
   </promotion>
   <archiveStatus>
-    <dateArchived></dateArchived>
-    <dateUpdated></dateUpdated>
+    <dateArchived />
+    <dateUpdated />
   </archiveStatus>
   <bookNames>
     <book code="MAT">
@@ -210,12 +211,14 @@
     <assignCharacterBlock>
       <bookIndex>26</bookIndex>
       <blockIndex>477</blockIndex>
+      <multiBlockCount>0</multiBlockCount>
     </assignCharacterBlock>
     <assignCharacterMode>AllScripture</assignCharacterMode>
     <quoteSystemStatus>UserSet</quoteSystemStatus>
-    <quoteSystemDate>2016-03-08T12:27:38.1500615-07:00</quoteSystemDate>
+    <quoteSystemDate>2016-03-08T14:27:38.1500615-05:00</quoteSystemDate>
     <bookSelectionStatus>Reviewed</bookSelectionStatus>
     <projectSettingsStatus>Reviewed</projectSettingsStatus>
   </projectStatus>
   <characterGroupGenerationPreferences />
+  <projectDramatizationPreferences />
 </DBLMetadata>

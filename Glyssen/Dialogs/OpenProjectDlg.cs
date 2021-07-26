@@ -47,6 +47,10 @@ namespace Glyssen.Dialogs
 		public ProjectType Type { get; private set; }
 
 		public string SelectedProject { get; private set; }
+		/// <summary>
+		/// For Paratext projects, use this instead of the SelectedProject (name) to load the project.
+		/// </summary>
+		public string ParatextProjectId => m_listExistingProjects.GetIdentifierForParatextProject;
 
 		private void OpenProjectDlg_Load(object sender, EventArgs e)
 		{

@@ -40,6 +40,7 @@ namespace Glyssen.RefTextDevUtilities
 		private const string kCharacterHeaderAlt1 = "CHARACTER";
 		private const string kCharacterHeaderAlt2 = "Char";
 		private const string kEnglishHeader = "ENGLISH";
+		private const string kEnglishHeaderAlt = "Text - English";
 		private const string kEnglishHeaderAltEnglishOnly = "Text";
 		private const string kSporadicAddlCharNamesPrefixIgnore = "Sporadic";
 		private const string kPrompts = "Prompts";
@@ -61,7 +62,7 @@ namespace Glyssen.RefTextDevUtilities
 		//private static readonly Regex s_singleCloseQuote = new Regex("(>|›)", RegexOptions.Compiled);
 		//private static readonly Regex s_closeDoubleChevrons = new Regex("»", RegexOptions.Compiled);
 		//private static readonly Regex s_openDoubleChevrons = new Regex("«", RegexOptions.Compiled);
-		private static readonly Regex s_FcbhNarrator = new Regex("Narr_\\d+: ", RegexOptions.Compiled);
+		private static readonly Regex s_FcbhNarrator = new Regex("Narr_\\d+(: )|(_)", RegexOptions.Compiled);
 		private static readonly Regex s_regexDupName = new Regex(@"(([1-3] )?[^\s\n\r]+)[\s\n\r]+\1[\s\n\r]+(?<chapterLabel>[^\s\n\r]*)", RegexOptions.Compiled);
 
 		private static Regex s_regexStartQuoteMarks;
@@ -166,9 +167,9 @@ namespace Glyssen.RefTextDevUtilities
 		private static string NormalizeLanguageColumnHeaderName(string nameFromExcelFile)
 		{
 			// Not sure why FCBH spells it "PISON", but we'll just fix it up here.
-			var nameParts = nameFromExcelFile.Replace("PISON", "PISIN").Split(' ', '\n');
+			var nameParts = nameFromExcelFile.Replace("PISON", "PISIN").Split(' ', '\n', '-');
 			var sb = new StringBuilder();
-			foreach (var part in nameParts.Where(p => !string.IsNullOrEmpty(p)))
+			foreach (var part in nameParts.Where(p => !string.IsNullOrEmpty(p) && !p.StartsWith("Text")))
 			{
 				if (part.StartsWith("("))
 					break;
@@ -458,9 +459,13 @@ namespace Glyssen.RefTextDevUtilities
 
 					var referenceTextRowsToProcess = dataSet.ReferenceTextRows;
 
-					foreach (var referenceTextRow in referenceTextRowsToProcess.Where(r => !r.CharacterId.StartsWith("Section Head_")))
+					foreach (var referenceTextRow in referenceTextRowsToProcess)
 					{
-						var currBookId = GetBookIdFromFcbhBookCode(referenceTextRow.Book, out var currBookNum);
+						if (referenceTextRow.IsSectionHead)
+							continue;
+						
+						var currBookId = referenceTextRow.Book;
+						var currBookNum = referenceTextRow.BookNum;
 
 						if (skippingBook == currBookNum)
 							continue;
@@ -490,10 +495,22 @@ namespace Glyssen.RefTextDevUtilities
 							{
 								existingRefBlocksForLanguage = existingReferenceTextForLanguage.Books
 									.SingleOrDefault(b => b.BookId == currBookId)?.GetScriptBlocks();
-								
-								if (existingRefBlocksForLanguage?.Count != existingEnglishRefBook?.GetScriptBlocks().Count)
-									WriteOutput($"Existing book of {currBookId} for {language} has {existingRefBlocksForLanguage?.Count} blocks, but the existing " +
-										$"English reference text has {existingEnglishRefBook?.GetScriptBlocks().Count} blocks.", true);
+
+								int existingBlockCount = existingRefBlocksForLanguage?.Count ?? 0;
+
+								if (existingBlockCount != existingEnglishRefBook?.GetScriptBlocks().Count)
+								{
+									// Only regard this as an "error" if the two reference texts claim to be on the same version number.
+									bool isError = currBookNum >= 40 ? s_existingEnglish.EnglishNTVersion == existingReferenceTextForLanguage.EnglishNTVersion :
+										s_existingEnglish.EnglishOTVersion == existingReferenceTextForLanguage.EnglishOTVersion;
+									if (!isError && existingRefBlocksForLanguage == null)
+										WriteOutput($"Creating book of {currBookId} for {language}.");
+									else
+									{
+										WriteOutput($"Existing book of {currBookId} for {language} has {existingBlockCount} blocks, but the existing " +
+											$"English reference text has {existingEnglishRefBook?.GetScriptBlocks().Count} blocks.", isError);
+									}
+								}
 							}
 
 							iBlockInExistingEnglishRefBook = 0;
@@ -539,7 +556,11 @@ namespace Glyssen.RefTextDevUtilities
 							// We theoretically need to check to make sure we don't go out of range, but in
 							// practice, a book should never end with an extra-biblical block.
 							while (CharacterVerseData.IsCharacterExtraBiblical(existingEnglishRefBlock.CharacterId))
+							{
+								if (referenceTextRow.IsAcrosticHead && existingEnglishRefBlock.StyleTag == "qa")
+									break;
 								existingEnglishRefBlock = blocks[iBlockInExistingEnglishRefBook++];
+							}
 
 							// When generating a new English reference text, blocks can be inserted or removed, so we don't
 							// necessarily expect it to align verse-by-verse to the old version. However, we want to try
@@ -577,9 +598,13 @@ namespace Glyssen.RefTextDevUtilities
 						{
 							existingRefBlockForLanguage = existingEnglishRefBlock;
 						}
+						else if (existingRefBlocksForLanguage == null)
+						{
+							existingRefBlockForLanguage = null;
+						}
 						else
 						{
-							if (existingRefBlocksForLanguage?.Count <= iBlockInExistingRefBookForLanguage)
+							if (existingRefBlocksForLanguage.Count <= iBlockInExistingRefBookForLanguage)
 							{
 								if (mode == Mode.FindDifferencesBetweenCurrentVersionAndNewText)
 								{
@@ -592,22 +617,35 @@ namespace Glyssen.RefTextDevUtilities
 							{
 								existingRefBlockForLanguage = existingRefBlocksForLanguage[iBlockInExistingRefBookForLanguage++];
 								while (CharacterVerseData.IsCharacterExtraBiblical(existingRefBlockForLanguage.CharacterId))
+								{
+									if (referenceTextRow.IsAcrosticHead && existingEnglishRefBlock.StyleTag == "qa")
+										break;
 									existingRefBlockForLanguage = existingRefBlocksForLanguage[iBlockInExistingRefBookForLanguage++];
+								}
 							}
 
 							// If we've gotten out of C/V alignment with the existing reference text, we need to try to
 							// get back in sync.
 							if (mode == Mode.FindDifferencesBetweenCurrentVersionAndNewText || (mode == Mode.Generate && !languageInfo.IsEnglish))
 							{
-								Debug.Assert(existingRefBlockForLanguage != null);
-								EnsureAlignmentToExistingReferenceText(currBookId, currChapter, currVerse,
-									ref existingRefBlockForLanguage, existingRefBlocksForLanguage,
-									languageInfo.Name, ref iBlockInExistingRefBookForLanguage);
+								if (existingRefBlockForLanguage != null)
+								{
+									EnsureAlignmentToExistingReferenceText(currBookId, currChapter, currVerse,
+										ref existingRefBlockForLanguage, existingRefBlocksForLanguage,
+										languageInfo.Name, ref iBlockInExistingRefBookForLanguage);
+								}
 							}
 						}
 
+						var noTextChangesWeCareAbout = IsUnchanged(modifiedText, existingRefBlockForLanguage, currBookId);
+
 						var existingCharacterId = (existingRefBlockForLanguage ?? existingEnglishRefBlock)?.CharacterId;
-						var characterIdBasedOnExcelEntry = GetCharacterIdFromFCBHCharacterLabel(referenceTextRow.CharacterId, currBookId, existingEnglishRefBlock, referenceTextRow.Verse);
+						var referenceBlock = existingEnglishRefBlock ?? new Block("?", currChapter, Int32.Parse(referenceTextRow.Verse));
+						// If we've previously decided that a block should be "Needs Review" and the text is unchanged, keep it as
+						// "Needs Review" so we don't have to keep looking at the changes and reverting them.
+						var characterIdBasedOnExcelEntry = languageInfo.IsEnglish && noTextChangesWeCareAbout && existingEnglishRefBlock?.CharacterId == CharacterVerseData.kNeedsReview ?
+							CharacterVerseData.kNeedsReview :
+							GetCharacterIdFromFCBHCharacterLabel(referenceTextRow, currBookId, referenceBlock, referenceTextRow.Verse);
 						if (mode != Mode.GenerateEnglish)
 						{
 							if (characterIdBasedOnExcelEntry == CharacterVerseData.kAmbiguousCharacter ||
@@ -621,13 +659,11 @@ namespace Glyssen.RefTextDevUtilities
 						}
 
 						var characterIdChanged = existingCharacterId != characterIdBasedOnExcelEntry;
-						if (characterIdChanged)
+						if (characterIdChanged && (noTextChangesWeCareAbout || languageInfo.IsEnglish))
 						{
 							WriteOutput($"Character change at {currBookId} {referenceTextRow.Chapter}:{referenceTextRow.Verse}");
 							WriteOutput($"   From {existingCharacterId ?? "null"} ==> {characterIdBasedOnExcelEntry}");
 						}
-
-						var noTextChangesWeCareAbout = IsUnchanged(modifiedText, existingRefBlockForLanguage, currBookId);
 
 						if (mode != Mode.Generate && mode != Mode.GenerateEnglish)
 							continue;
@@ -642,6 +678,14 @@ namespace Glyssen.RefTextDevUtilities
 								blockToAdd.CharacterId = languageInfo.IsEnglish ? characterIdBasedOnExcelEntry : existingEnglishRefBlock.CharacterId;
 								if (!languageInfo.IsEnglish)
 									blockToAdd.Delivery = existingEnglishRefBlock.Delivery;
+								else if (blockToAdd.CharacterIs(currBookId, CharacterVerseData.StandardCharacter.Narrator))
+									blockToAdd.Delivery = null;
+								else if (blockToAdd.Delivery != null)
+								{
+									WriteOutput("Delivery being preserved even though character ID is changing from" +
+										$" {existingRefBlockForLanguage.CharacterId} to {blockToAdd.CharacterId} in :" +
+										blockToAdd.GetReferenceString(currBookId));
+								}
 							}
 							newBlocks.Add(blockToAdd);
 							foreach (var split in s_verseNumberMarkupRegex.Split(modifiedText)
@@ -655,7 +699,7 @@ namespace Glyssen.RefTextDevUtilities
 											AttemptParseOfControlFileAnnotation(mode, s, languageInfo, currBookId, referenceTextRow, existingEnglishRefBlock, annotationsToOutput);
 									}
 									else if (string.IsNullOrWhiteSpace(s.TrimStart()))
-										WriteOutput("No text found between annotations:" + referenceTextRow, true);
+										WriteOutput("No text found between annotations: " + referenceTextRow, true);
 								}
 							}
 
@@ -667,20 +711,24 @@ namespace Glyssen.RefTextDevUtilities
 						Block newBlock;
 						if (existingEnglishRefBlock != null)
 						{
+							string characterId = languageInfo.IsEnglish ? characterIdBasedOnExcelEntry : existingEnglishRefBlock.CharacterId;
+							string characterIdOverride = languageInfo.IsEnglish ? null : existingEnglishRefBlock.CharacterIdOverrideForScript;
+							string delivery = characterId == CharacterVerseData.GetStandardCharacterId(currBookId, CharacterVerseData.StandardCharacter.Narrator) ?
+								null : existingEnglishRefBlock.Delivery;
 							newBlock = new Block(existingEnglishRefBlock.StyleTag, currChapter,
 								currVerse)
 							{
-								CharacterId = languageInfo.IsEnglish ? characterIdBasedOnExcelEntry : existingEnglishRefBlock.CharacterId,
-								Delivery = existingEnglishRefBlock.Delivery,
+								CharacterId = characterId,
+								Delivery = delivery,
+								CharacterIdOverrideForScript = characterIdOverride,
 								IsParagraphStart = existingEnglishRefBlock.IsParagraphStart,
 								MultiBlockQuote = existingEnglishRefBlock.MultiBlockQuote
 							};
 						}
 						else
 						{
-							newBlock = new Block("p", currChapter, currVerse);
-							newBlock.CharacterId =
-								GetCharacterIdFromFCBHCharacterLabel(referenceTextRow.CharacterId, currBookId, newBlock);
+							newBlock = new Block(referenceTextRow.IsAcrosticHead ? "qa" : "p", currChapter, currVerse);
+							newBlock.CharacterId = GetCharacterIdFromFCBHCharacterLabel(referenceTextRow, currBookId, newBlock);
 						}
 
 						BlockElement lastElementInBlock = null;
@@ -921,13 +969,13 @@ namespace Glyssen.RefTextDevUtilities
 				WriteOutput($"   Aligned to existing {languageName} ref text block: {existingRefBlock}");
 			}
 
-			if (currVerse != existingRefBlock.InitialStartVerseNumber &&
+			if ((currVerse < existingRefBlock.InitialStartVerseNumber || currVerse > existingRefBlock.LastVerseNum) &&
 				(currBookId != "PSA" || currVerse > 1 || existingRefBlock.InitialStartVerseNumber > 0))
 			{
 				WriteOutput($"Verse number does not align with existing {languageName} reference text. Book: {currBookId}, Ch: {currChapter}, " +
 					$"Excel: {currVerse}, Existing: {existingRefBlock.InitialStartVerseNumber}", true);
 
-				if (existingRefBlock.InitialStartVerseNumber > currVerse)
+				if (existingRefBlock.LastVerseNum > currVerse)
 				{
 					do
 					{
@@ -942,8 +990,14 @@ namespace Glyssen.RefTextDevUtilities
 					do
 					{
 						WriteOutput($"   Skipping past existing ref text block: {existingRefBlock}");
+						if (blocks.Count <= iBlock)
+						{
+							existingRefBlock = null;
+							WriteOutput("   Could not find a block to align to.", true);
+							return;
+						}
 						existingRefBlock = blocks[iBlock++];
-					} while (existingRefBlock.InitialStartVerseNumber < currVerse ||
+					} while ((existingRefBlock.InitialStartVerseNumber < currVerse && existingRefBlock.ChapterNumber <= currChapter) ||
 						CharacterVerseData.IsCharacterExtraBiblical(existingRefBlock.CharacterId));
 				}
 
@@ -982,7 +1036,8 @@ namespace Glyssen.RefTextDevUtilities
 			{
 				currentTitleAndChapterLabelInfo.ChapterTwoInfoFromXls = referenceTextRow.GetText(language);
 				var chapterLabelForCurrentBook = currentTitleAndChapterLabelInfo.ChapterTwoInfoFromXls.TrimEnd(' ', '2').TrimStart();
-				if (justTheWordForChapter == null && chapterLabelForPrevBook != null && !isFirstBookInTestament)
+				if (justTheWordForChapter == null && chapterLabelForPrevBook != null && !isFirstBookInTestament &&
+					!char.IsDigit(chapterLabelForPrevBook[0]) && !char.IsDigit(chapterLabelForCurrentBook[0]))
 				{
 					// We're going to try to find just the word for chapter in case we later hit a single-chapter book that doesn't have it.
 					int iStartOfWord = chapterLabelForPrevBook.Length;
@@ -1231,50 +1286,11 @@ namespace Glyssen.RefTextDevUtilities
 			}
 		}
 
-		private static string GetBookIdFromFcbhBookCode(string fcbhBookCode, out int bookNum)
+		private static IEnumerable<CharacterSpeakingMode> GetAllCharacters(int bookNum, Block block, string overrideVerseNum = null)
 		{
-			bookNum = BCVRef.BookToNumber(fcbhBookCode);
-			if (bookNum > 0)
-				return fcbhBookCode;
+			if (!string.IsNullOrEmpty(overrideVerseNum))
+				return ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, new Verse(overrideVerseNum), includeAlternatesAndRareQuotes:true);
 
-			string silBookCode = null;
-			switch (fcbhBookCode)
-			{
-				case "1SM":
-					silBookCode = "1SA";
-					break;
-				case "2SM":
-					silBookCode = "2SA";
-					break;
-				case "PSM":
-					silBookCode = "PSA";
-					break;
-				case "PRV":
-					silBookCode = "PRO";
-					break;
-				case "SOS":
-					silBookCode = "SNG";
-					break;
-				case "EZE":
-					silBookCode = "EZK";
-					break;
-				case "JOE":
-					silBookCode = "JOL";
-					break;
-				case "NAH":
-					silBookCode = "NAM";
-					break;
-				default:
-					WriteOutput($"Unexpected Book code: {fcbhBookCode}", true);
-					return fcbhBookCode;
-			}
-
-			bookNum = BCVRef.BookToNumber(silBookCode);
-			return silBookCode;
-		}
-
-		private static IEnumerable<CharacterSpeakingMode> GetAllCharacters(int bookNum, Block block)
-		{
 			return ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, block.AllVerses, includeAlternatesAndRareQuotes:true);
 		}
 
@@ -1289,8 +1305,12 @@ namespace Glyssen.RefTextDevUtilities
 		static readonly Regex s_matchFcbhProperNameWithLabel = new Regex(@"\w+: (?<name>([A-Z](\w|-|')+))", RegexOptions.Compiled);
 		static readonly Regex s_matchGlyssenFirstWordCapitalized = new Regex(@"^(?<name>([A-Z](\w|-|')+))", RegexOptions.Compiled);
 
-		private static string GetCharacterIdFromFCBHCharacterLabel(string fcbhCharacterLabel, string bookId, Block block, string overrideVerseNum = null)
+		private static string GetCharacterIdFromFCBHCharacterLabel(ReferenceTextRow referenceTextRow, string bookId, Block block, string overrideVerseNum = null)
 		{
+			if (referenceTextRow.IsAcrosticHead)
+				return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.BookOrChapter);
+
+			string fcbhCharacterLabel = referenceTextRow.CharacterId;
 			if (s_FcbhNarrator.IsMatch(fcbhCharacterLabel))
 				return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
 			
@@ -1301,17 +1321,21 @@ namespace Glyssen.RefTextDevUtilities
 			var bookNum = BCVRef.BookToNumber(bookId);
 
 			// See REVIEW note in GetMatchingNarratorOverride
-			if (GetMatchingNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber) != null)
+			var overrideChar = GetMatchingNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber);
+			if (overrideChar != null)
+			{
+				if (overrideChar == block.CharacterId)
+					return overrideChar; // Preserve the status quo
 				return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
+			}
 
-			var characters = GetAllCharacters(bookNum, block).Distinct(s_characterDeliveryEqualityComparer).ToList();
+			var characters = GetAllCharacters(bookNum, block, overrideVerseNum).Distinct(s_characterDeliveryEqualityComparer).ToList();
 			var implicitChar = characters.SingleOrDefault(c => c.IsImplicit);
 			if (implicitChar != null)
 				characters.RemoveAll(c => c != implicitChar && c.Character == implicitChar.Character && c.Delivery == implicitChar.Delivery);
 			else
 				characters.RemoveAll(c => c.Character == CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator));
 			var bcvRef = new BCVRef(bookNum, block.ChapterNumber, overrideVerseNum == null ? block.InitialStartVerseNumber : Int32.Parse(overrideVerseNum));
-			string overrideChar;
 			switch (characters.Count)
 			{
 				case 1:
@@ -1383,9 +1407,9 @@ namespace Glyssen.RefTextDevUtilities
 							return single.Item2.Character;
 						}
 
-						overrideChar = GetMatchingNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber);
-						if (overrideChar != null)
-							return overrideChar;
+						//overrideChar = GetMatchingNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber);
+						//if (overrideChar != null)
+						//	return overrideChar;
 					}
 					catch (InvalidOperationException)
 					{
@@ -1440,7 +1464,7 @@ namespace Glyssen.RefTextDevUtilities
 			//    advantage. Anyway, it is probably nearly impossible to determine with certainty, plus FCBH doesn't usually split on quotes
 			//    in such cases, so a lot of blocks would be a mix.
 			// 4) Minimize the change from the status quo by leaving existing narrator blocks as narrator and only explicitly assigning the
-			//    override character if the block is already thus assigned (or is misassigned to some other character).
+			//    override character if the block is already thus assigned (or is assigned incorrectly to some other character).
 			//return overrideCharacter != null && block.CharacterIs(BCVRef.NumberToBookCode(bookNum), CharacterVerseData.StandardCharacter.Narrator) ?
 			//	block.CharacterId : overrideCharacter;
 		}
@@ -1589,8 +1613,7 @@ namespace Glyssen.RefTextDevUtilities
 		{
 			switch (fcbhCharacterLabel)
 			{
-				case "Angel": return glyssenCharacterId.StartsWith("angel", StringComparison.OrdinalIgnoreCase) ||
-					glyssenCharacterId == "horses (or their angelic riders) (in vision)";
+				case "Angel": return glyssenCharacterId.IndexOf("angel", StringComparison.OrdinalIgnoreCase) >= 0;
 				case "Son of Jacob": return glyssenCharacterId == "Joseph's brothers";
 				case "Rehab": return glyssenCharacterId == "Rahab";
 				case "Judean": return glyssenCharacterId == "Judah, men of";
@@ -1619,7 +1642,8 @@ namespace Glyssen.RefTextDevUtilities
 					return glyssenCharacterId == "man like bronze with measuring rod (in vision)" ||
 						glyssenCharacterId == "man's voice from the Ulai (in vision)" ||
 						glyssenCharacterId == "one who looked like a man" ||
-						glyssenCharacterId == "man in linen above river";
+						glyssenCharacterId == "man in linen above river" ||
+						glyssenCharacterId.IndexOf("angel", StringComparison.OrdinalIgnoreCase) >= 0;
 				default: return false;
 			}
 		}
@@ -1677,6 +1701,8 @@ namespace Glyssen.RefTextDevUtilities
 						// Language headers can now be in a row BEFORE the other column headers
 						// English is required and must come first!
 						iCol = nonNullCellAddresses.FindIndex(a => cells[a.Address].Value.Equals(kEnglishHeader));
+						if (iCol < 0)
+							iCol = nonNullCellAddresses.FindIndex(a => cells[a.Address].Value.Equals(kEnglishHeaderAlt));
 						if (iCol >= 0)
 						{
 							var englishAddress = nonNullCellAddresses[iCol].Address;
@@ -1717,6 +1743,7 @@ namespace Glyssen.RefTextDevUtilities
 								value = "English";
 								goto case kEnglishHeader;
 							case kEnglishHeader: // English is required and must come first!
+							case kEnglishHeaderAlt:
 								allLanguages.Clear();
 								allLanguages[NormalizeLanguageColumnHeaderName(value)] = col;
 								languageHeaderRow = iRow;
@@ -1783,12 +1810,19 @@ namespace Glyssen.RefTextDevUtilities
 						break;
 					}
 					var verseStr = verseValue as string ?? ((double)verseValue).ToString(CultureInfo.InvariantCulture);
-					data.ReferenceTextRows.Add(new ReferenceTextRow(
-						ConvertFcbhBookCodeToSilBookCode((string)bookValue),
-						((double)cells[chapterCol + row].Value).ToString(CultureInfo.InvariantCulture),
-						verseStr,
-						(string)cells[characterCol + row].Value,
-						allLanguages.ToDictionary(kvp => kvp.Key, kvp => cells[kvp.Value + row].Value?.ToString())));
+					try
+					{
+						data.ReferenceTextRows.Add(new ReferenceTextRow(
+							(string)bookValue,
+							((double)cells[chapterCol + row].Value).ToString(CultureInfo.InvariantCulture),
+							verseStr,
+							(string)cells[characterCol + row].Value,
+							allLanguages.ToDictionary(kvp => kvp.Key, kvp => cells[kvp.Value + row].Value?.ToString())));
+					}
+					catch (ArgumentOutOfRangeException e)
+					{
+						WriteOutput(e.Message, true);
+					}
 
 					if (cancellationToken.IsCancellationRequested)
 						return null;
@@ -1922,19 +1956,6 @@ namespace Glyssen.RefTextDevUtilities
 			return false;
 		}
 
-		private static string ConvertFcbhBookCodeToSilBookCode(string bookCode)
-		{
-			switch (bookCode)
-			{
-				case "TTS":
-					return "TIT";
-				case "JMS":
-					return "JAS";
-				default:
-					return bookCode;
-			}
-		}
-
 		private static bool IsUnchanged(string excelStr, Block existingBlock, string bookId)
 		{
 			if (existingBlock == null)
@@ -2007,6 +2028,7 @@ namespace Glyssen.RefTextDevUtilities
 							break;
 					}
 				}
+
 				if (s_charactersToExcludeWhenComparing != null)
 				{
 					if (s_charactersToExcludeWhenComparing.IsMatch(c1.ToString()))
@@ -2020,8 +2042,10 @@ namespace Glyssen.RefTextDevUtilities
 							i1--; // recheck current character in s1 against next character in s2
 						else
 							return Math.Min(i1, i2); // mismatch
-					} 
+					}
 				}
+				else
+					break;
 			}
 
 			if (i1 == lim1 && i2 == lim2)
