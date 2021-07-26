@@ -376,6 +376,22 @@ namespace GlyssenEngineTests.Script
 			Assert.AreEqual(4, list.Count);
 			Assert.AreEqual(expected, list[0]);
 		}
+
+		[Test]
+		public void GetBlocksForVerse_VerseZero_ReturnsBlocksForVerse()
+		{
+			var blocks = new List<Block>();
+			blocks.Add(NewChapterBlock(4, "ROM"));
+			blocks.Add(NewSingleVersePara(1, "Verse one."));
+			blocks.Add(NewSingleVersePara(20, "Verse twenty"));
+			blocks.Add(NewChapterBlock(5, "ROM"));
+			blocks.Add(new Block("d", 5) {BlockElements = new List<BlockElement>(new BlockElement[] {new ScriptText("(Taema nota pebëxëpanayo.)")})});
+			blocks.Add(NewSingleVersePara(1, "Ka guwoto kacel i yo, ci guo ka ma pii tye iye. Laco ma gikolo owacci, "));
+			blocks.Add(NewBlock("“Nen pii doŋ ene! Gin aŋo ma geŋa limo batija?” "));
+			var bookScript = new BookScript("ROM", blocks, ScrVers.English);
+			var list = bookScript.GetBlocksForVerse(5, 0).ToList();
+			Assert.AreEqual("(Taema nota pebëxëpanayo.)", list.Single().GetText(true));
+		}
 		#endregion
 
 		#region GetScriptBlocks Tests
