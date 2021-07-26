@@ -509,8 +509,22 @@ namespace GlyssenEngine.Script
 					if (block.InitialStartVerseNumber == verse || (block.InitialStartVerseNumber < verse && block.InitialEndVerseNumber >= verse))
 						return iFirstBlockToExamine;
 				}
-				if (iFirstBlockToExamine > 0 && m_blocks[iFirstBlockToExamine - 1].LastVerseNum >= verse)
+
+				if (iFirstBlockToExamine > 0 && m_blocks[iFirstBlockToExamine - 1].ChapterNumber == chapter &&
+					m_blocks[iFirstBlockToExamine - 1].LastVerseNum >= verse && m_blocks[iFirstBlockToExamine - 1].IsScripture)
+				{
 					return iFirstBlockToExamine - 1;
+				}
+
+				if (verse == 0)
+				{
+					while (!m_blocks[iFirstBlockToExamine].IsScripture)
+					{
+						if (++iFirstBlockToExamine == m_blocks.Count)
+							return -1;
+					}
+				}
+
 				break;
 			}
 
