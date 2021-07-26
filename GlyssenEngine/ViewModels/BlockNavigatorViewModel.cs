@@ -81,10 +81,17 @@ namespace GlyssenEngine.ViewModels
 				var startingBlock = GetBlock(startingIndices);
 				if (startingBlock != null && !CharacterVerseData.IsCharacterExtraBiblical(startingBlock.CharacterId))
 				{
-					SetBlock(startingIndices);
-					m_currentRelevantIndex = m_relevantBookBlockIndices.IndexOf(startingIndices);
+					// Note: we don't want to use the normal BookBlockIndices.Equal to find the requested index because the data
+					// could have changed in a way that causes the extent of the matchup to have changed. In that case, we want
+					// to use the now relevant matchup at the previous block index. Otherwise, we can end up with a crash later.
+					m_currentRelevantIndex = m_relevantBookBlockIndices.FindIndex(bbi => bbi.BookIndex == startingIndices.BookIndex && bbi.BlockIndex == startingIndices.BlockIndex);
 					if (m_currentRelevantIndex < 0)
+					{
+						SetBlock(startingIndices);
 						m_temporarilyIncludedBookBlockIndices = startingIndices;
+					}
+					else
+						SetBlock(m_relevantBookBlockIndices[m_currentRelevantIndex]);
 				}
 			}
 		}
