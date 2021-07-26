@@ -5371,7 +5371,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="Jesus">
       <text>«Which of you, if you go to a friend at midnight, and tell him, ‹Friend, lend me three loaves of bread.</text>
     </ReferenceBlocks>
-    <text>положим, что кто-нибудь из вас, имея друга, придёт к нему в полночь и скажет ему: друг! дай мне взаймы три хлеба,</text>
+    <text>«положим, что кто-нибудь из вас, имея друга, придёт к нему в полночь и скажет ему: друг! дай мне взаймы три хлеба,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="Jesus">
@@ -7624,7 +7624,7 @@
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="8" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="8" characterId="Jesus">
       <verse num="8" />
-      <text>and will not rather tell him, ‹Prepare my supper, clothe yourself properly, and serve me, while I eat and drink. Afterward you shall eat and drink’?</text>
+      <text>and will not rather tell him, ‹Prepare my supper, clothe yourself properly, and serve me, while I eat and drink. Afterward you shall eat and drink›?</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Напротив, не скажет ли ему: приготовь мне поужинать и, подпоясавшись, служи мне, пока буду есть и пить, и потом ешь и пей сам?</text>

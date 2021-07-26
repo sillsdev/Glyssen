@@ -6925,5 +6925,31 @@ namespace GlyssenEngineTests.Quote
 			Assert.AreEqual(MultiBlockQuote.None, results[4].MultiBlockQuote);
 		}
 		#endregion
+
+		#region PG-1435
+		[Test]
+		public void Parse_NoQuotationMarksSpecified_DoesNotCrash()
+		{
+			var blockChapter1 = new Block("c", 1)
+			{
+				BookCode = "HEB",
+				CharacterId = CharacterVerseData.GetStandardCharacterId("HEB", CharacterVerseData.StandardCharacter.BookOrChapter)
+			};
+			blockChapter1.BlockElements.Add(new ScriptText("1"));
+			var block1 = new Block("p", 1, 1).AddVerse(1, "Welcome to Hebrews.");
+
+			var levels = new BulkObservableList<QuotationMark>
+			{
+			};
+			QuoteParser.SetQuoteSystem(new QuoteSystem(levels));
+
+			var input = new List<Block> {blockChapter1, block1};
+
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, blockChapter1.BookCode, input);
+			var results = parser.Parse().ToList();
+
+			Assert.AreEqual(2, results.Count);
+		}
+		#endregion
 	}
 }
