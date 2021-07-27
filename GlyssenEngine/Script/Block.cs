@@ -1281,7 +1281,7 @@ namespace GlyssenEngine.Script
 				var refVerses = leadingVerseInNewRowB.AllVerses().Select(v => v.VerseNum).ToList();
 				// If any of the vern blocks at or above the swap position have any of the
 				// verses in the ref verse range, then don't move it.
-				if (vernBlocks.Take(iVernRowA + 1).Any(b => b.AllVerses.Any(v => v.AllVerseNumbers.Any(vn => refVerses.Contains(vn)))) ||
+				if (vernBlocks.Take(iVernRowA + 1).Any(b => b.IsScripture && b.AllVerses.Any(v => v.AllVerseNumbers.Any(vn => refVerses.Contains(vn)))) ||
 					(iVernRowA < vernBlocks.Count - 1 &&
 					vernBlocks[iVernRowA + 1].InitialStartVerseNumber > refVerses.First()))
 				{
