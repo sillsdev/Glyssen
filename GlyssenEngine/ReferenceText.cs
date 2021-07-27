@@ -1192,7 +1192,7 @@ namespace GlyssenEngine
 		}
 
 		/// <summary>
-		/// Split blocks in the given book to match verse split locations
+		/// Split blocks in the given portion to match verse split locations
 		/// </summary>
 		/// <returns>A value indicating whether any splits were made</returns>
 		private static bool MakesSplits(PortionScript blocksToSplit, int bookNum,

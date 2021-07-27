@@ -1467,10 +1467,19 @@ namespace GlyssenEngineTests.Script
 
 		[TestCase(0)]
 		[TestCase(1)]
+		[TestCase(1, true)]
 		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBIsEmpty_VernHasCorrespondingVerse_LeadingVerseStaysWithRowA(
-			int vernRowCorrespondingToA)
+			int vernRowCorrespondingToA, bool includeSectionHead = false)
 		{
 			var vernBlocks = new List<Block>();
+			if (includeSectionHead)
+			{
+				vernBlocks.Add(new Block("s", 8, 18)
+				{
+					CharacterId = GetStandardCharacterId("MAT", StandardCharacter.ExtraBiblical),
+					BlockElements = new List<BlockElement>(new [] { new ScriptText("Section head text") })
+				});
+			}
 			vernBlocks.Add(new Block("p", 8, 19).AddVerse("19", "Start of verse 19 text."));
 			vernBlocks.Add(new Block("p", 8, 19).AddText("Rest of verse 19.")
 				.AddVerse("20", "Verse 20 text.").AddVerse("21", "Verse 21 text."));
@@ -1677,6 +1686,7 @@ namespace GlyssenEngineTests.Script
 			Assert.IsTrue(IsNullOrEmpty(newRowAValue));
 			Assert.AreEqual("{21} Verse twenty-one.", newRowBValue);
 		}
+		
 
 		[TestCase("1234567")]
 		[TestCase("This is a pretty basic test")]
