@@ -62,7 +62,7 @@ namespace Glyssen.RefTextDevUtilities
 		//private static readonly Regex s_singleCloseQuote = new Regex("(>|›)", RegexOptions.Compiled);
 		//private static readonly Regex s_closeDoubleChevrons = new Regex("»", RegexOptions.Compiled);
 		//private static readonly Regex s_openDoubleChevrons = new Regex("«", RegexOptions.Compiled);
-		private static readonly Regex s_FcbhNarrator = new Regex("Narr_\\d+(: )|(_)", RegexOptions.Compiled);
+		private static readonly Regex s_FcbhNarrator = new Regex("^Narr_\\d+((: )|(_))", RegexOptions.Compiled);
 		private static readonly Regex s_regexDupName = new Regex(@"(([1-3] )?[^\s\n\r]+)[\s\n\r]+\1[\s\n\r]+(?<chapterLabel>[^\s\n\r]*)", RegexOptions.Compiled);
 
 		private static Regex s_regexStartQuoteMarks;
@@ -1215,7 +1215,8 @@ namespace Glyssen.RefTextDevUtilities
 				return ScrVers.English.GetLastVerse(bookNum, existingEnglishRefBlock.ChapterNumber) <= existingEnglishRefBlock.LastVerse.EndVerse;
 			}
 
-			if (ConvertTextToControlScriptAnnotationElement(s, IsEndOfChapter, out var annotation))
+			var isStartOfChapter = referenceTextRow.Verse == "1" && referenceTextRow.Chapter == "1";
+			if (ConvertTextToControlScriptAnnotationElement(s, isStartOfChapter, IsEndOfChapter, out var annotation))
 			{
 				if (annotation != null && mode != Mode.GenerateEnglish && languageInfo.IsEnglish)
 				{
@@ -1280,7 +1281,7 @@ namespace Glyssen.RefTextDevUtilities
 					annotationsToOutput.Add($"{bookId}\t{referenceTextRow.Chapter}\t{verse}\t{offset}\t{serializedAnnotation}");
 				}
 			}
-			else
+			else if (!isStartOfChapter)
 			{
 				WriteOutput("Could not parse annotation: " + referenceTextRow, true);
 			}
@@ -2209,7 +2210,7 @@ namespace Glyssen.RefTextDevUtilities
 			return false;
 		}
 
-		private static string RegexEscapedDoNotCombine => Regex.Escape(Sound.kDoNotCombine) + " ";
+		private static string RegexEscapedDoNotCombine => Regex.Escape(Sound.kDoNotCombine) + " ?";
 
 		private const string k3Bars = @"\|\|\|";
 		private static readonly Regex s_musicOrNonF8SoundAnnotationInCurlyBracesRegex = new Regex("{(M|S).*?}", RegexOptions.Compiled);
@@ -2233,14 +2234,22 @@ namespace Glyssen.RefTextDevUtilities
 		private static readonly Regex s_musicSfxRegex = new Regex("{Music \\+ SFX--(.*?) Starts? @ v(\\d*?)}", RegexOptions.Compiled);
 		private static Ignore s_differencesToIgnore;
 
-		public static bool ConvertTextToControlScriptAnnotationElement(string text, Func<bool> isEndOfChapter, out ScriptAnnotation annotation)
+		public static bool ConvertTextToControlScriptAnnotationElement(string text, bool isStartOfChapter, Func<bool> isEndOfChapter, out ScriptAnnotation annotation)
 		{
 			if (string.IsNullOrWhiteSpace(text))
+			{
+				if (isStartOfChapter)
+				{
+					annotation = null;
+					return false;
+				}
+
 				throw new ArgumentException("text must contain non-whitespace", "text");
+			}
 
 			var match = s_doNotCombineRegex.Match(text);
 			if (match.Success)
-				return ConvertTextToControlScriptAnnotationElement(text.Substring(match.Length), isEndOfChapter, out annotation);
+				return ConvertTextToControlScriptAnnotationElement(text.Substring(match.Length), isStartOfChapter, isEndOfChapter, out annotation);
 
 			match = s_pauseRegex.Match(text);
 			if (match.Success)
