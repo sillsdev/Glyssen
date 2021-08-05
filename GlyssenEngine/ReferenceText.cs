@@ -523,7 +523,28 @@ namespace GlyssenEngine
 					}
 					else
 					{
-						currentVernBlock.SetUnmatchedReferenceBlocks(correspondingReferenceBlocks);
+						// Before blindly mismatching all the ref blocks, check to see if the first ref block contains
+						// (the start of) the verse that the vern block starts with. (In this case, the ref block didn't
+						// get split because the preceding vern verse was totally missing, but we can split it now so we
+						// don't include the missing verse(s) in the mismatch.)
+						if (allowSplitting &&
+							TryMatchBySplittingRefBlock(currentVernBlock, refBook, indexOfRefVerseStart, vernacularVersification))
+						{
+							if (forceMatch)
+							{
+								foreach (var refBlock in correspondingReferenceBlocks.Skip(1))
+									currentVernBlock.ReferenceBlocks[0].CombineWith(refBlock);
+							}
+							else
+								currentVernBlock.AppendUnmatchedReferenceBlocks(correspondingReferenceBlocks.Skip(1));
+						}
+						else
+						{
+							if (forceMatch)
+								CombineRefBlocksToCreateMatch(correspondingReferenceBlocks, currentVernBlock, true);
+							else
+								currentVernBlock.SetUnmatchedReferenceBlocks(correspondingReferenceBlocks);
+						}
 					}
 
 					continue;
@@ -992,13 +1013,13 @@ namespace GlyssenEngine
 			return true;
 		}
 
-		private static void CombineRefBlocksToCreateMatch(List<Block> remainingRefBlocksList, Block vernBlock, bool clone)
+		private static void CombineRefBlocksToCreateMatch(List<Block> refBlocks, Block vernBlock, bool clone)
 		{
-			var refBlock = remainingRefBlocksList[0];
+			var refBlock = refBlocks[0];
 			if (clone)
-				refBlock.Clone(Block.ReferenceBlockCloningBehavior.CloneListAndAllReferenceBlocks);
-			for (int rb = 1; rb < remainingRefBlocksList.Count; rb++)
-				refBlock.CombineWith(remainingRefBlocksList[rb]);
+				refBlock = refBlock.Clone(Block.ReferenceBlockCloningBehavior.CloneListAndAllReferenceBlocks);
+			for (int rb = 1; rb < refBlocks.Count; rb++)
+				refBlock.CombineWith(refBlocks[rb]);
 			vernBlock.SetMatchedReferenceBlock(refBlock);
 		}
 
