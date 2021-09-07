@@ -32,11 +32,19 @@ namespace GlyssenEngineTests.Utilities
 		}
 
 		[Test]
-		public void PercentAsDouble_DivideBy0ReturnsMaxOr100()
+		public void PercentAsDouble_DenominatorIs0_InsteadOfDivideBy0ReturnsMaxOr100()
 		{
 			Assert.AreEqual(99d, MathUtilities.PercentAsDouble(1, 0, 99));
 			Assert.AreEqual(100d, MathUtilities.PercentAsDouble(1, 0, 0));
 			Assert.AreEqual(100d, MathUtilities.PercentAsDouble(1, 0));
+		}
+
+		[Test]
+		public void PercentAsDouble_NumeratorAndDenominatorBoth0_Returns0()
+		{
+			Assert.AreEqual(0d, MathUtilities.PercentAsDouble(0, 0, 99));
+			Assert.AreEqual(0d, MathUtilities.PercentAsDouble(0, 0, 0));
+			Assert.AreEqual(0d, MathUtilities.PercentAsDouble(0, 0));
 		}
 
 		[Test]

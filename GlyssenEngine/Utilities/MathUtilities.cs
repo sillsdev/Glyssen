@@ -26,7 +26,12 @@ namespace GlyssenEngine.Utilities
 		public static double PercentAsDouble(int numerator, int denominator, int maxPercent = 100)
 		{
 			if (denominator == 0)
+			{
+				if (numerator == 0)
+					return 0d;
 				return maxPercent == 0 ? 100 : maxPercent;
+			}
+
 			if (maxPercent == 0)
 				return ((double)numerator / denominator) * 100;
 			return Math.Min(maxPercent, ((double)numerator / denominator) * 100);
