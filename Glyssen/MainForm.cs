@@ -1067,6 +1067,8 @@ namespace Glyssen
 					m_project.ClearAssignCharacterStatus();
 					m_project.Analyze();
 					UpdateDisplayOfProjectInfo();
+					if (!m_project.IncludedBooks.Any())
+						MessageBox.Show(this, LocalizationManager.GetString("Project.NoBooksIncluded", "No content found in any included books."), GlyssenInfo.Product);
 					SaveCurrentProject(true);
 				}
 			}
