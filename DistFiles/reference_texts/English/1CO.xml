@@ -1630,10 +1630,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="narrator-1CO">
     <verse num="32" />
-    <text>If I fought with animals at Ephesus for human purposes, what does it profit me? If the dead are not raised,</text>
+    <text>If I fought with animals at Ephesus for human purposes, what does it profit me? If the dead are not raised, then</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="scripture">
-    <text>then let us eat and drink, for tomorrow we die.</text>
+    <text>«let us eat and drink, for tomorrow we die.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="33" characterId="narrator-1CO">
     <verse num="33" />

@@ -17439,8 +17439,8 @@ LUK	1	15	Gabriel		angel of the Lord	Normal
 LUK	1	16	Gabriel		angel of the Lord	Normal		
 LUK	1	17	Gabriel		angel of the Lord	Normal		
 LUK	1	18	Zacharias (Zechariah)			Dialogue		
-LUK	1	19	Gabriel		angel of the Lord	Dialogue		
-LUK	1	20	Gabriel		angel of the Lord	Normal		
+LUK	1	19	Gabriel		Gabriel (angel)	Dialogue		
+LUK	1	20	Gabriel		Gabriel (angel)	Normal		
 LUK	1	21	people	wondering		Indirect		
 LUK	1	22	people	wondering		Indirect		
 LUK	1	25	Elizabeth			Normal		

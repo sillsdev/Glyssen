@@ -3530,43 +3530,42 @@ namespace GlyssenEngineTests
 		{
 			const string kBookId = "LUK";
 			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.English));
-			var v18RefTextBlocks = primaryReferenceText.Books.Single(b => b.BookId == kBookId).GetBlocksForVerse(23, 18);
-			var v17And18Block = v18RefTextBlocks.First();
-			Assert.AreEqual(17, v17And18Block.InitialStartVerseNumber, "Test setup conditions not met");
-			Assert.AreEqual("18", ((Verse)v17And18Block.BlockElements[2]).Number, "Test setup conditions not met");
-			var expectedRefTextForVerse18Part1 = "{18}\u00A0" + ((ScriptText)v17And18Block.BlockElements[3]).Content;
-			var expectedRefTextForVerse18Part2 = v18RefTextBlocks.Last().GetText(true);
 
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(14, "Pilate said, ", true, 23, kBookId));
-			AddBlockForVerseInProgress(vernacularBlocks, "Pilate", "“You say this man was inciting rebellion, but I have found no basis for your charges. ")
-				.AddVerse(15, "Herod came up empty, too, so he sent him back. How could we kill him? ")
-				.AddVerse(16, "I'll just rough him up a bit and let him go.”");
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(18, "But the whole crowd is screaming like, ", true, 23, kBookId));
-			AddBlockForVerseInProgress(vernacularBlocks, "crowd", "“Eliminate this man! Give us Barabbas!” ");
-			
-			var testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
-			testProject.Books[0].Blocks = vernacularBlocks;
+			Action cleanup = null;
+			try
+			{
+				var v17And18Block = GetLuke23v17And18Block(primaryReferenceText, out var lastBlockForV18, out cleanup);
+				var expectedRefTextForVerse18Part1 = "{18}\u00A0" + ((ScriptText)v17And18Block.BlockElements[3]).Content;
+				var expectedRefTextForVerse18Part2 = lastBlockForV18.GetText(true);
 
-			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject, false).Single().GetScriptBlocks();
+				var vernacularBlocks = new List<Block>();
+				vernacularBlocks.Add(CreateNarratorBlockForVerse(14, "Pilate said, ", true, 23, kBookId));
+				AddBlockForVerseInProgress(vernacularBlocks, "Pilate", "“You say this man was inciting rebellion, but I have found no basis for your charges. ")
+					.AddVerse(15, "Herod came up empty, too, so he sent him back. How could we kill him? ")
+					.AddVerse(16, "I'll just rough him up a bit and let him go.”");
+				vernacularBlocks.Add(CreateNarratorBlockForVerse(18, "But the whole crowd is screaming like, ", true, 23, kBookId));
+				AddBlockForVerseInProgress(vernacularBlocks, "crowd", "“Eliminate this man! Give us Barabbas!” ");
 
-			Assert.AreEqual(6, result.Count);
-			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
-			Assert.AreEqual(expectedRefTextForVerse18Part1, result[4].ReferenceBlocks.Single().GetText(true));
-			Assert.AreEqual(expectedRefTextForVerse18Part2, result[5].ReferenceBlocks.Single().GetText(true));
+				var testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
+				testProject.Books[0].Blocks = vernacularBlocks;
+
+				var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject, false).Single().GetScriptBlocks();
+
+				Assert.AreEqual(6, result.Count);
+				Assert.IsTrue(result.All(b => b.MatchesReferenceText));
+				Assert.AreEqual(expectedRefTextForVerse18Part1, result[4].ReferenceBlocks.Single().GetText(true));
+				Assert.AreEqual(expectedRefTextForVerse18Part2, result[5].ReferenceBlocks.Single().GetText(true));
+			}
+			finally
+			{
+				cleanup?.Invoke();
+			}
 		}
 
 		[Test]
 		public void GetBooksWithBlocksConnectedToReferenceText_MissingVerseInVernIsInRefBlockAlongWithStartOfFollowingVerse_WholeVerseVernBlockFollowingHoleAlignsToPartOfRefBlockWithVerse()
 		{
 			const string kBookId = "LUK";
-			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.English));
-			var v18RefTextBlocks = primaryReferenceText.Books.Single(b => b.BookId == kBookId).GetBlocksForVerse(23, 18);
-			var v17And18Block = v18RefTextBlocks.First();
-			Assert.AreEqual(17, v17And18Block.InitialStartVerseNumber, "Test setup conditions not met");
-			Assert.AreEqual("18", ((Verse)v17And18Block.BlockElements[2]).Number, "Test setup conditions not met");
-			var expectedRefTextForVerse18Part1 = "{18}\u00A0" + ((ScriptText)v17And18Block.BlockElements[3]).Content;
-			var expectedRefTextForVerse18Part2 = v18RefTextBlocks.Last().GetText(true);
 
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(14, "Pilate said, ", true, 23, kBookId));
@@ -3578,14 +3577,27 @@ namespace GlyssenEngineTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
 			testProject.Books[0].Blocks = vernacularBlocks;
 
-			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject, false).Single().GetScriptBlocks();
+			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.English));
+			Action cleanup = null;
+			try
+			{
+				var v17And18Block = GetLuke23v17And18Block(primaryReferenceText, out var lastBlockForV18, out cleanup);
+				var expectedRefTextForVerse18Part1 = "{18}\u00A0" + ((ScriptText)v17And18Block.BlockElements[3]).Content;
+				var expectedRefTextForVerse18Part2 = lastBlockForV18.GetText(true);
 
-			Assert.AreEqual(5, result.Count);
-			Assert.IsTrue(result.Take(3).All(b => b.MatchesReferenceText));
-			Assert.IsFalse(result[4].MatchesReferenceText);
-			Assert.AreEqual(2, result[4].ReferenceBlocks.Count);
-			Assert.AreEqual(expectedRefTextForVerse18Part1, result[4].ReferenceBlocks[0].GetText(true));
-			Assert.AreEqual(expectedRefTextForVerse18Part2, result[4].ReferenceBlocks[1].GetText(true));
+				var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject, false).Single().GetScriptBlocks();
+
+				Assert.AreEqual(5, result.Count);
+				Assert.IsTrue(result.Take(3).All(b => b.MatchesReferenceText));
+				Assert.IsFalse(result[4].MatchesReferenceText);
+				Assert.AreEqual(2, result[4].ReferenceBlocks.Count);
+				Assert.AreEqual(expectedRefTextForVerse18Part1, result[4].ReferenceBlocks[0].GetText(true));
+				Assert.AreEqual(expectedRefTextForVerse18Part2, result[4].ReferenceBlocks[1].GetText(true));
+			}
+			finally
+			{
+				cleanup?.Invoke();
+			}
 		}
 
 		[Test]
@@ -3593,29 +3605,34 @@ namespace GlyssenEngineTests
 		{
 			const string kBookId = "LUK";
 			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.English));
-			var v18RefTextBlocks = primaryReferenceText.Books.Single(b => b.BookId == kBookId).GetBlocksForVerse(23, 18);
-			var v17And18Block = v18RefTextBlocks.First();
-			Assert.AreEqual(17, v17And18Block.InitialStartVerseNumber, "Test setup conditions not met");
-			Assert.AreEqual("18", ((Verse)v17And18Block.BlockElements[2]).Number, "Test setup conditions not met");
-			var expectedRefTextForVerse18Part1 = "{18}\u00A0" + ((ScriptText)v17And18Block.BlockElements[3]).Content;
-			var expectedRefTextForVerse18Part2 = v18RefTextBlocks.Last().GetText(true);
+			Action cleanup = null;
+			try
+			{
+				var v17And18Block = GetLuke23v17And18Block(primaryReferenceText, out var lastBlockForV18, out cleanup);
+				var expectedRefTextForVerse18Part1 = "{18}\u00A0" + ((ScriptText)v17And18Block.BlockElements[3]).Content;
+				var expectedRefTextForVerse18Part2 = lastBlockForV18.GetText(true);
 
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(14, "Pilate said, “You say this man was inciting rebellion, but I have found no basis for your charges. ", true, 23, kBookId)
-				.AddVerse(15, "Herod came up empty, too, so he sent him back. How could we kill him? ")
-				.AddVerse(16, "I'll just rough him up a bit and let him go.”")
-				.AddVerse(18, "But the whole crowd screamed at Pilate: “Eliminate this man! Give us Barabbas!”"));
+				var vernacularBlocks = new List<Block>();
+				vernacularBlocks.Add(CreateNarratorBlockForVerse(14, "Pilate said, “You say this man was inciting rebellion, but I have found no basis for your charges. ", true, 23, kBookId)
+					.AddVerse(15, "Herod came up empty, too, so he sent him back. How could we kill him? ")
+					.AddVerse(16, "I'll just rough him up a bit and let him go.”")
+					.AddVerse(18, "But the whole crowd screamed at Pilate: “Eliminate this man! Give us Barabbas!”"));
 
-			var testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
-			testProject.Books[0].Blocks = vernacularBlocks;
-			testProject.Books[0].SingleVoice = true;
+				var testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
+				testProject.Books[0].Blocks = vernacularBlocks;
+				testProject.Books[0].SingleVoice = true;
 
-			primaryReferenceText.ApplyTo(testProject.Books[0]);
-			var result = testProject.Books[0].Blocks;
+				primaryReferenceText.ApplyTo(testProject.Books[0]);
+				var result = testProject.Books[0].Blocks;
 
-			Assert.AreEqual(4, result.Count);
-			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
-			Assert.AreEqual(expectedRefTextForVerse18Part1 + " " + expectedRefTextForVerse18Part2, result[3].ReferenceBlocks.Single().GetText(true));
+				Assert.AreEqual(4, result.Count);
+				Assert.IsTrue(result.All(b => b.MatchesReferenceText));
+				Assert.AreEqual(expectedRefTextForVerse18Part1 + " " + expectedRefTextForVerse18Part2, result[3].ReferenceBlocks.Single().GetText(true));
+			}
+			finally
+			{
+				cleanup?.Invoke();
+			}
 		}
 
 		[Test]
@@ -5470,6 +5487,50 @@ namespace GlyssenEngineTests
 		{
 			return CreateBlockForVerse(CharacterVerseData.GetStandardCharacterId(book, CharacterVerseData.StandardCharacter.Narrator),
 				verseNumber, text, paraStart, chapter, styleTag, initialEndVerseNumber);
+		}
+
+		/// <summary>
+		/// Gets a block that has both LuUK 23:17 and the start of v. 18, and also (as an output param) the
+		/// block containing the end of v. 18.
+		/// In v. 112 of the DG, these two verses were split out into separate blocks. Not sure
+		/// if there are other places where this could reasonably occur, but as least for now, I'm
+		/// going to leave the tests cases (and the production code) for this. So this method modifies
+		/// the built-in reference text to be the way it was in previous versions of the DG.
+		/// </summary>
+		/// <returns></returns>
+		private Block GetLuke23v17And18Block(ReferenceText englishReferenceText, out Block lastBlockForV18, out Action cleanup)
+		{
+			const string kLukBookId = "LUK";
+			var luk = englishReferenceText.Books.Single(b => b.BookId == kLukBookId);
+			var iLuk23v17 = luk.GetIndexOfFirstBlockForVerse(23, 17);
+			var v17And18Block = luk[iLuk23v17];
+			var v18RefTextBlocks = luk.GetBlocksForVerse(23, 18).ToList();
+			lastBlockForV18 = v18RefTextBlocks.Last();
+			Assert.AreEqual(2, v18RefTextBlocks.Count, "Test setup conditions not met");
+			if (v17And18Block != v18RefTextBlocks.First())
+			{
+				// This is a semi-dangerous hack. Since we can't get the lock, this isn't thread-safe.
+				cleanup = () =>
+				{
+					var modifiedBooks = (HashSet<string>)ReflectionHelper.GetField(englishReferenceText, "m_modifiedBooks");
+					modifiedBooks.Add(kLukBookId);
+					ReflectionHelper.CallMethod(englishReferenceText, "ReloadModifiedBooks");
+				};
+				v17And18Block = v18RefTextBlocks.First(); 
+				v17And18Block.BlockElements.InsertRange(0, luk[iLuk23v17].BlockElements);
+				v17And18Block.InitialStartVerseNumber = 17;
+				luk.Blocks.RemoveAt(iLuk23v17);
+				ReflectionHelper.CallMethod(luk, "OnBlocksReset");
+			}
+			else
+			{
+				cleanup = null;
+			}
+
+			Assert.AreEqual(17, v17And18Block.InitialStartVerseNumber, "Test setup conditions not met");
+			Assert.AreEqual("18", ((Verse)v17And18Block.BlockElements[2]).Number, "Test setup conditions not met");
+
+			return v17And18Block;
 		}
 		#endregion
 	}
