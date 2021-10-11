@@ -124,12 +124,26 @@ namespace GlyssenFileBasedPersistence
 
 		public TextWriter GetTextWriter(IProject project, ProjectResource resource)
 		{
-			return new StreamWriter(GetPath(resource, project));
+			return GetStreamWriter(GetPath(resource, project));
 		}
 
 		public TextWriter GetTextWriter(IProject project, IScrBook book)
 		{
-			return new StreamWriter(GetBookDataFilePath(project, book.BookId));
+			return GetStreamWriter(GetBookDataFilePath(project, book.BookId));
+		}
+
+		private TextWriter GetStreamWriter(string path)
+		{
+			try
+			{
+				return new StreamWriter(path);
+			}
+			catch (Exception e)
+			{
+				if (!e.Message.Contains(path))
+					throw new IOException($"Could not create StreamWriter for path: {path}");
+				throw;
+			}
 		}
 
 		public void DeleteProject(IUserProject project)
