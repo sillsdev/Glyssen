@@ -4353,6 +4353,32 @@ namespace GlyssenEngineTests
 			}
 		}
 
+		///// <summary>
+		///// PG-1475
+		///// </summary>
+		//[Test]
+		//public void GetBlocksForVerseMatchedToReferenceText_VernacularHasFiveBlocksWhereRefTextHasOne_FirstVernBlockMismatchedToRefText()
+		//{
+		//	var vernacularBlocks = new List<Block>();
+		//	vernacularBlocks.Add(CreateBlockForVerse(""10, "First vern block", true, 11));
+		//	vernacularBlocks.Add(new Block("s", 2) {CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical)}
+		//		.AddText("The next thing"));
+		//	vernacularBlocks.Add(new Block("p", 2) { CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator) }.AddText("The text before verse one:"));
+		//	vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 1, "“Who am I?”", false, 2));
+		//	var testProject = TestProject.CreateTestProject(TestProject.TestBook.MAT);
+		//	testProject.Books[0].Blocks = vernacularBlocks;
+
+		//	var primaryReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+		//	for (var i = 0; i < vernacularBlocks.Count; i++)
+		//	{
+		//		var block = vernacularBlocks[i];
+		//		if (!block.IsScripture)
+		//			continue;
+		//		var matchup = primaryReferenceText.GetBlocksForVerseMatchedToReferenceText(testProject.Books.First(), i);
+		//		Assert.AreEqual(matchup.OriginalBlocks.First().ChapterNumber, matchup.OriginalBlocks.Last().ChapterNumber);
+		//	}
+		//}
+
 		/// <summary>
 		/// PG-1315
 		/// </summary>
