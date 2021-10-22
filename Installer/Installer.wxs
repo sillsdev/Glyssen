@@ -228,6 +228,14 @@ are trying to support, you're better off using non-advertised shortcuts." -->
           <Component Id="Microsoft.Win32.SystemEvents.dll" Guid="*" Win64="yes">
             <File Id="Microsoft.Win32.SystemEvents.dll" Name="Microsoft.Win32.SystemEvents.dll" KeyPath="yes" Source="..\output\release\Microsoft.Win32.SystemEvents.dll" ProcessorArchitecture="x64"/>
           </Component>
+		  
+		  <Component Id="System.Memory.dll" Guid="{1814A58A-237B-4EA5-9391-7D12DAA514DC}">
+			<File Id="System.Memory.dll" Name="System.Memory.dll" KeyPath="yes" Source="..\output\release\System.Memory.dll" />
+		  </Component>
+		  
+		  <Component Id="System.Runtime.CompilerServices.Unsafe.dll" Guid="{5F914DE1-3C72-4F3B-997B-65A187345B92}">
+				<File Id="System.Runtime.CompilerServices.Unsafe.dll" Name="System.Runtime.CompilerServices.Unsafe.dll" KeyPath="yes" Source="..\output\release\System.Runtime.CompilerServices.Unsafe.dll" />
+		  </Component>
 
           <Component Id="DotNetZip.dll" Guid="*" Win64="yes">
             <File Id="DotNetZip.dll" Name="DotNetZip.dll" KeyPath="yes" Source="..\output\release\DotNetZip.dll" ProcessorArchitecture="x64"/>
@@ -301,6 +309,8 @@ are trying to support, you're better off using non-advertised shortcuts." -->
       <ComponentRef Id="Microsoft.Extensions.DependencyModel.dll"/>
       <ComponentRef Id="Microsoft.Win32.Registry.dll"/>
 	  <ComponentRef Id="Microsoft.Win32.SystemEvents.dll"/>
+	  <ComponentRef Id="System.Memory.dll"/>
+	  <ComponentRef Id="System.Runtime.CompilerServices.Unsafe.dll"/>
       <ComponentRef Id="L10NSharp.dll"/>
       <ComponentRef Id="Glyssen.exe" />
 	  <ComponentRef Id="ComponentDesktopShortcut" />

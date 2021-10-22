@@ -79,6 +79,29 @@ namespace GlyssenEngineTests.ViewModelTests
 		}
 
 		[Test]
+		public void Constructor_Match_FirstUnexpectedBlockLoaded()
+		{
+			m_model.SetMode(BlocksToDisplay.NotAlignedToReferenceText, true);
+			m_model.TryLoadBlock(new VerseRef(41001001, ScrVers.English));
+			m_model.LoadNextRelevantBlock();
+			while (m_model.CurrentReferenceTextMatchup.OriginalBlockCount < 3 && m_model.CanNavigateToNextRelevantBlock)
+				m_model.LoadNextRelevantBlock();
+
+			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.OriginalBlockCount > 2, "Setup condition not met!");
+
+			var expectedBook = m_model.CurrentBookId;
+			var expectedBlock = m_model.CurrentBlockIndexInBook;
+			var expectedNumberOfBlocks = m_model.CurrentReferenceTextMatchup.OriginalBlockCount;
+
+			m_model = new AssignCharacterViewModel(m_testProject, m_model.Mode, new BookBlockIndices(m_testProject.AvailableBooks.IndexOf(b => b.Code == expectedBook), expectedBlock, 2));
+			Assert.AreEqual(expectedBook, m_model.CurrentBookId);
+			Assert.AreEqual(expectedBlock, m_model.CurrentBlockIndexInBook);
+			Assert.AreEqual(expectedNumberOfBlocks, m_model.CurrentReferenceTextMatchup.OriginalBlockCount);
+			Assert.AreEqual(expectedNumberOfBlocks, m_model.BlockAccessor.GetIndices().MultiBlockCount);
+			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
+		}
+
+		[Test]
 		public void Narrator_CurrentBookIsMark_ToStringIncludesBookName()
 		{
 			Assert.AreEqual("narrator (MRK)", AssignCharacterViewModel.Character.Narrator.ToString());

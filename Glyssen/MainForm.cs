@@ -359,9 +359,10 @@ namespace Glyssen
 			return result;
 		}
 
-		internal static void LogDialogDisplay(Form dlg)
+		internal static void LogDialogDisplay(Form dlg, object modelDetails = null)
 		{
-			Logger.WriteEvent($"Displaying dialog box: {dlg.Text}");
+			Logger.WriteEvent($"Displaying dialog box: {dlg.Text}" + (modelDetails == null ? "" :
+				$" for {modelDetails}"));
 		}
 
 		private void ShowOpenProjectDialog()
@@ -1064,6 +1065,8 @@ namespace Glyssen
 					m_project.ClearAssignCharacterStatus();
 					m_project.Analyze();
 					UpdateDisplayOfProjectInfo();
+					if (!m_project.IncludedBooks.Any())
+						MessageBox.Show(this, LocalizationManager.GetString("Project.NoBooksIncluded", "No content found in any included books."), GlyssenInfo.Product);
 					SaveCurrentProject(true);
 				}
 			}
