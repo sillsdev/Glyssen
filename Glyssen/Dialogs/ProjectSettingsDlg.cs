@@ -102,7 +102,7 @@ namespace Glyssen.Dialogs
 				(project.QuoteSystemStatus & QuoteSystemStatus.ParseReady) != 0)
 			{
 				var paratextProj = project.GetParatextScrTextWrapper();
-				if (paratextProj != null &&
+				if (paratextProj != null && paratextProj.QuotationMarks.Any() &&
 					!project.WritingSystem.QuotationMarks.SequenceEqual(project.GetQuotationMarksWithFullySpecifiedContinuers(paratextProj.QuotationMarks)))
 				{
 					string msg = Format(LocalizationManager.GetString("Project.ParatextQuoteSystemChanged",
