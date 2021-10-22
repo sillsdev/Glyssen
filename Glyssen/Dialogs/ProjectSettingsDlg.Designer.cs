@@ -1794,7 +1794,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.ProjectSettingsDlg.WindowTitle");
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
-			this.MinimumSize = new System.Drawing.Size(644, 460);
+			this.MinimumSize = new System.Drawing.Size(652, 460);
 			this.Name = "ProjectSettingsDlg";
 			this.Padding = new System.Windows.Forms.Padding(15, 15, 15, 55);
 			this.ShowInTaskbar = false;
