@@ -76,7 +76,7 @@ namespace GlyssenEngine.Analysis
 			m_alignmentPercent = -1;
 
 			TotalPercentAssigned = MathUtilities.PercentAsDouble(TotalBlocks - (UnknownBlocks + AmbiguousBlocks), TotalBlocks);
-			UserPercentAssigned = MathUtilities.PercentAsDouble(UserAssignedBlocks, NeedsAssignment);
+			UserPercentAssigned = NeedsAssignment == 0 ? 100 : MathUtilities.PercentAsDouble(UserAssignedBlocks, NeedsAssignment);
 			PercentUnknown = MathUtilities.PercentAsDouble(UnknownBlocks, TotalBlocks);
 #if DEBUG
 			ReportInConsole();
