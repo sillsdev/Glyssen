@@ -4873,7 +4873,9 @@
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="74" characterId="narrator-MAT">
     <text>Immediately the rooster </text>
     <sound soundType="Sfx" effectName="Rooster crowing" userSpecifiesLocation="true" />
-    <text>crowed. </text>
+    <text>crowed.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="75" characterId="narrator-MAT">
     <verse num="75" />
     <text>Peter remembered the word which Jesus had said to him, «Before the rooster crows, you will deny me three times.» He went out and wept bitterly.</text>
   </block>

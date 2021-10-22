@@ -1574,12 +1574,16 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-MRK">
       <verse num="8" />
-      <text>For he said to him, «Come out of the man, you unclean spirit!» </text>
+      <text>For he said to him, «Come out of the man, you unclean spirit!»</text>
+    </ReferenceBlocks>
+    <verse num="8" />
+    <text>Ибо Иисус сказал ему: «выйди, дух нечистый, из сего человека.»</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-MRK" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-MRK">
       <verse num="9" />
       <text>He asked him,</text>
     </ReferenceBlocks>
-    <verse num="8" />
-    <text>Ибо Иисус сказал ему: «выйди, дух нечистый, из сего человека.» </text>
     <verse num="9" />
     <text>И спросил его:</text>
   </block>
