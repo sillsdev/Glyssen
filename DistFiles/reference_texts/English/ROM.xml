@@ -230,7 +230,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-ROM">
     <verse num="23" />
-    <text>You who glory in the law, through your disobedience of the law do you dishonor God? </text>
+    <text>You who glory in the law, through your disobedience of the law do you dishonor God?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-ROM">
     <verse num="24" />
     <text>For just as it is written:</text>
   </block>

@@ -124,12 +124,29 @@ namespace GlyssenFileBasedPersistence
 
 		public TextWriter GetTextWriter(IProject project, ProjectResource resource)
 		{
-			return new StreamWriter(GetPath(resource, project));
+			return GetStreamWriter(GetPath(resource, project));
 		}
 
 		public TextWriter GetTextWriter(IProject project, IScrBook book)
 		{
-			return new StreamWriter(GetBookDataFilePath(project, book.BookId));
+			return GetStreamWriter(GetBookDataFilePath(project, book.BookId));
+		}
+
+		private TextWriter GetStreamWriter(string path)
+		{
+			try
+			{
+				return new StreamWriter(path);
+			}
+			catch (Exception e)
+			{
+				// For some reason, not all IOExceptions contain the path that resulted in the error, but
+				// that is fairly useful information to have, so if need be, we wrap the original exception
+				// to provide that.
+				if (!e.Message.Contains(path))
+					throw new IOException($"Could not create StreamWriter for path: {path}", e);
+				throw;
+			}
 		}
 
 		public void DeleteProject(IUserProject project)

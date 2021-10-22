@@ -788,7 +788,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-MRK">
     <verse num="8" />
-    <text>For he said to him, «Come out of the man, you unclean spirit!» </text>
+    <text>For he said to him, «Come out of the man, you unclean spirit!»</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-MRK">
     <verse num="9" />
     <text>He asked him,</text>
   </block>
