@@ -3907,7 +3907,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="6" characterId="narrator-JHN">
     <verse num="6" />
-    <text>When therefore he said to them, «I am he,» they went backward, and fell to the ground. </text>
+    <text>When therefore he said to them, «I am he,» they went backward, and fell to the ground.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="7" characterId="narrator-JHN">
     <verse num="7" />
     <text>Again therefore he asked them,</text>
   </block>

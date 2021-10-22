@@ -17,6 +17,7 @@ using OfficeOpenXml;
 using SIL.Reflection;
 using SIL.Scripture;
 using SIL.Xml;
+using static System.String;
 
 namespace Glyssen.RefTextDevUtilities
 {
@@ -62,7 +63,7 @@ namespace Glyssen.RefTextDevUtilities
 		//private static readonly Regex s_singleCloseQuote = new Regex("(>|›)", RegexOptions.Compiled);
 		//private static readonly Regex s_closeDoubleChevrons = new Regex("»", RegexOptions.Compiled);
 		//private static readonly Regex s_openDoubleChevrons = new Regex("«", RegexOptions.Compiled);
-		private static readonly Regex s_FcbhNarrator = new Regex("Narr_\\d+(: )|(_)", RegexOptions.Compiled);
+		private static readonly Regex s_FcbhNarrator = new Regex("^Narr_\\d+((: )|(_))", RegexOptions.Compiled);
 		private static readonly Regex s_regexDupName = new Regex(@"(([1-3] )?[^\s\n\r]+)[\s\n\r]+\1[\s\n\r]+(?<chapterLabel>[^\s\n\r]*)", RegexOptions.Compiled);
 
 		private static Regex s_regexStartQuoteMarks;
@@ -99,8 +100,8 @@ namespace Glyssen.RefTextDevUtilities
 			allQuoteChars.Add("(" + Regex.Escape("&gt;") + ")");
 			allQuoteChars.Add("(" + Regex.Escape("&lt;") + ")");
 
-			s_regexStartQuoteMarks = new Regex(@"^\s*" + String.Join("|", allQuoteChars), RegexOptions.Compiled);
-			s_regexEndQuoteMarks = new Regex("(" + String.Join("|", allQuoteChars) + @")\s*[.,?!;:]*\s*$", RegexOptions.Compiled);
+			s_regexStartQuoteMarks = new Regex(@"^\s*" + Join("|", allQuoteChars), RegexOptions.Compiled);
+			s_regexEndQuoteMarks = new Regex("(" + Join("|", allQuoteChars) + @")\s*[.,?!;:]*\s*$", RegexOptions.Compiled);
 			s_regexStartEnglishDoubleQuoteMarks = new Regex(@"^\s*“|""", RegexOptions.Compiled);
 			s_regexEndEnglishDoubleQuoteMarks = new Regex(@"”|""\s*$", RegexOptions.Compiled);
 		}
@@ -169,7 +170,7 @@ namespace Glyssen.RefTextDevUtilities
 			// Not sure why FCBH spells it "PISON", but we'll just fix it up here.
 			var nameParts = nameFromExcelFile.Replace("PISON", "PISIN").Split(' ', '\n', '-');
 			var sb = new StringBuilder();
-			foreach (var part in nameParts.Where(p => !string.IsNullOrEmpty(p) && !p.StartsWith("Text")))
+			foreach (var part in nameParts.Where(p => !IsNullOrEmpty(p) && !p.StartsWith("Text")))
 			{
 				if (part.StartsWith("("))
 					break;
@@ -375,7 +376,7 @@ namespace Glyssen.RefTextDevUtilities
 					// This will only occur if a new character is added and the dev tool is not run to populate
 					// the ReferenceComment field, or if this a character that is only used as a narrator
 					// override (see ENHANCE comment in CharacterDetailProcessing.PopulateReferences).
-					if (kvp.Value.DefaultFCBHCharacter == null || string.IsNullOrEmpty(kvp.Value.ReferenceComment) || string.IsNullOrEmpty(kvp.Value.DefaultFCBHCharacter))
+					if (IsNullOrEmpty(kvp.Value.ReferenceComment) || IsNullOrEmpty(kvp.Value.DefaultFCBHCharacter))
 						return false;
 					return kvp.Value.LastReference.Book >= minBook && kvp.Value.FirstReference.Book <= maxBook;
 				}).ToDictionary(e => e.Key, e => e.Value);
@@ -423,7 +424,7 @@ namespace Glyssen.RefTextDevUtilities
 						}
 					}
 
-					if (String.IsNullOrEmpty(languageInfo.OutputFolder))
+					if (IsNullOrEmpty(languageInfo.OutputFolder))
 					{
 						ReferenceTextType refTextType;
 						languageInfo.OutputFolder = Enum.TryParse(language, out refTextType)
@@ -583,7 +584,7 @@ namespace Glyssen.RefTextDevUtilities
 						{
 							WriteOutput($"No {language} text present for {currBookId} {referenceTextRow.Chapter}:{referenceTextRow.Verse} " +
 								$"corresponding to the English text: {referenceTextRow.English}", true);
-							originalText = string.Empty;
+							originalText = Empty;
 						}
 
 						var verseNumberFixedText = s_verseNumberInExcelRegex.Replace(originalText, "{$1}\u00A0");
@@ -689,16 +690,16 @@ namespace Glyssen.RefTextDevUtilities
 							}
 							newBlocks.Add(blockToAdd);
 							foreach (var split in s_verseNumberMarkupRegex.Split(modifiedText)
-								.Where(s => !string.IsNullOrWhiteSpace(s) && !s_extractVerseNumberRegex.IsMatch(s)))
+								.Where(s => !IsNullOrWhiteSpace(s) && !s_extractVerseNumberRegex.IsMatch(s)))
 							{
-								foreach (var s in s_anyAnnotationForSplittingRegex.Split(split).Where(s => !string.IsNullOrWhiteSpace(s)))
+								foreach (var s in s_anyAnnotationForSplittingRegex.Split(split).Where(s => !IsNullOrWhiteSpace(s)))
 								{
 									if (s_anyAnnotationRegex.Match(s).Success)
 									{
 										if (!ConvertTextToUserSpecifiedScriptAnnotationElement(s, out _))
 											AttemptParseOfControlFileAnnotation(mode, s, languageInfo, currBookId, referenceTextRow, existingEnglishRefBlock, annotationsToOutput);
 									}
-									else if (string.IsNullOrWhiteSpace(s.TrimStart()))
+									else if (IsNullOrWhiteSpace(s.TrimStart()))
 										WriteOutput("No text found between annotations: " + referenceTextRow, true);
 								}
 							}
@@ -735,7 +736,7 @@ namespace Glyssen.RefTextDevUtilities
 						var splits = s_verseNumberMarkupRegex.Split(modifiedText);
 						foreach (var split in splits)
 						{
-							if (string.IsNullOrWhiteSpace(split))
+							if (IsNullOrWhiteSpace(split))
 							{
 								if (splits.Length == 1)
 									newBlock.BlockElements.Add(new ScriptText(" ")); // Blank row should have already been reported as error.
@@ -761,7 +762,7 @@ namespace Glyssen.RefTextDevUtilities
 							}
 							else
 							{
-								foreach (var s in s_anyAnnotationForSplittingRegex.Split(split).Where(s => !string.IsNullOrWhiteSpace(s)))
+								foreach (var s in s_anyAnnotationForSplittingRegex.Split(split).Where(s => !IsNullOrWhiteSpace(s)))
 								{
 									if (s_anyAnnotationRegex.Match(s).Success)
 									{
@@ -776,7 +777,7 @@ namespace Glyssen.RefTextDevUtilities
 									else
 									{
 										string text = s.TrimStart();
-										if (string.IsNullOrWhiteSpace(text))
+										if (IsNullOrWhiteSpace(text))
 											WriteOutput("No text found between annotations:" + referenceTextRow, true);
 										else
 										{
@@ -1226,8 +1227,8 @@ namespace Glyssen.RefTextDevUtilities
 
 					var formattedAnnotationForDisplay = annotation.ToDisplay();
 
-					if (string.IsNullOrWhiteSpace(formattedAnnotationForDisplay) ||
-						string.IsNullOrWhiteSpace(serializedAnnotation))
+					if (IsNullOrWhiteSpace(formattedAnnotationForDisplay) ||
+						IsNullOrWhiteSpace(serializedAnnotation))
 					{
 						WriteOutput($"Annotation not formatted correctly (is null or whitespace): {referenceTextRow.English}",
 							true);
@@ -1288,7 +1289,7 @@ namespace Glyssen.RefTextDevUtilities
 
 		private static IEnumerable<CharacterSpeakingMode> GetAllCharacters(int bookNum, Block block, string overrideVerseNum = null)
 		{
-			if (!string.IsNullOrEmpty(overrideVerseNum))
+			if (!IsNullOrEmpty(overrideVerseNum))
 				return ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, new Verse(overrideVerseNum), includeAlternatesAndRareQuotes:true);
 
 			return ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, block.AllVerses, includeAlternatesAndRareQuotes:true);
@@ -1509,7 +1510,7 @@ namespace Glyssen.RefTextDevUtilities
 
 			if (fcbhCharacterLabel == "God")
 			{
-				if (glyssenCharacterId == "scripture" && (String.IsNullOrEmpty(defaultCharacter) || defaultCharacter == fcbhCharacterLabel))
+				if (glyssenCharacterId == "scripture" && (IsNullOrEmpty(defaultCharacter) || defaultCharacter == fcbhCharacterLabel))
 					return MatchLikelihood.Reliable;
 				if (!glyssenCharacterId.Contains("God"))
 					return MatchLikelihood.Mismatch; // "God" can't map to any other character except "scripture"
@@ -1531,7 +1532,7 @@ namespace Glyssen.RefTextDevUtilities
 			if ((characterIdToUseToLower.StartsWith(fcbhCharacterToLower) && !characterIdToUseToLower.Contains("'s") && !characterIdToUseToLower.Contains("s'")) ||
 				(fcbhCharacterToLower.StartsWith(characterIdToUseToLower) && !fcbhCharacterToLower.Contains("'s") && !fcbhCharacterToLower.Contains("s'"))||
 				s_matchWithoutParentheses.Match(characterIdToUseToLower).Value == s_matchWithoutParentheses.Match(fcbhCharacterToLower).Value ||
-				characterIdToUseToLower.Replace("the ", string.Empty) == fcbhCharacterToLower)
+				characterIdToUseToLower.Replace("the ", Empty) == fcbhCharacterToLower)
 			{
 				if (fcbhCharacterToLower == "man")
 					return MatchLikelihood.Possible;
@@ -1613,7 +1614,9 @@ namespace Glyssen.RefTextDevUtilities
 		{
 			switch (fcbhCharacterLabel)
 			{
-				case "Angel": return glyssenCharacterId.IndexOf("angel", StringComparison.OrdinalIgnoreCase) >= 0;
+				case "Angel": return glyssenCharacterId.IndexOf("angel", StringComparison.OrdinalIgnoreCase) >= 0 ||
+					glyssenCharacterId == "Gabriel" ||
+					glyssenCharacterId.IndexOf("heavenly", StringComparison.OrdinalIgnoreCase) >= 0;
 				case "Son of Jacob": return glyssenCharacterId == "Joseph's brothers";
 				case "Rehab": return glyssenCharacterId == "Rahab";
 				case "Judean": return glyssenCharacterId == "Judah, men of";
@@ -1627,6 +1630,7 @@ namespace Glyssen.RefTextDevUtilities
 					glyssenCharacterId == "Zechariah the prophet, son of Berechiah";
 				case "Israelite in Egypt": return glyssenCharacterId.StartsWith("idolaters from Judah");
 				case "Hebrew": return glyssenCharacterId.StartsWith("Israelite");
+				case "Herod": return glyssenCharacterId.IndexOf("Herod ", StringComparison.OrdinalIgnoreCase) >= 0;
 				case "King of Syria": return glyssenCharacterId == "Ben-Hadad, king of Aram";
 				case "Man": return glyssenCharacterId.StartsWith("men");
 				case "Gilead": return glyssenCharacterId.StartsWith("family heads of Gilead");
@@ -1657,12 +1661,12 @@ namespace Glyssen.RefTextDevUtilities
 				foreach (var info in resultSummary)
 				{
 					w.WriteLine(info.BookId);
-					w.WriteLine(String.Join("\t", info.Details.Select(d => d.Language)));
-					w.WriteLine(String.Join("\t", info.Details.Select(d => d.TitleAndChapterOneInfoFromXls)));
-					w.WriteLine(String.Join("\t", info.Details.Select(d => d.BookTitle)));
+					w.WriteLine(Join("\t", info.Details.Select(d => d.Language)));
+					w.WriteLine(Join("\t", info.Details.Select(d => d.TitleAndChapterOneInfoFromXls)));
+					w.WriteLine(Join("\t", info.Details.Select(d => d.BookTitle)));
 					if (info.Details.Any(d => d.ChapterTwoInfoFromXls != null))
-						w.WriteLine(String.Join("\t", info.Details.Select(d => d.ChapterTwoInfoFromXls)));
-					w.WriteLine(String.Join("\t", info.Details.Select(d => d.ChapterLabel)));
+						w.WriteLine(Join("\t", info.Details.Select(d => d.ChapterTwoInfoFromXls)));
+					w.WriteLine(Join("\t", info.Details.Select(d => d.ChapterLabel)));
 				}
 			}
 			Process.Start(path);
@@ -1689,7 +1693,7 @@ namespace Glyssen.RefTextDevUtilities
 				int languageHeaderRow = -1;
 				for (int iRow = 0; iRow < rowData.Count && (bookCol == null || languageHeaderRow == -1); iRow++)
 				{
-					var nonNullCellAddresses = rowData[iRow].Where(er => !String.IsNullOrWhiteSpace(cells[er.Address].Value?.ToString())).ToList();
+					var nonNullCellAddresses = rowData[iRow].Where(er => !IsNullOrWhiteSpace(cells[er.Address].Value?.ToString())).ToList();
 					var iCol = nonNullCellAddresses.FindIndex(a => cells[a.Address].Value.Equals(kBookHeader) || cells[a.Address].Value.Equals(kBookHeaderAlt));
 					if (iCol >= 0)
 					{
@@ -1878,7 +1882,7 @@ namespace Glyssen.RefTextDevUtilities
 					CharacterVerseData.IsCharacterOfType(glyssenToFcbhIdsEntry.Key, CharacterVerseData.StandardCharacter.Narrator) ||
 					glyssenToFcbhIdsEntry.Value.Any(c => c.StartsWith("Narr_0")))
 				{
-					sb.Append(string.Format("{0}\t{1}", glyssenToFcbhIdsEntry.Key, glyssenToFcbhIdsEntry.Value.TabSeparated())).Append(Environment.NewLine);
+					sb.Append(Format("{0}\t{1}", glyssenToFcbhIdsEntry.Key, glyssenToFcbhIdsEntry.Value.TabSeparated())).Append(Environment.NewLine);
 				}
 			path = Path.Combine(kOutputDirForCharacterMapping, kOutputFileForGlyssenToFcbhMultiMap);
 			WriteOutput($"Writing {path}");
@@ -1889,7 +1893,7 @@ namespace Glyssen.RefTextDevUtilities
 				if (fcbhToGlyssenIdsEntry.Value.Count > 1 ||
 					CharacterVerseData.IsCharacterOfType(fcbhToGlyssenIdsEntry.Key, CharacterVerseData.StandardCharacter.Narrator) ||
 					fcbhToGlyssenIdsEntry.Value.Any(c => c.StartsWith("Narr_0")))
-					sb.Append(string.Format("{0}\t{1}", fcbhToGlyssenIdsEntry.Key, fcbhToGlyssenIdsEntry.Value.TabSeparated())).Append(Environment.NewLine);
+					sb.Append(Format("{0}\t{1}", fcbhToGlyssenIdsEntry.Key, fcbhToGlyssenIdsEntry.Value.TabSeparated())).Append(Environment.NewLine);
 			path = Path.Combine(kOutputDirForCharacterMapping, kOutputFileForFcbhToGlyssenMultiMap);
 			WriteOutput($"Writing {path}");
 			File.WriteAllText(path, sb.ToString());
@@ -2235,7 +2239,7 @@ namespace Glyssen.RefTextDevUtilities
 
 		public static bool ConvertTextToControlScriptAnnotationElement(string text, Func<bool> isEndOfChapter, out ScriptAnnotation annotation)
 		{
-			if (string.IsNullOrWhiteSpace(text))
+			if (IsNullOrWhiteSpace(text))
 				throw new ArgumentException("text must contain non-whitespace", "text");
 
 			var match = s_doNotCombineRegex.Match(text);
@@ -2337,7 +2341,7 @@ namespace Glyssen.RefTextDevUtilities
 				var refText = ReferenceText.GetReferenceText(rt);
 				foreach (var book in refText.Books)
 				{
-					var fileName = String.Format("{0}{1}RefText.xml", rt.CustomIdentifier, book.BookId);
+					var fileName = Format("{0}{1}RefText.xml", rt.CustomIdentifier, book.BookId);
 					var existingTestResourcePath = Path.Combine(baseResourcesDir, fileName);
 					var outputPath = Path.Combine(outputDir, fileName);
 					if (File.Exists(existingTestResourcePath) || File.Exists(outputPath))

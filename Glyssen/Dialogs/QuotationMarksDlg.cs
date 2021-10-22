@@ -302,8 +302,8 @@ namespace Glyssen.Dialogs
 				m_pnlDialogueQuotes.Enabled = !value;
 				m_chkPairedQuotations.Enabled = !value;
 				m_btnOk.Enabled = !value;
-				m_btnTest.Visible = !value;
-				m_testResults.Visible = !value;
+				if (value)
+					m_btnTest.Visible = m_testResults.Visible = false;
 			}
 		}
 
@@ -461,14 +461,15 @@ namespace Glyssen.Dialogs
 				using (var dlg = new TooManyUnexpectedQuotesFoundDlg(Text, m_project.ProjectAnalysis.PercentUnknown))
 				{
 					MainForm.LogDialogDisplay(dlg);
-					dlg.ShowDialog();
+					dlg.ShowDialog(this);
 					if (dlg.UserWantsToReview)
 					{
 						if (!m_toolStripComboBoxFilter.Items.Contains(m_allQuotesFilterItem))
 						{
 							m_toolStripComboBoxFilter.Items.Insert(m_toolStripComboBoxFilter.Items.Count - 1, m_allQuotesFilterItem);
 						}
-						m_toolStripComboBoxFilter.SelectedItem = m_allQuotesFilterItem;
+						if (m_navigatorViewModel != null)
+							m_toolStripComboBoxFilter.SelectedItem = m_allQuotesFilterItem;
 						DisableForm(false);
 						return;
 					}
@@ -604,6 +605,11 @@ namespace Glyssen.Dialogs
 
 		private void ShowTestResults(double percentageOfExpected, bool changeFilter)
 		{
+			if (double.IsNaN(percentageOfExpected))
+			{
+				m_testResults.Visible = false;
+				return;
+			}
 			m_testResults.Text = string.Format(m_testResultsFmt, percentageOfExpected);
 
 			var showWarning = (100 - percentageOfExpected) > Settings.Default.MaxAcceptablePercentageOfUnknownQuotes;
