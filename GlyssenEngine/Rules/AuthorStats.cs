@@ -31,8 +31,11 @@ namespace GlyssenEngine.Rules
 			foreach (var bookId in m_bookIds)
 				KeyStrokeCount += m_keyStrokesByCharacterId[CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator)];
 
-			if (includeAuthorCharacter && author.CombineAuthorAndNarrator)
-				KeyStrokeCount += m_keyStrokesByCharacterId[author.Name];
+			if (includeAuthorCharacter && author.CombineAuthorAndNarrator &&
+				m_keyStrokesByCharacterId.TryGetValue(author.Name, out var authorCharacterKeystrokes))
+			{
+				KeyStrokeCount += authorCharacterKeystrokes;
+			}
 		}
 	}
 
