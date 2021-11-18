@@ -982,7 +982,7 @@ Reuben	1	Male				GEN 37:8 <-(34 more)-> GEN 50:18
 Reubenites	-1	Male				NUM 32:3 <-(21 more)-> JOS 22:29	Reubenite
 Rhoda	1	Female	YoungAdult		possibly young girl/teen	ACT 12:13 <-(1 more)-> ACT 12:15
 rich young ruler	1	Male	YoungAdult			MAT 19:16 <-(5 more)-> LUK 18:21	Young Man (Rich)
-rooster	1	PreferMale				MAT 26:75 <-(2 more)-> JHN 18:27	
+rooster	1	PreferMale				MAT 26:74 <-(2 more)-> JHN 18:27	
 royal record	1	Male				EZR 6:3 <-(1 more)-> EZR 6:5	Scribe
 rule given by Paul	1	Male				2TH 3:10
 rules of the world	1					COL 2:21
