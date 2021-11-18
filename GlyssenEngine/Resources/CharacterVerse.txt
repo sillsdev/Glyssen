@@ -6136,6 +6136,8 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	13	26	old prophet in Bethel			Normal		
 1KI	13	27	old prophet in Bethel			Normal		
 1KI	13	30	sons of prophet in Bethel			Normal		
+1KI	13	30	old prophet in Bethel			Normal		
+1KI	13	30	Needs Review			Normal		
 1KI	13	31	old prophet in Bethel			Normal		
 1KI	13	32	old prophet in Bethel			Normal		
 1KI	14	2	Jeroboam		Jeroboam, king of Israel	Normal		

@@ -1443,7 +1443,6 @@ namespace Glyssen
 
 		private void Import_Click(object sender, EventArgs e)
 		{
-
 			string importFile = null;
 
 			// show the user an Open File dialog
@@ -1451,8 +1450,10 @@ namespace Glyssen
 			{
 				ofd.InitialDirectory = ProjectRepository.DefaultShareFolder;
 				ofd.Filter = Format("{0} ({1})|{1}|{2} ({3})|{3}",
-					LocalizationManager.GetString("DialogBoxes.ImportDlg.GlyssenSharesFileTypeLabel", "Glyssen shares"), "*" + kShareFileExtension,
-					LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"), "*.*");
+					LocalizationManager.GetString("DialogBoxes.ImportDlg.GlyssenSharesFileTypeLabel",
+						"Glyssen shares", "Label used in Import file dialog for \"*.glyssenshare\" files"),
+					"*" + kShareFileExtension,
+					L10N.AllFilesLabel, "*.*");
 				ofd.RestoreDirectory = true;
 
 				if (ofd.ShowDialog() == DialogResult.OK)

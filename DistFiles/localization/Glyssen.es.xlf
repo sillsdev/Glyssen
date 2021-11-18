@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns:sil="http://sil.org/software/XLiff" xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="en" product-version="1.2.0.0" original="Glyssen.dll" datatype="plaintext" target-language="es-ES">
+  <file source-language="en" product-version="3.1.3" original="Glyssen.dll" datatype="plaintext" target-language="es-ES">
     <body>
       <trans-unit id="AddCharacter.WindowTitle">
         <source xml:lang="en">Add Character or Delivery</source>
@@ -61,6 +61,11 @@
         <source xml:lang="en">Narrator {0}</source>
         <note>ID: CharacterGroup.NarratorGroupId</note>
         <target xml:lang="es-ES" state="translated">Narrador {0}</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.250 Israelite leaders" sil:dynamic="true">
+        <source xml:lang="en">250 Israelite leaders</source>
+        <note>ID: CharacterName.250 Israelite leaders</note>
+        <target xml:lang="es-ES" state="translated">250 líderes israelitas</target>
       </trans-unit>
       <trans-unit id="CharacterName.Aaron" sil:dynamic="true">
         <source xml:lang="en">Aaron</source>
@@ -587,6 +592,11 @@
         <note>ID: CharacterName.Daniel</note>
         <target xml:lang="es-ES" state="translated">Daniel</target>
       </trans-unit>
+      <trans-unit id="CharacterName.Danites" sil:dynamic="true">
+        <source xml:lang="en">Danites</source>
+        <note>ID: CharacterName.Danites</note>
+        <target xml:lang="es-ES" state="translated">danitas</target>
+      </trans-unit>
       <trans-unit id="CharacterName.Dathan" sil:dynamic="true">
         <source xml:lang="en">Dathan</source>
         <note>ID: CharacterName.Dathan</note>
@@ -601,6 +611,16 @@
         <source xml:lang="en">David (old)</source>
         <note>ID: CharacterName.David (old)</note>
         <target xml:lang="es-ES" state="translated">David (anciano)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.David's enemies" sil:dynamic="true">
+        <source xml:lang="en">David's enemies</source>
+        <note>ID: CharacterName.David's enemies</note>
+        <target xml:lang="es-ES" state="translated">enemigos de David</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.David's enemy" sil:dynamic="true">
+        <source xml:lang="en">David's enemy</source>
+        <note>ID: CharacterName.David's enemy</note>
+        <target xml:lang="es-ES" state="translated">enemigo de David</target>
       </trans-unit>
       <trans-unit id="CharacterName.David, king" sil:dynamic="true">
         <source xml:lang="en">David, king</source>
@@ -642,6 +662,11 @@
         <note>ID: CharacterName.Edom</note>
         <target xml:lang="es-ES" state="translated">Edom</target>
       </trans-unit>
+      <trans-unit id="CharacterName.Edomites" sil:dynamic="true">
+        <source xml:lang="en">Edomites</source>
+        <note>ID: CharacterName.Edomites</note>
+        <target xml:lang="es-ES" state="translated">edomitas</target>
+      </trans-unit>
       <trans-unit id="CharacterName.Eglon, king of Moab" sil:dynamic="true">
         <source xml:lang="en">Eglon, king of Moab</source>
         <note>ID: CharacterName.Eglon, king of Moab</note>
@@ -651,6 +676,11 @@
         <source xml:lang="en">Egyptian (slave of Amalekite)</source>
         <note>ID: CharacterName.Egyptian (slave of Amalekite)</note>
         <target xml:lang="es-ES" state="translated">Egipcio (esclavo de amalecita)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Egyptians" sil:dynamic="true">
+        <source xml:lang="en">Egyptians</source>
+        <note>ID: CharacterName.Egyptians</note>
+        <target xml:lang="es-ES" state="translated">Egipcios</target>
       </trans-unit>
       <trans-unit id="CharacterName.Ehud, Israelite deliverer" sil:dynamic="true">
         <source xml:lang="en">Ehud, Israelite deliverer</source>
@@ -977,6 +1007,26 @@
         <note>ID: CharacterName.God</note>
         <target xml:lang="es-ES" state="translated">Dios</target>
       </trans-unit>
+      <trans-unit id="CharacterName.God (Holy One of Israel)" sil:dynamic="true">
+        <source xml:lang="en">God (Holy One of Israel)</source>
+        <note>ID: CharacterName.God (Holy One of Israel)</note>
+        <target xml:lang="es-ES" state="translated">Dios (el Santo de Israel)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.God (Yahweh)" sil:dynamic="true">
+        <source xml:lang="en">God (Yahweh)</source>
+        <note>ID: CharacterName.God (Yahweh)</note>
+        <target xml:lang="es-ES" state="translated">Dios (Jehová)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.God (Yahweh) (three men)" sil:dynamic="true">
+        <source xml:lang="en">God (Yahweh) (three men)</source>
+        <note>ID: CharacterName.God (Yahweh) (three men)</note>
+        <target xml:lang="es-ES" state="translated">Dios (Yahveh) (tres hombres)</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.God (Yahweh)(the Mighty One)" sil:dynamic="true">
+        <source xml:lang="en">God (Yahweh)(the Mighty One)</source>
+        <note>ID: CharacterName.God (Yahweh)(the Mighty One)</note>
+        <target xml:lang="es-ES" state="translated">Dios (Yahveh) (el poderoso)</target>
+      </trans-unit>
       <trans-unit id="CharacterName.God (vineyard owner)" sil:dynamic="true">
         <source xml:lang="en">God (vineyard owner)</source>
         <note>ID: CharacterName.God (vineyard owner)</note>
@@ -1047,11 +1097,6 @@
         <note>ID: CharacterName.Hannah</note>
         <target xml:lang="es-ES" state="translated">Ana</target>
       </trans-unit>
-      <trans-unit id="CharacterName.Hazael of Aram" sil:dynamic="true">
-        <source xml:lang="en">Hazael of Aram</source>
-        <note>ID: CharacterName.Hazael of Aram</note>
-        <target xml:lang="es-ES" state="translated">Hazael of Aram</target>
-      </trans-unit>
       <trans-unit id="CharacterName.Heman, Jeduthun and the rest of those chosen to give thanks" sil:dynamic="true">
         <source xml:lang="en">Heman, Jeduthun and the rest of those chosen to give thanks</source>
         <note>ID: CharacterName.Heman, Jeduthun and the rest of those chosen to give thanks</note>
@@ -1107,15 +1152,15 @@
         <note>ID: CharacterName.Hoglah</note>
         <target xml:lang="es-ES" state="translated">Hoglá</target>
       </trans-unit>
-      <trans-unit id="CharacterName.Holy Spirit" sil:dynamic="true">
-        <source xml:lang="en">Holy Spirit</source>
-        <note>ID: CharacterName.Holy Spirit</note>
-        <target xml:lang="es-ES" state="translated">Espíritu Santo</target>
-      </trans-unit>
       <trans-unit id="CharacterName.Holy Spirit and the bride" sil:dynamic="true">
         <source xml:lang="en">Holy Spirit and the bride</source>
         <note>ID: CharacterName.Holy Spirit and the bride</note>
         <target xml:lang="es-ES" state="translated">Espíritu Santo y la esposa</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Holy Spirit through disciples" sil:dynamic="true">
+        <source xml:lang="en">Holy Spirit through disciples</source>
+        <note>ID: CharacterName.Holy Spirit through disciples</note>
+        <target xml:lang="es-ES" state="translated">Espíritu Santo a través de los discípulos</target>
       </trans-unit>
       <trans-unit id="CharacterName.Holy Spirit, the" sil:dynamic="true">
         <source xml:lang="en">Holy Spirit, the</source>
@@ -1272,6 +1317,11 @@
         <note>ID: CharacterName.Israelite spies from house of Joseph</note>
         <target xml:lang="es-ES" state="translated">espías israelitas enviadas de la casa de José</target>
       </trans-unit>
+      <trans-unit id="CharacterName.Israelites" sil:dynamic="true">
+        <source xml:lang="en">Israelites</source>
+        <note>ID: CharacterName.Israelites</note>
+        <target xml:lang="es-ES" state="translated">israelitas</target>
+      </trans-unit>
       <trans-unit id="CharacterName.Ittai" sil:dynamic="true">
         <source xml:lang="en">Ittai</source>
         <note>ID: CharacterName.Ittai</note>
@@ -1281,6 +1331,11 @@
         <source xml:lang="en">Jabez</source>
         <note>ID: CharacterName.Jabez</note>
         <target xml:lang="es-ES" state="translated">Jabés</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jabez's mother" sil:dynamic="true">
+        <source xml:lang="en">Jabez's mother</source>
+        <note>ID: CharacterName.Jabez's mother</note>
+        <target xml:lang="es-ES" state="translated">madre de Jabez</target>
       </trans-unit>
       <trans-unit id="CharacterName.Jacob (Israel)" sil:dynamic="true">
         <source xml:lang="en">Jacob (Israel)</source>
@@ -1480,7 +1535,7 @@
       <trans-unit id="CharacterName.Joah" sil:dynamic="true">
         <source xml:lang="en">Joah</source>
         <note>ID: CharacterName.Joah</note>
-        <target xml:lang="es-ES" state="translated">Joah</target>
+        <target xml:lang="es-ES" state="translated">Joa</target>
       </trans-unit>
       <trans-unit id="CharacterName.Joash, father of Gideon (Jerubbaal)" sil:dynamic="true">
         <source xml:lang="en">Joash, father of Gideon (Jerubbaal)</source>
@@ -1496,6 +1551,11 @@
         <source xml:lang="en">Job</source>
         <note>ID: CharacterName.Job</note>
         <target xml:lang="es-ES" state="translated">Job</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.Job's wife" sil:dynamic="true">
+        <source xml:lang="en">Job's wife</source>
+        <note>ID: CharacterName.Job's wife</note>
+        <target xml:lang="es-ES" state="translated">esposa de Job</target>
       </trans-unit>
       <trans-unit id="CharacterName.Joel saying what the priests should say" sil:dynamic="true">
         <source xml:lang="en">Joel saying what the priests should say</source>
@@ -2017,6 +2077,11 @@
         <note>ID: CharacterName.Philistines</note>
         <target xml:lang="es-ES" state="translated">Filisteo</target>
       </trans-unit>
+      <trans-unit id="CharacterName.Phineas' wife (daughter-in-law of Eli)" sil:dynamic="true">
+        <source xml:lang="en">Phineas' wife (daughter-in-law of Eli)</source>
+        <note>ID: CharacterName.Phineas' wife (daughter-in-law of Eli)</note>
+        <target xml:lang="es-ES" state="translated">esposa de Finees (nuera de Elí)</target>
+      </trans-unit>
       <trans-unit id="CharacterName.Pilate" sil:dynamic="true">
         <source xml:lang="en">Pilate</source>
         <note>ID: CharacterName.Pilate</note>
@@ -2392,11 +2457,6 @@
         <note>ID: CharacterName.Zechariah</note>
         <target xml:lang="es-ES" state="translated">Zacarías</target>
       </trans-unit>
-      <trans-unit id="CharacterName.Zechariah (in vision)" sil:dynamic="true">
-        <source xml:lang="en">Zechariah (in vision)</source>
-        <note>ID: CharacterName.Zechariah (in vision)</note>
-        <target xml:lang="es-ES" state="translated">Zacarías (en una visión)</target>
-      </trans-unit>
       <trans-unit id="CharacterName.Zechariah (Yahweh says)" sil:dynamic="true">
         <source xml:lang="en">Zechariah (Yahweh says)</source>
         <note>ID: CharacterName.Zechariah (Yahweh says)</note>
@@ -2407,10 +2467,10 @@
         <note>ID: CharacterName.Zechariah (vision)</note>
         <target xml:lang="es-ES" state="translated">Zacarías (visión)</target>
       </trans-unit>
-      <trans-unit id="CharacterName.Zechariah (word of the LORD)" sil:dynamic="true">
-        <source xml:lang="en">Zechariah (word of the LORD)</source>
-        <note>ID: CharacterName.Zechariah (word of the LORD)</note>
-        <target xml:lang="es-ES" state="translated">Zacarías (palabra del Señor)</target>
+      <trans-unit id="CharacterName.Zechariah (in vision)" sil:dynamic="true">
+        <source xml:lang="en">Zechariah (in vision)</source>
+        <note>ID: CharacterName.Zechariah (in vision)</note>
+        <target xml:lang="es-ES" state="translated">Zacarías (en una visión)</target>
       </trans-unit>
       <trans-unit id="CharacterName.Zechariah, son of Jehoiada the priest" sil:dynamic="true">
         <source xml:lang="en">Zechariah, son of Jehoiada the priest</source>
@@ -2522,15 +2582,15 @@
         <note>ID: CharacterName.angel of God</note>
         <target xml:lang="es-ES" state="translated">ángel de Dios</target>
       </trans-unit>
-      <trans-unit id="CharacterName.angel of the Lord" sil:dynamic="true">
-        <source xml:lang="en">angel of the Lord</source>
-        <note>ID: CharacterName.angel of the Lord</note>
-        <target xml:lang="es-ES" state="translated">ángel del Señor</target>
-      </trans-unit>
       <trans-unit id="CharacterName.angel of the LORD, the" sil:dynamic="true">
         <source xml:lang="en">angel of the LORD, the</source>
         <note>ID: CharacterName.angel of the LORD, the</note>
         <target xml:lang="es-ES" state="translated">el ángel del SEÑOR</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.angel of the Lord" sil:dynamic="true">
+        <source xml:lang="en">angel of the Lord</source>
+        <note>ID: CharacterName.angel of the Lord</note>
+        <target xml:lang="es-ES" state="translated">ángel del Señor</target>
       </trans-unit>
       <trans-unit id="CharacterName.angel who talked with Zechariah" sil:dynamic="true">
         <source xml:lang="en">angel who talked with Zechariah</source>
@@ -2672,10 +2732,20 @@
         <note>ID: CharacterName.brothers at Ephesus</note>
         <target xml:lang="es-ES" state="translated">hermanos en Éfeso</target>
       </trans-unit>
+      <trans-unit id="CharacterName.buyer" sil:dynamic="true">
+        <source xml:lang="en">buyer</source>
+        <note>ID: CharacterName.buyer</note>
+        <target xml:lang="es-ES" state="translated">comprador</target>
+      </trans-unit>
       <trans-unit id="CharacterName.captain" sil:dynamic="true">
         <source xml:lang="en">captain</source>
         <note>ID: CharacterName.captain</note>
         <target xml:lang="es-ES" state="translated">capitán</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.captain of the temple guard" sil:dynamic="true">
+        <source xml:lang="en">captain of the temple guard</source>
+        <note>ID: CharacterName.captain of the temple guard</note>
+        <target xml:lang="es-ES" state="translated">capitán de la guardia del templo</target>
       </trans-unit>
       <trans-unit id="CharacterName.captain, first" sil:dynamic="true">
         <source xml:lang="en">captain, first</source>
@@ -2736,6 +2806,11 @@
         <source xml:lang="en">craftsman</source>
         <note>ID: CharacterName.craftsman</note>
         <target xml:lang="es-ES" state="translated">artífice, artesano</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.craftsmen and workmen" sil:dynamic="true">
+        <source xml:lang="en">craftsmen and workmen</source>
+        <note>ID: CharacterName.craftsmen and workmen</note>
+        <target xml:lang="es-ES" state="translated">artesanos y obreros</target>
       </trans-unit>
       <trans-unit id="CharacterName.criminal on cross, repentant" sil:dynamic="true">
         <source xml:lang="en">criminal on cross, repentant</source>
@@ -2912,6 +2987,16 @@
         <note>ID: CharacterName.donkey (female)</note>
         <target xml:lang="es-ES" state="translated">asna</target>
       </trans-unit>
+      <trans-unit id="CharacterName.dream" sil:dynamic="true">
+        <source xml:lang="en">dream</source>
+        <note>ID: CharacterName.dream</note>
+        <target xml:lang="es-ES" state="translated">sueño</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.dreamers" sil:dynamic="true">
+        <source xml:lang="en">dreamers</source>
+        <note>ID: CharacterName.dreamers</note>
+        <target xml:lang="es-ES" state="translated">soñadores</target>
+      </trans-unit>
       <trans-unit id="CharacterName.drunkard" sil:dynamic="true">
         <source xml:lang="en">drunkard</source>
         <note>ID: CharacterName.drunkard</note>
@@ -2987,6 +3072,11 @@
         <note>ID: CharacterName.every created thing</note>
         <target xml:lang="es-ES" state="translated">todo ser viviente</target>
       </trans-unit>
+      <trans-unit id="CharacterName.everyone" sil:dynamic="true">
+        <source xml:lang="en">everyone</source>
+        <note>ID: CharacterName.everyone</note>
+        <target xml:lang="es-ES" state="translated">todos</target>
+      </trans-unit>
       <trans-unit id="CharacterName.expert in religious law" sil:dynamic="true">
         <source xml:lang="en">expert in religious law</source>
         <note>ID: CharacterName.expert in religious law</note>
@@ -2996,6 +3086,11 @@
         <source xml:lang="en">experts in religious law, one of the</source>
         <note>ID: CharacterName.experts in religious law, one of the</note>
         <target xml:lang="es-ES" state="translated">uno de los expertos en la ley religiosa</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.explorers, ten" sil:dynamic="true">
+        <source xml:lang="en">explorers, ten</source>
+        <note>ID: CharacterName.explorers, ten</note>
+        <target xml:lang="es-ES" state="translated">exploradores, diez</target>
       </trans-unit>
       <trans-unit id="CharacterName.eye" sil:dynamic="true">
         <source xml:lang="en">eye</source>
@@ -3071,6 +3166,11 @@
         <source xml:lang="en">foot</source>
         <note>ID: CharacterName.foot</note>
         <target xml:lang="es-ES" state="translated">pie</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.foreman" sil:dynamic="true">
+        <source xml:lang="en">foreman</source>
+        <note>ID: CharacterName.foreman</note>
+        <target xml:lang="es-ES" state="translated">capataz</target>
       </trans-unit>
       <trans-unit id="CharacterName.fortune telling slave girl" sil:dynamic="true">
         <source xml:lang="en">fortune telling slave girl</source>
@@ -3182,10 +3282,20 @@
         <note>ID: CharacterName.man (young)</note>
         <target xml:lang="es-ES" state="translated">hombre (joven)</target>
       </trans-unit>
+      <trans-unit id="CharacterName.man answered David" sil:dynamic="true">
+        <source xml:lang="en">man answered David</source>
+        <note>ID: CharacterName.man answered David</note>
+        <target xml:lang="es-ES" state="translated">hombre que le respondió a David acerca de la mujer</target>
+      </trans-unit>
       <trans-unit id="CharacterName.men" sil:dynamic="true">
         <source xml:lang="en">men</source>
         <note>ID: CharacterName.men</note>
         <target xml:lang="es-ES" state="translated">hombres</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.men from Cornelius" sil:dynamic="true">
+        <source xml:lang="en">men from Cornelius</source>
+        <note>ID: CharacterName.men from Cornelius</note>
+        <target xml:lang="es-ES" state="translated">hombres de Cornelio</target>
       </trans-unit>
       <trans-unit id="CharacterName.men of Ashdod" sil:dynamic="true">
         <source xml:lang="en">men of Ashdod</source>
@@ -3201,6 +3311,11 @@
         <source xml:lang="en">men of David</source>
         <note>ID: CharacterName.men of David</note>
         <target xml:lang="es-ES" state="translated">hombres de David</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.men of David, one" sil:dynamic="true">
+        <source xml:lang="en">men of David, one</source>
+        <note>ID: CharacterName.men of David, one</note>
+        <target xml:lang="es-ES" state="translated">uno de los hombres de David</target>
       </trans-unit>
       <trans-unit id="CharacterName.men of Jabesh" sil:dynamic="true">
         <source xml:lang="en">men of Jabesh</source>
@@ -3251,6 +3366,16 @@
         <source xml:lang="en">officials from chief priests and Pharisees</source>
         <note>ID: CharacterName.officials from chief priests and Pharisees</note>
         <target xml:lang="es-ES" state="translated">alguaciles de los principales sacerdotes y de los fariseos</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.old prophet in Bethel" sil:dynamic="true">
+        <source xml:lang="en">old prophet in Bethel</source>
+        <note>ID: CharacterName.old prophet in Bethel</note>
+        <target xml:lang="es-ES" state="translated">profeta anciano en Betel</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.older daughter of Lot" sil:dynamic="true">
+        <source xml:lang="en">older daughter of Lot</source>
+        <note>ID: CharacterName.older daughter of Lot</note>
+        <target xml:lang="es-ES" state="translated">hija mayor de Lot</target>
       </trans-unit>
       <trans-unit id="CharacterName.people" sil:dynamic="true">
         <source xml:lang="en">people</source>
@@ -3347,6 +3472,16 @@
         <note>ID: CharacterName.people, still others</note>
         <target xml:lang="es-ES" state="translated">otros (los que pensaban que Juan era uno de los profetas)</target>
       </trans-unit>
+      <trans-unit id="CharacterName.person who told Samuel where Saul was" sil:dynamic="true">
+        <source xml:lang="en">person who told Samuel where Saul was</source>
+        <note>ID: CharacterName.person who told Samuel where Saul was</note>
+        <target xml:lang="es-ES" state="translated">persona que le dijo a Samuel dónde estaba Saúl</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.person who told Saul where David was" sil:dynamic="true">
+        <source xml:lang="en">person who told Saul where David was</source>
+        <note>ID: CharacterName.person who told Saul where David was</note>
+        <target xml:lang="es-ES" state="translated">persona que le dijo a Saúl dónde estaba David</target>
+      </trans-unit>
       <trans-unit id="CharacterName.poets" sil:dynamic="true">
         <source xml:lang="en">poets</source>
         <note>ID: CharacterName.poets</note>
@@ -3371,11 +3506,6 @@
         <source xml:lang="en">prophet</source>
         <note>ID: CharacterName.prophet</note>
         <target xml:lang="es-ES" state="translated">profeta</target>
-      </trans-unit>
-      <trans-unit id="CharacterName.prophet in Bethel" sil:dynamic="true">
-        <source xml:lang="en">prophet in Bethel</source>
-        <note>ID: CharacterName.prophet in Bethel</note>
-        <target xml:lang="es-ES" state="translated">profeta en Betel</target>
       </trans-unit>
       <trans-unit id="CharacterName.prophet of the LORD" sil:dynamic="true">
         <source xml:lang="en">prophet of the LORD</source>
@@ -3636,6 +3766,11 @@
         <source xml:lang="en">someone else (man)</source>
         <note>ID: CharacterName.someone else (man)</note>
         <target xml:lang="es-ES" state="translated">otro hombre</target>
+      </trans-unit>
+      <trans-unit id="CharacterName.sons of prophet in Bethel" sil:dynamic="true">
+        <source xml:lang="en">sons of prophet in Bethel</source>
+        <note>ID: CharacterName.sons of prophet in Bethel</note>
+        <target xml:lang="es-ES" state="translated">hijos del profeta en Betel</target>
       </trans-unit>
       <trans-unit id="CharacterName.spies (from the teachers of the law and chief priests)" sil:dynamic="true">
         <source xml:lang="en">spies (from the teachers of the law and chief priests)</source>
@@ -4340,6 +4475,11 @@
         <note>ID: DialogBoxes.AssignCharacterDlg.Character</note>
         <target xml:lang="es-ES" state="translated">Personaje</target>
       </trans-unit>
+      <trans-unit id="DialogBoxes.AssignCharacterDlg.CharacterNeedsReview">
+        <source xml:lang="en">Needs Review</source>
+        <note>ID: DialogBoxes.AssignCharacterDlg.CharacterNeedsReview</note>
+        <target xml:lang="es-ES" state="translated">Necesita revisión</target>
+      </trans-unit>
       <trans-unit id="DialogBoxes.AssignCharacterDlg.CloseDialogMessage">
         <source xml:lang="en">Would you like to return to the main window?</source>
         <note>ID: DialogBoxes.AssignCharacterDlg.CloseDialogMessage</note>
@@ -4989,6 +5129,7 @@
       <trans-unit id="DialogBoxes.FileDlg.AllFilesLabel">
         <source xml:lang="en">All Files</source>
         <note>ID: DialogBoxes.FileDlg.AllFilesLabel</note>
+        <note>Label used in various file dialogs for "*.*"</note>
         <target xml:lang="es-ES" state="translated">Todos los archivos</target>
       </trans-unit>
       <trans-unit id="DialogBoxes.GenerateGroupsProgressDialog.CancelLinkText">
@@ -5046,6 +5187,12 @@
         <source xml:lang="en">Generating Groups</source>
         <note>ID: DialogBoxes.GenerateGroupsProgressDialog.Title</note>
         <target xml:lang="es-ES" state="translated">Generación de grupos</target>
+      </trans-unit>
+      <trans-unit id="DialogBoxes.ImportDlg.GlyssenSharesFileTypeLabel">
+        <source xml:lang="en">Glyssen shares</source>
+        <note>ID: DialogBoxes.ImportDlg.GlyssenSharesFileTypeLabel</note>
+        <note>Label used in Import file dialog for "*.glyssenshare" files</note>
+        <target xml:lang="es-ES" state="translated">Archivos para compartir proyecto Glyssen</target>
       </trans-unit>
       <trans-unit id="DialogBoxes.NarrationOptionsDlg.DesiredFemaleNarratorNum">
         <source xml:lang="en">Desired number of female narrators:</source>
@@ -5437,6 +5584,11 @@
         <note>ID: DialogBoxes.ProjectSettingsDlg.MissingReferenceText</note>
         <target xml:lang="es-ES" state="translated">Faltante: {0}</target>
       </trans-unit>
+      <trans-unit id="DialogBoxes.ProjectSettingsDlg.NewTestamentVersion">
+        <source xml:lang="en">New Testament:</source>
+        <note>ID: DialogBoxes.ProjectSettingsDlg.NewTestamentVersion</note>
+        <target xml:lang="es-ES" state="translated">Nuevo Testamento:</target>
+      </trans-unit>
       <trans-unit id="DialogBoxes.ProjectSettingsDlg.OverwriteProjectFailed">
         <source xml:lang="en">{0} was unable to delete all of the files in {1}. You can try to clean this up manually and then re-attempt saving these changes.</source>
         <note>ID: DialogBoxes.ProjectSettingsDlg.OverwriteProjectFailed</note>
@@ -5528,6 +5680,11 @@
         <note>ID: DialogBoxes.ProjectSettingsDlg.SourceLabelForParatextProject</note>
         <note>"Paratext" (product name)</note>
         <target xml:lang="es-ES" state="translated">Proyecto {0}:</target>
+      </trans-unit>
+      <trans-unit id="DialogBoxes.ProjectSettingsDlg.WarningReferenceTextDoesNotCoverAllBooks">
+        <source xml:lang="en">The selected reference text does not contain books for all the books in this project. You will not be able to align these books to the reference text.</source>
+        <note>ID: DialogBoxes.ProjectSettingsDlg.WarningReferenceTextDoesNotCoverAllBooks</note>
+        <target xml:lang="es-ES" state="translated">El texto de referencia seleccionado no contiene todos los libros correspondientes a este proyecto. Por esa razón no se podrán alinear estos libros al texto de referencia.</target>
       </trans-unit>
       <trans-unit id="DialogBoxes.ProjectSettingsDlg.WindowTitle">
         <source xml:lang="en">Project Settings</source>
@@ -5621,26 +5778,6 @@
         <source xml:lang="en">Same as start quotation dash ({0})</source>
         <note>ID: DialogBoxes.QuotationMarksDlg.EndQuotationDashWithStartDash</note>
         <target xml:lang="es-ES" state="translated">Igual que el guion inicial ({0})</target>
-      </trans-unit>
-      <trans-unit id="DialogBoxes.QuotationMarksDlg.FilterOptions[0]" sil:dynamic="true">
-        <source xml:lang="en">Verses with expected quotes</source>
-        <note>ID: DialogBoxes.QuotationMarksDlg.FilterOptions[0]</note>
-        <target xml:lang="es-ES" state="translated">Versículos en las que se esperan citas</target>
-      </trans-unit>
-      <trans-unit id="DialogBoxes.QuotationMarksDlg.FilterOptions[1]" sil:dynamic="true">
-        <source xml:lang="en">Verses with missing expected quotes</source>
-        <note>ID: DialogBoxes.QuotationMarksDlg.FilterOptions[1]</note>
-        <target xml:lang="es-ES" state="translated">Versículos sin citas esperadas</target>
-      </trans-unit>
-      <trans-unit id="DialogBoxes.QuotationMarksDlg.FilterOptions[2]" sil:dynamic="true">
-        <source xml:lang="en">All quotes</source>
-        <note>ID: DialogBoxes.QuotationMarksDlg.FilterOptions[2]</note>
-        <target xml:lang="es-ES" state="translated">Todas las citas encontradas</target>
-      </trans-unit>
-      <trans-unit id="DialogBoxes.QuotationMarksDlg.FilterOptions[3]" sil:dynamic="true">
-        <source xml:lang="en">All Scripture</source>
-        <note>ID: DialogBoxes.QuotationMarksDlg.FilterOptions[3]</note>
-        <target xml:lang="es-ES" state="translated">Toda la escritura</target>
       </trans-unit>
       <trans-unit id="DialogBoxes.QuotationMarksDlg.HowToChangeParextProjectQuoteSystem">
         <source xml:lang="en">1) Open the {2} project in {1}, and on the Checking menu, click Quotation Rules.\n2) After saving the changes there, re-run the {3} check for all books included in this {0} project.\n   (Note: The {4} and {5} checks should also pass in order for a book to be included in a {0} project.)\n3) Return to {0} and on the {6} tab of the {7} dialog box, click {8}.</source>
@@ -6315,7 +6452,7 @@
       <trans-unit id="DialogBoxes.VoiceActorAssignmentDlg.SelectCameoRoleLink">
         <source xml:lang="en">Select a cameo role</source>
         <note>ID: DialogBoxes.VoiceActorAssignmentDlg.SelectCameoRoleLink</note>
-        <note>Displayed as link in the "Characters In Group" column when the group assigned to a cameo	actor has no characters in it.</note>
+        <note>Displayed as link in the "Characters In Group" column when the group assigned to a cameo actor has no characters in it.</note>
         <target xml:lang="es-ES" state="translated">Elegir un papel cameo</target>
       </trans-unit>
       <trans-unit id="DialogBoxes.VoiceActorAssignmentDlg.ShowCharacterDetailsLink">
@@ -6677,11 +6814,6 @@
         <note>{0} is an expression indicating the number of assigned actors</note>
         <target xml:lang="es-ES" state="translated">1 doblador identificado, {0}</target>
       </trans-unit>
-      <trans-unit id="MainForm.AssignCharacters_ToolTip_">
-        <source xml:lang="en">Select a Character ID for each block in the recording script</source>
-        <note>ID: MainForm.AssignCharacters_ToolTip_</note>
-        <target xml:lang="es-ES" state="translated">Seleccionar el personaje que habla en cada bloque en el guion de grabación</target>
-      </trans-unit>
       <trans-unit id="MainForm.AssignVoiceActors">
         <source xml:lang="en">({0}) Assign Voice Actors...</source>
         <note>ID: MainForm.AssignVoiceActors</note>
@@ -6902,7 +7034,7 @@
       <trans-unit id="Project.FailedToCreateWritingSystemFromParatextLdml">
         <source xml:lang="en">Failed to create Writing System based on LDML file for {0} project {1}</source>
         <note>ID: Project.FailedToCreateWritingSystemFromParatextLdml</note>
-        <note>Param 0: "Paratext"; Param 1: Project short name (unique project identifier)</note>
+        <note>Param 0: "Paratext"; Param 1: Unique Paratext project identifier</note>
         <target xml:lang="es-ES" state="translated">No se pudo crear el sistema de escritura basado en archivo LDML para el proyecto {0} {1}.</target>
       </trans-unit>
       <trans-unit id="Project.FallingBackToDefaultEnglishVersification">
@@ -6973,6 +7105,12 @@
         <note>Param 0: list of 3-letter book IDs; Param 1: Name of the "Select Books" dialog box.</note>
         <target xml:lang="es-ES" state="translated">Los siguientes libros aparentemente ya no pasan los chequeos básicos:\n   {0}\n(Si es necesario, se pueden volver a incluir después en el cuadro de diálogo {1}.)</target>
       </trans-unit>
+      <trans-unit id="Project.ParatextProjectFallbackVersificationInvalid">
+        <source xml:lang="en">{0} project {1} is not available and the fallback versification in project {2} is invalid:\n {3}\n</source>
+        <note>ID: Project.ParatextProjectFallbackVersificationInvalid</note>
+        <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier); Param 2: Glyssen recording project name; Param 3: Error details</note>
+        <target xml:lang="es-ES" state="translated">El proyecto {0} {1} no está disponible y la versificación de respaldo en el proyecto {2} es inválido:\n {3}\n</target>
+      </trans-unit>
       <trans-unit id="Project.ParatextProjectMetadataChangedMsg">
         <source xml:lang="en">The settings of the {0} project {1} no longer appear to correspond to the {2} project. This is an unusual situation. If you do not understand how this happened, please contact support.</source>
         <note>ID: Project.ParatextProjectMetadataChangedMsg</note>
@@ -6985,14 +7123,8 @@
         <note>Param 0: Glyssen recording project name; Param 1: "Paratext" (product name); Param 2: Paratext project short name (unique project identifier)</note>
         <target xml:lang="es-ES" state="translated">Para actualizar el proyecto {0}, el proyecto {2} debe estar disponible en {1}, pero no lo está.</target>
       </trans-unit>
-      <trans-unit id="Project.ParatextProjectFallbackVersificationInvalid">
-        <source xml:lang="en">{0} project {1} is not available and the fallback versification in project {2} is invalid:\n {3}\n</source>
-        <note>ID: Project.ParatextProjectFallbackVersificationInvalid</note>
-        <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier); Param 2: Glyssen recording project name; Param 3: Error details</note>
-        <target xml:lang="es-ES" state="translated">El proyecto {0} {1} no está disponible y la versificación de respaldo en el proyecto {2} es inválido:\n {3}\n</target>
-      </trans-unit>
       <trans-unit id="Project.ParatextProjectNoFallbackVersification">
-        <source xml:lang="en">{0} project {1} is not available and project {2} does not have a fallback versification. </source>
+        <source xml:lang="en">{0} project {1} is not available and project {2} does not have a fallback versification file. </source>
         <note>ID: Project.ParatextProjectNoFallbackVersification</note>
         <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier); Param 2: Glyssen recording project name</note>
         <target xml:lang="es-ES" state="translated">El proyecto {0} {1} no está disponible y el proyecto {2} no tiene una versificación de respaldo. </target>
@@ -7074,7 +7206,7 @@
       <trans-unit id="Project.TemporarilyUseEnglishReferenceText">
         <source xml:lang="en">To continue and temporarily use the English reference text, click {0}.</source>
         <note>ID: Project.TemporarilyUseEnglishReferenceText</note>
-        <note>Param is "Ignore" button label  (in the current Windows locale)</note>
+        <note>Param is "Ignore" button label (in the current Windows locale)</note>
         <target xml:lang="es-ES" state="translated">Para continuar y utilizar temporalmente el texto de referencia en inglés, haga clic en {0}.</target>
       </trans-unit>
       <trans-unit id="Project.UnableToLocateTextBundle">

@@ -815,7 +815,7 @@ officials of Succoth	-1	Male				JDG 8:6	Prince of Succoth
 officials of Trans-Euphrates	-1	Male				EZR 5:3 <-(11 more)-> EZR 5:17
 officials, Ephesus (friends of Paul)	-1	Male				ACT 19:31
 old man in Gibeah	1	Male	Elder			JDG 19:17 <-(2 more)-> JDG 19:24
-old prophet in Bethel	1	Male	Elder			1KI 13:12 <-(9 more)-> 1KI 13:32	Prophet (old)
+old prophet in Bethel	1	Male	Elder			1KI 13:12 <-(10 more)-> 1KI 13:32	Prophet (old)
 older daughter of Lot	1	Female				GEN 19:31 <-(1 more)-> GEN 19:34	Daughter of Lot (female)
 On	1	Male			son of Peleth (Reubenite)	NUM 16:3
 one at table of Pharisee (expert in religious law)	1	Male				LUK 14:15

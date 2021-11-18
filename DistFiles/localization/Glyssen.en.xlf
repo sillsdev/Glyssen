@@ -1610,9 +1610,9 @@
         <source xml:lang="en">Eleven</source>
         <note>ID: CharacterName.Eleven</note>
       </trans-unit>
-      <trans-unit id="CharacterName.Eli (very old)" sil:dynamic="true">
-        <source xml:lang="en">Eli (very old)</source>
-        <note>ID: CharacterName.Eli (very old)</note>
+      <trans-unit id="CharacterName.Eli" sil:dynamic="true">
+        <source xml:lang="en">Eli</source>
+        <note>ID: CharacterName.Eli</note>
       </trans-unit>
       <trans-unit id="CharacterName.Eliab, David's brother" sil:dynamic="true">
         <source xml:lang="en">Eliab, David's brother</source>
@@ -5898,6 +5898,43 @@
         <source xml:lang="en">Zophar the Naamathite</source>
         <note>ID: CharacterName.Zophar the Naamathite</note>
       </trans-unit>
+      <trans-unit id="DialogBoxes.AssignCharacterDlg.FilterOptions[0]" sil:dynamic="true">
+        <source xml:lang="en">Unassigned quotes</source>
+        <note>ID: DialogBoxes.AssignCharacterDlg.FilterOptions[0]</note>
+      </trans-unit>
+      <trans-unit id="DialogBoxes.AssignCharacterDlg.FilterOptions[1]" sil:dynamic="true">
+        <source xml:lang="en">All quotes not assigned automatically</source>
+        <note>ID: DialogBoxes.AssignCharacterDlg.FilterOptions[1]</note>
+      </trans-unit>
+      <trans-unit id="DialogBoxes.AssignCharacterDlg.FilterOptions[2]" sil:dynamic="true">
+        <source xml:lang="en">Verses with missing expected quotes</source>
+        <note>ID: DialogBoxes.AssignCharacterDlg.FilterOptions[2]</note>
+      </trans-unit>
+      <trans-unit id="DialogBoxes.AssignCharacterDlg.FilterOptions[3]" sil:dynamic="true">
+        <source xml:lang="en">More quotes than expected in verse</source>
+        <note>ID: DialogBoxes.AssignCharacterDlg.FilterOptions[3]</note>
+      </trans-unit>
+      <trans-unit id="DialogBoxes.AssignCharacterDlg.FilterOptions[4]" sil:dynamic="true">
+        <source xml:lang="en">Verses with expected quotes</source>
+        <note>ID: DialogBoxes.AssignCharacterDlg.FilterOptions[4]</note>
+      </trans-unit>
+      <trans-unit id="DialogBoxes.AssignCharacterDlg.FilterOptions[5]" sil:dynamic="true">
+        <source xml:lang="en">All quotes</source>
+        <note>ID: DialogBoxes.AssignCharacterDlg.FilterOptions[5]</note>
+      </trans-unit>
+      <trans-unit id="DialogBoxes.AssignCharacterDlg.FilterOptions[6]" sil:dynamic="true">
+        <source xml:lang="en">All Scripture</source>
+        <note>ID: DialogBoxes.AssignCharacterDlg.FilterOptions[6]</note>
+      </trans-unit>
+      <trans-unit id="DialogBoxes.AssignCharacterDlg.FilterOptions[7]" sil:dynamic="true">
+        <source xml:lang="en">Needs review</source>
+        <note>ID: DialogBoxes.AssignCharacterDlg.FilterOptions[7]</note>
+        <target xml:lang="es-ES" state="translated">Necesita revisión</target>
+      </trans-unit>
+      <trans-unit id="DialogBoxes.AssignCharacterDlg.FilterOptions[8]" sil:dynamic="true">
+        <source xml:lang="en">Verses not aligned with reference text</source>
+        <note>ID: DialogBoxes.AssignCharacterDlg.FilterOptions[8]</note>
+      </trans-unit>	  	  
       <trans-unit id="DialogBoxes.OpenProjectDlg.CantAccessParatext">
         <source xml:lang="en">There was a problem accessing {0} data files.</source>
         <note>ID: DialogBoxes.OpenProjectDlg.CantAccessParatext</note>
@@ -5932,6 +5969,22 @@
         <note>ID: DialogBoxes.OpenProjectDlg.ParatextProjectLoadErrors</note>
         <note>Param 0: "Paratext" (product name)</note>
       </trans-unit>
+	  <trans-unit id="DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookMarkerComboBox.Items.LongNameFromMetadata" sil:dynamic="true">
+        <source xml:lang="en">Long name</source>
+        <note>ID: DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookMarkerComboBox.Items.LongNameFromMetadata</note>
+      </trans-unit>
+      <trans-unit id="DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookMarkerComboBox.Items.MainTitle1" sil:dynamic="true">
+        <source xml:lang="en">Main Title (\mt1)</source>
+        <note>ID: DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookMarkerComboBox.Items.MainTitle1</note>
+      </trans-unit>
+      <trans-unit id="DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookMarkerComboBox.Items.PageHeader" sil:dynamic="true">
+        <source xml:lang="en">Page header (\h)</source>
+        <note>ID: DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookMarkerComboBox.Items.PageHeader</note>
+      </trans-unit>
+      <trans-unit id="DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookMarkerComboBox.Items.ShortNameFromMetadata" sil:dynamic="true">
+        <source xml:lang="en">Short name</source>
+        <note>ID: DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookMarkerComboBox.Items.ShortNameFromMetadata</note>
+      </trans-unit>	  
       <trans-unit id="Project.ParatextProjectMetadataChangedMsg">
         <source xml:lang="en">The settings of the {0} project {1} no longer appear to correspond to the {2} project. This is an unusual situation. If you do not understand how this happened, please contact support.</source>
         <note>ID: Project.ParatextProjectMetadataChangedMsg</note>
