@@ -48,8 +48,8 @@ namespace Glyssen
 	{
 		private const string kShareFileExtension = ".glyssenshare";
 
-		public static Sparkle UpdateChecker { get; private set; }
-		private PersistenceImplementation m_persistenceImpl;
+		private static Sparkle UpdateChecker { get; set; }
+		private readonly PersistenceImplementation m_persistenceImpl;
 		private Project m_project;
 		private ParatextScrTextWrapper m_paratextScrTextWrapperForRecentlyCreatedProject;
 		private CastSizePlanningViewModel m_projectCastSizePlanningViewModel;
@@ -249,8 +249,7 @@ namespace Glyssen
 			m_castSizeFmt = m_lblCastSizePlan.Text;
 			RememberButtonFormats();
 			UpdateLocalizedText();
-			if (m_project != null)
-				m_project.ProjectCharacterVerseData.HandleStringsLocalized();
+			m_project?.ProjectCharacterVerseData.HandleStringsLocalized();
 			ControlCharacterVerseData.Singleton.HandleStringsLocalized();
 		}
 
@@ -260,8 +259,7 @@ namespace Glyssen
 			var pos = m_tableLayoutPanel.GetCellPosition(m_btnOpenProject);
 			for (var rowIndex = pos.Row; rowIndex < m_tableLayoutPanel.RowStyles.Count; rowIndex++)
 			{
-				var btn = m_tableLayoutPanel.GetControlFromPosition(pos.Column, rowIndex) as Button;
-				if (btn != null)
+				if (m_tableLayoutPanel.GetControlFromPosition(pos.Column, rowIndex) is Button btn)
 					m_buttonFormats.Add(new Tuple<Button, string>(btn, btn.Text));
 			}
 		}
@@ -430,6 +428,7 @@ namespace Glyssen
 			}
 			UpdateChecker = new Sparkle(@"http://build.palaso.org/guestAuth/repository/download/Glyssen_GlyssenMasterPublish/.lastSuccessful/appcast.xml",
 				Icon);
+			UpdateChecker.DoLaunchAfterUpdate = false; // The installer already takes care of launching.
 			// We don't want to do this until the main window is loaded because a) it's very easy for the user to overlook, and b)
 			// more importantly, when the toast notifier closes, it can sometimes clobber an error message being displayed for the user.
 			UpdateChecker.CheckOnFirstApplicationIdle();
@@ -1325,7 +1324,6 @@ namespace Glyssen
 
 			while (m_project.ReferenceText == null)
 			{
-				string msg;
 				var msgFmt = LocalizationManager.GetString("Project.UnavailableReferenceText",
 					"This project uses a custom reference text ({0}) that is not available on this computer.\nIf you have access " +
 					"to the required reference text files, please put them in" +
@@ -1338,7 +1336,7 @@ namespace Glyssen
 					"Param 2: The name of the \"Retry\" button label (in the current Windows locale); " +
 					"Param 3: Name of the Project Settings dialog box; " +
 					"Param 4: Label of the Reference Text tab");
-				msg = Format(msgFmt, m_project.UiReferenceTextName, customReferenceTextFolder, MessageBoxStrings.RetryButton,
+				var msg = Format(msgFmt, m_project.UiReferenceTextName, customReferenceTextFolder, MessageBoxStrings.RetryButton,
 					projectSettingsDlgTitle, referenceTextTabName);
 				if (ignoreOptionText != null)
 					msg += "\n\n" + ignoreOptionText;
@@ -1391,7 +1389,7 @@ namespace Glyssen
 			}
 		}
 
-		public void ExportShare()
+		private void ExportShare()
 		{
 			var sourceDir = Path.GetDirectoryName(m_persistenceImpl.GetProjectFilePath(m_project));
 			Debug.Assert(sourceDir != null);
@@ -1452,7 +1450,9 @@ namespace Glyssen
 			using (var ofd = new OpenFileDialog())
 			{
 				ofd.InitialDirectory = ProjectRepository.DefaultShareFolder;
-				ofd.Filter = Format("Glyssen shares (*{0})|*{0}|All files (*.*)|*.*", kShareFileExtension);
+				ofd.Filter = Format("{0} ({1})|{1}|{2} ({3})|{3}",
+					LocalizationManager.GetString("DialogBoxes.ImportDlg.GlyssenSharesFileTypeLabel", "Glyssen shares"), "*" + kShareFileExtension,
+					LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"), "*.*");
 				ofd.RestoreDirectory = true;
 
 				if (ofd.ShowDialog() == DialogResult.OK)
