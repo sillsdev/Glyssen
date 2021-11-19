@@ -5929,12 +5929,11 @@
       <trans-unit id="DialogBoxes.AssignCharacterDlg.FilterOptions[7]" sil:dynamic="true">
         <source xml:lang="en">Needs review</source>
         <note>ID: DialogBoxes.AssignCharacterDlg.FilterOptions[7]</note>
-        <target xml:lang="es-ES" state="translated">Necesita revisión</target>
       </trans-unit>
       <trans-unit id="DialogBoxes.AssignCharacterDlg.FilterOptions[8]" sil:dynamic="true">
         <source xml:lang="en">Verses not aligned with reference text</source>
         <note>ID: DialogBoxes.AssignCharacterDlg.FilterOptions[8]</note>
-      </trans-unit>	  	  
+      </trans-unit>
       <trans-unit id="DialogBoxes.OpenProjectDlg.CantAccessParatext">
         <source xml:lang="en">There was a problem accessing {0} data files.</source>
         <note>ID: DialogBoxes.OpenProjectDlg.CantAccessParatext</note>
@@ -5984,7 +5983,7 @@
       <trans-unit id="DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookMarkerComboBox.Items.ShortNameFromMetadata" sil:dynamic="true">
         <source xml:lang="en">Short name</source>
         <note>ID: DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookMarkerComboBox.Items.ShortNameFromMetadata</note>
-      </trans-unit>	  
+      </trans-unit>
       <trans-unit id="Project.ParatextProjectMetadataChangedMsg">
         <source xml:lang="en">The settings of the {0} project {1} no longer appear to correspond to the {2} project. This is an unusual situation. If you do not understand how this happened, please contact support.</source>
         <note>ID: Project.ParatextProjectMetadataChangedMsg</note>
