@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns:sil="http://sil.org/software/XLiff" version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" product-version="0.0.0.0" original="Glyssen.dll" datatype="plaintext">
-	  <body>
+    <body>
       <trans-unit id="CharacterName.Standard.Fmt.BookOrChapter">
         <source xml:lang="en">book title or chapter ({0})</source>
         <note>ID: CharacterName.Standard.Fmt.BookOrChapter</note>
@@ -298,6 +298,10 @@
         <source xml:lang="en">a man (father of demon-possessed boy)</source>
         <note>ID: CharacterName.a man (father of demon-possessed boy)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.a watcher and a holy one" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.a watcher and a holy one</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Aaron" sil:dynamic="true">
         <source xml:lang="en">Aaron</source>
         <note>ID: CharacterName.Aaron</note>
@@ -317,6 +321,14 @@
       <trans-unit id="CharacterName.Abimelech" sil:dynamic="true">
         <source xml:lang="en">Abimelech</source>
         <note>ID: CharacterName.Abimelech</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Abimelech 1, king of the Philistines (in Gerar)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Abimelech 1, king of the Philistines (in Gerar)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Abimelech 2, king of the Philistines (in Gerar)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Abimelech 2, king of the Philistines (in Gerar)</note>
       </trans-unit>
       <trans-unit id="CharacterName.Abimelech and Phicol" sil:dynamic="true">
         <source xml:lang="en">Abimelech and Phicol</source>
@@ -398,6 +410,14 @@
         <source xml:lang="en">Adoni-Zedek, king of Jerusalem</source>
         <note>ID: CharacterName.Adoni-Zedek, king of Jerusalem</note>
       </trans-unit>
+      <trans-unit id="CharacterName.adversaries (Arabians, Ammonites, Ashdodites, etc.)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.adversaries (Arabians, Ammonites, Ashdodites, etc.)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.adversaries of God's people" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.adversaries of God's people</note>
+      </trans-unit>
       <trans-unit id="CharacterName.advisers to king" sil:dynamic="true">
         <source xml:lang="en">advisers to king</source>
         <note>ID: CharacterName.advisers to king</note>
@@ -462,6 +482,14 @@
         <source xml:lang="en">all the army officers, including Johanan and Jezaniah</source>
         <note>ID: CharacterName.all the army officers, including Johanan and Jezaniah</note>
       </trans-unit>
+      <trans-unit id="CharacterName.all the chief officers of the king of Babylon" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.all the chief officers of the king of Babylon</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.all the earth" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.all the earth</note>
+      </trans-unit>
       <trans-unit id="CharacterName.all the elders" sil:dynamic="true">
         <source xml:lang="en">all the elders</source>
         <note>ID: CharacterName.all the elders</note>
@@ -470,13 +498,25 @@
         <source xml:lang="en">all the people</source>
         <note>ID: CharacterName.all the people</note>
       </trans-unit>
+      <trans-unit id="CharacterName.all these (people)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.all these (people)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.all who heard (in synagogues)" sil:dynamic="true">
         <source xml:lang="en">all who heard (in synagogues)</source>
         <note>ID: CharacterName.all who heard (in synagogues)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.all who passed by (surrounding nations)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.all who passed by (surrounding nations)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.altar" sil:dynamic="true">
         <source xml:lang="en">altar</source>
         <note>ID: CharacterName.altar</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Amalekite (young man from Saul's camp)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Amalekite (young man from Saul's camp)</note>
       </trans-unit>
       <trans-unit id="CharacterName.Amasa" sil:dynamic="true">
         <source xml:lang="en">Amasa</source>
@@ -498,9 +538,25 @@
         <source xml:lang="en">Amaziah, priest of Bethel</source>
         <note>ID: CharacterName.Amaziah, priest of Bethel</note>
       </trans-unit>
+      <trans-unit id="CharacterName.ambassador" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.ambassador</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.ambassador from Neco, king of Egypt" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.ambassador from Neco, king of Egypt</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.ambassador sent by sea" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.ambassador sent by sea</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Ammonite nobles" sil:dynamic="true">
         <source xml:lang="en">Ammonite nobles</source>
         <note>ID: CharacterName.Ammonite nobles</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ammonites" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Ammonites</note>
       </trans-unit>
       <trans-unit id="CharacterName.Amnon, son of David" sil:dynamic="true">
         <source xml:lang="en">Amnon, son of David</source>
@@ -509,6 +565,10 @@
       <trans-unit id="CharacterName.Amos" sil:dynamic="true">
         <source xml:lang="en">Amos</source>
         <note>ID: CharacterName.Amos</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Amos (Yahweh says)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Amos (Yahweh says)</note>
       </trans-unit>
       <trans-unit id="CharacterName.Ananias (Annas), the high priest (father-in-law of Caiaphas)" sil:dynamic="true">
         <source xml:lang="en">Ananias (Annas), the high priest (father-in-law of Caiaphas)</source>
@@ -622,6 +682,10 @@
         <source xml:lang="en">angel, powerful</source>
         <note>ID: CharacterName.angel, powerful</note>
       </trans-unit>
+      <trans-unit id="CharacterName.angelic riders or horses (in vision)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.angelic riders or horses (in vision)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.angels appeared like men, two" sil:dynamic="true">
         <source xml:lang="en">angels appeared like men, two</source>
         <note>ID: CharacterName.angels appeared like men, two</note>
@@ -686,6 +750,10 @@
         <source xml:lang="en">apostles</source>
         <note>ID: CharacterName.apostles</note>
       </trans-unit>
+      <trans-unit id="CharacterName.apostles at Jerusalem" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.apostles at Jerusalem</note>
+      </trans-unit>
       <trans-unit id="CharacterName.apostles, elders, and whole church at Jerusalem" sil:dynamic="true">
         <source xml:lang="en">apostles, elders, and whole church at Jerusalem</source>
         <note>ID: CharacterName.apostles, elders, and whole church at Jerusalem</note>
@@ -714,6 +782,10 @@
         <source xml:lang="en">army officers</source>
         <note>ID: CharacterName.army officers</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Aroer, inhabitant of" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Aroer, inhabitant of</note>
+      </trans-unit>
       <trans-unit id="CharacterName.arrogant men" sil:dynamic="true">
         <source xml:lang="en">arrogant men</source>
         <note>ID: CharacterName.arrogant men</note>
@@ -733,6 +805,14 @@
       <trans-unit id="CharacterName.Asaph" sil:dynamic="true">
         <source xml:lang="en">Asaph</source>
         <note>ID: CharacterName.Asaph</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Asher" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Asher</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.assembly in Jerusalem" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.assembly in Jerusalem</note>
       </trans-unit>
       <trans-unit id="CharacterName.assembly, whole" sil:dynamic="true">
         <source xml:lang="en">assembly, whole</source>
@@ -810,6 +890,10 @@
         <source xml:lang="en">Babylon</source>
         <note>ID: CharacterName.Babylon</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Babylon (personified as adulteress)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Babylon (personified as adulteress)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Balaam" sil:dynamic="true">
         <source xml:lang="en">Balaam</source>
         <note>ID: CharacterName.Balaam</note>
@@ -850,9 +934,17 @@
         <source xml:lang="en">Bathsheba</source>
         <note>ID: CharacterName.Bathsheba</note>
       </trans-unit>
+      <trans-unit id="CharacterName.beam" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.beam</note>
+      </trans-unit>
       <trans-unit id="CharacterName.beast from out of the earth" sil:dynamic="true">
         <source xml:lang="en">beast from out of the earth</source>
         <note>ID: CharacterName.beast from out of the earth</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.beautiful virgins" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.beautiful virgins</note>
       </trans-unit>
       <trans-unit id="CharacterName.believers who came with Peter" sil:dynamic="true">
         <source xml:lang="en">believers who came with Peter</source>
@@ -874,9 +966,17 @@
         <source xml:lang="en">beloved</source>
         <note>ID: CharacterName.beloved</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Belshazzar, his lords, his wives and his concubines" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Belshazzar, his lords, his wives and his concubines</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Belshazzar, king of Babylon" sil:dynamic="true">
         <source xml:lang="en">Belshazzar, king of Babylon</source>
         <note>ID: CharacterName.Belshazzar, king of Babylon</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Belteshazzar (Daniel)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Belteshazzar (Daniel)</note>
       </trans-unit>
       <trans-unit id="CharacterName.Benaiah, son of Jehoiada" sil:dynamic="true">
         <source xml:lang="en">Benaiah, son of Jehoiada</source>
@@ -918,6 +1018,10 @@
         <source xml:lang="en">Beth Shemesh, messenger from</source>
         <note>ID: CharacterName.Beth Shemesh, messenger from</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Beth-ezel" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Beth-ezel</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Bethlehem, elders of" sil:dynamic="true">
         <source xml:lang="en">Bethlehem, elders of</source>
         <note>ID: CharacterName.Bethlehem, elders of</note>
@@ -949,6 +1053,10 @@
       <trans-unit id="CharacterName.Book of the Wars of the LORD" sil:dynamic="true">
         <source xml:lang="en">Book of the Wars of the LORD</source>
         <note>ID: CharacterName.Book of the Wars of the LORD</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Book of the Wars of Yahweh" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Book of the Wars of Yahweh</note>
       </trans-unit>
       <trans-unit id="CharacterName.boys" sil:dynamic="true">
         <source xml:lang="en">boys</source>
@@ -993,6 +1101,10 @@
       <trans-unit id="CharacterName.brothers of beloved" sil:dynamic="true">
         <source xml:lang="en">brothers of beloved</source>
         <note>ID: CharacterName.brothers of beloved</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.brothers who hate you" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.brothers who hate you</note>
       </trans-unit>
       <trans-unit id="CharacterName.buyer" sil:dynamic="true">
         <source xml:lang="en">buyer</source>
@@ -1086,6 +1198,10 @@
         <source xml:lang="en">centurion with great faith</source>
         <note>ID: CharacterName.centurion with great faith</note>
       </trans-unit>
+      <trans-unit id="CharacterName.certain man of the sons of the prophets" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.certain man of the sons of the prophets</note>
+      </trans-unit>
       <trans-unit id="CharacterName.chariot commanders of Aram" sil:dynamic="true">
         <source xml:lang="en">chariot commanders of Aram</source>
         <note>ID: CharacterName.chariot commanders of Aram</note>
@@ -1114,6 +1230,10 @@
         <source xml:lang="en">chiefs of 10 tribes</source>
         <note>ID: CharacterName.chiefs of 10 tribes</note>
       </trans-unit>
+      <trans-unit id="CharacterName.chieftains of Judah" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.chieftains of Judah</note>
+      </trans-unit>
       <trans-unit id="CharacterName.children" sil:dynamic="true">
         <source xml:lang="en">children</source>
         <note>ID: CharacterName.children</note>
@@ -1121,6 +1241,22 @@
       <trans-unit id="CharacterName.children of excellent wife" sil:dynamic="true">
         <source xml:lang="en">children of excellent wife</source>
         <note>ID: CharacterName.children of excellent wife</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.children of God" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.children of God</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.children of Israel" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.children of Israel</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.children of Judah" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.children of Judah</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.children of your people (i.e., Israel)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.children of your people (i.e., Israel)</note>
       </trans-unit>
       <trans-unit id="CharacterName.children of Zion (Jerusalem)" sil:dynamic="true">
         <source xml:lang="en">children of Zion (Jerusalem)</source>
@@ -1162,6 +1298,18 @@
         <source xml:lang="en">commander of the LORD's army</source>
         <note>ID: CharacterName.commander of the LORD's army</note>
       </trans-unit>
+      <trans-unit id="CharacterName.commander of the LORD's army (Jesus)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.commander of the LORD's army (Jesus)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.commander of Yahweh's army" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.commander of Yahweh's army</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.commander of Yahweh's army (angel)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.commander of Yahweh's army (angel)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.commander's letter" sil:dynamic="true">
         <source xml:lang="en">commander's letter</source>
         <note>ID: CharacterName.commander's letter</note>
@@ -1185,6 +1333,10 @@
       <trans-unit id="CharacterName.company of the prophets, one of (young man)" sil:dynamic="true">
         <source xml:lang="en">company of the prophets, one of (young man)</source>
         <note>ID: CharacterName.company of the prophets, one of (young man)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.conquerors of &quot;Lo Debar&quot; (or &quot;a thing of nothing&quot;)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.conquerors of "Lo Debar" (or "a thing of nothing")</note>
       </trans-unit>
       <trans-unit id="CharacterName.conquerors of beast, image &amp; his name" sil:dynamic="true">
         <source xml:lang="en">conquerors of beast, image &amp; his name</source>
@@ -1333,6 +1485,10 @@
       <trans-unit id="CharacterName.daughter of Zion (Jerusalem)" sil:dynamic="true">
         <source xml:lang="en">daughter of Zion (Jerusalem)</source>
         <note>ID: CharacterName.daughter of Zion (Jerusalem)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.daughters of Philip the evangelist" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.daughters of Philip the evangelist</note>
       </trans-unit>
       <trans-unit id="CharacterName.daughters of Zelophehad" sil:dynamic="true">
         <source xml:lang="en">daughters of Zelophehad</source>
@@ -1538,6 +1694,10 @@
         <source xml:lang="en">Eglon, king of Moab</source>
         <note>ID: CharacterName.Eglon, king of Moab</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Egypt" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Egypt</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Egyptian (slave of Amalekite)" sil:dynamic="true">
         <source xml:lang="en">Egyptian (slave of Amalekite)</source>
         <note>ID: CharacterName.Egyptian (slave of Amalekite)</note>
@@ -1569,6 +1729,10 @@
       <trans-unit id="CharacterName.elders" sil:dynamic="true">
         <source xml:lang="en">elders</source>
         <note>ID: CharacterName.elders</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.elders in Shechem" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.elders in Shechem</note>
       </trans-unit>
       <trans-unit id="CharacterName.elders of Israel" sil:dynamic="true">
         <source xml:lang="en">elders of Israel</source>
@@ -1621,6 +1785,10 @@
       <trans-unit id="CharacterName.Eliakim" sil:dynamic="true">
         <source xml:lang="en">Eliakim</source>
         <note>ID: CharacterName.Eliakim</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Eliezer the prophet, son of Dodavahu" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Eliezer the prophet, son of Dodavahu</note>
       </trans-unit>
       <trans-unit id="CharacterName.Eliezer, prophet of the Lord" sil:dynamic="true">
         <source xml:lang="en">Eliezer, prophet of the Lord</source>
@@ -1702,6 +1870,10 @@
         <source xml:lang="en">enemy</source>
         <note>ID: CharacterName.enemy</note>
       </trans-unit>
+      <trans-unit id="CharacterName.enemy (female)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.enemy (female)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Enoch" sil:dynamic="true">
         <source xml:lang="en">Enoch</source>
         <note>ID: CharacterName.Enoch</note>
@@ -1709,6 +1881,10 @@
       <trans-unit id="CharacterName.Ephraim" sil:dynamic="true">
         <source xml:lang="en">Ephraim</source>
         <note>ID: CharacterName.Ephraim</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ephraim, fugitive of" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Ephraim, fugitive of</note>
       </trans-unit>
       <trans-unit id="CharacterName.Ephraim, men of" sil:dynamic="true">
         <source xml:lang="en">Ephraim, men of</source>
@@ -1758,6 +1934,14 @@
         <source xml:lang="en">Ethiopian officer of Queen Candace</source>
         <note>ID: CharacterName.Ethiopian officer of Queen Candace</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Ethiopians" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Ethiopians</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.eunuch" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.eunuch</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Eve" sil:dynamic="true">
         <source xml:lang="en">Eve</source>
         <note>ID: CharacterName.Eve</note>
@@ -1766,9 +1950,17 @@
         <source xml:lang="en">every created thing</source>
         <note>ID: CharacterName.every created thing</note>
       </trans-unit>
+      <trans-unit id="CharacterName.every tongue" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.every tongue</note>
+      </trans-unit>
       <trans-unit id="CharacterName.everyone" sil:dynamic="true">
         <source xml:lang="en">everyone</source>
         <note>ID: CharacterName.everyone</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.everyone (islanders or foreigners)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.everyone (islanders or foreigners)</note>
       </trans-unit>
       <trans-unit id="CharacterName.everyone in Judean hills who heard" sil:dynamic="true">
         <source xml:lang="en">everyone in Judean hills who heard</source>
@@ -1789,6 +1981,10 @@
       <trans-unit id="CharacterName.everyone who witnessed healing of boy" sil:dynamic="true">
         <source xml:lang="en">everyone who witnessed healing of boy</source>
         <note>ID: CharacterName.everyone who witnessed healing of boy</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.everyone, from the prophets even to the priests" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.everyone, from the prophets even to the priests</note>
       </trans-unit>
       <trans-unit id="CharacterName.evil men and troublemakers" sil:dynamic="true">
         <source xml:lang="en">evil men and troublemakers</source>
@@ -1834,6 +2030,14 @@
         <source xml:lang="en">Ezekiel (in vision)</source>
         <note>ID: CharacterName.Ezekiel (in vision)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Ezekiel (Yahweh says)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Ezekiel (Yahweh says)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Ezekiel (Yahweh says, in vision)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Ezekiel (Yahweh says, in vision)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Ezra" sil:dynamic="true">
         <source xml:lang="en">Ezra</source>
         <note>ID: CharacterName.Ezra</note>
@@ -1858,9 +2062,17 @@
         <source xml:lang="en">false witnesses</source>
         <note>ID: CharacterName.false witnesses</note>
       </trans-unit>
+      <trans-unit id="CharacterName.false witnesses, many" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.false witnesses, many</note>
+      </trans-unit>
       <trans-unit id="CharacterName.family heads of Gilead" sil:dynamic="true">
         <source xml:lang="en">family heads of Gilead</source>
         <note>ID: CharacterName.family heads of Gilead</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.father" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.father</note>
       </trans-unit>
       <trans-unit id="CharacterName.father (husband of Shunammite)" sil:dynamic="true">
         <source xml:lang="en">father (husband of Shunammite)</source>
@@ -1869,6 +2081,10 @@
       <trans-unit id="CharacterName.father and mother of Samson" sil:dynamic="true">
         <source xml:lang="en">father and mother of Samson</source>
         <note>ID: CharacterName.father and mother of Samson</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.father and mother of the girl, and those who were with him" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.father and mother of the girl, and those who were with him</note>
       </trans-unit>
       <trans-unit id="CharacterName.father of accused daughter" sil:dynamic="true">
         <source xml:lang="en">father of accused daughter</source>
@@ -1886,6 +2102,10 @@
         <source xml:lang="en">father of demon-possessed boy</source>
         <note>ID: CharacterName.father of demon-possessed boy</note>
       </trans-unit>
+      <trans-unit id="CharacterName.father of false prophet" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.father of false prophet</note>
+      </trans-unit>
       <trans-unit id="CharacterName.father of Solomon (King David)" sil:dynamic="true">
         <source xml:lang="en">father of Solomon (King David)</source>
         <note>ID: CharacterName.father of Solomon (King David)</note>
@@ -1893,6 +2113,10 @@
       <trans-unit id="CharacterName.Felix, governor of Judea" sil:dynamic="true">
         <source xml:lang="en">Felix, governor of Judea</source>
         <note>ID: CharacterName.Felix, governor of Judea</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.fellow prophet who refused to strike him" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.fellow prophet who refused to strike him</note>
       </trans-unit>
       <trans-unit id="CharacterName.Festus" sil:dynamic="true">
         <source xml:lang="en">Festus</source>
@@ -1905,6 +2129,10 @@
       <trans-unit id="CharacterName.figure like that of a man (in vision)" sil:dynamic="true">
         <source xml:lang="en">figure like that of a man (in vision)</source>
         <note>ID: CharacterName.figure like that of a man (in vision)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.fir trees and cedars of Lebanon" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.fir trees and cedars of Lebanon</note>
       </trans-unit>
       <trans-unit id="CharacterName.flatterers" sil:dynamic="true">
         <source xml:lang="en">flatterers</source>
@@ -1942,9 +2170,21 @@
         <source xml:lang="en">foot</source>
         <note>ID: CharacterName.foot</note>
       </trans-unit>
+      <trans-unit id="CharacterName.foreigner who has joined himself to Yahweh" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.foreigner who has joined himself to Yahweh</note>
+      </trans-unit>
       <trans-unit id="CharacterName.foreman" sil:dynamic="true">
         <source xml:lang="en">foreman</source>
         <note>ID: CharacterName.foreman</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.former prophets" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.former prophets</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.formerly mute demon-possessed man" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.formerly mute demon-possessed man</note>
       </trans-unit>
       <trans-unit id="CharacterName.fortune telling slave girl" sil:dynamic="true">
         <source xml:lang="en">fortune telling slave girl</source>
@@ -1969,6 +2209,10 @@
       <trans-unit id="CharacterName.Gabriel (angel)" sil:dynamic="true">
         <source xml:lang="en">Gabriel (angel)</source>
         <note>ID: CharacterName.Gabriel (angel)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Gad" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Gad</note>
       </trans-unit>
       <trans-unit id="CharacterName.Gad the prophet, David's seer" sil:dynamic="true">
         <source xml:lang="en">Gad the prophet, David's seer</source>
@@ -2082,13 +2326,49 @@
         <source xml:lang="en">God (in vision)</source>
         <note>ID: CharacterName.God (in vision)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.God (one with dyed garments)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.God (one with dyed garments)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.God (the Holy One)" sil:dynamic="true">
         <source xml:lang="en">God (the Holy One)</source>
         <note>ID: CharacterName.God (the Holy One)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.God (the Lord Yahweh)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.God (the Lord Yahweh)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.God (the Lord)" sil:dynamic="true">
         <source xml:lang="en">God (the Lord)</source>
         <note>ID: CharacterName.God (the Lord)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.God (the Spirit)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.God (the Spirit)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.God (vineyard owner)" sil:dynamic="true">
+        <source xml:lang="en">God (vineyard owner)</source>
+        <note>ID: CharacterName.God (vineyard owner)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.God (voice from throne)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.God (voice from throne)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.God (voice of one speaking (in vision)" sil:dynamic="true">
+        <source xml:lang="en">God (voice of one speaking (in vision)</source>
+        <note>ID: CharacterName.God (voice of one speaking (in vision)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.God (voice of one speaking, in vision)" sil:dynamic="true">
+        <source xml:lang="en">God (voice of one speaking, in vision)</source>
+        <note>ID: CharacterName.God (voice of one speaking, in vision)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.God (Yahweh" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.God (Yahweh</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.God (Yahweh of Armies) (in vision)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.God (Yahweh of Armies) (in vision)</note>
       </trans-unit>
       <trans-unit id="CharacterName.God (Yahweh)" sil:dynamic="true">
         <source xml:lang="en">God (Yahweh)</source>
@@ -2097,6 +2377,10 @@
       <trans-unit id="CharacterName.God (Yahweh) (in vision)" sil:dynamic="true">
         <source xml:lang="en">God (Yahweh) (in vision)</source>
         <note>ID: CharacterName.God (Yahweh) (in vision)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.God (Yahweh) (man in vision)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.God (Yahweh) (man in vision)</note>
       </trans-unit>
       <trans-unit id="CharacterName.God (Yahweh) (three men)" sil:dynamic="true">
         <source xml:lang="en">God (Yahweh) (three men)</source>
@@ -2118,17 +2402,9 @@
         <source xml:lang="en">God (Yahweh)(vision)</source>
         <note>ID: CharacterName.God (Yahweh)(vision)</note>
       </trans-unit>
-      <trans-unit id="CharacterName.God (vineyard owner)" sil:dynamic="true">
-        <source xml:lang="en">God (vineyard owner)</source>
-        <note>ID: CharacterName.God (vineyard owner)</note>
-      </trans-unit>
-      <trans-unit id="CharacterName.God (voice of one speaking (in vision)" sil:dynamic="true">
-        <source xml:lang="en">God (voice of one speaking (in vision)</source>
-        <note>ID: CharacterName.God (voice of one speaking (in vision)</note>
-      </trans-unit>
-      <trans-unit id="CharacterName.God (voice of one speaking, in vision)" sil:dynamic="true">
-        <source xml:lang="en">God (voice of one speaking, in vision)</source>
-        <note>ID: CharacterName.God (voice of one speaking, in vision)</note>
+      <trans-unit id="CharacterName.God (Yahweh), speaking through the prophets and seers" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.God (Yahweh), speaking through the prophets and seers</note>
       </trans-unit>
       <trans-unit id="CharacterName.God saying what invaders will say" sil:dynamic="true">
         <source xml:lang="en">God saying what invaders will say</source>
@@ -2141,6 +2417,22 @@
       <trans-unit id="CharacterName.God the Father" sil:dynamic="true">
         <source xml:lang="en">God the Father</source>
         <note>ID: CharacterName.God the Father</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.God's chosen (beloved) friend or ally" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.God's chosen (beloved) friend or ally</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.God's people (Israel)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.God's people (Israel)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.God's voice" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.God's voice</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Gog" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Gog</note>
       </trans-unit>
       <trans-unit id="CharacterName.Goliath, Philistine champion" sil:dynamic="true">
         <source xml:lang="en">Goliath, Philistine champion</source>
@@ -2166,6 +2458,10 @@
         <source xml:lang="en">Greeks</source>
         <note>ID: CharacterName.Greeks</note>
       </trans-unit>
+      <trans-unit id="CharacterName.guardians of Ahab's sons" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.guardians of Ahab's sons</note>
+      </trans-unit>
       <trans-unit id="CharacterName.guards at high priests' house" sil:dynamic="true">
         <source xml:lang="en">guards at high priests' house</source>
         <note>ID: CharacterName.guards at high priests' house</note>
@@ -2185,6 +2481,10 @@
       <trans-unit id="CharacterName.Haggai" sil:dynamic="true">
         <source xml:lang="en">Haggai</source>
         <note>ID: CharacterName.Haggai</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Haggai (Yahweh says)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Haggai (Yahweh says)</note>
       </trans-unit>
       <trans-unit id="CharacterName.half-tribe of Manasseh" sil:dynamic="true">
         <source xml:lang="en">half-tribe of Manasseh</source>
@@ -2246,6 +2546,10 @@
         <source xml:lang="en">hearers</source>
         <note>ID: CharacterName.hearers</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Hellenists in Antioch" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Hellenists in Antioch</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Heman, Jeduthun and the rest of those chosen to give thanks" sil:dynamic="true">
         <source xml:lang="en">Heman, Jeduthun and the rest of those chosen to give thanks</source>
         <note>ID: CharacterName.Heman, Jeduthun and the rest of those chosen to give thanks</note>
@@ -2281,6 +2585,10 @@
       <trans-unit id="CharacterName.Herodias' daughter" sil:dynamic="true">
         <source xml:lang="en">Herodias' daughter</source>
         <note>ID: CharacterName.Herodias' daughter</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Heshbon, people of" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Heshbon, people of</note>
       </trans-unit>
       <trans-unit id="CharacterName.Hezekiah, king of Judah" sil:dynamic="true">
         <source xml:lang="en">Hezekiah, king of Judah</source>
@@ -2358,9 +2666,29 @@
         <source xml:lang="en">Hosea</source>
         <note>ID: CharacterName.Hosea</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Hosea (Yahweh says)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Hosea (Yahweh says)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.house of Aaron, the" sil:dynamic="true">
         <source xml:lang="en">house of Aaron, the</source>
         <note>ID: CharacterName.house of Aaron, the</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.house of Israel" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.house of Israel</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.house of Israel (rebellious)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.house of Israel (rebellious)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.house of Jacob" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.house of Jacob</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.house of Judah" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.house of Judah</note>
       </trans-unit>
       <trans-unit id="CharacterName.Huldah, prophetess" sil:dynamic="true">
         <source xml:lang="en">Huldah, prophetess</source>
@@ -2422,13 +2750,41 @@
         <source xml:lang="en">informer (to Solomon)</source>
         <note>ID: CharacterName.informer (to Solomon)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.inhabitant of valley" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.inhabitant of valley</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.inhabitants of Egyptian and Ethiopian coastlands" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.inhabitants of Egyptian and Ethiopian coastlands</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.inhabitants of one city" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.inhabitants of one city</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.inhabitants of the waste places in Israel" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.inhabitants of the waste places in Israel</note>
+      </trans-unit>
       <trans-unit id="CharacterName.inscription on forehead of Babylon" sil:dynamic="true">
         <source xml:lang="en">inscription on forehead of Babylon</source>
         <note>ID: CharacterName.inscription on forehead of Babylon</note>
       </trans-unit>
+      <trans-unit id="CharacterName.interruption-JHN" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.interruption-JHN</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.interruption-MAT" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.interruption-MAT</note>
+      </trans-unit>
       <trans-unit id="CharacterName.invaders" sil:dynamic="true">
         <source xml:lang="en">invaders</source>
         <note>ID: CharacterName.invaders</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.invaders (shepherds)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.invaders (shepherds)</note>
       </trans-unit>
       <trans-unit id="CharacterName.invalid for 38 years" sil:dynamic="true">
         <source xml:lang="en">invalid for 38 years</source>
@@ -2482,6 +2838,10 @@
         <source xml:lang="en">Israel, all the tribes</source>
         <note>ID: CharacterName.Israel, all the tribes</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Israel, fathers of" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Israel, fathers of</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Israel, leaders of" sil:dynamic="true">
         <source xml:lang="en">Israel, leaders of</source>
         <note>ID: CharacterName.Israel, leaders of</note>
@@ -2493,6 +2853,10 @@
       <trans-unit id="CharacterName.Israel, the people of" sil:dynamic="true">
         <source xml:lang="en">Israel, the people of</source>
         <note>ID: CharacterName.Israel, the people of</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Israel, with their kings, princes, priests and prophets" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Israel, with their kings, princes, priests and prophets</note>
       </trans-unit>
       <trans-unit id="CharacterName.Israelite army commanding officers" sil:dynamic="true">
         <source xml:lang="en">Israelite army commanding officers</source>
@@ -2566,6 +2930,10 @@
         <source xml:lang="en">Israelites, some</source>
         <note>ID: CharacterName.Israelites, some</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Issachar" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Issachar</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Ittai" sil:dynamic="true">
         <source xml:lang="en">Ittai</source>
         <note>ID: CharacterName.Ittai</note>
@@ -2598,6 +2966,10 @@
         <source xml:lang="en">Jael</source>
         <note>ID: CharacterName.Jael</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Jahaziel" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Jahaziel</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Jahaziel (Spirit of the Lord on)" sil:dynamic="true">
         <source xml:lang="en">Jahaziel (Spirit of the Lord on)</source>
         <note>ID: CharacterName.Jahaziel (Spirit of the Lord on)</note>
@@ -2609,6 +2981,10 @@
       <trans-unit id="CharacterName.Jairus (synagogue leader)" sil:dynamic="true">
         <source xml:lang="en">Jairus (synagogue leader)</source>
         <note>ID: CharacterName.Jairus (synagogue leader)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jairus' wife" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Jairus' wife</note>
       </trans-unit>
       <trans-unit id="CharacterName.James" sil:dynamic="true">
         <source xml:lang="en">James</source>
@@ -2626,6 +3002,10 @@
         <source xml:lang="en">Jehizkiah</source>
         <note>ID: CharacterName.Jehizkiah</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Jehoash (Joash), king of Judah" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Jehoash (Joash), king of Judah</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Jehoash, king of Israel" sil:dynamic="true">
         <source xml:lang="en">Jehoash, king of Israel</source>
         <note>ID: CharacterName.Jehoash, king of Israel</note>
@@ -2641,6 +3021,10 @@
       <trans-unit id="CharacterName.Jehonadab, son of Recab" sil:dynamic="true">
         <source xml:lang="en">Jehonadab, son of Recab</source>
         <note>ID: CharacterName.Jehonadab, son of Recab</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jehonadab, son of Rechab" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Jehonadab, son of Rechab</note>
       </trans-unit>
       <trans-unit id="CharacterName.Jehoshaphat, king of Judah" sil:dynamic="true">
         <source xml:lang="en">Jehoshaphat, king of Judah</source>
@@ -2694,6 +3078,14 @@
         <source xml:lang="en">Jeremiah's enemies</source>
         <note>ID: CharacterName.Jeremiah's enemies</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Jeremiah's enemies (men of Anathoth)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Jeremiah's enemies (men of Anathoth)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jeremiah's friends (bad)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Jeremiah's friends (bad)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Jeroboam" sil:dynamic="true">
         <source xml:lang="en">Jeroboam</source>
         <note>ID: CharacterName.Jeroboam</note>
@@ -2701,6 +3093,10 @@
       <trans-unit id="CharacterName.Jeroboam, king of Israel" sil:dynamic="true">
         <source xml:lang="en">Jeroboam, king of Israel</source>
         <note>ID: CharacterName.Jeroboam, king of Israel</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jerusalem (personified)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Jerusalem (personified)</note>
       </trans-unit>
       <trans-unit id="CharacterName.Jeshua" sil:dynamic="true">
         <source xml:lang="en">Jeshua</source>
@@ -2721,6 +3117,10 @@
       <trans-unit id="CharacterName.Jesus (in vision)" sil:dynamic="true">
         <source xml:lang="en">Jesus (in vision)</source>
         <note>ID: CharacterName.Jesus (in vision)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jesus (one with garments stained crimson)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Jesus (one with garments stained crimson)</note>
       </trans-unit>
       <trans-unit id="CharacterName.Jesus (the Lord)" sil:dynamic="true">
         <source xml:lang="en">Jesus (the Lord)</source>
@@ -2757,6 +3157,10 @@
       <trans-unit id="CharacterName.Jewish leaders" sil:dynamic="true">
         <source xml:lang="en">Jewish leaders</source>
         <note>ID: CharacterName.Jewish leaders</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jewish leaders in Pisidian Antioch" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Jewish leaders in Pisidian Antioch</note>
       </trans-unit>
       <trans-unit id="CharacterName.Jews from Asia" sil:dynamic="true">
         <source xml:lang="en">Jews from Asia</source>
@@ -2838,6 +3242,10 @@
         <source xml:lang="en">Joah</source>
         <note>ID: CharacterName.Joah</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Joash (Jehoash), king of Israel" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Joash (Jehoash), king of Israel</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Joash, father of Gideon (Jerubbaal)" sil:dynamic="true">
         <source xml:lang="en">Joash, father of Gideon (Jerubbaal)</source>
         <note>ID: CharacterName.Joash, father of Gideon (Jerubbaal)</note>
@@ -2853,6 +3261,10 @@
       <trans-unit id="CharacterName.Job's wife" sil:dynamic="true">
         <source xml:lang="en">Job's wife</source>
         <note>ID: CharacterName.Job's wife</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Joel" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Joel</note>
       </trans-unit>
       <trans-unit id="CharacterName.Joel saying what the priests should say" sil:dynamic="true">
         <source xml:lang="en">Joel saying what the priests should say</source>
@@ -2914,13 +3326,25 @@
         <source xml:lang="en">Jonathan's armor bearer</source>
         <note>ID: CharacterName.Jonathan's armor bearer</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Joram (Jehoram), king of Israel" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Joram (Jehoram), king of Israel</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Joram, king of Israel" sil:dynamic="true">
         <source xml:lang="en">Joram, king of Israel</source>
         <note>ID: CharacterName.Joram, king of Israel</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Joram, son of Toi" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Joram, son of Toi</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Joseph" sil:dynamic="true">
         <source xml:lang="en">Joseph</source>
         <note>ID: CharacterName.Joseph</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Joseph of Arimathaea" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Joseph of Arimathaea</note>
       </trans-unit>
       <trans-unit id="CharacterName.Joseph of Arimathea" sil:dynamic="true">
         <source xml:lang="en">Joseph of Arimathea</source>
@@ -2930,9 +3354,17 @@
         <source xml:lang="en">Joseph, people of</source>
         <note>ID: CharacterName.Joseph, people of</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Joseph, the carpenter" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Joseph, the carpenter</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Joseph's brothers" sil:dynamic="true">
         <source xml:lang="en">Joseph's brothers</source>
         <note>ID: CharacterName.Joseph's brothers</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Joseph's brothers (five representatives)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Joseph's brothers (five representatives)</note>
       </trans-unit>
       <trans-unit id="CharacterName.Joshua" sil:dynamic="true">
         <source xml:lang="en">Joshua</source>
@@ -2946,6 +3378,18 @@
         <source xml:lang="en">Josiah, king of Judah</source>
         <note>ID: CharacterName.Josiah, king of Judah</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Jospeh's brothers" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Jospeh's brothers</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jospeh's brothers (not Simeon or Benjamin)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Jospeh's brothers (not Simeon or Benjamin)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Jospeh's brothers (not Simeon)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Jospeh's brothers (not Simeon)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Jotham, son of Gideon (Jerubbaal)" sil:dynamic="true">
         <source xml:lang="en">Jotham, son of Gideon (Jerubbaal)</source>
         <note>ID: CharacterName.Jotham, son of Gideon (Jerubbaal)</note>
@@ -2958,6 +3402,10 @@
         <source xml:lang="en">Judah, all</source>
         <note>ID: CharacterName.Judah, all</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Judah, leaders of" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Judah, leaders of</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Judah, men of" sil:dynamic="true">
         <source xml:lang="en">Judah, men of</source>
         <note>ID: CharacterName.Judah, men of</note>
@@ -2966,9 +3414,21 @@
         <source xml:lang="en">Judah, people in</source>
         <note>ID: CharacterName.Judah, people in</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Judah, people of" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Judah, people of</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Judah, remnant of" sil:dynamic="true">
         <source xml:lang="en">Judah, remnant of</source>
         <note>ID: CharacterName.Judah, remnant of</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Judah, repentant leaders" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Judah, repentant leaders</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Judah's brothers" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Judah's brothers</note>
       </trans-unit>
       <trans-unit id="CharacterName.Judaizers" sil:dynamic="true">
         <source xml:lang="en">Judaizers</source>
@@ -2982,9 +3442,17 @@
         <source xml:lang="en">Judas, apostle (not Judas Iscariot)</source>
         <note>ID: CharacterName.Judas, apostle (not Judas Iscariot)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.judge (corrupt)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.judge (corrupt)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.judge who says the wicked are innocent" sil:dynamic="true">
         <source xml:lang="en">judge who says the wicked are innocent</source>
         <note>ID: CharacterName.judge who says the wicked are innocent</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Julius" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Julius</note>
       </trans-unit>
       <trans-unit id="CharacterName.king" sil:dynamic="true">
         <source xml:lang="en">king</source>
@@ -3030,9 +3498,21 @@
         <source xml:lang="en">king of Nineveh</source>
         <note>ID: CharacterName.king of Nineveh</note>
       </trans-unit>
+      <trans-unit id="CharacterName.king of Syria (Aram)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.king of Syria (Aram)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.king of the Ammonites" sil:dynamic="true">
         <source xml:lang="en">king of the Ammonites</source>
         <note>ID: CharacterName.king of the Ammonites</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.King Xerxes' personal servants" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.King Xerxes' personal servants</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.King Xerxes' servants at the gate" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.King Xerxes' servants at the gate</note>
       </trans-unit>
       <trans-unit id="CharacterName.kings of the earth" sil:dynamic="true">
         <source xml:lang="en">kings of the earth</source>
@@ -3086,9 +3566,17 @@
         <source xml:lang="en">leaders of Israel and the king (Rehoboam)</source>
         <note>ID: CharacterName.leaders of Israel and the king (Rehoboam)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.leaders, many" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.leaders, many</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Leah" sil:dynamic="true">
         <source xml:lang="en">Leah</source>
         <note>ID: CharacterName.Leah</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.leech's two daughters" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.leech's two daughters</note>
       </trans-unit>
       <trans-unit id="CharacterName.leper" sil:dynamic="true">
         <source xml:lang="en">leper</source>
@@ -3105,6 +3593,10 @@
       <trans-unit id="CharacterName.letter from apostles and elders" sil:dynamic="true">
         <source xml:lang="en">letter from apostles and elders</source>
         <note>ID: CharacterName.letter from apostles and elders</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.letter from Sennacherib" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.letter from Sennacherib</note>
       </trans-unit>
       <trans-unit id="CharacterName.Levi" sil:dynamic="true">
         <source xml:lang="en">Levi</source>
@@ -3162,9 +3654,17 @@
         <source xml:lang="en">Lord Jesus</source>
         <note>ID: CharacterName.Lord Jesus</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Lord)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Lord)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Lot" sil:dynamic="true">
         <source xml:lang="en">Lot</source>
         <note>ID: CharacterName.Lot</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.loud voice out of temple, from throne" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.loud voice out of temple, from throne</note>
       </trans-unit>
       <trans-unit id="CharacterName.lover" sil:dynamic="true">
         <source xml:lang="en">lover</source>
@@ -3173,6 +3673,10 @@
       <trans-unit id="CharacterName.Lydia" sil:dynamic="true">
         <source xml:lang="en">Lydia</source>
         <note>ID: CharacterName.Lydia</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.lying words" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.lying words</note>
       </trans-unit>
       <trans-unit id="CharacterName.Macedonian" sil:dynamic="true">
         <source xml:lang="en">Macedonian</source>
@@ -3206,6 +3710,10 @@
         <source xml:lang="en">Makir</source>
         <note>ID: CharacterName.Makir</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Malachi" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Malachi</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Malta islanders" sil:dynamic="true">
         <source xml:lang="en">Malta islanders</source>
         <note>ID: CharacterName.Malta islanders</note>
@@ -3213,6 +3721,10 @@
       <trans-unit id="CharacterName.man" sil:dynamic="true">
         <source xml:lang="en">man</source>
         <note>ID: CharacterName.man</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.man (angel) who stood among the myrtle trees" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.man (angel) who stood among the myrtle trees</note>
       </trans-unit>
       <trans-unit id="CharacterName.man (at Shechem)" sil:dynamic="true">
         <source xml:lang="en">man (at Shechem)</source>
@@ -3282,6 +3794,10 @@
         <source xml:lang="en">man of God (prophet to Eli)</source>
         <note>ID: CharacterName.man of God (prophet to Eli)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.man of God (prophet to the king of Israel)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.man of God (prophet to the king of Israel)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.man of God from Judah" sil:dynamic="true">
         <source xml:lang="en">man of God from Judah</source>
         <note>ID: CharacterName.man of God from Judah</note>
@@ -3302,6 +3818,10 @@
         <source xml:lang="en">man standing among myrtle trees</source>
         <note>ID: CharacterName.man standing among myrtle trees</note>
       </trans-unit>
+      <trans-unit id="CharacterName.man who builds his house by unrighteousness" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.man who builds his house by unrighteousness</note>
+      </trans-unit>
       <trans-unit id="CharacterName.man who says 'I know him'" sil:dynamic="true">
         <source xml:lang="en">man who says 'I know him'</source>
         <note>ID: CharacterName.man who says 'I know him'</note>
@@ -3317,6 +3837,10 @@
       <trans-unit id="CharacterName.man with sponge" sil:dynamic="true">
         <source xml:lang="en">man with sponge</source>
         <note>ID: CharacterName.man with sponge</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.man, deceitful" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.man, deceitful</note>
       </trans-unit>
       <trans-unit id="CharacterName.man, still another" sil:dynamic="true">
         <source xml:lang="en">man, still another</source>
@@ -3490,6 +4014,10 @@
         <source xml:lang="en">men of the town (Philistines)</source>
         <note>ID: CharacterName.men of the town (Philistines)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.men who are complacent" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.men who are complacent</note>
+      </trans-unit>
       <trans-unit id="CharacterName.men who have gone astray" sil:dynamic="true">
         <source xml:lang="en">men who have gone astray</source>
         <note>ID: CharacterName.men who have gone astray</note>
@@ -3554,6 +4082,10 @@
         <source xml:lang="en">messenger of Ahab, king of Israel</source>
         <note>ID: CharacterName.messenger of Ahab, king of Israel</note>
       </trans-unit>
+      <trans-unit id="CharacterName.messenger telling about Zimri's conspiracy" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.messenger telling about Zimri's conspiracy</note>
+      </trans-unit>
       <trans-unit id="CharacterName.messenger to Abimelech" sil:dynamic="true">
         <source xml:lang="en">messenger to Abimelech</source>
         <note>ID: CharacterName.messenger to Abimelech</note>
@@ -3566,6 +4098,26 @@
         <source xml:lang="en">messenger to David</source>
         <note>ID: CharacterName.messenger to David</note>
       </trans-unit>
+      <trans-unit id="CharacterName.messenger to Jesus" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.messenger to Jesus</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.messenger to Job" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.messenger to Job</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.messenger to Job, another" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.messenger to Job, another</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.messenger to Job, still another" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.messenger to Job, still another</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.messenger to Job, yet another" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.messenger to Job, yet another</note>
+      </trans-unit>
       <trans-unit id="CharacterName.messenger to king of Jericho" sil:dynamic="true">
         <source xml:lang="en">messenger to king of Jericho</source>
         <note>ID: CharacterName.messenger to king of Jericho</note>
@@ -3573,6 +4125,10 @@
       <trans-unit id="CharacterName.messenger to Saul" sil:dynamic="true">
         <source xml:lang="en">messenger to Saul</source>
         <note>ID: CharacterName.messenger to Saul</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.messenger to the king and to the queen mother" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.messenger to the king and to the queen mother</note>
       </trans-unit>
       <trans-unit id="CharacterName.messenger, another" sil:dynamic="true">
         <source xml:lang="en">messenger, another</source>
@@ -3605,6 +4161,10 @@
       <trans-unit id="CharacterName.messengers of Ahaziah" sil:dynamic="true">
         <source xml:lang="en">messengers of Ahaziah</source>
         <note>ID: CharacterName.messengers of Ahaziah</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.messengers of Ben-Hadad, king of Aram" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.messengers of Ben-Hadad, king of Aram</note>
       </trans-unit>
       <trans-unit id="CharacterName.messengers of Ben-Hadad. king of Aram" sil:dynamic="true">
         <source xml:lang="en">messengers of Ben-Hadad. king of Aram</source>
@@ -3642,6 +4202,18 @@
         <source xml:lang="en">Micah</source>
         <note>ID: CharacterName.Micah</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Micah (Yahweh says)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Micah (Yahweh says)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Micah of Ephraim" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Micah of Ephraim</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Micah, prophet" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Micah, prophet</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Micah's mother" sil:dynamic="true">
         <source xml:lang="en">Micah's mother</source>
         <note>ID: CharacterName.Micah's mother</note>
@@ -3649,6 +4221,10 @@
       <trans-unit id="CharacterName.Micaiah, prophet of the LORD" sil:dynamic="true">
         <source xml:lang="en">Micaiah, prophet of the LORD</source>
         <note>ID: CharacterName.Micaiah, prophet of the LORD</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Micaiah, son of Imlah" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Micaiah, son of Imlah</note>
       </trans-unit>
       <trans-unit id="CharacterName.Michael, archangel" sil:dynamic="true">
         <source xml:lang="en">Michael, archangel</source>
@@ -3690,6 +4266,10 @@
         <source xml:lang="en">Miriam (young)</source>
         <note>ID: CharacterName.Miriam (young)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Moab and Seir" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Moab and Seir</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Moabite officials" sil:dynamic="true">
         <source xml:lang="en">Moabite officials</source>
         <note>ID: CharacterName.Moabite officials</note>
@@ -3726,17 +4306,41 @@
         <source xml:lang="en">Moses (at LORD's command)</source>
         <note>ID: CharacterName.Moses (at LORD's command)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.mother" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.mother</note>
+      </trans-unit>
       <trans-unit id="CharacterName.mother of cured man, blind from birth" sil:dynamic="true">
         <source xml:lang="en">mother of cured man, blind from birth</source>
         <note>ID: CharacterName.mother of cured man, blind from birth</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.mother of false prophet" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.mother of false prophet</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.mother of Samson" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.mother of Samson</note>
       </trans-unit>
       <trans-unit id="CharacterName.mother of the sons of Zebedee (James and John)" sil:dynamic="true">
         <source xml:lang="en">mother of the sons of Zebedee (James and John)</source>
         <note>ID: CharacterName.mother of the sons of Zebedee (James and John)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Mount Seir" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Mount Seir</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.mourners" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.mourners</note>
+      </trans-unit>
       <trans-unit id="CharacterName.multitude from all nations, tribes, peoples, languages" sil:dynamic="true">
         <source xml:lang="en">multitude from all nations, tribes, peoples, languages</source>
         <note>ID: CharacterName.multitude from all nations, tribes, peoples, languages</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.multitude that was with Jesus when he raised Lazarus" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.multitude that was with Jesus when he raised Lazarus</note>
       </trans-unit>
       <trans-unit id="CharacterName.musicians" sil:dynamic="true">
         <source xml:lang="en">musicians</source>
@@ -3762,9 +4366,21 @@
         <source xml:lang="en">Nahash the Ammonite</source>
         <note>ID: CharacterName.Nahash the Ammonite</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Nahum" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Nahum</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Nahum (Yahweh says)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Nahum (Yahweh says)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Naomi" sil:dynamic="true">
         <source xml:lang="en">Naomi</source>
         <note>ID: CharacterName.Naomi</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Naphtali" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Naphtali</note>
       </trans-unit>
       <trans-unit id="CharacterName.Nathan" sil:dynamic="true">
         <source xml:lang="en">Nathan</source>
@@ -3786,9 +4402,17 @@
         <source xml:lang="en">nations, many</source>
         <note>ID: CharacterName.nations, many</note>
       </trans-unit>
+      <trans-unit id="CharacterName.nations, neighboring (reply)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.nations, neighboring (reply)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Nebuchadnezzar, king of Babylon" sil:dynamic="true">
         <source xml:lang="en">Nebuchadnezzar, king of Babylon</source>
         <note>ID: CharacterName.Nebuchadnezzar, king of Babylon</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Nebushazban" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Nebushazban</note>
       </trans-unit>
       <trans-unit id="CharacterName.Nebuzaradan" sil:dynamic="true">
         <source xml:lang="en">Nebuzaradan</source>
@@ -3810,6 +4434,10 @@
         <source xml:lang="en">Nehemiah (with Ezra and Levites) - see v. 10</source>
         <note>ID: CharacterName.Nehemiah (with Ezra and Levites) - see v. 10</note>
       </trans-unit>
+      <trans-unit id="CharacterName.neighboring nations around Moab" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.neighboring nations around Moab</note>
+      </trans-unit>
       <trans-unit id="CharacterName.neighbors and relatives of Elizabeth and Zacharias (Zechariah)" sil:dynamic="true">
         <source xml:lang="en">neighbors and relatives of Elizabeth and Zacharias (Zechariah)</source>
         <note>ID: CharacterName.neighbors and relatives of Elizabeth and Zacharias (Zechariah)</note>
@@ -3825,6 +4453,10 @@
       <trans-unit id="CharacterName.neighbors of man blind from birth, some" sil:dynamic="true">
         <source xml:lang="en">neighbors of man blind from birth, some</source>
         <note>ID: CharacterName.neighbors of man blind from birth, some</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Nergal Sharezer" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Nergal Sharezer</note>
       </trans-unit>
       <trans-unit id="CharacterName.news giver to Jacob" sil:dynamic="true">
         <source xml:lang="en">news giver to Jacob</source>
@@ -3850,6 +4482,10 @@
         <source xml:lang="en">Nineveh, the city of revelry</source>
         <note>ID: CharacterName.Nineveh, the city of revelry</note>
       </trans-unit>
+      <trans-unit id="CharacterName.no one" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.no one</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Noah" sil:dynamic="true">
         <source xml:lang="en">Noah</source>
         <note>ID: CharacterName.Noah</note>
@@ -3862,9 +4498,25 @@
         <source xml:lang="en">non-reader</source>
         <note>ID: CharacterName.non-reader</note>
       </trans-unit>
+      <trans-unit id="CharacterName.oarsmen, mariners, pilots of the sea" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.oarsmen, mariners, pilots of the sea</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Obadiah (Yahweh says)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Obadiah (Yahweh says)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Obadiah, manager of Ahab's palace" sil:dynamic="true">
         <source xml:lang="en">Obadiah, manager of Ahab's palace</source>
         <note>ID: CharacterName.Obadiah, manager of Ahab's palace</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Obadiah, prophet" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Obadiah, prophet</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Oded, prophet" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Oded, prophet</note>
       </trans-unit>
       <trans-unit id="CharacterName.Oded, prophet of the Lord" sil:dynamic="true">
         <source xml:lang="en">Oded, prophet of the Lord</source>
@@ -3890,6 +4542,10 @@
         <source xml:lang="en">officers of king of Aram</source>
         <note>ID: CharacterName.officers of king of Aram</note>
       </trans-unit>
+      <trans-unit id="CharacterName.officers of king of Babylon" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.officers of king of Babylon</note>
+      </trans-unit>
       <trans-unit id="CharacterName.officers of magistrates" sil:dynamic="true">
         <source xml:lang="en">officers of magistrates</source>
         <note>ID: CharacterName.officers of magistrates</note>
@@ -3906,6 +4562,10 @@
         <source xml:lang="en">officials</source>
         <note>ID: CharacterName.officials</note>
       </trans-unit>
+      <trans-unit id="CharacterName.officials (elders) of Samaria (Jezreel) and the guardians of Ahab's sons" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.officials (elders) of Samaria (Jezreel) and the guardians of Ahab's sons</note>
+      </trans-unit>
       <trans-unit id="CharacterName.officials (Shephatiah, Gedaliah, Jehucal, and Pashur)" sil:dynamic="true">
         <source xml:lang="en">officials (Shephatiah, Gedaliah, Jehucal, and Pashur)</source>
         <note>ID: CharacterName.officials (Shephatiah, Gedaliah, Jehucal, and Pashur)</note>
@@ -3913,6 +4573,10 @@
       <trans-unit id="CharacterName.officials from chief priests and Pharisees" sil:dynamic="true">
         <source xml:lang="en">officials from chief priests and Pharisees</source>
         <note>ID: CharacterName.officials from chief priests and Pharisees</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.officials of Belshazzar" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.officials of Belshazzar</note>
       </trans-unit>
       <trans-unit id="CharacterName.officials of Ben-Hadad, king of Aram" sil:dynamic="true">
         <source xml:lang="en">officials of Ben-Hadad, king of Aram</source>
@@ -3966,6 +4630,10 @@
         <source xml:lang="en">one at table of Pharisee (expert in religious law)</source>
         <note>ID: CharacterName.one at table of Pharisee (expert in religious law)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.one of the others who stood on the river bank" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.one of the others who stood on the river bank</note>
+      </trans-unit>
       <trans-unit id="CharacterName.one of the servant girls of the high priest" sil:dynamic="true">
         <source xml:lang="en">one of the servant girls of the high priest</source>
         <note>ID: CharacterName.one of the servant girls of the high priest</note>
@@ -3997,6 +4665,10 @@
       <trans-unit id="CharacterName.one who looked like a man" sil:dynamic="true">
         <source xml:lang="en">one who looked like a man</source>
         <note>ID: CharacterName.one who looked like a man</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.one who robs his father or mother" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.one who robs his father or mother</note>
       </trans-unit>
       <trans-unit id="CharacterName.one with garments stained crimson" sil:dynamic="true">
         <source xml:lang="en">one with garments stained crimson</source>
@@ -4042,6 +4714,10 @@
         <source xml:lang="en">owners of fortune telling slave girl</source>
         <note>ID: CharacterName.owners of fortune telling slave girl</note>
       </trans-unit>
+      <trans-unit id="CharacterName.palace administrator and overseer (elder) of the city" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.palace administrator and overseer (elder) of the city</note>
+      </trans-unit>
       <trans-unit id="CharacterName.parents of cured man, blind from birth" sil:dynamic="true">
         <source xml:lang="en">parents of cured man, blind from birth</source>
         <note>ID: CharacterName.parents of cured man, blind from birth</note>
@@ -4074,6 +4750,10 @@
         <source xml:lang="en">Paul's traveling companions, Luke and</source>
         <note>ID: CharacterName.Paul's traveling companions, Luke and</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Pekah, son of Remaliah, king of Israel" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Pekah, son of Remaliah, king of Israel</note>
+      </trans-unit>
       <trans-unit id="CharacterName.people" sil:dynamic="true">
         <source xml:lang="en">people</source>
         <note>ID: CharacterName.people</note>
@@ -4101,6 +4781,10 @@
       <trans-unit id="CharacterName.people in Capernaum" sil:dynamic="true">
         <source xml:lang="en">people in Capernaum</source>
         <note>ID: CharacterName.people in Capernaum</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.people in Capernaum synagogue" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.people in Capernaum synagogue</note>
       </trans-unit>
       <trans-unit id="CharacterName.people in crowd by Sea of Galilee" sil:dynamic="true">
         <source xml:lang="en">people in crowd by Sea of Galilee</source>
@@ -4162,13 +4846,29 @@
         <source xml:lang="en">people standing there</source>
         <note>ID: CharacterName.people standing there</note>
       </trans-unit>
+      <trans-unit id="CharacterName.people unwilling to listen" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.people unwilling to listen</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.people unwilling to walk in the good way" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.people unwilling to walk in the good way</note>
+      </trans-unit>
       <trans-unit id="CharacterName.people who had known Saul" sil:dynamic="true">
         <source xml:lang="en">people who had known Saul</source>
         <note>ID: CharacterName.people who had known Saul</note>
       </trans-unit>
+      <trans-unit id="CharacterName.people who heard about Jesus' birth" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.people who heard about Jesus' birth</note>
+      </trans-unit>
       <trans-unit id="CharacterName.people who saw healing of demon-possessed man who was blind and mute" sil:dynamic="true">
         <source xml:lang="en">people who saw healing of demon-possessed man who was blind and mute</source>
         <note>ID: CharacterName.people who saw healing of demon-possessed man who was blind and mute</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.people who see Nineveh's destruction" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.people who see Nineveh's destruction</note>
       </trans-unit>
       <trans-unit id="CharacterName.people, all the" sil:dynamic="true">
         <source xml:lang="en">people, all the</source>
@@ -4194,9 +4894,17 @@
         <source xml:lang="en">people, other</source>
         <note>ID: CharacterName.people, other</note>
       </trans-unit>
+      <trans-unit id="CharacterName.people, repentant" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.people, repentant</note>
+      </trans-unit>
       <trans-unit id="CharacterName.people, righteous" sil:dynamic="true">
         <source xml:lang="en">people, righteous</source>
         <note>ID: CharacterName.people, righteous</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.people, self-righteous" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.people, self-righteous</note>
       </trans-unit>
       <trans-unit id="CharacterName.people, some" sil:dynamic="true">
         <source xml:lang="en">people, some</source>
@@ -4218,6 +4926,10 @@
         <source xml:lang="en">person claiming to have a pure heart</source>
         <note>ID: CharacterName.person claiming to have a pure heart</note>
       </trans-unit>
+      <trans-unit id="CharacterName.person encouraging Jerusalem" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.person encouraging Jerusalem</note>
+      </trans-unit>
       <trans-unit id="CharacterName.person near Lazarus' grave who informed Jesus" sil:dynamic="true">
         <source xml:lang="en">person near Lazarus' grave who informed Jesus</source>
         <note>ID: CharacterName.person near Lazarus' grave who informed Jesus</note>
@@ -4225,6 +4937,10 @@
       <trans-unit id="CharacterName.person sacrificing" sil:dynamic="true">
         <source xml:lang="en">person sacrificing</source>
         <note>ID: CharacterName.person sacrificing</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.person warning people of Benjamin to flee" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.person warning people of Benjamin to flee</note>
       </trans-unit>
       <trans-unit id="CharacterName.person who informed Judah" sil:dynamic="true">
         <source xml:lang="en">person who informed Judah</source>
@@ -4318,6 +5034,10 @@
         <source xml:lang="en">Peter and John's own people (church in Jerusalem)</source>
         <note>ID: CharacterName.Peter and John's own people (church in Jerusalem)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Peter and the apostles" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Peter and the apostles</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Pharaoh" sil:dynamic="true">
         <source xml:lang="en">Pharaoh</source>
         <note>ID: CharacterName.Pharaoh</note>
@@ -4341,6 +5061,14 @@
       <trans-unit id="CharacterName.Pharaoh (6th)" sil:dynamic="true">
         <source xml:lang="en">Pharaoh (6th)</source>
         <note>ID: CharacterName.Pharaoh (6th)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Pharaoh (Apries)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Pharaoh (Apries)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Pharaoh king of Egypt" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Pharaoh king of Egypt</note>
       </trans-unit>
       <trans-unit id="CharacterName.Pharaoh's daughter" sil:dynamic="true">
         <source xml:lang="en">Pharaoh's daughter</source>
@@ -4450,13 +5178,25 @@
         <source xml:lang="en">priest</source>
         <note>ID: CharacterName.priest</note>
       </trans-unit>
+      <trans-unit id="CharacterName.priest of Jupiter" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.priest of Jupiter</note>
+      </trans-unit>
       <trans-unit id="CharacterName.priests" sil:dynamic="true">
         <source xml:lang="en">priests</source>
         <note>ID: CharacterName.priests</note>
       </trans-unit>
+      <trans-unit id="CharacterName.prince of Tyre" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.prince of Tyre</note>
+      </trans-unit>
       <trans-unit id="CharacterName.princes" sil:dynamic="true">
         <source xml:lang="en">princes</source>
         <note>ID: CharacterName.princes</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.princes of the sea" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.princes of the sea</note>
       </trans-unit>
       <trans-unit id="CharacterName.proclaimers of God's word" sil:dynamic="true">
         <source xml:lang="en">proclaimers of God's word</source>
@@ -4466,13 +5206,29 @@
         <source xml:lang="en">proclamation</source>
         <note>ID: CharacterName.proclamation</note>
       </trans-unit>
+      <trans-unit id="CharacterName.proclamation of the resurrection" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.proclamation of the resurrection</note>
+      </trans-unit>
       <trans-unit id="CharacterName.prophet" sil:dynamic="true">
         <source xml:lang="en">prophet</source>
         <note>ID: CharacterName.prophet</note>
       </trans-unit>
+      <trans-unit id="CharacterName.prophet (lying)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.prophet (lying)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.prophet of the LORD" sil:dynamic="true">
         <source xml:lang="en">prophet of the LORD</source>
         <note>ID: CharacterName.prophet of the LORD</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.prophet of Yahweh sent to Israel" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.prophet of Yahweh sent to Israel</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.prophet sent to Amaziah" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.prophet sent to Amaziah</note>
       </trans-unit>
       <trans-unit id="CharacterName.prophet who confronts Ahab" sil:dynamic="true">
         <source xml:lang="en">prophet who confronts Ahab</source>
@@ -4486,6 +5242,14 @@
         <source xml:lang="en">prophets (speaking the word of the LORD)</source>
         <note>ID: CharacterName.prophets (speaking the word of the LORD)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.prophets (speaking the word of Yahweh)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.prophets (speaking the word of Yahweh)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.prophets and seers" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.prophets and seers</note>
+      </trans-unit>
       <trans-unit id="CharacterName.prophets and teachers at Antioch" sil:dynamic="true">
         <source xml:lang="en">prophets and teachers at Antioch</source>
         <note>ID: CharacterName.prophets and teachers at Antioch</note>
@@ -4497,6 +5261,10 @@
       <trans-unit id="CharacterName.prophets, 400 false" sil:dynamic="true">
         <source xml:lang="en">prophets, 400 false</source>
         <note>ID: CharacterName.prophets, 400 false</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.prostitute (symbolic of Israel)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.prostitute (symbolic of Israel)</note>
       </trans-unit>
       <trans-unit id="CharacterName.prostitute, one" sil:dynamic="true">
         <source xml:lang="en">prostitute, one</source>
@@ -4526,6 +5294,10 @@
         <source xml:lang="en">Puah (midwife)</source>
         <note>ID: CharacterName.Puah (midwife)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.queen (Belshazzar's mother)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.queen (Belshazzar's mother)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.queen of Babylon" sil:dynamic="true">
         <source xml:lang="en">queen of Babylon</source>
         <note>ID: CharacterName.queen of Babylon</note>
@@ -4533,6 +5305,18 @@
       <trans-unit id="CharacterName.queen of Sheba" sil:dynamic="true">
         <source xml:lang="en">queen of Sheba</source>
         <note>ID: CharacterName.queen of Sheba</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.queens and concubines" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.queens and concubines</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Rabmag" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Rabmag</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Rabsaris" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Rabsaris</note>
       </trans-unit>
       <trans-unit id="CharacterName.Rabshakeh" sil:dynamic="true">
         <source xml:lang="en">Rabshakeh</source>
@@ -4570,6 +5354,14 @@
         <source xml:lang="en">Recabite family, men of</source>
         <note>ID: CharacterName.Recabite family, men of</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Rechab" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Rechab</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Rechabite family, men of" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Rechabite family, men of</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Regem-Melech" sil:dynamic="true">
         <source xml:lang="en">Regem-Melech</source>
         <note>ID: CharacterName.Regem-Melech</note>
@@ -4594,9 +5386,29 @@
         <source xml:lang="en">reply to the slain believers (in vision)</source>
         <note>ID: CharacterName.reply to the slain believers (in vision)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.report about Jesus" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.report about Jesus</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.report about John the Baptist" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.report about John the Baptist</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.report about Lazarus" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.report about Lazarus</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.report concerning new believers in Antioch" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.report concerning new believers in Antioch</note>
+      </trans-unit>
       <trans-unit id="CharacterName.report concerning Paul" sil:dynamic="true">
         <source xml:lang="en">report concerning Paul</source>
         <note>ID: CharacterName.report concerning Paul</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.report of God's mercy to Elizabeth" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.report of God's mercy to Elizabeth</note>
       </trans-unit>
       <trans-unit id="CharacterName.report to king of Aram" sil:dynamic="true">
         <source xml:lang="en">report to king of Aram</source>
@@ -4605,6 +5417,10 @@
       <trans-unit id="CharacterName.report to king of Assyria" sil:dynamic="true">
         <source xml:lang="en">report to king of Assyria</source>
         <note>ID: CharacterName.report to king of Assyria</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.report to Martha about Jesus" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.report to Martha about Jesus</note>
       </trans-unit>
       <trans-unit id="CharacterName.report to Sanballat and Tobiah" sil:dynamic="true">
         <source xml:lang="en">report to Sanballat and Tobiah</source>
@@ -4630,6 +5446,14 @@
         <source xml:lang="en">rich young ruler</source>
         <note>ID: CharacterName.rich young ruler</note>
       </trans-unit>
+      <trans-unit id="CharacterName.righteousness which is of faith (God)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.righteousness which is of faith (God)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.rooster" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.rooster</note>
+      </trans-unit>
       <trans-unit id="CharacterName.royal record" sil:dynamic="true">
         <source xml:lang="en">royal record</source>
         <note>ID: CharacterName.royal record</note>
@@ -4650,13 +5474,29 @@
         <source xml:lang="en">rulers of people in Jerusalem</source>
         <note>ID: CharacterName.rulers of people in Jerusalem</note>
       </trans-unit>
+      <trans-unit id="CharacterName.rulers of the congregation" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.rulers of the congregation</note>
+      </trans-unit>
       <trans-unit id="CharacterName.rules of the world" sil:dynamic="true">
         <source xml:lang="en">rules of the world</source>
         <note>ID: CharacterName.rules of the world</note>
       </trans-unit>
+      <trans-unit id="CharacterName.rumbling sound" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.rumbling sound</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.rumor" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.rumor</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Ruth" sil:dynamic="true">
         <source xml:lang="en">Ruth</source>
         <note>ID: CharacterName.Ruth</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Sabeans" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Sabeans</note>
       </trans-unit>
       <trans-unit id="CharacterName.Sadducees" sil:dynamic="true">
         <source xml:lang="en">Sadducees</source>
@@ -4770,6 +5610,14 @@
         <source xml:lang="en">Saul's servant</source>
         <note>ID: CharacterName.Saul's servant</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Saul's servant (young)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Saul's servant (young)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Saul's servants" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Saul's servants</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Saul's uncle" sil:dynamic="true">
         <source xml:lang="en">Saul's uncle</source>
         <note>ID: CharacterName.Saul's uncle</note>
@@ -4781,6 +5629,14 @@
       <trans-unit id="CharacterName.saying (proverb)" sil:dynamic="true">
         <source xml:lang="en">saying (proverb)</source>
         <note>ID: CharacterName.saying (proverb)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.saying (proverb) about sour grapes" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.saying (proverb) about sour grapes</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.saying about (or by) idolaters" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.saying about (or by) idolaters</note>
       </trans-unit>
       <trans-unit id="CharacterName.saying about Anakites" sil:dynamic="true">
         <source xml:lang="en">saying about Anakites</source>
@@ -4794,9 +5650,21 @@
         <source xml:lang="en">saying about captivity and death by the sword</source>
         <note>ID: CharacterName.saying about captivity and death by the sword</note>
       </trans-unit>
+      <trans-unit id="CharacterName.saying about doing anything" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.saying about doing anything</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.saying about food" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.saying about food</note>
+      </trans-unit>
       <trans-unit id="CharacterName.saying about Gentile nations" sil:dynamic="true">
         <source xml:lang="en">saying about Gentile nations</source>
         <note>ID: CharacterName.saying about Gentile nations</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.saying about God's deliverance" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.saying about God's deliverance</note>
       </trans-unit>
       <trans-unit id="CharacterName.saying about going beyond what is written" sil:dynamic="true">
         <source xml:lang="en">saying about going beyond what is written</source>
@@ -4817,6 +5685,10 @@
       <trans-unit id="CharacterName.saying about seer" sil:dynamic="true">
         <source xml:lang="en">saying about seer</source>
         <note>ID: CharacterName.saying about seer</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.saying about short bed and narrow blanket" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.saying about short bed and narrow blanket</note>
       </trans-unit>
       <trans-unit id="CharacterName.saying about sow" sil:dynamic="true">
         <source xml:lang="en">saying about sow</source>
@@ -4842,6 +5714,10 @@
         <source xml:lang="en">scoffers</source>
         <note>ID: CharacterName.scoffers</note>
       </trans-unit>
+      <trans-unit id="CharacterName.scoffers who rule people in Jerusalem" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.scoffers who rule people in Jerusalem</note>
+      </trans-unit>
       <trans-unit id="CharacterName.scoundrels" sil:dynamic="true">
         <source xml:lang="en">scoundrels</source>
         <note>ID: CharacterName.scoundrels</note>
@@ -4849,6 +5725,10 @@
       <trans-unit id="CharacterName.scouts of Ben-Hadad, king of Aram" sil:dynamic="true">
         <source xml:lang="en">scouts of Ben-Hadad, king of Aram</source>
         <note>ID: CharacterName.scouts of Ben-Hadad, king of Aram</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.scribes" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.scribes</note>
       </trans-unit>
       <trans-unit id="CharacterName.scripture" sil:dynamic="true">
         <source xml:lang="en">scripture</source>
@@ -4878,6 +5758,14 @@
         <source xml:lang="en">second person to accuse Peter (man)</source>
         <note>ID: CharacterName.second person to accuse Peter (man)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Seir (personified)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Seir (personified)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Sennacherib, king of Assyria" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Sennacherib, king of Assyria</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Sennacherib's officers" sil:dynamic="true">
         <source xml:lang="en">Sennacherib's officers</source>
         <note>ID: CharacterName.Sennacherib's officers</note>
@@ -4893,6 +5781,10 @@
       <trans-unit id="CharacterName.seraphs" sil:dynamic="true">
         <source xml:lang="en">seraphs</source>
         <note>ID: CharacterName.seraphs</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Sergius Paulus, proconsul" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Sergius Paulus, proconsul</note>
       </trans-unit>
       <trans-unit id="CharacterName.serpent" sil:dynamic="true">
         <source xml:lang="en">serpent</source>
@@ -4938,6 +5830,10 @@
         <source xml:lang="en">servant of Saul</source>
         <note>ID: CharacterName.servant of Saul</note>
       </trans-unit>
+      <trans-unit id="CharacterName.servant of Saul (and of his father Kish)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.servant of Saul (and of his father Kish)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.servants of Achish, king of Gath" sil:dynamic="true">
         <source xml:lang="en">servants of Achish, king of Gath</source>
         <note>ID: CharacterName.servants of Achish, king of Gath</note>
@@ -4970,6 +5866,10 @@
         <source xml:lang="en">Shadrach</source>
         <note>ID: CharacterName.Shadrach</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Shalmaneser, king of Assyria" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Shalmaneser, king of Assyria</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Shaphan, secretary" sil:dynamic="true">
         <source xml:lang="en">Shaphan, secretary</source>
         <note>ID: CharacterName.Shaphan, secretary</note>
@@ -4977,6 +5877,10 @@
       <trans-unit id="CharacterName.Sharezer" sil:dynamic="true">
         <source xml:lang="en">Sharezer</source>
         <note>ID: CharacterName.Sharezer</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Sheba, Dedan, and the merchants of Tarshish" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Sheba, Dedan, and the merchants of Tarshish</note>
       </trans-unit>
       <trans-unit id="CharacterName.Sheba, son of Bicri" sil:dynamic="true">
         <source xml:lang="en">Sheba, son of Bicri</source>
@@ -4997,6 +5901,18 @@
       <trans-unit id="CharacterName.Shemaiah" sil:dynamic="true">
         <source xml:lang="en">Shemaiah</source>
         <note>ID: CharacterName.Shemaiah</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Shemaiah the Nehelamite" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Shemaiah the Nehelamite</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Shemaiah, prophet" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Shemaiah, prophet</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Shemaiah, son of Delaiah" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Shemaiah, son of Delaiah</note>
       </trans-unit>
       <trans-unit id="CharacterName.Shemaiah, son of Delaiah, false prophet" sil:dynamic="true">
         <source xml:lang="en">Shemaiah, son of Delaiah, false prophet</source>
@@ -5070,9 +5986,17 @@
         <source xml:lang="en">Simeon, devout man in Jerusalem</source>
         <note>ID: CharacterName.Simeon, devout man in Jerusalem</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Simon" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Simon</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Simon, sorcerer" sil:dynamic="true">
         <source xml:lang="en">Simon, sorcerer</source>
         <note>ID: CharacterName.Simon, sorcerer</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.sinful woman" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.sinful woman</note>
       </trans-unit>
       <trans-unit id="CharacterName.singers" sil:dynamic="true">
         <source xml:lang="en">singers</source>
@@ -5082,6 +6006,10 @@
         <source xml:lang="en">singers from the ends of the earth</source>
         <note>ID: CharacterName.singers from the ends of the earth</note>
       </trans-unit>
+      <trans-unit id="CharacterName.singers in Judah" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.singers in Judah</note>
+      </trans-unit>
       <trans-unit id="CharacterName.singers, and relatives" sil:dynamic="true">
         <source xml:lang="en">singers, and relatives</source>
         <note>ID: CharacterName.singers, and relatives</note>
@@ -5089,6 +6017,10 @@
       <trans-unit id="CharacterName.sinners" sil:dynamic="true">
         <source xml:lang="en">sinners</source>
         <note>ID: CharacterName.sinners</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.sinners among God's people" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.sinners among God's people</note>
       </trans-unit>
       <trans-unit id="CharacterName.Sisera" sil:dynamic="true">
         <source xml:lang="en">Sisera</source>
@@ -5105,6 +6037,10 @@
       <trans-unit id="CharacterName.slave girls" sil:dynamic="true">
         <source xml:lang="en">slave girls</source>
         <note>ID: CharacterName.slave girls</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.slaves of corruption" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.slaves of corruption</note>
       </trans-unit>
       <trans-unit id="CharacterName.sluggard" sil:dynamic="true">
         <source xml:lang="en">sluggard</source>
@@ -5130,6 +6066,10 @@
         <source xml:lang="en">soldiers, some (near Jordan River)</source>
         <note>ID: CharacterName.soldiers, some (near Jordan River)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Solomon (lover)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Solomon (lover)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Solomon, king" sil:dynamic="true">
         <source xml:lang="en">Solomon, king</source>
         <note>ID: CharacterName.Solomon, king</note>
@@ -5149,6 +6089,10 @@
       <trans-unit id="CharacterName.some of the bystanders" sil:dynamic="true">
         <source xml:lang="en">some of the bystanders</source>
         <note>ID: CharacterName.some of the bystanders</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.some of the guard" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.some of the guard</note>
       </trans-unit>
       <trans-unit id="CharacterName.some people (quoted by Paul)" sil:dynamic="true">
         <source xml:lang="en">some people (quoted by Paul)</source>
@@ -5194,9 +6138,17 @@
         <source xml:lang="en">son (child) in Israel (hypothetical)</source>
         <note>ID: CharacterName.son (child) in Israel (hypothetical)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.son (receiving instructions)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.son (receiving instructions)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.son of Paul's sister (young man)" sil:dynamic="true">
         <source xml:lang="en">son of Paul's sister (young man)</source>
         <note>ID: CharacterName.son of Paul's sister (young man)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.son of Remaliah" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.son of Remaliah</note>
       </trans-unit>
       <trans-unit id="CharacterName.son of Shelomith (whose father was an Egyptian)" sil:dynamic="true">
         <source xml:lang="en">son of Shelomith (whose father was an Egyptian)</source>
@@ -5206,17 +6158,33 @@
         <source xml:lang="en">son of Shunammite</source>
         <note>ID: CharacterName.son of Shunammite</note>
       </trans-unit>
+      <trans-unit id="CharacterName.son of the morning (king of Babylon)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.son of the morning (king of Babylon)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.son of widow" sil:dynamic="true">
         <source xml:lang="en">son of widow</source>
         <note>ID: CharacterName.son of widow</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.song about the prostitute" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.song about the prostitute</note>
       </trans-unit>
       <trans-unit id="CharacterName.song of the prostitute" sil:dynamic="true">
         <source xml:lang="en">song of the prostitute</source>
         <note>ID: CharacterName.song of the prostitute</note>
       </trans-unit>
+      <trans-unit id="CharacterName.song of the prostitute (female)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.song of the prostitute (female)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.sons (hypothetical), at end of life" sil:dynamic="true">
         <source xml:lang="en">sons (hypothetical), at end of life</source>
         <note>ID: CharacterName.sons (hypothetical), at end of life</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.sons of God" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.sons of God</note>
       </trans-unit>
       <trans-unit id="CharacterName.sons of Korah" sil:dynamic="true">
         <source xml:lang="en">sons of Korah</source>
@@ -5274,6 +6242,10 @@
         <source xml:lang="en">synagogue rulers in Pisidian Antioch</source>
         <note>ID: CharacterName.synagogue rulers in Pisidian Antioch</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Syria" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Syria</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Tamar, daughter of David" sil:dynamic="true">
         <source xml:lang="en">Tamar, daughter of David</source>
         <note>ID: CharacterName.Tamar, daughter of David</note>
@@ -5285,6 +6257,10 @@
       <trans-unit id="CharacterName.Tattenai, governor" sil:dynamic="true">
         <source xml:lang="en">Tattenai, governor</source>
         <note>ID: CharacterName.Tattenai, governor</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.taunt or dirge" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.taunt or dirge</note>
       </trans-unit>
       <trans-unit id="CharacterName.tax collectors" sil:dynamic="true">
         <source xml:lang="en">tax collectors</source>
@@ -5330,6 +6306,10 @@
         <source xml:lang="en">Tempter</source>
         <note>ID: CharacterName.Tempter</note>
       </trans-unit>
+      <trans-unit id="CharacterName.ten men out of all the languages of the nations" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.ten men out of all the languages of the nations</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Tertius" sil:dynamic="true">
         <source xml:lang="en">Tertius</source>
         <note>ID: CharacterName.Tertius</note>
@@ -5338,6 +6318,10 @@
         <source xml:lang="en">Tertullus, lawyer</source>
         <note>ID: CharacterName.Tertullus, lawyer</note>
       </trans-unit>
+      <trans-unit id="CharacterName.the brothers (in Berea)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.the brothers (in Berea)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.the disciples" sil:dynamic="true">
         <source xml:lang="en">the disciples</source>
         <note>ID: CharacterName.the disciples</note>
@@ -5345,6 +6329,18 @@
       <trans-unit id="CharacterName.the disciples (Peter" sil:dynamic="true">
         <source xml:lang="en">the disciples (Peter</source>
         <note>ID: CharacterName.the disciples (Peter</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.the eleven (disciples)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.the eleven (disciples)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.the enemy" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.the enemy</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.the Jews" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.the Jews</note>
       </trans-unit>
       <trans-unit id="CharacterName.the man (angel)" sil:dynamic="true">
         <source xml:lang="en">the man (angel)</source>
@@ -5362,6 +6358,10 @@
         <source xml:lang="en">the rest</source>
         <note>ID: CharacterName.the rest</note>
       </trans-unit>
+      <trans-unit id="CharacterName.the robbers who were crucified with Jesus" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.the robbers who were crucified with Jesus</note>
+      </trans-unit>
       <trans-unit id="CharacterName.the Spirit (of God's Son)" sil:dynamic="true">
         <source xml:lang="en">the Spirit (of God's Son)</source>
         <note>ID: CharacterName.the Spirit (of God's Son)</note>
@@ -5378,6 +6378,10 @@
         <source xml:lang="en">the whole city</source>
         <note>ID: CharacterName.the whole city</note>
       </trans-unit>
+      <trans-unit id="CharacterName.the whole multitude (of believers)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.the whole multitude (of believers)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.the whole town (of the region of the Gadarenes)" sil:dynamic="true">
         <source xml:lang="en">the whole town (of the region of the Gadarenes)</source>
         <note>ID: CharacterName.the whole town (of the region of the Gadarenes)</note>
@@ -5389,6 +6393,18 @@
       <trans-unit id="CharacterName.their wives, other" sil:dynamic="true">
         <source xml:lang="en">their wives, other</source>
         <note>ID: CharacterName.their wives, other</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.these people (of Judah)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.these people (of Judah)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.they" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.they</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.they (future people of Israel)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.they (future people of Israel)</note>
       </trans-unit>
       <trans-unit id="CharacterName.they (people accusing Peter)" sil:dynamic="true">
         <source xml:lang="en">they (people accusing Peter)</source>
@@ -5402,6 +6418,14 @@
         <source xml:lang="en">they all (enemies)</source>
         <note>ID: CharacterName.they all (enemies)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.thing formed from clay" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.thing formed from clay</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.this people, the prophet, or a priest" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.this people, the prophet, or a priest</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Thomas" sil:dynamic="true">
         <source xml:lang="en">Thomas</source>
         <note>ID: CharacterName.Thomas</note>
@@ -5409,6 +6433,10 @@
       <trans-unit id="CharacterName.those hiding from the LORD" sil:dynamic="true">
         <source xml:lang="en">those hiding from the LORD</source>
         <note>ID: CharacterName.those hiding from the LORD</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.those hiding from Yahweh" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.those hiding from Yahweh</note>
       </trans-unit>
       <trans-unit id="CharacterName.those sitting with them" sil:dynamic="true">
         <source xml:lang="en">those sitting with them</source>
@@ -5430,6 +6458,10 @@
         <source xml:lang="en">those that saw demon-possessed man cured</source>
         <note>ID: CharacterName.those that saw demon-possessed man cured</note>
       </trans-unit>
+      <trans-unit id="CharacterName.those who afflict Jerusalem" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.those who afflict Jerusalem</note>
+      </trans-unit>
       <trans-unit id="CharacterName.those who call on God" sil:dynamic="true">
         <source xml:lang="en">those who call on God</source>
         <note>ID: CharacterName.those who call on God</note>
@@ -5437,6 +6469,10 @@
       <trans-unit id="CharacterName.those who fear the Lord" sil:dynamic="true">
         <source xml:lang="en">those who fear the Lord</source>
         <note>ID: CharacterName.those who fear the Lord</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.those who fear Yahweh" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.those who fear Yahweh</note>
       </trans-unit>
       <trans-unit id="CharacterName.those who go by" sil:dynamic="true">
         <source xml:lang="en">those who go by</source>
@@ -5466,6 +6502,14 @@
         <source xml:lang="en">three men (two angels and the LORD)</source>
         <note>ID: CharacterName.three men (two angels and the LORD)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.three men (two angels, plus Yahweh)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.three men (two angels, plus Yahweh)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Timothy" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Timothy</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Tirzah, daughters of Zelophehad" sil:dynamic="true">
         <source xml:lang="en">Tirzah, daughters of Zelophehad</source>
         <note>ID: CharacterName.Tirzah, daughters of Zelophehad</note>
@@ -5482,6 +6526,10 @@
         <source xml:lang="en">Tobiah the Ammonite official</source>
         <note>ID: CharacterName.Tobiah the Ammonite official</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Toi, king of Hamath" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Toi, king of Hamath</note>
+      </trans-unit>
       <trans-unit id="CharacterName.townsmen of Ophrah" sil:dynamic="true">
         <source xml:lang="en">townsmen of Ophrah</source>
         <note>ID: CharacterName.townsmen of Ophrah</note>
@@ -5494,9 +6542,17 @@
         <source xml:lang="en">twenty-four elders</source>
         <note>ID: CharacterName.twenty-four elders</note>
       </trans-unit>
+      <trans-unit id="CharacterName.two blind men" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.two blind men</note>
+      </trans-unit>
       <trans-unit id="CharacterName.two false witnesses" sil:dynamic="true">
         <source xml:lang="en">two false witnesses</source>
         <note>ID: CharacterName.two false witnesses</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Tyre (personified)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Tyre (personified)</note>
       </trans-unit>
       <trans-unit id="CharacterName.unbeliever who comes under conviction" sil:dynamic="true">
         <source xml:lang="en">unbeliever who comes under conviction</source>
@@ -5510,9 +6566,21 @@
         <source xml:lang="en">Uriah</source>
         <note>ID: CharacterName.Uriah</note>
       </trans-unit>
+      <trans-unit id="CharacterName.virgin" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.virgin</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.voice" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.voice</note>
+      </trans-unit>
       <trans-unit id="CharacterName.voice (God?)" sil:dynamic="true">
         <source xml:lang="en">voice (God?)</source>
         <note>ID: CharacterName.voice (God?)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.voice (Messiah?)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.voice (Messiah?)</note>
       </trans-unit>
       <trans-unit id="CharacterName.voice (of God)" sil:dynamic="true">
         <source xml:lang="en">voice (of God)</source>
@@ -5522,9 +6590,17 @@
         <source xml:lang="en">voice (of Jesus)</source>
         <note>ID: CharacterName.voice (of Jesus)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.voice (of the Holy Spirit)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.voice (of the Holy Spirit)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.voice behind you" sil:dynamic="true">
         <source xml:lang="en">voice behind you</source>
         <note>ID: CharacterName.voice behind you</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.voice behind you (God?)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.voice behind you (God?)</note>
       </trans-unit>
       <trans-unit id="CharacterName.voice from altar" sil:dynamic="true">
         <source xml:lang="en">voice from altar</source>
@@ -5545,6 +6621,10 @@
       <trans-unit id="CharacterName.voice from heaven" sil:dynamic="true">
         <source xml:lang="en">voice from heaven</source>
         <note>ID: CharacterName.voice from heaven</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.voice from heaven (angel?)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.voice from heaven (angel?)</note>
       </trans-unit>
       <trans-unit id="CharacterName.voice from heaven (God)" sil:dynamic="true">
         <source xml:lang="en">voice from heaven (God)</source>
@@ -5586,6 +6666,10 @@
         <source xml:lang="en">voice in heaven, loud</source>
         <note>ID: CharacterName.voice in heaven, loud</note>
       </trans-unit>
+      <trans-unit id="CharacterName.voice in reply (Isaiah?)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.voice in reply (Isaiah?)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.voice like a trumpet" sil:dynamic="true">
         <source xml:lang="en">voice like a trumpet</source>
         <note>ID: CharacterName.voice like a trumpet</note>
@@ -5598,9 +6682,17 @@
         <source xml:lang="en">voice of great crowd, like roar of many waters, loud thunderclaps</source>
         <note>ID: CharacterName.voice of great crowd, like roar of many waters, loud thunderclaps</note>
       </trans-unit>
+      <trans-unit id="CharacterName.voice of joy and gladness" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.voice of joy and gladness</note>
+      </trans-unit>
       <trans-unit id="CharacterName.voice of one calling (preparing way for Christ)" sil:dynamic="true">
         <source xml:lang="en">voice of one calling (preparing way for Christ)</source>
         <note>ID: CharacterName.voice of one calling (preparing way for Christ)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.voice of rejoicing and salvation" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.voice of rejoicing and salvation</note>
       </trans-unit>
       <trans-unit id="CharacterName.voice out of temple, from throne" sil:dynamic="true">
         <source xml:lang="en">voice out of temple, from throne</source>
@@ -5618,9 +6710,17 @@
         <source xml:lang="en">watchman</source>
         <note>ID: CharacterName.watchman</note>
       </trans-unit>
+      <trans-unit id="CharacterName.watchman on the hills of Ephraim" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.watchman on the hills of Ephraim</note>
+      </trans-unit>
       <trans-unit id="CharacterName.watchmen of Israel" sil:dynamic="true">
         <source xml:lang="en">watchmen of Israel</source>
         <note>ID: CharacterName.watchmen of Israel</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.waves" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.waves</note>
       </trans-unit>
       <trans-unit id="CharacterName.we (believers)" sil:dynamic="true">
         <source xml:lang="en">we (believers)</source>
@@ -5629,6 +6729,14 @@
       <trans-unit id="CharacterName.we (the Apostles, including Paul)" sil:dynamic="true">
         <source xml:lang="en">we (the Apostles, including Paul)</source>
         <note>ID: CharacterName.we (the Apostles, including Paul)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.we and they of that place" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.we and they of that place</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.we who went ahead" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.we who went ahead</note>
       </trans-unit>
       <trans-unit id="CharacterName.weakling" sil:dynamic="true">
         <source xml:lang="en">weakling</source>
@@ -5654,6 +6762,14 @@
         <source xml:lang="en">whole earth</source>
         <note>ID: CharacterName.whole earth</note>
       </trans-unit>
+      <trans-unit id="CharacterName.whole house of Israel" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.whole house of Israel</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.whole house of Judah" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.whole house of Judah</note>
+      </trans-unit>
       <trans-unit id="CharacterName.whole Sanhedrin" sil:dynamic="true">
         <source xml:lang="en">whole Sanhedrin</source>
         <note>ID: CharacterName.whole Sanhedrin</note>
@@ -5678,6 +6794,10 @@
         <source xml:lang="en">widow at Zarephath</source>
         <note>ID: CharacterName.widow at Zarephath</note>
       </trans-unit>
+      <trans-unit id="CharacterName.widows" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.widows</note>
+      </trans-unit>
       <trans-unit id="CharacterName.wife suspected of infidelity" sil:dynamic="true">
         <source xml:lang="en">wife suspected of infidelity</source>
         <note>ID: CharacterName.wife suspected of infidelity</note>
@@ -5685,6 +6805,10 @@
       <trans-unit id="CharacterName.Wisdom" sil:dynamic="true">
         <source xml:lang="en">Wisdom</source>
         <note>ID: CharacterName.Wisdom</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.wise counselors of Pharaoh" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.wise counselors of Pharaoh</note>
       </trans-unit>
       <trans-unit id="CharacterName.wise men of Pharaoh" sil:dynamic="true">
         <source xml:lang="en">wise men of Pharaoh</source>
@@ -5697,6 +6821,10 @@
       <trans-unit id="CharacterName.wives" sil:dynamic="true">
         <source xml:lang="en">wives</source>
         <note>ID: CharacterName.wives</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.wives and concubines of Belshazzar" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.wives and concubines of Belshazzar</note>
       </trans-unit>
       <trans-unit id="CharacterName.wives, other" sil:dynamic="true">
         <source xml:lang="en">wives, other</source>
@@ -5750,13 +6878,25 @@
         <source xml:lang="en">women of Bethlehem</source>
         <note>ID: CharacterName.women of Bethlehem</note>
       </trans-unit>
+      <trans-unit id="CharacterName.women playing tambourines" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.women playing tambourines</note>
+      </trans-unit>
       <trans-unit id="CharacterName.women who oppress the poor" sil:dynamic="true">
         <source xml:lang="en">women who oppress the poor</source>
         <note>ID: CharacterName.women who oppress the poor</note>
       </trans-unit>
+      <trans-unit id="CharacterName.women who oppress the poor (&quot;cows of Bashan&quot;)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.women who oppress the poor ("cows of Bashan")</note>
+      </trans-unit>
       <trans-unit id="CharacterName.women, dancing" sil:dynamic="true">
         <source xml:lang="en">women, dancing</source>
         <note>ID: CharacterName.women, dancing</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.women, remnant of the king of Judah's house" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.women, remnant of the king of Judah's house</note>
       </trans-unit>
       <trans-unit id="CharacterName.women, seven" sil:dynamic="true">
         <source xml:lang="en">women, seven</source>
@@ -5778,6 +6918,18 @@
         <source xml:lang="en">Xerxes, king of Persia and Media (Ahasuerus)</source>
         <note>ID: CharacterName.Xerxes, king of Persia and Media (Ahasuerus)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Yahweh's angel" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Yahweh's angel</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Yahweh's angel (who stood among the myrtle trees)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Yahweh's angel (who stood among the myrtle trees)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.you (God)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.you (God)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.you (hypothetical Gentile)" sil:dynamic="true">
         <source xml:lang="en">you (hypothetical Gentile)</source>
         <note>ID: CharacterName.you (hypothetical Gentile)</note>
@@ -5785,6 +6937,26 @@
       <trans-unit id="CharacterName.you (hypothetical)" sil:dynamic="true">
         <source xml:lang="en">you (hypothetical)</source>
         <note>ID: CharacterName.you (hypothetical)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.you (Israel - see v. 29)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.you (Israel - see v. 29)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.you (Israel)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.you (Israel)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.you (Judah)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.you (Judah)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.you (old)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.you (old)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.you (people of Judah)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.you (people of Judah)</note>
       </trans-unit>
       <trans-unit id="CharacterName.you (people of Zion, restored)" sil:dynamic="true">
         <source xml:lang="en">you (people of Zion, restored)</source>
@@ -5806,6 +6978,10 @@
         <source xml:lang="en">young man in white robe (angel)</source>
         <note>ID: CharacterName.young man in white robe (angel)</note>
       </trans-unit>
+      <trans-unit id="CharacterName.young men" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.young men</note>
+      </trans-unit>
       <trans-unit id="CharacterName.young men (advisors of Rehoboam)" sil:dynamic="true">
         <source xml:lang="en">young men (advisors of Rehoboam)</source>
         <note>ID: CharacterName.young men (advisors of Rehoboam)</note>
@@ -5813,6 +6989,10 @@
       <trans-unit id="CharacterName.young women (maidens)" sil:dynamic="true">
         <source xml:lang="en">young women (maidens)</source>
         <note>ID: CharacterName.young women (maidens)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Zacchaeus" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Zacchaeus</note>
       </trans-unit>
       <trans-unit id="CharacterName.Zaccheaus" sil:dynamic="true">
         <source xml:lang="en">Zaccheaus</source>
@@ -5834,6 +7014,10 @@
         <source xml:lang="en">Zebul, governor of Shechem</source>
         <note>ID: CharacterName.Zebul, governor of Shechem</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Zebulun" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Zebulun</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Zechariah" sil:dynamic="true">
         <source xml:lang="en">Zechariah</source>
         <note>ID: CharacterName.Zechariah</note>
@@ -5845,6 +7029,10 @@
       <trans-unit id="CharacterName.Zechariah (Yahweh says)" sil:dynamic="true">
         <source xml:lang="en">Zechariah (Yahweh says)</source>
         <note>ID: CharacterName.Zechariah (Yahweh says)</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Zechariah the prophet, son of Berechiah" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Zechariah the prophet, son of Berechiah</note>
       </trans-unit>
       <trans-unit id="CharacterName.Zechariah, son of Jehoiada the priest" sil:dynamic="true">
         <source xml:lang="en">Zechariah, son of Jehoiada the priest</source>
@@ -5866,9 +7054,17 @@
         <source xml:lang="en">Zedekiah, son of Kenaanah, false prophet</source>
         <note>ID: CharacterName.Zedekiah, son of Kenaanah, false prophet</note>
       </trans-unit>
+      <trans-unit id="CharacterName.Zephaniah (Yahweh says)" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Zephaniah (Yahweh says)</note>
+      </trans-unit>
       <trans-unit id="CharacterName.Zephaniah, priest" sil:dynamic="true">
         <source xml:lang="en">Zephaniah, priest</source>
         <note>ID: CharacterName.Zephaniah, priest</note>
+      </trans-unit>
+      <trans-unit id="CharacterName.Zephaniah, prophet" sil:dynamic="true">
+        <source xml:lang="en" />
+        <note>ID: CharacterName.Zephaniah, prophet</note>
       </trans-unit>
       <trans-unit id="CharacterName.Zeresh, wife of Haman" sil:dynamic="true">
         <source xml:lang="en">Zeresh, wife of Haman</source>
@@ -5929,12 +7125,11 @@
       <trans-unit id="DialogBoxes.AssignCharacterDlg.FilterOptions[7]" sil:dynamic="true">
         <source xml:lang="en">Needs review</source>
         <note>ID: DialogBoxes.AssignCharacterDlg.FilterOptions[7]</note>
-        <target xml:lang="es-ES" state="translated">Necesita revisión</target>
       </trans-unit>
       <trans-unit id="DialogBoxes.AssignCharacterDlg.FilterOptions[8]" sil:dynamic="true">
         <source xml:lang="en">Verses not aligned with reference text</source>
         <note>ID: DialogBoxes.AssignCharacterDlg.FilterOptions[8]</note>
-      </trans-unit>	  	  
+      </trans-unit>
       <trans-unit id="DialogBoxes.OpenProjectDlg.CantAccessParatext">
         <source xml:lang="en">There was a problem accessing {0} data files.</source>
         <note>ID: DialogBoxes.OpenProjectDlg.CantAccessParatext</note>
@@ -5969,7 +7164,7 @@
         <note>ID: DialogBoxes.OpenProjectDlg.ParatextProjectLoadErrors</note>
         <note>Param 0: "Paratext" (product name)</note>
       </trans-unit>
-	  <trans-unit id="DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookMarkerComboBox.Items.LongNameFromMetadata" sil:dynamic="true">
+      <trans-unit id="DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookMarkerComboBox.Items.LongNameFromMetadata" sil:dynamic="true">
         <source xml:lang="en">Long name</source>
         <note>ID: DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookMarkerComboBox.Items.LongNameFromMetadata</note>
       </trans-unit>
@@ -5984,7 +7179,7 @@
       <trans-unit id="DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookMarkerComboBox.Items.ShortNameFromMetadata" sil:dynamic="true">
         <source xml:lang="en">Short name</source>
         <note>ID: DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookMarkerComboBox.Items.ShortNameFromMetadata</note>
-      </trans-unit>	  
+      </trans-unit>
       <trans-unit id="Project.ParatextProjectMetadataChangedMsg">
         <source xml:lang="en">The settings of the {0} project {1} no longer appear to correspond to the {2} project. This is an unusual situation. If you do not understand how this happened, please contact support.</source>
         <note>ID: Project.ParatextProjectMetadataChangedMsg</note>
