@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Properties;
 using Glyssen.Shared;
+using Glyssen.Utilities;
 using GlyssenEngine.Export;
 using L10NSharp;
 using L10NSharp.XLiffUtils;
@@ -44,7 +45,7 @@ namespace Glyssen.Dialogs
 			m_saveFileDialog.FileName = Path.GetFileName(FileName);
 			m_saveFileDialog.Filter = string.Format("{0} ({1})|{1}|{2} ({3})|{3}",
 				LocalizationManager.GetString("DialogBoxes.RolesForVoiceActorsSaveAsDlg.ExcelFileTypeLabel", "Excel files"), "*" + Constants.kExcelFileExtension,
-				LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"), "*.*");
+				L10N.AllFilesLabel, "*.*");
 			m_saveFileDialog.DefaultExt = Constants.kExcelFileExtension;
 			m_saveFileDialog.OverwritePrompt = true;
 		}

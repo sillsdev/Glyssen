@@ -45,7 +45,7 @@ namespace Glyssen
 		public static bool IsRunning { get; set; }
 
 		public static IEnumerable<ErrorMessageInfo> CompatibleParatextProjectLoadErrors => ScrTextCollection.ErrorMessages.Where(e => e.ProjecType != ProjectType.Resource && !e.ProjecType.IsNoteType());
-		private static List<Exception> _pendingExceptionsToReportToAnalytics = new List<Exception>();
+		private static readonly List<Exception> _pendingExceptionsToReportToAnalytics = new List<Exception>();
 
 		/// <summary>
 		/// The main entry point for the application.
@@ -365,10 +365,7 @@ namespace Glyssen
 		/// <summary>
 		/// The email address people should write to with issues
 		/// </summary>
-		public static string IssuesEmailAddress
-		{
-			get { return "glyssen-support_lsdev@sil.org"; }
-		}
+		public static string IssuesEmailAddress => "glyssen-support_lsdev@sil.org";
 
 		/// <summary>
 		/// Getting the count of running Glyssen instances.

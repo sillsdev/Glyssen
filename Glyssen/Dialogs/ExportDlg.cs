@@ -6,6 +6,7 @@ using System.Text;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Shared;
+using Glyssen.Utilities;
 using GlyssenEngine.Export;
 using GlyssenEngine.Utilities;
 using L10NSharp;
@@ -187,7 +188,7 @@ namespace Glyssen.Dialogs
 				dlg.Filter = string.Format("{0} ({1})|{1}|{2} ({3})|{3}|{4} ({5})|{5}",
 					LocalizationManager.GetString("DialogBoxes.ExportDlg.ExcelFileTypeLabel", "Excel files"), "*" + Constants.kExcelFileExtension,
 					LocalizationManager.GetString("DialogBoxes.ExportDlg.TabDelimitedFileTypeLabel", "Tab-delimited files"), "*" + ProjectExporter.kTabDelimitedFileExtension,
-					LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"), "*.*");
+					L10N.AllFilesLabel, "*.*");
 				dlg.DefaultExt = Constants.kExcelFileExtension;
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{
