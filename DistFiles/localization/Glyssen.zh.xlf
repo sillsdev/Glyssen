@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns:sil="http://sil.org/software/XLiff" version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en" target-language="zh-TW" product-version="1.2.0.0" original="Glyssen.dll" datatype="plaintext">
+  <file source-language="en" target-language="zh-TW" product-version="3.1.3" original="Glyssen.dll" datatype="plaintext">
     <body>
       <trans-unit id="CharacterName.Aaron" sil:dynamic="true">
         <source xml:lang="en">Aaron</source>
