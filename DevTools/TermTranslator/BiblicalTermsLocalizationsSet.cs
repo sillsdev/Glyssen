@@ -26,12 +26,30 @@ namespace DevTools.TermTranslator
 			}
 		}
 
-		private string FileName => $"BiblicalTerms{Locale}.xml";
+		private string FileName
+		{
+			get
+			{
+				// Paratext identifies its two supported versions of Chinese using "zh-Hant"
+				// (traditional) and "zh-Hans" (simplified), but Glyssen (and crowdin) use
+				// "zh-TW" (Taiwanese Chinese) and "zh-CN" (mainland Chinese). But just to make
+				// it more confusing, for the filename, Glyssen uses simply zh instead of zh-TW.
+				switch (Locale)
+				{
+					case "zh": // Traditional script used in Taiwan
+						return "BiblicalTermszh-Hant.xml";
+					case "zh-CN": // Simplified script used in mainland China
+						return "BiblicalTermszh-Hans.xml";
+					default:
+						return $"BiblicalTerms{Locale}.xml";
+				}
+			}
+		}
 
 		static BiblicalTermsLocalizationsSet()
 		{
 			s_paratextTermsListsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles),
-				$"Paratext {Processor.s_currentParatextVersion}", "Terms", "Lists");
+				$"Paratext {Processor.kCurrentParatextVersion}", "Terms", "Lists");
 			if (!Directory.Exists(s_paratextTermsListsPath))
 			{
 				Console.WriteLine($"Could not find valid Paratext installation. Folder does not exist: {s_paratextTermsListsPath}");

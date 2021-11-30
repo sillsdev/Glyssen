@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
-using SIL.Xml;
 using System.Text.RegularExpressions;
 using GlyssenEngine.Character;
 using L10NSharp.XLiffUtils;
 using SIL.Extensions;
+using static System.Char;
 
 namespace DevTools.TermTranslator
 {
@@ -33,9 +34,11 @@ namespace DevTools.TermTranslator
 		// set the target-language attribute to be the locale as it comes from Crowdin (usually, but not always,
 		// the same as the locale used in the file name). The body should be left empty; it is not necessary to
 		// include any tarns-units in order to run this process.
-		internal static readonly string s_currentParatextVersion = "9";
-		private static string s_glyssenXlfFilePrefix = "Glyssen.";
-		private static string s_XliffExt = ".xlf";
+		internal const string kCurrentParatextVersion = "9";
+		private const string kUntranslatedPart = "***";
+		private const string kGlyssenXlfFilePrefix = "Glyssen.";
+		private const string kXliffExt = ".xlf";
+		private const string kCharacterNamePrefix = "CharacterName.";
 
 		private static readonly Regex s_partOfChineseOrFrenchGlossThatIsNotTheGloss = new Regex("((（|。).+)|(\\[1\\] )", RegexOptions.Compiled);
 		private static readonly SortedSet<string> s_names = new SortedSet<string>();
@@ -62,31 +65,31 @@ namespace DevTools.TermTranslator
 
 			s_englishTermsList = new BiblicalTermsLocalizationsSet("En").Current;
 
-			s_englishTranslationUnits = ProcessLanguage("en", (doc, unit, s) => doc.AddTransUnit(unit));
+			s_englishTranslationUnits = ProcessEnglish();
 
 			foreach (string locale in LanguagesToProcess)
 			{
 				BiblicalTermsLocalizationsSet localTermsList = new BiblicalTermsLocalizationsSet(locale);
 				if (localTermsList.Current == null)
 					continue;
-				ProcessLanguage(locale, (xlf, tu, name) => { AddLocalizedTerm(xlf, localTermsList, tu, name); });
+				ProcessLanguage(localTermsList);
 				localTermsList.ReplacePreviousWithCurrent();
 			}
 
 			foreach (var conflictingLocalization in s_conflictingLocalizations)
 			{
-				var path = Path.Combine(kLocalizationFolder, $"LocalizationsFromParatextBiblicalTerms.{conflictingLocalization.Key}.txt");
+				var path = Path.Combine(kLocalizationFolder, $"LocalizationsFromParatextBiblicalTerms.{conflictingLocalization.Key}.tsv");
 				using (var writer = new StreamWriter(path, false))
 				{
 					foreach (var tuple in conflictingLocalization.Value)
-						writer.WriteLine($"{tuple.Item1.Id}\t{tuple.Item1.Source.Value}\t{tuple.Item2}");
+						writer.WriteLine($"{tuple.Item1.Id}\t{tuple.Item1.Target.Value}\t{tuple.Item2}");
 				}
 			}
 		}
 
 		private static IEnumerable<string> LanguagesToProcess =>
-			Directory.GetFiles(kLocalizationFolder, s_glyssenXlfFilePrefix + "*" + s_XliffExt)
-				.Select(f => Path.GetFileNameWithoutExtension(f).Substring(s_glyssenXlfFilePrefix.Length))
+			Directory.GetFiles(kLocalizationFolder, kGlyssenXlfFilePrefix + "*" + kXliffExt)
+				.Select(f => Path.GetFileNameWithoutExtension(f).Substring(kGlyssenXlfFilePrefix.Length))
 				.Where(l => !l.Equals("en", StringComparison.OrdinalIgnoreCase));
 
 		private static void AddNames(string character)
@@ -95,50 +98,79 @@ namespace DevTools.TermTranslator
 				s_names.AddRange(character.Split('/'));
 		}
 
-		private static List<XLiffTransUnit> ProcessLanguage(string locale, Action<XLiffDocument, XLiffTransUnit, string> addTerm)
+		private static List<XLiffTransUnit> ProcessEnglish()
 		{
-			string xlfFileName = Path.Combine(kLocalizationFolder, s_glyssenXlfFilePrefix + locale + s_XliffExt);
+			string xlfFileName = Path.Combine(kLocalizationFolder, kGlyssenXlfFilePrefix + "en" + kXliffExt);
 
 			XLiffDocument newXlf = XLiffDocument.Read(xlfFileName);
 
-			bool english = locale.Equals("En", StringComparison.OrdinalIgnoreCase);
-			IComparer<XLiffTransUnit> comparer= new TransUnitComparer(english);
-			if (!english)
-				RemoveUntranslatedAndDeletedEntries(newXlf);
+			var deprecatedCharacterIds = newXlf.File.Body.TransUnits
+				.Where(tu => tu.Dynamic && tu.Id.StartsWith(kCharacterNamePrefix))
+				.Select(tu => tu.Id).ToHashSet();
 
 			foreach (string name in s_names)
 			{
-				var id = "CharacterName." + name;
-				XLiffTransUnit xlfTermEntry = new XLiffTransUnit
-				{
-					Id = id,
-					Dynamic = true,
-					Source = new XLiffTransUnitVariant { Lang = "en" },
-					Notes = new List<XLiffNote>(new [] { new XLiffNote { Text =$"ID: {id}" }})
-				};
-
-				addTerm(newXlf, xlfTermEntry, name);
+				var id = kCharacterNamePrefix + name;
+				deprecatedCharacterIds.Remove(id);
+				newXlf.AddTransUnit(GetNewTransUnit(id));
 			}
 
-			newXlf.File.Body.TransUnits.Sort(comparer);
-
-			newXlf.Save(xlfFileName);
-			if (!english)
+			foreach (var id in deprecatedCharacterIds)
 			{
-				// Unfortunately the serializer puts the xml:lang and state attributes
-				// in the opposite order from what crowdin does and also swaps the order
-				// of the note and target elements, which makes it hard to see the real
-				// differences.
-				var regexSwapper = new Regex("<target (?<state>state=\"[^\"]*\") " +
-					$"(?<lang>xml:lang=\"{newXlf.File.TargetLang}\")>(?<localization>[^<]+)<\\/target>" +
-					@"\s*(?<linebreak>(\r|\n)+\s*)(?<note><note>[^\r\n]+)", RegexOptions.Compiled);
-				var swapped = regexSwapper.Replace(File.ReadAllText(xlfFileName),
-					"${note}${linebreak}<target ${lang} ${state}>${localization}</target>");
-				using (var writer = new StreamWriter(xlfFileName))
-					writer.Write(swapped);
+				var removed = newXlf.File.Body.TransUnits.RemoveAll(tu => tu.Id == id);
+				if (removed != 1)
+				{
+					throw new Exception("Sanity check failed - programming error! " +
+						$"Expected to remove a single deprecated instance of {id} from the English localizations, but removed {removed}.");
+				}
 			}
+
+			Save(newXlf, new TransUnitComparer(true), xlfFileName);
 
 			return newXlf.File.Body.TransUnits;
+		}
+
+		private static void ProcessLanguage(BiblicalTermsLocalizationsSet localTermsList)
+		{
+			string xlfFileName = Path.Combine(kLocalizationFolder, kGlyssenXlfFilePrefix + localTermsList.Locale + kXliffExt);
+
+			XLiffDocument newXlf = XLiffDocument.Read(xlfFileName);
+			
+			RemoveUntranslatedAndDeletedEntries(newXlf);
+
+			foreach (string name in s_names)
+				AddLocalizedTerm(newXlf, localTermsList, GetNewTransUnit(kCharacterNamePrefix + name), name);
+
+			Save(newXlf, new TransUnitComparer(false), xlfFileName);
+
+			// Unfortunately the serializer puts the xml:lang and state attributes
+			// in the opposite order from what crowdin does and also swaps the order
+			// of the note and target elements, which makes it hard to see the real
+			// differences.
+			var regexSwapper = new Regex("<target (?<state>state=\"[^\"]*\") " +
+				$"(?<lang>xml:lang=\"{newXlf.File.TargetLang}\")>(?<localization>[^<]+)<\\/target>" +
+				@"\s*(?<linebreak>(\r|\n)+\s*)(?<notes>(<note>[^\r\n]+((\r|\n)+\s*<note>[^\r\n]+)*))", RegexOptions.Compiled);
+			var swapped = regexSwapper.Replace(File.ReadAllText(xlfFileName),
+				"${notes}${linebreak}<target ${lang} ${state}>${localization}</target>");
+			using (var writer = new StreamWriter(xlfFileName))
+				writer.Write(swapped);
+		}
+
+		private static XLiffTransUnit GetNewTransUnit(string id)
+		{
+			return new XLiffTransUnit
+			{
+				Id = id,
+				Dynamic = true,
+				Source = new XLiffTransUnitVariant { Lang = "en" },
+				Notes = new List<XLiffNote>(new [] { new XLiffNote { Text =$"ID: {id}" }})
+			};
+		}
+
+		private static void Save(XLiffDocument doc, IComparer<XLiffTransUnit> comparer, string xlfFileName)
+		{
+			doc.File.Body.TransUnits.Sort(comparer);
+			doc.Save(xlfFileName);
 		}
 
 		private static void RemoveUntranslatedAndDeletedEntries(XLiffDocument newXlf)
@@ -153,13 +185,13 @@ namespace DevTools.TermTranslator
 		{
 			// We only want to break a character ID into separate words for individual localization if it begins with a
 			// proper name.
-			int maxParts = Char.IsUpper(name[0]) ? Int32.MaxValue : 1;
+			int maxParts = IsUpper(name[0]) ? Int32.MaxValue : 1;
 
 			string[] parts = name.Split(new[] { ' ' }, maxParts, StringSplitOptions.RemoveEmptyEntries);
 
 			string englishGloss = parts[0];
 			string endingPunct;
-			if (Char.IsPunctuation(englishGloss.Last()))
+			if (IsPunctuation(englishGloss.Last()))
 			{
 				endingPunct = englishGloss.Last().ToString();
 				englishGloss = englishGloss.Remove(englishGloss.Length - 1);
@@ -182,8 +214,13 @@ namespace DevTools.TermTranslator
 						AddEntryWithLocalizedGloss(newXlf, xlfTermEntry, localization);
 					else if (existingTarget.Value != localization)
 					{
-						var prevComputedLocalization = ComputeLocalization(localTerms.Previous, term, endingPunct, parts);
-						if (localization == prevComputedLocalization)
+						if (!existingTarget.Value.Contains(kUntranslatedPart) && localization.Contains(kUntranslatedPart))
+						{
+							// Do not replace a human translation with a *partially* generated one. In this
+							// case we don't even want to report it as a conflict because it just raises the
+							// noise-to-signal ratio.
+						}
+						else if (localization == ComputeLocalization(localTerms.Previous, term, endingPunct, parts))
 						{
 							var locale = newXlf.File.TargetLang;
 							// Conflicts are most likely to come from human localization work. But it's also possible that
@@ -193,8 +230,8 @@ namespace DevTools.TermTranslator
 								
 							conflictList.Add(new Tuple<XLiffTransUnit, string>(existingTranslationUnit, localization));
 						}
-
-						existingTarget.Value = localization;
+						else
+							existingTarget.Value = localization;
 					}
 				}
 			}
@@ -231,7 +268,7 @@ namespace DevTools.TermTranslator
 								openingParenthesis = true;
 							}
 
-							if (Char.IsPunctuation(englishGloss.Last()))
+							if (IsPunctuation(englishGloss.Last()))
 							{
 								endingPunct = englishGloss.Last().ToString();
 								englishGloss = englishGloss.Remove(englishGloss.Length - 1);
@@ -259,7 +296,8 @@ namespace DevTools.TermTranslator
 								}
 							}
 
-							parts[i] = "***" + parts[i] + "***";
+							if (!parts[i].All(c => IsDigit(c) || IsPunctuation(c)))
+								parts[i] = kUntranslatedPart + parts[i] + kUntranslatedPart;
 						}
 					}
 
