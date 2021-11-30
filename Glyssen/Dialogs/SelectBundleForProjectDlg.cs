@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows.Forms;
 using Glyssen.Properties;
+using Glyssen.Utilities;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using L10NSharp;
@@ -74,8 +75,7 @@ namespace Glyssen.Dialogs
 				Filter = Format("{0} ({1})|{1}|{2} ({3})|{3}",
 					LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.ResourceBundleFileTypeLabel", "Text Resource Bundle files"),
 					"*" + DblBundleFileUtils.kDblBundleExtension,
-					LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"),
-					"*.*"),
+					L10N.AllFilesLabel, "*.*"),
 				DefaultExt = DblBundleFileUtils.kDblBundleExtension
 			};
 		}
