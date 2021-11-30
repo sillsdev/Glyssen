@@ -23,12 +23,12 @@
         <target xml:lang="pt-PT" state="translated">Abimelech</target>
       </trans-unit>
       <trans-unit id="CharacterName.Abimelech 1, king of the Philistines (in Gerar)" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Abimelech 1, king of the Philistines (in Gerar)</source>
         <note>ID: CharacterName.Abimelech 1, king of the Philistines (in Gerar)</note>
         <target xml:lang="pt-PT" state="translated">Abimelech 1, rei de dos Filisteu (em Gerar)</target>
       </trans-unit>
       <trans-unit id="CharacterName.Abimelech 2, king of the Philistines (in Gerar)" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Abimelech 2, king of the Philistines (in Gerar)</source>
         <note>ID: CharacterName.Abimelech 2, king of the Philistines (in Gerar)</note>
         <target xml:lang="pt-PT" state="translated">Abimelech 2, rei de dos Filisteu (em Gerar)</target>
       </trans-unit>
@@ -173,7 +173,7 @@
         <target xml:lang="pt-PT" state="translated">altar</target>
       </trans-unit>
       <trans-unit id="CharacterName.Amalekite (young man from Saul's camp)" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Amalekite (young man from Saul's camp)</source>
         <note>ID: CharacterName.Amalekite (young man from Saul's camp)</note>
         <target xml:lang="pt-PT" state="translated">Amalekite (novo ***man*** ***from*** ***Saul's*** ***camp)***</target>
       </trans-unit>
@@ -218,7 +218,7 @@
         <target xml:lang="pt-PT" state="translated">Amos</target>
       </trans-unit>
       <trans-unit id="CharacterName.Amos (Yahweh says)" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Amos (Yahweh says)</source>
         <note>ID: CharacterName.Amos (Yahweh says)</note>
         <target xml:lang="pt-PT" state="translated">Amos (Yahweh diz)</target>
       </trans-unit>
@@ -278,7 +278,7 @@
         <target xml:lang="pt-PT" state="translated">Araunah, ***the*** Jebusite</target>
       </trans-unit>
       <trans-unit id="CharacterName.Aroer, inhabitant of" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Aroer, inhabitant of</source>
         <note>ID: CharacterName.Aroer, inhabitant of</note>
         <target xml:lang="pt-PT" state="translated">Aroer, ***inhabitant*** ***of***</target>
       </trans-unit>
@@ -303,7 +303,7 @@
         <target xml:lang="pt-PT" state="translated">Asaph</target>
       </trans-unit>
       <trans-unit id="CharacterName.Asher" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Asher</source>
         <note>ID: CharacterName.Asher</note>
         <target xml:lang="pt-PT" state="translated">Asher</target>
       </trans-unit>
@@ -378,7 +378,7 @@
         <target xml:lang="pt-PT" state="translated">Baanah</target>
       </trans-unit>
       <trans-unit id="CharacterName.Babylon (personified as adulteress)" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Babylon (personified as adulteress)</source>
         <note>ID: CharacterName.Babylon (personified as adulteress)</note>
         <target xml:lang="pt-PT" state="translated">Babilônia ***(personified*** ***as*** ***adulteress)***</target>
       </trans-unit>
@@ -433,7 +433,7 @@
         <target xml:lang="pt-PT" state="translated">Bathsheba</target>
       </trans-unit>
       <trans-unit id="CharacterName.beam" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">beam</source>
         <note>ID: CharacterName.beam</note>
         <target xml:lang="pt-PT" state="translated">viga, tronco</target>
       </trans-unit>
@@ -628,7 +628,7 @@
         <target xml:lang="pt-PT" state="translated">Eglon, rei de Moab</target>
       </trans-unit>
       <trans-unit id="CharacterName.Egypt" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Egypt</source>
         <note>ID: CharacterName.Egypt</note>
         <target xml:lang="pt-PT" state="translated">Egypt</target>
       </trans-unit>
@@ -653,7 +653,7 @@
         <target xml:lang="pt-PT" state="translated">Eleazar o sacerdote, filho de Arão</target>
       </trans-unit>
       <trans-unit id="CharacterName.Eli" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Eli</source>
         <note>ID: CharacterName.Eli</note>
         <target xml:lang="pt-PT" state="translated">Eli</target>
       </trans-unit>
@@ -668,7 +668,7 @@
         <target xml:lang="pt-PT" state="translated">Eliakim</target>
       </trans-unit>
       <trans-unit id="CharacterName.Eliezer the prophet, son of Dodavahu" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Eliezer the prophet, son of Dodavahu</source>
         <note>ID: CharacterName.Eliezer the prophet, son of Dodavahu</note>
         <target xml:lang="pt-PT" state="translated">Eliezer o profeta, filho de Dodavahu</target>
       </trans-unit>
@@ -768,12 +768,12 @@
         <target xml:lang="pt-PT" state="translated">Ezekiel</target>
       </trans-unit>
       <trans-unit id="CharacterName.Ezekiel (Yahweh says)" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Ezekiel (Yahweh says)</source>
         <note>ID: CharacterName.Ezekiel (Yahweh says)</note>
         <target xml:lang="pt-PT" state="translated">Ezekiel (Yahweh diz)</target>
       </trans-unit>
       <trans-unit id="CharacterName.Ezekiel (Yahweh says, in vision)" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Ezekiel (Yahweh says, in vision)</source>
         <note>ID: CharacterName.Ezekiel (Yahweh says, in vision)</note>
         <target xml:lang="pt-PT" state="translated">Ezekiel ***(Yahweh*** ***says,*** ***in*** vision)</target>
       </trans-unit>
@@ -813,7 +813,7 @@
         <target xml:lang="pt-PT" state="translated">Gabriel (anjo)</target>
       </trans-unit>
       <trans-unit id="CharacterName.Gad" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Gad</source>
         <note>ID: CharacterName.Gad</note>
         <target xml:lang="pt-PT" state="translated">Gad</target>
       </trans-unit>
@@ -883,12 +883,12 @@
         <target xml:lang="pt-PT" state="translated">Gemariah, filho do Shaphan</target>
       </trans-unit>
       <trans-unit id="CharacterName.Geshem" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Geshem</source>
         <note>ID: CharacterName.Geshem</note>
         <target xml:lang="pt-PT" state="translated">Geshem</target>
       </trans-unit>
       <trans-unit id="CharacterName.Geshem the Arab" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Geshem the Arab</source>
         <note>ID: CharacterName.Geshem the Arab</note>
         <target xml:lang="pt-PT" state="translated">Geshem o Árabe</target>
       </trans-unit>
@@ -913,7 +913,7 @@
         <target xml:lang="pt-PT" state="translated">Gilead, ***men*** ***of***</target>
       </trans-unit>
       <trans-unit id="CharacterName.Gog" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Gog</source>
         <note>ID: CharacterName.Gog</note>
         <target xml:lang="pt-PT" state="translated">Gog</target>
       </trans-unit>
@@ -1023,7 +1023,7 @@
         <target xml:lang="pt-PT" state="translated">filha de Herodias</target>
       </trans-unit>
       <trans-unit id="CharacterName.Heshbon, people of" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Heshbon, people of</source>
         <note>ID: CharacterName.Heshbon, people of</note>
         <target xml:lang="pt-PT" state="translated">Heshbon, ***people*** ***of***</target>
       </trans-unit>
@@ -1063,7 +1063,7 @@
         <target xml:lang="pt-PT" state="translated">Oseias</target>
       </trans-unit>
       <trans-unit id="CharacterName.Hosea (Yahweh says)" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Hosea (Yahweh says)</source>
         <note>ID: CharacterName.Hosea (Yahweh says)</note>
         <target xml:lang="pt-PT" state="translated">Oseias (Yahweh diz)</target>
       </trans-unit>
@@ -1133,7 +1133,7 @@
         <target xml:lang="pt-PT" state="translated">Israel, ***all*** ***the*** ***tribes***</target>
       </trans-unit>
       <trans-unit id="CharacterName.Israel, fathers of" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Israel, fathers of</source>
         <note>ID: CharacterName.Israel, fathers of</note>
         <target xml:lang="pt-PT" state="translated">Israel, ***fathers*** ***of***</target>
       </trans-unit>
@@ -1153,7 +1153,7 @@
         <target xml:lang="pt-PT" state="translated">Israel, ***the*** Povo ***of***</target>
       </trans-unit>
       <trans-unit id="CharacterName.Israel, with their kings, princes, priests and prophets" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Israel, with their kings, princes, priests and prophets</source>
         <note>ID: CharacterName.Israel, with their kings, princes, priests and prophets</note>
         <target xml:lang="pt-PT" state="translated">Israel, ***with*** ***their*** ***kings,*** ***princes,*** sacerdotes e profetas</target>
       </trans-unit>
@@ -1223,7 +1223,7 @@
         <target xml:lang="pt-PT" state="translated">Israelite ***spies*** Joshua ***sent*** ***to*** Ai</target>
       </trans-unit>
       <trans-unit id="CharacterName.Issachar" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Issachar</source>
         <note>ID: CharacterName.Issachar</note>
         <target xml:lang="pt-PT" state="translated">Issachar</target>
       </trans-unit>
@@ -1248,7 +1248,7 @@
         <target xml:lang="pt-PT" state="translated">Jael</target>
       </trans-unit>
       <trans-unit id="CharacterName.Jahaziel" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Jahaziel</source>
         <note>ID: CharacterName.Jahaziel</note>
         <target xml:lang="pt-PT" state="translated">Jahaziel</target>
       </trans-unit>
@@ -1258,7 +1258,7 @@
         <target xml:lang="pt-PT" state="translated">Jairo ***(synagogue*** ***leader)***</target>
       </trans-unit>
       <trans-unit id="CharacterName.Jairus' wife" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Jairus' wife</source>
         <note>ID: CharacterName.Jairus' wife</note>
         <target xml:lang="pt-PT" state="translated">Esposa de Jairo</target>
       </trans-unit>
@@ -1278,7 +1278,7 @@
         <target xml:lang="pt-PT" state="translated">Jehizkiah</target>
       </trans-unit>
       <trans-unit id="CharacterName.Jehoash (Joash), king of Judah" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Jehoash (Joash), king of Judah</source>
         <note>ID: CharacterName.Jehoash (Joash), king of Judah</note>
         <target xml:lang="pt-PT" state="translated">Jeoás (Joás), rei de Judá</target>
       </trans-unit>
@@ -1293,7 +1293,7 @@
         <target xml:lang="pt-PT" state="translated">o sacerdote Joiada</target>
       </trans-unit>
       <trans-unit id="CharacterName.Jehonadab, son of Rechab" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Jehonadab, son of Rechab</source>
         <note>ID: CharacterName.Jehonadab, son of Rechab</note>
         <target xml:lang="pt-PT" state="translated">Jehonadab, filho do Rechab</target>
       </trans-unit>
@@ -1318,7 +1318,7 @@
         <target xml:lang="pt-PT" state="translated">Jehucal</target>
       </trans-unit>
       <trans-unit id="CharacterName.Jehudi" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Jehudi</source>
         <note>ID: CharacterName.Jehudi</note>
         <target xml:lang="pt-PT" state="translated">Judah, Jew, Jehudi</target>
       </trans-unit>
@@ -1378,7 +1378,7 @@
         <target xml:lang="pt-PT" state="translated">Jesus (em vision)</target>
       </trans-unit>
       <trans-unit id="CharacterName.Jesus (one with garments stained crimson)" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Jesus (one with garments stained crimson)</source>
         <note>ID: CharacterName.Jesus (one with garments stained crimson)</note>
         <target xml:lang="pt-PT" state="translated">Jesus ***(one*** ***with*** ***garments*** ***stained*** ***crimson)***</target>
       </trans-unit>
@@ -1423,7 +1423,7 @@
         <target xml:lang="pt-PT" state="translated">Judaico ***leaders***</target>
       </trans-unit>
       <trans-unit id="CharacterName.Jewish leaders in Pisidian Antioch" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Jewish leaders in Pisidian Antioch</source>
         <note>ID: CharacterName.Jewish leaders in Pisidian Antioch</note>
         <target xml:lang="pt-PT" state="translated">Judaico ***leaders*** ***in*** ***Pisidian*** Antioquia</target>
       </trans-unit>
@@ -1443,7 +1443,7 @@
         <target xml:lang="pt-PT" state="translated">Joah</target>
       </trans-unit>
       <trans-unit id="CharacterName.Joash (Jehoash), king of Israel" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Joash (Jehoash), king of Israel</source>
         <note>ID: CharacterName.Joash (Jehoash), king of Israel</note>
         <target xml:lang="pt-PT" state="translated">Joash ***(Jehoash), rei de Israel</target>
       </trans-unit>
@@ -1463,7 +1463,7 @@
         <target xml:lang="pt-PT" state="translated">Job</target>
       </trans-unit>
       <trans-unit id="CharacterName.Joel" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Joel</source>
         <note>ID: CharacterName.Joel</note>
         <target xml:lang="pt-PT" state="translated">Joel</target>
       </trans-unit>
@@ -1528,7 +1528,7 @@
         <target xml:lang="pt-PT" state="translated">Joseph</target>
       </trans-unit>
       <trans-unit id="CharacterName.Joseph of Arimathaea" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Joseph of Arimathaea</source>
         <note>ID: CharacterName.Joseph of Arimathaea</note>
         <target xml:lang="pt-PT" state="translated">Joseph ***of*** ***Arimathaea***</target>
       </trans-unit>
@@ -1538,7 +1538,7 @@
         <target xml:lang="pt-PT" state="translated">Joseph, Povo ***of***</target>
       </trans-unit>
       <trans-unit id="CharacterName.Joseph, the carpenter" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Joseph, the carpenter</source>
         <note>ID: CharacterName.Joseph, the carpenter</note>
         <target xml:lang="pt-PT" state="translated">Joseph, ***the*** ***carpenter***</target>
       </trans-unit>
@@ -1573,7 +1573,7 @@
         <target xml:lang="pt-PT" state="translated">Judah, ***all***</target>
       </trans-unit>
       <trans-unit id="CharacterName.Judah, leaders of" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Judah, leaders of</source>
         <note>ID: CharacterName.Judah, leaders of</note>
         <target xml:lang="pt-PT" state="translated">Judah, ***leaders*** ***of***</target>
       </trans-unit>
@@ -1588,7 +1588,7 @@
         <target xml:lang="pt-PT" state="translated">Judah, Povo ***in***</target>
       </trans-unit>
       <trans-unit id="CharacterName.Judah, people of" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Judah, people of</source>
         <note>ID: CharacterName.Judah, people of</note>
         <target xml:lang="pt-PT" state="translated">Judah, ***people*** ***of***</target>
       </trans-unit>
@@ -1598,7 +1598,7 @@
         <target xml:lang="pt-PT" state="translated">Judah, ***remnant*** ***of***</target>
       </trans-unit>
       <trans-unit id="CharacterName.Judah, repentant leaders" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Judah, repentant leaders</source>
         <note>ID: CharacterName.Judah, repentant leaders</note>
         <target xml:lang="pt-PT" state="translated">Judah, ***repentant*** ***leaders***</target>
       </trans-unit>
@@ -1613,7 +1613,7 @@
         <target xml:lang="pt-PT" state="translated">Judas, ***apostle*** ***(not*** Judas Iscariotes)</target>
       </trans-unit>
       <trans-unit id="CharacterName.Julius" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Julius</source>
         <note>ID: CharacterName.Julius</note>
         <target xml:lang="pt-PT" state="translated">Júlio</target>
       </trans-unit>
@@ -1673,7 +1673,7 @@
         <target xml:lang="pt-PT" state="translated">Mahlah</target>
       </trans-unit>
       <trans-unit id="CharacterName.Malachi" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Malachi</source>
         <note>ID: CharacterName.Malachi</note>
         <target xml:lang="pt-PT" state="translated">Malachi</target>
       </trans-unit>
@@ -1728,22 +1728,22 @@
         <target xml:lang="pt-PT" state="translated">Mephibosheth, filho do Jonathan</target>
       </trans-unit>
       <trans-unit id="CharacterName.Micah (Yahweh says)" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Micah (Yahweh says)</source>
         <note>ID: CharacterName.Micah (Yahweh says)</note>
         <target xml:lang="pt-PT" state="translated">Micah (Yahweh diz)</target>
       </trans-unit>
       <trans-unit id="CharacterName.Micah of Ephraim" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Micah of Ephraim</source>
         <note>ID: CharacterName.Micah of Ephraim</note>
         <target xml:lang="pt-PT" state="translated">Micah ***of*** Ephraim</target>
       </trans-unit>
       <trans-unit id="CharacterName.Micah, prophet" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Micah, prophet</source>
         <note>ID: CharacterName.Micah, prophet</note>
         <target xml:lang="pt-PT" state="translated">Micah, profeta</target>
       </trans-unit>
       <trans-unit id="CharacterName.Micaiah, son of Imlah" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Micaiah, son of Imlah</source>
         <note>ID: CharacterName.Micaiah, son of Imlah</note>
         <target xml:lang="pt-PT" state="translated">Micaiah, filho do Imlah</target>
       </trans-unit>
@@ -1783,7 +1783,7 @@
         <target xml:lang="pt-PT" state="translated">Miriam (novo)</target>
       </trans-unit>
       <trans-unit id="CharacterName.Moab and Seir" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Moab and Seir</source>
         <note>ID: CharacterName.Moab and Seir</note>
         <target xml:lang="pt-PT" state="translated">Moab e Seir</target>
       </trans-unit>
@@ -1823,12 +1823,12 @@
         <target xml:lang="pt-PT" state="translated">Nahash ***the*** Ammonite</target>
       </trans-unit>
       <trans-unit id="CharacterName.Nahum" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Nahum</source>
         <note>ID: CharacterName.Nahum</note>
         <target xml:lang="pt-PT" state="translated">Nahum</target>
       </trans-unit>
       <trans-unit id="CharacterName.Nahum (Yahweh says)" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Nahum (Yahweh says)</source>
         <note>ID: CharacterName.Nahum (Yahweh says)</note>
         <target xml:lang="pt-PT" state="translated">Nahum (Yahweh diz)</target>
       </trans-unit>
@@ -1838,7 +1838,7 @@
         <target xml:lang="pt-PT" state="translated">Naomi</target>
       </trans-unit>
       <trans-unit id="CharacterName.Naphtali" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Naphtali</source>
         <note>ID: CharacterName.Naphtali</note>
         <target xml:lang="pt-PT" state="translated">Naphtali</target>
       </trans-unit>
@@ -1858,12 +1858,12 @@
         <target xml:lang="pt-PT" state="translated">Natanael</target>
       </trans-unit>
       <trans-unit id="CharacterName.Nebuchadnezzar, king of Babylon" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Nebuchadnezzar, king of Babylon</source>
         <note>ID: CharacterName.Nebuchadnezzar, king of Babylon</note>
         <target xml:lang="pt-PT" state="translated">Nebuchadnezzar, rei da Babilônia</target>
       </trans-unit>
       <trans-unit id="CharacterName.Nebushazban" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Nebushazban</source>
         <note>ID: CharacterName.Nebushazban</note>
         <target xml:lang="pt-PT" state="translated">Nebushazban</target>
       </trans-unit>
@@ -1888,7 +1888,7 @@
         <target xml:lang="pt-PT" state="translated">Nehemiah ***(with*** ***Ezra*** e ***Levites)*** ***-*** ***see*** ***v.*** ***10***</target>
       </trans-unit>
       <trans-unit id="CharacterName.Nergal Sharezer" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Nergal Sharezer</source>
         <note>ID: CharacterName.Nergal Sharezer</note>
         <target xml:lang="pt-PT" state="translated">Nergal Sharezer</target>
       </trans-unit>
@@ -1913,7 +1913,7 @@
         <target xml:lang="pt-PT" state="translated">Noah</target>
       </trans-unit>
       <trans-unit id="CharacterName.Obadiah (Yahweh says)" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Obadiah (Yahweh says)</source>
         <note>ID: CharacterName.Obadiah (Yahweh says)</note>
         <target xml:lang="pt-PT" state="translated">Obadiah (Yahweh diz)</target>
       </trans-unit>
@@ -1923,12 +1923,12 @@
         <target xml:lang="pt-PT" state="translated">Obadiah, ***manager*** ***of*** ***Ahab's*** palácio dos reis</target>
       </trans-unit>
       <trans-unit id="CharacterName.Obadiah, prophet" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Obadiah, prophet</source>
         <note>ID: CharacterName.Obadiah, prophet</note>
         <target xml:lang="pt-PT" state="translated">Obadiah, profeta</target>
       </trans-unit>
       <trans-unit id="CharacterName.Oded, prophet" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Oded, prophet</source>
         <note>ID: CharacterName.Oded, prophet</note>
         <target xml:lang="pt-PT" state="translated">Oded, profeta</target>
       </trans-unit>
@@ -1958,7 +1958,7 @@
         <target xml:lang="pt-PT" state="translated">Paulo e Silas</target>
       </trans-unit>
       <trans-unit id="CharacterName.Pekah, son of Remaliah, king of Israel" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Pekah, son of Remaliah, king of Israel</source>
         <note>ID: CharacterName.Pekah, son of Remaliah, king of Israel</note>
         <target xml:lang="pt-PT" state="translated">Pekah, filho do Remaliah, king de Israel</target>
       </trans-unit>
@@ -1998,7 +1998,7 @@
         <target xml:lang="pt-PT" state="translated">Pedro e ***John's*** ***own*** Povo ***(church*** ***in*** ***Jerusalem)***</target>
       </trans-unit>
       <trans-unit id="CharacterName.Peter and the apostles" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Peter and the apostles</source>
         <note>ID: CharacterName.Peter and the apostles</note>
         <target xml:lang="pt-PT" state="translated">Pedro e ***the*** ***apostles***</target>
       </trans-unit>
@@ -2113,12 +2113,12 @@
         <target xml:lang="pt-PT" state="translated">Rebekah</target>
       </trans-unit>
       <trans-unit id="CharacterName.Rechab" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Rechab</source>
         <note>ID: CharacterName.Rechab</note>
         <target xml:lang="pt-PT" state="translated">Rechab</target>
       </trans-unit>
       <trans-unit id="CharacterName.Rechabite family, men of" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Rechabite family, men of</source>
         <note>ID: CharacterName.Rechabite family, men of</note>
         <target xml:lang="pt-PT" state="translated">Rechabite ***family,*** ***men*** ***of***</target>
       </trans-unit>
@@ -2143,7 +2143,7 @@
         <target xml:lang="pt-PT" state="translated">Rode</target>
       </trans-unit>
       <trans-unit id="CharacterName.rooster" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">rooster</source>
         <note>ID: CharacterName.rooster</note>
         <target xml:lang="pt-PT" state="translated">rooster</target>
       </trans-unit>
@@ -2233,12 +2233,12 @@
         <target xml:lang="pt-PT" state="translated">Saulo ***(via*** ***messenger)***</target>
       </trans-unit>
       <trans-unit id="CharacterName.Seir (personified)" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Seir (personified)</source>
         <note>ID: CharacterName.Seir (personified)</note>
         <target xml:lang="pt-PT" state="translated">Seir ***(personified)***</target>
       </trans-unit>
       <trans-unit id="CharacterName.Sennacherib, king of Assyria" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Sennacherib, king of Assyria</source>
         <note>ID: CharacterName.Sennacherib, king of Assyria</note>
         <target xml:lang="pt-PT" state="translated">Sennacherib, rei da Assíria</target>
       </trans-unit>
@@ -2248,12 +2248,12 @@
         <target xml:lang="pt-PT" state="translated">Seraiah</target>
       </trans-unit>
       <trans-unit id="CharacterName.Sergius Paulus, proconsul" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Sergius Paulus, proconsul</source>
         <note>ID: CharacterName.Sergius Paulus, proconsul</note>
         <target xml:lang="pt-PT" state="translated">Sérgio ***Paulus,*** ***proconsul***</target>
       </trans-unit>
       <trans-unit id="CharacterName.Shalmaneser, king of Assyria" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Shalmaneser, king of Assyria</source>
         <note>ID: CharacterName.Shalmaneser, king of Assyria</note>
         <target xml:lang="pt-PT" state="translated">Shalmaneser, rei da Assíria</target>
       </trans-unit>
@@ -2268,7 +2268,7 @@
         <target xml:lang="pt-PT" state="translated">Sharezer</target>
       </trans-unit>
       <trans-unit id="CharacterName.Sheba, Dedan, and the merchants of Tarshish" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Sheba, Dedan, and the merchants of Tarshish</source>
         <note>ID: CharacterName.Sheba, Dedan, and the merchants of Tarshish</note>
         <target xml:lang="pt-PT" state="translated">Sheba, Dedan, e ***the*** ***merchants*** ***of*** Tarshish</target>
       </trans-unit>
@@ -2288,17 +2288,17 @@
         <target xml:lang="pt-PT" state="translated">Shechem, filho do Hamor</target>
       </trans-unit>
       <trans-unit id="CharacterName.Shemaiah the Nehelamite" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Shemaiah the Nehelamite</source>
         <note>ID: CharacterName.Shemaiah the Nehelamite</note>
         <target xml:lang="pt-PT" state="translated">Shemaiah ***the*** ***Nehelamite***</target>
       </trans-unit>
       <trans-unit id="CharacterName.Shemaiah, prophet" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Shemaiah, prophet</source>
         <note>ID: CharacterName.Shemaiah, prophet</note>
         <target xml:lang="pt-PT" state="translated">Shemaiah, profeta</target>
       </trans-unit>
       <trans-unit id="CharacterName.Shemaiah, son of Delaiah" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Shemaiah, son of Delaiah</source>
         <note>ID: CharacterName.Shemaiah, son of Delaiah</note>
         <target xml:lang="pt-PT" state="translated">Shemaiah, filho do Delaiah</target>
       </trans-unit>
@@ -2363,7 +2363,7 @@
         <target xml:lang="pt-PT" state="translated">Simeon, ***devout*** ***man*** ***in*** ***Jerusalem***</target>
       </trans-unit>
       <trans-unit id="CharacterName.Simon" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Simon</source>
         <note>ID: CharacterName.Simon</note>
         <target xml:lang="pt-PT" state="translated">Simão</target>
       </trans-unit>
@@ -2378,7 +2378,7 @@
         <target xml:lang="pt-PT" state="translated">Sisera</target>
       </trans-unit>
       <trans-unit id="CharacterName.Solomon (lover)" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Solomon (lover)</source>
         <note>ID: CharacterName.Solomon (lover)</note>
         <target xml:lang="pt-PT" state="translated">Solomon ***(lover)***</target>
       </trans-unit>
@@ -2398,7 +2398,7 @@
         <target xml:lang="pt-PT" state="translated">chefe da sinagoga</target>
       </trans-unit>
       <trans-unit id="CharacterName.Syria" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Syria</source>
         <note>ID: CharacterName.Syria</note>
         <target xml:lang="pt-PT" state="translated">Síria</target>
       </trans-unit>
@@ -2433,7 +2433,7 @@
         <target xml:lang="pt-PT" state="translated">Tomé</target>
       </trans-unit>
       <trans-unit id="CharacterName.Timothy" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Timothy</source>
         <note>ID: CharacterName.Timothy</note>
         <target xml:lang="pt-PT" state="translated">Timóteo</target>
       </trans-unit>
@@ -2458,12 +2458,12 @@
         <target xml:lang="pt-PT" state="translated">Tobiah ***the*** Ammonite ***official***</target>
       </trans-unit>
       <trans-unit id="CharacterName.Toi, king of Hamath" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Toi, king of Hamath</source>
         <note>ID: CharacterName.Toi, king of Hamath</note>
         <target xml:lang="pt-PT" state="translated">Toi, king ***of*** Hamath</target>
       </trans-unit>
       <trans-unit id="CharacterName.Tyre (personified)" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Tyre (personified)</source>
         <note>ID: CharacterName.Tyre (personified)</note>
         <target xml:lang="pt-PT" state="translated">Tyre ***(personified)***</target>
       </trans-unit>
@@ -2473,7 +2473,7 @@
         <target xml:lang="pt-PT" state="translated">Uriah</target>
       </trans-unit>
       <trans-unit id="CharacterName.virgin" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">virgin</source>
         <note>ID: CharacterName.virgin</note>
         <target xml:lang="pt-PT" state="translated">virgem; jovem</target>
       </trans-unit>
@@ -2483,7 +2483,7 @@
         <target xml:lang="pt-PT" state="translated">adorador</target>
       </trans-unit>
       <trans-unit id="CharacterName.Zacchaeus" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Zacchaeus</source>
         <note>ID: CharacterName.Zacchaeus</note>
         <target xml:lang="pt-PT" state="translated">Zaqueu</target>
       </trans-unit>
@@ -2503,7 +2503,7 @@
         <target xml:lang="pt-PT" state="translated">Zebul, governador de Siquém</target>
       </trans-unit>
       <trans-unit id="CharacterName.Zebulun" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Zebulun</source>
         <note>ID: CharacterName.Zebulun</note>
         <target xml:lang="pt-PT" state="translated">Zebulun</target>
       </trans-unit>
@@ -2518,12 +2518,12 @@
         <target xml:lang="pt-PT" state="translated">Zechariah (em vision)</target>
       </trans-unit>
       <trans-unit id="CharacterName.Zechariah (Yahweh says)" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Zechariah (Yahweh says)</source>
         <note>ID: CharacterName.Zechariah (Yahweh says)</note>
         <target xml:lang="pt-PT" state="translated">Zechariah (Yahweh diz)</target>
       </trans-unit>
       <trans-unit id="CharacterName.Zechariah the prophet, son of Berechiah" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Zechariah the prophet, son of Berechiah</source>
         <note>ID: CharacterName.Zechariah the prophet, son of Berechiah</note>
         <target xml:lang="pt-PT" state="translated">Zechariah o profeta, filho do Berechiah</target>
       </trans-unit>
@@ -2553,7 +2553,7 @@
         <target xml:lang="pt-PT" state="translated">Zedequias, filho do ***Kenaanah,*** ***false*** profeta</target>
       </trans-unit>
       <trans-unit id="CharacterName.Zephaniah (Yahweh says)" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Zephaniah (Yahweh says)</source>
         <note>ID: CharacterName.Zephaniah (Yahweh says)</note>
         <target xml:lang="pt-PT" state="translated">Zephaniah (Yahweh diz)</target>
       </trans-unit>
@@ -2563,7 +2563,7 @@
         <target xml:lang="pt-PT" state="translated">Sofonias, sacerdote</target>
       </trans-unit>
       <trans-unit id="CharacterName.Zephaniah, prophet" sil:dynamic="true">
-        <source xml:lang="en" />
+        <source xml:lang="en">Zephaniah, prophet</source>
         <note>ID: CharacterName.Zephaniah, prophet</note>
         <target xml:lang="pt-PT" state="translated">Zephaniah, profeta</target>
       </trans-unit>

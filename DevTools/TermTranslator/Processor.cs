@@ -110,9 +110,8 @@ namespace DevTools.TermTranslator
 
 			foreach (string name in s_names)
 			{
-				var id = kCharacterNamePrefix + name;
-				deprecatedCharacterIds.Remove(id);
-				newXlf.AddTransUnit(GetNewTransUnit(id));
+				deprecatedCharacterIds.Remove(kCharacterNamePrefix + name);
+				newXlf.AddTransUnit(GetNewTransUnit(name));
 			}
 
 			foreach (var id in deprecatedCharacterIds)
@@ -139,7 +138,7 @@ namespace DevTools.TermTranslator
 			RemoveUntranslatedAndDeletedEntries(newXlf);
 
 			foreach (string name in s_names)
-				AddLocalizedTerm(newXlf, localTermsList, GetNewTransUnit(kCharacterNamePrefix + name), name);
+				AddLocalizedTerm(newXlf, localTermsList, GetNewTransUnit(name), name);
 
 			Save(newXlf, new TransUnitComparer(false), xlfFileName);
 
@@ -156,13 +155,14 @@ namespace DevTools.TermTranslator
 				writer.Write(swapped);
 		}
 
-		private static XLiffTransUnit GetNewTransUnit(string id)
+		private static XLiffTransUnit GetNewTransUnit(string name)
 		{
+			var id = kCharacterNamePrefix + name;
 			return new XLiffTransUnit
 			{
 				Id = id,
 				Dynamic = true,
-				Source = new XLiffTransUnitVariant { Lang = "en" },
+				Source = new XLiffTransUnitVariant { Lang = "en", Value = name },
 				Notes = new List<XLiffNote>(new [] { new XLiffNote { Text =$"ID: {id}" }})
 			};
 		}
