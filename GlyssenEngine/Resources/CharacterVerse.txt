@@ -4709,10 +4709,12 @@ JDG	12	3	Jephthah			Normal
 JDG	12	4	Jephthah			Indirect		
 JDG	12	4	Ephraimites			Quotation		
 JDG	12	4	narrator-JDG			Quotation		
-JDG	12	5	Ephraimites		Ephraim, fugitive of	Normal		
+JDG	12	5	Ephraimites			Normal		
 JDG	12	5	Gilead, men of			Normal		
-JDG	12	6	Ephraimites		Ephraim, fugitive of	Normal		
+JDG	12	6	Ephraimites			Normal		
 JDG	12	6	Gilead, men of			Normal		
+JDG	12	6	narrator-JDG			Quotation		
+JDG	12	6	Needs Review			Normal		
 JDG	13	3	Yahweh's angel			Normal	Jesus	
 JDG	13	4	Yahweh's angel			Normal	Jesus	
 JDG	13	5	Yahweh's angel			Normal	Jesus	
