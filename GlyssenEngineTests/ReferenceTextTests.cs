@@ -1207,6 +1207,32 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(referenceBlocks[1], result[1].ReferenceBlocks.Single());
 		}
 
+		[Test]
+		public void ApplyTo_SingleVoice_SingleSpeakerInVerse_SpeakersBeginCorrespondingThenDoNotCorrespond_ReferenceTextOrderNotChanged()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(16, "Entonces dijo Jesus, ", true, 9));
+			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Porque pateas al gato?” ");
+			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
+			vernBook.SingleVoice = true;
+
+			var referenceBlocks = new List<Block>();
+			referenceBlocks.Add(CreateNarratorBlockForVerse(16, "Then Jesus said, ", true, 9));
+			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "Why do you kick the cat? ");
+			AddNarratorBlockForVerseInProgress(referenceBlocks, "thus he spake. ");
+
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			refText.ApplyTo(vernBook);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(vernacularBlocks.Count, result.Count);
+			Assert.That(result.All(v => v.ReferenceBlocks.Any()));
+			var refBlocksConnectedToVernBlocks = result.SelectMany(v => v.ReferenceBlocks).ToList();
+			Assert.AreEqual(String.Join("", referenceBlocks.Select(r => r.GetText(true))),
+				String.Join("", refBlocksConnectedToVernBlocks.Select(r => r.GetText(true))));
+		}
+
 		// PG-1133 (part 2: preventing re-ordering of ref blocks in a way that would combine texts for two different speakers)
 		[Test]
 		public void ApplyTo_MultipleSpeakersInVerse_IndirectSpeechInVernDoesNotMatchDirectSpeechInRef_ReferenceTextForSecondSpeakerNotAppendedToFirstSpeaker()
@@ -2250,8 +2276,9 @@ namespace GlyssenEngineTests
 			{
 				Assert.AreEqual(1, result[3].ReferenceBlocks.Count);
 				Assert.True(result[3].MatchesReferenceText);
-				Assert.AreEqual("“Behold the majesty of God!” But while all were marveling", result[3].ReferenceBlocks[0].GetText(true));
-				Assert.AreEqual("“Behold the majesty of God!” But while all were marveling", result[3].GetPrimaryReferenceText());
+				var expected = referenceBlocks[2].GetText(true) + " " + referenceBlocks[3].GetText(true);
+				Assert.AreEqual(expected, result[3].ReferenceBlocks[0].GetText(true));
+				Assert.AreEqual(expected, result[3].GetPrimaryReferenceText());
 			}
 		}
 
