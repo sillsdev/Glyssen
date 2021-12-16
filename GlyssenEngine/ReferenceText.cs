@@ -569,11 +569,10 @@ namespace GlyssenEngine
 							{
 								// This is the last vernacular block in the list, but we have more than one ref block to account for.
 
-								if (numberOfRefBlocksInVerseChunk - i == 2 && // Exactly 2 reference blocks remaining to be assigned
+								if (!forceMatch &&
+									numberOfRefBlocksInVerseChunk - i == 2 && // Exactly 2 reference blocks remaining to be assigned
 									i > 0 && // There is a preceding vernacular block
-									// The following line could be uncommented to constrain this only to the original intended condition
-									// if we find cases where we are coming in here but shouldn't:
-									//vernBlockInVerseChunk.CharacterIs(bookId, CharacterVerseData.StandardCharacter.Narrator) &&
+									BlocksMatch(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification) &&
 									// Can only safely combine reference blocks if they are for the same character:
 									vernBlockList[indexOfVernVerseStart + i - 1].ReferenceBlocks.All(r => r.CharacterId == refBlockList[indexOfRefVerseStart + i + 1].CharacterId) &&
 									BlocksMatch(bookNum, vernBlockList[indexOfVernVerseStart + i - 1], // Preceding vern block's character & end ref are compatible
@@ -600,7 +599,7 @@ namespace GlyssenEngine
 									{
 										// If allowSplitting is true, the caller was responsible for obtaining the lock on m_modifiedBooks,
 										// so we don't need to incur that overhead again here.
-										CombineRefBlocksToCreateMatch(remainingRefBlocks.ToList(), vernBlockInVerseChunk, allowSplitting && m_modifiedBooks.Contains(bookId));
+										CombineRefBlocksToCreateMatch(remainingRefBlocks.ToList(), vernBlockInVerseChunk, !allowSplitting || !m_modifiedBooks.Contains(bookId));
 									}
 									else
 										vernBlockInVerseChunk.SetUnmatchedReferenceBlocks(remainingRefBlocks);
@@ -819,7 +818,7 @@ namespace GlyssenEngine
 							{
 								// If allowSplitting is true, the caller was responsible for obtaining the lock on m_modifiedBooks,
 								// so we don't need to incur that overhead again here.
-								CombineRefBlocksToCreateMatch(remainingRefBlocksList, vernBlockList[iVernBlock], allowSplitting && m_modifiedBooks.Contains(bookId));
+								CombineRefBlocksToCreateMatch(remainingRefBlocksList, vernBlockList[iVernBlock], !allowSplitting || !m_modifiedBooks.Contains(bookId));
 							}
 							else
 							{
