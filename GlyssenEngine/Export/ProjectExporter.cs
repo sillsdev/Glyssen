@@ -58,7 +58,7 @@ namespace GlyssenEngine.Export
 		public bool IncludeDelivery { get; }
 		private readonly IReadOnlyList<BookScript> m_booksToExport;
 		/// <summary>
-		/// The keys are the (1-based) canonical book numbers. The values cache of the number of
+		/// The keys are the (1-based) canonical book numbers. The values cache the number of
 		/// included blocks up through this book (so that a subsequent book can start its block
 		/// numbering from there).
 		/// </summary>
