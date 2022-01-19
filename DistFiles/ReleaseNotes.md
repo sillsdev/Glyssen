@@ -46,6 +46,9 @@ back-up plan.)
 
 # Release Notes
 
+## January 20 2022 Glyssen 3.1.3
+Added logic to ensure that block numbers in actor- and book-specific Excel exports match the numbers of those same blocks in the master file for the project.
+
 ## January 8 2020 Glyssen 2.0.0
 Enhanced parser to identify "poetry" paragraphs as Scripture quotes when no other character speaks in the verses.
 
