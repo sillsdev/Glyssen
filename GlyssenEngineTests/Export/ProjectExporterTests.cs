@@ -217,6 +217,14 @@ namespace GlyssenEngineTests.Export
 			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData("2JN");
+			int prevNumber = data[0].Number;
+			Assert.That(prevNumber, Is.GreaterThanOrEqualTo(project.IncludedBooks.First().GetScriptBlocks().Count));
+			Assert.That(prevNumber, Is.EqualTo(exporter.GetExportData("GAL").Count + 1));
+			for (var index = 1; index < data.Count; index++)
+			{
+				var block = data[index];
+				Assert.AreEqual(++prevNumber, block.Number);
+			}
 			Assert.True(data.All(t => t.BookId == "2JN"));
 		}
 
@@ -241,11 +249,15 @@ namespace GlyssenEngineTests.Export
 			project.CharacterGroupList.CharacterGroups[0].AssignVoiceActor(1);
 
 			var exporter = new ProjectExporter(project);
+
+			var expectedBlockNumber = exporter.GetExportData().Single(b => b.CharacterId == "Michael, archangel").Number;
+
 			var data = exporter.GetExportData(voiceActorId: 1).Single();
 			Assert.AreEqual("Marlon", data.VoiceActor);
 			Assert.AreEqual(1, data.ChapterNumber);
 			Assert.AreEqual(9, data.VerseNumber);
 			Assert.AreEqual("Michael, archangel", data.CharacterId);
+			Assert.AreEqual(expectedBlockNumber, data.Number);
 		}
 
 		[Test]
@@ -272,6 +284,12 @@ namespace GlyssenEngineTests.Export
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
 			Assert.IsTrue(data.Count > 2);
+			for (var index = 0; index < data.Count; index++)
+			{
+				var block = data[index];
+				Assert.AreEqual(index + 1, block.Number);
+			}
+
 			var iStartOfJude = data.IndexOf(d => d.BookId == "JUD");
 			Assert.IsTrue(iStartOfJude > 0);
 			Assert.IsTrue(data.Take(iStartOfJude).All(d => d.BookId == "GAL"));

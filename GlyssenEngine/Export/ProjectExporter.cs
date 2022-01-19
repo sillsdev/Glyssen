@@ -57,6 +57,12 @@ namespace GlyssenEngine.Export
 		private int m_numberOfFilesSuccessfullyExported;
 		public bool IncludeDelivery { get; }
 		private readonly IReadOnlyList<BookScript> m_booksToExport;
+		/// <summary>
+		/// The keys are the (1-based) canonical book numbers. The values cache of the number of
+		/// included blocks up through this book (so that a subsequent book can start its block
+		/// numbering from there).
+		/// </summary>
+		private readonly Dictionary<int, int> m_runningBlockCountCache;
 		private List<int> m_annotatedRowIndexes;
 		private readonly Regex m_splitRegex = new Regex(@"(\|\|\|[^\|]+\|\|\|)|(\{(?:Music|F8|SFX).*?\})");
 
@@ -67,6 +73,7 @@ namespace GlyssenEngine.Export
 			Project = project;
 			IncludeVoiceActors = Project.CharacterGroupList.AnyVoiceActorAssigned();
 			m_booksToExport = new List<BookScript>(Project.ReferenceText.GetBooksWithBlocksConnectedToReferenceText(project));
+			m_runningBlockCountCache = new Dictionary<int, int>(m_booksToExport.Count);
 			IncludeDelivery = m_booksToExport.Any(b => !b.SingleVoice);
 		}
 
@@ -479,7 +486,7 @@ namespace GlyssenEngine.Export
 
 				if (IncludeCreateClips)
 				{
-					// this is the last column, no need to increment columNum
+					// this is the last column, no need to increment columnNum
 					for (int i = 2; i <= dataArray.Count; i++)
 					{
 						var filename = (string) sheet.Cells[i, columnNum].Value;
@@ -564,19 +571,39 @@ namespace GlyssenEngine.Export
 		{
 			var result = new List<ExportBlock>();
 
-			int blockNumber = 1;
-
-			IEnumerable<BookScript> booksToInclude = bookId == null
-				? m_booksToExport
-				: m_booksToExport.Where(b => b.BookId == bookId);
+			int blockNumber = 0;
 
 			var projectClipFileId = (IncludeCreateClips) ?
 				!IsNullOrWhiteSpace(Project.AudioStockNumber) ? Project.AudioStockNumber : Project.Name.Replace(" ", "_") :
 				null;
 
+			var bookNum = bookId == null ? -1 : BCVRef.BookToNumber(bookId);
+
 			var clipDirectory = ClipDirectory; // for optimization
-			foreach (var book in booksToInclude)
+			foreach (var book in m_booksToExport)
 			{
+				var omitBlocksForThisBook = false;
+				if (bookId != null)
+				{
+					if (bookNum < book.BookNumber)
+						break; // We're done - already found the book we wanted.
+					if (bookNum > book.BookNumber)
+					{
+						if (m_runningBlockCountCache.TryGetValue(book.BookNumber, out var blocksFoundForThisBook))
+						{
+							// We have already counted the blocks for this book. If this is the
+							// book immediately preceding the one whose blocks we're retrieving,
+							// this will be the starting place for the block numbers.
+							blockNumber = blocksFoundForThisBook;
+							continue;
+						}
+						// Since we haven't calculated the number of blocks for this book yet,
+						// we need to do so now (probably only ever in tests), but we don't
+						// want to include those blocks in the output of this method.
+						omitBlocksForThisBook = true;
+					}
+				}
+
 				string singleVoiceNarratorOverride = null;
 				if (book.SingleVoice)
 					singleVoiceNarratorOverride = CharacterVerseData.GetStandardCharacterId(book.BookId,
@@ -596,6 +623,11 @@ namespace GlyssenEngine.Export
 					if (!Project.DramatizationPreferences.IncludeCharacter(block.CharacterId))
 						continue;
 
+					blockNumber++;
+
+					if (omitBlocksForThisBook)
+						continue;
+
 					VoiceActor voiceActor = null;
 					bool includeInOutput = true;
 					if (IncludeVoiceActors)
@@ -612,7 +644,7 @@ namespace GlyssenEngine.Export
 								result.Add(GetExportDataForReferenceBlock(refBlock, book.BookId));
 							pendingMismatchedReferenceBlocks = null;
 						}
-						result.Add(GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride,
+						result.Add(GetExportDataForBlock(block, blockNumber, book.BookId, voiceActor, singleVoiceNarratorOverride,
 							IncludeVoiceActors, IncludeDelivery,
 							Project.ReferenceText.HasSecondaryReferenceText, clipDirectory, projectClipFileId, getBlockElements));
 
@@ -626,6 +658,8 @@ namespace GlyssenEngine.Export
 					foreach (var refBlock in pendingMismatchedReferenceBlocks)
 						result.Add(GetExportDataForReferenceBlock(refBlock, book.BookId));
 				}
+
+				m_runningBlockCountCache[book.BookNumber] = blockNumber;
 			}
 			if (bookId == null && voiceActorId == -1 && !getBlockElements)
 				AddAnnotations(result);
