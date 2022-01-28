@@ -85,7 +85,7 @@ namespace Glyssen.Controls
 					{
 						if (!existingProjects.Contains(scrText.Settings.DBLId))
 						{
-							var proxy = new ParatextProjectProxy(scrText);
+							IProjectInfo proxy = new ParatextProjectProxy(scrText);
 							m_paratextProjectIds[proxy.Name] = scrText.Guid;
 							yield return new Tuple<string, IProjectInfo>(proxy.Name, proxy);
 						}

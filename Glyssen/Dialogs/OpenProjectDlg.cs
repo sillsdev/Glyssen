@@ -12,7 +12,9 @@ using GlyssenEngine.Paratext;
 using GlyssenFileBasedPersistence;
 using L10NSharp;
 using Paratext.Data;
+using PtxUtils;
 using SIL.Reporting;
+using static System.String;
 
 namespace Glyssen.Dialogs
 {
@@ -77,14 +79,15 @@ namespace Glyssen.Dialogs
 		// TODO: Move this into libpalaso
 		private IEnumerable<ScrText> GetParatextProjects()
 		{
-			ScrText[] paratextProjects = null;
+			List<ScrText> paratextProjects = null;
 			try
 			{
-				paratextProjects = ScrTextCollection.ScrTexts(IncludeProjects.AccessibleScripture).ToArray();
+				paratextProjects = ScrTextCollection.ScrTexts(IncludeProjects.AccessibleScripture).ToList();
 				var loadErrors = Program.CompatibleParatextProjectLoadErrors.ToList();
+				VerifyProjectPropertiesAreAccessible(paratextProjects, loadErrors);
 				if (loadErrors.Any())
 				{
-					StringBuilder sb = new StringBuilder(String.Format(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLoadErrors",
+					StringBuilder sb = new StringBuilder(Format(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLoadErrors",
 						"The following {0} project load errors occurred:", "Param 0: \"Paratext\" (product name)"), ParatextScrTextWrapper.kParatextProgramName));
 					foreach (var errMsgInfo in loadErrors)
 					{
@@ -149,12 +152,12 @@ namespace Glyssen.Dialogs
 			}
 			catch (Exception err)
 			{
-				NotifyUserOfParatextProblem(String.Format(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.CantAccessParatext",
+				NotifyUserOfParatextProblem(Format(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.CantAccessParatext",
 						"There was a problem accessing {0} data files.",
 						"Param: \"Paratext\" (product name)"),
 						ParatextScrTextWrapper.kParatextProgramName),
-					string.Format(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextError", "The error was: {0}"), err.Message));
-				paratextProjects = new ScrText[0];
+					Format(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextError", "The error was: {0}"), err.Message));
+				paratextProjects = new List<ScrText>(0);
 			}
 			// ENHANCE (PG-63): Implement something like this if we decide to give the user the option of manually
 			// specifying the location of Paratext data files if the program isn’t actually installed.
@@ -175,6 +178,52 @@ namespace Glyssen.Dialogs
 			//}
 			return paratextProjects;
 		}
+
+		/// <summary>
+		/// Verify that the ScrText's basic properties that we care about are accessible.
+		/// </summary>
+		/// <param name="paratextProjects">List of ScrTexts. Any whose basic properties result in
+		/// errors will be purged from the list.</param>
+		/// <param name="loadErrors">List of load error messages (to which this method will append
+		/// if needed)</param>
+		private static void VerifyProjectPropertiesAreAccessible(List<ScrText> paratextProjects, List<ErrorMessageInfo> loadErrors)
+		{
+			for (var index = 0; index < paratextProjects.Count; index++)
+			{
+				var scrText = paratextProjects[index];
+				string name = "???";
+				Enum<Paratext.Data.ProjectType> projectType = Paratext.Data.ProjectType.Standard;
+				try
+				{
+					// Note: the properties we access here should reflect (more or less) the
+					// properties we access in ParatextProjectProxy's constructor.
+					name = scrText.Name;
+					projectType = scrText.Settings.TranslationInfo.Type;
+
+					if (scrText.DisplayLanguageName == null)
+					{
+						throw new NullReferenceException(Format(NullProjectPropertyErrorMessage,
+							nameof(scrText.DisplayLanguageName), name));
+					}
+					if (scrText.Language == null)
+					{
+						throw new NullReferenceException(Format(NullProjectPropertyErrorMessage,
+							nameof(scrText.Language), name));
+					}
+				}
+				catch (Exception e)
+				{
+					loadErrors.Add(new ErrorMessageInfo(e, name, projectType));
+					paratextProjects.RemoveAt(index--);
+				}
+			}
+		}
+
+		private static string NullProjectPropertyErrorMessage => LocalizationManager.GetString(
+			"DialogBoxes.OpenProjectDlg.NullParatextProjectProperty",
+			"Null {0} property for Paratext project {1}",
+			"Param 0: property name (from Paratext code);" +
+			"Param 1: Unique Paratext project identifier (if accessible)");
 
 		private static void AppendVersionIncompatibilityMessage(StringBuilder sb, ErrorMessageInfo errMsgInfo)
 		{
