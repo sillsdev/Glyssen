@@ -85,18 +85,7 @@ namespace Glyssen.Controls
 					{
 						if (!existingProjects.Contains(scrText.Settings.DBLId))
 						{
-							IProjectInfo proxy;
-							try
-							{
-								proxy = new ParatextProjectProxy(scrText);
-							}
-							catch (PtxUtils.FileWriteException e)
-							{
-								ErrorReport.ReportNonFatalExceptionWithMessage(e,
-									LocalizationManager.GetString("Project.OmitUnloadableParatextProject",
-										"This project will be omitted."));
-								continue;
-							}
+							IProjectInfo proxy = new ParatextProjectProxy(scrText);
 							m_paratextProjectIds[proxy.Name] = scrText.Guid;
 							yield return new Tuple<string, IProjectInfo>(proxy.Name, proxy);
 						}
