@@ -570,8 +570,8 @@
     <PackageReference Include="GioSharp-signed">
       <Version>3.22.24.37</Version>
     </PackageReference>
-    <PackageReference Include="GitVersionTask">
-      <Version>5.1.2</Version>
+    <PackageReference Include="GitVersion.MsBuild">
+      <Version>5.8.1</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
