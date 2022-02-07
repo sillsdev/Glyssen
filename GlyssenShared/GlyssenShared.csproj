@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Platforms>x64;AnyCPU</Platforms>
     <Company>FCBH-SIL</Company>
-    <Copyright>Copyright © 2014-2020 Faith Comes By Hearing and SIL International</Copyright>
+    <Copyright>Copyright © 2014-2022 Faith Comes By Hearing and SIL International</Copyright>
     <RootNamespace>Glyssen.Shared</RootNamespace>
     <OutputPath>..\output\$(Configuration)\</OutputPath>
     <PackageOutputPath>../output</PackageOutputPath>

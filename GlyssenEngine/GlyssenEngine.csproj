@@ -7,7 +7,7 @@
 	<PackageOutputPath>../output</PackageOutputPath>
     <Authors>SIL International, Faith Comes By Hearing</Authors>
     <Company>FCBH-SIL</Company>
-    <Copyright>Copyright © 2014-2021 Faith Comes By Hearing and SIL International</Copyright>
+    <Copyright>Copyright © 2014-2022 Faith Comes By Hearing and SIL International</Copyright>
     <Description>Glyssen "business logic" layer used for working with projects to create audio Bible scripts.</Description>
     <RepositoryUrl>https://github.com/sillsdev/glyssen/</RepositoryUrl>
     <RepositoryType>git</RepositoryType>

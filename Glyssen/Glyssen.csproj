@@ -27,6 +27,8 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <!-- Do not need/want a nuget package for this project. -->
+    <IsPackable>false</IsPackable>
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -663,8 +665,6 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
-  <!-- Do not need/want a nuget package for this project. -->
-  <Target Name="Pack" />
   <Target Name="AfterBuild">
     <ItemGroup>
       <XliffFiles Include="$(PkgSIL_libpalaso_l10ns)/content/**/*.xlf" />
