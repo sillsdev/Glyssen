@@ -16,11 +16,6 @@
 		<DownloadNuGetExe Condition=" '$(DownloadNuGetExe)' == '' ">true</DownloadNuGetExe>
 	</PropertyGroup>
 
-	<ItemGroup Condition=" '$(PackageSources)' == '' ">
-		<!-- Package sources used to restore packages. By default, registered sources under %APPDATA%\NuGet\NuGet.Config will be used -->
-		<!-- The official NuGet package source (nuget.org) will be excluded if package sources are specified and it does not appear in the list -->
-	</ItemGroup>
-
 	<PropertyGroup>
 		<NuGetToolsPath>$(MSBuildThisFileDirectory)</NuGetToolsPath>
 		<PackagesConfig Condition="'$(OS)'=='Windows_NT'">$(ProjectDir)packages.config</PackagesConfig>

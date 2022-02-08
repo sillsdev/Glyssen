@@ -570,8 +570,8 @@
     <PackageReference Include="GioSharp-signed">
       <Version>3.22.24.37</Version>
     </PackageReference>
-    <PackageReference Include="GitVersionTask">
-      <Version>5.1.2</Version>
+    <PackageReference Include="GitVersion.MsBuild">
+      <Version>5.8.1</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
@@ -663,14 +663,15 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
-  <!-- Do not need/want a nuget package for this project. -->
-  <Target Name="Pack" />
   <Target Name="AfterBuild">
     <ItemGroup>
       <XliffFiles Include="$(PkgSIL_libpalaso_l10ns)/content/**/*.xlf" />
     </ItemGroup>
     <Copy SourceFiles="@(XliffFiles)" DestinationFiles="@(XliffFiles->'$(SolutionDir)/DistFiles/localization/%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
   </Target>
+  <!-- Do not need/want a nuget package for this project.
+  Can't use IsPackable false because Appveyor build requires the Pack target. -->
+  <Target Name="Pack" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

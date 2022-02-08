@@ -25,9 +25,9 @@
 	<Import Project="../.nuget/NuGet.targets" />
 
 	<Target Name="RestoreBuildTasks" DependsOnTargets="CheckPrerequisites">
-		<Message Text="Calling nuget restore" />
+		<Message Text="Calling $(NuGetCommand) restore ../$(Solution)" />
 		<Exec Command='$(NuGetCommand) restore ../$(Solution)' />
-		<Exec Command='$(NuGetCommand) install SIL.BuildTasks -excludeVersion -version 2.3.2 -source "$(PackageSources)" -solutionDirectory "$(SolutionDir)."' />
+		<Exec Command='$(NuGetCommand) install SIL.BuildTasks -excludeVersion -version 2.5.0 -source "$(PackageSources)" -solutionDirectory "$(RootDir)"' />
 		<Message Text="RestartBuild=$(RestartBuild)"/>
 		<MSBuild Projects="$(MSBuildProjectFullPath)" Targets="BuildInternal" Properties="Configuration=$(Configuration)" Condition="$(RestartBuild)" />
 	</Target>
@@ -48,6 +48,7 @@
 	</Target>
 
 	<Target Name="BuildInternal">
+		<Message Text="BuildInternal : Configuration=$(Configuration)"/>
 		<MSBuild Projects="$(RootDir)/$(Solution)"
 			Targets="Rebuild"
 			Properties="Configuration=$(Configuration)" />
