@@ -167,7 +167,7 @@
       <Version>2.7.1</Version>
     </PackageReference>
     <PackageReference Include="L10NSharp">
-      <Version>4.1.0</Version>
+      <Version>5.0.0-beta0059</Version>
     </PackageReference>
     <PackageReference Include="Markdig.Signed">
       <Version>0.22.0</Version>

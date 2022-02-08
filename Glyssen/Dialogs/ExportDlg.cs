@@ -10,12 +10,10 @@ using Glyssen.Utilities;
 using GlyssenEngine.Export;
 using GlyssenEngine.Utilities;
 using L10NSharp;
-using L10NSharp.XLiffUtils;
-using L10NSharp.UI;
 
 namespace Glyssen.Dialogs
 {
-	public partial class ExportDlg : Form
+	public partial class ExportDlg : Form, ILocalizable
 	{
 		private readonly ProjectExporter m_viewModel;
 		private string m_actorDirectoryFmt;
@@ -34,7 +32,7 @@ namespace Glyssen.Dialogs
 				HideControlsThatRequireVoiceActors();
 
 			HandleStringsLocalized();
-			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
+			Program.RegisterLocalizable(this);
 
 			m_lblFileName.Text = m_viewModel.FullFileName;
 
@@ -66,7 +64,7 @@ namespace Glyssen.Dialogs
 				CenterToParent();
 		}
 
-		private void HandleStringsLocalized()
+		public void HandleStringsLocalized()
 		{
 			m_lblDescription.Text = string.Format(m_lblDescription.Text, ProductName);
 			m_actorDirectoryFmt = m_lblActorDirectory.Text;

@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using GlyssenEngine.ViewModels;
 using L10NSharp;
-using L10NSharp.UI;
-using L10NSharp.XLiffUtils;
 
 namespace Glyssen.Dialogs
 {
-	public partial class AddCharacterToGroupDlg : Form
+	public partial class AddCharacterToGroupDlg : Form, ILocalizable
 	{
 		private readonly AddCharactersToGroupViewModel m_viewModel;
 
@@ -18,11 +16,11 @@ namespace Glyssen.Dialogs
 
 			m_viewModel = model;
 			HandleStringsLocalized();
-			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
+			Program.RegisterLocalizable(this);
 			m_characterDetailsGrid.RowCount = m_viewModel.FilteredCharactersCount;
 		}
 
-		private void HandleStringsLocalized()
+		public void HandleStringsLocalized()
 		{
 			if (m_viewModel.AddingToCameoGroup)
 			{

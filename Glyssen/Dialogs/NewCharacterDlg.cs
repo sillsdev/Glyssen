@@ -2,12 +2,10 @@
 using System.Windows.Forms;
 using GlyssenEngine.Character;
 using L10NSharp;
-using L10NSharp.XLiffUtils;
-using L10NSharp.UI;
 
 namespace Glyssen.Dialogs
 {
-	public partial class NewCharacterDlg : Form
+	public partial class NewCharacterDlg : Form, ILocalizable
 	{
 		private readonly string m_characterId;
 
@@ -18,7 +16,7 @@ namespace Glyssen.Dialogs
 			InitializeComponent();
 
 			HandleStringsLocalized();
-			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
+			Program.RegisterLocalizable(this);
 
 			PopulateComboBoxes();
 		}
@@ -41,7 +39,7 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		private void HandleStringsLocalized()
+		public void HandleStringsLocalized()
 		{
 			m_lblInstructions.Text = string.Format(m_lblInstructions.Text, m_characterId);
 		}
