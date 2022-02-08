@@ -20176,9 +20176,13 @@ ROM	16	22	Tertius			Implicit
 1CO	6	13	saying about food			Hypothetical		
 1CO	6	16	scripture			Quotation		
 1CO	6	18	scripture			Quotation		
+1CO	7	1	narrator-1CO			Quotation		
+1CO	7	8	narrator-1CO			Potential		
 1CO	7	10	narrator-1CO			Potential		
 1CO	8	1	narrator-1CO			Quotation		
+1CO	8	4	narrator-1CO			Quotation		
 1CO	8	5	narrator-1CO			Quotation		
+1CO	8	10	narrator-1CO			Quotation		
 1CO	9	9	scripture			Quotation	Moses	
 1CO	10	7	scripture			Quotation		
 1CO	10	23	saying about doing anything			Hypothetical		
