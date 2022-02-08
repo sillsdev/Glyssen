@@ -27,8 +27,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <!-- Do not need/want a nuget package for this project. -->
-    <IsPackable>false</IsPackable>
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -671,6 +669,9 @@
     </ItemGroup>
     <Copy SourceFiles="@(XliffFiles)" DestinationFiles="@(XliffFiles->'$(SolutionDir)/DistFiles/localization/%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
   </Target>
+  <!-- Do not need/want a nuget package for this project.
+  Can't use IsPackable false because Appveyor build requires the Pack target. -->
+  <Target Name="Pack" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
