@@ -68,12 +68,10 @@ namespace Glyssen
 
 			Project.UpgradingProjectToNewParserVersion += UpgradingProjectToNewParserVersion;
 			Project.GetBadLdmlRecoveryAction += GetBadLdmlFileRecoveryAction;
-
-			SetupUiLanguageMenu();
+			
 			Logger.WriteEvent($"Initial UI language: {Settings.Default.UserInterfaceLanguage}");
 
 			m_toolStrip.Renderer = new NoBorderToolStripRenderer();
-			m_uiLanguageMenu.ToolTipText = LocalizationManager.GetString("MainForm.UILanguage", "User-interface Language");
 
 			HandleStringsLocalized();
 			Program.RegisterLocalizable(this);
@@ -250,6 +248,7 @@ namespace Glyssen
 			UpdateLocalizedText();
 			m_project?.ProjectCharacterVerseData.HandleStringsLocalized();
 			ControlCharacterVerseData.Singleton.HandleStringsLocalized();
+			SetupUiLanguageMenu();
 		}
 
 		private void RememberButtonFormats()
@@ -1010,8 +1009,8 @@ namespace Glyssen
 			menu.Click += ((a, b) =>
 			{
 				Program.PrimaryLocalizationManager.ShowLocalizationDialogBox(false);
-				SetupUiLanguageMenu();
 			});
+			m_uiLanguageMenu.ToolTipText = LocalizationManager.GetString("MainForm.UILanguage", "User-interface Language");
 		}
 
 		private void Assign_Click(object sender, EventArgs e)
