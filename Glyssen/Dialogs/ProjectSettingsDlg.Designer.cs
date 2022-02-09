@@ -1,7 +1,4 @@
-﻿using L10NSharp.UI;
-using L10NSharp.XLiffUtils;
-
-namespace Glyssen.Dialogs
+﻿namespace Glyssen.Dialogs
 {
 	partial class ProjectSettingsDlg
 	{
@@ -18,15 +15,13 @@ namespace Glyssen.Dialogs
 		{
 			if (disposing)
 			{
-				LocalizeItemDlg<XLiffDocument>.StringsLocalized -= HandleStringsLocalized;
-
 				if (UpdatedBundle != null)
 				{
 					UpdatedBundle.Dispose();
 					UpdatedBundle = null;
 				}
-				if (components != null)
-					components.Dispose();
+
+				components?.Dispose();
 			}
 			base.Dispose(disposing);
 		}

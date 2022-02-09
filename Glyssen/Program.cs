@@ -17,6 +17,7 @@ using GlyssenEngine.Utilities;
 using GlyssenFileBasedPersistence;
 using L10NSharp;
 using L10NSharp.UI;
+using L10NSharp.XLiffUtils;
 using Paratext.Data;
 using Paratext.Data.Users;
 using PtxUtils;
@@ -46,6 +47,7 @@ namespace Glyssen
 
 		public static IEnumerable<ErrorMessageInfo> CompatibleParatextProjectLoadErrors => ScrTextCollection.ErrorMessages.Where(e => e.ProjecType != ProjectType.Resource && !e.ProjecType.IsNoteType());
 		private static readonly List<Exception> _pendingExceptionsToReportToAnalytics = new List<Exception>();
+		private static readonly HashSet<ILocalizable> s_registeredLocalizableObjects = new HashSet<ILocalizable>();
 
 		/// <summary>
 		/// The main entry point for the application.
@@ -322,6 +324,49 @@ namespace Glyssen
 		}
 
 		public static ILocalizationManager PrimaryLocalizationManager { get; private set; }
+
+		public static void RegisterLocalizable(ILocalizable uiElement)
+		{
+			lock (s_registeredLocalizableObjects)
+			{
+				if (!s_registeredLocalizableObjects.Any())
+					LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
+				s_registeredLocalizableObjects.Add(uiElement);
+				if (uiElement is Control ctrl) // Currently this is always true
+					ctrl.Disposed += DisposingLocalizableUiElement;
+			}
+		}
+
+		private static void DisposingLocalizableUiElement(object sender, EventArgs e)
+		{
+			// Technically, this is probably pointless
+			((Control)sender).Disposed -= DisposingLocalizableUiElement;
+			UnregisterLocalizable((ILocalizable)sender);
+		}
+
+		// This could be made public and be called directly if ever we had an object that
+		// implemented ILocalizable but was not a Control.
+		private static void UnregisterLocalizable(ILocalizable uiElement)
+		{
+			lock (s_registeredLocalizableObjects)
+			{
+				s_registeredLocalizableObjects.Remove(uiElement);
+				if (!s_registeredLocalizableObjects.Any())
+					LocalizeItemDlg<XLiffDocument>.StringsLocalized -= HandleStringsLocalized;
+			}
+		}
+
+		private static void HandleStringsLocalized(ILocalizationManager lm)
+		{
+			if (lm == PrimaryLocalizationManager)
+			{
+				lock (s_registeredLocalizableObjects)
+				{
+					foreach (var handler in s_registeredLocalizableObjects)
+						handler.HandleStringsLocalized();
+				}
+			}
+		}
 
 		private static void SetUpLocalization()
 		{

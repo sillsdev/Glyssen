@@ -1,6 +1,4 @@
-﻿using L10NSharp.XLiffUtils;
-using L10NSharp.UI;
-using System;
+﻿using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -9,7 +7,7 @@ using GlyssenEngine.ViewModels;
 
 namespace Glyssen.Dialogs
 {
-	public partial class UnappliedSplitsDlg : Form
+	public partial class UnappliedSplitsDlg : Form, ILocalizable
 	{
 		private const string kHtmlFrame = "<html><head><meta charset=\"UTF-8\">" +
 								"<style>{0}</style></head><body>{1}</body></html>";
@@ -28,12 +26,12 @@ namespace Glyssen.Dialogs
 			InitializeComponent();
 
 			HandleStringsLocalized();
-			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
+			Program.RegisterLocalizable(this);
 
 			m_browser.Disposed += Browser_Disposed;
 		}
 
-		private void HandleStringsLocalized()
+		public void HandleStringsLocalized()
 		{
 			m_lblInstructions.Text = string.Format(m_lblInstructions.Text, m_projectName);
 		}

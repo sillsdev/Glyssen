@@ -17,8 +17,6 @@ using GlyssenEngine.Character;
 using GlyssenEngine.Export;
 using GlyssenEngine.ViewModels;
 using L10NSharp;
-using L10NSharp.XLiffUtils;
-using L10NSharp.UI;
 using SIL.Reporting;
 using SIL.Extensions;
 using static System.String;
@@ -26,7 +24,7 @@ using Resources = Glyssen.Properties.Resources;
 
 namespace Glyssen.Dialogs
 {
-	public partial class VoiceActorAssignmentDlg : FormWithPersistedSettings
+	public partial class VoiceActorAssignmentDlg : FormWithPersistedSettings, ILocalizable
 	{
 		private const string kCreateNewGroupMenuItemId = "CreateNewGroup";
 		private const string kAssignToCameoActorItemId = "AssignToCameoActor";
@@ -80,7 +78,7 @@ namespace Glyssen.Dialogs
 			m_characterDetailsGrid.MultiSelect = true;
 
 			HandleStringsLocalized();
-			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
+			Program.RegisterLocalizable(this);
 
 			m_findCharacterBackgroundWorker = new BackgroundWorker { WorkerSupportsCancellation = true };
 			m_findCharacterBackgroundWorker.DoWork += FindCharacter;
@@ -155,7 +153,7 @@ namespace Glyssen.Dialogs
 				m_characterGroupGrid.AutoSizeRowsMode = autoSizeRowsModeToRestore;
 			}
 
-		private void HandleStringsLocalized()
+		public void HandleStringsLocalized()
 		{
 			m_undoButton.Tag = new Tuple<string, Keys>(m_undoButton.ToolTipText, Keys.Z);
 			m_redoButton.Tag = new Tuple<string, Keys>(m_redoButton.ToolTipText, Keys.Y);

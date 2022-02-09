@@ -1,6 +1,5 @@
 ﻿using System.Windows.Forms;
 using Glyssen.Controls;
-using L10NSharp.XLiffUtils;
 
 namespace Glyssen.Dialogs
 {
@@ -19,12 +18,8 @@ namespace Glyssen.Dialogs
 		{
 			if (disposing)
 			{
-				L10NSharp.UI.LocalizeItemDlg<XLiffDocument>.StringsLocalized -= HandleStringsLocalized;
-
-				if (m_hyperlinkFont != null)
-					m_hyperlinkFont.Dispose();
-				if (components != null)
-					components.Dispose();
+				m_hyperlinkFont?.Dispose();
+				components?.Dispose();
 			}
 			base.Dispose(disposing);
 		}

@@ -1,7 +1,4 @@
-﻿using L10NSharp.UI;
-using L10NSharp.XLiffUtils;
-
-namespace Glyssen.Controls
+﻿namespace Glyssen.Controls
 {
 	partial class VoiceActorInformationGrid
 	{
@@ -18,7 +15,6 @@ namespace Glyssen.Controls
 		{
 			if (disposing && (components != null))
 			{
-				LocalizeItemDlg<XLiffDocument>.StringsLocalized -= HandleStringsLocalized;
 				if (ParentForm != null)
 					ParentForm.Closing -= ParentForm_Closing;
 				components.Dispose();

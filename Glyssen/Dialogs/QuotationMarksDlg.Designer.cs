@@ -1,7 +1,4 @@
-﻿using L10NSharp.UI;
-using L10NSharp.XLiffUtils;
-
-namespace Glyssen.Dialogs
+﻿namespace Glyssen.Dialogs
 {
 	partial class QuotationMarksDlg
 	{
@@ -18,10 +15,8 @@ namespace Glyssen.Dialogs
 		{
 			if (disposing)
 			{
-				if (components != null)
-					components.Dispose();
+				components?.Dispose();
 				m_project.AnalysisCompleted -= HandleAnalysisCompleted;
-				LocalizeItemDlg<XLiffDocument>.StringsLocalized -= HandleStringsLocalized;
 				if (m_navigatorViewModel != null)
 					m_navigatorViewModel.CurrentBlockChanged -= HandleCurrentBlockChanged;
 			}

@@ -31,7 +31,6 @@ using SIL.Reporting;
 using SIL.Windows.Forms;
 using SIL.Windows.Forms.Miscellaneous;
 using Ionic.Zip;
-using L10NSharp.XLiffUtils;
 using NetSparkle;
 using Paratext.Data;
 using SIL.Scripture;
@@ -44,7 +43,7 @@ using AssignCharacterViewModel = GlyssenEngine.ViewModels.AssignCharacterViewMod
 
 namespace Glyssen
 {
-	public partial class MainForm : FormWithPersistedSettings
+	public partial class MainForm : FormWithPersistedSettings, ILocalizable
 	{
 		private const string kShareFileExtension = ".glyssenshare";
 
@@ -69,15 +68,13 @@ namespace Glyssen
 
 			Project.UpgradingProjectToNewParserVersion += UpgradingProjectToNewParserVersion;
 			Project.GetBadLdmlRecoveryAction += GetBadLdmlFileRecoveryAction;
-
-			SetupUiLanguageMenu();
+			
 			Logger.WriteEvent($"Initial UI language: {Settings.Default.UserInterfaceLanguage}");
 
 			m_toolStrip.Renderer = new NoBorderToolStripRenderer();
-			m_uiLanguageMenu.ToolTipText = LocalizationManager.GetString("MainForm.UILanguage", "User-interface Language");
 
 			HandleStringsLocalized();
-			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized; // Don't need to unsubscribe since this object will be around as long as the program is running.
+			Program.RegisterLocalizable(this);
 
 			m_lastExportLocationLink.Text = Empty;
 
@@ -242,7 +239,7 @@ namespace Glyssen
 			});
 		}
 
-		private void HandleStringsLocalized()
+		public void HandleStringsLocalized()
 		{
 			m_percentAssignedFmt = m_lblPercentAssigned.Text;
 			m_actorsAssignedFmt = m_lblActorsAssigned.Text;
@@ -251,6 +248,7 @@ namespace Glyssen
 			UpdateLocalizedText();
 			m_project?.ProjectCharacterVerseData.HandleStringsLocalized();
 			ControlCharacterVerseData.Singleton.HandleStringsLocalized();
+			SetupUiLanguageMenu();
 		}
 
 		private void RememberButtonFormats()
@@ -1011,8 +1009,8 @@ namespace Glyssen
 			menu.Click += ((a, b) =>
 			{
 				Program.PrimaryLocalizationManager.ShowLocalizationDialogBox(false);
-				SetupUiLanguageMenu();
 			});
+			m_uiLanguageMenu.ToolTipText = LocalizationManager.GetString("MainForm.UILanguage", "User-interface Language");
 		}
 
 		private void Assign_Click(object sender, EventArgs e)
