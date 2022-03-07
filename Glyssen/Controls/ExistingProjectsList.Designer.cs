@@ -1,7 +1,4 @@
-﻿using L10NSharp.XLiffUtils;
-using L10NSharp.UI;
-
-namespace Glyssen.Controls
+﻿namespace Glyssen.Controls
 {
 	partial class ExistingProjectsList
 	{
@@ -17,12 +14,7 @@ namespace Glyssen.Controls
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing)
-			{
-				LocalizeItemDlg<XLiffDocument>.StringsLocalized -= HandleStringsLocalized;
-
-				if (components != null)
-					components.Dispose();
-			}
+				components?.Dispose();
 			base.Dispose(disposing);
 		}
 

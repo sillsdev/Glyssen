@@ -21,8 +21,6 @@ using GlyssenEngine.Character;
 using GlyssenEngine.Script;
 using GlyssenEngine.ViewModels;
 using L10NSharp;
-using L10NSharp.XLiffUtils;
-using L10NSharp.UI;
 using SIL.Extensions;
 using SIL.Reporting;
 using SIL.Scripture;
@@ -34,7 +32,7 @@ using SplitBlockViewModel = GlyssenEngine.ViewModels.SplitBlockViewModel<System.
 
 namespace Glyssen.Dialogs
 {
-	public partial class AssignCharacterDlg : FormWithPersistedSettings, IMessageFilter
+	public partial class AssignCharacterDlg : FormWithPersistedSettings, IMessageFilter, ILocalizable
 	{
 		private readonly AssignCharacterViewModel m_viewModel;
 		private string m_xOfYFmt;
@@ -54,7 +52,7 @@ namespace Glyssen.Dialogs
 		private bool m_addingCharacterDelivery;
 		private bool m_askedUserAboutAssigningOnDoubleClick;
 
-		private void HandleStringsLocalized()
+		public void HandleStringsLocalized()
 		{
 			m_viewModel.SetUiStrings(
 				CharacterVerseData.StandardCharacterNameFormatNarrator,
@@ -104,7 +102,7 @@ namespace Glyssen.Dialogs
 			m_scriptureReference.VerseControl.GetLocalizedBookName = L10N.GetLocalizedBookNameFunc(m_scriptureReference.VerseControl.GetLocalizedBookName);
 
 			HandleStringsLocalized();
-			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
+			Program.RegisterLocalizable(this);
 
 			if (m_viewModel.CanDisplayReferenceTextForCurrentBlock)
 			{

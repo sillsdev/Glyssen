@@ -9,13 +9,11 @@ using Glyssen.Utilities;
 using GlyssenEngine.Casting;
 using GlyssenEngine.ViewModels;
 using L10NSharp;
-using L10NSharp.XLiffUtils;
-using L10NSharp.UI;
 using SIL.Reporting;
 
 namespace Glyssen.Controls
 {
-	public partial class VoiceActorInformationGrid : UserControl
+	public partial class VoiceActorInformationGrid : UserControl, ILocalizable
 	{
 		public event EventHandler Saved;
 		public event EventHandler RowCountChanged;
@@ -42,17 +40,17 @@ namespace Glyssen.Controls
 
 			m_dataGrid.DataError += m_dataGrid_DataError;
 
-			ActorGender.DataSource = VoiceActorInformationViewModel.GetGenderDataTable();
+			Program.RegisterLocalizable(this);
+			HandleStringsLocalized();
+
 			ActorGender.ValueMember = "ID";
 			ActorGender.DisplayMember = "Name";
 
-			ActorAge.DataSource = VoiceActorInformationViewModel.GetAgeDataTable();
 			ActorAge.ValueMember = "ID";
 			ActorAge.DisplayMember = "Name";
 			ActorAge.ToolTipText = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.ActorAgeTooltip",
 				"“Age” quality of actor’s voice");
 
-			ActorQuality.DataSource = VoiceActorInformationViewModel.GetVoiceQualityDataTable();
 			ActorQuality.ValueMember = "ID";
 			ActorQuality.DisplayMember = "Name";
 
@@ -70,10 +68,10 @@ namespace Glyssen.Controls
 			Cameo.ToolTipText = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.CameoTooltip",
 				"Distinguished actor to play minor character role.");
 
-			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
+
 		}
 
-		private void HandleStringsLocalized()
+		public void HandleStringsLocalized()
 		{
 			ActorGender.DataSource = VoiceActorInformationViewModel.GetGenderDataTable();
 			ActorAge.DataSource = VoiceActorInformationViewModel.GetAgeDataTable();

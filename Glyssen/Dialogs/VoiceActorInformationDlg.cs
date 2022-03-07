@@ -4,12 +4,10 @@ using Glyssen.Utilities;
 using GlyssenEngine.Casting;
 using GlyssenEngine.ViewModels;
 using L10NSharp;
-using L10NSharp.XLiffUtils;
-using L10NSharp.UI;
 
 namespace Glyssen.Dialogs
 {
-	public partial class VoiceActorInformationDlg : FormWithPersistedSettings
+	public partial class VoiceActorInformationDlg : FormWithPersistedSettings, ILocalizable
 	{
 		private readonly VoiceActorInformationViewModel m_viewModel;
 		private readonly bool m_changeOkToGenerateGroups;
@@ -29,7 +27,7 @@ namespace Glyssen.Dialogs
 				m_btnOk.Enabled = m_viewModel.ActiveActors.Any();
 
 			HandleStringsLocalized();
-			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
+			Program.RegisterLocalizable(this);
 		}
 
 		private void VoiceActorInformationDlg_Load(object sender, EventArgs e)
@@ -40,7 +38,7 @@ namespace Glyssen.Dialogs
 			TileFormLocation();
 		}
 
-		private void HandleStringsLocalized()
+		public void HandleStringsLocalized()
 		{
 			m_tallyFmt = m_lblTally.Text;
 
