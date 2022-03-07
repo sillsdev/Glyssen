@@ -233,166 +233,8 @@ namespace GlyssenEngine
 						// <note caller="-" style="x"><char style="xo" closed="false">1.2: </char><char style="xt" closed="false">Mal 3.1</char></note>
 						// kit ma gicoyo kwede i buk pa lanebi Icaya ni,</para>
 						foreach (XmlNode childNode in usxPara.ChildNodes)
-						{
-							switch (childNode.Name)
-							{
-								case "verse":
-									var verseNumAttr = childNode.Attributes.GetNamedItem("number");
-									if (verseNumAttr == null)
-										continue; // presumably this is an end-verse element
-									if (sb.Length > 0)
-									{
-										sb.TrimStart();
-										block.BlockElements.Add(new ScriptText(sb.ToString()));
-										sb.Clear();
-									}
-									var verseNumStr = verseNumAttr.Value;
-									if (!HandleVerseBridgeInSeparateVerseFields(block, ref verseNumStr))
-									{
-										RemoveEmptyTrailingVerse(block);
-										m_currentStartVerse = BCVRef.VerseToIntStart(verseNumStr);
-										m_currentEndVerse = BCVRef.VerseToIntEnd(verseNumStr);
-									}
-									if (!block.BlockElements.Any(e => e is ScriptText) ||
-										 ((block.BlockElements.OnlyOrDefault() as ScriptText)?.ContainsOnlyWhitespaceAndPunctuation ?? false))
-									{
-										block.InitialStartVerseNumber = m_currentStartVerse;
-										block.InitialEndVerseNumber = m_currentEndVerse;
-									}
+							ProcessParaChildNode(childNode, sb, ref block, blocks, usxPara.StyleTag);
 
-									block.BlockElements.Add(new Verse(verseNumStr));
-									break;
-								case "char":
-									var charTag = (new UsxNode(childNode)).StyleTag;
-									IStyle charStyle = m_stylesheet.GetStyle(charTag);
-									if (!charStyle.IsInlineQuotationReference && charStyle.IsPublishable)
-									{
-										// Starting with USFM 3.0, char styles can have attributes separated by |
-										var tokens = childNode.InnerText.Split('|');
-										if (tokens.Any())
-										{
-											if (StyleToCharacterMappings.TryGetCharacterForCharStyle(charTag, out var character) && block.StyleTag != charTag)
-											{
-												if (m_currentExplicitQuote != null)
-												{
-													ResolveQuoteCharacter();
-
-													// TODO: check for null StartBlock.
-
-													if (m_currentExplicitQuote.StartBlock.CharacterIdInScript != character)
-													{
-														// Break off any unclosed explicit quote initiated by a milestone quote marker.
-														if (block != m_currentExplicitQuote.StartBlock)
-															m_currentExplicitQuote.StartBlock.MultiBlockQuote = MultiBlockQuote.Start;
-														m_currentExplicitQuote = null;
-													}
-												}
-
-												if (m_currentExplicitQuote == null)
-												{
-													FinalizeCharacterStyleBlockWithoutTrailingOpener(sb, ref block, blocks, charTag);
-													block.CharacterId = character;
-												}
-											}
-											sb.Append(tokens[0]);
-										}
-									}
-
-									break;
-								case "ms": // Milestone (PG-1419)
-									if (m_currentChapter == 0)
-									{
-										Logger.WriteEvent($"Ignoring milestone node {childNode} in intro material.");
-										break;
-									}
-
-									// Note: Technically, the style attribute is required for ms elements,
-									// but for greater robustness, if it's missing, we'll just ignore it.
-									var styleTag = childNode.GetOptionalStringAttribute("style", default);
-									if (Block.IsFirstLevelQuoteMilestoneStart(styleTag))
-									{
-										var character = childNode.GetOptionalStringAttribute("who", default);
-										var id = childNode.GetOptionalStringAttribute("sid", default);
-										if (m_currentExplicitQuote != null && (character != null || id != null) &&
-											m_currentExplicitQuote.SpecifiedCharacter == character &&
-												m_currentExplicitQuote.Id == id)
-										{
-											Logger.WriteEvent($"Ignoring duplicate milestone node {childNode}.");
-											break;
-										}
-										FinalizeCharacterStyleBlockWithoutTrailingOpener(sb, ref block, blocks, styleTag);
-										m_currentExplicitQuote = new ExplicitQuoteInfo(block, id, character);
-									}
-									else if (Block.IsFirstLevelQuoteMilestoneEnd(styleTag))
-									{
-										if (m_currentExplicitQuote == null)
-										{
-											Logger.WriteEvent($"End quote milestone {childNode} does not correspond to a start milestone.");
-											break;
-										}
-										if (childNode.NextSibling is XmlWhitespace)
-										{
-											AppendSpaceIfNeeded(sb);
-											childNode.ParentNode.RemoveChild(childNode.NextSibling);
-										}
-										else if (childNode.NextSibling is XmlText text)
-										{
-											var match = m_regexStartsWithClosingPunctuation.Match(text.InnerText);
-											if (match.Success)
-											{
-												sb.Append(match.Value);
-												var toRemove = match.Length;
-												var remainingText = text.InnerText.Remove(0, toRemove).TrimStart();
-												if (remainingText.Any())
-													text.InnerText = remainingText;
-												else
-													childNode.ParentNode.RemoveChild(childNode.NextSibling);
-											}
-										}
-										if (block != m_currentExplicitQuote.StartBlock)
-											m_currentExplicitQuote.StartBlock.MultiBlockQuote = MultiBlockQuote.Start;
-										FinalizeCharacterStyleBlock(sb, ref block, blocks, styleTag);
-										m_currentExplicitQuote = null;
-										var quoteId = childNode.GetOptionalStringAttribute("eid", default);
-										if (quoteId != null)
-											blocks.Last().BlockElements.Add(new QuoteId { Id = quoteId, Start = false});
-									}
-									break;
-								case "#text":
-									var textToAppend = childNode.InnerText;
-									if (m_currentExplicitQuote != null && !m_currentExplicitQuote.Resolved)
-										ResolveQuoteCharacter();
-									if (StyleToCharacterMappings.IncludesCharStyle(block.StyleTag) && textToAppend.Any(IsLetter))
-									{
-										if (sb.Length > 0 && sb[sb.Length - 1] != ' ')
-										{
-											if (textToAppend.StartsWith(" "))
-											{
-												// Not terribly important (in fact, we don't even need the trailing space either), but if blocks have
-												// leading spaces, it might look funny in some places in the display.
-												sb.Append(" ");
-												textToAppend = textToAppend.TrimStart();
-											}
-											else
-											{
-												// This logic implements PG-1298
-												var match = m_regexStartsWithClosingPunctuation.Match(textToAppend);
-												if (match.Success)
-												{
-													sb.Append(match.Value);
-													textToAppend = textToAppend.Remove(0, match.Length);
-												}
-											}
-										}
-										FinalizeCharacterStyleBlock(sb, ref block, blocks, usxPara.StyleTag);
-									}
-									sb.Append(textToAppend);
-									break;
-								case "#whitespace":
-									AppendSpaceIfNeeded(sb);
-									break;
-							}
-						}
 						FlushStringBuilderToBlockElement(sb, block);
 						if (RemoveEmptyTrailingVerse(block))
 						{
@@ -414,6 +256,179 @@ namespace GlyssenEngine
 			}
 
 			return blocks;
+		}
+
+		private void ProcessParaChildNode(XmlNode childNode, StringBuilder sb, ref Block block, IList<Block> blocks, string paraStyleTag)
+		{
+			switch (childNode.Name)
+			{
+				case "verse":
+					var verseNumAttr = childNode.Attributes.GetNamedItem("number");
+					if (verseNumAttr == null)
+						return;
+					if (sb.Length > 0)
+					{
+						sb.TrimStart();
+						block.BlockElements.Add(new ScriptText(sb.ToString()));
+						sb.Clear();
+					}
+
+					var verseNumStr = verseNumAttr.Value;
+					if (!HandleVerseBridgeInSeparateVerseFields(block, ref verseNumStr))
+					{
+						RemoveEmptyTrailingVerse(block);
+						m_currentStartVerse = BCVRef.VerseToIntStart(verseNumStr);
+						m_currentEndVerse = BCVRef.VerseToIntEnd(verseNumStr);
+					}
+
+					if (!block.BlockElements.Any(e => e is ScriptText) ||
+					    ((block.BlockElements.OnlyOrDefault() as ScriptText)?.ContainsOnlyWhitespaceAndPunctuation ?? false))
+					{
+						block.InitialStartVerseNumber = m_currentStartVerse;
+						block.InitialEndVerseNumber = m_currentEndVerse;
+					}
+
+					block.BlockElements.Add(new Verse(verseNumStr));
+					break;
+				case "char":
+					var charTag = (new UsxNode(childNode)).StyleTag;
+					IStyle charStyle = m_stylesheet.GetStyle(charTag);
+					if (!charStyle.IsInlineQuotationReference && charStyle.IsPublishable)
+					{
+						// Starting with USFM 3.0, char styles can have attributes separated by |
+						var tokens = childNode.InnerText.Split('|');
+						if (tokens.Any())
+						{
+							if (StyleToCharacterMappings.TryGetCharacterForCharStyle(charTag, out var character) && block.StyleTag != charTag)
+							{
+								// If m_currentExplicitQuote is not null, it will almost always
+								// have its StartBlock set, but if this is a character style inside
+								// an "interrupting" paragraph (e.g., a section head), then it
+								// won't and none of this logic applies.
+								if (m_currentExplicitQuote?.StartBlock != null)
+								{
+									ResolveQuoteCharacter();
+
+									if (m_currentExplicitQuote.StartBlock.CharacterIdInScript != character)
+									{
+										// Break off any unclosed explicit quote initiated by a milestone quote marker.
+										if (block != m_currentExplicitQuote.StartBlock)
+											m_currentExplicitQuote.StartBlock.MultiBlockQuote = MultiBlockQuote.Start;
+										m_currentExplicitQuote = null;
+									}
+								}
+
+								if (m_currentExplicitQuote == null)
+								{
+									FinalizeCharacterStyleBlockWithoutTrailingOpener(sb, ref block, blocks, charTag);
+									block.CharacterId = character;
+								}
+							}
+
+							sb.Append(tokens[0]);
+						}
+					}
+
+					break;
+				case "ms": // Milestone (PG-1419)
+					if (m_currentChapter == 0)
+					{
+						Logger.WriteEvent($"Ignoring milestone node {childNode} in intro material.");
+						break;
+					}
+
+					// Note: Technically, the style attribute is required for ms elements,
+					// but for greater robustness, if it's missing, we'll just ignore it.
+					var styleTag = childNode.GetOptionalStringAttribute("style", default);
+					if (Block.IsFirstLevelQuoteMilestoneStart(styleTag))
+					{
+						var character = childNode.GetOptionalStringAttribute("who", default);
+						var id = childNode.GetOptionalStringAttribute("sid", default);
+						if (m_currentExplicitQuote != null && (character != null || id != null) &&
+						    m_currentExplicitQuote.SpecifiedCharacter == character &&
+						    m_currentExplicitQuote.Id == id)
+						{
+							Logger.WriteEvent($"Ignoring duplicate milestone node {childNode}.");
+							break;
+						}
+
+						FinalizeCharacterStyleBlockWithoutTrailingOpener(sb, ref block, blocks, styleTag);
+						m_currentExplicitQuote = new ExplicitQuoteInfo(block, id, character);
+					}
+					else if (Block.IsFirstLevelQuoteMilestoneEnd(styleTag))
+					{
+						if (m_currentExplicitQuote == null)
+						{
+							Logger.WriteEvent($"End quote milestone {childNode} does not correspond to a start milestone.");
+							break;
+						}
+
+						if (childNode.NextSibling is XmlWhitespace)
+						{
+							AppendSpaceIfNeeded(sb);
+							childNode.ParentNode.RemoveChild(childNode.NextSibling);
+						}
+						else if (childNode.NextSibling is XmlText text)
+						{
+							var match = m_regexStartsWithClosingPunctuation.Match(text.InnerText);
+							if (match.Success)
+							{
+								sb.Append(match.Value);
+								var toRemove = match.Length;
+								var remainingText = text.InnerText.Remove(0, toRemove).TrimStart();
+								if (remainingText.Any())
+									text.InnerText = remainingText;
+								else
+									childNode.ParentNode.RemoveChild(childNode.NextSibling);
+							}
+						}
+
+						if (block != m_currentExplicitQuote.StartBlock)
+							m_currentExplicitQuote.StartBlock.MultiBlockQuote = MultiBlockQuote.Start;
+						FinalizeCharacterStyleBlock(sb, ref block, blocks, styleTag);
+						m_currentExplicitQuote = null;
+						var quoteId = childNode.GetOptionalStringAttribute("eid", default);
+						if (quoteId != null)
+							blocks.Last().BlockElements.Add(new QuoteId { Id = quoteId, Start = false });
+					}
+
+					break;
+				case "#text":
+					var textToAppend = childNode.InnerText;
+					if (m_currentExplicitQuote != null && !m_currentExplicitQuote.Resolved)
+						ResolveQuoteCharacter();
+					if (StyleToCharacterMappings.IncludesCharStyle(block.StyleTag) && textToAppend.Any(IsLetter))
+					{
+						if (sb.Length > 0 && sb[sb.Length - 1] != ' ')
+						{
+							if (textToAppend.StartsWith(" "))
+							{
+								// Not terribly important (in fact, we don't even need the trailing space either), but if blocks have
+								// leading spaces, it might look funny in some places in the display.
+								sb.Append(" ");
+								textToAppend = textToAppend.TrimStart();
+							}
+							else
+							{
+								// This logic implements PG-1298
+								var match = m_regexStartsWithClosingPunctuation.Match(textToAppend);
+								if (match.Success)
+								{
+									sb.Append(match.Value);
+									textToAppend = textToAppend.Remove(0, match.Length);
+								}
+							}
+						}
+
+						FinalizeCharacterStyleBlock(sb, ref block, blocks, paraStyleTag);
+					}
+
+					sb.Append(textToAppend);
+					break;
+				case "#whitespace":
+					AppendSpaceIfNeeded(sb);
+					break;
+			}
 		}
 
 		private void AddBlock(IList<Block> blocks, Block block)

@@ -1258,8 +1258,72 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(++i, blocks.Count);
 		}
 
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Parse_QtMilestonesForOtherCharacterFollowedByBreakThenWjStyle_WjClosesOpenMilestoneQuote(
+			bool includeFigureInSectionHead)
+		{
+			var usxText = string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"MAT\"")
+					.Replace("<chapter number=\"1\"", "<chapter number=\"8\""),
+				string.Format("<para style=\"p\">" +
+				"<verse number=\"17\" style=\"v\" />" +
+				"This happened so that what was spoken through Isaiah the prophet would be fulfilled: " +
+				GetQtMilestoneElement("start", "scripture") +
+				"“He Himself took our illnesses and carried away our diseases.”" +
+				"</para>" +
+				"<para style=\"s\">Discipleship Tested{0}</para>" +
+				"<para style=\"p\">" +
+				"<verse number=\"18\" style=\"v\" />" +
+				"<char style=\"wj\">“Let us go over to the other side of the sea,” </char>" +
+				"said Jesus, wishing to ditch the crowd." +
+				"</para>", includeFigureInSectionHead ?
+					"<figure style=\"fig\" desc=\"Lake with fishing boats\" file=\"galilee.png\" " +
+					"size=\"col\" loc=\"\" copy=\"\" ref=\"8.18\">Sea of Galilee</figure>" : ""));
+
+			var doc = UsxDocumentTests.CreateDocFromString(usxText);
+
+			var parser = GetUsxParser(doc, "MAT");
+			var blocks = parser.Parse().ToList();
+			int i = 0;
+
+			var chapterCharacter = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter);
+			var sectionHeadCharacter = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical);
+
+			Assert.AreEqual(8, blocks[i].ChapterNumber);
+			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
+			Assert.AreEqual(chapterCharacter, blocks[i].CharacterId);
+
+			Assert.AreEqual(17, blocks[++i].InitialStartVerseNumber);
+			Assert.IsNull(blocks[i].CharacterId);
+
+			Assert.AreEqual(17, blocks[++i].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("“He Himself took our illnesses and carried away our diseases.”", blocks[i].GetText(true, true));
+			Assert.AreEqual("scripture", blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
+			
+			Assert.AreEqual("s", blocks[++i].StyleTag);
+			Assert.AreEqual(sectionHeadCharacter, blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
+
+			Assert.AreEqual(18, blocks[++i].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[i].StartsAtVerseStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("{18}\u00A0“Let us go over to the other side of the sea,” ", blocks[i].GetText(true, true));
+			Assert.AreEqual("Jesus", blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
+
+			Assert.AreEqual(18, blocks[++i].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("said Jesus, wishing to ditch the crowd.", blocks[i].GetText(true, true));
+			Assert.IsNull(blocks[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
+
+			Assert.AreEqual(++i, blocks.Count);
+		}
+
 		[Test]
-		public void Parse_QtMilestonesForOtherCharacterFollowedByBreakThenWjStyle_WjClosesOpenMilestoneQuote()
+		public void Parse_QtMilestonesForOtherCharacterFollowedBySectionHeadWithKeyword_EntireSectionHeadTreatedAsSingleExtraBlock()
 		{			var doc = UsxDocumentTests.CreateDocFromString(
 				string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"MAT\"")
 						.Replace("<chapter number=\"1\"", "<chapter number=\"8\""),
@@ -1269,7 +1333,8 @@ namespace GlyssenEngineTests
 					GetQtMilestoneElement("start", "scripture") +
 					"“He Himself took our illnesses and carried away our diseases.”" +
 					"</para>" +
-					"<para style=\"s\">Discipleship Tested</para>" +
+					"<para style=\"s\">Discipleship <char style=\"k\">Tested</char>"+
+					"</para>" +
 					"<para style=\"p\">" +
 					"<verse number=\"18\" style=\"v\" />" +
 					"<char style=\"wj\">“Let us go over to the other side of the sea,” </char>" +
@@ -1298,6 +1363,7 @@ namespace GlyssenEngineTests
 			Assert.AreEqual("s", blocks[++i].StyleTag);
 			Assert.AreEqual(sectionHeadCharacter, blocks[i].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
+			Assert.AreEqual("Discipleship Tested", blocks[i].GetText(true));
 
 			Assert.AreEqual(18, blocks[++i].InitialStartVerseNumber);
 			Assert.IsTrue(blocks[i].StartsAtVerseStart);
