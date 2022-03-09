@@ -1062,14 +1062,33 @@ namespace Glyssen
 				if (ShowModalDialogWithWaitCursor(dlg) == DialogResult.OK)
 				{
 					m_project.ClearAssignCharacterStatus();
-					m_project.Analyze();
-					UpdateDisplayOfProjectInfo();
-					if (!m_project.IncludedBooks.Any())
-						MessageBox.Show(this, LocalizationManager.GetString("Project.NoBooksIncluded", "No content found in any included books."), GlyssenInfo.Product);
-					SaveCurrentProject(true);
+					if ((m_project.ProjectState & ProjectState.FullyInitialized) > 0)
+					{
+						m_project.Analyze();
+						UpdateDisplayOfProjectInfo();
+						SaveCurrentProject(true);
+					}
+					else
+					{
+						m_project.ProjectStateChanged += ProjectStateChangedAfterSelectingBooks;
+					}
 				}
 			}
 			m_paratextScrTextWrapperForRecentlyCreatedProject = null;
+		}
+
+		private void ProjectStateChangedAfterSelectingBooks(object sender, Project.ProjectStateChangedEventArgs e)
+		{
+			if (m_project != sender /* This probably can't happen. */ ||
+			    (m_project.ProjectState & ProjectState.FullyInitialized) == 0)
+				return;
+
+			if (!m_project.IncludedBooks.Any())
+				MessageBox.Show(this, LocalizationManager.GetString("Project.NoBooksIncluded", "No content found in any included books."), GlyssenInfo.Product);
+
+			m_project.ProjectStateChanged -= ProjectStateChangedAfterSelectingBooks;
+			
+			SaveCurrentProject(true);
 		}
 
 		private void Settings_Click(object sender, EventArgs e)
