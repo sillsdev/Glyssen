@@ -46,6 +46,9 @@ back-up plan.)
 
 # Release Notes
 
+## March 9 2022 Glyssen 3.3.0
+When a reference text row is selected, Paratext is notified so it can sync to that location in the text.
+
 ## January 20 2022 Glyssen 3.1.3
 Added logic to ensure that block numbers in actor- and book-specific Excel exports match the numbers of those same blocks in the master file for the project.
 

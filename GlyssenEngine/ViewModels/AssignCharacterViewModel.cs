@@ -995,5 +995,17 @@ namespace GlyssenEngine.ViewModels
 
 			return i >= 0;
 		}
+
+		public VerseRef GetVerseRefForRow(int i)
+		{
+			// A matchup should never end with something other than a Scripture block,
+			// but the data could be wonky so just to be safe...
+			if (CurrentReferenceTextMatchup != null && TryFindScriptureRowAtOrBelow(ref i))
+			{
+				return new VerseRef(CurrentBookNumber, CurrentBlock.ChapterNumber,
+					CurrentReferenceTextMatchup.CorrelatedBlocks[i].AllVerses.First().StartVerse);
+			}
+			return GetBlockVerseRef();
+		}
 	}
 }
