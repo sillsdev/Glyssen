@@ -376,7 +376,7 @@ namespace Glyssen.Dialogs
 			UpdateNavigationIndexLabel();
 			m_chkSingleVoice.Text = Format(m_singleVoiceCheckboxFmt, m_viewModel.CurrentBookId);
 
-			m_viewModel.GetBlockVerseRef().SendScrReference();
+			blockRef.SendScrReference();
 
 			HideCharacterFilter();
 			m_btnAssign.Enabled = false;
@@ -1384,12 +1384,15 @@ namespace Glyssen.Dialogs
 			return true;
 		}
 
-		private void UpdateRowSpecificButtonStates(object sender, DataGridViewCellEventArgs e)
+		private void m_dataGridReferenceText_RowEnter(object sender, DataGridViewCellEventArgs e)
 		{
-			m_btnMoveReferenceTextDown.Enabled = e.RowIndex != m_dataGridReferenceText.RowCount - 1;
-			m_btnMoveReferenceTextUp.Enabled = e.RowIndex != 0;
-			m_menuInsertIntoSelectedRowOnly.Enabled = GetColumnsIntoWhichHeSaidCanBeInserted(m_dataGridReferenceText.Rows[e.RowIndex]).Any();
+			var row = e.RowIndex;
+			m_btnMoveReferenceTextDown.Enabled = row != m_dataGridReferenceText.RowCount - 1;
+			m_btnMoveReferenceTextUp.Enabled = row != 0;
+			m_menuInsertIntoSelectedRowOnly.Enabled = GetColumnsIntoWhichHeSaidCanBeInserted(m_dataGridReferenceText.Rows[row]).Any();
+			m_viewModel.GetVerseRefForRow(row).SendScrReference();
 		}
+
 		private void HandleMoveReferenceTextDown_Click(object sender, EventArgs e) => MoveReferenceText(true);
 
 		private void HandleMoveReferenceTextUp_Click(object sender, EventArgs e) => MoveReferenceText(false);

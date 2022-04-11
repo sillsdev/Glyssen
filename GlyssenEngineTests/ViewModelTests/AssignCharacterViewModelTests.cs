@@ -2228,6 +2228,54 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.True(m_model.TryFindScriptureRowAtOrAbove(ref row));
 			Assert.AreEqual(1, row);
 		}
+		
+		[Test]
+		public void GetVerseRefForRow_NoCurrentMatchup_GetsRefForCurrentBlock()
+		{
+			// In real life, this probably should not be called when not in block matchup mode,
+			// but even in that mode, there are transitional moments where a current block matchup
+			// is not set. This is just an easy way to test that:
+			m_model.SetMode(m_model.Mode, false);
+			Assert.IsNull(m_model.CurrentReferenceTextMatchup, "SETUP conditions not met");
+			Assert.AreEqual(m_model.GetBlockVerseRef(), m_model.GetVerseRefForRow(1));
+		}
+
+		[Test]
+		public void GetVerseRefForRow_ScriptureRow_GetsFirstRefForRow()
+		{
+			FindRefInMark(9, 21);
+			m_model.SetMode(m_model.Mode, true);
+			Assert.AreEqual(5, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count, "SETUP conditions not met");
+			Assert.AreEqual(20, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.First().InitialStartVerseNumber, "SETUP conditions not met");
+			Assert.AreEqual(22, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum, "SETUP conditions not met");
+
+			var row = 0;
+			var vRef = m_model.GetVerseRefForRow(row);
+			Assert.AreEqual(9, vRef.ChapterNum);
+			Assert.AreEqual(20, vRef.VerseNum);
+
+			for (++row; row < 5; row++)
+			{
+				vRef = m_model.GetVerseRefForRow(row);
+				Assert.AreEqual(9, vRef.ChapterNum);
+				Assert.AreEqual(21, vRef.VerseNum);
+			}
+		}
+		
+		[Test]
+		public void GetVerseRefForRow_PassedRowAndFollowingRowAreSectionHead_GetsRefOfNextScriptureRow()
+		{
+			FindRefInMark(9, 21);
+			m_model.SetMode(m_model.Mode, true);
+			Assert.AreEqual(5, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count, "SETUP conditions not met");
+			int row = 2;
+			m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[row].CharacterId =
+				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical);
+			m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[row + 1].CharacterId =
+				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical);
+
+			Assert.AreEqual(21, m_model.GetVerseRefForRow(row).VerseNum);
+		}
 
 		private void FindRefInMark(int chapter, int verse)
 		{
