@@ -46,7 +46,7 @@ back-up plan.)
 
 # Release Notes
 
-## March 9 2022 Glyssen 3.3.0
+## April 11 2022 Glyssen 3.1.4
 When a reference text row is selected, Paratext is notified so it can sync to that location in the text.
 
 ## January 20 2022 Glyssen 3.1.3
