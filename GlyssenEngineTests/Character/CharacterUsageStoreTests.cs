@@ -72,6 +72,22 @@ namespace GlyssenEngineTests.Character
 			Assert.IsNull(defaultCharacter);
 		}
 
+		[TestCase("ZEC", 1, "10-12", "Zacarías (en una visión)", ExpectedResult = "Zechariah the prophet, son of Berechiah")]
+		public string GetStandardCharacterName_LocalizedAliasWithNoDelivery_ReturnsEnglishCharacterName(
+			string bookCode, int chapterNum, string verse, string alias)
+		{
+			var store = new CharacterUsageStore(ScrVers.English, 
+				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
+
+			var result = store.GetStandardCharacterName(alias, BCVRef.BookToNumber(bookCode),
+				chapterNum, new[] { new Verse(verse) }, out var delivery, out var defaultCharacter);
+
+			Assert.IsNull(delivery);
+			Assert.IsNull(defaultCharacter);
+
+			return result;
+		}
+
 		[Test]
 		public void GetStandardCharacterName_LocalizedGroupCharacterWithDefault_ReturnsEnglishCharacterNameAndDefault()
 		{
@@ -127,6 +143,8 @@ namespace GlyssenEngineTests.Character
 		[TestCase("Pharisees teachers of religious law")]
 		[TestCase("teachers of religious law/Pharisees")]
 		[TestCase("pharisees")]
+		[TestCase("fariseos")]
+		[TestCase("फरीसियों")]
 		public void GetStandardCharacterName_CloseMatchToCharacter_ReturnsStandardCharacterName(string close)
 		{
 			var store = new CharacterUsageStore(ScrVers.English, 
@@ -137,7 +155,9 @@ namespace GlyssenEngineTests.Character
 			Assert.AreEqual("Pharisees", defaultCharacter);
 		}
 
-		[TestCase("teachers of religious (Jewish OT) law")] [TestCase("teachers ofreligiouslaw")]
+		[TestCase("teachers of religious (Jewish OT) law")]
+		[TestCase("teachers ofreligiouslaw")]
+		[TestCase("धार्मिक कानून शिक्षक")]
 		public void GetStandardCharacterName_CloseMatchToNonDefaultCharacter_ReturnsStandardCharacterNameAndMatchingDefault(string close)
 		{
 			var store = new CharacterUsageStore(ScrVers.English, 
@@ -146,6 +166,106 @@ namespace GlyssenEngineTests.Character
 				7, new[] {new Verse("5")}, out var delivery, out var defaultCharacter));
 			Assert.AreEqual("critical", delivery);
 			Assert.AreEqual("teachers of religious law", defaultCharacter);
+		}
+
+		[TestCase("Enoc", ExpectedResult = "Enoch")]
+		[TestCase("Enóch", ExpectedResult = "Enoch")]
+		[TestCase("enoc", ExpectedResult = "Enoch")]
+		[TestCase("Enocho", ExpectedResult = "Enoch")]
+		[TestCase("Enoc (quoted)", ExpectedResult = "Enoch")]
+		[TestCase("Enock (quotation)", ExpectedResult = "Enoch")]
+		[TestCase("voice of man calling (preparing the way for Christ)", "ISA", 40, "3",
+			ExpectedResult = "voice of one calling (preparing way for Christ)")]
+		[TestCase("singer in Judea", "ISA", 26, "1-6", "singing",
+			ExpectedResult = "singers in Judah")]
+		public string GetStandardCharacterName_CloseMatchToOnlyCharacter_ReturnsStandardCharacterName(
+			string close, string bookCode = "JUD", int chapterNum = 1, string verse = "14-15",
+			string expectedDelivery = null)
+		{
+			var store = new CharacterUsageStore(ScrVers.English, 
+				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
+			var result = store.GetStandardCharacterName(close, BCVRef.BookToNumber(bookCode),
+				chapterNum, new[] {new Verse(verse)}, out var delivery, out _);
+			Assert.AreEqual(expectedDelivery, delivery);
+			return result;
+		}
+
+		[TestCase("MRK", 6, "15", "people, st others")]
+		[TestCase("MRK", 6, "15", "peoples, others")]
+		[TestCase("MRK", 6, "15", "people, some others")]
+		[TestCase("MRK", 6, "15", "people, others")]
+		[TestCase("LUK", 22, "70", "यीशु शिक्षक")] // "Jesus the teacher"
+		public void GetStandardCharacterName_CloseMatchToMultipleCharactersWithNoClearWinner_ReturnsNull(
+			string bookCode, int chapterNum, string verse, string close)
+		{
+			var store = new CharacterUsageStore(ScrVers.English, 
+				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
+			Assert.That(store.GetStandardCharacterName(close, BCVRef.BookToNumber(bookCode),
+				chapterNum, new[] {new Verse(verse)}, out _, out _), Is.Null);
+		}
+
+		[TestCase("ISA", 41, "6", "islander", null, ExpectedResult = "islanders")]
+		[TestCase("ISA", 28, "9", "hearer", "mocking", ExpectedResult = "hearers")]
+		public string GetStandardCharacterName_CloseMatchInVerseWithMultipleCharactersWithClearWinner_ReturnsNull(
+			string bookCode, int chapterNum, string verse, string close, string expectedDelivery)
+		{
+			var store = new CharacterUsageStore(ScrVers.English, 
+				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
+			var result = store.GetStandardCharacterName(close, BCVRef.BookToNumber(bookCode),
+				chapterNum, new[] {new Verse(verse)}, out var delivery, out _);
+			Assert.AreEqual(expectedDelivery, delivery);
+			return result;
+		}
+
+		[TestCase("REV", 1, "17", "someone li", ExpectedResult = "Jesus")]
+		[TestCase("REV", 1, "17", "son of man", ExpectedResult = "Jesus")]
+		[TestCase("REV", 1, "17", "Son of man", ExpectedResult = "Jesus")]
+		[TestCase("ISA", 45, "24", "tongue", ExpectedResult = "every tongue")]
+		public string GetStandardCharacterName_OnlyMatchingSubstring_ReturnsStandardCharacterName(
+			string bookCode, int chapterNum, string verse, string alias)
+		{
+			var store = new CharacterUsageStore(ScrVers.English, 
+				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
+			return store.GetStandardCharacterName(alias, BCVRef.BookToNumber(bookCode),
+				chapterNum, new[] {new Verse(verse)}, out _, out _);
+		}
+
+		[TestCase("REV", 1, "17", "of")]
+		[TestCase("REV", 1, "17", "ome")]
+		[TestCase("REV", 1, "17", "Son")]
+		[TestCase("REV", 1, "17", "son")]
+		public void GetStandardCharacterName_ShortOrPartialWordMatchingSubstring_ReturnsNull(
+			string bookCode, int chapterNum, string verse, string alias)
+		{
+			var store = new CharacterUsageStore(ScrVers.English, 
+				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
+			Assert.That(store.GetStandardCharacterName(alias, BCVRef.BookToNumber(bookCode),
+				chapterNum, new[] {new Verse(verse)}, out _, out _), Is.Null);
+		}
+
+		[TestCase("ISA", 63, "4", "garments")]
+		[TestCase("ZEC", 1, "10", "angel")]
+		public void GetStandardCharacterName_SubstringMatchesMultipleEntries_ReturnsNull(
+			string bookCode, int chapterNum, string verse, string alias)
+		{
+			var store = new CharacterUsageStore(ScrVers.English, 
+				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
+			Assert.That(store.GetStandardCharacterName(alias, BCVRef.BookToNumber(bookCode),
+				chapterNum, new[] {new Verse(verse)}, out _, out _), Is.Null);
+		}
+
+		[TestCase("REV", 1, "17", "someone like a son of man", ExpectedResult = "Jesus")]
+		[TestCase("ISA", 41, "6", "everyone (islanders or foreigners)", ExpectedResult = "islanders")]
+		[TestCase("ISA", 41, "6", "everyone", ExpectedResult = "islanders")]
+		[TestCase("ISA", 41, "6", "islanders", ExpectedResult = "islanders")]
+		[TestCase("ISA", 41, "6", "foreigners", ExpectedResult = "islanders")]
+		public string GetStandardCharacterName_KnownCharacterWithMatchingAlias_ReturnsStandardCharacterName(
+			string bookCode, int chapterNum, string verse, string alias)
+		{
+			var store = new CharacterUsageStore(ScrVers.English, 
+				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
+			return store.GetStandardCharacterName(alias, BCVRef.BookToNumber(bookCode),
+				chapterNum, new[] {new Verse(verse)}, out _, out _);
 		}
 
 		[Test]
@@ -183,13 +303,15 @@ namespace GlyssenEngineTests.Character
 			Assert.IsNull(defaultCharacter);
 		}
 
-		[Test]
-		public void GetStandardCharacterName_UnknownCharacter_ReturnsNull()
+		[TestCase("JUD", 1, "14-15", "Anocho")]
+		[TestCase("MAT", 2, "1", "buggaboo snerfwiddle")]
+		public void GetStandardCharacterName_UnknownCharacter_ReturnsNull(string bookCode,
+			int chapterNum, string verse, string character)
 		{
 			var store = new CharacterUsageStore(ScrVers.English,
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			Assert.IsNull(store.GetStandardCharacterName("buggaboo snerfwiddle", BCVRef.BookToNumber("MAT"),
-				2, new[] {new Verse("1")}, out var delivery, out var defaultCharacter));
+			Assert.IsNull(store.GetStandardCharacterName(character, BCVRef.BookToNumber(bookCode),
+				chapterNum, new[] {new Verse(verse)}, out var delivery, out var defaultCharacter));
 			Assert.IsNull(delivery);
 			Assert.IsNull(defaultCharacter);
 		}
@@ -238,6 +360,7 @@ namespace GlyssenEngineTests.Character
 				case "Jesus":
 					yield return "Jesucristo";
 					yield return "Jésus";
+					yield return "यीशु";
 					yield return "Unrealistic scenario";
 					break;
 
@@ -249,6 +372,19 @@ namespace GlyssenEngineTests.Character
 				case "Barnabas/Paul":
 					yield return "Bernabé/Pablo";
 					yield return "Barnabus/Paulus";
+					break;
+
+				case "Zechariah (in vision)":
+					yield return "Zacarías (en una visión)";
+					break;
+
+				case "Pharisees":
+					yield return "fariseos";
+					yield return "फरीसियों";
+					break;
+
+				case "teachers of religious law":
+					yield return "धार्मिक कानून के शिक्षक";
 					break;
 			}
 		}

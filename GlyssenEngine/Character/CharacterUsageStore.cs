@@ -7,6 +7,8 @@ using GlyssenEngine.Utilities;
 using SIL.Extensions;
 using SIL.Scripture;
 using static System.String;
+using FuzzySharp;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Logical;
 
 namespace GlyssenEngine.Character
 {
@@ -16,7 +18,6 @@ namespace GlyssenEngine.Character
 
 		private readonly ICharacterVerseInfo m_cvInfo;
 		private readonly Func<string, IEnumerable<string>> m_getVariants;
-		private static readonly IEqualityComparer<CharacterSpeakingMode> s_characterComparer = new CharacterEqualityComparer();
 		private static readonly Regex s_regexTextInParentheses = new Regex(@"\([^)]*\)", RegexOptions.Compiled);
 
 		internal CharacterUsageStore(ScrVers versification, ICharacterVerseInfo cvInfo,
@@ -27,105 +28,150 @@ namespace GlyssenEngine.Character
 			m_getVariants = getLocalizedVariants;
 		}
 
+		private class FuzzyMatchCandidate
+		{
+			private readonly CharacterSpeakingMode m_csm;
+			private readonly string m_candidate;
+			private readonly string m_defaultCharacter;
+
+			internal FuzzyMatchCandidate(CharacterSpeakingMode csm, string candidate = null, string defaultCharacter = null)
+			{
+				m_csm = csm;
+				m_candidate = candidate;
+				m_defaultCharacter = defaultCharacter;
+			}
+
+			public string Character => m_candidate ?? m_csm.Character;
+
+			public string Delivery  => GetDelivery(m_csm);
+
+			public string DefaultCharacter => m_defaultCharacter ?? GetDefaultCharacter(m_csm);
+
+			public string UnderlyingCharacter => m_csm.Character;
+		}
+
 		public string GetStandardCharacterName(string character, int bookNum, int chapter,
 			IReadOnlyCollection<IVerse> verses, out string singleKnownDelivery, out string defaultCharacter)
 		{
 			character = character.Trim();
 			defaultCharacter = null;
+			singleKnownDelivery = null;
 
 			var charactersInPassage = m_cvInfo.GetCharacters(bookNum, chapter, verses, Versification, true, true).ToList();
-			var matches = charactersInPassage.Where(cv => cv.Character == character).ToList();
+			if (!charactersInPassage.Any())
+			{
+				return null;
+			}
+
+			var matches = charactersInPassage.Where(cv => cv.Character == character || cv.Alias == character).ToList();
 			if (matches.Any())
 			{
 				var singleMatch = matches.OnlyOrDefault();
-				if (singleMatch == null)
-				{
-					singleKnownDelivery = null;
-				}
-				else
+				if (singleMatch != null)
 				{
 					singleKnownDelivery = GetDelivery(singleMatch);
 					defaultCharacter = GetDefaultCharacter(singleMatch);
 				}
 				
-				return character;
-			}
-
-			matches = charactersInPassage.Where(cv => cv.Character.SplitCharacterId().Any(c => c == character)).ToList();
-			if (matches.Any())
-			{
-				singleKnownDelivery = matches.OnlyOrDefault()?.Delivery;
-				defaultCharacter = character;
 				return matches.First().Character;
 			}
 
-			singleKnownDelivery = null;
-
-			if (m_getVariants != null)
+			var considerIndividualMatches = !character.Contains(CharacterSpeakingMode.kMultiCharacterIdSeparator);
+			if (considerIndividualMatches)
 			{
-				matches.AddRange(charactersInPassage.Where(cv => m_getVariants.Invoke(cv.Character).Any(c => c == character)));
-
-				if (matches.Count == 1)
+				matches = charactersInPassage.Where(cv => cv.Character.SplitCharacterId().Any(c => c == character)).ToList();
+				if (matches.Any())
 				{
-					singleKnownDelivery = GetDelivery(matches[0]);
-					defaultCharacter = GetDefaultCharacter(matches[0]);
-					return matches[0].Character;
-				}
-				if (matches.Count > 0 && matches.Distinct(s_characterComparer).Count() == 1)
-				{
-					defaultCharacter = GetDefaultCharacter(matches[0]);
-					return matches[0].Character;
+					singleKnownDelivery = matches.OnlyOrDefault()?.Delivery;
+					defaultCharacter = character;
+					return matches.First().Character;
 				}
 			}
 
-			character = character.ToLowerInvariant().Replace(" ", "");
+			// Finally, try for a fuzzy match. The following "magic numbers" are based on some
+			var candidates = new List<FuzzyMatchCandidate>(charactersInPassage.Count);
 
-			var singleCloseMatch = charactersInPassage.OnlyOrDefault(cv => IsCloseMatch(cv.Character,
-				character));
-
-			if (singleCloseMatch != null)
+			foreach (var candidateChar in charactersInPassage)
 			{
-				singleKnownDelivery = GetDelivery(singleCloseMatch);
-				defaultCharacter = GetDefaultCharacter(singleCloseMatch);
-				return singleCloseMatch.Character;
+				string[] individuals = null;
+				if (considerIndividualMatches)
+				{
+					individuals = candidateChar.Character.SplitCharacterId();
+					if (individuals.Length > 1)
+					{
+						candidates.AddRange(individuals.Select(individual =>
+							new FuzzyMatchCandidate(candidateChar, individual, individual)));
+					}
+				}
+
+				// Note that the individual candidates (above) have to be added first because the ExtractSorted
+				// method below is a stable sort and the weighting (somewhat inexplicably) assigns the same
+				// score to an exact match and a partial match.
+				candidates.Add(new FuzzyMatchCandidate(candidateChar));
+
+				if (!IsNullOrEmpty(candidateChar.Alias))
+					candidates.Add(new FuzzyMatchCandidate(candidateChar, candidateChar.Alias));
+
+				if (m_getVariants != null)
+				{
+					if (individuals?.Length > 1)
+					{
+						foreach (var individual in individuals)
+						{
+							candidates.AddRange(m_getVariants(individual).Select(loc =>
+								new FuzzyMatchCandidate(candidateChar, loc, individual)));
+						}
+					}
+
+					candidates.AddRange(m_getVariants(candidateChar.Character).Select(loc =>
+						new FuzzyMatchCandidate(candidateChar, loc)));
+
+					if (!IsNullOrEmpty(candidateChar.Alias))
+					{
+						candidates.AddRange(m_getVariants(candidateChar.Alias).Select(loc =>
+							new FuzzyMatchCandidate(candidateChar, loc)));
+					}
+				}
 			}
 
-			var matchesWithSpecifiedDefault = new List<Tuple<CharacterSpeakingMode, string>>();
-			foreach (var cv in charactersInPassage)
-			{
-				var individuals = cv.Character.SplitCharacterId();
-				if (individuals.Length == 1)
-					continue;
+			// The following "magic numbers" are based on some trial and error with existing unit
+			// test cases (as of 4/13/2022).
+			const int minMarginOverSecondPlace = 30; // tests pass if this is [30 - 47]
+			const int minScoreToCountAsMatchWhenThereIsOnlyOneKnownCharacter = 74; // [74 - 80]
 
-				var closeIndividualMatch = individuals.FirstOrDefault(individual => IsCloseMatch(individual, character));
+			var testCharacter = character;
+			var options = candidates.Select(c => c.Character).ToList();
+			if (!options.Any(o => s_regexTextInParentheses.IsMatch(o)))
+				testCharacter = s_regexTextInParentheses.Replace(testCharacter, "");
+			var results = Process.ExtractSorted(testCharacter, options, s => s.ToLowerInvariant()).ToList();
 
-				if (closeIndividualMatch != null)
-					matchesWithSpecifiedDefault.Add(new Tuple<CharacterSpeakingMode, string>(cv, closeIndividualMatch));
-			}
-			
-			if (matchesWithSpecifiedDefault.Count == 1)
+			if (results.Any())
 			{
-				singleKnownDelivery = GetDelivery(matchesWithSpecifiedDefault[0].Item1);
-				defaultCharacter = matchesWithSpecifiedDefault[0].Item2;
-				return matchesWithSpecifiedDefault[0].Item1.Character;
+				var iSecondPlace = results.IndexOf(r => candidates[r.Index].UnderlyingCharacter !=
+					candidates[results[0].Index].UnderlyingCharacter);
+				int minScore;
+				if (iSecondPlace >= 0)
+				{
+					minScore = results[iSecondPlace].Score + minMarginOverSecondPlace;
+				}
+				else
+				{
+					minScore = minScoreToCountAsMatchWhenThereIsOnlyOneKnownCharacter;
+				}
+
+				if (results[0].Score >= minScore)
+				{
+					var winner = candidates[results[0].Index];
+					singleKnownDelivery = winner.Delivery;
+					if (candidates.Any(c => c.UnderlyingCharacter == winner.UnderlyingCharacter &&
+						    c.Delivery != winner.Delivery))
+						singleKnownDelivery = null;
+					defaultCharacter = winner.DefaultCharacter;
+					return winner.UnderlyingCharacter;
+				}
 			}
 
 			return null;
-		}
-
-		private bool IsCloseMatch(string testCharacter, string character)
-		{
-			testCharacter = testCharacter.ToLowerInvariant().Replace(" ", "");
-			var result = character == testCharacter ||
-				character == testCharacter.Replace("/", "and") ||
-				character == testCharacter.Replace("/", "") ||
-				s_regexTextInParentheses.Replace(character, "") == s_regexTextInParentheses.Replace(testCharacter, "") ||
-				character.Where(char.IsLetterOrDigit).SequenceEqual(testCharacter.Where(char.IsLetterOrDigit));
-			if (result)
-				return true;
-
-			var individuals = testCharacter.SplitCharacterId();
-			return individuals.Length > 1 && individuals.SetEquals(character.SplitCharacterId());
 		}
 
 		private static string GetDelivery(CharacterSpeakingMode singleMatch) =>

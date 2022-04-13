@@ -570,6 +570,7 @@ namespace GlyssenEngineTests
 		[TestCase("qt_123", "Some random name that doesn't look anything like a name we expect", 1, ExpectedResult = CharacterVerseData.kNeedsReview)]
 		[TestCase("qt_123", "Enoch", ExpectedResult = "Enoch")]
 		[TestCase(null, "Enoch", 1, ExpectedResult = "Enoch")]
+		[TestCase(null, "Enoc", 1, ExpectedResult = "Enoch")]
 		public string Parse_QtMilestonesWithOnlyTextBetweenThem_TextBetweenMilestonesAddedAsQuoteBlock(
 			string qtId = null, string character = null, int level = 0)
 		{
