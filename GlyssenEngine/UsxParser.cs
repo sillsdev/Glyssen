@@ -107,6 +107,7 @@ namespace GlyssenEngine
 		private int m_currentStartVerse;
 		private int m_currentEndVerse;
 		private ExplicitQuoteInfo m_currentExplicitQuote;
+		private ExplicitQuoteInfo m_currentExplicitInterruption;
 
 		private class ExplicitQuoteInfo
 		{
@@ -114,19 +115,23 @@ namespace GlyssenEngine
 			internal string Id { get; }
 			internal string SpecifiedCharacter { get; }
 			internal bool Resolved { get; set; }
+			internal uint Level { get; }
+			internal Block OriginalStartBlock { get; }
 
-			internal ExplicitQuoteInfo(Block startBlock, string quoteId, string character)
+			internal ExplicitQuoteInfo(Block startBlock, string quoteId, string character, uint level = 1)
 			{
-				StartBlock = startBlock;
+				OriginalStartBlock = StartBlock = startBlock;
 				Id = quoteId;
 				SpecifiedCharacter = character;
 				Resolved = false;
+				Level = level;
 			}
 		}
 
 
-		private readonly Regex m_regexStartsWithClosingPunctuation = new Regex(@"^(\p{Pd}|\p{Pe}|\p{Pf}|\p{Po})+\s+", RegexOptions.Compiled);
-		private readonly Regex m_regexEndsWithOpeningQuote = new Regex("(\\p{Pi}\\s?)*(\\p{Pi}|\")+$", RegexOptions.Compiled);
+		private static readonly Regex s_regexStartsWithClosingPunctuation = new Regex(@"^(\p{Pd}|\p{Pe}|\p{Pf}|\p{Po})+\s+", RegexOptions.Compiled);
+		private static readonly Regex s_regexEndsWithOpeningQuote = new Regex("(\\p{Pi}\\s?)*(\\p{Pi}|\")+$", RegexOptions.Compiled);
+		private static readonly Regex s_regexInterruptionCharacter = new Regex("interruption|narrator(-(?<book>[1-3]?[A-Z]{2,3}))?", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
 		public UsxParser(string bookId, IStylesheet stylesheet, ICharacterUsageStore characterUsageStore, XmlNodeList nodeList)
 		{
@@ -303,8 +308,8 @@ namespace GlyssenEngine
 							{
 								// If m_currentExplicitQuote is not null, it will almost always
 								// have its StartBlock set, but if this is a character style inside
-								// an "interrupting" paragraph (e.g., a section head), then it
-								// won't and none of this logic applies.
+								// an "interrupting" paragraph (e.g., a section head) or an explicit interruption,
+								// then it won't and none of this logic applies.
 								if (m_currentExplicitQuote?.StartBlock != null)
 								{
 									ResolveQuoteCharacter();
@@ -340,63 +345,131 @@ namespace GlyssenEngine
 					// Note: Technically, the style attribute is required for ms elements,
 					// but for greater robustness, if it's missing, we'll just ignore it.
 					var styleTag = childNode.GetOptionalStringAttribute("style", default);
-					if (Block.IsFirstLevelQuoteMilestoneStart(styleTag))
+					if (Block.TryGetQuoteStartMilestoneLevel(styleTag, out var level))
 					{
 						var character = childNode.GetOptionalStringAttribute("who", default);
 						var id = childNode.GetOptionalStringAttribute("sid", default);
-						if (m_currentExplicitQuote != null && (character != null || id != null) &&
-						    m_currentExplicitQuote.SpecifiedCharacter == character &&
-						    m_currentExplicitQuote.Id == id)
+						if (IsQuoteInterruption(character))
 						{
-							Logger.WriteEvent($"Ignoring duplicate milestone node {childNode}.");
+							ProcessInterruptionStart(sb, id, ref block, blocks, styleTag, level);
+						}
+						else if (level == 1)
+						{
+							if (m_currentExplicitQuote != null &&
+							    (character != null || id != null) &&
+							    m_currentExplicitQuote.SpecifiedCharacter == character &&
+							    m_currentExplicitQuote.Id == id)
+							{
+								Logger.WriteEvent($"Ignoring duplicate milestone node {childNode}.");
+								break;
+							}
+
+							FinalizeCharacterStyleBlockWithoutTrailingOpener(sb, ref block, blocks, styleTag);
+							m_currentExplicitQuote = new ExplicitQuoteInfo(block, id, character);
+						}
+					}
+					else if (Block.TryGetQuoteEndMilestoneLevel(styleTag, out level))
+					{
+						if (m_currentExplicitInterruption != null && level <= m_currentExplicitInterruption.Level)
+						{
+							// REVIEW: Is any of this (copied from below) needed?
+							//if (childNode.NextSibling is XmlWhitespace)
+							//{
+							//	AppendSpaceIfNeeded(sb);
+							//	childNode.ParentNode.RemoveChild(childNode.NextSibling);
+							//}
+							//else if (childNode.NextSibling is XmlText text)
+							//{
+							//	var match = s_regexStartsWithClosingPunctuation.Match(text.InnerText);
+							//	if (match.Success)
+							//	{
+							//		sb.Append(match.Value);
+							//		var toRemove = match.Length;
+							//		var remainingText = text.InnerText.Remove(0, toRemove).TrimStart();
+							//		if (remainingText.Any())
+							//			text.InnerText = remainingText;
+							//		else
+							//			childNode.ParentNode.RemoveChild(childNode.NextSibling);
+							//	}
+							//}
+
+							if (m_currentExplicitQuote != null && level == 1)
+							{
+								// Interruption was not closed explicitly, but this is the end of
+								// the explicit quote. (In other words, it was really a "trailing
+								// interruption. If there is a closing quote included with the text
+								// of the interruption,we just want to keep it that way because we
+								// don't want to end up with a quote block that is nothing but
+								// punctuation.)
+								m_currentExplicitQuote = null;
+							}
+
+							FinalizeCharacterStyleBlock(sb, ref block, blocks, m_currentExplicitQuote?.OriginalStartBlock.StyleTag ?? paraStyleTag);
+							m_currentExplicitInterruption = null;
+
+							if (m_currentExplicitQuote != null)
+							{
+								m_currentExplicitQuote.StartBlock = block;
+								block.CharacterId = m_currentExplicitQuote.OriginalStartBlock.CharacterId;
+								block.Delivery = m_currentExplicitQuote.OriginalStartBlock.Delivery;
+								block.CharacterIdInScript = m_currentExplicitQuote.OriginalStartBlock.CharacterIdInScript;
+							}
+
+							var quoteId = childNode.GetOptionalStringAttribute("eid", default);
+							if (quoteId != null)
+								blocks.Last().BlockElements.Add(new QuoteId { Id = quoteId, Start = false });
+
 							break;
 						}
 
-						FinalizeCharacterStyleBlockWithoutTrailingOpener(sb, ref block, blocks, styleTag);
-						m_currentExplicitQuote = new ExplicitQuoteInfo(block, id, character);
-					}
-					else if (Block.IsFirstLevelQuoteMilestoneEnd(styleTag))
-					{
 						if (m_currentExplicitQuote == null)
 						{
 							Logger.WriteEvent($"End quote milestone {childNode} does not correspond to a start milestone.");
 							break;
 						}
 
-						if (childNode.NextSibling is XmlWhitespace)
-						{
-							AppendSpaceIfNeeded(sb);
-							childNode.ParentNode.RemoveChild(childNode.NextSibling);
-						}
-						else if (childNode.NextSibling is XmlText text)
-						{
-							var match = m_regexStartsWithClosingPunctuation.Match(text.InnerText);
-							if (match.Success)
-							{
-								sb.Append(match.Value);
-								var toRemove = match.Length;
-								var remainingText = text.InnerText.Remove(0, toRemove).TrimStart();
-								if (remainingText.Any())
-									text.InnerText = remainingText;
-								else
-									childNode.ParentNode.RemoveChild(childNode.NextSibling);
-							}
-						}
+						Debug.Assert(m_currentExplicitQuote.Level == 1);
 
-						if (block != m_currentExplicitQuote.StartBlock)
-							m_currentExplicitQuote.StartBlock.MultiBlockQuote = MultiBlockQuote.Start;
-						FinalizeCharacterStyleBlock(sb, ref block, blocks, styleTag);
-						m_currentExplicitQuote = null;
-						var quoteId = childNode.GetOptionalStringAttribute("eid", default);
-						if (quoteId != null)
-							blocks.Last().BlockElements.Add(new QuoteId { Id = quoteId, Start = false });
+						if (level == 1)
+						{
+							if (childNode.NextSibling is XmlWhitespace)
+							{
+								AppendSpaceIfNeeded(sb);
+								childNode.ParentNode.RemoveChild(childNode.NextSibling);
+							}
+							else if (childNode.NextSibling is XmlText text)
+							{
+								var match = s_regexStartsWithClosingPunctuation.Match(text.InnerText);
+								if (match.Success)
+								{
+									sb.Append(match.Value);
+									var toRemove = match.Length;
+									var remainingText = text.InnerText.Remove(0, toRemove).TrimStart();
+									if (remainingText.Any())
+										text.InnerText = remainingText;
+									else
+										childNode.ParentNode.RemoveChild(childNode.NextSibling);
+								}
+							}
+
+
+							if (block != m_currentExplicitQuote.StartBlock && m_currentExplicitQuote.StartBlock != null)
+								m_currentExplicitQuote.StartBlock.MultiBlockQuote = MultiBlockQuote.Start;
+							FinalizeCharacterStyleBlock(sb, ref block, blocks, styleTag);
+							m_currentExplicitQuote = null;
+							var quoteId = childNode.GetOptionalStringAttribute("eid", default);
+							if (quoteId != null)
+								blocks.Last().BlockElements.Add(new QuoteId { Id = quoteId, Start = false });
+						}
 					}
 
 					break;
 				case "#text":
 					var textToAppend = childNode.InnerText;
-					if (m_currentExplicitQuote != null && !m_currentExplicitQuote.Resolved)
+					if (m_currentExplicitQuote?.StartBlock != null && !m_currentExplicitQuote.Resolved)
 						ResolveQuoteCharacter();
+					if (m_currentExplicitInterruption != null)
+						InsertQuoteIdAnnotationIfNeeded(m_currentExplicitInterruption);
 					if (StyleToCharacterMappings.IncludesCharStyle(block.StyleTag) && textToAppend.Any(IsLetter))
 					{
 						if (sb.Length > 0 && sb[sb.Length - 1] != ' ')
@@ -411,7 +484,7 @@ namespace GlyssenEngine
 							else
 							{
 								// This logic implements PG-1298
-								var match = m_regexStartsWithClosingPunctuation.Match(textToAppend);
+								var match = s_regexStartsWithClosingPunctuation.Match(textToAppend);
 								if (match.Success)
 								{
 									sb.Append(match.Value);
@@ -431,9 +504,58 @@ namespace GlyssenEngine
 			}
 		}
 
+		private bool IsQuoteInterruption(string character)
+		{
+			if (character == null)
+				return false;
+			var match = s_regexInterruptionCharacter.Match(character);
+			if (match.Success)
+			{
+				// Sanity check (but even if they copied an interruption from another book, we
+				// will still treat it as an interruption.
+				var book = match.Groups["book"].Value;
+				if (book != Empty && book != m_bookId)
+				{
+					Logger.WriteEvent($"Processing explicit interruption in {m_bookId} with " +
+						$"book code that does not match current book: {book}");
+				}
+
+				return true;
+			}
+
+			return false;
+		}
+
+		private void ProcessInterruptionStart(StringBuilder sb, string sid, ref Block block,
+			IList<Block> blocks, string styleTag, uint level)
+		{
+			// Break off any unclosed explicit quote initiated by a milestone quote marker.
+			FinalizeCharacterStyleBlock(sb, ref block, blocks, styleTag);
+
+			if (m_currentExplicitQuote != null)
+			{
+				// TODO: Write unit test for this scenario
+				Debug.Assert(m_currentExplicitQuote.Resolved);
+
+				if (m_currentExplicitQuote.StartBlock != null &&
+				    blocks.Last() != m_currentExplicitQuote.StartBlock)
+				{
+					m_currentExplicitQuote.StartBlock.MultiBlockQuote = MultiBlockQuote.Start;
+				}
+
+				m_currentExplicitQuote.StartBlock = null;
+			}
+
+			var character = CharacterVerseData.GetStandardCharacterId(m_bookId,
+				CharacterVerseData.StandardCharacter.Narrator);
+			m_currentExplicitInterruption = new ExplicitQuoteInfo(block, sid, character, level);
+			block.SetNonDramaticCharacterId(character);
+			m_currentExplicitInterruption.Resolved = true;
+		}
+
 		private void AddBlock(IList<Block> blocks, Block block)
 		{
-			if (m_currentExplicitQuote != null && m_currentExplicitQuote.StartBlock != block)
+			if (m_currentExplicitQuote?.StartBlock != null && m_currentExplicitQuote.StartBlock != block)
 			{
 				if (block.CharacterIsStandard)
 				{
@@ -449,6 +571,7 @@ namespace GlyssenEngine
 					block.MultiBlockQuote = MultiBlockQuote.Continuation;
 					block.CharacterId = m_currentExplicitQuote.StartBlock.CharacterId;
 					block.CharacterIdInScript = m_currentExplicitQuote.StartBlock.CharacterIdInScript;
+					// REVIEW: What about the delivery
 				}
 			}
 
@@ -463,15 +586,8 @@ namespace GlyssenEngine
 
 		private void ResolveQuoteCharacter()
 		{
+			InsertQuoteIdAnnotationIfNeeded(m_currentExplicitQuote);
 			var block = m_currentExplicitQuote.StartBlock;
-			if (m_currentExplicitQuote.Id != null)
-			{
-				var quoteIdAnnotation = new QuoteId {Id = m_currentExplicitQuote.Id, Start = true};
-				if (block.BlockElements.LastOrDefault() is Verse)
-					block.BlockElements.Insert(block.BlockElements.Count - 1, quoteIdAnnotation);
-				else
-					block.BlockElements.Add(quoteIdAnnotation);
-			}
 
 			if (m_currentExplicitQuote.SpecifiedCharacter != null)
 			{
@@ -494,10 +610,23 @@ namespace GlyssenEngine
 			}
 		}
 
+		private static void InsertQuoteIdAnnotationIfNeeded(ExplicitQuoteInfo explicitQuoteInfo)
+		{
+			var block = explicitQuoteInfo.StartBlock;
+			if (explicitQuoteInfo.Id != null)
+			{
+				var quoteIdAnnotation = new QuoteId {Id = explicitQuoteInfo.Id, Start = true};
+				if (block.BlockElements.LastOrDefault() is Verse)
+					block.BlockElements.Insert(block.BlockElements.Count - 1, quoteIdAnnotation);
+				else
+					block.BlockElements.Add(quoteIdAnnotation);
+			}
+		}
+
 		private void FinalizeCharacterStyleBlockWithoutTrailingOpener(StringBuilder sb, ref Block block, IList<Block> blocks, string newBlockTag)
 		{
 			string trailingOpener = null;
-			var matchOpeningQuoteAtEnd = m_regexEndsWithOpeningQuote.Match(sb.ToString());
+			var matchOpeningQuoteAtEnd = s_regexEndsWithOpeningQuote.Match(sb.ToString());
 			if (matchOpeningQuoteAtEnd.Success)
 			{
 				sb.Remove(matchOpeningQuoteAtEnd.Index, matchOpeningQuoteAtEnd.Length);

@@ -28,8 +28,10 @@ namespace GlyssenEngine.Script
 
 		public const int kNotSplit = -1;
 
-		private static Regex s_regexFirstLevelQuoteMilestoneStartMarker = new Regex("^qt1?-s$", RegexOptions.Compiled);
-		private static Regex s_regexFirstLevelQuoteMilestoneEndMarker = new Regex("^qt1?-e$", RegexOptions.Compiled);
+		private const string kLevel = "level";
+		private const string kFmtRegex = "^qt(?<{0}>[1-9])?-{1}$";
+		private static Regex s_regexQuoteMilestoneStartMarker = new Regex(Format(kFmtRegex, kLevel, "s"), RegexOptions.Compiled);
+		private static Regex s_regexQuoteMilestoneEndMarker = new Regex(Format(kFmtRegex, kLevel, "e"), RegexOptions.Compiled);
 
 		public const string kCssFrame = "body{{font-family:{0};font-size:{1}pt}}" +
 						".right-to-left{{direction:rtl}}" +
@@ -269,10 +271,31 @@ namespace GlyssenEngine.Script
 		public bool UserConfirmed { get; set; }
 
 		public static bool IsFirstLevelQuoteMilestoneStart(string styleTag) =>
-			styleTag != null && s_regexFirstLevelQuoteMilestoneStartMarker.IsMatch(styleTag);
+			TryGetQuoteStartMilestoneLevel(styleTag, out var level) && level == 1;
 
 		public static bool IsFirstLevelQuoteMilestoneEnd(string styleTag) =>
-			styleTag != null && s_regexFirstLevelQuoteMilestoneEndMarker.IsMatch(styleTag);
+			TryGetQuoteEndMilestoneLevel(styleTag, out var level) && level == 1;
+
+		public static bool TryGetQuoteStartMilestoneLevel(string styleTag, out uint level) =>
+			TryGetQuoteMilestoneLevel(styleTag, s_regexQuoteMilestoneStartMarker, out level);
+
+		public static bool TryGetQuoteEndMilestoneLevel(string styleTag, out uint level) =>
+			TryGetQuoteMilestoneLevel(styleTag, s_regexQuoteMilestoneEndMarker, out level);
+
+		private static bool TryGetQuoteMilestoneLevel(string styleTag, Regex regex, out uint level)
+		{
+			level = 1;
+			if (styleTag == null)
+				return false;
+			var match = regex.Match(styleTag);
+			if (!match.Success)
+				return false;
+
+			var sLevel = match.Groups[kLevel]?.Value;
+			if (sLevel != Empty)
+				level = uint.Parse(sLevel);
+			return true;
+		}
 
 		/// <summary>
 		/// Gets whether the block had the character pre-determined in the source. If this block is
@@ -280,13 +303,19 @@ namespace GlyssenEngine.Script
 		/// determined character, we (hopefully consistently) alter the style tag so that it does
 		/// not appear that the new character is the one that was predetermined.
 		/// </summary>
-		public bool HasPreConfirmedCharacter => CharacterId != null && !CharacterIsUnclear && IsPredeterminedFirstLevelQuoteStart;
+		public bool HasPreConfirmedCharacter =>
+			CharacterId != null && !CharacterIsUnclear && IsPredeterminedFirstLevelQuoteStart;
+
+		private bool IsNarrator =>
+			CharacterVerseData.IsCharacterOfType(CharacterId, CharacterVerseData.StandardCharacter.Narrator);
 
 		public bool IsPredeterminedFirstLevelQuoteStart =>
-			IsFirstLevelQuoteMilestoneStart(StyleTag);
+			IsFirstLevelQuoteMilestoneStart(StyleTag) && (CharacterId == null || !IsNarrator);
 
-		public bool IsPredeterminedFirstLevelQuoteEnd =>
-			IsFirstLevelQuoteMilestoneEnd(StyleTag);
+		public bool IsPredeterminedQuoteInterruption =>
+			TryGetQuoteStartMilestoneLevel(StyleTag, out _) && CharacterId != null && IsNarrator;
+
+		public bool IsPredeterminedFirstLevelQuoteEnd => IsFirstLevelQuoteMilestoneEnd(StyleTag);
 
 		[XmlAttribute("multiBlockQuote")]
 		[DefaultValue(MultiBlockQuote.None)]
@@ -340,7 +369,7 @@ namespace GlyssenEngine.Script
 		/// reference blocks are found at the requested (or any lower) level.
 		/// </summary>
 		/// <param name="depth">Current constraints elsewhere in the code make it such that this should never be
-		/// greater than 1, but this method is implemented to support a (future) scenerio allowing more deeply
+		/// greater than 1, but this method is implemented to support a (future) scenario allowing more deeply
 		/// nested reference texts.</param>
 		public string GetReferenceTextAtDepth(int depth)
 		{
@@ -861,8 +890,7 @@ namespace GlyssenEngine.Script
 		/// a false positive. (For the current planned usage, an occasional false positive will not be a big deal.)
 		/// </summary>
 		public bool IsQuote => !CharacterVerseData.IsCharacterStandard(CharacterId) ||
-			UserConfirmed ||
-			IsFirstLevelQuoteMilestoneStart(StyleTag);
+			UserConfirmed || TryGetQuoteStartMilestoneLevel(StyleTag, out _);
 
 		public bool IsNarratorOrPotentialNarrator(string bookId) =>
 			CharacterIs(bookId, CharacterVerseData.StandardCharacter.Narrator) ||

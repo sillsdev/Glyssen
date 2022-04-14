@@ -226,6 +226,7 @@ namespace GlyssenEngine.Quote
 
 				if (block.IsPredeterminedFirstLevelQuoteStart)
 				{
+					// TODO: Handle interruptions : IsPredeterminedQuoteInterruption
 					if (block.CharacterId == null)
 					{
 						m_quoteLevel = 0;

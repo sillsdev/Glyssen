@@ -6026,6 +6026,10 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	19	10	Jehoshaphat, king of Judah			Normal		
 2CH	19	11	Jehoshaphat, king of Judah			Normal		
 2CH	20	2	men, some			Normal		
+2CH	20	2	narrator-2CH			Interruption		
+2CH	20	3	Jehoshaphat, king of Judah	alarmed		Rare		
+2CH	20	3	Jehoshaphat, king of Judah	proclamation		Rare		
+2CH	20	3	Needs Review			Potential		
 2CH	20	6	Jehoshaphat, king of Judah	praying		Normal		
 2CH	20	7	Jehoshaphat, king of Judah	praying		Normal		
 2CH	20	8	Jehoshaphat, king of Judah	praying		Normal		
