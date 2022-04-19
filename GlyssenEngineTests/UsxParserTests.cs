@@ -1152,6 +1152,126 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(++i, blocks.Count);
 		}
 
+		[TestCase("interruption", "En Gedi info")]
+		[TestCase("Interruption-2CH", null)]
+		[TestCase("interruption-2CH", "i1", "q1")]
+		[TestCase("NARRATOR-2CH", null, "m234")]
+		[TestCase("Narrator", null)]
+		public void Parse_ExplicitlyMarkedInterruptionWithNoAlphaTextFollowing_InterruptionSetAsNarrator(
+			string interruptionCharacter, string qtInterruptionId, string qtMenId = null)
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
+				string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"2CH\"")
+						.Replace("<chapter number=\"1\"", "<chapter number=\"20\""),
+					"<para style=\"p\">" +
+					"<verse number=\"1\" style=\"v\" />" +
+					"After this, the Moabites and others came to war against Jehoshaphat. " +
+					"</para>" +
+					"<para style=\"p\">" +
+					"<verse number=\"2\" style=\"v\" />" +
+					"Some people came and told Jehoshaphat, " +
+					GetQtMilestoneElement("start", "men, some", qtMenId, 1) +
+					"“A vast army is coming against you from Edom, from the other side of the Dead Sea. They have already reached Hazezon Tamar " +
+					GetQtMilestoneElement("start", interruptionCharacter, qtInterruptionId, 2) +
+					"(that is, En Gedi)" +
+					GetQtMilestoneElement("end", qtId: qtInterruptionId, level: 2) +
+					"”. " +
+					GetQtMilestoneElement("end", qtId: qtMenId, level: 1) +
+					"<verse number=\"3\" style=\"v\" />" +
+					"Alarmed, Jehoshaphat resolved to inquire of the Lord, and he proclaimed: " +
+					GetQtMilestoneElement("start", "King Jehoshaphat") +
+					"All Judah must fast. " +
+					GetQtMilestoneElement("end") +
+					"</para>"));
+			var parser = GetUsxParser(doc, "2CH");
+			var blocks = parser.Parse().ToList();
+
+			Assert.That(blocks.All(b => b.MultiBlockQuote == MultiBlockQuote.None));
+
+			int i = 0;
+			Assert.AreEqual(20, blocks[i].ChapterNumber);
+			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
+
+			Assert.AreEqual(1, blocks[++i].InitialStartVerseNumber);
+			Assert.AreEqual("{1}\u00A0After this, the Moabites and others came to war against Jehoshaphat. ",
+				blocks[i].GetText(true));
+			Assert.IsNull(blocks[i].CharacterId);
+
+			Assert.AreEqual(2, blocks[++i].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[i].StartsAtVerseStart);
+			Assert.IsTrue(blocks[i].IsParagraphStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("{2}\u00A0Some people came and told Jehoshaphat, ",
+				blocks[i].GetText(true, true));
+			Assert.IsNull(blocks[i].CharacterId);
+
+			Assert.AreEqual(2, blocks[++i].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[i].StartsAtVerseStart);
+			Assert.IsFalse(blocks[i].IsParagraphStart);
+			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			if (qtMenId == null)
+			{
+				Assert.AreEqual("“A vast army is coming against you from Edom, from the other side of " +
+					"the Dead Sea. They have already reached Hazezon Tamar ",
+					blocks[i].GetText(true, true));
+			}
+			else
+			{
+				Assert.AreEqual("“A vast army is coming against you from Edom, from the other side of " +
+					"the Dead Sea. They have already reached Hazezon Tamar ",
+					blocks[i].GetText(true));
+				var quoteIdAnnotation = (QuoteId)blocks[i].BlockElements.First();
+				Assert.AreEqual(qtMenId, quoteIdAnnotation.Id);
+				Assert.IsTrue(quoteIdAnnotation.Start);
+				Assert.AreEqual(2, blocks[i].BlockElements.Count);
+			}
+			Assert.AreEqual("men, some", blocks[i].CharacterId);
+
+			Assert.AreEqual(2, blocks[++i].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("(that is, En Gedi)”. ", blocks[i].GetText(true, qtInterruptionId == null && qtMenId == null));
+			var expectedBlockElementCount = 1;
+			if (qtInterruptionId != null)
+			{
+				expectedBlockElementCount = 4;
+				var quoteIdAnnotation = (QuoteId)blocks[i].BlockElements[0];
+				Assert.AreEqual(qtInterruptionId, quoteIdAnnotation.Id);
+				Assert.IsTrue(quoteIdAnnotation.Start);
+				Assert.That(((ScriptText)blocks[i].BlockElements[1]).Content, Is.EqualTo("(that is, En Gedi)"));
+				quoteIdAnnotation = (QuoteId)blocks[i].BlockElements[2];
+				Assert.AreEqual(qtInterruptionId, quoteIdAnnotation.Id);
+				Assert.IsFalse(quoteIdAnnotation.Start);
+				Assert.That(((ScriptText)blocks[i].BlockElements[3]).Content, Is.EqualTo("”. "));
+			}
+			if (qtMenId != null)
+			{
+				expectedBlockElementCount++;
+				var quoteIdAnnotation = (QuoteId)blocks[i].BlockElements.Last();
+				Assert.AreEqual(qtMenId, quoteIdAnnotation.Id);
+				Assert.IsFalse(quoteIdAnnotation.Start);
+			}
+			Assert.That(blocks[i].BlockElements.Count, Is.EqualTo(expectedBlockElementCount));
+			Assert.IsTrue(blocks[i].CharacterIs("2CH", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(blocks[i].IsPredeterminedQuoteInterruption);
+
+			Assert.AreEqual(3, blocks[++i].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[i].StartsAtVerseStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("{3}\u00A0Alarmed, Jehoshaphat resolved to inquire of the Lord, and he proclaimed: ",
+				blocks[i].GetText(true, true));
+			Assert.IsNull(blocks[i].CharacterId);
+
+			Assert.AreEqual(3, blocks[++i].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[i].StartsAtVerseStart);
+			Assert.IsFalse(blocks[i].IsParagraphStart);
+			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("All Judah must fast. ",
+				blocks[i].GetText(true, true));
+			Assert.AreEqual("Jehoshaphat, king of Judah", blocks[i].CharacterId);
+
+			Assert.AreEqual(++i, blocks.Count);
+		}
+
 		[TestCase("Interruption", "En Gedi info")]
 		[TestCase("interruption-2CH")]
 		[TestCase("narrator-2CH")]
@@ -1334,6 +1454,111 @@ namespace GlyssenEngineTests
 			Assert.AreEqual("All Judah must fast. ",
 				blocks[i].GetText(true, true));
 			Assert.AreEqual("Jehoshaphat, king of Judah", blocks[i].CharacterId);
+
+			Assert.AreEqual(++i, blocks.Count);
+		}
+
+		[TestCase("reader")]
+		[TestCase(null)]
+		public void Parse_ExplicitlyMarkedInterruptionInMultiParaQuoteWithSpaceAfterInterruptionEnd_InterruptionSetAsNarrator(
+			string qtEndInterruptionId)
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
+				string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"MAT\"")
+						.Replace("<chapter number=\"1\"", "<chapter number=\"24\""),
+					"<para style=\"p\">" +
+					"<verse number=\"10\" style=\"v\" />" +
+					GetQtMilestoneElement("start", "Jesus", level:1) +
+					"“At that time many will lose faith, and they will betray and hate one another. " +
+					"<verse number=\"11\" style=\"v\" />" +
+					"Many people will falsely claim to speak for God in order to deceive others. " +
+					"<verse number=\"12\" style=\"v\" />" +
+					"As lawlessness increases more and more people will lose their will to love. " +
+					"<verse number=\"13\" style=\"v\" />" +
+					"But the overcomers will be saved. " +
+					"<verse number=\"14\" style=\"v\" />" +
+					"Before the end of time, this good news of the kingdom of God will be announced everywhere so all the nations will hear it." +
+					"</para>" +
+					"<para style=\"p\">" +
+					"<verse number=\"15-16\" style=\"v\" />" +
+					"“The Judeans must run to hide in the hills when in the temple the you see the abomination of desolation, " +
+					GetQtMilestoneElement("start", "interruption", "reader", 2) +
+					"with which a reader of Daniel should be familiar." +
+					GetQtMilestoneElement("end", "interruption", qtEndInterruptionId, 2) +
+					" <verse number=\"17\" style=\"v\" />" +
+					"Whoever is on the roof must not go get things out of his house. " +
+					"<verse number=\"18\" style=\"v\" />" +
+					"Anyone in the field must not go get his robe. " +
+					"<verse number=\"19\" style=\"v\" />" +
+					"It will really stink for women who are pregnant or nursing in those days! " +
+					"<verse number=\"20\" style=\"v\" />" +
+					"Also, pray that when you flee the weather will be nice and it will not be on a day of rest.”" +
+					GetQtMilestoneElement("end", "Jesus", level:1) +
+					"</para>"));
+			var parser = GetUsxParser(doc, "MAT");
+			var blocks = parser.Parse().ToList();
+
+			int i = 0;
+			Assert.AreEqual(24, blocks[i].ChapterNumber);
+			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
+
+			Assert.AreEqual(10, blocks[++i].InitialStartVerseNumber);
+			Assert.That(blocks[i].CharacterId, Is.EqualTo("Jesus"));
+			Assert.IsTrue(blocks[i].StartsAtVerseStart);
+			Assert.IsTrue(blocks[i].IsParagraphStart);
+			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.That(blocks[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
+			Assert.AreEqual("{10}\u00A0“At that time many will lose faith, and they will betray and hate one another. " +
+				"{11}\u00A0Many people will falsely claim to speak for God in order to deceive others. " +
+				"{12}\u00A0As lawlessness increases more and more people will lose their will to love. " +
+				"{13}\u00A0But the overcomers will be saved. " +
+				"{14}\u00A0Before the end of time, this good news of the kingdom of God will be announced everywhere so all the nations will hear it.",
+				blocks[i].GetText(true, true));
+
+			Assert.AreEqual(15, blocks[++i].InitialStartVerseNumber);
+			Assert.AreEqual(16, blocks[i].InitialEndVerseNumber);
+			Assert.That(blocks[i].CharacterId, Is.EqualTo("Jesus"));
+			Assert.IsTrue(blocks[i].StartsAtVerseStart);
+			Assert.IsTrue(blocks[i].IsParagraphStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsTrue(blocks[i].IsContinuationOfPreviousBlockQuote);
+			Assert.AreEqual("{15-16}\u00A0“The Judeans must run to hide in the hills when in the temple the you see the abomination of desolation, ",
+				blocks[i].GetText(true, true));
+
+			Assert.AreEqual(15, blocks[++i].InitialStartVerseNumber);
+			Assert.AreEqual(16, blocks[i].InitialEndVerseNumber);
+			Assert.IsFalse(blocks[i].StartsAtVerseStart);
+			Assert.IsFalse(blocks[i].IsParagraphStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsTrue(blocks[i].IsPredeterminedQuoteInterruption);
+			Assert.That(blocks[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.AreEqual("with which a reader of Daniel should be familiar. ",
+				blocks[i].GetText(true));
+			Assert.IsTrue(blocks[i].CharacterIs("MAT", CharacterVerseData.StandardCharacter.Narrator));
+			var quoteIdAnnotation = (QuoteId)blocks[i].BlockElements.First();
+			Assert.AreEqual("reader", quoteIdAnnotation.Id);
+			Assert.IsTrue(quoteIdAnnotation.Start);
+			if (qtEndInterruptionId == null)
+				Assert.AreEqual(2, blocks[i].BlockElements.Count);
+			else
+			{
+				// REVIEW: do we want the space added before or after the annotation?
+				Assert.AreEqual(3, blocks[i].BlockElements.Count);
+				quoteIdAnnotation = (QuoteId)blocks[i].BlockElements.Last();
+				Assert.AreEqual(qtEndInterruptionId, quoteIdAnnotation.Id);
+				Assert.IsFalse(quoteIdAnnotation.Start);
+			}
+
+			Assert.AreEqual(17, blocks[++i].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[i].StartsAtVerseStart);
+			Assert.IsFalse(blocks[i].IsParagraphStart);
+			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.That(blocks[i].CharacterId, Is.EqualTo("Jesus"));
+			Assert.That(blocks[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(blocks[i].GetText(true), Is.EqualTo("{17}\u00A0Whoever is on the roof must not go get things out of his house. " +
+				"{18}\u00A0Anyone in the field must not go get his robe. " +
+				"{19}\u00A0It will really stink for women who are pregnant or nursing in those days! " +
+				"{20}\u00A0Also, pray that when you flee the weather will be nice and it will not be on a day of rest.”"));
 
 			Assert.AreEqual(++i, blocks.Count);
 		}

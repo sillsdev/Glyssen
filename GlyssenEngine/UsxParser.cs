@@ -129,7 +129,7 @@ namespace GlyssenEngine
 		}
 
 
-		private static readonly Regex s_regexStartsWithClosingPunctuation = new Regex(@"^(\p{Pd}|\p{Pe}|\p{Pf}|\p{Po})+\s+", RegexOptions.Compiled);
+		private static readonly Regex s_regexLeadingNonInitialPunctuationWithAdjacentWhitespace = new Regex(@"^(\p{Pd}|\p{Pe}|\p{Pf}|\p{Po})+\s+", RegexOptions.Compiled);
 		private static readonly Regex s_regexEndsWithOpeningQuote = new Regex("(\\p{Pi}\\s?)*(\\p{Pi}|\")+$", RegexOptions.Compiled);
 		private static readonly Regex s_regexInterruptionCharacter = new Regex("interruption|narrator(-(?<book>[1-3]?[A-Z]{2,3}))?", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
@@ -370,55 +370,13 @@ namespace GlyssenEngine
 					}
 					else if (Block.TryGetQuoteEndMilestoneLevel(styleTag, out level))
 					{
+						Debug.Assert(childNode.ParentNode != null);
+						var nextNode = childNode.NextSibling;
+
 						if (m_currentExplicitInterruption != null && level <= m_currentExplicitInterruption.Level)
 						{
-							// REVIEW: Is any of this (copied from below) needed?
-							//if (childNode.NextSibling is XmlWhitespace)
-							//{
-							//	AppendSpaceIfNeeded(sb);
-							//	childNode.ParentNode.RemoveChild(childNode.NextSibling);
-							//}
-							//else if (childNode.NextSibling is XmlText text)
-							//{
-							//	var match = s_regexStartsWithClosingPunctuation.Match(text.InnerText);
-							//	if (match.Success)
-							//	{
-							//		sb.Append(match.Value);
-							//		var toRemove = match.Length;
-							//		var remainingText = text.InnerText.Remove(0, toRemove).TrimStart();
-							//		if (remainingText.Any())
-							//			text.InnerText = remainingText;
-							//		else
-							//			childNode.ParentNode.RemoveChild(childNode.NextSibling);
-							//	}
-							//}
-
-							if (m_currentExplicitQuote != null && level == 1)
-							{
-								// Interruption was not closed explicitly, but this is the end of
-								// the explicit quote. (In other words, it was really a "trailing
-								// interruption. If there is a closing quote included with the text
-								// of the interruption,we just want to keep it that way because we
-								// don't want to end up with a quote block that is nothing but
-								// punctuation.)
-								m_currentExplicitQuote = null;
-							}
-
-							FinalizeCharacterStyleBlock(sb, ref block, blocks, m_currentExplicitQuote?.OriginalStartBlock.StyleTag ?? paraStyleTag);
-							m_currentExplicitInterruption = null;
-
-							if (m_currentExplicitQuote != null)
-							{
-								m_currentExplicitQuote.StartBlock = block;
-								block.CharacterId = m_currentExplicitQuote.OriginalStartBlock.CharacterId;
-								block.Delivery = m_currentExplicitQuote.OriginalStartBlock.Delivery;
-								block.CharacterIdInScript = m_currentExplicitQuote.OriginalStartBlock.CharacterIdInScript;
-							}
-
 							var quoteId = childNode.GetOptionalStringAttribute("eid", default);
-							if (quoteId != null)
-								blocks.Last().BlockElements.Add(new QuoteId { Id = quoteId, Start = false });
-
+							ProcessInterruptionEnd(sb, quoteId, ref block, blocks, paraStyleTag, level, nextNode);
 							break;
 						}
 
@@ -432,30 +390,28 @@ namespace GlyssenEngine
 
 						if (level == 1)
 						{
-							if (childNode.NextSibling is XmlWhitespace)
+							if (nextNode is XmlWhitespace)
 							{
 								AppendSpaceIfNeeded(sb);
-								childNode.ParentNode.RemoveChild(childNode.NextSibling);
+								childNode.ParentNode.RemoveChild(nextNode);
 							}
-							else if (childNode.NextSibling is XmlText text)
+							else if (TryStripLeadingNonInitialPunctuationWithAdjacentWhitespace(
+						         nextNode, out var punctuation))
 							{
-								var match = s_regexStartsWithClosingPunctuation.Match(text.InnerText);
-								if (match.Success)
-								{
-									sb.Append(match.Value);
-									var toRemove = match.Length;
-									var remainingText = text.InnerText.Remove(0, toRemove).TrimStart();
-									if (remainingText.Any())
-										text.InnerText = remainingText;
-									else
-										childNode.ParentNode.RemoveChild(childNode.NextSibling);
-								}
+								sb.Append(punctuation);
 							}
-
 
 							if (block != m_currentExplicitQuote.StartBlock && m_currentExplicitQuote.StartBlock != null)
 								m_currentExplicitQuote.StartBlock.MultiBlockQuote = MultiBlockQuote.Start;
 							FinalizeCharacterStyleBlock(sb, ref block, blocks, styleTag);
+							if (block == m_currentExplicitQuote.StartBlock)
+							{
+								// The block where we were planning to write the rest of the quote
+								// (after an interruption) didn't end up having any contents. So
+								// instead of creating a new block, FinalizeCharacterStyleBlock
+								// just reused it for the next thing that we're about to parse.
+								block.CharacterId = block.CharacterIdOverrideForScript = block.Delivery = null;
+							}
 							m_currentExplicitQuote = null;
 							var quoteId = childNode.GetOptionalStringAttribute("eid", default);
 							if (quoteId != null)
@@ -484,7 +440,7 @@ namespace GlyssenEngine
 							else
 							{
 								// This logic implements PG-1298
-								var match = s_regexStartsWithClosingPunctuation.Match(textToAppend);
+								var match = s_regexLeadingNonInitialPunctuationWithAdjacentWhitespace.Match(textToAppend);
 								if (match.Success)
 								{
 									sb.Append(match.Value);
@@ -534,7 +490,6 @@ namespace GlyssenEngine
 
 			if (m_currentExplicitQuote != null)
 			{
-				// TODO: Write unit test for this scenario
 				Debug.Assert(m_currentExplicitQuote.Resolved);
 
 				if (m_currentExplicitQuote.StartBlock != null &&
@@ -551,6 +506,77 @@ namespace GlyssenEngine
 			m_currentExplicitInterruption = new ExplicitQuoteInfo(block, sid, character, level);
 			block.SetNonDramaticCharacterId(character);
 			m_currentExplicitInterruption.Resolved = true;
+		}
+
+		private void ProcessInterruptionEnd(StringBuilder sb, string eid, ref Block block,
+			IList<Block> blocks, string paraStyleTag, uint level, XmlNode nextSibling)
+		{
+			if (m_currentExplicitQuote != null && level == 1)
+			{
+				// Interruption was not closed explicitly (or incorrectly claimed
+				// to be level 1), but this is the end of the explicit quote. (In
+				// other words, it was really a "trailing interruption" and it
+				// probably might have made more sense to end the quote earlier. If
+				// there's a closing quote included with the interruption text, we
+				// just want to keep it that way because we don't want to end up
+				// with a quote block that is nothing but punctuation.)
+				m_currentExplicitQuote = null;
+			}
+
+			FinalizeCharacterStyleBlock(sb, ref block, blocks,
+				m_currentExplicitQuote?.OriginalStartBlock.StyleTag ?? paraStyleTag);
+			m_currentExplicitInterruption = null;
+
+			if (m_currentExplicitQuote != null)
+			{
+				m_currentExplicitQuote.StartBlock = block;
+				block.CharacterId = m_currentExplicitQuote.OriginalStartBlock.CharacterId;
+				block.Delivery = m_currentExplicitQuote.OriginalStartBlock.Delivery;
+				block.CharacterIdInScript = m_currentExplicitQuote.OriginalStartBlock.CharacterIdInScript;
+			}
+
+			if (eid != null)
+				blocks.Last().BlockElements.Add(new QuoteId { Id = eid, Start = false });
+
+			if (nextSibling is XmlWhitespace)
+			{
+				var lastText = blocks.Last().BlockElements.OfType<ScriptText>().Last();
+				if (!IsWhiteSpace(lastText.Content.Last()))
+					lastText.Content += " ";
+				nextSibling.ParentNode.RemoveChild(nextSibling);
+			}
+			else if (TryStripLeadingNonInitialPunctuationWithAdjacentWhitespace(nextSibling,
+				out var punctuation))
+			{
+				if (blocks.Last().BlockElements.Last() is ScriptText last)
+					last.Content += punctuation;
+				else
+					blocks.Last().BlockElements.Add(new ScriptText(punctuation));
+			}
+		}
+
+		private bool TryStripLeadingNonInitialPunctuationWithAdjacentWhitespace(XmlNode node, out string punctuation)
+		{
+			if (node is XmlText text)
+			{
+				var match = s_regexLeadingNonInitialPunctuationWithAdjacentWhitespace.Match(text.InnerText);
+				if (match.Success)
+				{
+					punctuation = match.Value;
+
+					var toRemove = match.Length;
+					var remainingText = text.InnerText.Remove(0, toRemove).TrimStart();
+					if (remainingText.Any())
+						text.InnerText = remainingText;
+					else
+						node.ParentNode.RemoveChild(node);
+
+					return true;
+				}
+			}
+
+			punctuation = null;
+			return false;
 		}
 
 		private void AddBlock(IList<Block> blocks, Block block)
@@ -580,7 +606,7 @@ namespace GlyssenEngine
 
 		private static void AppendSpaceIfNeeded(StringBuilder sb)
 		{
-			if (sb.Length > 0 && sb[sb.Length - 1] != ' ')
+			if (sb.Length > 0 && !IsWhiteSpace(sb[sb.Length - 1]))
 				sb.Append(" ");
 		}
 
