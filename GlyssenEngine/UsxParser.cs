@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -128,10 +129,11 @@ namespace GlyssenEngine
 			}
 		}
 
-
 		private static readonly Regex s_regexLeadingNonInitialPunctuationWithAdjacentWhitespace = new Regex(@"^(\p{Pd}|\p{Pe}|\p{Pf}|\p{Po})+\s+", RegexOptions.Compiled);
 		private static readonly Regex s_regexEndsWithOpeningQuote = new Regex("(\\p{Pi}\\s?)*(\\p{Pi}|\")+$", RegexOptions.Compiled);
-		private static readonly Regex s_regexInterruptionCharacter = new Regex("interruption|narrator(-(?<book>[1-3]?[A-Z]{2,3}))?", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+		private const string kOptionalBookRegex = "(-(?<book>[1-3]?[A-Z]{2,3}))?$";
+		private static readonly Regex s_regexInterruptionCharacter = new Regex($"^interruption{kOptionalBookRegex}", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+		private static readonly Regex s_regexNarratorCharacter = new Regex($"^narr(ator)?{kOptionalBookRegex}", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
 		public UsxParser(string bookId, IStylesheet stylesheet, ICharacterUsageStore characterUsageStore, XmlNodeList nodeList)
 		{
@@ -240,7 +242,7 @@ namespace GlyssenEngine
 						foreach (XmlNode childNode in usxPara.ChildNodes)
 							ProcessParaChildNode(childNode, sb, ref block, blocks, usxPara.StyleTag);
 
-						FlushStringBuilderToBlockElement(sb, block);
+						FlushStringBuilderToBlockElement(sb, block, !(block.BlockElements.LastOrDefault() is QuoteId));
 						if (RemoveEmptyTrailingVerse(block))
 						{
 							var lastVerse = block.LastVerse;
@@ -349,74 +351,78 @@ namespace GlyssenEngine
 					{
 						var character = childNode.GetOptionalStringAttribute("who", default);
 						var id = childNode.GetOptionalStringAttribute("sid", default);
-						if (IsQuoteInterruption(character))
+						if (IsQuoteInterruption(character, m_currentExplicitQuote != null))
 						{
 							ProcessInterruptionStart(sb, id, ref block, blocks, styleTag, level);
 						}
 						else if (level == 1)
 						{
-							if (m_currentExplicitQuote != null &&
-							    (character != null || id != null) &&
-							    m_currentExplicitQuote.SpecifiedCharacter == character &&
-							    m_currentExplicitQuote.Id == id)
+							if (!AddQuoteIdIfNarrator(character, sb, block, id))
 							{
-								Logger.WriteEvent($"Ignoring duplicate milestone node {childNode}.");
-								break;
-							}
+								if (m_currentExplicitQuote != null &&
+								    (character != null || id != null) &&
+								    m_currentExplicitQuote.SpecifiedCharacter == character &&
+								    m_currentExplicitQuote.Id == id)
+								{
+									Logger.WriteEvent($"Ignoring duplicate milestone node {childNode}.");
+									break;
+								}
 
-							FinalizeCharacterStyleBlockWithoutTrailingOpener(sb, ref block, blocks, styleTag);
-							m_currentExplicitQuote = new ExplicitQuoteInfo(block, id, character);
+								FinalizeCharacterStyleBlockWithoutTrailingOpener(sb, ref block, blocks, styleTag);
+								m_currentExplicitQuote = new ExplicitQuoteInfo(block, id, character);
+							}
 						}
 					}
 					else if (Block.TryGetQuoteEndMilestoneLevel(styleTag, out level))
 					{
 						Debug.Assert(childNode.ParentNode != null);
 						var nextNode = childNode.NextSibling;
+						var quoteId = childNode.GetOptionalStringAttribute("eid", default);
 
 						if (m_currentExplicitInterruption != null && level <= m_currentExplicitInterruption.Level)
 						{
-							var quoteId = childNode.GetOptionalStringAttribute("eid", default);
 							ProcessInterruptionEnd(sb, quoteId, ref block, blocks, paraStyleTag, level, nextNode);
 							break;
 						}
 
+						if (level > 1)
+							break;
+
 						if (m_currentExplicitQuote == null)
 						{
-							Logger.WriteEvent($"End quote milestone {childNode} does not correspond to a start milestone.");
+							var character = childNode.GetOptionalStringAttribute("who", default);
+							if (!AddQuoteIdIfNarrator(character, sb, block, quoteId, false))
+								Logger.WriteEvent($"End quote milestone {childNode} does not correspond to a start milestone.");
 							break;
 						}
 
 						Debug.Assert(m_currentExplicitQuote.Level == 1);
 
-						if (level == 1)
+						if (nextNode is XmlWhitespace)
 						{
-							if (nextNode is XmlWhitespace)
-							{
-								AppendSpaceIfNeeded(sb);
-								childNode.ParentNode.RemoveChild(nextNode);
-							}
-							else if (TryStripLeadingNonInitialPunctuationWithAdjacentWhitespace(
-						         nextNode, out var punctuation))
-							{
-								sb.Append(punctuation);
-							}
-
-							if (block != m_currentExplicitQuote.StartBlock && m_currentExplicitQuote.StartBlock != null)
-								m_currentExplicitQuote.StartBlock.MultiBlockQuote = MultiBlockQuote.Start;
-							FinalizeCharacterStyleBlock(sb, ref block, blocks, styleTag);
-							if (block == m_currentExplicitQuote.StartBlock)
-							{
-								// The block where we were planning to write the rest of the quote
-								// (after an interruption) didn't end up having any contents. So
-								// instead of creating a new block, FinalizeCharacterStyleBlock
-								// just reused it for the next thing that we're about to parse.
-								block.CharacterId = block.CharacterIdOverrideForScript = block.Delivery = null;
-							}
-							m_currentExplicitQuote = null;
-							var quoteId = childNode.GetOptionalStringAttribute("eid", default);
-							if (quoteId != null)
-								blocks.Last().BlockElements.Add(new QuoteId { Id = quoteId, Start = false });
+							AppendSpaceIfNeeded(sb);
+							childNode.ParentNode.RemoveChild(nextNode);
 						}
+						else if (TryStripLeadingNonInitialPunctuationWithAdjacentWhitespace(
+					         nextNode, out var punctuation))
+						{
+							sb.Append(punctuation);
+						}
+
+						if (block != m_currentExplicitQuote.StartBlock && m_currentExplicitQuote.StartBlock != null)
+							m_currentExplicitQuote.StartBlock.MultiBlockQuote = MultiBlockQuote.Start;
+						FinalizeCharacterStyleBlock(sb, ref block, blocks, styleTag);
+						if (block == m_currentExplicitQuote.StartBlock)
+						{
+							// The block where we were planning to write the rest of the quote
+							// (after an interruption) didn't end up having any contents. So
+							// instead of creating a new block, FinalizeCharacterStyleBlock
+							// just reused it for the next thing that we're about to parse.
+							block.CharacterId = block.CharacterIdOverrideForScript = block.Delivery = null;
+						}
+						m_currentExplicitQuote = null;
+						if (quoteId != null)
+							blocks.Last().BlockElements.Add(new QuoteId { Id = quoteId, Start = false });
 					}
 
 					break;
@@ -460,11 +466,64 @@ namespace GlyssenEngine
 			}
 		}
 
-		private bool IsQuoteInterruption(string character)
+		private bool AddQuoteIdIfNarrator(string character, StringBuilder sb, Block block, string id, bool start = true)
+		{
+			var lastElement = block.BlockElements.LastOrDefault();
+			if ((character == null || !s_regexNarratorCharacter.IsMatch(character)) &&
+			    (!(lastElement is QuoteId quid) || !quid.IsNarrator))
+				return false;
+
+			FlushStringBuilderToBlockElement(sb, block, !block.BlockElements.Any());
+			block.BlockElements.Add(new QuoteId
+			{
+				Id = id,
+				Start = start,
+				IsNarrator = true
+			});
+			return true;
+		}
+
+		private class Verses : IReadOnlyCollection<IVerse>
+		{
+			private int StartVerse { get; }
+			private int EndVerse { get; }
+
+			public Verses(int start, int end)
+			{
+				Debug.Assert(start > 0);
+				Debug.Assert(end == 0 || end >= start);
+				StartVerse = start;
+				EndVerse = end == 0 ? start : end;
+			}
+
+			public IEnumerator<IVerse> GetEnumerator()
+			{
+				for (int i = StartVerse; i <= EndVerse; i++)
+					yield return new SingleVerse(i);
+			}
+
+			IEnumerator IEnumerable.GetEnumerator()
+			{
+				return GetEnumerator();
+			}
+
+			public int Count => EndVerse - StartVerse + 1;
+		}
+
+		private bool IsQuoteInterruption(string character, bool inExplicitQuote)
 		{
 			if (character == null)
 				return false;
+
+			// We distinguish between an "interruption" character (which will always be
+			// treated as an interruption) and a "narrator" character (which will only
+			// be treated as an interruption if it is inside an explicitly marked quote
+			// or it occurs in a verse that is known to have an interruption and
+			// does not also have a normal narrator quote).
 			var match = s_regexInterruptionCharacter.Match(character);
+			bool isExplicitInterruption = match.Success;
+			if (!isExplicitInterruption)
+				match = s_regexNarratorCharacter.Match(character);
 			if (match.Success)
 			{
 				// Sanity check (but even if they copied an interruption from another book, we
@@ -476,7 +535,14 @@ namespace GlyssenEngine
 						$"book code that does not match current book: {book}");
 				}
 
-				return true;
+				if (inExplicitQuote || isExplicitInterruption)
+					return true;
+
+				var characters = ControlCharacterVerseData.Singleton.GetCharacters(m_bookNum, m_currentChapter,
+					new Verses(m_currentStartVerse, m_currentEndVerse), m_characterUsageStore.Versification);
+				return characters.Any(c => c.QuoteType == QuoteType.Interruption) &&
+					!characters.Any(c => CharacterVerseData.IsCharacterOfType(c.Character, CharacterVerseData.StandardCharacter.Narrator) &&
+						c.QuoteType != QuoteType.Interruption);
 			}
 
 			return false;
@@ -536,7 +602,7 @@ namespace GlyssenEngine
 			}
 
 			if (eid != null)
-				blocks.Last().BlockElements.Add(new QuoteId { Id = eid, Start = false });
+				blocks.Last().BlockElements.Add(new QuoteId { Id = eid, Start = false, IsNarrator = level > 1});
 
 			if (nextSibling is XmlWhitespace)
 			{
@@ -545,13 +611,30 @@ namespace GlyssenEngine
 					lastText.Content += " ";
 				nextSibling.ParentNode.RemoveChild(nextSibling);
 			}
-			else if (TryStripLeadingNonInitialPunctuationWithAdjacentWhitespace(nextSibling,
-				out var punctuation))
+			else
 			{
-				if (blocks.Last().BlockElements.Last() is ScriptText last)
-					last.Content += punctuation;
+				string stripped;
+				if (nextSibling is XmlText text && IsWhiteSpace(text.InnerText[0]))
+				{
+					// Not terribly important (in fact, we don't even need the trailing space either), but if blocks have
+					// leading spaces, it might look funny in some places in the display.
+					stripped = " ";
+					var remainingText = text.InnerText.TrimStart();
+					if (remainingText.Any())
+						text.InnerText = remainingText;
+					else
+						nextSibling.ParentNode.RemoveChild(nextSibling);
+				}
 				else
-					blocks.Last().BlockElements.Add(new ScriptText(punctuation));
+					TryStripLeadingNonInitialPunctuationWithAdjacentWhitespace(nextSibling, out stripped);
+
+				if (stripped != null)
+				{
+					if (blocks.Last().BlockElements.Last() is ScriptText last)
+						last.Content += stripped;
+					else
+						blocks.Last().BlockElements.Add(new ScriptText(stripped));
+				}
 			}
 		}
 
@@ -641,7 +724,14 @@ namespace GlyssenEngine
 			var block = explicitQuoteInfo.StartBlock;
 			if (explicitQuoteInfo.Id != null)
 			{
-				var quoteIdAnnotation = new QuoteId {Id = explicitQuoteInfo.Id, Start = true};
+				var quoteIdAnnotation = new QuoteId
+				{
+					Id = explicitQuoteInfo.Id,
+					Start = true,
+					IsNarrator = explicitQuoteInfo.SpecifiedCharacter != null &&
+						CharacterVerseData.IsCharacterOfType(explicitQuoteInfo.SpecifiedCharacter,
+							CharacterVerseData.StandardCharacter.Narrator)
+				};
 				if (block.BlockElements.LastOrDefault() is Verse)
 					block.BlockElements.Insert(block.BlockElements.Count - 1, quoteIdAnnotation);
 				else
@@ -682,9 +772,10 @@ namespace GlyssenEngine
 			}
 		}
 
-		private void FlushStringBuilderToBlockElement(StringBuilder sb, Block block)
+		private void FlushStringBuilderToBlockElement(StringBuilder sb, Block block, bool trim = true)
 		{
-			sb.TrimStart();
+			if (trim)
+				sb.TrimStart();
 			if (sb.Length > 0)
 			{
 				block.BlockElements.Add(new ScriptText(sb.ToString()));
@@ -753,7 +844,8 @@ namespace GlyssenEngine
 				{
 					if (!(block.BlockElements[block.BlockElements.Count - 2] is Verse))
 					{
-						Debug.Fail("This should be impossible. The only block elements the UsxParser can add are Verse and ScriptText, and they must alternate.");
+						Debug.Assert(!(block.BlockElements[block.BlockElements.Count - 2] is ScriptText),
+							"This should be impossible. The USX parser should never add two adjacent ScriptText elements!");
 						return false;
 					}
 					var potentialClosingBracketPunct = text.Content.Trim();

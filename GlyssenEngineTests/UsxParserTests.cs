@@ -604,6 +604,7 @@ namespace GlyssenEngineTests
 				var quoteIdAnnotation = (QuoteId)blocks[2].BlockElements.First();
 				Assert.AreEqual(qtId, quoteIdAnnotation.Id);
 				Assert.IsTrue(quoteIdAnnotation.Start);
+				Assert.IsFalse(quoteIdAnnotation.IsNarrator);
 			}
 			if (blocks[2].CharacterId == CharacterVerseData.kNeedsReview)
 				Assert.AreEqual(character, blocks[2].CharacterIdInScript);
@@ -618,6 +619,7 @@ namespace GlyssenEngineTests
 				var quoteIdAnnotation = (QuoteId)blocks[2].BlockElements.Last();
 				Assert.AreEqual(qtId, quoteIdAnnotation.Id);
 				Assert.IsFalse(quoteIdAnnotation.Start);
+				Assert.IsFalse(quoteIdAnnotation.IsNarrator);
 			}
 			Assert.AreEqual(MultiBlockQuote.None, blocks[3].MultiBlockQuote);
 
@@ -1048,9 +1050,83 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(++i, blocks.Count);
 		}
 
+		[TestCase("one", "quotation")]
+		[TestCase("one", "quotation", false)]
+		[TestCase("one")]
+		[TestCase]
+		[TestCase(null, null, false)]
+		public void Parse_NestedQuotesWithExplicitMilestones_OnlyFirstLevelQuotesBrokenOut(
+			string qtId1 = null, string qtId2 = null, bool includeCharacterInEndMilestones = true)
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
+				string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"JER\""),
+					"<para style=\"p\">" +
+					"<verse number=\"7\" style=\"v\" />" +
+					"But the Lord said to me, " +
+					GetQtMilestoneElement("start", "God", qtId1, 1) +
+					"“Do not say, " +
+					GetQtMilestoneElement("start", "Jeremiah", qtId2, 2) +
+					"‘I am too young.’" +
+					GetQtMilestoneElement("end", includeCharacterInEndMilestones ? "Jeremiah" : null, qtId2, 2) +
+					" You must go to everyone I send you to and say whatever I command you. " +
+					"<verse number=\"8\" style=\"v\" />" +
+					"Do not be afraid of them, for I am with you and will rescue you,”" +
+					GetQtMilestoneElement("end", includeCharacterInEndMilestones ? "God" : null, qtId1, 1) +
+					" declares the Lord." +
+					"</para>"));
+			var parser = GetUsxParser(doc, "JER");
+			var blocks = parser.Parse().ToList();
+
+			Assert.That(blocks.All(b => b.MultiBlockQuote == MultiBlockQuote.None));
+
+			int i = 0;
+			Assert.AreEqual(1, blocks[i].ChapterNumber);
+			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
+
+			Assert.AreEqual(7, blocks[++i].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[i].StartsAtVerseStart);
+			Assert.IsTrue(blocks[i].IsParagraphStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("{7}\u00A0But the Lord said to me, ", blocks[i].GetText(true, true));
+			Assert.IsNull(blocks[i].CharacterId);
+
+			Assert.AreEqual(7, blocks[++i].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[i].StartsAtVerseStart);
+			Assert.IsFalse(blocks[i].IsParagraphStart);
+			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("“Do not say, ‘I am too young.’ You must go to everyone I send you to and say whatever I command you. " +
+				"{8}\u00A0Do not be afraid of them, for I am with you and will rescue you,”",
+				blocks[i].GetText(true));
+			if (qtId1 == null)
+			{
+				Assert.That(blocks[i].BlockElements.Count, Is.EqualTo(3));
+				Assert.False(blocks[i].BlockElements.Any(be => be is QuoteId));
+			}
+			else
+			{
+				Assert.That(blocks[i].BlockElements.Count, Is.EqualTo(5));
+				var quoteIdAnnotation = (QuoteId)blocks[i].BlockElements[0];
+				Assert.AreEqual(qtId1, quoteIdAnnotation.Id);
+				Assert.IsTrue(quoteIdAnnotation.Start);
+				quoteIdAnnotation = (QuoteId)blocks[i].BlockElements.Last();
+				Assert.AreEqual(qtId1, quoteIdAnnotation.Id);
+				Assert.IsFalse(quoteIdAnnotation.Start);
+				Assert.That(blocks[i].CharacterId, Is.EqualTo("God"));
+			}
+
+			Assert.AreEqual(8, blocks[++i].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[i].StartsAtVerseStart);
+			Assert.IsFalse(blocks[i].IsParagraphStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("declares the Lord.", blocks[i].GetText(true, true));
+			Assert.IsNull(blocks[i].CharacterId);
+
+			Assert.AreEqual(++i, blocks.Count);
+		}
+
 		[TestCase("Interruption", "En Gedi info")]
 		[TestCase("interruption-2CH")]
-		[TestCase("narrator-2CH")]
+		[TestCase("narr-2CH")]
 		[TestCase("narrator")]
 		public void Parse_ExplicitlyMarkedInterruption_InterruptionSetAsNarrator(
 			string interruptionCharacter, string qtId = null)
@@ -1349,6 +1425,258 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(++i, blocks.Count);
 		}
 
+		[TestCase("narrator-2CH")]
+		[TestCase("narrator-2CH", true)]
+		[TestCase("narr", true, "no one", "no one")]
+		[TestCase("narrator", true, "no one can curse Jesus", "no one can say Jesus is Lord")]
+		[TestCase("narrator", false, "no one can curse Jesus", "no one can say Jesus is Lord")]
+		public void Parse_ExplicitlyMarkedNarratorQuote_NarratorQuoteIdAnnotationsAdded(
+			string narrator, bool explicitEndCharacter = false, string qtId1 = null, string qtId2 = null)
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
+				string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"1CO\"")
+						.Replace("<chapter number=\"1\"", "<chapter number=\"12\""),
+					"<para style=\"p\">" +
+					"<verse number=\"1\" style=\"v\" />" +
+					"Now about Spirit-given abilities, brothers, I do not want you to be confused. " +
+					"<verse number=\"2\" style=\"v\" />" +
+					"You know that as pagans, you were led astray to mute idols. " +
+					"<verse number=\"3\" style=\"v\" />" +
+					"So I want you to clearly understand that no one who is speaking by the Holy Spirit could ever say, " +
+					GetQtMilestoneElement("start", narrator, qtId1) +
+					"“Jesus be cursed,”" +
+					GetQtMilestoneElement("end", explicitEndCharacter ? narrator : null, qtId1) +
+					" and no one can confess, " +
+					GetQtMilestoneElement("start", narrator, qtId2) +
+					"“Jesus is Lord,”" +
+					GetQtMilestoneElement("end", explicitEndCharacter ? narrator : null, qtId2) +
+					" except under the leading of the Holy Spirit." +
+					"</para>"));
+			var parser = GetUsxParser(doc, "1CO");
+			var blocks = parser.Parse().ToList();
+
+			Assert.That(blocks.All(b => b.MultiBlockQuote == MultiBlockQuote.None));
+
+			int i = 0;
+			Assert.AreEqual(12, blocks[i].ChapterNumber);
+			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
+
+			Assert.AreEqual(1, blocks[++i].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[i].StartsAtVerseStart);
+			Assert.IsTrue(blocks[i].IsParagraphStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedQuoteInterruption);
+			Assert.AreEqual("{1}\u00A0Now about Spirit-given abilities, brothers, I do not want you to be confused. " +
+				"{2}\u00A0You know that as pagans, you were led astray to mute idols. " +
+				"{3}\u00A0So I want you to clearly understand that no one who is speaking by the Holy Spirit could ever say, “Jesus be cursed,” and no one can confess, “Jesus is Lord,” except under the leading of the Holy Spirit." ,
+				blocks[i].GetText(true));
+			Assert.IsNull(blocks[i].CharacterId);
+
+			var quoteIdAnnotation = (QuoteId)blocks[i].BlockElements[6];
+			Assert.AreEqual(qtId1, quoteIdAnnotation.Id);
+			Assert.IsTrue(quoteIdAnnotation.Start);
+			Assert.IsTrue(quoteIdAnnotation.IsNarrator);
+			quoteIdAnnotation = (QuoteId)blocks[i].BlockElements[8];
+			Assert.AreEqual(qtId1, quoteIdAnnotation.Id);
+			Assert.IsFalse(quoteIdAnnotation.Start);
+			Assert.IsTrue(quoteIdAnnotation.IsNarrator);
+
+			quoteIdAnnotation = (QuoteId)blocks[i].BlockElements[10];
+			Assert.AreEqual(qtId2, quoteIdAnnotation.Id);
+			Assert.IsTrue(quoteIdAnnotation.Start);
+			Assert.IsTrue(quoteIdAnnotation.IsNarrator);
+			quoteIdAnnotation = (QuoteId)blocks[i].BlockElements[12];
+			Assert.AreEqual(qtId2, quoteIdAnnotation.Id);
+			Assert.IsFalse(quoteIdAnnotation.Start);
+			Assert.IsTrue(quoteIdAnnotation.IsNarrator);
+
+			Assert.AreEqual(++i, blocks.Count);
+		}
+
+		[TestCase("interruption")]
+		[TestCase("narrator-MAT")]
+		public void Parse_ExplicitlyMarkedInterruptionInVerseWithPotentialNarratorQuote_QuoteAndInterruptionBrokenOut(
+			string interruptionCharacter)
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
+				string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"MAT\"")
+						.Replace("<chapter number=\"1\"", "<chapter number=\"1\""),
+					"<para style=\"p\">" +
+					"<verse number=\"22\" style=\"v\" />" +
+					"All this took place to fulfill what the Lord had said through the prophet: " +
+					"<verse number=\"23\" style=\"v\" />" +
+					GetQtMilestoneElement("start", "scripture", level:1) +
+					"“The virgin will conceive and give birth to a son, and Immanuel " +
+					GetQtMilestoneElement("start", interruptionCharacter, level:2) +
+					"(which means ‘God with us’)" +
+					GetQtMilestoneElement("end", level:2) +
+					" will be the name by which they will call him.”" +
+					GetQtMilestoneElement("end", level:1) +
+					"</para>"));
+			var parser = GetUsxParser(doc, "MAT");
+			var blocks = parser.Parse().ToList();
+
+			Assert.That(blocks.All(b => b.MultiBlockQuote == MultiBlockQuote.None));
+
+			int i = 0;
+			Assert.AreEqual(1, blocks[i].ChapterNumber);
+			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
+
+			Assert.AreEqual(22, blocks[++i].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[i].StartsAtVerseStart);
+			Assert.IsTrue(blocks[i].IsParagraphStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedQuoteInterruption);
+			Assert.AreEqual("{22}\u00A0All this took place to fulfill what the Lord had said through the prophet: " ,
+				blocks[i].GetText(true, true));
+			Assert.IsNull(blocks[i].CharacterId);
+
+			Assert.AreEqual(23, blocks[++i].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[i].StartsAtVerseStart);
+			Assert.IsFalse(blocks[i].IsParagraphStart);
+			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedQuoteInterruption);
+			Assert.AreEqual("{23}\u00A0“The virgin will conceive and give birth to a son, and Immanuel " ,
+				blocks[i].GetText(true, true));
+			Assert.That(blocks[i].CharacterId, Is.EqualTo("scripture"));
+			
+			Assert.AreEqual(23, blocks[++i].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[i].StartsAtVerseStart);
+			Assert.IsFalse(blocks[i].IsParagraphStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsTrue(blocks[i].IsPredeterminedQuoteInterruption);
+			Assert.AreEqual("(which means ‘God with us’) " , blocks[i].GetText(true, true));
+			Assert.IsTrue(blocks[i].CharacterIs("MAT", CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual(23, blocks[++i].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[i].StartsAtVerseStart);
+			Assert.IsFalse(blocks[i].IsParagraphStart);
+			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedQuoteInterruption);
+			Assert.AreEqual("will be the name by which they will call him.”" ,
+				blocks[i].GetText(true, true));
+			Assert.That(blocks[i].CharacterId, Is.EqualTo("scripture"));
+
+			Assert.AreEqual(++i, blocks.Count);
+		}
+
+		/// <summary>
+		/// This test (in contrast to the following one) helps to illustrate the distinction
+		/// between the explicit use of an "interruption" character (which will always be
+		/// treated as an interruption) as opposed to "narrator".
+		/// </summary>
+		[TestCase(1)]
+		[TestCase(2)]
+		public void Parse_ExplicitlyMarkedInterruptionButNotQuoteInVerseWithPotentialNarratorQuote_InterruptionBrokenOut(
+			int level)
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
+				string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"MAT\"")
+						.Replace("<chapter number=\"1\"", "<chapter number=\"1\""),
+					"<para style=\"p\">" +
+					"<verse number=\"22\" style=\"v\" />" +
+					"All this took place to fulfill what the Lord had said through the prophet: " +
+					"<verse number=\"23\" style=\"v\" />" +
+					"“The virgin will conceive and give birth to a son, and Immanuel " +
+					GetQtMilestoneElement("start", "interruption", level:level) +
+					"(which means ‘God with us’)" +
+					GetQtMilestoneElement("end", level:level) +
+					" will be the name by which they will call him.”" +
+					"</para>"));
+			var parser = GetUsxParser(doc, "MAT");
+			var blocks = parser.Parse().ToList();
+
+			Assert.That(blocks.All(b => b.MultiBlockQuote == MultiBlockQuote.None));
+
+			int i = 0;
+			Assert.AreEqual(1, blocks[i].ChapterNumber);
+			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
+
+			Assert.AreEqual(22, blocks[++i].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[i].StartsAtVerseStart);
+			Assert.IsTrue(blocks[i].IsParagraphStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedQuoteInterruption);
+			Assert.AreEqual("{22}\u00A0All this took place to fulfill what the Lord had said through the prophet: " +
+				"{23}\u00A0“The virgin will conceive and give birth to a son, and Immanuel " ,
+				blocks[i].GetText(true, true));
+			Assert.IsNull(blocks[i].CharacterId);
+			
+			Assert.AreEqual(23, blocks[++i].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[i].StartsAtVerseStart);
+			Assert.IsFalse(blocks[i].IsParagraphStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsTrue(blocks[i].IsPredeterminedQuoteInterruption);
+			Assert.AreEqual("(which means ‘God with us’) " , blocks[i].GetText(true, true));
+			Assert.IsTrue(blocks[i].CharacterIs("MAT", CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual(23, blocks[++i].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[i].StartsAtVerseStart);
+			Assert.IsFalse(blocks[i].IsParagraphStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedQuoteInterruption);
+			Assert.AreEqual("will be the name by which they will call him.”" ,
+				blocks[i].GetText(true, true));
+			Assert.IsNull(blocks[i].CharacterId);
+
+			Assert.AreEqual(++i, blocks.Count);
+		}
+
+		/// <summary>
+		/// This test (in contrast to the previous one) helps to illustrate the distinction between
+		/// the explicit use of an "narrator" character (which will only be treated as an
+		/// interruption if it is inside a quote, when it occurs in a verse that is known to have
+		/// normal narrator quotes) as opposed to "interruption".
+		/// </summary>
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Parse_ExplicitlyMarkedNarratorQuoteInVerseWithPotentialInterruption_NarratorQuoteIdAnnotationsAdded(
+			bool includeCharacterInEndMilestone)
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
+				string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"MAT\"")
+						.Replace("<chapter number=\"1\"", "<chapter number=\"1\""),
+					"<para style=\"p\">" +
+					"<verse number=\"22\" style=\"v\" />" +
+					"All this happened to fulfill God’s prophetic word: " +
+					"<verse number=\"23\" style=\"v\" />" +
+					"“The virgin will give birth to a son called ‘Immanuel’” (meaning " +
+					GetQtMilestoneElement("start", "narr-MAT") +
+					"“God with us”" +
+					GetQtMilestoneElement("end", includeCharacterInEndMilestone ? "narrator" : null) +
+					")." +
+					"</para>"));
+			var parser = GetUsxParser(doc, "MAT");
+			var blocks = parser.Parse().ToList();
+
+			Assert.That(blocks.All(b => b.MultiBlockQuote == MultiBlockQuote.None));
+
+			int i = 0;
+			Assert.AreEqual(1, blocks[i].ChapterNumber);
+			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
+
+			Assert.AreEqual(22, blocks[++i].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[i].StartsAtVerseStart);
+			Assert.IsTrue(blocks[i].IsParagraphStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedQuoteInterruption);
+			Assert.AreEqual("{22}\u00A0All this happened to fulfill God’s prophetic word: " +
+				"{23}\u00A0“The virgin will give birth to a son called ‘Immanuel’” (meaning “God with us”).",
+				blocks[i].GetText(true));
+			Assert.IsNull(blocks[i].CharacterId);
+
+			var quoteIdAnnotation = (QuoteId)blocks[i].BlockElements[4];
+			Assert.IsNull(quoteIdAnnotation.Id);
+			Assert.IsTrue(quoteIdAnnotation.Start);
+			Assert.IsTrue(quoteIdAnnotation.IsNarrator);
+			quoteIdAnnotation = (QuoteId)blocks[i].BlockElements[6];
+			Assert.IsNull(quoteIdAnnotation.Id);
+			Assert.IsFalse(quoteIdAnnotation.Start);
+			Assert.IsTrue(quoteIdAnnotation.IsNarrator);
+
+			Assert.AreEqual(++i, blocks.Count);
+		}
+
 		[TestCase("interruption", "En Gedi info")]
 		[TestCase("Interruption-2CH", null)]
 		[TestCase("NARRATOR-2CH", null, "m234")]
@@ -1418,6 +1746,7 @@ namespace GlyssenEngineTests
 				var quoteIdAnnotation = (QuoteId)blocks[i].BlockElements.First();
 				Assert.AreEqual(qtMenId, quoteIdAnnotation.Id);
 				Assert.IsTrue(quoteIdAnnotation.Start);
+				Assert.IsFalse(quoteIdAnnotation.IsNarrator);
 				Assert.AreEqual(2, blocks[i].BlockElements.Count);
 			}
 			Assert.AreEqual("men, some", blocks[i].CharacterId);
@@ -1430,12 +1759,14 @@ namespace GlyssenEngineTests
 				var quoteIdAnnotation = (QuoteId)blocks[i].BlockElements.First();
 				Assert.AreEqual(qtInterruptionId, quoteIdAnnotation.Id);
 				Assert.IsTrue(quoteIdAnnotation.Start);
+				Assert.IsTrue(quoteIdAnnotation.IsNarrator);
 			}
 			if (qtMenId != null)
 			{
 				var quoteIdAnnotation = (QuoteId)blocks[i].BlockElements.Last();
 				Assert.AreEqual(qtMenId, quoteIdAnnotation.Id);
 				Assert.IsFalse(quoteIdAnnotation.Start);
+				Assert.IsFalse(quoteIdAnnotation.IsNarrator);
 			}
 			Assert.IsTrue(blocks[i].CharacterIs("2CH", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.IsTrue(blocks[i].IsPredeterminedQuoteInterruption);
@@ -1538,6 +1869,7 @@ namespace GlyssenEngineTests
 			var quoteIdAnnotation = (QuoteId)blocks[i].BlockElements.First();
 			Assert.AreEqual("reader", quoteIdAnnotation.Id);
 			Assert.IsTrue(quoteIdAnnotation.Start);
+			Assert.IsTrue(quoteIdAnnotation.IsNarrator);
 			if (qtEndInterruptionId == null)
 				Assert.AreEqual(2, blocks[i].BlockElements.Count);
 			else
@@ -1547,6 +1879,7 @@ namespace GlyssenEngineTests
 				quoteIdAnnotation = (QuoteId)blocks[i].BlockElements.Last();
 				Assert.AreEqual(qtEndInterruptionId, quoteIdAnnotation.Id);
 				Assert.IsFalse(quoteIdAnnotation.Start);
+				Assert.IsTrue(quoteIdAnnotation.IsNarrator);
 			}
 
 			Assert.AreEqual(17, blocks[++i].InitialStartVerseNumber);

@@ -463,10 +463,25 @@ namespace Glyssen.Shared
 		[XmlAttribute("start")]
 		public bool Start { get; set; }
 
+		[XmlAttribute("narrator")]
+		[DefaultValue(false)]
+		public bool IsNarrator { get; set; }
+
 		public override string ToDisplay(string elementSeparator = " ")
 		{
-			var start = Start ? "start" : "end";
-			return $"Quote {start} ({Id})";
+			var sb = new StringBuilder(IsNarrator ? "Narrator" : "Quote");
+			sb.Append(" ");
+			if (Start)
+				sb.Append("start");
+			else
+				sb.Append("end");
+			if (Id != null)
+			{
+				sb.Append("(");
+				sb.Append(Id);
+				sb.Append(")");
+			}
+			return sb.ToString();
 		}
 	}
 
