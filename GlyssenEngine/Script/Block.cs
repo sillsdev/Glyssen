@@ -29,9 +29,11 @@ namespace GlyssenEngine.Script
 		public const int kNotSplit = -1;
 
 		private const string kLevel = "level";
+		private const string kMilestoneStartSuffix = "s";
+		private const string kMilestoneEndSuffix = "e";
 		private const string kFmtRegex = "^qt(?<{0}>[1-9])?-{1}$";
-		private static Regex s_regexQuoteMilestoneStartMarker = new Regex(Format(kFmtRegex, kLevel, "s"), RegexOptions.Compiled);
-		private static Regex s_regexQuoteMilestoneEndMarker = new Regex(Format(kFmtRegex, kLevel, "e"), RegexOptions.Compiled);
+		private static Regex s_regexQuoteMilestoneStartMarker = new Regex(Format(kFmtRegex, kLevel, $"(?<{kMilestoneStartSuffix}>{kMilestoneStartSuffix})"), RegexOptions.Compiled);
+		private static Regex s_regexQuoteMilestoneEndMarker = new Regex(Format(kFmtRegex, kLevel, kMilestoneEndSuffix), RegexOptions.Compiled);
 
 		public const string kCssFrame = "body{{font-family:{0};font-size:{1}pt}}" +
 						".right-to-left{{direction:rtl}}" +
@@ -315,7 +317,10 @@ namespace GlyssenEngine.Script
 		public bool IsPredeterminedQuoteInterruption =>
 			TryGetQuoteStartMilestoneLevel(StyleTag, out _) && CharacterId != null && IsNarrator;
 
-		public bool IsPredeterminedFirstLevelQuoteEnd => IsFirstLevelQuoteMilestoneEnd(StyleTag);
+		public bool IsPredeterminedFirstLevelQuoteEnd =>
+			BlockElements.LastOrDefault() is QuoteId quid &&
+			!quid.Start && !quid.IsNarrator &&
+			(CharacterId == null || !IsNarrator || IsPredeterminedQuoteInterruption);
 
 		[XmlAttribute("multiBlockQuote")]
 		[DefaultValue(MultiBlockQuote.None)]
@@ -882,15 +887,20 @@ namespace GlyssenEngine.Script
 		}
 
 		/// <summary>
-		/// Gets whether this block is a quote. It's not 100% reliable since there's the possibility that the user
-		/// could assign the character for a block (or that Glyssen could think it was a quote) and then assign it
-		/// back to Narrator. This would result in UserConfirmed being set to true even though it was a "non-quote"
-		/// (unmarked) narrator block. Depending on how this property gets used in the future, we might need to
-		/// actually store an additional piece of information about the block to distinguish this case and prevent
-		/// a false positive. (For the current planned usage, an occasional false positive will not be a big deal.)
+		/// Gets whether this block is a quote. It's not 100% reliable since it's possible that the
+		/// user could assign the character for a block (or that Glyssen could think it was a
+		/// quote) and then assign it back to Narrator. This would result in UserConfirmed being
+		/// set to true even though it was a "non-quote" (unmarked) narrator block. Depending on
+		/// how this property gets used in the future, we might need to actually store an
+		/// additional piece of information about the block to distinguish this case and prevent
+		/// a false positive. (For the current planned usage, an occasional false positive will
+		/// not be a big deal.)
 		/// </summary>
 		public bool IsQuote => !CharacterVerseData.IsCharacterStandard(CharacterId) ||
-			UserConfirmed || TryGetQuoteStartMilestoneLevel(StyleTag, out _);
+			UserConfirmed ||
+			// REVIEW: If this last condition is what makes this a quote, should we also ensure
+			// that the character is not narrator?
+			TryGetQuoteStartMilestoneLevel(StyleTag, out _); 
 
 		public bool IsNarratorOrPotentialNarrator(string bookId) =>
 			CharacterIs(bookId, CharacterVerseData.StandardCharacter.Narrator) ||
@@ -899,16 +909,14 @@ namespace GlyssenEngine.Script
 		public bool IsQuoteStart => IsQuote && !IsContinuationOfPreviousBlockQuote;
 
 		/// <summary>
-		/// Gets whether the specified block represents Scripture text. (Only Scripture blocks can have their
-		/// character/delivery changed. Book titles, chapters, and section heads have characters assigned
-		/// programmatically and cannot be changed.)
+		/// Gets whether the specified block represents Scripture text. (Only Scripture blocks can
+		/// have their character/delivery changed. Book titles, chapters, and section heads have
+		/// characters assigned programmatically and cannot be changed.)
 		/// </summary>
 		public bool IsScripture => !CharacterVerseData.IsCharacterExtraBiblical(CharacterId);
 
 		public bool CharacterIs(string bookId, CharacterVerseData.StandardCharacter standardCharacterType)
-		{
-			return CharacterId == CharacterVerseData.GetStandardCharacterId(bookId, standardCharacterType);
-		}
+			=> CharacterId == CharacterVerseData.GetStandardCharacterId(bookId, standardCharacterType);
 
 		public bool CharacterIsUnclear => CharacterVerseData.IsCharacterUnclear(CharacterId);
 
@@ -933,7 +941,7 @@ namespace GlyssenEngine.Script
 			if (IsPredeterminedFirstLevelQuoteStart && CharacterId != null)
 				StyleTag += "|" + CharacterId; //  Remember that we *were* predetermined, but now we're not.
 			// REVIEW: If we change it back to its previous predetermined value, should we put the the style
-			// tag back. (We probably don't much care at that point.)
+			// tag back? (We probably don't much care at that point.)
 			CharacterId = newCharacterId;
 		}
 
@@ -1461,12 +1469,28 @@ namespace GlyssenEngine.Script
 						return new Tuple<QuoteInterruption, string>(interruption, verse);
 					startCharIndex = 1;
 				}
-				else
+				else if (element is Verse verseElement)
 				{
-					verse = ((Verse)element).Number;
+					verse = verseElement.Number;
 				}
 			}
 			return null;
+		}
+
+		/// <summary>
+		/// Gets an end milestone given a start milestone.
+		/// </summary>
+		/// <remarks>Used in QuoteParser, but implemented here because this is where we have
+		/// the regex to correctly detect this.</remarks>
+		internal static string ChangeFromPredeterminedStartToEnd(string styleTag)
+		{
+			var match = s_regexQuoteMilestoneStartMarker.Match(styleTag);
+			if (!match.Success)
+				return styleTag;
+
+			Debug.Assert(match.Groups[kMilestoneStartSuffix].Index == styleTag.Length - 1);
+			return styleTag.Substring(0, match.Groups[kMilestoneStartSuffix].Captures[0].Index) +
+				kMilestoneEndSuffix;
 		}
 	}
 

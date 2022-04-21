@@ -467,6 +467,8 @@ namespace Glyssen.Shared
 		[DefaultValue(false)]
 		public bool IsNarrator { get; set; }
 
+		public override bool CanBeLastElementInBlock => !Start;
+
 		public override string ToDisplay(string elementSeparator = " ")
 		{
 			var sb = new StringBuilder(IsNarrator ? "Narrator" : "Quote");

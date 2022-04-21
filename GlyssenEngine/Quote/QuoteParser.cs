@@ -224,31 +224,44 @@ namespace GlyssenEngine.Quote
 					continue;
 				}
 
+				if (block.IsPredeterminedQuoteInterruption)
+				{
+					m_nextBlockContinuesQuote = false;
+					m_outputBlocks.Add(block);
+					continue;
+				}
+
 				if (block.IsPredeterminedFirstLevelQuoteStart)
 				{
-					// TODO: Handle interruptions : IsPredeterminedQuoteInterruption
 					if (block.CharacterId == null)
 					{
-						m_quoteLevel = 0;
-						IncrementQuoteLevel(block);
+						if (!m_outputBlocks.Last().IsPredeterminedQuoteInterruption)
+						{
+							IncrementQuoteLevel(block);
+						}
 					}
 					else
 					{
 						m_outputBlocks.Add(block);
-						m_quoteLevel = 1;
-						m_possibleCharactersForCurrentQuote = new List<string>(new [] {block.CharacterId});
+						if (block.IsPredeterminedFirstLevelQuoteEnd)
+						{
+							m_quoteLevel = 0;
+						}
+						else
+						{
+							m_currentMultiBlockQuote.Add(block);
+							m_quoteLevel = 1;
+							m_possibleCharactersForCurrentQuote = new List<string>(new[] { block.CharacterId });
+						}
 						continue;
 					}
-				}
-				else if (block.IsPredeterminedFirstLevelQuoteEnd)
-				{
-					m_quoteLevel = 1;
-					DecrementQuoteLevel();
 				}
 
 				bool thisBlockStartsWithAContinuer = false;
 
-				if (StyleToCharacterMappings.IncludesCharStyle(block.StyleTag))
+				var styleTag = block.StyleTag;
+
+				if (StyleToCharacterMappings.IncludesCharStyle(styleTag))
 				{
 					var cvInfo = GetMatchingCharacter(m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, block.AllVerses, m_versification),
 						new CharacterVerseData.SimpleCharacterInfoWithoutDelivery(block.CharacterId));
@@ -290,7 +303,7 @@ namespace GlyssenEngine.Quote
 						(s_quoteSystem.NormalLevels.Count > 0 && s_quoteSystem.NormalLevels[0].Continue != s_quoteSystem.NormalLevels[0].Open);
 				}
 
-				m_workingBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber)
+				m_workingBlock = new Block(styleTag, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber)
 					{ IsParagraphStart = block.IsParagraphStart, MultiBlockQuote = block.MultiBlockQuote, CharacterId = block.CharacterId };
 				if (!m_workingBlock.IsContinuationParagraphStyle && m_workingBlock.IsFollowOnParagraphStyle)
 				{
@@ -333,8 +346,9 @@ namespace GlyssenEngine.Quote
 										multiBlock.MultiBlockQuote = MultiBlockQuote.None;
 										multiBlock.SetNonDramaticCharacterId(CharacterVerseData.kUnexpectedCharacter);
 									}
+
 									m_currentMultiBlockQuote.Clear();
-									FlushStringBuilderAndBlock(sb, block.StyleTag, m_quoteLevel > 0, true);
+									FlushStringBuilderAndBlock(sb, ref styleTag, m_quoteLevel > 0, true);
 									SetBlockInitialVerseFromVerseElement(verseElement);
 									if (!pendingColon)
 										m_quoteLevel = 0;
@@ -457,7 +471,7 @@ namespace GlyssenEngine.Quote
 									if (m_ignoringNarratorQuotation)
 										m_ignoringNarratorQuotation = false;
 									else
-										FlushStringBuilderAndBlock(sb, block.StyleTag, true);
+										FlushStringBuilderAndBlock(sb, ref styleTag, true);
 									potentialDialogueContinuer = false;
 									inPairedFirstLevelQuote = false;
 								}
@@ -478,7 +492,7 @@ namespace GlyssenEngine.Quote
 										m_ignoringNarratorQuotation = true;
 									}
 									else
-										FlushStringBuilderAndBlock(sb, block.StyleTag, false);
+										FlushStringBuilderAndBlock(sb, ref styleTag, false);
 								}
 								sb.Append(token);
 								IncrementQuoteLevel();
@@ -493,7 +507,7 @@ namespace GlyssenEngine.Quote
 									blockInWhichDialogueQuoteStarted = null;
 									sb.Append(token);
 								}
-								FlushStringBuilderAndBlock(sb, block.StyleTag, false);
+								FlushStringBuilderAndBlock(sb, ref styleTag, false);
 								if (!pendingColon)
 								{
 									blockInWhichDialogueQuoteStarted = block;
@@ -509,7 +523,7 @@ namespace GlyssenEngine.Quote
 									DecrementQuoteLevel();
 									potentialDialogueContinuer = false;
 									blockInWhichDialogueQuoteStarted = null;
-									FlushStringBuilderAndBlock(sb, block.StyleTag, true);
+									FlushStringBuilderAndBlock(sb, ref styleTag, true);
 								}
 								else
 								{
@@ -538,7 +552,14 @@ namespace GlyssenEngine.Quote
 							m_outputBlocks.Last().BlockElements.OfType<ScriptText>().Last().Content += sb.ToString();
 					}
 				}
-				FlushBlock(block.StyleTag, m_quoteLevel > 0);
+				FlushBlock(styleTag, m_quoteLevel > 0);
+
+				if (m_outputBlocks.LastOrDefault().IsPredeterminedFirstLevelQuoteEnd && m_quoteLevel > 0)
+				{
+					m_quoteLevel = 0;
+					m_possibleCharactersForCurrentQuote.Clear();
+				}
+
 			}
 			if (blockInWhichDialogueQuoteStarted != null || !inPairedFirstLevelQuote)
 			{
@@ -662,8 +683,8 @@ namespace GlyssenEngine.Quote
 						// Decide how to assign the newly split-off (preceding) block. There are four possibilities.
 						ICharacterDeliveryInfo leadInCharacter;
 						if (subsequentImplicitCv != null &&
-							(leadInCharacter = GetMatchingCharacter(m_cvInfo.GetCharacters(m_bookNum, newBlock.ChapterNumber, new SingleVerse(newBlock.LastVerseNum),
-								versification: m_versification), subsequentImplicitCv)) != null)
+							(leadInCharacter = GetMatchingCharacter(m_cvInfo.GetCharacters(m_bookNum, newBlock.ChapterNumber,
+								new SingleVerse(newBlock.LastVerseNum), m_versification), subsequentImplicitCv)) != null)
 						{
 							if (newBlock.ContainsVerseNumber)
 							{
@@ -813,9 +834,7 @@ namespace GlyssenEngine.Quote
 				int lengthOfQuotation = match.Index - quotationStartPos;
 				if (lengthOfQuotation > (content.Length - pos) / 2)
 					return true;
-				if (content.Skip(quotationStartPos).Take(lengthOfQuotation).Count(IsWhiteSpace) > 2)
-					return true;
-				return false;
+				return content.Skip(quotationStartPos).Take(lengthOfQuotation).Count(IsWhiteSpace) > 2;
 			}
 			return false;
 		}
@@ -903,10 +922,10 @@ namespace GlyssenEngine.Quote
 				m_possibleCharactersForCurrentQuote.Clear();
 		}
 
-		public string ContinuerForCurrentLevel { get { return s_quoteSystem.NormalLevels[m_quoteLevel - 1].Continue; } }
-		public string ContinuerForNextLevel { get { return s_quoteSystem.NormalLevels[m_quoteLevel].Continue; } }
-		public string CloserForCurrentLevel { get { return s_quoteSystem.NormalLevels[m_quoteLevel - 1].Close; } }
-		public string OpenerForNextLevel { get { return s_quoteSystem.NormalLevels[m_quoteLevel].Open; } }
+		public string ContinuerForCurrentLevel => s_quoteSystem.NormalLevels[m_quoteLevel - 1].Continue;
+		public string ContinuerForNextLevel => s_quoteSystem.NormalLevels[m_quoteLevel].Continue;
+		public string CloserForCurrentLevel => s_quoteSystem.NormalLevels[m_quoteLevel - 1].Close;
+		public string OpenerForNextLevel => s_quoteSystem.NormalLevels[m_quoteLevel].Open;
 
 		/// <summary>
 		/// Flush the current string builder to a block element
@@ -971,7 +990,7 @@ namespace GlyssenEngine.Quote
 		/// Flush the current string builder to a block element,
 		/// and flush the current block elements to a block
 		/// </summary>
-		private void FlushStringBuilderAndBlock(StringBuilder sb, string styleTag, bool nonNarrator, bool characterUnknown = false)
+		private void FlushStringBuilderAndBlock(StringBuilder sb, ref string styleTag, bool nonNarrator, bool characterUnknown = false)
 		{
 			Debug.Assert(!m_ignoringNarratorQuotation,
 				"This should only happen if the data is bad or the settings have an ending quote mark that is not properly paired with the starting quote mark.");
@@ -1008,7 +1027,6 @@ namespace GlyssenEngine.Quote
 					if (m_nextBlockContinuesQuote)
 						m_workingBlock.MultiBlockQuote = MultiBlockQuote.Continuation;
 					m_nextBlockContinuesQuote = m_quoteLevel > 0;
-					//m_workingBlock.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.Narrator);
 				}
 				else if (nonNarrator)
 				{
@@ -1128,6 +1146,7 @@ namespace GlyssenEngine.Quote
 				verseStartNum = lastVerse.StartVerse;
 				verseEndNum = lastVerse.EndVerse;
 			}
+
 			m_workingBlock = new Block(styleTag, m_workingBlock.ChapterNumber, verseStartNum, verseEndNum);
 		}
 

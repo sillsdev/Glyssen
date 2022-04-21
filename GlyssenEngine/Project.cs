@@ -37,7 +37,7 @@ namespace GlyssenEngine
 {
 	public class Project : ProjectBase, IUserProject
 	{
-		public const int kParserVersion = 52;
+		public const int kParserVersion = 53;
 
 		private const double kUsxPercent = 0.25;
 		private const double kGuessPercent = 0.10;

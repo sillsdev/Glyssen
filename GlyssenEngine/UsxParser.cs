@@ -411,7 +411,7 @@ namespace GlyssenEngine
 
 						if (block != m_currentExplicitQuote.StartBlock && m_currentExplicitQuote.StartBlock != null)
 							m_currentExplicitQuote.StartBlock.MultiBlockQuote = MultiBlockQuote.Start;
-						FinalizeCharacterStyleBlock(sb, ref block, blocks, styleTag);
+						FinalizeCharacterStyleBlock(sb, ref block, blocks, paraStyleTag);
 						if (block == m_currentExplicitQuote.StartBlock)
 						{
 							// The block where we were planning to write the rest of the quote
@@ -421,8 +421,7 @@ namespace GlyssenEngine
 							block.CharacterId = block.CharacterIdOverrideForScript = block.Delivery = null;
 						}
 						m_currentExplicitQuote = null;
-						if (quoteId != null)
-							blocks.Last().BlockElements.Add(new QuoteId { Id = quoteId, Start = false });
+						blocks.Last().BlockElements.Add(new QuoteId { Id = quoteId, Start = false });
 					}
 
 					break;
@@ -908,7 +907,7 @@ namespace GlyssenEngine
 			else
 				chapterText = usxChapter.ChapterNumber;
 
-			if (Int32.TryParse(usxChapter.ChapterNumber, out var chapterNum))
+			if (int.TryParse(usxChapter.ChapterNumber, out var chapterNum))
 				m_currentChapter = chapterNum;
 			else
 				Debug.Fail("TODO: Deal with bogus chapter number in USX data!");

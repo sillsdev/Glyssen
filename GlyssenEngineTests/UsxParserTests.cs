@@ -38,9 +38,9 @@ namespace GlyssenEngineTests
 		{
 			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\">" +
 										"<verse number=\"1\" style=\"v\" />" +
-										"Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, " +
+										@"Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, " +
 										"<verse number=\"2\" style=\"v\" />" +
-										"kit ma gicoyo kwede i buk pa lanebi Icaya ni,</para>");
+										@"kit ma gicoyo kwede i buk pa lanebi Icaya ni,</para>");
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
@@ -48,8 +48,13 @@ namespace GlyssenEngineTests
 			Assert.IsTrue(blocks[1].CharacterId == Block.kNotSet);
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
-			Assert.AreEqual("Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(false));
-			Assert.AreEqual("{1}\u00A0Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, {2}\u00A0kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
+			Assert.AreEqual(@"Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, kit " +
+				@"ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(false));
+			Assert.AreEqual(
+				"{1}\u00A0" +
+				@"Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, " +
+				"{2}\u00A0" +
+				@"kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
 		}
 
 		[Test]
@@ -60,26 +65,32 @@ namespace GlyssenEngineTests
 										"<note caller=\"-\" style=\"x\">" +
 										"<char style=\"xo\" closed=\"false\">1.3: </char>" +
 										"<char style=\"xt\" closed=\"false\">Ic 40.3</char>" +
-										"</note>dwan dano mo ma daŋŋe ki i tim ni,</para>");
+										@"</note>dwan dano mo ma daŋŋe ki i tim ni,</para>");
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
-			Assert.AreEqual("dwan dano mo ma daŋŋe ki i tim ni,", blocks[1].GetText(false));
-			Assert.AreEqual("{3}\u00A0dwan dano mo ma daŋŋe ki i tim ni,", blocks[1].GetText(true));
+			Assert.AreEqual(@"dwan dano mo ma daŋŋe ki i tim ni,", blocks[1].GetText(false));
+			Assert.AreEqual("{3}\u00A0" +
+				@"dwan dano mo ma daŋŋe ki i tim ni,", blocks[1].GetText(true));
 		}
 
 		[Test]
 		public void Parse_ParagraphWithSpaceAfterVerseAndNote_ExtraSpaceIsRemoved()
 		{
 			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"q1\">" +
-										"“pe, kadi ki acel.” <verse number=\"3\" /><note /> “Guŋamo doggi calo lyel ma twolo,”</para>");
+				@"“pe, kadi ki acel.” " +
+				"<verse number=\"3\" /><note /> " +
+				@"“Guŋamo doggi calo lyel ma twolo,”" +
+				"</para>");
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
-			Assert.AreEqual("“pe, kadi ki acel.” “Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(false));
-			Assert.AreEqual("“pe, kadi ki acel.” {3}\u00A0“Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(true));
-			Assert.AreEqual("“pe, kadi ki acel.” ", ((ScriptText)blocks[1].BlockElements[0]).Content);
-			Assert.AreEqual("“Guŋamo doggi calo lyel ma twolo,”", ((ScriptText)blocks[1].BlockElements[2]).Content);
+			Assert.AreEqual(@"“pe, kadi ki acel.” “Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(false));
+			Assert.AreEqual(@"“pe, kadi ki acel.” " +
+				"{3}\u00A0" +
+				@"“Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(true));
+			Assert.AreEqual(@"“pe, kadi ki acel.” ", ((ScriptText)blocks[1].BlockElements[0]).Content);
+			Assert.AreEqual(@"“Guŋamo doggi calo lyel ma twolo,”", ((ScriptText)blocks[1].BlockElements[2]).Content);
 		}
 
 		[Test]
@@ -272,28 +283,31 @@ namespace GlyssenEngineTests
 		public void Parse_ParagraphWithSpaceAfterVerse_ExtraSpaceIsRemoved()
 		{
 			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"q1\">" +
-										"“pe, kadi ki acel.” <verse number=\"3\" /> “Guŋamo doggi calo lyel ma twolo,”</para>");
+										@"“pe, kadi ki acel.” " +
+										"<verse number=\"3\" /> " +
+										@"“Guŋamo doggi calo lyel ma twolo,”</para>");
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
-			Assert.AreEqual("“pe, kadi ki acel.” “Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(false));
+			Assert.AreEqual(@"“pe, kadi ki acel.” “Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(false));
 			Assert.AreEqual("“pe, kadi ki acel.” {3}\u00A0“Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(true));
-			Assert.AreEqual("“pe, kadi ki acel.” ", ((ScriptText)blocks[1].BlockElements[0]).Content);
-			Assert.AreEqual("“Guŋamo doggi calo lyel ma twolo,”", ((ScriptText)blocks[1].BlockElements[2]).Content);
+			Assert.AreEqual(@"“pe, kadi ki acel.” ", ((ScriptText)blocks[1].BlockElements[0]).Content);
+			Assert.AreEqual(@"“Guŋamo doggi calo lyel ma twolo,”", ((ScriptText)blocks[1].BlockElements[2]).Content);
 		}
 
 		[Test]
 		public void Parse_ParagraphWithFigure_FigureIsIgnored()
 		{
 			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\"><verse number=\"18\" style=\"v\" />" +
-										"Ci cutcut gutugi weko obwogi, gulubo kore." +
+										@"Ci cutcut gutugi weko obwogi, gulubo kore." +
 										"<figure style=\"fig\" desc=\"\" file=\"4200118.TIF\" size=\"col\" loc=\"\" copy=\"\" ref=\"1.18\">" +
-										"Cutcut gutugi weko obwugi</figure></para >");
+										@"Cutcut gutugi weko obwugi</figure></para >");
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual(2, blocks[1].BlockElements.Count);
-			Assert.AreEqual("Ci cutcut gutugi weko obwogi, gulubo kore.", blocks[1].GetText(false));
+			Assert.AreEqual(@"Ci cutcut gutugi weko obwogi, gulubo kore.",
+				blocks[1].GetText(false));
 		}
 
 		[Test]
@@ -302,7 +316,7 @@ namespace GlyssenEngineTests
 			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\">" +
 										"This text is before the figure, " +
 										"<figure style=\"fig\" desc=\"\" file=\"4200118.TIF\" size=\"col\" loc=\"\" copy=\"\" ref=\"1.18\">" +
-										"Cutcut gutugi weko obwugi</figure>" +
+										@"Cutcut gutugi weko obwugi</figure>" +
 										"and this text is after.</para >");
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
@@ -373,23 +387,29 @@ namespace GlyssenEngineTests
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
-			Assert.AreEqual("ma bigero yoni;", blocks[1].GetText(false));
-			Assert.AreEqual("ma bigero yoni;", blocks[1].GetText(true));
+			Assert.AreEqual(@"ma bigero yoni;", blocks[1].GetText(false));
+			Assert.AreEqual(@"ma bigero yoni;", blocks[1].GetText(true));
 		}
 
 		[Test]
 		public void Parse_ParagraphStartsMidVerseAndHasAnotherVerse()
 		{
 			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\">" +
-										"Cutcut Cwiny Maleŋ otero Yecu woko wa i tim. " +
-										"<verse number=\"13\" style=\"v\" />Ci obedo i tim nino pyeraŋwen; Catan ocako bite, " +
-										"ma onoŋo en tye kacel ki lee tim, kun lumalaika gikonye.</para>");
+										@"Cutcut Cwiny Maleŋ otero Yecu woko wa i tim. " +
+										"<verse number=\"13\" style=\"v\" />" +
+										@"Ci obedo i tim nino pyeraŋwen; Catan ocako bite, " +
+										@"ma onoŋo en tye kacel ki lee tim, kun lumalaika gikonye.</para>");
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
-			Assert.AreEqual("Cutcut Cwiny Maleŋ otero Yecu woko wa i tim. Ci obedo i tim nino pyeraŋwen; Catan ocako bite, ma onoŋo en tye kacel ki lee tim, kun lumalaika gikonye.", blocks[1].GetText(false));
-			Assert.AreEqual("Cutcut Cwiny Maleŋ otero Yecu woko wa i tim. {13}\u00A0Ci obedo i tim nino pyeraŋwen; Catan ocako bite, ma onoŋo en tye kacel ki lee tim, kun lumalaika gikonye.", blocks[1].GetText(true));
+			Assert.AreEqual(@"Cutcut Cwiny Maleŋ otero Yecu woko wa i tim. Ci obedo i tim nino pyeraŋwen; " +
+				@"Catan ocako bite, ma onoŋo en tye kacel ki lee tim, kun lumalaika gikonye.",
+				blocks[1].GetText(false));
+			Assert.AreEqual(@"Cutcut Cwiny Maleŋ otero Yecu woko wa i tim. " +
+				"{13}\u00A0" +
+				@"Ci obedo i tim nino pyeraŋwen; Catan ocako bite, ma onoŋo en tye kacel ki lee tim, kun lumalaika gikonye.",
+				blocks[1].GetText(true));
 		}
 
 		[Test]
@@ -402,20 +422,21 @@ namespace GlyssenEngineTests
 			VerifyChapterBlock(blocks[0], 1);
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(0, blocks[1].InitialStartVerseNumber);
-			Assert.AreEqual("Lok ma Jon Labatija otito", blocks[1].GetText(false));
+			Assert.AreEqual(@"Lok ma Jon Labatija otito", blocks[1].GetText(false));
 		}
 
 		[Test]
 		public void Parse_GlobalChapterLabel()
 		{
-			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"s1\">Lok ma Jon Labatija otito</para>", kUsxFrameWithGlobalChapterLabel);
+			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"s1\">" +
+				@"Lok ma Jon Labatija otito</para>", kUsxFrameWithGlobalChapterLabel);
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
 			VerifyChapterBlock(blocks[0], 1, text:"Global-Chapter 1");
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(0, blocks[1].InitialStartVerseNumber);
-			Assert.AreEqual("Lok ma Jon Labatija otito", blocks[1].GetText(false));
+			Assert.AreEqual(@"Lok ma Jon Labatija otito", blocks[1].GetText(false));
 			Assert.IsNull(blocks[1].CharacterId);
 			Assert.True(blocks[1].IsParagraphStart);
 		}
@@ -423,14 +444,16 @@ namespace GlyssenEngineTests
 		[Test]
 		public void Parse_SpecificChapterLabel()
 		{
-			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"cl\">Specific-Chapter One</para><para style=\"s1\">Lok ma Jon Labatija otito</para>");
+			var doc = UsxDocumentTests.CreateMarkOneDoc(
+				"<para style=\"cl\">Specific-Chapter One</para><para style=\"s1\">" +
+				@"Lok ma Jon Labatija otito</para>");
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
 			VerifyChapterBlock(blocks[0], 1, text:"Specific-Chapter One", tag:"cl");
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(0, blocks[1].InitialStartVerseNumber);
-			Assert.AreEqual("Lok ma Jon Labatija otito", blocks[1].GetText(false));
+			Assert.AreEqual(@"Lok ma Jon Labatija otito", blocks[1].GetText(false));
 			Assert.IsNull(blocks[1].CharacterId);
 			Assert.True(blocks[1].IsParagraphStart);
 		}
@@ -473,7 +496,7 @@ namespace GlyssenEngineTests
 			var lastBlock = blocks.Last();
 			Assert.AreEqual("{23}\u00A0Mbolimo i Pue Ala Papa, pai i Yesu Kerisitu da mawai jaya ri pura - pura anggota dompu kasamba'a-mba'a pai pombepotowe pai todo ri peaya ri Kerisitu. " +
 				"{24}\u00A0Mbolimo i Pue Ala da madonco komi pura - pura anu mampotowe Pueta i Yesu Kerisitu pai towe ndaya anu bare'e da re'e kabalinya.", lastBlock.GetText(true));
-			Assert.IsFalse(blocks.Any(b => b.GetText(false).Contains("Petubunaka")));
+			Assert.IsFalse(blocks.Any(b => b.GetText(false).Contains(@"Petubunaka")));
 		}
 
 		[Test]
@@ -481,13 +504,13 @@ namespace GlyssenEngineTests
 		{
 			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\">" +
 										"<verse number=\"1\" style=\"v\" />" +
-										"Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, " +
+										@"Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, " +
 										"<verse number=\"2\" style=\"v\" />" +
-										"kit ma gicoyo kwede i buk pa lanebi Icaya ni,</para>" +
+										@"kit ma gicoyo kwede i buk pa lanebi Icaya ni,</para>" +
 										"<chapter number=\"2\" style=\"c\" />" +
 										"<para style=\"p\">" +
 										"<verse number=\"1\" style=\"v\" />" +
-										"Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.</para>" +
+										@"Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.</para>" +
 										"<para style=\"q1\">" +
 										"This is poetry, dude.</para>");
 			var parser = GetUsxParser(doc);
@@ -497,14 +520,19 @@ namespace GlyssenEngineTests
 			Assert.AreEqual("p", blocks[1].StyleTag);
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
-			Assert.AreEqual("{1}\u00A0Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, {2}\u00A0kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
+			Assert.AreEqual("{1}\u00A0" +
+				@"Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, " +
+				"{2}\u00A0" +
+				@"kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
 
 			Assert.AreEqual("c", blocks[2].StyleTag);
 			VerifyChapterBlock(blocks[2], 2);
 			Assert.AreEqual("p", blocks[3].StyleTag);
 			Assert.AreEqual(2, blocks[3].ChapterNumber);
 			Assert.AreEqual(1, blocks[3].InitialStartVerseNumber);
-			Assert.AreEqual("{1}\u00A0Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[3].GetText(true));
+			Assert.AreEqual("{1}\u00A0" +
+				@"Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.",
+				blocks[3].GetText(true));
 			Assert.AreEqual("q1", blocks[4].StyleTag);
 			Assert.AreEqual(2, blocks[4].ChapterNumber);
 			Assert.AreEqual(1, blocks[4].InitialStartVerseNumber);
@@ -526,14 +554,17 @@ namespace GlyssenEngineTests
 				"<para style =\"q\">" +
 				"<char style=\"qt\">Emanuweli</char>. Kire wi jo “Kulocelie ye ne we ni.” " +
 				"<verse number=\"24\" style=\"v\" />" +
-				"Ba Yusufu wi keni ye ngonimo ne be.</para>");
+				@"Ba Yusufu wi keni ye ngonimo ne be.</para>");
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(7, blocks.Count, "Should have a chapter block, 4 \"scripture\" blocks, and one regular \\q block.");
 			Assert.IsTrue(blocks.Skip(1).Take(4).All(b => b.CharacterId == "scripture"));
-			Assert.IsTrue(blocks[5].GetText(true).StartsWith("Emanuweli."), "Period should get pulled into the \"scripture\" block with \"Emanuweli.\" " +
+			Assert.IsTrue(blocks[5].GetText(true).StartsWith(@"Emanuweli."),
+				"Period should get pulled into the \"scripture\" block with \"Emanuweli.\" " +
 				"We probably don't really care if the trailing space is retained or not.");
-			Assert.AreEqual("Kire wi jo “Kulocelie ye ne we ni.” {24}\u00A0Ba Yusufu wi keni ye ngonimo ne be.", blocks.Last().GetText(true));
+			Assert.AreEqual(@"Kire wi jo “Kulocelie ye ne we ni.” " +
+				"{24}\u00A0" +
+				@"Ba Yusufu wi keni ye ngonimo ne be.", blocks.Last().GetText(true));
 		}
 
 		[TestCase("wj")]
@@ -544,21 +575,21 @@ namespace GlyssenEngineTests
 				$"Setup condition not met: marker \"{sfMarker}\" in TestCase should be included in {nameof(StyleToCharacterMappings)}.");
 			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\">" +
 				"<verse number=\"18\" style=\"v\" />" +
-				"Kulocɛliɛ céki 'juu mɛ́ nɛ́ jo: «" +
+				@"Kulocɛliɛ céki 'juu mɛ́ nɛ́ jo: «" +
 				$"<char style=\"{sfMarker}\">Siaga nī muɔ bésimɛ ta bè</char>" +
 				"<note caller=\"+\" style=\"f\"><char style=\"fr\" closed=\"false\">11.18 </char><char style=\"ft\" closed=\"false\">" +
 				"<char style=\"xt\" closed=\"true\">Sél 21.12</char>" +
-				"tire ti 'juu náʔa gè.</char></note>" +
+				@"tire ti 'juu náʔa gè.</char></note>" +
 				".»" +
 				"<verse number=\"19\" style=\"v\" />" +
-				"Nɛ̀ kiyaʔa Birayoma yéki sɔ̀ngi nɛ̀ tɛ́ngɛ ki nɛ̄ dí Kucɛliɛ bèle. Kire nɛ̄ wire kiyɛ́nì kpíʔile." +
+				@"Nɛ̀ kiyaʔa Birayoma yéki sɔ̀ngi nɛ̀ tɛ́ngɛ ki nɛ̄ dí Kucɛliɛ bèle. Kire nɛ̄ wire kiyɛ́nì kpíʔile." +
 				"</para>");
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(4, blocks.Count, "Should have a chapter block, plus 3 Scripture blocks.");
 			Assert.AreEqual(character, blocks[2].CharacterId);
 			Assert.IsTrue(blocks[1].GetText(true).TrimEnd().EndsWith("jo:"));
-			Assert.AreEqual("«Siaga nī muɔ bésimɛ ta bè.»", blocks[2].GetText(true).Trim());
+			Assert.AreEqual(@"«Siaga nī muɔ bésimɛ ta bè.»", blocks[2].GetText(true).Trim());
 			Assert.IsTrue(blocks[3].StartsAtVerseStart);
 			Assert.AreEqual(19, blocks[3].InitialStartVerseNumber);
 		}
@@ -570,18 +601,18 @@ namespace GlyssenEngineTests
 		[TestCase("qt_123", "Some random name that doesn't look anything like a name we expect", 1, ExpectedResult = CharacterVerseData.kNeedsReview)]
 		[TestCase("qt_123", "Enoch", ExpectedResult = "Enoch")]
 		[TestCase(null, "Enoch", 1, ExpectedResult = "Enoch")]
-		[TestCase(null, "Enoc", 1, ExpectedResult = "Enoch")]
+		[TestCase(null, @"Enoc", 1, ExpectedResult = "Enoch")]
 		public string Parse_QtMilestonesWithOnlyTextBetweenThem_TextBetweenMilestonesAddedAsQuoteBlock(
 			string qtId = null, string character = null, int level = 0)
 		{
 			var doc = UsxDocumentTests.CreateDocFromString(string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"JUD\""),
 				"<para style=\"p\">" +
 				"<verse number=\"14\" style=\"v\" />" +
-				"De éstos también profetizó Enoc," +
+				@"De éstos también profetizó Enoc," +
 				"<note caller=\"-\" style=\"x\"><char style=\"xo\" closed=\"false\">1:14 </char><char style=\"xt\" closed=\"false\">Gn. 5.21-24.</char></note> " +
-				"séptimo desde Adán, diciendo: " +
+				@"séptimo desde Adán, diciendo: " +
 				GetQtMilestoneElement("start", character, qtId,  level) +
-				"He aquí, vino el Señor con sus santas decenas de millares." +
+				@"He aquí, vino el Señor con sus santas decenas de millares." +
 				GetQtMilestoneElement("end", character, qtId,  level) +
 				" <verse number=\"15\" style=\"v\" />" +
 				"The quote should continue in this verse but it does not." +
@@ -591,21 +622,21 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(4, blocks.Count, "Should have a chapter block, plus 3 Scripture blocks.");
 			Assert.AreEqual(14, blocks[1].InitialStartVerseNumber);
 			Assert.IsTrue(blocks[1].StartsAtVerseStart);
-			Assert.IsTrue(blocks[1].GetText(true).EndsWith("diciendo: "));
+			Assert.IsTrue(blocks[1].GetText(true).EndsWith(@"diciendo: "));
 			Assert.IsNull(blocks[1].CharacterId);
 			Assert.AreEqual(14, blocks[2].InitialStartVerseNumber);
 			Assert.IsFalse(blocks[2].StartsAtVerseStart);
 			Assert.IsTrue(blocks[2].IsPredeterminedFirstLevelQuoteStart);
-			if (qtId == null)
-				Assert.AreEqual("He aquí, vino el Señor con sus santas decenas de millares. ", blocks[2].GetText(true, true));
-			else
+			Assert.AreEqual(@"He aquí, vino el Señor con sus santas decenas de millares. ",
+				blocks[2].GetText(true));
+			if (qtId != null)
 			{
-				Assert.AreEqual("He aquí, vino el Señor con sus santas decenas de millares. ", blocks[2].GetText(true));
 				var quoteIdAnnotation = (QuoteId)blocks[2].BlockElements.First();
 				Assert.AreEqual(qtId, quoteIdAnnotation.Id);
 				Assert.IsTrue(quoteIdAnnotation.Start);
 				Assert.IsFalse(quoteIdAnnotation.IsNarrator);
 			}
+			VerifyQuoteEnd(blocks[2], qtId);
 			if (blocks[2].CharacterId == CharacterVerseData.kNeedsReview)
 				Assert.AreEqual(character, blocks[2].CharacterIdInScript);
 			Assert.AreEqual(MultiBlockQuote.None, blocks[2].MultiBlockQuote);
@@ -613,14 +644,7 @@ namespace GlyssenEngineTests
 			Assert.IsTrue(blocks[3].StartsAtVerseStart);
 			Assert.AreEqual(15, blocks[3].InitialStartVerseNumber);
 			Assert.IsNull(blocks[3].CharacterId);
-			Assert.IsTrue(blocks[3].IsPredeterminedFirstLevelQuoteEnd);
-			if (qtId != null)
-			{
-				var quoteIdAnnotation = (QuoteId)blocks[2].BlockElements.Last();
-				Assert.AreEqual(qtId, quoteIdAnnotation.Id);
-				Assert.IsFalse(quoteIdAnnotation.Start);
-				Assert.IsFalse(quoteIdAnnotation.IsNarrator);
-			}
+			Assert.IsFalse(blocks[3].IsPredeterminedFirstLevelQuoteEnd);
 			Assert.AreEqual(MultiBlockQuote.None, blocks[3].MultiBlockQuote);
 
 			return blocks[2].CharacterId;
@@ -638,11 +662,11 @@ namespace GlyssenEngineTests
 			var doc = UsxDocumentTests.CreateDocFromString(string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"JUD\""),
 				"<para style=\"p\">" +
 				"<verse number=\"14\" style=\"v\" />" +
-				"De éstos también profetizó Enoc," +
+				@"De éstos también profetizó Enoc," +
 				"<note caller=\"-\" style=\"x\"><char style=\"xo\" closed=\"false\">1:14 </char><char style=\"xt\" closed=\"false\">Gn. 5.21-24.</char></note> " +
-				"séptimo desde Adán, diciendo: «" +
+				@"séptimo desde Adán, diciendo: «" +
 				GetQtMilestoneElement("start", character, qtId,  level) +
-				"He aquí, vino el Señor con sus santas decenas de millares." +
+				@"He aquí, vino el Señor con sus santas decenas de millares." +
 				GetQtMilestoneElement("end", character, qtId,  level) +
 				"» <verse number=\"15\" style=\"v\" />" +
 				"The quote should continue in this verse but it does not." +
@@ -652,32 +676,30 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(4, blocks.Count, "Should have a chapter block, plus 3 Scripture blocks.");
 			Assert.AreEqual(14, blocks[1].InitialStartVerseNumber);
 			Assert.IsTrue(blocks[1].StartsAtVerseStart);
-			Assert.That(blocks[1].GetText(true), Does.EndWith("diciendo: "));
+			Assert.That(blocks[1].GetText(true), Does.EndWith(@"diciendo: "));
 			Assert.IsNull(blocks[1].CharacterId);
+
 			Assert.AreEqual(14, blocks[2].InitialStartVerseNumber);
 			Assert.IsFalse(blocks[2].StartsAtVerseStart);
 			Assert.IsTrue(blocks[2].IsPredeterminedFirstLevelQuoteStart);
-			if (qtId == null)
-				Assert.AreEqual("«He aquí, vino el Señor con sus santas decenas de millares.» ", blocks[2].GetText(true, true));
-			else
+			Assert.AreEqual(@"«He aquí, vino el Señor con sus santas decenas de millares.» ",
+				blocks[2].GetText(true));
+			if (qtId != null)
 			{
-				Assert.AreEqual("«He aquí, vino el Señor con sus santas decenas de millares.» ", blocks[2].GetText(true));
 				var quoteIdAnnotation = (QuoteId)blocks[2].BlockElements.First();
 				Assert.AreEqual(qtId, quoteIdAnnotation.Id);
 				Assert.IsTrue(quoteIdAnnotation.Start);
 			}
+			VerifyQuoteEnd(blocks[2], qtId);
 			if (blocks[2].CharacterId == CharacterVerseData.kNeedsReview)
 				Assert.AreEqual(character, blocks[2].CharacterIdInScript);
+			VerifyQuoteEnd(blocks[2], qtId);
+
 			Assert.IsTrue(blocks[3].StartsAtVerseStart);
 			Assert.AreEqual(15, blocks[3].InitialStartVerseNumber);
 			Assert.IsNull(blocks[3].CharacterId);
-			Assert.IsTrue(blocks[3].IsPredeterminedFirstLevelQuoteEnd);
-			if (qtId != null)
-			{
-				var quoteIdAnnotation = (QuoteId)blocks[2].BlockElements.Last();
-				Assert.AreEqual(qtId, quoteIdAnnotation.Id);
-				Assert.IsFalse(quoteIdAnnotation.Start);
-			}
+			Assert.IsFalse(blocks[3].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsFalse(blocks[3].IsPredeterminedFirstLevelQuoteEnd);
 
 			return blocks[2].CharacterId;
 		}
@@ -691,15 +713,15 @@ namespace GlyssenEngineTests
 			const string character = "Jesus";
 			var usx = "<para style=\"p\">" +
 				"<verse number=\"14\" style=\"v\" />" +
-				"De éstos también profetizó Enoc," +
+				@"De éstos también profetizó Enoc," +
 				"<note caller=\"-\" style=\"x\"><char style=\"xo\" closed=\"false\">1:14 </char><char style=\"xt\" closed=\"false\">Gn. 5.21-24.</char></note> " +
-				"séptimo desde Adán, diciendo que el Señor venía con sus santas decenas de millares.";
+				@"séptimo desde Adán, diciendo que el Señor venía con sus santas decenas de millares.";
 			if (milestoneBeforeVerseNumber)
 				usx += GetQtMilestoneElement("start", character, qtId,  1);
 			usx += "<verse number=\"15\" style=\"v\" />";
 			if (!milestoneBeforeVerseNumber)
 				usx += GetQtMilestoneElement("start", character, qtId,  1);
-			usx += "“Haré juicio contra todos para convencer a todos los impíos de entre ellos tocante a todas sus obras de impiedad.”" +
+			usx += @"“Haré juicio contra todos para convencer a todos los impíos de entre ellos tocante a todas sus obras de impiedad.”" +
 				GetQtMilestoneElement("end", character, qtId,  1) +
 				"</para>";
 
@@ -711,15 +733,17 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(3, blocks.Count, "Should have a chapter block, plus 2 Scripture blocks.");
 			Assert.AreEqual(14, blocks[1].InitialStartVerseNumber);
 			Assert.IsTrue(blocks[1].StartsAtVerseStart);
-			Assert.AreEqual("{14}\u00A0De éstos también profetizó Enoc, séptimo desde Adán, " +
-				"diciendo que el Señor venía con sus santas decenas de millares.",
+			Assert.AreEqual("{14}\u00A0" +
+				@"De éstos también profetizó Enoc, séptimo desde Adán, " +
+				@"diciendo que el Señor venía con sus santas decenas de millares.",
 				blocks[1].GetText(true));
 			Assert.IsNull(blocks[1].CharacterId);
 			Assert.AreEqual(15, blocks[2].InitialStartVerseNumber);
 			Assert.IsTrue(blocks[2].StartsAtVerseStart);
 			Assert.IsTrue(blocks[2].IsPredeterminedFirstLevelQuoteStart);
-			Assert.AreEqual("{15}\u00A0“Haré juicio contra todos para convencer a todos los " +
-				"impíos de entre ellos tocante a todas sus obras de impiedad.”",
+			Assert.AreEqual("{15}\u00A0" +
+				@"“Haré juicio contra todos para convencer a todos los " +
+				@"impíos de entre ellos tocante a todas sus obras de impiedad.”",
 				blocks[2].GetText(true));
 			var quoteIdAnnotation = (QuoteId)blocks[2].BlockElements.First();
 			Assert.AreEqual(qtId, quoteIdAnnotation.Id);
@@ -744,20 +768,20 @@ namespace GlyssenEngineTests
 			var doc = UsxDocumentTests.CreateDocFromString(string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"JUD\""),
 				"<para style=\"p\">" +
 				"<verse number=\"14\" style=\"v\" />" +
-				"De éstos también profetizó Enoc," +
+				@"De éstos también profetizó Enoc," +
 				"<note caller=\"-\" style=\"x\"><char style=\"xo\" closed=\"false\">1:14 </char><char style=\"xt\" closed=\"false\">Gn. 5.21-24.</char></note> " +
-				"séptimo desde Adán, diciendo: " +
+				@"séptimo desde Adán, diciendo: " +
 				GetQtMilestoneElement("start", character, qtId,  level) +
-				"«He aquí, vino el Señor con sus santas decenas de millares;" +
+				@"«He aquí, vino el Señor con sus santas decenas de millares;" +
 				"</para>" +
 				"<para style=\"q1\">" +
 				"<verse number=\"15\" style=\"v\" />" +
-				"para hacer juicio contra todos." +
+				@"para hacer juicio contra todos." +
 				"</para>" +
 				"<para style=\"q2\">" +
-				"Dejará convictos a todos los impíos de sus obras impías y de todas las cosas duras que han hablado contra él" +
+				@"Dejará convictos a todos los impíos de sus obras impías y de todas las cosas duras que han hablado contra él" +
 				GetQtMilestoneElement("end", character, qtId,  level) +
-				",» dijo Enoc." +
+				@",» dijo Enoc." +
 				"</para>"));
 			var parser = GetUsxParser(doc, "JUD");
 			var blocks = parser.Parse().ToList();
@@ -765,12 +789,12 @@ namespace GlyssenEngineTests
 				" block, 3 quote blocks and a trailing narrator block.");
 			Assert.AreEqual(14, blocks[1].InitialStartVerseNumber);
 			Assert.IsTrue(blocks[1].StartsAtVerseStart);
-			Assert.IsTrue(blocks[1].GetText(true, true).EndsWith("diciendo: "));
+			Assert.IsTrue(blocks[1].GetText(true, true).EndsWith(@"diciendo: "));
 			Assert.IsNull(blocks[1].CharacterId);
 			Assert.AreEqual(14, blocks[2].InitialStartVerseNumber);
 			Assert.IsFalse(blocks[2].StartsAtVerseStart);
 			Assert.IsTrue(blocks[2].IsPredeterminedFirstLevelQuoteStart);
-			Assert.AreEqual("«He aquí, vino el Señor con sus santas decenas de millares;",
+			Assert.AreEqual(@"«He aquí, vino el Señor con sus santas decenas de millares;",
 				blocks[2].GetText(true).Trim());
 			if (qtId != null)
 			{
@@ -788,16 +812,17 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(blocks[2].CharacterIdInScript, blocks[3].CharacterIdInScript);
 			Assert.IsFalse(blocks[3].IsPredeterminedFirstLevelQuoteEnd);
 			Assert.AreEqual("q1", blocks[3].StyleTag);
-			Assert.AreEqual("{15}\u00A0para hacer juicio contra todos.", blocks[3].GetText(true, true));
+			Assert.AreEqual("{15}\u00A0" +
+				@"para hacer juicio contra todos.", blocks[3].GetText(true, true));
 			Assert.AreEqual(MultiBlockQuote.Continuation, blocks[3].MultiBlockQuote);
 
 			Assert.IsFalse(blocks[4].StartsAtVerseStart);
 			Assert.AreEqual(15, blocks[4].InitialStartVerseNumber);
 			Assert.AreEqual(blocks[2].CharacterId, blocks[4].CharacterId);
 			Assert.AreEqual(blocks[2].CharacterIdInScript, blocks[4].CharacterIdInScript);
-			Assert.IsFalse(blocks[4].IsPredeterminedFirstLevelQuoteEnd);
+			Assert.IsTrue(blocks[4].IsPredeterminedFirstLevelQuoteEnd);
 			Assert.AreEqual("q2", blocks[4].StyleTag);
-			Assert.AreEqual("Dejará convictos a todos los impíos de sus obras impías y de todas las cosas duras que han hablado contra él,» ",
+			Assert.AreEqual(@"Dejará convictos a todos los impíos de sus obras impías y de todas las cosas duras que han hablado contra él,» ",
 				blocks[4].GetText(true));
 			if (qtId != null)
 			{
@@ -810,8 +835,9 @@ namespace GlyssenEngineTests
 			Assert.IsFalse(blocks[5].StartsAtVerseStart);
 			Assert.AreEqual(15, blocks[5].InitialStartVerseNumber);
 			Assert.IsNull(blocks[5].CharacterId);
-			Assert.IsTrue(blocks[5].IsPredeterminedFirstLevelQuoteEnd);
-			Assert.AreEqual("dijo Enoc.", blocks[5].GetText(true, true));
+			Assert.That(blocks[5].StyleTag, Is.EqualTo("q2"));
+			Assert.IsFalse(blocks[5].IsPredeterminedFirstLevelQuoteEnd);
+			Assert.AreEqual(@"dijo Enoc.", blocks[5].GetText(true, true));
 			Assert.AreEqual(MultiBlockQuote.None, blocks[5].MultiBlockQuote);
 
 			return blocks[2].CharacterId;
@@ -861,39 +887,43 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(4, blocks[++i].InitialStartVerseNumber);
 			Assert.IsFalse(blocks[i].StartsAtVerseStart);
 			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteEnd);
 			Assert.AreEqual("“Saul, Saul, why do you persecute me?”",
-				blocks[i].GetText(true, true));
+				blocks[i].GetText(true));
 			Assert.AreEqual("Jesus", blocks[i].CharacterId);
 			Assert.AreEqual("questioning", blocks[i].Delivery);
 			
 			Assert.AreEqual(5, blocks[++i].InitialStartVerseNumber);
 			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
-			Assert.AreEqual("{5}\u00A0“Who are you, Lord?”", blocks[i].GetText(true, true));
+			Assert.AreEqual("{5}\u00A0“Who are you, Lord?”", blocks[i].GetText(true));
+			VerifyQuoteEnd(blocks[i]);
 			Assert.AreEqual("Paul", blocks[i].CharacterId);
 			Assert.AreEqual("awe", blocks[i].Delivery);
 
 			Assert.AreEqual(5, blocks[++i].InitialStartVerseNumber);
 			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
-			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteEnd);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteEnd);
 			Assert.AreEqual("Saul asked.", blocks[i].GetText(true, true));
 
 			Assert.AreEqual(5, blocks[++i].InitialStartVerseNumber);
 			Assert.IsFalse(blocks[i].StartsAtVerseStart);
 			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
-			Assert.AreEqual("“I am Jesus, whom you are persecuting,”",
-				blocks[i].GetText(true, true));
+			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteEnd);
+			Assert.AreEqual("“I am Jesus, whom you are persecuting,”", blocks[i].GetText(true));
+			VerifyQuoteEnd(blocks[i]);
 			Assert.AreEqual("Jesus", blocks[i].CharacterId);
 			Assert.IsNull(blocks[i].Delivery);
 
 			Assert.AreEqual(5, blocks[++i].InitialStartVerseNumber);
 			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
-			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteEnd);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteEnd);
 			Assert.AreEqual("he replied.", blocks[i].GetText(true, true));
 			
 			Assert.AreEqual(6, blocks[++i].InitialStartVerseNumber);
 			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
-			Assert.AreEqual("{6}\u00A0“Now get up and go into the city, and you will be told what " +
-				"you must do.”", blocks[i].GetText(true, true));
+			Assert.AreEqual("{6}\u00A0“Now get up and go into the city, and you will be told " +
+				"what you must do.”", blocks[i].GetText(true));
+			VerifyQuoteEnd(blocks[i]);
 			Assert.AreEqual("Jesus", blocks[i].CharacterId);
 			Assert.IsNull(blocks[i].Delivery);
 
@@ -934,7 +964,8 @@ namespace GlyssenEngineTests
 			Assert.AreEqual("“Which is right in God’s eyes: to listen to you, or to him? You be " +
 				"the judges! {20}\u00A0As for us, we cannot help speaking about what we have seen " +
 				"and heard.”",
-				blocks[i].GetText(true, true));
+				blocks[i].GetText(true));
+			VerifyQuoteEnd(blocks[i]);
 			Assert.AreEqual("Peter (Simon)/John", blocks[i].CharacterId);
 			Assert.AreEqual("Peter (Simon)", blocks[i].CharacterIdInScript);
 
@@ -984,7 +1015,8 @@ namespace GlyssenEngineTests
 			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
 			Assert.AreEqual("“Which is right in God’s eyes: to listen to you, or to him? You be " +
 				"the judges! ",
-				blocks[i].GetText(true, true));
+				blocks[i].GetText(true));
+			VerifyQuoteEnd(blocks[i]);
 			Assert.AreEqual("Peter (Simon)/John", blocks[i].CharacterId);
 			Assert.AreEqual(characterForV19, blocks[i].CharacterIdInScript);
 
@@ -993,7 +1025,8 @@ namespace GlyssenEngineTests
 			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
 			Assert.AreEqual("{20}\u00A0As for us, we cannot help speaking about what we have seen " +
 				"and heard.”",
-				blocks[i].GetText(true, true));
+				blocks[i].GetText(true));
+			VerifyQuoteEnd(blocks[i]);
 			Assert.AreEqual("Peter (Simon)/John", blocks[i].CharacterId);
 			Assert.AreEqual(characterForV20, blocks[i].CharacterIdInScript);
 
@@ -1033,17 +1066,17 @@ namespace GlyssenEngineTests
 			Assert.IsFalse(blocks[i].StartsAtVerseStart);
 			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
 			Assert.AreEqual("“Which is right in God’s eyes: to listen to you, or to him? You be " +
-				"the judges! ",
-				blocks[i].GetText(true, true));
+				"the judges! ", blocks[i].GetText(true));
+			VerifyQuoteEnd(blocks[i]);
 			Assert.AreEqual("Peter (Simon)/John", blocks[i].CharacterId);
 			Assert.AreEqual("Peter (Simon)", blocks[i].CharacterIdInScript);
 
 			Assert.AreEqual(20, blocks[++i].InitialStartVerseNumber);
 			Assert.IsTrue(blocks[i].StartsAtVerseStart);
 			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
-			Assert.AreEqual("{20}\u00A0As for us, we cannot help speaking about what we have seen " +
-				"and heard.”",
-				blocks[i].GetText(true, true));
+			Assert.AreEqual("{20}\u00A0As for us, we cannot help speaking about what we have " +
+				"seen and heard.”", blocks[i].GetText(true));
+			VerifyQuoteEnd(blocks[i]);
 			Assert.AreEqual("Peter (Simon)/John", blocks[i].CharacterId);
 			Assert.AreEqual("John", blocks[i].CharacterIdInScript);
 
@@ -1097,20 +1130,15 @@ namespace GlyssenEngineTests
 			Assert.AreEqual("“Do not say, ‘I am too young.’ You must go to everyone I send you to and say whatever I command you. " +
 				"{8}\u00A0Do not be afraid of them, for I am with you and will rescue you,”",
 				blocks[i].GetText(true));
+			VerifyQuoteEnd(blocks[i], qtId1);
 			if (qtId1 == null)
-			{
-				Assert.That(blocks[i].BlockElements.Count, Is.EqualTo(3));
-				Assert.False(blocks[i].BlockElements.Any(be => be is QuoteId));
-			}
+				Assert.That(blocks[i].BlockElements.Count, Is.EqualTo(4));
 			else
 			{
 				Assert.That(blocks[i].BlockElements.Count, Is.EqualTo(5));
 				var quoteIdAnnotation = (QuoteId)blocks[i].BlockElements[0];
 				Assert.AreEqual(qtId1, quoteIdAnnotation.Id);
 				Assert.IsTrue(quoteIdAnnotation.Start);
-				quoteIdAnnotation = (QuoteId)blocks[i].BlockElements.Last();
-				Assert.AreEqual(qtId1, quoteIdAnnotation.Id);
-				Assert.IsFalse(quoteIdAnnotation.Start);
 				Assert.That(blocks[i].CharacterId, Is.EqualTo("God"));
 			}
 
@@ -1118,15 +1146,17 @@ namespace GlyssenEngineTests
 			Assert.IsFalse(blocks[i].StartsAtVerseStart);
 			Assert.IsFalse(blocks[i].IsParagraphStart);
 			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteEnd);
+			Assert.AreEqual("p", blocks[i].StyleTag);
 			Assert.AreEqual("declares the Lord.", blocks[i].GetText(true, true));
 			Assert.IsNull(blocks[i].CharacterId);
 
 			Assert.AreEqual(++i, blocks.Count);
 		}
 
-		[TestCase("Interruption", "En Gedi info")]
+		[TestCase("Interruption", @"En Gedi info")]
 		[TestCase("interruption-2CH")]
-		[TestCase("narr-2CH")]
+		[TestCase(@"narr-2CH")]
 		[TestCase("narrator")]
 		public void Parse_ExplicitlyMarkedInterruption_InterruptionSetAsNarrator(
 			string interruptionCharacter, string qtId = null)
@@ -1142,7 +1172,7 @@ namespace GlyssenEngineTests
 					"<verse number=\"2\" style=\"v\" />" +
 					"Some people came and told Jehoshaphat, " +
 					GetQtMilestoneElement("start", "men, some", level: 1) +
-					"“A vast army is coming against you from Edom, from the other side of the Dead Sea. Hazezon Tamar " +
+					@"“A vast army is coming against you from Edom, from the other side of the Dead Sea. Hazezon Tamar " +
 					GetQtMilestoneElement("start", interruptionCharacter, qtId, 2) +
 					"(that is, En Gedi) " +
 					GetQtMilestoneElement("end", qtId: qtId, level: 2) +
@@ -1180,17 +1210,17 @@ namespace GlyssenEngineTests
 			Assert.IsFalse(blocks[i].StartsAtVerseStart);
 			Assert.IsFalse(blocks[i].IsParagraphStart);
 			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
-			Assert.AreEqual("“A vast army is coming against you from Edom, from the other side of the Dead Sea. Hazezon Tamar ",
+			Assert.AreEqual(@"“A vast army is coming against you from Edom, from the other side of the Dead Sea. Hazezon Tamar ",
 				blocks[i].GetText(true, true));
 			Assert.AreEqual("men, some", blocks[i].CharacterId);
 
 			Assert.AreEqual(2, blocks[++i].InitialStartVerseNumber);
 			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
 			if (qtId == null)
-				Assert.AreEqual("(that is, En Gedi) ", blocks[i].GetText(true, true));
+				Assert.AreEqual(@"(that is, En Gedi) ", blocks[i].GetText(true, true));
 			else
 			{
-				Assert.AreEqual("(that is, En Gedi) ", blocks[i].GetText(true));
+				Assert.AreEqual(@"(that is, En Gedi) ", blocks[i].GetText(true));
 				var quoteIdAnnotation = (QuoteId)blocks[i].BlockElements.First();
 				Assert.AreEqual(qtId, quoteIdAnnotation.Id);
 				Assert.IsTrue(quoteIdAnnotation.Start);
@@ -1207,7 +1237,8 @@ namespace GlyssenEngineTests
 			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
 			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
 			Assert.AreEqual("is where they are currently camped.” ",
-				blocks[i].GetText(true, true));
+				blocks[i].GetText(true));
+			VerifyQuoteEnd(blocks[i]);
 			Assert.AreEqual("men, some", blocks[i].CharacterId);
 
 			Assert.AreEqual(3, blocks[++i].InitialStartVerseNumber);
@@ -1222,13 +1253,14 @@ namespace GlyssenEngineTests
 			Assert.IsFalse(blocks[i].IsParagraphStart);
 			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
 			Assert.AreEqual("All Judah must fast. ",
-				blocks[i].GetText(true, true));
+				blocks[i].GetText(true));
+			VerifyQuoteEnd(blocks[i]);
 			Assert.AreEqual("Jehoshaphat, king of Judah", blocks[i].CharacterId);
 
 			Assert.AreEqual(++i, blocks.Count);
 		}
 
-		[TestCase("interruption", "En Gedi info")]
+		[TestCase("interruption", @"En Gedi info")]
 		[TestCase("Interruption-2CH", null)]
 		[TestCase("interruption-2CH", "i1", "q1")]
 		[TestCase("NARRATOR-2CH", null, "m234")]
@@ -1241,15 +1273,15 @@ namespace GlyssenEngineTests
 						.Replace("<chapter number=\"1\"", "<chapter number=\"20\""),
 					"<para style=\"p\">" +
 					"<verse number=\"1\" style=\"v\" />" +
-					"After this, the Moabites and others came to war against Jehoshaphat. " +
+					@"After this, the Moabites and others came to war against Jehoshaphat. " +
 					"</para>" +
 					"<para style=\"p\">" +
 					"<verse number=\"2\" style=\"v\" />" +
 					"Some people came and told Jehoshaphat, " +
 					GetQtMilestoneElement("start", "men, some", qtMenId, 1) +
-					"“A vast army is coming against you from Edom, from the other side of the Dead Sea. They have already reached Hazezon Tamar " +
+					@"“A vast army is coming against you from Edom, from the other side of the Dead Sea. They have already reached Hazezon Tamar " +
 					GetQtMilestoneElement("start", interruptionCharacter, qtInterruptionId, 2) +
-					"(that is, En Gedi)" +
+					@"(that is, En Gedi)" +
 					GetQtMilestoneElement("end", qtId: qtInterruptionId, level: 2) +
 					"”. " +
 					GetQtMilestoneElement("end", qtId: qtMenId, level: 1) +
@@ -1269,8 +1301,8 @@ namespace GlyssenEngineTests
 			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
 
 			Assert.AreEqual(1, blocks[++i].InitialStartVerseNumber);
-			Assert.AreEqual("{1}\u00A0After this, the Moabites and others came to war against Jehoshaphat. ",
-				blocks[i].GetText(true));
+			Assert.AreEqual("{1}\u00A0After this, the " +
+				@"Moabites and others came to war against Jehoshaphat. ", blocks[i].GetText(true));
 			Assert.IsNull(blocks[i].CharacterId);
 
 			Assert.AreEqual(2, blocks[++i].InitialStartVerseNumber);
@@ -1287,14 +1319,14 @@ namespace GlyssenEngineTests
 			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
 			if (qtMenId == null)
 			{
-				Assert.AreEqual("“A vast army is coming against you from Edom, from the other side of " +
-					"the Dead Sea. They have already reached Hazezon Tamar ",
+				Assert.AreEqual(@"“A vast army is coming against you from Edom, from the other " +
+					@"side of the Dead Sea. They have already reached Hazezon Tamar ",
 					blocks[i].GetText(true, true));
 			}
 			else
 			{
-				Assert.AreEqual("“A vast army is coming against you from Edom, from the other side of " +
-					"the Dead Sea. They have already reached Hazezon Tamar ",
+				Assert.AreEqual(@"“A vast army is coming against you from Edom, from the other " +
+					@"side of the Dead Sea. They have already reached Hazezon Tamar ",
 					blocks[i].GetText(true));
 				var quoteIdAnnotation = (QuoteId)blocks[i].BlockElements.First();
 				Assert.AreEqual(qtMenId, quoteIdAnnotation.Id);
@@ -1305,27 +1337,21 @@ namespace GlyssenEngineTests
 
 			Assert.AreEqual(2, blocks[++i].InitialStartVerseNumber);
 			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
-			Assert.AreEqual("(that is, En Gedi)”. ", blocks[i].GetText(true, qtInterruptionId == null && qtMenId == null));
-			var expectedBlockElementCount = 1;
+			Assert.AreEqual(@"(that is, En Gedi)”. ", blocks[i].GetText(true));
+			var expectedBlockElementCount = 2;
 			if (qtInterruptionId != null)
 			{
-				expectedBlockElementCount = 4;
+				expectedBlockElementCount += 3;
 				var quoteIdAnnotation = (QuoteId)blocks[i].BlockElements[0];
 				Assert.AreEqual(qtInterruptionId, quoteIdAnnotation.Id);
 				Assert.IsTrue(quoteIdAnnotation.Start);
-				Assert.That(((ScriptText)blocks[i].BlockElements[1]).Content, Is.EqualTo("(that is, En Gedi)"));
+				Assert.That(((ScriptText)blocks[i].BlockElements[1]).Content, Is.EqualTo(@"(that is, En Gedi)"));
 				quoteIdAnnotation = (QuoteId)blocks[i].BlockElements[2];
 				Assert.AreEqual(qtInterruptionId, quoteIdAnnotation.Id);
 				Assert.IsFalse(quoteIdAnnotation.Start);
 				Assert.That(((ScriptText)blocks[i].BlockElements[3]).Content, Is.EqualTo("”. "));
 			}
-			if (qtMenId != null)
-			{
-				expectedBlockElementCount++;
-				var quoteIdAnnotation = (QuoteId)blocks[i].BlockElements.Last();
-				Assert.AreEqual(qtMenId, quoteIdAnnotation.Id);
-				Assert.IsFalse(quoteIdAnnotation.Start);
-			}
+			VerifyQuoteEnd(blocks[i], qtMenId);
 			Assert.That(blocks[i].BlockElements.Count, Is.EqualTo(expectedBlockElementCount));
 			Assert.IsTrue(blocks[i].CharacterIs("2CH", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.IsTrue(blocks[i].IsPredeterminedQuoteInterruption);
@@ -1333,6 +1359,7 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(3, blocks[++i].InitialStartVerseNumber);
 			Assert.IsTrue(blocks[i].StartsAtVerseStart);
 			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteEnd);
 			Assert.AreEqual("{3}\u00A0Alarmed, Jehoshaphat resolved to inquire of the Lord, and he proclaimed: ",
 				blocks[i].GetText(true, true));
 			Assert.IsNull(blocks[i].CharacterId);
@@ -1341,14 +1368,15 @@ namespace GlyssenEngineTests
 			Assert.IsFalse(blocks[i].StartsAtVerseStart);
 			Assert.IsFalse(blocks[i].IsParagraphStart);
 			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteEnd);
 			Assert.AreEqual("All Judah must fast. ",
-				blocks[i].GetText(true, true));
+				blocks[i].GetText(true));
 			Assert.AreEqual("Jehoshaphat, king of Judah", blocks[i].CharacterId);
 
 			Assert.AreEqual(++i, blocks.Count);
 		}
 
-		[TestCase("Interruption", "En Gedi info")]
+		[TestCase("Interruption", @"En Gedi info")]
 		[TestCase("interruption-2CH")]
 		[TestCase("narrator-2CH")]
 		[TestCase("narrator")]
@@ -1360,7 +1388,7 @@ namespace GlyssenEngineTests
 						.Replace("<chapter number=\"1\"", "<chapter number=\"20\""),
 					"<para style=\"p\">" +
 					"<verse number=\"1\" style=\"v\" />" +
-					"After this, the Moabites and others came to war against Jehoshaphat. " +
+					@"After this, the Moabites and others came to war against Jehoshaphat. " +
 					"</para>" +
 					"<para style=\"p\">" +
 					"<verse number=\"2\" style=\"v\" />" +
@@ -1392,16 +1420,16 @@ namespace GlyssenEngineTests
 			Assert.IsTrue(blocks[i].IsParagraphStart);
 			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
 			Assert.AreEqual("{2}\u00A0Some people came and told Jehoshaphat, “A vast army is coming" +
-				" against you from Edom, from the other side of the Dead Sea. Hazezon Tamar ",
+				@" against you from Edom, from the other side of the Dead Sea. Hazezon Tamar ",
 				blocks[i].GetText(true, true));
 			Assert.IsNull(blocks[i].CharacterId);
 
 			Assert.AreEqual(2, blocks[++i].InitialStartVerseNumber);
 			if (qtId == null)
-				Assert.AreEqual("(that is, En Gedi) ", blocks[i].GetText(true, true));
+				Assert.AreEqual(@"(that is, En Gedi) ", blocks[i].GetText(true, true));
 			else
 			{
-				Assert.AreEqual("(that is, En Gedi) ", blocks[i].GetText(true));
+				Assert.AreEqual(@"(that is, En Gedi) ", blocks[i].GetText(true));
 				var quoteIdAnnotation = (QuoteId)blocks[i].BlockElements.First();
 				Assert.AreEqual(qtId, quoteIdAnnotation.Id);
 				Assert.IsTrue(quoteIdAnnotation.Start);
@@ -1427,7 +1455,7 @@ namespace GlyssenEngineTests
 
 		[TestCase("narrator-2CH")]
 		[TestCase("narrator-2CH", true)]
-		[TestCase("narr", true, "no one", "no one")]
+		[TestCase(@"narr", true, "no one", "no one")]
 		[TestCase("narrator", true, "no one can curse Jesus", "no one can say Jesus is Lord")]
 		[TestCase("narrator", false, "no one can curse Jesus", "no one can say Jesus is Lord")]
 		public void Parse_ExplicitlyMarkedNarratorQuote_NarratorQuoteIdAnnotationsAdded(
@@ -1554,7 +1582,8 @@ namespace GlyssenEngineTests
 			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
 			Assert.IsFalse(blocks[i].IsPredeterminedQuoteInterruption);
 			Assert.AreEqual("will be the name by which they will call him.”" ,
-				blocks[i].GetText(true, true));
+				blocks[i].GetText(true));
+			VerifyQuoteEnd(blocks[i]);
 			Assert.That(blocks[i].CharacterId, Is.EqualTo("scripture"));
 
 			Assert.AreEqual(++i, blocks.Count);
@@ -1641,7 +1670,7 @@ namespace GlyssenEngineTests
 					"All this happened to fulfill God’s prophetic word: " +
 					"<verse number=\"23\" style=\"v\" />" +
 					"“The virgin will give birth to a son called ‘Immanuel’” (meaning " +
-					GetQtMilestoneElement("start", "narr-MAT") +
+					GetQtMilestoneElement("start", @"narr-MAT") +
 					"“God with us”" +
 					GetQtMilestoneElement("end", includeCharacterInEndMilestone ? "narrator" : null) +
 					")." +
@@ -1735,13 +1764,13 @@ namespace GlyssenEngineTests
 			if (qtMenId == null)
 			{
 				Assert.AreEqual("“A vast army is coming against you from Edom, from the other side of " +
-					"the Dead Sea. They have already reached Hazezon Tamar ",
+					@"the Dead Sea. They have already reached Hazezon Tamar ",
 					blocks[i].GetText(true, true));
 			}
 			else
 			{
 				Assert.AreEqual("“A vast army is coming against you from Edom, from the other side of " +
-					"the Dead Sea. They have already reached Hazezon Tamar ",
+					@"the Dead Sea. They have already reached Hazezon Tamar ",
 					blocks[i].GetText(true));
 				var quoteIdAnnotation = (QuoteId)blocks[i].BlockElements.First();
 				Assert.AreEqual(qtMenId, quoteIdAnnotation.Id);
@@ -1753,7 +1782,8 @@ namespace GlyssenEngineTests
 
 			Assert.AreEqual(2, blocks[++i].InitialStartVerseNumber);
 			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
-			Assert.AreEqual("(that is, En Gedi)”. ", blocks[i].GetText(true, qtInterruptionId == null && qtMenId == null));
+			Assert.AreEqual(@"(that is, En Gedi)”. ",
+				blocks[i].GetText(true, qtInterruptionId == null && qtMenId == null));
 			if (qtInterruptionId != null)
 			{
 				var quoteIdAnnotation = (QuoteId)blocks[i].BlockElements.First();
@@ -1783,7 +1813,7 @@ namespace GlyssenEngineTests
 			Assert.IsFalse(blocks[i].IsParagraphStart);
 			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
 			Assert.AreEqual("All Judah must fast. ",
-				blocks[i].GetText(true, true));
+				blocks[i].GetText(true));
 			Assert.AreEqual("Jehoshaphat, king of Judah", blocks[i].CharacterId);
 
 			Assert.AreEqual(++i, blocks.Count);
@@ -1901,7 +1931,7 @@ namespace GlyssenEngineTests
 		{
 			var doc = UsxDocumentTests.CreateDocFromString(
 				string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"MAT\"")
-						.Replace("<chapter number=\"1\"", "<chapter number=\"5\""),
+					.Replace("<chapter number=\"1\"", "<chapter number=\"5\""),
 					"<para style=\"p\">" +
 					"<verse number=\"1\" style=\"v\" />" +
 					"When Jesus perceived the crowds, he ascended a mountain and sat down. His disciples came to him, " +
@@ -1910,7 +1940,7 @@ namespace GlyssenEngineTests
 					"</para>" +
 					"<para style=\"p\">" +
 					"<verse number=\"3\" style=\"v\" />" +
-					GetQtMilestoneElement("start", "Jesus", "SOTM") +
+					GetQtMilestoneElement("start", "Jesus", @"SOTM") +
 					"Blessed are the poor in spirit," +
 					"</para>" +
 					"<para style=\"q2\">" +
@@ -1969,7 +1999,7 @@ namespace GlyssenEngineTests
 			Assert.AreEqual("{3}\u00A0Blessed are the poor in spirit,", blocks[i].GetText(true));
 			// Not sure we actually care whether the QuoteId annotation comes
 			// before or after the verse number.
-			Assert.AreEqual("SOTM", blocks[i].BlockElements.Take(2).OfType<QuoteId>().Single().Id);
+			Assert.AreEqual(@"SOTM", blocks[i].BlockElements.Take(2).OfType<QuoteId>().Single().Id);
 			Assert.AreEqual("Jesus", blocks[i].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.Start, blocks[i].MultiBlockQuote);
 
@@ -2034,7 +2064,8 @@ namespace GlyssenEngineTests
 			Assert.AreEqual("{1}\u00A0Do not judge unless you want to be judged. " +
 				"{27}\u00A0The rain came down, the streams rose, and the winds blew and beat " +
 				"against that house, and it fell with a great crash.",
-				blocks[i].GetText(true, true));
+				blocks[i].GetText(true));
+			VerifyQuoteEnd(blocks[i]);
 			Assert.AreEqual("Jesus", blocks[i].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
 
@@ -2173,7 +2204,8 @@ namespace GlyssenEngineTests
 
 		[Test]
 		public void Parse_QtMilestonesForOtherCharacterFollowedBySectionHeadWithKeyword_EntireSectionHeadTreatedAsSingleExtraBlock()
-		{			var doc = UsxDocumentTests.CreateDocFromString(
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
 				string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"MAT\"")
 						.Replace("<chapter number=\"1\"", "<chapter number=\"8\""),
 					"<para style=\"p\">" +
@@ -2359,14 +2391,14 @@ namespace GlyssenEngineTests
 		{
 			var usx = "<para style=\"p\">" +
 				"<verse number=\"14\" style=\"v\" />" +
-				"De éstos también profetizó Enoc, séptimo desde Adán, diciendo: " +
+				@"De éstos también profetizó Enoc, séptimo desde Adán, diciendo: " +
 				GetQtMilestoneElement("start", "Enoch") +
-				"El Señor viene con sus santas decenas de millares. " +
+				@"El Señor viene con sus santas decenas de millares. " +
 				"<verse number=\"15\" style=\"v\" />" +
 				GetQtMilestoneElement("start", "Enoch") +
-				"“Hará juicio contra todos para convencer a todos los impíos " +
+				@"“Hará juicio contra todos para convencer a todos los impíos " +
 				GetQtMilestoneElement("start", "Enoch") +
-				"de entre ellos tocante a todas sus obras de impiedad.”" +
+				@"de entre ellos tocante a todas sus obras de impiedad.”" +
 				GetQtMilestoneElement("end") +
 				"</para>";
 
@@ -2386,16 +2418,18 @@ namespace GlyssenEngineTests
 
 			Assert.AreEqual(14, blocks[++i].InitialStartVerseNumber);
 			Assert.IsTrue(blocks[i].StartsAtVerseStart);
-			Assert.AreEqual("{14}\u00A0De éstos también profetizó Enoc, séptimo desde Adán, " +
-				"diciendo: ", blocks[i].GetText(true, true));
+			Assert.AreEqual("{14}\u00A0" +
+				@"De éstos también profetizó Enoc, séptimo desde Adán, diciendo: ",
+				blocks[i].GetText(true, true));
 			Assert.IsNull(blocks[i].CharacterId);
 
 			Assert.AreEqual(14, blocks[++i].InitialStartVerseNumber);
 			Assert.IsFalse(blocks[i].StartsAtVerseStart);
 			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
-			Assert.AreEqual("El Señor viene con sus santas decenas de millares. " +
-				"{15}\u00A0“Hará juicio contra todos para convencer a todos los impíos " +
-				"de entre ellos tocante a todas sus obras de impiedad.”",
+			Assert.AreEqual(@"El Señor viene con sus santas decenas de millares. " +
+				"{15}\u00A0" +
+				@"“Hará juicio contra todos para convencer a todos los impíos " +
+				@"de entre ellos tocante a todas sus obras de impiedad.”",
 				blocks[i].GetText(true));
 			Assert.AreEqual("Enoch", blocks[i].CharacterId);
 		}
@@ -2405,12 +2439,12 @@ namespace GlyssenEngineTests
 		{
 			var usx = "<para style=\"p\">" +
 				"<verse number=\"14\" style=\"v\" />" +
-				"De éstos también profetizó Enoc, séptimo desde Adán, diciendo: " +
+				@"De éstos también profetizó Enoc, séptimo desde Adán, diciendo: " +
 				GetQtMilestoneElement("start", "Enoch") +
-				"El Señor viene con sus santas decenas de millares. " +
+				@"El Señor viene con sus santas decenas de millares. " +
 				"<verse number=\"15\" style=\"v\" />" +
-				"“Hará juicio contra todos para convencer a todos los impíos " +
-				"de entre ellos tocante a todas sus obras de impiedad.” " +
+				@"“Hará juicio contra todos para convencer a todos los impíos " +
+				@"de entre ellos tocante a todas sus obras de impiedad.” " +
 				GetQtMilestoneElement("end") +
 				"<verse number=\"16\" style=\"v\" />" +
 				"These are grumble-bunnies, following their own sinful desires." +
@@ -2434,16 +2468,18 @@ namespace GlyssenEngineTests
 
 			Assert.AreEqual(14, blocks[++i].InitialStartVerseNumber);
 			Assert.IsTrue(blocks[i].StartsAtVerseStart);
-			Assert.AreEqual("{14}\u00A0De éstos también profetizó Enoc, séptimo desde Adán, " +
-				"diciendo: ", blocks[i].GetText(true, true));
+			Assert.AreEqual("{14}\u00A0" +
+				@"De éstos también profetizó Enoc, séptimo desde Adán, diciendo: ",
+				blocks[i].GetText(true, true));
 			Assert.IsNull(blocks[i].CharacterId);
 
 			Assert.AreEqual(14, blocks[++i].InitialStartVerseNumber);
 			Assert.IsFalse(blocks[i].StartsAtVerseStart);
 			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
-			Assert.AreEqual("El Señor viene con sus santas decenas de millares. " +
-				"{15}\u00A0“Hará juicio contra todos para convencer a todos los impíos " +
-				"de entre ellos tocante a todas sus obras de impiedad.” ",
+			Assert.AreEqual(@"El Señor viene con sus santas decenas de millares. " +
+				"{15}\u00A0" +
+				@"“Hará juicio contra todos para convencer a todos los impíos " +
+				@"de entre ellos tocante a todas sus obras de impiedad.” ",
 				blocks[i].GetText(true));
 			Assert.AreEqual("Enoch", blocks[i].CharacterId);
 
@@ -2617,6 +2653,15 @@ namespace GlyssenEngineTests
 			sb.Append("/>");
 			return sb.ToString();
 		}
+
+		private static void VerifyQuoteEnd(Block block, string id = null)
+		{
+			Assert.IsTrue(block.IsPredeterminedFirstLevelQuoteEnd);
+			var quoteIdAnnotation = (QuoteId)block.BlockElements.Last();
+			Assert.AreEqual(id, quoteIdAnnotation.Id);
+			Assert.IsFalse(quoteIdAnnotation.Start);
+			Assert.IsFalse(quoteIdAnnotation.IsNarrator);
+		}
 		#endregion PG-1419 - Quote milestones
 
 		[Test]
@@ -2636,20 +2681,22 @@ namespace GlyssenEngineTests
 		{
 			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\">" +
 										"<verse number=\"12\" style=\"v\" />" +
-										"Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,</para>" +
+										@"Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,</para>" +
 										"<para style=\"p\">" +
 										"<verse number=\"13\" style=\"v\" />" +
-										"Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.</para>");
+										@"Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.</para>");
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(12, blocks[1].InitialStartVerseNumber);
-			Assert.AreEqual("Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,", blocks[1].GetText(false));
+			Assert.AreEqual(@"Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,",
+				blocks[1].GetText(false));
 
 			Assert.AreEqual(1, blocks[2].ChapterNumber);
 			Assert.AreEqual(13, blocks[2].InitialStartVerseNumber);
-			Assert.AreEqual("Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[2].GetText(false));
+			Assert.AreEqual(@"Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.",
+				blocks[2].GetText(false));
 		}
 
 		[Test]
@@ -2657,22 +2704,28 @@ namespace GlyssenEngineTests
 		{
 			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\">" +
 										"<verse number=\"12-14\" style=\"v\" />" +
-										"Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,</para>" +
+										@"Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,</para>" +
 										"<para style=\"p\">" +
 										"<verse number=\"15-18\" style=\"v\" />" +
-										"Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.</para>");
+										@"Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.</para>");
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(12, blocks[1].InitialStartVerseNumber);
-			Assert.AreEqual("Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,", blocks[1].GetText(false));
-			Assert.AreEqual("{12-14}\u00A0Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,", blocks[1].GetText(true));
+			Assert.AreEqual(@"Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,",
+				blocks[1].GetText(false));
+			Assert.AreEqual("{12-14}\u00A0" +
+				@"Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,",
+				blocks[1].GetText(true));
 
 			Assert.AreEqual(1, blocks[2].ChapterNumber);
 			Assert.AreEqual(15, blocks[2].InitialStartVerseNumber);
-			Assert.AreEqual("Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[2].GetText(false));
-			Assert.AreEqual("{15-18}\u00A0Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[2].GetText(true));
+			Assert.AreEqual(@"Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.",
+				blocks[2].GetText(false));
+			Assert.AreEqual("{15-18}\u00A0" +
+				@"Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.",
+				blocks[2].GetText(true));
 		}
 
 		[Test]
@@ -2714,7 +2767,7 @@ namespace GlyssenEngineTests
 										"Matthew 3:1-12; Luke 3:1-20</para>" +
 										"<para style=\"p\">" +
 										"<verse number=\"1\" style=\"v\" />" +
-										"Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.</para>");
+										@"Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.</para>");
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(3, blocks.Count);
@@ -2728,7 +2781,8 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(1, blocks[2].InitialStartVerseNumber);
 			Assert.AreEqual("p", blocks[2].StyleTag);
 			Assert.AreEqual(Block.kNotSet, blocks[2].CharacterId);
-			Assert.AreEqual("Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[2].GetText(false));
+			Assert.AreEqual(@"Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.",
+				blocks[2].GetText(false));
 		}
 
 		[Test]
@@ -2736,13 +2790,13 @@ namespace GlyssenEngineTests
 		{
 			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\">" +
 							"<verse number=\"1-2\" style=\"v\" />" +
-							"Acakki me lok me kwena maber i kom Yecu Kricito" +
+							@"Acakki me lok me kwena maber i kom Yecu Kricito" +
 							"<char style=\"pro\">Crissitu</char>" +
-							", Wod pa Lubaŋa, kit ma gicoyo kwede i buk pa lanebi Icaya ni,</para>" +
+							@", Wod pa Lubaŋa, kit ma gicoyo kwede i buk pa lanebi Icaya ni,</para>" +
 							"<para style=\"rem\">" +
 							"Tom was here!</para>" +
 							"<para style=\"q1\">" +
-							"“Nen, acwalo lakwenana otelo nyimi,</para>");
+							@"“Nen, acwalo lakwenana otelo nyimi,</para>");
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(3, blocks.Count);
@@ -2750,13 +2804,15 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("p", blocks[1].StyleTag);
 			Assert.AreEqual(Block.kNotSet, blocks[1].CharacterId);
-			Assert.AreEqual("{1-2}\u00A0Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
+			Assert.AreEqual("{1-2}\u00A0" +
+				@"Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, kit ma gicoyo kwede i buk pa lanebi Icaya ni,",
+				blocks[1].GetText(true));
 
 			Assert.AreEqual(1, blocks[2].ChapterNumber);
 			Assert.AreEqual(1, blocks[2].InitialStartVerseNumber);
 			Assert.AreEqual("q1", blocks[2].StyleTag);
 			Assert.AreEqual(Block.kNotSet, blocks[2].CharacterId);
-			Assert.AreEqual("“Nen, acwalo lakwenana otelo nyimi,", blocks[2].GetText(true));
+			Assert.AreEqual(@"“Nen, acwalo lakwenana otelo nyimi,", blocks[2].GetText(true));
 		}
 
 		[Test]
@@ -2770,7 +2826,7 @@ namespace GlyssenEngineTests
 				"<chapter number=\"1\" style=\"c\" />" +
 				"<para style=\"p\">" +
 				"<verse number=\"1\" style=\"v\" />" +
-				"Acakki me lok me kwena maber i kom Yecu Kricito</para>" +
+				@"Acakki me lok me kwena maber i kom Yecu Kricito</para>" +
 				UsxDocumentTests.kUsxFrameEnd);
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
@@ -2819,10 +2875,10 @@ namespace GlyssenEngineTests
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(1, blocks.Count);
 			Assert.AreEqual("mt", blocks[0].StyleTag);
-			Assert.AreEqual("The Gospel According to Markus", blocks[0].GetText(false));
-			Assert.AreEqual("The Gospel According to Markus", blocks[0].GetText(true));
+			Assert.AreEqual(@"The Gospel According to Markus", blocks[0].GetText(false));
+			Assert.AreEqual(@"The Gospel According to Markus", blocks[0].GetText(true));
 			Assert.AreEqual("Marco", parser.PageHeader);
-			Assert.AreEqual("Markus", parser.MainTitle);
+			Assert.AreEqual(@"Markus", parser.MainTitle);
 		}
 
 		[Test]
@@ -2986,7 +3042,7 @@ namespace GlyssenEngineTests
 		public void Parse_VerseAtEndOfParagraphConsistsEntirelyOfNote_DoNotIncludeVerseNumber()
 		{
 			// World English Bible, LUK 17:36
-			var data = "  <para style=\"p\">\r\n" +
+			const string data = "  <para style=\"p\">\r\n" +
 				"    <verse number=\"35\" style=\"v\" /><char style=\"wj\">There will be two grinding grain together. One will be taken and the other will be left.”</char> <verse number=\"36\" style=\"v\" /><note caller=\"+\" style=\"f\">Some Greek manuscripts add: “Two will be in the field: the one taken, and the other left.”</note></para>\r\n" +
 				"  <para style=\"p\">\r\n" +
 				"    <verse number=\"37\" style=\"v\" />They, answering, asked him, “Where, Lord?”</para>";
@@ -3004,7 +3060,7 @@ namespace GlyssenEngineTests
 		public void Parse_VerseElementWithEid_EndVerseElementIgnored()
 		{
 			var data = "  <para style=\"p\">\r\n" +
-				$"    <verse number=\"35\" style=\"v\" sid=\"LUK 17:35\" />There will be two grinding grain together. One will be taken and the other will be left. <verse eid=\"LUK 17:35\" /><verse number=\"36\" style=\"v\" sid=\"LUK 17:36\" />Two will be in the field: the one taken, and the other left, Jesus concluded.<verse eid=\"LUK 17:36\" /></para>\r\n" +
+				"    <verse number=\"35\" style=\"v\" sid=\"LUK 17:35\" />There will be two grinding grain together. One will be taken and the other will be left. <verse eid=\"LUK 17:35\" /><verse number=\"36\" style=\"v\" sid=\"LUK 17:36\" />Two will be in the field: the one taken, and the other left, Jesus concluded.<verse eid=\"LUK 17:36\" /></para>\r\n" +
 				"  <para style=\"p\">\r\n" +
 				"    <verse number=\"37\" style=\"v\" sid=\"LUK 17:37\" />They, answering, asked him, “Where, Lord?”</para>";
 
@@ -3029,7 +3085,7 @@ namespace GlyssenEngineTests
 				$@"\p{whitespace}" +
 				$@"\v 23 Yesu pǝlǝa arǝ Bitǝrus sǝ ne wi ama, Nyaram anggo, Shetan!{whitespace}" +
 				$@"\v 24 Ɓwa mǝnana kat earce ama nǝ̀ yiu atam nǝ̀ duk mǝkpatam ngga.\f + \fr 16:24 \ft Ɓalli gbal aɓa: \xt Mat 10:38; Luk 14:27\xt*.\f*{whitespace}" +
-				$@"\v 25 Ɓwa mana kat kǝ sǝni nǝ̀ amsǝ yilǝmi ka nǝ̀ ngga ɗwanyi banì.\f + \fr 16:25 \ft Ɓalli gbal aɓa: \xt Mat 10:39; Luk 17:33; Yoh 12:25\xt*.\f*";
+				@"\v 25 Ɓwa mana kat kǝ sǝni nǝ̀ amsǝ yilǝmi ka nǝ̀ ngga ɗwanyi banì.\f + \fr 16:25 \ft Ɓalli gbal aɓa: \xt Mat 10:39; Luk 17:33; Yoh 12:25\xt*.\f*";
 
 			// This uses the "real" stylesheet (now USFM v. 3)
 			var doc = UsfmToUsx.ConvertToXmlDocument(SfmLoader.GetUsfmScrStylesheet(), usfmData);
@@ -3200,7 +3256,8 @@ namespace GlyssenEngineTests
 				"<chapter number=\"119\" style=\"c\" />" + Environment.NewLine +
 				"<para style=\"qa\">Alef</para>" + Environment.NewLine +
 				"<para style=\"q\">" + Environment.NewLine +
-				"<verse number=\"1\" style=\"v\"/>Bienaventurados los perfectos de camino.</para>" +
+				"<verse number=\"1\" style=\"v\"/>" +
+				@"Bienaventurados los perfectos de camino.</para>" +
 				UsxDocumentTests.kUsxFrameEnd);
 			var parser = GetUsxParser(doc, "PSA");
 			var blocks = parser.Parse().ToList();
