@@ -238,6 +238,17 @@ namespace GlyssenEngine.Quote
 				{
 					ProcessMultiBlock();
 					m_setNextNormalBlockToNeedsReview = false;
+
+					void DetectHangingOpenQuote()
+					{
+						if (m_quoteLevel > 0)
+						{
+							m_quoteLevel = 0;
+							m_setNextNormalBlockToNeedsReview = inPairedFirstLevelQuote;
+							inPairedFirstLevelQuote = false;
+						}
+					}
+
 					if (block.CharacterId == null)
 					{
 						if (!m_outputBlocks.Last().IsPredeterminedQuoteInterruption)
@@ -255,22 +266,11 @@ namespace GlyssenEngine.Quote
 						m_outputBlocks.Add(block);
 						if (block.IsPredeterminedFirstLevelQuoteEnd)
 						{
-							if (m_quoteLevel > 0)
-							{
-								m_quoteLevel = 0;
-								m_setNextNormalBlockToNeedsReview = inPairedFirstLevelQuote;
-								inPairedFirstLevelQuote = false;
-								// REVIEW: This next line not needed by existing tests.
-								//m_possibleCharactersForCurrentQuote.Clear();
-							}
+							DetectHangingOpenQuote();
 						}
 						else
 						{
-							if (m_quoteLevel > 0)
-							{
-								m_setNextNormalBlockToNeedsReview = inPairedFirstLevelQuote;
-								inPairedFirstLevelQuote = false;
-							}
+							DetectHangingOpenQuote();
 							block.MultiBlockQuote = MultiBlockQuote.Start;
 							m_currentMultiBlockQuote.Add(block);
 							m_quoteLevel = 1;
@@ -286,32 +286,7 @@ namespace GlyssenEngine.Quote
 
 				if (StyleToCharacterMappings.IncludesCharStyle(styleTag))
 				{
-					var cvInfo = GetMatchingCharacter(m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, block.AllVerses, m_versification),
-						new SimpleCharacterInfoWithoutDelivery(block.CharacterId));
-					if (cvInfo ==  null)
-					{
-						block.CharacterId = kNeedsReview;
-					}
-					else
-					{
-						block.CharacterId = cvInfo.Character;
-						block.Delivery = cvInfo.Delivery;
-					}
-
-					if (sb.Length > 0)
-					{
-						var pendingText = sb.ToString();
-						Debug.Assert(!pendingText.Any(IsLetterOrDigit));
-						if (!(block.BlockElements.First() is ScriptText textElement))
-							throw new Exception($"Pending text \"{pendingText}\" was left from " +
-								$"previous block, but following block does not start with text: {block.ToString(true, m_bookId)}");
-						textElement.Content = pendingText + textElement.Content;
-						sb.Clear();
-					}
-					m_nextBlockContinuesQuote = false;
-					m_workingBlock = block;
-					MoveTrailingElementsIfNecessary();
-					m_outputBlocks.Add(m_workingBlock);
+					AddBlockWithMappedCharStyle(block, sb);
 					continue;
 				}
 
@@ -605,6 +580,39 @@ namespace GlyssenEngine.Quote
 			ProcessPossibleRunOfPoetryBlocksAsScripture();
 			SetImplicitCharacters();
 			return m_outputBlocks;
+		}
+
+		private void AddBlockWithMappedCharStyle(Block block, StringBuilder sb)
+		{
+			var cvInfo = GetMatchingCharacter(m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, block.AllVerses, m_versification),
+				new SimpleCharacterInfoWithoutDelivery(block.CharacterId));
+			if (cvInfo == null)
+			{
+				block.CharacterId = kNeedsReview;
+			}
+			else
+			{
+				block.CharacterId = cvInfo.Character;
+				block.Delivery = cvInfo.Delivery;
+			}
+
+			if (sb.Length > 0)
+			{
+				var pendingText = sb.ToString();
+				Debug.Assert(!pendingText.Any(IsLetterOrDigit));
+				if (!(block.BlockElements.First() is ScriptText textElement))
+					throw new Exception($"Pending text \"{pendingText}\" was left from " +
+						$"previous block, but following block does not start with text: {block.ToString(true, m_bookId)}");
+				textElement.Content = pendingText + textElement.Content;
+				sb.Clear();
+			}
+
+			// TODO: Write unit test with special character style following explicit quote following parser-detected quote
+			m_setNextNormalBlockToNeedsReview = false;
+			m_nextBlockContinuesQuote = false;
+			m_workingBlock = block;
+			MoveTrailingElementsIfNecessary();
+			m_outputBlocks.Add(m_workingBlock);
 		}
 
 		private void ProcessPossibleRunOfPoetryBlocksAsScripture()
