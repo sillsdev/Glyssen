@@ -79,22 +79,20 @@ namespace GlyssenEngineTests.Quote
 
 		[TestCase(null)]
 		[TestCase("Andrew")]
-		// These two cases are probably unlikely, butthey could occur (perhaps, for example,
+		// These two cases are probably unlikely, but they could occur (perhaps, for example,
 		// if someone exported a script from Glyssen that was not disambiguated and then
-		// processed that to generate milestones in the UFMM data.
+		// processed that to generate milestones in the USFM data.
 		[TestCase(kUnexpectedCharacter)]
 		[TestCase(kAmbiguousCharacter)] 
 		public void Parse_ContainsBlockWithPreConfirmedCharactersFollowingUnclosedFirstLevelQuote_ExistingQuoteIsClosed(
 			string character)
 		{
-			var styleTag = "qt-s";
-			var endStyle = "p";
 			var block1 = new Block("p", 6, 38)
 				.AddVerse(38, "Jesus asked, «How many loaves do you have? Go check!"); // No close quote
-			var block2 = new Block(styleTag, 6, 38) { CharacterId = character }
+			var block2 = new Block("qt-s", 6, 38) { CharacterId = character }
 				.AddText("--Seven, if you count the fish,")
 				.AddEndQuoteId();
-			var block3 = new Block(endStyle, 6, 38).AddText("they replied.");
+			var block3 = new Block("p", 6, 38).AddText("they replied.");
 			var input = new List<Block> { block1, block2, block3 };
 			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
@@ -106,7 +104,7 @@ namespace GlyssenEngineTests.Quote
 			Assert.IsFalse(output[1].HasPreConfirmedCharacter);
 			Assert.AreEqual(character ?? kAmbiguousCharacter, output[2].CharacterId);
 			Assert.IsTrue(output[2].IsPredeterminedFirstLevelQuoteStart);
-			Assert.AreEqual(narrator, output[3].CharacterId);
+			Assert.AreEqual(kNeedsReview, output[3].CharacterId);
 			Assert.IsFalse(output[3].HasPreConfirmedCharacter);
 		}
 
@@ -151,6 +149,90 @@ namespace GlyssenEngineTests.Quote
 				Assert.AreEqual(narrator, output.Last().CharacterId);
 				Assert.IsFalse(output.Last().HasPreConfirmedCharacter);
 			}
+		}
+
+		[Test]
+		public void Parse_PredeterminedLevel1QuoteInsideParserDetectedLevel1QuoteWithFollowingExplicitQuote_ParserDetectedAndExplicitQuotesKeptSeparate()
+		{
+			var narrator = GetStandardCharacterId("JER", Narrator);
+			var chapterCharacter = GetStandardCharacterId("JER", BookOrChapter);
+			var blockC1 = new Block("c", 1) { CharacterId = chapterCharacter };
+			var blockV9 = new Block("p", 1, 9) {IsParagraphStart = true}
+				.AddVerse(9, "Then the Lord reached out his hand and touched my mouth and said to " +
+					"me, “I have put my words in your mouth. ");
+			// The following explicit quote should have started in previous verse.
+			var blockV10 = new Block("qt-s", 1, 10) {CharacterId = "God"}
+				.AddVerse(10, "See, today I appoint you over nations and kingdoms to uproot and " +
+					"tear down, to destroy and overthrow, to build and to plant.”");
+			// The preceding explicit quote should have ended in previous verse.
+			var blockV11a = new Block("p", 1, 11) {IsParagraphStart = true, CharacterId = "God"}
+				.AddVerse(11, "The word of the Lord came to me: “What do you see, Jeremiah?”")
+				.AddEndQuoteId();
+			var blockV11b = new Block("qt-s", 1, 11) {CharacterId = "Jeremiah"}
+				.AddText("“I see the branch of an almond tree,” ")
+				.AddEndQuoteId();
+			var blockV11c = new Block("p", 1, 11).AddText("I replied.");
+
+			var input = new List<Block>
+				{ blockC1, blockV9, blockV10, blockV11a, blockV11b, blockV11c };
+			SetQuoteSystemToStandardAmericanEnglish();
+			var output = new QuoteParser(ControlCharacterVerseData.Singleton, "JER", input)
+				.Parse().ToList();
+			
+			Assert.That(output.All(b => !b.IsPredeterminedQuoteInterruption));
+
+			var i = 0;
+			Assert.AreEqual(chapterCharacter, output[i].CharacterId);
+
+			Assert.AreEqual(narrator, output[++i].CharacterId);
+			Assert.AreEqual(9, output[i].InitialStartVerseNumber);
+			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.IsFalse(output[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.That(output[i].GetText(true, true), Is.EqualTo("{9}\u00A0" +
+				"Then the Lord reached out his hand and touched my mouth and said to me, "));
+
+			Assert.AreEqual("God", output[++i].CharacterId);
+			Assert.AreEqual(9, output[i].InitialStartVerseNumber);
+			Assert.IsFalse(output[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsFalse(output[i].IsPredeterminedFirstLevelQuoteEnd);
+			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.AreEqual("“I have put my words in your mouth. ", output[i].GetText(true, true));
+			
+			Assert.AreEqual("God", output[++i].CharacterId);
+			Assert.AreEqual(10, output[i].InitialStartVerseNumber);
+			Assert.True(output[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.False(output[i].IsPredeterminedFirstLevelQuoteEnd);
+			Assert.False(output[i].IsParagraphStart);
+			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo("{10}\u00A0" +
+				"See, today I appoint you over nations and kingdoms to uproot and " +
+				"tear down, to destroy and overthrow, to build and to plant.”"));
+			
+			Assert.AreEqual("God", output[++i].CharacterId);
+			Assert.AreEqual(11, output[i].InitialStartVerseNumber);
+			Assert.False(output[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.True(output[i].IsPredeterminedFirstLevelQuoteEnd);
+			Assert.True(output[i].IsParagraphStart);
+			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Continuation));
+			Assert.That(output[i].GetText(true), Is.EqualTo("{11}\u00A0" +
+				"The word of the Lord came to me: “What do you see, Jeremiah?”"));
+
+			Assert.AreEqual("Jeremiah", output[++i].CharacterId);
+			Assert.AreEqual(11, output[i].InitialStartVerseNumber);
+			Assert.IsTrue(output[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsTrue(output[i].IsPredeterminedFirstLevelQuoteEnd);
+			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.AreEqual("“I see the branch of an almond tree,” ", output[i].GetText(true));
+
+			Assert.AreEqual(narrator, output[++i].CharacterId);
+			Assert.AreEqual(11, output[i].InitialStartVerseNumber);
+			Assert.False(output[i].IsParagraphStart);
+			Assert.IsFalse(output[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsFalse(output[i].IsPredeterminedFirstLevelQuoteEnd);
+			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo("I replied."));
+
+			Assert.That(output.Count, Is.EqualTo(++i));
 		}
 
 		[TestCase(true)]
@@ -7312,7 +7394,7 @@ namespace GlyssenEngineTests.Quote
 
 		[TestCase(true)]
 		[TestCase(false)]
-		public void Parse_InterruptionInImplicitQuote_QuoteCharactersAndInterruptionPreserved(
+		public void Parse_InterruptionInParserDetectedQuote_QuoteCharactersAndInterruptionPreserved(
 			bool includeQuoteIdsForInterruption)
 		{
 			var narrator = GetStandardCharacterId("2CH", Narrator);
@@ -7383,6 +7465,119 @@ namespace GlyssenEngineTests.Quote
 			Assert.IsFalse(output[i].IsPredeterminedQuoteInterruption);
 			Assert.AreEqual(MultiBlockQuote.None, output[i].MultiBlockQuote);
 			Assert.AreEqual("“All Judah must fast.” ", output[i].GetText(true, true));
+
+			Assert.That(output.Count, Is.EqualTo(++i));
+		}
+
+		[TestCase("God", true, true)]
+		[TestCase("God", false)]
+		[TestCase("Jeremiah", true)]
+		[TestCase("Jeremiah", false, true)]
+		[TestCase(kAmbiguousCharacter, true)]
+		[TestCase(kAmbiguousCharacter, false)]
+		[TestCase(null, false, true)]
+		[TestCase(null, false)]
+		public void Parse_PredeterminedLevel1QuoteInsideParserDetectedLevel1Quote_FolllowingBlockNeedsReview(
+			string character, bool explicitLevel1, bool includeQuoteId = false)
+		{
+			var narrator = GetStandardCharacterId("JER", Narrator);
+			var chapterCharacter = GetStandardCharacterId("JER", BookOrChapter);
+			const string quid = "actually_level_2";
+			var blockC1 = new Block("c", 1) { CharacterId = chapterCharacter };
+			var blockV6 = new Block("p", 1, 6) {IsParagraphStart = true}
+				.AddVerse(6, "“Alas, Sovereign Lord,” I said, “I do not know how to speak; I am too young.” ");
+			var blockV7a = new Block("p", 1, 7) {IsParagraphStart = true}
+				.AddVerse(7, "But the Lord said to me, “Do not say, ");
+			var blockV7b = new Block(explicitLevel1 ? "qt1-s" : "qt-s", 1, 7) { CharacterId = character }
+				.AddText("‘I am too young.’ ")
+				.AddEndQuoteId(includeQuoteId ? quid : null);
+			if (includeQuoteId)
+				blockV7b.BlockElements.Insert(0, new QuoteId {Id = quid, Start = true});
+			var blockV7c = new Block("p", 1, 7)
+				.AddText("You must go to everyone I send you to and say whatever I command you. ")
+				.AddVerse(8, "Do not be afraid of them, for I am with you and will rescue you,” " +
+					"declares the Lord.");
+			var blockV9 = new Block("p", 1, 9) {IsParagraphStart = true}
+				.AddVerse(9, "Then the Lord reached out his hand and touched my mouth and said to " +
+					"me, “I have put my words in your mouth. ")
+				.AddVerse(10, "See, today I appoint you over nations and kingdoms to uproot and " +
+					"tear down, to destroy and overthrow, to build and to plant.”");
+
+			var input = new List<Block> { blockC1, blockV6, blockV7a, blockV7b, blockV7c, blockV9 };
+			QuoteParserTests.SetQuoteSystemToStandardAmericanEnglish();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JER", input).Parse().ToList();
+			
+			Assert.That(output.All(b => b.MultiBlockQuote == MultiBlockQuote.None),
+				"Even if this results in two adjacent blocks with the same speaker, they should not" +
+				" be treated as a multi-block quote.");
+
+			Assert.That(output.All(b => !b.IsPredeterminedQuoteInterruption));
+
+			var i = 0;
+			Assert.AreEqual(chapterCharacter, output[i].CharacterId);
+
+			Assert.AreEqual("Jeremiah", output[++i].CharacterId);
+			Assert.AreEqual(6, output[i].InitialStartVerseNumber);
+			Assert.IsFalse(output[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("{6}\u00A0“Alas, Sovereign Lord,” ", output[i].GetText(true, true));
+
+			Assert.AreEqual(narrator, output[++i].CharacterId);
+			Assert.AreEqual(6, output[i].InitialStartVerseNumber);
+			Assert.IsFalse(output[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("I said, ", output[i].GetText(true, true));
+			
+			Assert.AreEqual("Jeremiah", output[++i].CharacterId);
+			Assert.AreEqual(6, output[i].InitialStartVerseNumber);
+			Assert.IsFalse(output[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("“I do not know how to speak; I am too young.” ",
+				output[i].GetText(true, true));
+
+			Assert.AreEqual(narrator, output[++i].CharacterId);
+			Assert.AreEqual(7, output[i].InitialStartVerseNumber);
+			Assert.IsFalse(output[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("{7}\u00A0But the Lord said to me, ", output[i].GetText(true, true));
+			
+			Assert.AreEqual("God", output[++i].CharacterId);
+			Assert.AreEqual(7, output[i].InitialStartVerseNumber);
+			Assert.IsFalse(output[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("“Do not say, ", output[i].GetText(true, true));
+
+			Assert.AreEqual(character ?? "God", output[++i].CharacterId);
+			Assert.AreEqual(7, output[i].InitialStartVerseNumber);
+			Assert.IsTrue(output[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsTrue(output[i].IsPredeterminedFirstLevelQuoteEnd);
+			Assert.AreEqual("‘I am too young.’ ", output[i].GetText(true));
+			var quoteAnnotation = (QuoteId)output[i].BlockElements.Last();
+			Assert.AreEqual(includeQuoteId ? quid : null, quoteAnnotation.Id);
+			Assert.IsFalse(quoteAnnotation.Start);
+			Assert.IsFalse(quoteAnnotation.IsNarrator);
+			if (includeQuoteId)
+			{
+				quoteAnnotation = (QuoteId)output[i].BlockElements[0];
+				Assert.AreEqual(quid, quoteAnnotation.Id);
+				Assert.IsTrue(quoteAnnotation.Start);
+				Assert.IsFalse(quoteAnnotation.IsNarrator);
+			}
+			
+			Assert.AreEqual(kNeedsReview, output[++i].CharacterId);
+			Assert.AreEqual(7, output[i].InitialStartVerseNumber);
+			Assert.IsFalse(output[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsFalse(output[i].IsPredeterminedFirstLevelQuoteEnd);
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(
+				"You must go to everyone I send you to and say whatever I command you. " +
+				"{8}\u00A0Do not be afraid of them, for I am with you and will rescue you,” " +
+				"declares the Lord."));
+			
+			Assert.AreEqual(narrator, output[++i].CharacterId);
+			Assert.AreEqual(9, output[i].InitialStartVerseNumber);
+			Assert.True(output[i].IsParagraphStart);
+			Assert.IsFalse(output[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsFalse(output[i].IsPredeterminedFirstLevelQuoteEnd);
+			Assert.AreEqual(MultiBlockQuote.None, output[i].MultiBlockQuote);
+			Assert.That(output[i].GetText(true, true), Is.EqualTo("{9}\u00A0" +
+				"Then the Lord reached out his hand and touched my mouth and said to me, "));
+
+			Assert.AreEqual("God", output[++i].CharacterId);
 
 			Assert.That(output.Count, Is.EqualTo(++i));
 		}

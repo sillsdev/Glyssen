@@ -29,11 +29,9 @@ namespace GlyssenEngine.Script
 		public const int kNotSplit = -1;
 
 		private const string kLevel = "level";
-		private const string kMilestoneStartSuffix = "s";
-		private const string kMilestoneEndSuffix = "e";
 		private const string kFmtRegex = "^qt(?<{0}>[1-9])?-{1}$";
-		private static Regex s_regexQuoteMilestoneStartMarker = new Regex(Format(kFmtRegex, kLevel, $"(?<{kMilestoneStartSuffix}>{kMilestoneStartSuffix})"), RegexOptions.Compiled);
-		private static Regex s_regexQuoteMilestoneEndMarker = new Regex(Format(kFmtRegex, kLevel, kMilestoneEndSuffix), RegexOptions.Compiled);
+		private static Regex s_regexQuoteMilestoneStartMarker = new Regex(Format(kFmtRegex, kLevel, "s"), RegexOptions.Compiled);
+		private static Regex s_regexQuoteMilestoneEndMarker = new Regex(Format(kFmtRegex, kLevel, "e"), RegexOptions.Compiled);
 
 		public const string kCssFrame = "body{{font-family:{0};font-size:{1}pt}}" +
 						".right-to-left{{direction:rtl}}" +
@@ -1475,22 +1473,6 @@ namespace GlyssenEngine.Script
 				}
 			}
 			return null;
-		}
-
-		/// <summary>
-		/// Gets an end milestone given a start milestone.
-		/// </summary>
-		/// <remarks>Used in QuoteParser, but implemented here because this is where we have
-		/// the regex to correctly detect this.</remarks>
-		internal static string ChangeFromPredeterminedStartToEnd(string styleTag)
-		{
-			var match = s_regexQuoteMilestoneStartMarker.Match(styleTag);
-			if (!match.Success)
-				return styleTag;
-
-			Debug.Assert(match.Groups[kMilestoneStartSuffix].Index == styleTag.Length - 1);
-			return styleTag.Substring(0, match.Groups[kMilestoneStartSuffix].Captures[0].Index) +
-				kMilestoneEndSuffix;
 		}
 	}
 
