@@ -267,11 +267,13 @@ namespace GlyssenEngine.Quote
 						if (block.IsPredeterminedFirstLevelQuoteEnd)
 						{
 							DetectHangingOpenQuote();
+							m_possibleCharactersForCurrentQuote.Clear();
 						}
 						else
 						{
 							DetectHangingOpenQuote();
 							block.MultiBlockQuote = MultiBlockQuote.Start;
+							m_nextBlockContinuesQuote = true;
 							m_currentMultiBlockQuote.Add(block);
 							m_quoteLevel = 1;
 							m_possibleCharactersForCurrentQuote = new List<string>(new[] { block.CharacterId });

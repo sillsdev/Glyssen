@@ -364,8 +364,9 @@ namespace GlyssenEngine
 								    m_currentExplicitQuote.SpecifiedCharacter == character &&
 								    m_currentExplicitQuote.Id == id)
 								{
-									Logger.WriteEvent($"Ignoring duplicate milestone node {childNode}.");
-									break;
+									Logger.WriteEvent($"Duplicate milestone node {childNode}.");
+									block.CharacterId = CharacterVerseData.kNeedsReview;
+									block.CharacterIdInScript = m_currentExplicitQuote.SpecifiedCharacter;
 								}
 
 								FinalizeCharacterStyleBlockWithoutTrailingOpener(sb, ref block, blocks, styleTag);

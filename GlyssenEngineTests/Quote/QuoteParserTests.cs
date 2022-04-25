@@ -7469,6 +7469,88 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(output.Count, Is.EqualTo(++i));
 		}
 
+		[Test]
+		public void Parse_InterruptionInMultiBlockExplicitQuote_QuoteCharacterAndInterruptionPreserved()
+		{
+			var narrator = GetStandardCharacterId("MAT", Narrator);
+			var chapterCharacter = GetStandardCharacterId("MAT", BookOrChapter);
+			var blockC24 = new Block("c", 24) { CharacterId = chapterCharacter };
+			var blockV4a = new Block("p", 24, 4) { IsParagraphStart = true }
+				.AddVerse(4, "Jesus answered: ");
+			var blockV4thru8 = new Block("qt-s", 24, 4) { IsParagraphStart = true, CharacterId = "Jesus" }
+				.AddText("“Watch out ")
+				.AddVerse(5, "People gonna mess wit you. ")
+				.AddVerse(6, "You are gonna hear crazy stuff. ")
+				.AddVerse(7, "Nations will go to war. ")
+				.AddVerse(8, "That is just the start!");
+			var blockV9thru14 = new Block("p", 24, 9) { IsParagraphStart = true, CharacterId = "Jesus" }
+				.AddVerse("9-11", "“People are going to kill you and hate you ")
+				.AddVerse("12-14", "And everyone will hear the gospel");
+			var blockV15a = new Block("p", 24, 15) { IsParagraphStart = true, CharacterId = "Jesus" }
+				.AddVerse("15", "“So when you see ‘the abomination that causes desolation,’ talked about by Daniel");
+			var blockInt15 = new Block("qt2-s", 24, 15) { CharacterId = narrator }
+				.AddText("—let the reader understand— ");
+			var blockV16thru21 = new Block("qt1-s", 24, 16) { CharacterId = "Jesus" }
+				.AddVerse(16, "then let those who are in Judea flee ")
+				.AddVerse("17-21", "Do not go back for anything and realize it is going to be tough.")
+				.AddEndQuoteId();
+
+			var input = new List<Block> {
+				blockC24, blockV4a, blockV4thru8, blockV9thru14, blockV15a, blockInt15,
+				blockV16thru21 };
+			QuoteParserTests.SetQuoteSystemToStandardAmericanEnglish();
+
+			var output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input)
+				.Parse().ToList();
+			Assert.AreEqual(input.Count, output.Count);
+			var i = 0;
+			Assert.AreEqual(chapterCharacter, output[i].CharacterId);
+
+			Assert.AreEqual(narrator, output[++i].CharacterIdInScript);
+			Assert.IsFalse(output[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsFalse(output[i].IsPredeterminedQuoteInterruption);
+			Assert.AreEqual(MultiBlockQuote.None, output[i].MultiBlockQuote);
+			Assert.AreEqual(input[i].GetText(true, true), output[i].GetText(true, true));
+
+			Assert.AreEqual("Jesus", output[++i].CharacterIdInScript);
+			Assert.IsTrue(output[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsFalse(output[i].IsPredeterminedFirstLevelQuoteEnd);
+			Assert.IsFalse(output[i].IsPredeterminedQuoteInterruption);
+			Assert.AreEqual(MultiBlockQuote.Start, output[i].MultiBlockQuote);
+			Assert.AreEqual(input[i].GetText(true, true), output[i].GetText(true, true));
+
+			Assert.AreEqual("Jesus", output[++i].CharacterId);
+			Assert.AreEqual(output[i].CharacterId, output[i].CharacterIdInScript);
+			Assert.IsFalse(output[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsFalse(output[i].IsPredeterminedFirstLevelQuoteEnd);
+			Assert.IsFalse(output[i].IsPredeterminedQuoteInterruption);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[i].MultiBlockQuote);
+			Assert.AreEqual(input[i].GetText(true, true), output[i].GetText(true, true));
+
+			Assert.AreEqual("Jesus", output[++i].CharacterId);
+			Assert.AreEqual(output[i].CharacterId, output[i].CharacterIdInScript);
+			Assert.IsFalse(output[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsFalse(output[i].IsPredeterminedFirstLevelQuoteEnd);
+			Assert.IsFalse(output[i].IsPredeterminedQuoteInterruption);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[i].MultiBlockQuote);
+			Assert.AreEqual(input[i].GetText(true, true), output[i].GetText(true, true));
+
+			Assert.AreEqual(narrator, output[++i].CharacterIdInScript);
+			Assert.IsTrue(output[i].IsPredeterminedQuoteInterruption);
+			Assert.IsFalse(output[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual(MultiBlockQuote.None, output[i].MultiBlockQuote);
+			Assert.AreEqual(input[i].GetText(true, true), output[i].GetText(true, true));
+
+			Assert.AreEqual("Jesus", output[++i].CharacterIdInScript);
+			Assert.IsTrue(output[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsTrue(output[i].IsPredeterminedFirstLevelQuoteEnd);
+			Assert.IsFalse(output[i].IsPredeterminedQuoteInterruption);
+			Assert.AreEqual(MultiBlockQuote.None, output[i].MultiBlockQuote);
+			Assert.AreEqual(input[i].GetText(true, true), output[i].GetText(true, true));
+
+			Assert.That(output.Count, Is.EqualTo(++i));
+		}
+
 		[TestCase("God", true, true)]
 		[TestCase("God", false)]
 		[TestCase("Jeremiah", true)]

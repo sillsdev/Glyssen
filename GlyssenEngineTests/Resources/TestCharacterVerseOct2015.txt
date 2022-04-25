@@ -12232,6 +12232,7 @@ MAT	24	12	Jesus			Normal
 MAT	24	13	Jesus			Normal		
 MAT	24	14	Jesus			Normal		
 MAT	24	15	Jesus			Normal		
+MAT	24	15	narrator-MAT			Interruption		
 MAT	24	16	Jesus			Normal		
 MAT	24	17	Jesus			Normal		
 MAT	24	18	Jesus			Normal		
