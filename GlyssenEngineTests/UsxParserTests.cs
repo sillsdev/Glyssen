@@ -1129,7 +1129,7 @@ namespace GlyssenEngineTests
 			Assert.IsFalse(blocks[i].IsParagraphStart);
 			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
 			Assert.AreEqual("“Do not say, ‘I am too young.’ You must go to everyone I send you to and say whatever I command you. " +
-				"{8}\u00A0Do not be afraid of them, for I am with you and will rescue you,”",
+				"{8}\u00A0Do not be afraid of them, for I am with you and will rescue you,” ",
 				blocks[i].GetText(true));
 			VerifyQuoteEnd(blocks[i], qtId1);
 			if (qtId1 == null)
@@ -1142,6 +1142,101 @@ namespace GlyssenEngineTests
 				Assert.IsTrue(quoteIdAnnotation.Start);
 				Assert.That(blocks[i].CharacterId, Is.EqualTo("God"));
 			}
+
+			Assert.AreEqual(8, blocks[++i].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[i].StartsAtVerseStart);
+			Assert.IsFalse(blocks[i].IsParagraphStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteEnd);
+			Assert.AreEqual("p", blocks[i].StyleTag);
+			Assert.AreEqual("declares the Lord.", blocks[i].GetText(true, true));
+			Assert.IsNull(blocks[i].CharacterId);
+
+			Assert.AreEqual(++i, blocks.Count);
+		}
+
+		[TestCase("one", "quotation")]
+		[TestCase("one", "quotation", false)]
+		[TestCase("one")]
+		[TestCase]
+		[TestCase(null, null, false)]
+		public void Parse_NestedQuoteWithExplicitMilestonesUsesLevel1_NeedsReview(
+			string qtId1 = null, string qtId2 = null, bool includeCharacterInEndMilestones = true)
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
+				string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"JER\""),
+					"<para style=\"p\">" +
+					"<verse number=\"7\" style=\"v\" />" +
+					"But the Lord said to me, " +
+					GetQtMilestoneElement("start", "God", qtId1, 1) +
+					"“Do not say, " +
+					GetQtMilestoneElement("start", "Jeremiah", qtId2, 1) +
+					"‘I am too young.’" +
+					GetQtMilestoneElement("end", includeCharacterInEndMilestones ? "Jeremiah" : null, qtId2, 1) +
+					" You must go to everyone I send you to and say whatever I command you. " +
+					"<verse number=\"8\" style=\"v\" />" +
+					"Do not be afraid of them, for I am with you and will rescue you,”" +
+					GetQtMilestoneElement("end", includeCharacterInEndMilestones ? "God" : null, qtId1, 1) +
+					" declares the Lord." +
+					"</para>"));
+			var parser = GetUsxParser(doc, "JER");
+			var blocks = parser.Parse().ToList();
+
+			Assert.That(blocks.All(b => b.MultiBlockQuote == MultiBlockQuote.None));
+
+			int i = 0;
+			Assert.AreEqual(1, blocks[i].ChapterNumber);
+			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
+
+			Assert.AreEqual(7, blocks[++i].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[i].StartsAtVerseStart);
+			Assert.IsTrue(blocks[i].IsParagraphStart);
+			Assert.IsFalse(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("{7}\u00A0But the Lord said to me, ", blocks[i].GetText(true, true));
+			Assert.IsNull(blocks[i].CharacterId);
+
+			Assert.AreEqual(7, blocks[++i].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[i].StartsAtVerseStart);
+			Assert.IsFalse(blocks[i].IsParagraphStart);
+			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("“Do not say, ", blocks[i].GetText(true));
+			if (qtId1 != null)
+			{
+				var quoteIdAnnotation = (QuoteId)blocks[i].BlockElements[0];
+				Assert.AreEqual(qtId1, quoteIdAnnotation.Id);
+				Assert.IsTrue(quoteIdAnnotation.Start);
+			}
+			Assert.That(blocks[i].CharacterId, Is.EqualTo(kNeedsReview));
+			Assert.That(blocks[i].CharacterIdInScript, Is.EqualTo("God"));
+
+			Assert.AreEqual(7, blocks[++i].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[i].StartsAtVerseStart);
+			Assert.IsFalse(blocks[i].IsParagraphStart);
+			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("‘I am too young.’ ",
+				blocks[i].GetText(true));
+			VerifyQuoteEnd(blocks[i], qtId2);
+			if (qtId2 == null)
+				Assert.That(blocks[i].BlockElements.Count, Is.EqualTo(2));
+			else
+			{
+				Assert.That(blocks[i].BlockElements.Count, Is.EqualTo(3));
+				var quoteIdAnnotation = (QuoteId)blocks[i].BlockElements[0];
+				Assert.AreEqual(qtId2, quoteIdAnnotation.Id);
+				Assert.IsTrue(quoteIdAnnotation.Start);
+			}
+			Assert.That(blocks[i].CharacterId, Is.EqualTo(kNeedsReview));
+			Assert.That(blocks[i].CharacterIdInScript, Is.EqualTo("Jeremiah"));
+
+			Assert.AreEqual(7, blocks[++i].InitialStartVerseNumber);
+			Assert.IsFalse(blocks[i].StartsAtVerseStart);
+			Assert.IsFalse(blocks[i].IsParagraphStart);
+			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
+			Assert.AreEqual("You must go to everyone I send you to and say whatever I command you. " +
+				"{8}\u00A0Do not be afraid of them, for I am with you and will rescue you,” ",
+				blocks[i].GetText(true));
+			VerifyQuoteEnd(blocks[i], qtId1);
+			Assert.That(blocks[i].BlockElements.Count, Is.EqualTo(4));
 
 			Assert.AreEqual(8, blocks[++i].InitialStartVerseNumber);
 			Assert.IsFalse(blocks[i].StartsAtVerseStart);
@@ -2446,7 +2541,7 @@ namespace GlyssenEngineTests
 			Assert.IsTrue(blocks[i].IsPredeterminedFirstLevelQuoteStart);
 			Assert.AreEqual(@"de entre ellos tocante a todas sus obras de impiedad.”",
 				blocks[i].GetText(true));
-			Assert.AreEqual("Enoch", blocks[i].CharacterId);
+			Assert.AreEqual(kNeedsReview, blocks[i].CharacterId);
 			Assert.AreEqual("Enoch", blocks[i].CharacterIdInScript);
 		}
 

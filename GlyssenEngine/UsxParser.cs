@@ -108,28 +108,66 @@ namespace GlyssenEngine
 		private int m_currentStartVerse;
 		private int m_currentEndVerse;
 		private ExplicitQuoteInfo m_currentExplicitQuote;
-		private ExplicitQuoteInfo m_currentExplicitInterruption;
+		private ExplicitInterruptionInfo m_currentExplicitInterruption;
 
 		private class ExplicitQuoteInfo
 		{
-			internal Block StartBlock { get; set; }
-			internal string Id { get; }
-			internal string SpecifiedCharacter { get; }
-			internal bool Resolved { get; set; }
-			internal uint Level { get; }
-			internal Block OriginalStartBlock { get; }
+			protected internal Block StartBlock { get; set; }
+			protected internal string Id { get; }
+			protected internal string SpecifiedCharacter { get; }
+			protected internal bool Resolved { get; set; }
+			protected internal virtual uint Level => 1;
+			protected internal ExplicitQuoteInfo PreviouslyOpenQuote { get; }
 
-			internal ExplicitQuoteInfo(Block startBlock, string quoteId, string character, uint level = 1)
+			internal ExplicitQuoteInfo(Block startBlock, string quoteId, string character, ExplicitQuoteInfo previouslyOpenQuote)
 			{
-				OriginalStartBlock = StartBlock = startBlock;
+				StartBlock = startBlock;
+				PreviouslyOpenQuote = previouslyOpenQuote;
 				Id = quoteId;
 				SpecifiedCharacter = character;
 				Resolved = false;
-				Level = level;
+			}
+
+			public string ToString(string bookId)
+			{
+				var sb = new StringBuilder("Level ");
+				sb.Append(Level);
+				sb.Append(" quote ");
+				if (Id != null)
+				{
+					sb.Append("with ID ");
+					sb.Append(Id);
+					sb.Append(" ");
+				}
+				if (SpecifiedCharacter != null)
+				{
+					sb.Append(" and character ");
+					sb.Append(SpecifiedCharacter);
+					sb.Append(" ");
+				}
+
+				sb.Append(" starting in block ");
+				sb.Append(StartBlock.ToString(true, bookId));
+				return sb.ToString();
 			}
 		}
 
-		private static readonly Regex s_regexLeadingNonInitialPunctuationWithAdjacentWhitespace = new Regex(@"^(\p{Pd}|\p{Pe}|\p{Pf}|\p{Po})+\s+", RegexOptions.Compiled);
+		private class ExplicitInterruptionInfo : ExplicitQuoteInfo
+		{
+			protected internal override uint Level { get; }
+			internal string OriginalStyleTag => PreviouslyOpenQuote?.StartBlock?.StyleTag;
+
+			internal ExplicitInterruptionInfo(Block startBlock, string quoteId, string bookId,
+				ExplicitQuoteInfo previouslyOpenQuote, uint level) :
+				base(startBlock, quoteId, CharacterVerseData.GetStandardCharacterId(bookId,
+					CharacterVerseData.StandardCharacter.Narrator), previouslyOpenQuote)
+			{
+				Level = level;
+			}
+
+		}
+
+		private static readonly Regex s_regexLeadingNonInitialPunctuationWithAdjacentWhitespace = new Regex(@"^\s*(\p{Pd}|\p{Pe}|\p{Pf}|\p{Po})*\s+", RegexOptions.Compiled);
 		private static readonly Regex s_regexEndsWithOpeningQuote = new Regex("(\\p{Pi}\\s?)*(\\p{Pi}|\")+$", RegexOptions.Compiled);
 		private const string kOptionalBookRegex = "(-(?<book>[1-3]?[A-Z]{2,3}))?$";
 		private static readonly Regex s_regexInterruptionCharacter = new Regex($"^interruption{kOptionalBookRegex}", RegexOptions.Compiled | RegexOptions.IgnoreCase);
@@ -359,18 +397,26 @@ namespace GlyssenEngine
 						{
 							if (!AddQuoteIdIfNarrator(character, sb, block, id))
 							{
-								if (m_currentExplicitQuote != null &&
-								    (character != null || id != null) &&
-								    m_currentExplicitQuote.SpecifiedCharacter == character &&
-								    m_currentExplicitQuote.Id == id)
+								if (m_currentExplicitQuote != null)
 								{
-									Logger.WriteEvent($"Duplicate milestone node {childNode}.");
+									if ((character != null || id != null) &&
+									    m_currentExplicitQuote.SpecifiedCharacter == character &&
+									    m_currentExplicitQuote.Id == id)
+									{
+										Logger.WriteEvent($"Duplicate milestone node {childNode}.");
+									}
+									else
+									{
+										Logger.WriteEvent("Found level-1 milestone node " +
+											$"{childNode} without closing previous milestone " +
+											$"{m_currentExplicitQuote.ToString(m_bookId)}.");
+									}
 									block.CharacterId = CharacterVerseData.kNeedsReview;
 									block.CharacterIdInScript = m_currentExplicitQuote.SpecifiedCharacter;
 								}
 
 								FinalizeCharacterStyleBlockWithoutTrailingOpener(sb, ref block, blocks, styleTag);
-								m_currentExplicitQuote = new ExplicitQuoteInfo(block, id, character);
+								m_currentExplicitQuote = new ExplicitQuoteInfo(block, id, character, m_currentExplicitQuote);
 							}
 						}
 					}
@@ -412,7 +458,8 @@ namespace GlyssenEngine
 
 						if (block != m_currentExplicitQuote.StartBlock && m_currentExplicitQuote.StartBlock != null)
 							m_currentExplicitQuote.StartBlock.MultiBlockQuote = MultiBlockQuote.Start;
-						FinalizeCharacterStyleBlock(sb, ref block, blocks, paraStyleTag);
+						FinalizeCharacterStyleBlock(sb, ref block, blocks,
+							m_currentExplicitQuote.PreviouslyOpenQuote?.StartBlock.StyleTag ?? paraStyleTag);
 						if (block == m_currentExplicitQuote.StartBlock)
 						{
 							// The block where we were planning to write the rest of the quote
@@ -421,7 +468,23 @@ namespace GlyssenEngine
 							// just reused it for the next thing that we're about to parse.
 							block.CharacterId = block.CharacterIdOverrideForScript = block.Delivery = null;
 						}
-						m_currentExplicitQuote = null;
+						else if (m_currentExplicitQuote.PreviouslyOpenQuote != null)
+						{
+							for (int i = blocks.Count - 1; i >= 0; i--)
+							{
+								blocks[i].CharacterId = CharacterVerseData.kNeedsReview;
+								blocks[i].CharacterIdInScript = m_currentExplicitQuote.SpecifiedCharacter;
+								if (blocks[i] == m_currentExplicitQuote.StartBlock)
+									break;
+							}
+
+						}
+
+						// Except in the case of bad data, this will always be null.
+						m_currentExplicitQuote = m_currentExplicitQuote.PreviouslyOpenQuote;
+						if (m_currentExplicitQuote != null)
+							m_currentExplicitQuote.StartBlock = null;
+						
 						blocks.Last().BlockElements.Add(new QuoteId { Id = quoteId, Start = false });
 					}
 
@@ -563,43 +626,30 @@ namespace GlyssenEngine
 				{
 					m_currentExplicitQuote.StartBlock.MultiBlockQuote = MultiBlockQuote.Start;
 				}
-
-				m_currentExplicitQuote.StartBlock = null;
 			}
 
-			var character = CharacterVerseData.GetStandardCharacterId(m_bookId,
-				CharacterVerseData.StandardCharacter.Narrator);
-			m_currentExplicitInterruption = new ExplicitQuoteInfo(block, sid, character, level);
-			block.SetNonDramaticCharacterId(character);
+			m_currentExplicitInterruption = new ExplicitInterruptionInfo(block, sid, m_bookId, m_currentExplicitQuote, level);
+			m_currentExplicitQuote = null;
+			block.SetNonDramaticCharacterId(m_currentExplicitInterruption.SpecifiedCharacter);
 			m_currentExplicitInterruption.Resolved = true;
 		}
 
 		private void ProcessInterruptionEnd(StringBuilder sb, string eid, ref Block block,
 			IList<Block> blocks, string paraStyleTag, uint level, XmlNode nextSibling)
 		{
-			if (m_currentExplicitQuote != null && level == 1)
-			{
-				// Interruption was not closed explicitly (or incorrectly claimed
-				// to be level 1), but this is the end of the explicit quote. (In
-				// other words, it was really a "trailing interruption" and it
-				// probably might have made more sense to end the quote earlier. If
-				// there's a closing quote included with the interruption text, we
-				// just want to keep it that way because we don't want to end up
-				// with a quote block that is nothing but punctuation.)
-				m_currentExplicitQuote = null;
-			}
+			FinalizeCharacterStyleBlock(sb, ref block, blocks, level > 1 ?
+				(m_currentExplicitInterruption.OriginalStyleTag ?? paraStyleTag) : paraStyleTag);
 
-			FinalizeCharacterStyleBlock(sb, ref block, blocks,
-				m_currentExplicitQuote?.OriginalStartBlock.StyleTag ?? paraStyleTag);
-			m_currentExplicitInterruption = null;
-
+			m_currentExplicitQuote = level > 1 ?
+				m_currentExplicitInterruption.PreviouslyOpenQuote : null;
 			if (m_currentExplicitQuote != null)
 			{
+				block.CharacterId = m_currentExplicitQuote.StartBlock.CharacterId;
+				block.Delivery = m_currentExplicitQuote.StartBlock.Delivery;
+				block.CharacterIdInScript = m_currentExplicitQuote.StartBlock.CharacterIdInScript;
 				m_currentExplicitQuote.StartBlock = block;
-				block.CharacterId = m_currentExplicitQuote.OriginalStartBlock.CharacterId;
-				block.Delivery = m_currentExplicitQuote.OriginalStartBlock.Delivery;
-				block.CharacterIdInScript = m_currentExplicitQuote.OriginalStartBlock.CharacterIdInScript;
 			}
+			m_currentExplicitInterruption = null;
 
 			if (eid != null)
 				blocks.Last().BlockElements.Add(new QuoteId { Id = eid, Start = false, IsNarrator = level > 1});
