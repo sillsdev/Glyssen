@@ -20490,9 +20490,13 @@ JAS	5	17	Elijah	praying		Indirect
 2JN	1	11	anyone			Hypothetical		
 JUD	1	8	dreamers			Indirect		
 JUD	1	9	Michael, archangel			Quotation		
+JUD	1	9	narrator-JUD			Quotation		
 JUD	1	14	Enoch			Quotation		
+JUD	1	14	narrator-JUD			Quotation		
 JUD	1	15	Enoch			Quotation		
+JUD	1	15	narrator-JUD			Quotation		
 JUD	1	18	disciples		apostles	Quotation		
+JUD	1	18	narrator-JUD			Quotation		
 REV	1	7	narrator-REV			Quotation		
 REV	1	8	God		God (the Lord)	Alternate		
 REV	1	8	Jesus		Jesus (the Lord)	Normal		
