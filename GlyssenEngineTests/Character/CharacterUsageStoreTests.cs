@@ -303,7 +303,7 @@ namespace GlyssenEngineTests.Character
 			Assert.IsNull(defaultCharacter);
 		}
 
-		[TestCase("JUD", 1, "14-15", "Anocho")]
+		[TestCase("JUD", 1, "14-15", "Anacho")]
 		[TestCase("MAT", 2, "1", "buggaboo snerfwiddle")]
 		public void GetStandardCharacterName_UnknownCharacter_ReturnsNull(string bookCode,
 			int chapterNum, string verse, string character)

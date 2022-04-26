@@ -135,7 +135,7 @@ namespace GlyssenEngine.Character
 
 			// The following "magic numbers" are based on some trial and error with existing unit
 			// test cases (as of 4/26/2022).
-			const int minMarginOverSecondPlace = 44; // tests pass if this is [44 - 47]
+			const int minMarginOverSecondPlace = 30; // tests pass if this is [30-37]
 			const int minScoreToCountAsMatchWhenThereIsOnlyOneKnownCharacter = 74; // [74 - 80]
 
 			var testCharacter = character;
