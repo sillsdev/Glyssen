@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
-using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -25,6 +24,7 @@ using SIL.Extensions;
 using SIL.Reporting;
 using SIL.Scripture;
 using SIL.Windows.Forms.Extensions;
+using static System.Globalization.CultureInfo;
 using static System.String;
 using Analytics = DesktopAnalytics.Analytics;
 using AssignCharacterViewModel = GlyssenEngine.ViewModels.AssignCharacterViewModel<System.Drawing.Font>;
@@ -225,16 +225,15 @@ namespace Glyssen.Dialogs
 
 		private void OnSetBlockCharacter(AssignCharacterViewModel sender, Block block, ICharacter character)
 		{
-			// If the user assigns a non-narrator character to a block we marked as narrator, we want to track it
-			// Most likely, the last check (block.UserConfirmed) is redundant and unnecessary, because we would
-			// presumably never automatically set a block this way, but just to be sure...
-			if (character != null && !character.IsNarrator && !block.IsQuote && block.UserConfirmed)
+			// If the user assigns a non-narrator character to a block we marked as narrator, we
+			// want to track it.
+			if (character != null && !character.IsNarrator && !block.IsQuote)
 				Analytics.Track("NarratorToQuote", new Dictionary<string, string>
 				{
 					{ "book", sender.CurrentBookId },
-					{ "chapter", block.ChapterNumber.ToString(CultureInfo.InvariantCulture) },
-					{ "initialStartVerse", block.InitialStartVerseNumber.ToString(CultureInfo.InvariantCulture) },
-					{ "lastVerse", block.LastVerseNum.ToString(CultureInfo.InvariantCulture) },
+					{ "chapter", block.ChapterNumber.ToString(InvariantCulture) },
+					{ "initialStartVerse", block.InitialStartVerseNumber.ToString(InvariantCulture) },
+					{ "lastVerse", block.LastVerseNum.ToString(InvariantCulture) },
 					{ "character", character.CharacterId }
 				});
 		}
@@ -929,7 +928,7 @@ namespace Glyssen.Dialogs
 				return;
 
 			int selectedIndexOneBased;
-			Int32.TryParse(e.KeyChar.ToString(CultureInfo.InvariantCulture), out selectedIndexOneBased);
+			Int32.TryParse(e.KeyChar.ToString(InvariantCulture), out selectedIndexOneBased);
 			if (selectedIndexOneBased < 1 || selectedIndexOneBased > 5)
 			{
 				// Might be trying to select character by the first letter (e.g. s for Saul)
@@ -947,7 +946,7 @@ namespace Glyssen.Dialogs
 			if (Char.IsLetter(e.KeyChar))
 			{
 				var charactersStartingWithSelectedLetter =
-					CurrentContextCharacters.Where(c => c.ToString().StartsWith(e.KeyChar.ToString(CultureInfo.InvariantCulture), true, CultureInfo.InvariantCulture));
+					CurrentContextCharacters.Where(c => c.ToString().StartsWith(e.KeyChar.ToString(InvariantCulture), true, InvariantCulture));
 				if (charactersStartingWithSelectedLetter.Count() == 1)
 					m_listBoxCharacters.SelectedItem = charactersStartingWithSelectedLetter.Single();
 				else
