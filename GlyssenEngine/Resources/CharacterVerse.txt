@@ -12422,7 +12422,7 @@ LAM	4	15	men			Quotation
 LAM	4	15	nations		people among the nations	Quotation		
 LAM	4	20	narrator-LAM			Quotation		
 EZK	2	1	God		God (voice of one speaking, in vision)	Normal		
-EZK	2	3	God		God (voice of one speaking (in vision)	Normal		
+EZK	2	3	God		God (voice of one speaking, in vision)	Normal		
 EZK	2	4	God		God (voice of one speaking, in vision)	Implicit		
 EZK	2	5	God		God (voice of one speaking, in vision)	Implicit		
 EZK	2	6	God		God (voice of one speaking, in vision)	Implicit		
