@@ -716,7 +716,7 @@ GEN	42	25	Joseph			Indirect
 #Otherwise only one of them appears in the UI. It is okay to use the same speaker for both lines (as it is in the FCBH Director's Guide),
 #but having two distinct entries like allows for better dramatic effect (if Nitro/Vessel support it).
 GEN	42	28	Dan/Reuben/Levi/Judah/Issachar/Zebulun/Naphtali/Gad/Asher	surprised	brother who discovered his silver in his sack	Normal	Dan	
-GEN	42	28	Levi/Reuben/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher	trembling	Jospeh's brothers (not Simeon or Benjamin)	Normal	Levi	
+GEN	42	28	Levi/Reuben/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher	trembling	Joseph's brothers (not Simeon or Benjamin)	Normal	Levi	
 GEN	42	30	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jacob's sons (not Simeon, Joseph, or Benjamin)	Normal	Dan	
 GEN	42	31	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jacob's sons (not Simeon, Joseph, or Benjamin)	Normal	Dan	
 GEN	42	32	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jacob's sons (not Simeon, Joseph, or Benjamin)	Normal	Dan	
@@ -739,15 +739,15 @@ GEN	43	12	Jacob (Israel)			Normal
 GEN	43	13	Jacob (Israel)			Normal		
 GEN	43	14	Jacob (Israel)			Normal		
 GEN	43	16	Joseph			Normal		
-GEN	43	18	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher	thought	Jospeh's brothers (not Simeon or Benjamin)	Normal	Dan	
-GEN	43	19	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers (not Simeon or Benjamin)	Potential	Dan	
-GEN	43	20	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers (not Simeon or Benjamin)	Normal	Dan	
-GEN	43	21	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers (not Simeon or Benjamin)	Normal	Dan	
-GEN	43	22	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers (not Simeon or Benjamin)	Normal	Dan	
+GEN	43	18	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher	thought	Joseph's brothers (not Simeon or Benjamin)	Normal	Dan	
+GEN	43	19	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers (not Simeon or Benjamin)	Potential	Dan	
+GEN	43	20	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers (not Simeon or Benjamin)	Normal	Dan	
+GEN	43	21	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers (not Simeon or Benjamin)	Normal	Dan	
+GEN	43	22	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers (not Simeon or Benjamin)	Normal	Dan	
 GEN	43	23	steward of Joseph's house			Normal		
 GEN	43	25	steward of Joseph's house			Indirect		
 GEN	43	27	Joseph			Normal		
-GEN	43	28	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher/Benjamin		Jospeh's brothers (not Simeon)	Normal	Dan	
+GEN	43	28	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher/Benjamin		Joseph's brothers (not Simeon)	Normal	Dan	
 GEN	43	29	Joseph			Normal		
 GEN	43	31	Joseph			Normal		
 GEN	44	1	Joseph			Normal		
@@ -758,9 +758,9 @@ GEN	44	6	steward of Joseph's house			Indirect
 #In theory, v. 7 and/or 9 could have been spoken by Benjamin (though very unlikely as the youngest) or by Simeon. But since 7-9 is
 #likely to be a single quotation and v. 8 could not have been spoken by Simeon or Benjamin, we'll omit them from the list of possibilities
 # for all three verses.
-GEN	44	7	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers	Normal	Dan	
-GEN	44	8	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers	Normal	Dan	
-GEN	44	9	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers	Normal	Dan	
+GEN	44	7	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers	Normal	Dan	
+GEN	44	8	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers	Normal	Dan	
+GEN	44	9	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers	Normal	Dan	
 GEN	44	10	steward of Joseph's house			Normal		
 GEN	44	15	Joseph			Normal		
 GEN	44	16	Judah			Normal		
@@ -12422,7 +12422,7 @@ LAM	4	15	men			Quotation
 LAM	4	15	nations		people among the nations	Quotation		
 LAM	4	20	narrator-LAM			Quotation		
 EZK	2	1	God		God (voice of one speaking, in vision)	Normal		
-EZK	2	3	God		God (voice of one speaking (in vision)	Normal		
+EZK	2	3	God		God (voice of one speaking, in vision)	Normal		
 EZK	2	4	God		God (voice of one speaking, in vision)	Implicit		
 EZK	2	5	God		God (voice of one speaking, in vision)	Implicit		
 EZK	2	6	God		God (voice of one speaking, in vision)	Implicit		
