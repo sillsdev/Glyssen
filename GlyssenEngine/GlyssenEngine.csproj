@@ -79,7 +79,7 @@ See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="ParatextData" Version="9.1.9-beta" />
     <PackageReference Include="SIL.Core" Version="8.0.0" />
     <PackageReference Include="SIL.DblBundle" Version="8.0.0" />
