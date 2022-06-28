@@ -133,7 +133,6 @@ namespace Glyssen.Dialogs
 			m_scriptureReference.VerseControl.ShowEmptyBooks = false;
 
 			m_scriptureReference.VerseControl.AllowVerseSegments = false;
-			m_scriptureReference.VerseControl.Versification = m_viewModel.Versification;
 			m_scriptureReference.VerseControl.VerseRefChanged += m_scriptureReference_VerseRefChanged;
 			m_scriptureReference.VerseControl.Disposed += (sender, args) =>
 					m_scriptureReference.VerseControl.VerseRefChanged -= m_scriptureReference_VerseRefChanged;
@@ -367,9 +366,7 @@ namespace Glyssen.Dialogs
 		private void UpdateDisplay()
 		{
 			var blockRef = m_viewModel.GetBlockVerseRef();
-			int versesInSelection = m_viewModel.GetLastVerseInCurrentQuote() - blockRef.VerseNum;
-			var displayedRefMinusBlockStartRef = m_scriptureReference.VerseControl.VerseRef.BBBCCCVVV - blockRef.BBBCCCVVV;
-			if (displayedRefMinusBlockStartRef < 0 || displayedRefMinusBlockStartRef > versesInSelection)
+			if (m_viewModel.IsReferenceOutsideCurrentScope(m_scriptureReference.VerseControl.VerseRef))
 				m_scriptureReference.VerseControl.VerseRef = m_viewModel.GetBlockVerseRef();
 			m_labelXofY.Visible = m_viewModel.IsCurrentLocationRelevant;
 			UpdateNavigationIndexLabel();

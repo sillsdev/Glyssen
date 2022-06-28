@@ -104,9 +104,9 @@ namespace DevTools.TermTranslator
 
 			XLiffDocument newXlf = XLiffDocument.Read(xlfFileName);
 
-			var deprecatedCharacterIds = newXlf.File.Body.TransUnits
+			var deprecatedCharacterIds = newXlf.File.Body.TransUnitsUnordered
 				.Where(tu => tu.Dynamic && tu.Id.StartsWith(kCharacterNamePrefix))
-				.Select(tu => tu.Id).ToHashSet();
+				.ToDictionary(tu => tu.Id, tu => tu);
 
 			foreach (string name in s_names)
 			{
@@ -114,19 +114,12 @@ namespace DevTools.TermTranslator
 				newXlf.AddTransUnit(GetNewTransUnit(name));
 			}
 
-			foreach (var id in deprecatedCharacterIds)
-			{
-				var removed = newXlf.File.Body.TransUnits.RemoveAll(tu => tu.Id == id);
-				if (removed != 1)
-				{
-					throw new Exception("Sanity check failed - programming error! " +
-						$"Expected to remove a single deprecated instance of {id} from the English localizations, but removed {removed}.");
-				}
-			}
+			foreach (var tu in deprecatedCharacterIds.Values)
+				newXlf.File.Body.RemoveTransUnit(tu);
 
 			Save(newXlf, new TransUnitComparer(true), xlfFileName);
 
-			return newXlf.File.Body.TransUnits;
+			return newXlf.File.Body.TransUnitsUnordered.ToList();
 		}
 
 		private static void ProcessLanguage(BiblicalTermsLocalizationsSet localTermsList)
@@ -169,15 +162,18 @@ namespace DevTools.TermTranslator
 
 		private static void Save(XLiffDocument doc, IComparer<XLiffTransUnit> comparer, string xlfFileName)
 		{
-			doc.File.Body.TransUnits.Sort(comparer);
+			doc.File.Body.TransUnitsUnordered.ToList().Sort(comparer);
 			doc.Save(xlfFileName);
 		}
 
 		private static void RemoveUntranslatedAndDeletedEntries(XLiffDocument newXlf)
 		{
-			newXlf.File.Body.TransUnits.RemoveAll(tu =>
-				tu.Target.TargetState == XLiffTransUnitVariant.TranslationState.NeedsTranslation ||
-				tu.Dynamic && !s_englishTranslationUnits.Any(ent => ent.Id == tu.Id));
+			foreach (var tu in newXlf.File.Body.TransUnitsUnordered.Where(tu =>
+		        tu.Target.TargetState == XLiffTransUnitVariant.TranslationState.NeedsTranslation ||
+		        tu.Dynamic && !s_englishTranslationUnits.Any(ent => ent.Id == tu.Id)).ToList())
+			{
+				newXlf.File.Body.RemoveTransUnit(tu);
+			}
 		}
 
 		private static void AddLocalizedTerm(XLiffDocument newXlf, BiblicalTermsLocalizationsSet localTerms,

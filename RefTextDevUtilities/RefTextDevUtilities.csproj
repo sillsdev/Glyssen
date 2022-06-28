@@ -139,13 +139,13 @@
       <Version>9.1.9-beta</Version>
     </PackageReference>
     <PackageReference Include="SIL.Core">
-      <Version>8.0.0</Version>
+      <Version>10.0.0-beta0023</Version>
     </PackageReference>
     <PackageReference Include="SIL.Scripture">
-      <Version>8.0.0</Version>
+      <Version>10.0.0-beta0023</Version>
     </PackageReference>
     <PackageReference Include="SIL.WritingSystems">
-      <Version>8.0.0</Version>
+      <Version>10.0.0-beta0023</Version>
     </PackageReference>
     <PackageReference Include="System.Configuration.ConfigurationManager">
       <Version>5.0.0</Version>
