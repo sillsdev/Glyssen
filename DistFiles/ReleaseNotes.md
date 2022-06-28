@@ -22,9 +22,7 @@ might find it beneficial to do it yourself or at least get involved in that.) If
 working with IMS, FCBH, or another partner, you will want to discuss the overall project
 plan with them before starting to use Glyssen. That will help you avoid unnecessary work.
 
-If you have problems, suggestions or positive comments that might help the developers
-secure needed funds to continue the development of Glyssen, please email:
-glyssen-support_lsdev@sil.org
+If you have a question, suggestion, or encouragement for us or our backers, please visit our [web forum](https://community.scripture.software.sil.org/c/glyssen). If you have a bug report, you can get that into our "to do" list directly by emailing <glyssen-support_lsdev@sil.org>.
 
 # What to Back Up
 Glyssen stores all its project files in the Program Data folder, under the

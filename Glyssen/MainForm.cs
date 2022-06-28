@@ -34,6 +34,7 @@ using Ionic.Zip;
 using NetSparkle;
 using Paratext.Data;
 using SIL.Scripture;
+using SIL.Windows.Forms.Extensions;
 using SIL.Windows.Forms.ReleaseNotes;
 using SIL.Windows.Forms.WritingSystems;
 using static System.String;
@@ -73,6 +74,7 @@ namespace Glyssen
 
 			m_toolStrip.Renderer = new NoBorderToolStripRenderer();
 
+			SetupUiLanguageMenu();
 			HandleStringsLocalized();
 			Program.RegisterLocalizable(this);
 
@@ -248,7 +250,8 @@ namespace Glyssen
 			UpdateLocalizedText();
 			m_project?.ProjectCharacterVerseData.HandleStringsLocalized();
 			ControlCharacterVerseData.Singleton.HandleStringsLocalized();
-			SetupUiLanguageMenu();
+
+			m_uiLanguageMenu.ToolTipText = LocalizationManager.GetString("MainForm.UILanguage", "User-interface Language");
 		}
 
 		private void RememberButtonFormats()
@@ -978,39 +981,31 @@ namespace Glyssen
 
 		private void SetupUiLanguageMenu()
 		{
-			m_uiLanguageMenu.DropDownItems.Clear();
-			foreach (var lang in LocalizationManager.GetUILanguages(true))
+			bool LanguageSelected(string languageId)
 			{
-				var item = m_uiLanguageMenu.DropDownItems.Add(lang.NativeName);
-				item.Tag = lang;
-				string languageId = ((L10NCultureInfo)item.Tag).IetfLanguageTag;
-				item.Click += ((a, b) =>
-				{
-					Analytics.Track("SetUiLanguage", new Dictionary<string, string> {{"uiLanguage", languageId}, {"reapplyLocalizations", "true"}});
-					Logger.WriteEvent($"UI language changed to {languageId}.");
-
-					LocalizationManager.SetUILanguage(languageId, true);
-					Settings.Default.UserInterfaceLanguage = languageId;
-					item.Select();
-					m_uiLanguageMenu.Text = ((L10NCultureInfo)item.Tag).NativeName;
-				});
-				// Typically, the default UI language will be the same as the one returned by the LM,
-				// but if the user chose a generic locale in a previous version of Glyssen and that has
-				// be replaced by a country-specific locale, there won't be a match on the generic ID.
-				if (languageId == Settings.Default.UserInterfaceLanguage || languageId == LocalizationManager.UILanguageId)
-				{
-					m_uiLanguageMenu.Text = ((L10NCultureInfo)item.Tag).NativeName;
-				}
+				Analytics.Track("SetUiLanguage",
+					new Dictionary<string, string>
+					{
+						{ "uiLanguage", languageId },
+						{ "previous", Settings.Default.UserInterfaceLanguage },
+						{"reapplyLocalizations", "true"}
+					});
+				Logger.WriteEvent("UI language changed from " +
+					$"{Settings.Default.UserInterfaceLanguage} to {languageId}");
+				Settings.Default.UserInterfaceLanguage = languageId;
+				Program.UpdateUiLanguageForUser(languageId);
+				return true;
 			}
 
-			m_uiLanguageMenu.DropDownItems.Add(new ToolStripSeparator());
-			var menu = m_uiLanguageMenu.DropDownItems.Add(LocalizationManager.GetString("MainForm.MoreMenuItem",
-				"More...", "Last item in menu of UI languages"));
-			menu.Click += ((a, b) =>
+			bool MoreSelected()
 			{
-				Program.PrimaryLocalizationManager.ShowLocalizationDialogBox(false);
-			});
-			m_uiLanguageMenu.ToolTipText = LocalizationManager.GetString("MainForm.UILanguage", "User-interface Language");
+				Analytics.Track("Opened localization dialog box");
+				return true;
+			}
+
+			m_uiLanguageMenu.InitializeWithAvailableUILocales(LanguageSelected,
+				Program.PrimaryLocalizationManager, Program.LocIncompleteViewModel,
+				MoreSelected);
 		}
 
 		private void Assign_Click(object sender, EventArgs e)
