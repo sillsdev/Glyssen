@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Casting;
 using GlyssenEngine.Character;
@@ -18,7 +18,7 @@ namespace GlyssenEngine.Rules
 		private readonly Project m_project;
 		private readonly CastSizeRowValues m_ghostCastSize;
 		private readonly Proximity m_proximity;
-		private readonly BackgroundWorker m_worker;
+		private CancellationToken m_cancellationToken;
 
 		private static readonly SortedDictionary<int, IList<HashSet<string>>> s_deityCharacters;
 
@@ -45,12 +45,11 @@ namespace GlyssenEngine.Rules
 			s_deityCharacters.Add(17, new List<HashSet<string>> { jesusSet, new HashSet<string> { "God" }, holySpiritSet, new HashSet<string> { CharacterVerse.kScriptureCharacter } });
 		}
 
-		public CharacterGroupGenerator(Project project, CastSizeRowValues ghostCastSize = null, BackgroundWorker worker = null)
+		public CharacterGroupGenerator(Project project, CastSizeRowValues ghostCastSize = null)
 		{
 			m_project = project;
 			m_ghostCastSize = ghostCastSize;
 			m_proximity = new Proximity(project);
-			m_worker = worker ?? new BackgroundWorker();
 		}
 
 		public List<CharacterGroup> GeneratedGroups { get; private set; }
@@ -105,6 +104,13 @@ namespace GlyssenEngine.Rules
 
 		public List<CharacterGroup> GenerateCharacterGroups(bool enforceProximityAndGenderConstraints = false)
 		{
+			return GenerateCharacterGroups(new CancellationToken(false), enforceProximityAndGenderConstraints);
+		}
+
+		public List<CharacterGroup> GenerateCharacterGroups(CancellationToken cancellationToken, bool enforceProximityAndGenderConstraints = false)
+		{
+			m_cancellationToken = cancellationToken;
+
 			m_project.SetDefaultCharacterGroupGenerationPreferences();
 
 			List<VoiceActor> actorsForGeneration;
@@ -119,7 +125,7 @@ namespace GlyssenEngine.Rules
 			}
 			List<CharacterGroup> characterGroups = CreateGroupsForActors(actorsForGeneration);
 
-			if (m_worker.CancellationPending)
+			if (m_cancellationToken.IsCancellationRequested)
 			{
 				EnsureActorListIsSetToRealActors(realActorsToReset);
 				return GeneratedGroups = null;
@@ -133,7 +139,7 @@ namespace GlyssenEngine.Rules
 
 			List<VoiceActor> nonCameoActors = actorsForGeneration.Where(a => !a.IsCameo).ToList();
 
-			if (m_worker.CancellationPending)
+			if (m_cancellationToken.IsCancellationRequested)
 			{
 				EnsureActorListIsSetToRealActors(realActorsToReset);
 				return GeneratedGroups = null;
@@ -151,7 +157,7 @@ namespace GlyssenEngine.Rules
 			IReadOnlyDictionary<string, CharacterDetail> characterDetails = m_project.AllCharacterDetailDictionary;
 			var includedCharacterDetails = characterDetails.Values.Where(c => characterIdsOrderedToMinimizeProximityConflicts.Select(e => e.Key).Contains(c.CharacterId)).ToList();
 
-			if (m_worker.CancellationPending)
+			if (m_cancellationToken.IsCancellationRequested)
 			{
 				EnsureActorListIsSetToRealActors(realActorsToReset);
 				return GeneratedGroups = null;
@@ -194,7 +200,7 @@ namespace GlyssenEngine.Rules
 				}
 			}
 
-			if (m_worker.CancellationPending)
+			if (m_cancellationToken.IsCancellationRequested)
 			{
 				EnsureActorListIsSetToRealActors(realActorsToReset);
 				return GeneratedGroups = null;
@@ -227,7 +233,7 @@ namespace GlyssenEngine.Rules
 					Debug.WriteLine("===========================================================");
 				}
 
-				if (m_worker.CancellationPending)
+				if (m_cancellationToken.IsCancellationRequested)
 				{
 					EnsureActorListIsSetToRealActors(realActorsToReset);
 					return GeneratedGroups = null;
@@ -250,7 +256,7 @@ namespace GlyssenEngine.Rules
 				{
 					foreach (var configuration in trialConfigurationsForNarratorsAndExtras)
 					{
-						if (m_worker.CancellationPending)
+						if (m_cancellationToken.IsCancellationRequested)
 						{
 							EnsureActorListIsSetToRealActors(realActorsToReset);
 							return GeneratedGroups = null;
@@ -360,7 +366,7 @@ namespace GlyssenEngine.Rules
 		{
 			List<CharacterGroup> groups = configuration.Groups;
 
-			if (m_worker.CancellationPending)
+			if (m_cancellationToken.IsCancellationRequested)
 			{
 				EnsureActorListIsSetToRealActors(realActorsToReset);
 				return GeneratedGroups = null;

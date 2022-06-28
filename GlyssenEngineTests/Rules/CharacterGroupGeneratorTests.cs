@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Casting;
@@ -1477,7 +1478,7 @@ namespace GlyssenEngineTests.Rules
 		}
 
 		[Test]
-		public void GenerateCharacterGroups_IsCancelable()
+		public async Task GenerateCharacterGroups_Cancel_GenerationCancelsLeavingOriginalGroups()
 		{
 			SetVoiceActors(10);
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
@@ -1485,22 +1486,10 @@ namespace GlyssenEngineTests.Rules
 			group.AssignVoiceActor(m_testProject.VoiceActorList.AllActors[0].Id);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(group);
 
-			BackgroundWorker worker = new BackgroundWorker {WorkerSupportsCancellation = true};
-			CharacterGroupGenerator generator = new CharacterGroupGenerator(m_testProject, null, worker);
-			worker.DoWork += (sender, args) =>
-			{
-				generator.GenerateCharacterGroups();
-			};
-
-			var start = DateTime.Now;
-			worker.RunWorkerAsync();
-			worker.CancelAsync();
-
-			while (worker.IsBusy)
-			{
-				Assert.IsTrue(DateTime.Now.Subtract(start).Seconds < 6, "Failed to cancel within timeout (6 seconds)");
-				Thread.Sleep(100);
-			}
+			CharacterGroupGenerator generator = new CharacterGroupGenerator(m_testProject);
+			var source = new CancellationTokenSource();
+			source.CancelAfter(TimeSpan.FromMilliseconds(200));
+			await Task.Run(() => { generator.GenerateCharacterGroups(source.Token); }, source.Token);
 
 			Assert.Null(generator.GeneratedGroups);
 			Assert.AreEqual(1, m_testProject.CharacterGroupList.CharacterGroups.Count);

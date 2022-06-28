@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
@@ -26,7 +25,6 @@ using L10NSharp;
 using L10NSharp.UI;
 using SIL.DblBundle;
 using SIL.IO;
-using SIL.Progress;
 using SIL.Reporting;
 using SIL.Windows.Forms;
 using SIL.Windows.Forms.Miscellaneous;
@@ -184,6 +182,14 @@ namespace Glyssen
 		}
 
 		private void FinishSetProjectIfReady(object sender, EventArgs e)
+		{
+			if (InvokeRequired)
+				Invoke(new Action(FinishSetProjectIfReady));
+			else
+				FinishSetProjectIfReady();
+		}
+
+		private void FinishSetProjectIfReady()
 		{
 			if (m_project != null && (m_project.ProjectState & ProjectState.ReadyForUserInteraction) > 0)
 				FinishSetProject();
@@ -890,11 +896,9 @@ namespace Glyssen
 			var adjuster = new CharacterGroupsAdjuster(m_project);
 			if (adjuster.GroupsAreNotInSynchWithData)
 			{
-				using (var progressDialog = new GenerateGroupsProgressDialog(m_project, OnGenerateGroupsWorkerDoWork, false, true))
+				var generator = new CharacterGroupGenerator(m_project, ProjectCastSizePlanningViewModel.SelectedCastSize);
+				using (var progressDialog = new GenerateGroupsProgressDialog(m_project, generator, false, true))
 				{
-					var generator = new CharacterGroupGenerator(m_project, ProjectCastSizePlanningViewModel.SelectedCastSize, progressDialog.BackgroundWorker);
-					progressDialog.ProgressState.Arguments = generator;
-
 					if (progressDialog.ShowDialog() == DialogResult.OK && generator.GeneratedGroups != null)
 					{
 						var assignedBefore = m_project.CharacterGroupList.CountVoiceActorsAssigned();
@@ -922,12 +926,6 @@ namespace Glyssen
 			// But this must be called only AFTER EnsureGroupsAreInSynchWithCharactersInUse has been run.
 			if (m_project.CharacterGroupList.CharacterGroups.Any(g => g.GroupIdLabel == CharacterGroup.Label.None))
 				CharacterGroupList.AssignGroupIds(m_project.CharacterGroupList.CharacterGroups);
-		}
-
-		private void OnGenerateGroupsWorkerDoWork(object s, DoWorkEventArgs e)
-		{
-			var generator = (CharacterGroupGenerator)((ProgressState)e.Argument).Arguments;
-			generator.GenerateCharacterGroups();
 		}
 
 		private bool IsOkToExport(ProjectExporter exporter)
