@@ -27,6 +27,7 @@ using SIL.Extensions;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Windows.Forms.i18n;
+using SIL.Windows.Forms.LocalizationIncompleteDlg;
 using SIL.Windows.Forms.Reporting;
 using SIL.WritingSystems;
 using static System.Char;
@@ -49,6 +50,7 @@ namespace Glyssen
 		public static IEnumerable<ErrorMessageInfo> CompatibleParatextProjectLoadErrors => ScrTextCollection.ErrorMessages.Where(e => e.ProjecType != ProjectType.Resource && !e.ProjecType.IsNoteType());
 		private static readonly List<Exception> _pendingExceptionsToReportToAnalytics = new List<Exception>();
 		private static readonly HashSet<ILocalizable> s_registeredLocalizableObjects = new HashSet<ILocalizable>();
+		private static UserInfo s_userInfo;
 
 		/// <summary>
 		/// The main entry point for the application.
@@ -83,7 +85,7 @@ namespace Glyssen
 
 			SetUpErrorHandling();
 
-			UserInfo userInfo = new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage };
+			s_userInfo = new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage };
 			bool sldrIsInitialized = false;
 
 			Logger.Init();
@@ -102,7 +104,7 @@ namespace Glyssen
 					sldrIsInitialized = true;
 					userName = RegistrationInfo.UserName;
 					Logger.WriteEvent($"Paratext user name: {userName}");
-					userInfo.Email = RegistrationInfo.EmailAddress;
+					s_userInfo.Email = RegistrationInfo.EmailAddress;
 					foreach (var errMsgInfo in CompatibleParatextProjectLoadErrors.Where(e => e.Reason == UnsupportedReason.Unspecified))
 					{
 						_pendingExceptionsToReportToAnalytics.Add(errMsgInfo.Exception);
@@ -122,12 +124,12 @@ namespace Glyssen
 					var split = userName.LastIndexOf(" ", StringComparison.Ordinal);
 					if (split > 0)
 					{
-						userInfo.FirstName = userName.Substring(0, split);
-						userInfo.LastName = userName.Substring(split + 1);
+						s_userInfo.FirstName = userName.Substring(0, split);
+						s_userInfo.LastName = userName.Substring(split + 1);
 					}
 					else
 					{
-						userInfo.LastName = userName;
+						s_userInfo.LastName = userName;
 
 					}
 				}
@@ -155,13 +157,13 @@ namespace Glyssen
 			//}
 
 #if DEBUG
-			using (new DesktopAnalytics.Analytics("jBh7Qg4jw2nRFE8j8EY1FDipzin3RFIP", userInfo))
+			using (new DesktopAnalytics.Analytics("jBh7Qg4jw2nRFE8j8EY1FDipzin3RFIP", s_userInfo))
 #else
 			//default is to allow tracking if this isn't set
 			string feedbackSetting = Environment.GetEnvironmentVariable("FEEDBACK")?.ToLower();
 			var allowTracking = string.IsNullOrEmpty(feedbackSetting) || feedbackSetting == "yes" || feedbackSetting == "true";
 
-			using (new DesktopAnalytics.Analytics("WEyYj2BOnZAP9kplKmo2BDPvfyofbMZy", userInfo, allowTracking))
+			using (new DesktopAnalytics.Analytics("WEyYj2BOnZAP9kplKmo2BDPvfyofbMZy", s_userInfo, allowTracking))
 #endif
 			{
 				foreach (var exception in _pendingExceptionsToReportToAnalytics)
@@ -336,7 +338,9 @@ namespace Glyssen
 			Analytics.ReportException(e.Exception);
 		}
 
-		public static ILocalizationManager PrimaryLocalizationManager { get; private set; }
+		internal static LocalizationIncompleteViewModel LocIncompleteViewModel { get; private set; }
+
+		public static ILocalizationManager PrimaryLocalizationManager => LocIncompleteViewModel.PrimaryLocalizationManager;
 
 		public static void RegisterLocalizable(ILocalizable uiElement)
 		{
@@ -392,13 +396,34 @@ namespace Glyssen
 			var version = versionField?.GetValue(null) as string ??
 				Application.ProductVersion.Substring(0, Application.ProductVersion.IndexOf(c => !IsDigit(c) && c != '.'));
 
+			// ENHANCE (L10nSharp): Not sure what the best way is to deal with this: the desired UI
+			// language might be available in the XLIFF files for one of the localization managers
+			// but not the other. Normally, part of the creation process for a LM is to check to
+			// see whether the requested language is available. But if the first LM we create does
+			// not have the requested language, the user sees a dialog box alerting them to that
+			// and requiring them to choose a different language. For now, in Glyssen, we can work
+			// around that by creating the Palaso LM first, since its set of available languages is
+			// a superset of the languages available for Glyssen. But it feels weird not to create
+			// the primary LM first, and the day could come where neither set of languages is a
+			// superset, and then this strategy wouldn't work.
+			LocalizationManager.Create(TranslationMemory.XLiff, desiredUiLangId, "Palaso", "Palaso", version,
+				installedStringFileFolder, relativeSettingPathForLocalizationFolder, Resources.glyssenIcon, IssuesEmailAddress,
+				typeof(SIL.Localizer)
+					.GetMethods(BindingFlags.Static | BindingFlags.Public)
+					.Where(m => m.Name == "GetString"),
+				"SIL.Windows.Forms", "SIL.DblBundle");
+
+			var uiLanguage = LocalizationManager.UILanguageId;
+
 			// ENHANCE: Create a separate LM for GlyssenEngine, so we can generate a nuget package
 			// with the localized strings (similar to what we do for libpalaso and chorus).
-			PrimaryLocalizationManager = LocalizationManager.Create(TranslationMemory.XLiff, desiredUiLangId, GlyssenInfo.ApplicationId, Application.ProductName, version,
+			var primaryMgr = LocalizationManager.Create(TranslationMemory.XLiff, uiLanguage, GlyssenInfo.ApplicationId, Application.ProductName, version,
 				installedStringFileFolder, relativeSettingPathForLocalizationFolder, Resources.glyssenIcon, IssuesEmailAddress,
 				typeof(SIL.Localizer)
 					.GetMethods(BindingFlags.Static | BindingFlags.Public)
 					.Where(m => m.Name == "GetString"), "Glyssen");
+
+			LocIncompleteViewModel = new LocalizationIncompleteViewModel(primaryMgr, "glyssen", IssueRequestForLocalization);
 
 			if (IsNullOrEmpty(desiredUiLangId))
 				if (LocalizationManager.GetUILanguages(true).Count() > 1)
@@ -410,20 +435,23 @@ namespace Glyssen
 							LocalizationManager.SetUILanguage(dlg.SelectedLanguage, true);
 							Settings.Default.UserInterfaceLanguage = dlg.SelectedLanguage;
 						}
+		}
 
-			var uiLanguage = LocalizationManager.UILanguageId;
-			LocalizationManager.Create(TranslationMemory.XLiff, uiLanguage, "Palaso", "Palaso", version,
-				installedStringFileFolder, relativeSettingPathForLocalizationFolder, Resources.glyssenIcon, IssuesEmailAddress,
-				typeof(SIL.Localizer)
-					.GetMethods(BindingFlags.Static | BindingFlags.Public)
-					.Where(m => m.Name == "GetString"),
-				"SIL.Windows.Forms", "SIL.DblBundle");
+		private static void IssueRequestForLocalization()
+		{
+			Analytics.Track("UI language request", LocIncompleteViewModel.StandardAnalyticsInfo);
 		}
 
 		/// <summary>
 		/// The email address people should write to with issues
 		/// </summary>
 		public static string IssuesEmailAddress => "glyssen-support_lsdev@sil.org";
+
+		public static void UpdateUiLanguageForUser(string languageId)
+		{
+			s_userInfo.UILanguageCode = languageId;
+			Analytics.IdentifyUpdate(s_userInfo);
+		}
 
 		/// <summary>
 		/// Getting the count of running Glyssen instances.
