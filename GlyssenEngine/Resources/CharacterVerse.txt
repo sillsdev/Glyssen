@@ -716,7 +716,7 @@ GEN	42	25	Joseph			Indirect
 #Otherwise only one of them appears in the UI. It is okay to use the same speaker for both lines (as it is in the FCBH Director's Guide),
 #but having two distinct entries like allows for better dramatic effect (if Nitro/Vessel support it).
 GEN	42	28	Dan/Reuben/Levi/Judah/Issachar/Zebulun/Naphtali/Gad/Asher	surprised	brother who discovered his silver in his sack	Normal	Dan	
-GEN	42	28	Levi/Reuben/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher	trembling	Jospeh's brothers (not Simeon or Benjamin)	Normal	Levi	
+GEN	42	28	Levi/Reuben/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher	trembling	Joseph's brothers (not Simeon or Benjamin)	Normal	Levi	
 GEN	42	30	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jacob's sons (not Simeon, Joseph, or Benjamin)	Normal	Dan	
 GEN	42	31	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jacob's sons (not Simeon, Joseph, or Benjamin)	Normal	Dan	
 GEN	42	32	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jacob's sons (not Simeon, Joseph, or Benjamin)	Normal	Dan	
@@ -739,15 +739,15 @@ GEN	43	12	Jacob (Israel)			Normal
 GEN	43	13	Jacob (Israel)			Normal		
 GEN	43	14	Jacob (Israel)			Normal		
 GEN	43	16	Joseph			Normal		
-GEN	43	18	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher	thought	Jospeh's brothers (not Simeon or Benjamin)	Normal	Dan	
-GEN	43	19	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers (not Simeon or Benjamin)	Potential	Dan	
-GEN	43	20	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers (not Simeon or Benjamin)	Normal	Dan	
-GEN	43	21	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers (not Simeon or Benjamin)	Normal	Dan	
-GEN	43	22	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers (not Simeon or Benjamin)	Normal	Dan	
+GEN	43	18	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher	thought	Joseph's brothers (not Simeon or Benjamin)	Normal	Dan	
+GEN	43	19	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers (not Simeon or Benjamin)	Potential	Dan	
+GEN	43	20	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers (not Simeon or Benjamin)	Normal	Dan	
+GEN	43	21	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers (not Simeon or Benjamin)	Normal	Dan	
+GEN	43	22	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers (not Simeon or Benjamin)	Normal	Dan	
 GEN	43	23	steward of Joseph's house			Normal		
 GEN	43	25	steward of Joseph's house			Indirect		
 GEN	43	27	Joseph			Normal		
-GEN	43	28	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher/Benjamin		Jospeh's brothers (not Simeon)	Normal	Dan	
+GEN	43	28	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher/Benjamin		Joseph's brothers (not Simeon)	Normal	Dan	
 GEN	43	29	Joseph			Normal		
 GEN	43	31	Joseph			Normal		
 GEN	44	1	Joseph			Normal		
@@ -758,9 +758,9 @@ GEN	44	6	steward of Joseph's house			Indirect
 #In theory, v. 7 and/or 9 could have been spoken by Benjamin (though very unlikely as the youngest) or by Simeon. But since 7-9 is
 #likely to be a single quotation and v. 8 could not have been spoken by Simeon or Benjamin, we'll omit them from the list of possibilities
 # for all three verses.
-GEN	44	7	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers	Normal	Dan	
-GEN	44	8	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers	Normal	Dan	
-GEN	44	9	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers	Normal	Dan	
+GEN	44	7	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers	Normal	Dan	
+GEN	44	8	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers	Normal	Dan	
+GEN	44	9	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers	Normal	Dan	
 GEN	44	10	steward of Joseph's house			Normal		
 GEN	44	15	Joseph			Normal		
 GEN	44	16	Judah			Normal		
@@ -4709,10 +4709,12 @@ JDG	12	3	Jephthah			Normal
 JDG	12	4	Jephthah			Indirect		
 JDG	12	4	Ephraimites			Quotation		
 JDG	12	4	narrator-JDG			Quotation		
-JDG	12	5	Ephraimites		Ephraim, fugitive of	Normal		
+JDG	12	5	Ephraimites			Normal		
 JDG	12	5	Gilead, men of			Normal		
-JDG	12	6	Ephraimites		Ephraim, fugitive of	Normal		
+JDG	12	6	Ephraimites			Normal		
 JDG	12	6	Gilead, men of			Normal		
+JDG	12	6	narrator-JDG			Quotation		
+JDG	12	6	Needs Review			Normal		
 JDG	13	3	Yahweh's angel			Normal	Jesus	
 JDG	13	4	Yahweh's angel			Normal	Jesus	
 JDG	13	5	Yahweh's angel			Normal	Jesus	
@@ -6136,6 +6138,8 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	13	26	old prophet in Bethel			Normal		
 1KI	13	27	old prophet in Bethel			Normal		
 1KI	13	30	sons of prophet in Bethel			Normal		
+1KI	13	30	old prophet in Bethel			Normal		
+1KI	13	30	Needs Review			Normal		
 1KI	13	31	old prophet in Bethel			Normal		
 1KI	13	32	old prophet in Bethel			Normal		
 1KI	14	2	Jeroboam		Jeroboam, king of Israel	Normal		
@@ -12418,7 +12422,7 @@ LAM	4	15	men			Quotation
 LAM	4	15	nations		people among the nations	Quotation		
 LAM	4	20	narrator-LAM			Quotation		
 EZK	2	1	God		God (voice of one speaking, in vision)	Normal		
-EZK	2	3	God		God (voice of one speaking (in vision)	Normal		
+EZK	2	3	God		God (voice of one speaking, in vision)	Normal		
 EZK	2	4	God		God (voice of one speaking, in vision)	Implicit		
 EZK	2	5	God		God (voice of one speaking, in vision)	Implicit		
 EZK	2	6	God		God (voice of one speaking, in vision)	Implicit		
@@ -15872,6 +15876,8 @@ MAT	2	22	dream			Indirect	angel
 MAT	2	23	scripture			Quotation		
 MAT	3	2	John the Baptist	proclaim		Normal		
 MAT	3	3	scripture			Quotation	Isaiah	
+MAT	3	6	people from Jerusalem, Judea and the region around the Jordan			Rare		
+MAT	3	6	Needs Review			Potential		
 MAT	3	7	John the Baptist	rebuking		Normal		
 MAT	3	8	John the Baptist	rebuking		Normal		
 MAT	3	9	John the Baptist	rebuking		Normal		
@@ -16757,9 +16763,10 @@ MAT	26	71	servant girl, another			Dialogue		*different speakers;MAT 26.71;MRK 14
 MAT	26	72	Peter (Simon)	denial, stronger		Dialogue		
 MAT	26	73	high priest's servant (relative of the man whose ear Peter cut off)/those standing near	accusing	those standing near	Dialogue	high priest's servant (relative of the man whose ear Peter cut off)	MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
 MAT	26	74	Peter (Simon)	denial, strongest		Dialogue		
+MAT	26	74	rooster	crowing		Rare		
+MAT	26	74	Needs Review			Rare		
 MAT	26	75	narrator-MAT			Quotation		
 MAT	26	75	Jesus			Quotation		
-MAT	26	75	rooster	crowing		Rare		
 MAT	26	75	Needs Review			Rare		
 MAT	27	4	chief priests/elders	impatient		Dialogue		
 MAT	27	4	Judas Iscariot	remorse		Dialogue		
@@ -16829,6 +16836,8 @@ MAT	28	20	Jesus			Normal
 MRK	1	2	scripture			Quotation	Isaiah	
 MRK	1	3	scripture			Quotation	Isaiah	
 MRK	1	4	John the Baptist			Indirect		
+MRK	1	5	people from Jerusalem, Judea and the region around the Jordan			Rare		
+MRK	1	5	Needs Review			Potential		
 MRK	1	7	John the Baptist			Normal		
 MRK	1	8	John the Baptist			Normal		
 MRK	1	11	God		voice from heaven (God)	Normal		
@@ -20171,9 +20180,13 @@ ROM	16	22	Tertius			Implicit
 1CO	6	13	saying about food			Hypothetical		
 1CO	6	16	scripture			Quotation		
 1CO	6	18	scripture			Quotation		
+1CO	7	1	narrator-1CO			Quotation		
+1CO	7	8	narrator-1CO			Potential		
 1CO	7	10	narrator-1CO			Potential		
 1CO	8	1	narrator-1CO			Quotation		
+1CO	8	4	narrator-1CO			Quotation		
 1CO	8	5	narrator-1CO			Quotation		
+1CO	8	10	narrator-1CO			Quotation		
 1CO	9	9	scripture			Quotation	Moses	
 1CO	10	7	scripture			Quotation		
 1CO	10	23	saying about doing anything			Hypothetical		

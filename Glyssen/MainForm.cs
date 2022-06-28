@@ -31,10 +31,10 @@ using SIL.Reporting;
 using SIL.Windows.Forms;
 using SIL.Windows.Forms.Miscellaneous;
 using Ionic.Zip;
-using L10NSharp.XLiffUtils;
 using NetSparkle;
 using Paratext.Data;
 using SIL.Scripture;
+using SIL.Windows.Forms.Extensions;
 using SIL.Windows.Forms.ReleaseNotes;
 using SIL.Windows.Forms.WritingSystems;
 using static System.String;
@@ -44,12 +44,12 @@ using AssignCharacterViewModel = GlyssenEngine.ViewModels.AssignCharacterViewMod
 
 namespace Glyssen
 {
-	public partial class MainForm : FormWithPersistedSettings
+	public partial class MainForm : FormWithPersistedSettings, ILocalizable
 	{
 		private const string kShareFileExtension = ".glyssenshare";
 
-		public static Sparkle UpdateChecker { get; private set; }
-		private PersistenceImplementation m_persistenceImpl;
+		private static Sparkle UpdateChecker { get; set; }
+		private readonly PersistenceImplementation m_persistenceImpl;
 		private Project m_project;
 		private ParatextScrTextWrapper m_paratextScrTextWrapperForRecentlyCreatedProject;
 		private CastSizePlanningViewModel m_projectCastSizePlanningViewModel;
@@ -69,15 +69,14 @@ namespace Glyssen
 
 			Project.UpgradingProjectToNewParserVersion += UpgradingProjectToNewParserVersion;
 			Project.GetBadLdmlRecoveryAction += GetBadLdmlFileRecoveryAction;
-
-			SetupUiLanguageMenu();
+			
 			Logger.WriteEvent($"Initial UI language: {Settings.Default.UserInterfaceLanguage}");
 
 			m_toolStrip.Renderer = new NoBorderToolStripRenderer();
-			m_uiLanguageMenu.ToolTipText = LocalizationManager.GetString("MainForm.UILanguage", "User-interface Language");
 
+			SetupUiLanguageMenu();
 			HandleStringsLocalized();
-			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized; // Don't need to unsubscribe since this object will be around as long as the program is running.
+			Program.RegisterLocalizable(this);
 
 			m_lastExportLocationLink.Text = Empty;
 
@@ -242,16 +241,17 @@ namespace Glyssen
 			});
 		}
 
-		private void HandleStringsLocalized()
+		public void HandleStringsLocalized()
 		{
 			m_percentAssignedFmt = m_lblPercentAssigned.Text;
 			m_actorsAssignedFmt = m_lblActorsAssigned.Text;
 			m_castSizeFmt = m_lblCastSizePlan.Text;
 			RememberButtonFormats();
 			UpdateLocalizedText();
-			if (m_project != null)
-				m_project.ProjectCharacterVerseData.HandleStringsLocalized();
+			m_project?.ProjectCharacterVerseData.HandleStringsLocalized();
 			ControlCharacterVerseData.Singleton.HandleStringsLocalized();
+
+			m_uiLanguageMenu.ToolTipText = LocalizationManager.GetString("MainForm.UILanguage", "User-interface Language");
 		}
 
 		private void RememberButtonFormats()
@@ -260,8 +260,7 @@ namespace Glyssen
 			var pos = m_tableLayoutPanel.GetCellPosition(m_btnOpenProject);
 			for (var rowIndex = pos.Row; rowIndex < m_tableLayoutPanel.RowStyles.Count; rowIndex++)
 			{
-				var btn = m_tableLayoutPanel.GetControlFromPosition(pos.Column, rowIndex) as Button;
-				if (btn != null)
+				if (m_tableLayoutPanel.GetControlFromPosition(pos.Column, rowIndex) is Button btn)
 					m_buttonFormats.Add(new Tuple<Button, string>(btn, btn.Text));
 			}
 		}
@@ -430,6 +429,7 @@ namespace Glyssen
 			}
 			UpdateChecker = new Sparkle(@"http://build.palaso.org/guestAuth/repository/download/Glyssen_GlyssenMasterPublish/.lastSuccessful/appcast.xml",
 				Icon);
+			UpdateChecker.DoLaunchAfterUpdate = false; // The installer already takes care of launching.
 			// We don't want to do this until the main window is loaded because a) it's very easy for the user to overlook, and b)
 			// more importantly, when the toast notifier closes, it can sometimes clobber an error message being displayed for the user.
 			UpdateChecker.CheckOnFirstApplicationIdle();
@@ -981,39 +981,31 @@ namespace Glyssen
 
 		private void SetupUiLanguageMenu()
 		{
-			m_uiLanguageMenu.DropDownItems.Clear();
-			foreach (var lang in LocalizationManager.GetUILanguages(true))
+			bool LanguageSelected(string languageId)
 			{
-				var item = m_uiLanguageMenu.DropDownItems.Add(lang.NativeName);
-				item.Tag = lang;
-				string languageId = ((L10NCultureInfo)item.Tag).IetfLanguageTag;
-				item.Click += ((a, b) =>
-				{
-					Analytics.Track("SetUiLanguage", new Dictionary<string, string> {{"uiLanguage", languageId}, {"reapplyLocalizations", "true"}});
-					Logger.WriteEvent($"UI language changed to {languageId}.");
-
-					LocalizationManager.SetUILanguage(languageId, true);
-					Settings.Default.UserInterfaceLanguage = languageId;
-					item.Select();
-					m_uiLanguageMenu.Text = ((L10NCultureInfo)item.Tag).NativeName;
-				});
-				// Typically, the default UI language will be the same as the one returned by the LM,
-				// but if the user chose a generic locale in a previous version of Glyssen and that has
-				// be replaced by a country-specific locale, there won't be a match on the generic ID.
-				if (languageId == Settings.Default.UserInterfaceLanguage || languageId == LocalizationManager.UILanguageId)
-				{
-					m_uiLanguageMenu.Text = ((L10NCultureInfo)item.Tag).NativeName;
-				}
+				Analytics.Track("SetUiLanguage",
+					new Dictionary<string, string>
+					{
+						{ "uiLanguage", languageId },
+						{ "previous", Settings.Default.UserInterfaceLanguage },
+						{"reapplyLocalizations", "true"}
+					});
+				Logger.WriteEvent("UI language changed from " +
+					$"{Settings.Default.UserInterfaceLanguage} to {languageId}");
+				Settings.Default.UserInterfaceLanguage = languageId;
+				Program.UpdateUiLanguageForUser(languageId);
+				return true;
 			}
 
-			m_uiLanguageMenu.DropDownItems.Add(new ToolStripSeparator());
-			var menu = m_uiLanguageMenu.DropDownItems.Add(LocalizationManager.GetString("MainForm.MoreMenuItem",
-				"More...", "Last item in menu of UI languages"));
-			menu.Click += ((a, b) =>
+			bool MoreSelected()
 			{
-				Program.PrimaryLocalizationManager.ShowLocalizationDialogBox(false);
-				SetupUiLanguageMenu();
-			});
+				Analytics.Track("Opened localization dialog box");
+				return true;
+			}
+
+			m_uiLanguageMenu.InitializeWithAvailableUILocales(LanguageSelected,
+				Program.PrimaryLocalizationManager, Program.LocIncompleteViewModel,
+				MoreSelected);
 		}
 
 		private void Assign_Click(object sender, EventArgs e)
@@ -1065,14 +1057,33 @@ namespace Glyssen
 				if (ShowModalDialogWithWaitCursor(dlg) == DialogResult.OK)
 				{
 					m_project.ClearAssignCharacterStatus();
-					m_project.Analyze();
-					UpdateDisplayOfProjectInfo();
-					if (!m_project.IncludedBooks.Any())
-						MessageBox.Show(this, LocalizationManager.GetString("Project.NoBooksIncluded", "No content found in any included books."), GlyssenInfo.Product);
-					SaveCurrentProject(true);
+					if ((m_project.ProjectState & ProjectState.FullyInitialized) > 0)
+					{
+						m_project.Analyze();
+						UpdateDisplayOfProjectInfo();
+						SaveCurrentProject(true);
+					}
+					else
+					{
+						m_project.ProjectStateChanged += ProjectStateChangedAfterSelectingBooks;
+					}
 				}
 			}
 			m_paratextScrTextWrapperForRecentlyCreatedProject = null;
+		}
+
+		private void ProjectStateChangedAfterSelectingBooks(object sender, Project.ProjectStateChangedEventArgs e)
+		{
+			if (m_project != sender /* This probably can't happen. */ ||
+			    (m_project.ProjectState & ProjectState.FullyInitialized) == 0)
+				return;
+
+			if (!m_project.IncludedBooks.Any())
+				MessageBox.Show(this, LocalizationManager.GetString("Project.NoBooksIncluded", "No content found in any included books."), GlyssenInfo.Product);
+
+			m_project.ProjectStateChanged -= ProjectStateChangedAfterSelectingBooks;
+			
+			SaveCurrentProject(true);
 		}
 
 		private void Settings_Click(object sender, EventArgs e)
@@ -1325,7 +1336,6 @@ namespace Glyssen
 
 			while (m_project.ReferenceText == null)
 			{
-				string msg;
 				var msgFmt = LocalizationManager.GetString("Project.UnavailableReferenceText",
 					"This project uses a custom reference text ({0}) that is not available on this computer.\nIf you have access " +
 					"to the required reference text files, please put them in" +
@@ -1338,7 +1348,7 @@ namespace Glyssen
 					"Param 2: The name of the \"Retry\" button label (in the current Windows locale); " +
 					"Param 3: Name of the Project Settings dialog box; " +
 					"Param 4: Label of the Reference Text tab");
-				msg = Format(msgFmt, m_project.UiReferenceTextName, customReferenceTextFolder, MessageBoxStrings.RetryButton,
+				var msg = Format(msgFmt, m_project.UiReferenceTextName, customReferenceTextFolder, MessageBoxStrings.RetryButton,
 					projectSettingsDlgTitle, referenceTextTabName);
 				if (ignoreOptionText != null)
 					msg += "\n\n" + ignoreOptionText;
@@ -1391,7 +1401,7 @@ namespace Glyssen
 			}
 		}
 
-		public void ExportShare()
+		private void ExportShare()
 		{
 			var sourceDir = Path.GetDirectoryName(m_persistenceImpl.GetProjectFilePath(m_project));
 			Debug.Assert(sourceDir != null);
@@ -1445,14 +1455,17 @@ namespace Glyssen
 
 		private void Import_Click(object sender, EventArgs e)
 		{
-
 			string importFile = null;
 
 			// show the user an Open File dialog
 			using (var ofd = new OpenFileDialog())
 			{
 				ofd.InitialDirectory = ProjectRepository.DefaultShareFolder;
-				ofd.Filter = Format("Glyssen shares (*{0})|*{0}|All files (*.*)|*.*", kShareFileExtension);
+				ofd.Filter = Format("{0} ({1})|{1}|{2} ({3})|{3}",
+					LocalizationManager.GetString("DialogBoxes.ImportDlg.GlyssenSharesFileTypeLabel",
+						"Glyssen shares", "Label used in Import file dialog for \"*.glyssenshare\" files"),
+					"*" + kShareFileExtension,
+					L10N.AllFilesLabel, "*.*");
 				ofd.RestoreDirectory = true;
 
 				if (ofd.ShowDialog() == DialogResult.OK)

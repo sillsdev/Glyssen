@@ -3,13 +3,11 @@ using System.Windows.Forms;
 using Glyssen.Shared;
 using Glyssen.Utilities;
 using GlyssenEngine.Export;
-using L10NSharp.XLiffUtils;
-using L10NSharp.UI;
 using SIL;
 
 namespace Glyssen.Dialogs
 {
-	public partial class ViewScriptDlg : FormWithPersistedSettings
+	public partial class ViewScriptDlg : FormWithPersistedSettings, ILocalizable
 	{
 		private readonly ProjectExporter m_viewModel;
 
@@ -19,10 +17,10 @@ namespace Glyssen.Dialogs
 			m_viewModel = viewModel;
 
 			HandleStringsLocalized();
-			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
+			Program.RegisterLocalizable(this);
 		}
 
-		private void HandleStringsLocalized()
+		public void HandleStringsLocalized()
 		{
 			Text = string.Format(Text, m_viewModel.Project.Name);
 			m_exportToHearThisToolStripMenuItem.Text = string.Format(m_exportToHearThisToolStripMenuItem.Text,

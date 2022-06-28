@@ -7,7 +7,7 @@
 	<PackageOutputPath>../output</PackageOutputPath>
     <Authors>SIL International, Faith Comes By Hearing</Authors>
     <Company>FCBH-SIL</Company>
-    <Copyright>Copyright © 2014-2021 Faith Comes By Hearing and SIL International</Copyright>
+    <Copyright>Copyright © 2014-2022 Faith Comes By Hearing and SIL International</Copyright>
     <Description>Glyssen "business logic" layer used for working with projects to create audio Bible scripts.</Description>
     <RepositoryUrl>https://github.com/sillsdev/glyssen/</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
@@ -68,7 +68,7 @@ See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.
 
   <ItemGroup>
     <PackageReference Include="DotNetZip" Version="1.13.8" />
-    <PackageReference Include="GitVersionTask" Version="5.1.2">
+    <PackageReference Include="GitVersion.MsBuild" Version="5.8.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -79,13 +79,13 @@ See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="ParatextData" Version="9.1.9-beta" />
-    <PackageReference Include="SIL.Core" Version="8.0.0" />
-    <PackageReference Include="SIL.DblBundle" Version="8.0.0" />
+    <PackageReference Include="SIL.Core" Version="10.0.0-beta0023" />
+    <PackageReference Include="SIL.DblBundle" Version="10.0.0-beta0023" />
     <PackageReference Include="SIL.ReleaseTasks" Version="2.5.0" PrivateAssets="true" />
-    <PackageReference Include="SIL.Scripture" Version="8.0.0" />
-    <PackageReference Include="SIL.WritingSystems" Version="8.0.0" />
+    <PackageReference Include="SIL.Scripture" Version="10.0.0-beta0023" />
+    <PackageReference Include="SIL.WritingSystems" Version="10.0.0-beta0023" />
     <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
   </ItemGroup>

@@ -8,12 +8,10 @@ using GlyssenEngine.Bundle;
 using GlyssenEngine.Utilities;
 using GlyssenEngine.ViewModels;
 using L10NSharp;
-using L10NSharp.XLiffUtils;
-using L10NSharp.UI;
 
 namespace Glyssen.Dialogs
 {
-	public partial class CastSizePlanningDlg : Form
+	public partial class CastSizePlanningDlg : Form, ILocalizable
 	{
 		private readonly CastSizePlanningViewModel m_viewModel;
 		private readonly bool m_loaded;
@@ -29,7 +27,7 @@ namespace Glyssen.Dialogs
 			m_castSizePlanningOptions.SetViewModel(m_viewModel);
 
 			HandleStringsLocalized();
-			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
+			Program.RegisterLocalizable(this);
 
 			m_tableLayoutStartingOver.Visible = m_viewModel.Project.CharacterGroupListPreviouslyGenerated;
 			m_maleNarrators.Maximum = m_viewModel.MaximumNarratorsValue;
@@ -47,7 +45,7 @@ namespace Glyssen.Dialogs
 			m_loaded = true;
 		}
 
-		private void HandleStringsLocalized()
+		public void HandleStringsLocalized()
 		{
 			m_fmtProjectSummaryPlural = m_lblProjectSummary.Text;
 			m_fmtSuboptimalNarratorsMsg = m_lblWarningSuboptimalNarratorsForNarrationByAuthor.Text;

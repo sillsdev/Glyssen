@@ -193,6 +193,16 @@ namespace GlyssenEngine.ViewModels
 
 		public bool IsCurrentLocationRelevant =>  m_relevantBookBlockIndices.Any(i => i.Contains(BlockAccessor.GetIndices()));
 
+		public bool IsReferenceOutsideCurrentScope(IScrVerseRef reference)
+		{
+			var blockRef = GetBlockVerseRef();
+			int versesInSelection = GetLastVerseInCurrentQuote() - blockRef.VerseNum;
+			var refInControl = new BCVRef(reference.BookNum,
+				reference.ChapterNum, reference.VerseNum);
+			var displayedRefMinusBlockStartRef = refInControl.BBCCCVVV - blockRef.BBBCCCVVV;
+			return displayedRefMinusBlockStartRef < 0 || displayedRefMinusBlockStartRef > versesInSelection;
+		}
+
 		public IEnumerable<string> IncludedBooks => m_includedBooks;
 		public TFont Font => m_font.Font;
 		public IFontInfo<TFont> FontInfo => m_font;
@@ -636,7 +646,7 @@ namespace GlyssenEngine.ViewModels
 			}
 		}
 
-		public bool TryLoadBlock(VerseRef verseRef)
+		public bool TryLoadBlock(IScrVerseRef verseRef)
 		{
 			if (TrySelectRefInCurrentBlockMatchup(verseRef))
 				return true;
@@ -663,7 +673,7 @@ namespace GlyssenEngine.ViewModels
 			return true;
 		}
 
-		private bool TrySelectRefInCurrentBlockMatchup(VerseRef verseRef)
+		private bool TrySelectRefInCurrentBlockMatchup(IScrVerseRef verseRef)
 		{
 			if (m_currentRefBlockMatchups != null && CurrentBook.BookNumber == verseRef.BookNum && CurrentBlock.ChapterNumber == verseRef.ChapterNum &&
 				m_currentRefBlockMatchups.CorrelatedBlocks.First().InitialStartVerseNumber <= verseRef.VerseNum &&

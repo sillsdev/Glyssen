@@ -4,16 +4,15 @@ using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Properties;
 using Glyssen.Shared;
+using Glyssen.Utilities;
 using GlyssenEngine.Export;
 using L10NSharp;
-using L10NSharp.XLiffUtils;
-using L10NSharp.UI;
 using SIL.IO;
 using SIL.Reporting;
 
 namespace Glyssen.Dialogs
 {
-	public class RolesForVoiceActorsSaveAsDialog : IDisposable
+	public class RolesForVoiceActorsSaveAsDialog : IDisposable, ILocalizable
 	{
 		private readonly ProjectExporter m_projectExporter;
 		private readonly SaveFileDialog m_saveFileDialog;
@@ -23,7 +22,7 @@ namespace Glyssen.Dialogs
 		public RolesForVoiceActorsSaveAsDialog(ProjectExporter projectExporter)
 		{
 			HandleStringsLocalized();
-			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
+			Program.RegisterLocalizable(this);
 
 			m_projectExporter = projectExporter;
 
@@ -44,14 +43,14 @@ namespace Glyssen.Dialogs
 			m_saveFileDialog.FileName = Path.GetFileName(FileName);
 			m_saveFileDialog.Filter = string.Format("{0} ({1})|{1}|{2} ({3})|{3}",
 				LocalizationManager.GetString("DialogBoxes.RolesForVoiceActorsSaveAsDlg.ExcelFileTypeLabel", "Excel files"), "*" + Constants.kExcelFileExtension,
-				LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"), "*.*");
+				L10N.AllFilesLabel, "*.*");
 			m_saveFileDialog.DefaultExt = Constants.kExcelFileExtension;
 			m_saveFileDialog.OverwritePrompt = true;
 		}
 
 		public string FileName { get; private set; }
 
-		private void HandleStringsLocalized()
+		public void HandleStringsLocalized()
 		{
 			m_rolesForVoiceActorsFileNameSuffix =
 				LocalizationManager.GetString("DialogBoxes.RolesForVoiceActorsSaveAsDlg.RolesForVoiceActorsFileNameDefaultSuffix", "Roles for Voice Actors");

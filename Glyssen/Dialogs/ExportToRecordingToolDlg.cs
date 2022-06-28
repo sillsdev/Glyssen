@@ -3,12 +3,10 @@ using System.Windows.Forms;
 using Glyssen.Shared;
 using GlyssenEngine.Export;
 using L10NSharp;
-using L10NSharp.XLiffUtils;
-using L10NSharp.UI;
 
 namespace Glyssen.Dialogs
 {
-	public partial class ExportToRecordingToolDlg : Form
+	public partial class ExportToRecordingToolDlg : Form, ILocalizable
 	{
 		private readonly ProjectExporter m_viewModel;
 
@@ -19,7 +17,7 @@ namespace Glyssen.Dialogs
 			InitializeComponent();
 
 			HandleStringsLocalized();
-			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
+			Program.RegisterLocalizable(this);
 		}
 
 		private void ExportToRecordingToolDlg_Load(object sender, EventArgs e)
@@ -30,7 +28,7 @@ namespace Glyssen.Dialogs
 				CenterToParent();
 		}
 
-		private void HandleStringsLocalized()
+		public void HandleStringsLocalized()
 		{
 			m_lblDescription.Text = string.Format(m_lblDescription.Text, ProductName, Constants.kGlyssenScriptFileExtension,
 				Constants.kHearThisProductName, Constants.kHearThisMinimumSupportedVersion);

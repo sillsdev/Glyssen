@@ -1,6 +1,4 @@
-﻿using L10NSharp.UI;
-using L10NSharp.XLiffUtils;
-
+﻿
 namespace Glyssen.Dialogs
 {
 	partial class NewCharacterDlg
@@ -17,12 +15,7 @@ namespace Glyssen.Dialogs
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing)
-			{
-				LocalizeItemDlg<XLiffDocument>.StringsLocalized -= HandleStringsLocalized;
-
-				if (components != null)
-					components.Dispose();
-			}
+				components?.Dispose();
 			base.Dispose(disposing);
 		}
 

@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
-using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -21,12 +20,11 @@ using GlyssenEngine.Character;
 using GlyssenEngine.Script;
 using GlyssenEngine.ViewModels;
 using L10NSharp;
-using L10NSharp.XLiffUtils;
-using L10NSharp.UI;
 using SIL.Extensions;
 using SIL.Reporting;
 using SIL.Scripture;
 using SIL.Windows.Forms.Extensions;
+using static System.Globalization.CultureInfo;
 using static System.String;
 using Analytics = DesktopAnalytics.Analytics;
 using AssignCharacterViewModel = GlyssenEngine.ViewModels.AssignCharacterViewModel<System.Drawing.Font>;
@@ -34,7 +32,7 @@ using SplitBlockViewModel = GlyssenEngine.ViewModels.SplitBlockViewModel<System.
 
 namespace Glyssen.Dialogs
 {
-	public partial class AssignCharacterDlg : FormWithPersistedSettings, IMessageFilter
+	public partial class AssignCharacterDlg : FormWithPersistedSettings, IMessageFilter, ILocalizable
 	{
 		private readonly AssignCharacterViewModel m_viewModel;
 		private string m_xOfYFmt;
@@ -54,7 +52,7 @@ namespace Glyssen.Dialogs
 		private bool m_addingCharacterDelivery;
 		private bool m_askedUserAboutAssigningOnDoubleClick;
 
-		private void HandleStringsLocalized()
+		public void HandleStringsLocalized()
 		{
 			m_viewModel.SetUiStrings(
 				CharacterVerseData.StandardCharacterNameFormatNarrator,
@@ -104,7 +102,7 @@ namespace Glyssen.Dialogs
 			m_scriptureReference.VerseControl.GetLocalizedBookName = L10N.GetLocalizedBookNameFunc(m_scriptureReference.VerseControl.GetLocalizedBookName);
 
 			HandleStringsLocalized();
-			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
+			Program.RegisterLocalizable(this);
 
 			if (m_viewModel.CanDisplayReferenceTextForCurrentBlock)
 			{
@@ -135,7 +133,6 @@ namespace Glyssen.Dialogs
 			m_scriptureReference.VerseControl.ShowEmptyBooks = false;
 
 			m_scriptureReference.VerseControl.AllowVerseSegments = false;
-			m_scriptureReference.VerseControl.Versification = m_viewModel.Versification;
 			m_scriptureReference.VerseControl.VerseRefChanged += m_scriptureReference_VerseRefChanged;
 			m_scriptureReference.VerseControl.Disposed += (sender, args) =>
 					m_scriptureReference.VerseControl.VerseRefChanged -= m_scriptureReference_VerseRefChanged;
@@ -227,16 +224,15 @@ namespace Glyssen.Dialogs
 
 		private void OnSetBlockCharacter(AssignCharacterViewModel sender, Block block, ICharacter character)
 		{
-			// If the user assigns a non-narrator character to a block we marked as narrator, we want to track it
-			// Most likely, the last check (block.UserConfirmed) is redundant and unnecessary, because we would
-			// presumably never automatically set a block this way, but just to be sure...
-			if (character != null && !character.IsNarrator && !block.IsQuote && block.UserConfirmed)
+			// If the user assigns a non-narrator character to a block we marked as narrator, we
+			// want to track it.
+			if (character != null && !character.IsNarrator && !block.IsQuote)
 				Analytics.Track("NarratorToQuote", new Dictionary<string, string>
 				{
 					{ "book", sender.CurrentBookId },
-					{ "chapter", block.ChapterNumber.ToString(CultureInfo.InvariantCulture) },
-					{ "initialStartVerse", block.InitialStartVerseNumber.ToString(CultureInfo.InvariantCulture) },
-					{ "lastVerse", block.LastVerseNum.ToString(CultureInfo.InvariantCulture) },
+					{ "chapter", block.ChapterNumber.ToString(InvariantCulture) },
+					{ "initialStartVerse", block.InitialStartVerseNumber.ToString(InvariantCulture) },
+					{ "lastVerse", block.LastVerseNum.ToString(InvariantCulture) },
 					{ "character", character.CharacterId }
 				});
 		}
@@ -370,15 +366,13 @@ namespace Glyssen.Dialogs
 		private void UpdateDisplay()
 		{
 			var blockRef = m_viewModel.GetBlockVerseRef();
-			int versesInSelection = m_viewModel.GetLastVerseInCurrentQuote() - blockRef.VerseNum;
-			var displayedRefMinusBlockStartRef = m_scriptureReference.VerseControl.VerseRef.BBBCCCVVV - blockRef.BBBCCCVVV;
-			if (displayedRefMinusBlockStartRef < 0 || displayedRefMinusBlockStartRef > versesInSelection)
+			if (m_viewModel.IsReferenceOutsideCurrentScope(m_scriptureReference.VerseControl.VerseRef))
 				m_scriptureReference.VerseControl.VerseRef = m_viewModel.GetBlockVerseRef();
 			m_labelXofY.Visible = m_viewModel.IsCurrentLocationRelevant;
 			UpdateNavigationIndexLabel();
 			m_chkSingleVoice.Text = Format(m_singleVoiceCheckboxFmt, m_viewModel.CurrentBookId);
 
-			m_viewModel.GetBlockVerseRef().SendScrReference();
+			blockRef.SendScrReference();
 
 			HideCharacterFilter();
 			m_btnAssign.Enabled = false;
@@ -931,7 +925,7 @@ namespace Glyssen.Dialogs
 				return;
 
 			int selectedIndexOneBased;
-			Int32.TryParse(e.KeyChar.ToString(CultureInfo.InvariantCulture), out selectedIndexOneBased);
+			Int32.TryParse(e.KeyChar.ToString(InvariantCulture), out selectedIndexOneBased);
 			if (selectedIndexOneBased < 1 || selectedIndexOneBased > 5)
 			{
 				// Might be trying to select character by the first letter (e.g. s for Saul)
@@ -949,7 +943,7 @@ namespace Glyssen.Dialogs
 			if (Char.IsLetter(e.KeyChar))
 			{
 				var charactersStartingWithSelectedLetter =
-					CurrentContextCharacters.Where(c => c.ToString().StartsWith(e.KeyChar.ToString(CultureInfo.InvariantCulture), true, CultureInfo.InvariantCulture));
+					CurrentContextCharacters.Where(c => c.ToString().StartsWith(e.KeyChar.ToString(InvariantCulture), true, InvariantCulture));
 				if (charactersStartingWithSelectedLetter.Count() == 1)
 					m_listBoxCharacters.SelectedItem = charactersStartingWithSelectedLetter.Single();
 				else
@@ -1386,12 +1380,15 @@ namespace Glyssen.Dialogs
 			return true;
 		}
 
-		private void UpdateRowSpecificButtonStates(object sender, DataGridViewCellEventArgs e)
+		private void m_dataGridReferenceText_RowEnter(object sender, DataGridViewCellEventArgs e)
 		{
-			m_btnMoveReferenceTextDown.Enabled = e.RowIndex != m_dataGridReferenceText.RowCount - 1;
-			m_btnMoveReferenceTextUp.Enabled = e.RowIndex != 0;
-			m_menuInsertIntoSelectedRowOnly.Enabled = GetColumnsIntoWhichHeSaidCanBeInserted(m_dataGridReferenceText.Rows[e.RowIndex]).Any();
+			var row = e.RowIndex;
+			m_btnMoveReferenceTextDown.Enabled = row != m_dataGridReferenceText.RowCount - 1;
+			m_btnMoveReferenceTextUp.Enabled = row != 0;
+			m_menuInsertIntoSelectedRowOnly.Enabled = GetColumnsIntoWhichHeSaidCanBeInserted(m_dataGridReferenceText.Rows[row]).Any();
+			m_viewModel.GetVerseRefForRow(row).SendScrReference();
 		}
+
 		private void HandleMoveReferenceTextDown_Click(object sender, EventArgs e) => MoveReferenceText(true);
 
 		private void HandleMoveReferenceTextUp_Click(object sender, EventArgs e) => MoveReferenceText(false);
