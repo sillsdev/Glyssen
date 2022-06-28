@@ -16,6 +16,23 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- Updated to latest SIL libraries, which included several interface changes:
+- IBlockAccessor.GetIndicesOfFirstBlockAtReference, first parameter changed from VerseRef to IScrVerseRef
+- BlockNavigatorViewModel.TryLoadBlock, parameter changed from VerseRef to IScrVerseRef
+- BlockNavigatorViewModel.TrySelectRefInCurrentBlockMatchup, parameter changed from VerseRef to IScrVerseRef
+
+### Added
+
+- AssignCharacterViewModel.GetVerseRefForRow
+- BlockNavigatorViewModel.IsReferenceOutsideCurrentScope
+
+## [3.1.0] - 2021-07-27
+
+### Changed
+
+- Major update to the English Old Testament reference text
 
 ## [1.4.0] - 2020-07-08
 

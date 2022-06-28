@@ -15,8 +15,6 @@ using GlyssenEngine.Paratext;
 using GlyssenEngine.Quote;
 using GlyssenEngine.Script;
 using L10NSharp;
-using L10NSharp.XLiffUtils;
-using L10NSharp.UI;
 using SIL.ObjectModel;
 using SIL.Scripture;
 using SIL.Windows.Forms.Extensions;
@@ -27,7 +25,7 @@ using BlockNavigatorViewModel = GlyssenEngine.ViewModels.BlockNavigatorViewModel
 
 namespace Glyssen.Dialogs
 {
-	public partial class QuotationMarksDlg : FormWithPersistedSettings
+	public partial class QuotationMarksDlg : FormWithPersistedSettings, ILocalizable
 	{
 		private readonly Project m_project;
 		private readonly BlockNavigatorViewModel m_navigatorViewModel;
@@ -64,7 +62,6 @@ namespace Glyssen.Dialogs
 				m_scriptureReference.VerseControl.ShowEmptyBooks = false;
 
 				m_scriptureReference.VerseControl.AllowVerseSegments = false;
-				m_scriptureReference.VerseControl.Versification = m_navigatorViewModel.Versification;
 				m_scriptureReference.VerseControl.VerseRefChanged += m_scriptureReference_VerseRefChanged;
 
 				m_blocksViewer.Initialize(m_navigatorViewModel);
@@ -89,7 +86,7 @@ namespace Glyssen.Dialogs
 			try
 			{
 				HandleStringsLocalized();
-				LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
+				Program.RegisterLocalizable(this);
 
 				SetFilterControlsFromMode();
 
@@ -109,7 +106,7 @@ namespace Glyssen.Dialogs
 			LoadBlock();
 		}
 
-		private void HandleStringsLocalized()
+		public void HandleStringsLocalized()
 		{
 			L10N.LocalizeComboList(m_toolStripComboBoxFilter, "DialogBoxes.QuotationMarksDlg.FilterOptions");
 
@@ -302,8 +299,8 @@ namespace Glyssen.Dialogs
 				m_pnlDialogueQuotes.Enabled = !value;
 				m_chkPairedQuotations.Enabled = !value;
 				m_btnOk.Enabled = !value;
-				m_btnTest.Visible = !value;
-				m_testResults.Visible = !value;
+				if (value)
+					m_btnTest.Visible = m_testResults.Visible = false;
 			}
 		}
 
@@ -461,14 +458,15 @@ namespace Glyssen.Dialogs
 				using (var dlg = new TooManyUnexpectedQuotesFoundDlg(Text, m_project.ProjectAnalysis.PercentUnknown))
 				{
 					MainForm.LogDialogDisplay(dlg);
-					dlg.ShowDialog();
+					dlg.ShowDialog(this);
 					if (dlg.UserWantsToReview)
 					{
 						if (!m_toolStripComboBoxFilter.Items.Contains(m_allQuotesFilterItem))
 						{
 							m_toolStripComboBoxFilter.Items.Insert(m_toolStripComboBoxFilter.Items.Count - 1, m_allQuotesFilterItem);
 						}
-						m_toolStripComboBoxFilter.SelectedItem = m_allQuotesFilterItem;
+						if (m_navigatorViewModel != null)
+							m_toolStripComboBoxFilter.SelectedItem = m_allQuotesFilterItem;
 						DisableForm(false);
 						return;
 					}
@@ -604,6 +602,11 @@ namespace Glyssen.Dialogs
 
 		private void ShowTestResults(double percentageOfExpected, bool changeFilter)
 		{
+			if (double.IsNaN(percentageOfExpected))
+			{
+				m_testResults.Visible = false;
+				return;
+			}
 			m_testResults.Text = string.Format(m_testResultsFmt, percentageOfExpected);
 
 			var showWarning = (100 - percentageOfExpected) > Settings.Default.MaxAcceptablePercentageOfUnknownQuotes;
@@ -758,10 +761,7 @@ namespace Glyssen.Dialogs
 		{
 			if (m_navigatorViewModel == null)
 				return;
-			var blockRef = m_navigatorViewModel.GetBlockVerseRef();
-			int versesInBlock = m_navigatorViewModel.CurrentBlock.LastVerseNum - blockRef.VerseNum;
-			var displayedRefMinusBlockStartRef = m_scriptureReference.VerseControl.VerseRef.BBBCCCVVV - blockRef.BBBCCCVVV;
-			if (displayedRefMinusBlockStartRef < 0 || displayedRefMinusBlockStartRef > versesInBlock)
+			if (m_navigatorViewModel.IsReferenceOutsideCurrentScope(m_scriptureReference.VerseControl.VerseRef))
 				m_scriptureReference.VerseControl.VerseRef = m_navigatorViewModel.GetBlockVerseRef();
 			m_labelXofY.Visible = m_navigatorViewModel.IsCurrentLocationRelevant;
 			Debug.Assert(m_navigatorViewModel.RelevantBlockCount >= m_navigatorViewModel.CurrentDisplayIndex);

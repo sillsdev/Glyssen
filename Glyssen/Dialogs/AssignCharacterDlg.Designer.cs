@@ -1,7 +1,5 @@
 ﻿using Glyssen.Controls;
 using Glyssen.Utilities;
-using L10NSharp.UI;
-using L10NSharp.XLiffUtils;
 
 namespace Glyssen.Dialogs
 {
@@ -23,7 +21,6 @@ namespace Glyssen.Dialogs
 				m_dataGridReferenceText.DataError -= HandleDataGridViewDataError;
 
 				m_viewModel.CurrentBlockChanged -= LoadBlock;
-				LocalizeItemDlg<XLiffDocument>.StringsLocalized -= HandleStringsLocalized;
 				m_viewModel.AssignedBlocksIncremented -= m_viewModel_AssignedBlocksIncremented;
 				m_viewModel.CurrentBlockMatchupChanged -= LoadBlockMatchup;
 				m_viewModel.UiFontSizeChanged -= SetFontsFromViewModel;
@@ -1155,7 +1152,7 @@ namespace Glyssen.Dialogs
 			this.m_dataGridReferenceText.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.m_dataGridReferenceText_CellPainting);
 			this.m_dataGridReferenceText.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.m_dataGridReferenceText_CellValidating);
 			this.m_dataGridReferenceText.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.m_dataGridReferenceText_EditingControlShowing);
-			this.m_dataGridReferenceText.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.UpdateRowSpecificButtonStates);
+			this.m_dataGridReferenceText.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_dataGridReferenceText_RowEnter);
 			this.m_dataGridReferenceText.RowHeightChanged += new System.Windows.Forms.DataGridViewRowEventHandler(this.m_dataGridReferenceText_RowHeightChanged);
 			this.m_dataGridReferenceText.Resize += new System.EventHandler(this.CheckRowHeights);
 			// 

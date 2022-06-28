@@ -10,6 +10,8 @@ namespace GlyssenEngine.Paratext
 	{
 		public ParatextProjectProxy(ScrText scrText)
 		{
+			// Note: the properties we access here should be reflected (more or less)
+			// in Glyssen.Dialogs.OpenProjectDialog.VerifyProjectPropertiesAreAccessible
 			ScrText = scrText;
 			Language = new DblMetadataLanguage();
 			Language.Iso = scrText.Settings.LanguageID.Id;

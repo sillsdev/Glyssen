@@ -14,8 +14,6 @@ using GlyssenEngine.Bundle;
 using GlyssenEngine.Paratext;
 using GlyssenEngine.Script;
 using L10NSharp;
-using L10NSharp.XLiffUtils;
-using L10NSharp.UI;
 using SIL.DblBundle.Text;
 using SIL.Reporting;
 using SIL.Scripture;
@@ -23,7 +21,7 @@ using static System.String;
 
 namespace Glyssen.Dialogs
 {
-	public partial class ScriptureRangeSelectionDlg : Form
+	public partial class ScriptureRangeSelectionDlg : Form, ILocalizable
 	{
 		private readonly Project m_project;
 		private ParatextScrTextWrapper m_paratextScrTextWrapper;
@@ -53,10 +51,10 @@ namespace Glyssen.Dialogs
 			Initialize();
 
 			HandleStringsLocalized();
-			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
+			Program.RegisterLocalizable(this);
 		}
 
-		private void HandleStringsLocalized()
+		public void HandleStringsLocalized()
 		{
 			Debug.Assert(LocalizationManager.UILanguageId != "en" || Text == "Select Books - {0}",
 				"Dev alert: the localized string and ID of this dialog's window title MUST be kept in sync with the version in Project.FoundUnacceptableChangesInAvailableBooks!");

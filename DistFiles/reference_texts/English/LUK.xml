@@ -8,7 +8,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-LUK">
     <verse num="1" />
-    <text>Many have undertaken to set in order a narrative concerning those matters which have been fulfilled among us, </text>
+    <text>Many have undertaken to set in order a narrative concerning those matters which have been fulfilled among us,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-LUK">
     <verse num="2" />
     <text>just as they were handed down to us by those who were eyewitnesses and servants of the word from the beginning.</text>
   </block>
@@ -2113,7 +2115,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-LUK">
     <text>and still others said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="people, other">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="people, still others">
     <text>«One of the old prophets had risen again.»</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="narrator-LUK">
@@ -5338,7 +5340,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="17" characterId="narrator-LUK">
     <verse num="17" />
-    <text>Now he had to release one prisoner to them at the feast. </text>
+    <text>Now he had to release one prisoner to them at the feast.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="18" characterId="narrator-LUK">
     <verse num="18" />
     <text>But they all cried out together, saying,</text>
   </block>

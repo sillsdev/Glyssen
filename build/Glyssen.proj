@@ -24,10 +24,11 @@
 
 	<Import Project="../.nuget/NuGet.targets" />
 
-	<Target Name="RestoreBuildTasks" DependsOnTargets="CheckPrerequisites">
-		<Message Text="Calling nuget restore" />
+	<Target Name="RestoreLocalPackages" DependsOnTargets="CheckPrerequisites">
+		<Message Text="Calling $(NuGetCommand) restore ../$(Solution)" />
 		<Exec Command='$(NuGetCommand) restore ../$(Solution)' />
-		<Exec Command='$(NuGetCommand) install SIL.BuildTasks -excludeVersion -version 2.3.2 -source "$(PackageSources)" -solutionDirectory "$(SolutionDir)."' />
+		<Exec Command='$(NuGetCommand) install SIL.BuildTasks -excludeVersion -version 2.5.0 -source "$(PackageSources)" -solutionDirectory "$(RootDir)"' />
+		<Exec Command='$(NuGetCommand) install SIL.libpalaso.l10ns -excludeVersion -Version 9.0.1-beta0011 -source "$(PackageSources)" -solutionDirectory "$(SolutionDir)."' />
 		<Message Text="RestartBuild=$(RestartBuild)"/>
 		<MSBuild Projects="$(MSBuildProjectFullPath)" Targets="BuildInternal" Properties="Configuration=$(Configuration)" Condition="$(RestartBuild)" />
 	</Target>
@@ -43,11 +44,12 @@
 	</Target>
 
 	<Target Name="Build">
-		<CallTarget Targets="RestoreBuildTasks"/>
+		<CallTarget Targets="RestoreLocalPackages"/>
 		<CallTarget Targets="BuildInternal" Condition="!$(RestartBuild)" />
 	</Target>
 
 	<Target Name="BuildInternal">
+		<Message Text="BuildInternal : Configuration=$(Configuration)"/>
 		<MSBuild Projects="$(RootDir)/$(Solution)"
 			Targets="Rebuild"
 			Properties="Configuration=$(Configuration)" />
@@ -166,8 +168,18 @@
 			<IgnoreSigningErrors>true</IgnoreSigningErrors>
 		</PropertyGroup>
 	</Target>
+	
+	<Target Name="copyLibL10ns" DependsOnTargets="RestoreLocalPackages">
+		<Error Text="Palaso L10ns package missing. Expected at $(RootDir)/packages/SIL.libpalaso.l10ns" Condition="!Exists('$(RootDir)/packages/SIL.libpalaso.l10ns/SIL.libpalaso.l10ns.nupkg')" />
+		<ItemGroup>
+			<XliffFiles Include="$(RootDir)/packages/SIL.libpalaso.l10ns/content/**/*.xlf"/>
+		</ItemGroup>
+		  <Copy SourceFiles="@(XliffFiles)"
+				DestinationFiles="@(XliffFiles->'$(RootDir)/DistFiles/localization/%(Filename)%(Extension)')"
+				SkipUnchangedFiles="true"/>
+	</Target>
 
-	<Target Name="MakeWixForDistFiles">
+	<Target Name="MakeWixForDistFiles" DependsOnTargets="copyLibL10ns">
 		<MakeDir Directories ="$(RootDir)\output\installer" ContinueOnError ="true"/>
 		<MakeWixForDirTree
 			DirectoryReferenceId="ProgramDir"

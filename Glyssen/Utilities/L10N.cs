@@ -10,6 +10,10 @@ namespace Glyssen.Utilities
 {
 	internal class L10N
 	{
+		public static string AllFilesLabel =>
+			LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files",
+				"Label used in various file dialogs for \"*.*\"");
+
 		public static void LocalizeComboList(Component comboBox, string localizationId)
 		{
 			if (!(comboBox is ComboBox) && !(comboBox is ToolStripComboBox))

@@ -10,8 +10,6 @@ using GlyssenEngine.Bundle;
 using GlyssenEngine.Paratext;
 using GlyssenFileBasedPersistence;
 using L10NSharp;
-using L10NSharp.UI;
-using L10NSharp.XLiffUtils;
 using Paratext.Data;
 using SIL.DblBundle;
 using SIL.Extensions;
@@ -21,7 +19,7 @@ using static System.String;
 
 namespace Glyssen.Controls
 {
-	public partial class ExistingProjectsList : ProjectsListBase<GlyssenDblTextMetadata, GlyssenDblMetadataLanguage>
+	public partial class ExistingProjectsList : ProjectsListBase<GlyssenDblTextMetadata, GlyssenDblMetadataLanguage>, ILocalizable
 	{
 		private string m_fmtParatextProjectSource;
 		private readonly Dictionary<string, bool> m_unstartedParatextProjectStates = new Dictionary<string, bool>();
@@ -45,14 +43,15 @@ namespace Glyssen.Controls
 		public ExistingProjectsList()
 		{
 			InitializeComponent();
-			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
+			Program.RegisterLocalizable(this);
 			HandleStringsLocalized();
 		}
 
-		private void HandleStringsLocalized()
+		public void HandleStringsLocalized()
 		{
 			m_fmtParatextProjectSource = LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLabel",
 				"{0} project: {1}", "Param 0: \"Paratext\" (product name); Param 1: Paratext project short name (unique project identifier)");
+			ReloadExistingProjects();
 		}
 
 		protected override DataGridViewColumn InactiveColumn => colInactive;
@@ -85,7 +84,7 @@ namespace Glyssen.Controls
 					{
 						if (!existingProjects.Contains(scrText.Settings.DBLId))
 						{
-							var proxy = new ParatextProjectProxy(scrText);
+							IProjectInfo proxy = new ParatextProjectProxy(scrText);
 							m_paratextProjectIds[proxy.Name] = scrText.Guid;
 							yield return new Tuple<string, IProjectInfo>(proxy.Name, proxy);
 						}

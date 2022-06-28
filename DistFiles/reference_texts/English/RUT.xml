@@ -8,19 +8,19 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="1" characterId="narrator-RUT">
     <verse num="1" />
-    <text>It happened in the days when the judges judged, that there was a famine in the land. A certain man of Bethlehem Judah went to live in the country of Moab, he, and his wife, and his two sons.</text>
+    <text>In the days when the judges judged, there was a famine in the land. A certain man of Bethlehem Judah went to live in the country of Moab with his wife and his two sons.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="2" characterId="narrator-RUT">
     <verse num="2" />
-    <text>The name of the man was Elimelech, and the name of his wife Naomi, and the name of his two sons Mahlon and Chilion, Ephrathites of Bethlehem Judah. They came into the country of Moab, and continued there.</text>
+    <text>The name of the man was Elimelech, and the name of his wife Naomi. The names of his two sons were Mahlon and Chilion, Ephrathites of Bethlehem Judah. They came into the country of Moab and lived there.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="3" characterId="narrator-RUT">
     <verse num="3" />
-    <text>Elimelech, Naomi’s husband, died; and she was left, and her two sons.</text>
+    <text>Elimelech, Naomi’s husband, died; and she was left with her two sons.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="4" characterId="narrator-RUT">
     <verse num="4" />
-    <text>They took them wives of the women of Moab; the name of the one was Orpah, and the name of the other Ruth: and they lived there about ten years.</text>
+    <text>They took for themselves wives of the women of Moab. The name of the one was Orpah, and the name of the other was Ruth. They lived there about ten years.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="5" characterId="narrator-RUT">
     <verse num="5" />
@@ -28,25 +28,27 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="6" characterId="narrator-RUT">
     <verse num="6" />
-    <text>Then she arose with her daughters-in-law, that she might return from the country of Moab: for she had heard in the country of Moab how that God had visited his people in giving them bread.</text>
+    <text>Then she arose with her daughters-in-law, that she might return from the country of Moab; for she had heard in the country of Moab how Yahweh had visited his people in giving them bread.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="7" characterId="narrator-RUT">
     <verse num="7" />
-    <text>She went forth out of the place where she was, and her two daughters-in-law with her; and they went on the way to return to the land of Judah.</text>
+    <text>She went out of the place where she was, and her two daughters-in-law with her. They went on the way to return to the land of Judah.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="8" characterId="narrator-RUT">
     <verse num="8" />
     <text>Naomi said to her two daughters-in-law,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="8" characterId="Naomi">
-    <text>«Go, return each of you to her mother’s house: God deal kindly with you, as you have dealt with the dead, and with me.</text>
+    <text>«Go, return each of you to her mother’s house. May Yahweh deal kindly with you, as you have dealt with the dead and with me.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="Naomi">
     <verse num="9" />
-    <text>God grant you that you may find rest, each of you in the house of her husband.»</text>
+    <text>May Yahweh grant you that you may find rest, each of you in the house of her husband.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="narrator-RUT">
-    <text>Then she kissed them, and they lifted up their voice, and wept. </text>
+    <text>Then she kissed them, and they lifted up their voices, and wept.</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="10" characterId="narrator-RUT">
     <verse num="10" />
     <text>They said to her,</text>
   </block>
@@ -62,37 +64,41 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="12" characterId="Naomi">
     <verse num="12" />
-    <text>Go back, my daughters, go your way; for I am too old to have a husband. If I should say, ‹I have hope,› if I should even have a husband tonight, and should also bear sons; </text>
+    <text>Go back, my daughters, go your way; for I am too old to have a husband. If I should say, ‹I have hope,› if I should even have a husband tonight, and should also bear sons,</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="13" characterId="Naomi">
     <verse num="13" />
-    <text>would you then wait until they were grown? Would you then refrain from having husbands? No, my daughters, for it grieves me much for your sakes, for the hand of God has gone out against me.»</text>
+    <text>would you then wait until they were grown? Would you then refrain from having husbands? No, my daughters, for it grieves me seriously for your sakes, for Yahweh’s hand has gone out against me.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="14" characterId="narrator-RUT">
     <verse num="14" />
-    <text>They lifted up their voice, and wept again: and Orpah kissed her mother-in-law, but Ruth joined with her. </text>
+    <text>They lifted up their voices and wept again; then Orpah kissed her mother-in-law, but Ruth stayed with her.</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="15" characterId="narrator-RUT">
     <verse num="15" />
     <text>She said,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="15" characterId="Naomi">
-    <text>«Behold, your sister-in-law has gone back to her people, and to her god. Follow your sister-in-law.»</text>
+    <text>«Behold, your sister-in-law has gone back to her people and to her god. Follow your sister-in-law.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="16" characterId="narrator-RUT">
     <verse num="16" />
     <text>Ruth said,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="16" characterId="Ruth">
-    <text>«Don’t entreat me to leave you, and to return from following after you, for where you go, I will go; and where you lodge, I will lodge; your people shall be my people, and your God my God;</text>
+    <text>«Don’t urge me to leave you, and to return from following you, for where you go, I will go; and where you stay, I will stay. Your people will be my people, and your God my God.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="17" characterId="Ruth">
     <verse num="17" />
-    <text>where you die, will I die, and there will I be buried. God do so to me, and more also, if anything but death part you and me.»</text>
+    <text>Where you die, I will die, and there I will be buried. May Yahweh do so to me, and more also, if anything but death parts you and me.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="18" characterId="narrator-RUT">
     <verse num="18" />
-    <text>When she saw that she was steadfastly minded to go with her, she left off speaking to her.</text>
+    <text>When Naomi saw that she was determined to go with her, she stopped urging her.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="19" characterId="narrator-RUT">
     <verse num="19" />
-    <text>So they two went until they came to Bethlehem. It happened, when they were come to Bethlehem, that all the city was moved about them, and the women said,</text>
+    <text>So they both went until they came to Bethlehem. When they had come to Bethlehem, all the city was excited about them, and they asked,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="19" characterId="women of Bethlehem">
     <text>«Is this Naomi?»</text>
@@ -102,29 +108,29 @@
     <text>She said to them,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="20" characterId="Naomi">
-    <text>«Don’t call me Naomi. Call me Mara; for the Almighty has dealt very bitterly with me.</text>
+    <text>«Don’t call me Naomi. Call me Mara, for the Almighty has dealt very bitterly with me.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="21" characterId="Naomi">
     <verse num="21" />
-    <text>I went out full, and God has brought me home again empty; why do you call me Naomi, since God has testified against me, and the Almighty has afflicted me?»</text>
+    <text>I went out full, and Yahweh has brought me home again empty. Why do you call me Naomi, since Yahweh has testified against me, and the Almighty has afflicted me?»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="22" characterId="narrator-RUT">
     <verse num="22" />
-    <text>So Naomi returned, and Ruth the Moabitess, her daughter-in-law, with her, who returned out of the country of Moab: and they came to Bethlehem in the beginning of barley harvest.</text>
+    <text>So Naomi returned, and Ruth the Moabitess, her daughter-in-law, with her, who returned out of the country of Moab. They came to Bethlehem in the beginning of barley harvest.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="RUT" initialStartVerse="0" characterId="BC-RUT">
     <text>2</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="1" characterId="narrator-RUT">
     <verse num="1" />
-    <text>Naomi had a kinsman of her husband’s, a mighty man of wealth, of the family of Elimelech, and his name was Boaz.</text>
+    <text>Naomi had a relative of her husband’s, a mighty man of wealth, of the family of Elimelech, and his name was Boaz.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-RUT">
     <verse num="2" />
     <text>Ruth the Moabitess said to Naomi,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="Ruth">
-    <text>«Let me now go to the field, and glean among the ears of grain after him in whose sight I shall find favor.»</text>
+    <text>«Let me now go to the field, and glean among the ears of grain after him in whose sight I find favor.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-RUT">
     <text>She said to her,</text>
@@ -134,20 +140,20 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="narrator-RUT">
     <verse num="3" />
-    <text>She went, and came and gleaned in the field after the reapers: and she happened to come to the portion of the field belonging to Boaz, who was of the family of Elimelech.</text>
+    <text>She went, and came and gleaned in the field after the reapers; and she happened to come to the portion of the field belonging to Boaz, who was of the family of Elimelech.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-RUT">
     <verse num="4" />
     <text>Behold, Boaz came from Bethlehem, and said to the reapers,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="Boaz">
-    <text>«God be with you.»</text>
+    <text>«May Yahweh be with you.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-RUT">
     <text>They answered him,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="harvesters">
-    <text>«God bless you.»</text>
+    <text>«May Yahweh bless you.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="5" characterId="narrator-RUT">
     <verse num="5" />
@@ -165,7 +171,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="7" characterId="foreman">
     <verse num="7" />
-    <text>She said, ‹Please let me glean and gather after the reapers among the sheaves.› So she came, and has continued even from the morning until now, except that she stayed a little in the house.»</text>
+    <text>She said, ‹Please let me glean and gather after the reapers among the sheaves.› So she came, and has continued even from the morning until now, except that she rested a little in the house.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="8" characterId="narrator-RUT">
     <verse num="8" />
@@ -180,7 +186,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="10" characterId="narrator-RUT">
     <verse num="10" />
-    <text>Then she fell on her face, and bowed herself to the ground, and said to him,</text>
+    <text>Then she fell on her face and bowed herself to the ground, and said to him,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="10" characterId="Ruth">
     <text>«Why have I found favor in your sight, that you should take knowledge of me, since I am a foreigner?»</text>
@@ -190,28 +196,28 @@
     <text>Boaz answered her,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="11" characterId="Boaz">
-    <text>«It has fully been shown me, all that you have done to your mother-in-law since the death of your husband; and how you have left your father and your mother, and the land of your birth, and have come to a people that you didn’t know before.</text>
+    <text>«I have been told all about what you have done for your mother-in-law since the death of your husband, and how you have left your father, your mother, and the land of your birth, and have come to a people that you didn’t know before.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="12" characterId="Boaz">
     <verse num="12" />
-    <text>May God repay your work, and a full reward be given you from God, the God of Israel, under whose wings you have come to take refuge.»</text>
+    <text>May Yahweh repay your work, and a full reward be given to you from Yahweh, the God of Israel, under whose wings you have come to take refuge.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="13" characterId="narrator-RUT">
     <verse num="13" />
     <text>Then she said,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="13" characterId="Ruth">
-    <text>«Let me find favor in your sight, my lord, because you have comforted me, and because you have spoken kindly to your handmaid, though I am not as one of your handmaidens.»</text>
+    <text>«Let me find favor in your sight, my lord, because you have comforted me, and because you have spoken kindly to your servant, though I am not as one of your servants.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="14" characterId="narrator-RUT">
     <verse num="14" />
     <text>At meal time Boaz said to her,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="14" characterId="Boaz">
-    <text>«Come here, and eat of the bread, and dip your morsel in the vinegar.»</text>
+    <text>«Come here, and eat some bread, and dip your morsel in the vinegar.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="14" characterId="narrator-RUT">
-    <text>She sat beside the reapers, and they reached her parched grain, and she ate, and was satisfied, and left some of it.</text>
+    <text>She sat beside the reapers, and they passed her parched grain. She ate, was satisfied, and left some of it.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="15" characterId="narrator-RUT">
     <verse num="15" />
@@ -222,7 +228,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="16" characterId="Boaz">
     <verse num="16" />
-    <text>Also pull out some for her from the bundles, and leave it, and let her glean, and don’t rebuke her.»</text>
+    <text>Also pull out some for her from the bundles, and leave it. Let her glean, and don’t rebuke her.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="17" characterId="narrator-RUT">
     <verse num="17" />
@@ -230,7 +236,9 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="18" characterId="narrator-RUT">
     <verse num="18" />
-    <text>She took it up, and went into the city; and her mother-in-law saw what she had gleaned: and she brought forth and gave to her that which she had left after she was sufficed. </text>
+    <text>She took it up, and went into the city. Then her mother-in-law saw what she had gleaned; and she brought out and gave to her that which she had left after she had enough.</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="19" characterId="narrator-RUT">
     <verse num="19" />
     <text>Her mother-in-law said to her,</text>
   </block>
@@ -238,7 +246,7 @@
     <text>«Where have you gleaned today? Where have you worked? Blessed be he who noticed you.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="19" characterId="narrator-RUT">
-    <text>She showed her mother-in-law with whom she had worked, and said,</text>
+    <text>She told her mother-in-law with whom she had worked,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="19" characterId="Ruth">
     <text>«The man’s name with whom I worked today is Boaz.»</text>
@@ -248,7 +256,7 @@
     <text>Naomi said to her daughter-in-law,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="20" characterId="Naomi">
-    <text>«Blessed be he of God, who has not left off his kindness to the living and to the dead.»</text>
+    <text>«May he be blessed by Yahweh, who has not abandoned his kindness to the living and to the dead.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="20" characterId="narrator-RUT">
     <text>Naomi said to her,</text>
@@ -261,7 +269,7 @@
     <text>Ruth the Moabitess said,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="21" characterId="Ruth">
-    <text>«Yes, he said to me, You shall stay close to my young men, until they have ended all my harvest.»</text>
+    <text>«Yes, he said to me, ‹You shall stay close to my young men until they have finished all my harvest.› »</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="22" characterId="narrator-RUT">
     <verse num="22" />
@@ -286,34 +294,36 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="2" characterId="Naomi">
     <verse num="2" />
-    <text>Now isn’t Boaz our kinsman, with whose maidens you were? Behold, he winnows barley tonight in the threshing floor.</text>
+    <text>Now isn’t Boaz our kinsman, with whose maidens you were? Behold, he will be winnowing barley tonight on the threshing floor.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="3" characterId="Naomi">
     <verse num="3" />
-    <text>Therefore wash yourself, anoint yourself, get dressed, and go down to the threshing floor, but don’t make yourself known to the man until he has finished eating and drinking.</text>
+    <text>Therefore wash yourself, anoint yourself, get dressed, and go down to the threshing floor; but don’t make yourself known to the man until he has finished eating and drinking.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="4" characterId="Naomi">
     <verse num="4" />
-    <text>It shall be, when he lies down, that you shall mark the place where he shall lie, and you shall go in, and uncover his feet, and lay down; then he will tell you what you shall do.»</text>
+    <text>It shall be, when he lies down, that you shall note the place where he is lying. Then you shall go in, uncover his feet, and lay down. Then he will tell you what to do.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-RUT">
     <verse num="5" />
     <text>She said to her,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="Ruth">
-    <text>«All that you say I will do.»</text>
+    <text>«All that you say, I will do.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="6" characterId="narrator-RUT">
     <verse num="6" />
-    <text>She went down to the threshing floor, and did according to all that her mother-in-law told her.</text>
+    <text>She went down to the threshing floor, and did everything that her mother-in-law told her.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="7" characterId="narrator-RUT">
     <verse num="7" />
-    <text>When Boaz had eaten and drunk, and his heart was merry, he went to lie down at the end of the heap of grain. She came softly, uncovered his feet, and laid her down.</text>
+    <text>When Boaz had eaten and drunk, and his heart was merry, he went to lie down at the end of the heap of grain. She came softly, uncovered his feet, and laid down.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="8" characterId="narrator-RUT">
     <verse num="8" />
-    <text>It happened at midnight, that the man was startled and turned himself; and behold, a woman lay at his feet. </text>
+    <text>At midnight, the man was startled and turned himself; and behold, a woman lay at his feet.</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="9" characterId="narrator-RUT">
     <verse num="9" />
     <text>He said,</text>
   </block>
@@ -324,30 +334,30 @@
     <text>She answered,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="9" characterId="Ruth">
-    <text>«I am Ruth your handmaid. Therefore spread your skirt over your handmaid; for you are a near kinsman.»</text>
+    <text>«I am Ruth your servant. Therefore spread the corner of your garment over your servant; for you are a near kinsman.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="10" characterId="narrator-RUT">
     <verse num="10" />
     <text>He said,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="10" characterId="Boaz">
-    <text>«Blessed are you by God, my daughter. You have shown more kindness in the latter end than at the beginning, inasmuch as you didn’t follow young men, whether poor or rich.</text>
+    <text>«You are blessed by Yahweh, my daughter. You have shown more kindness in the latter end than at the beginning, because you didn’t follow young men, whether poor or rich.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="11" characterId="Boaz">
     <verse num="11" />
-    <text>Now, my daughter, don’t be afraid; I will do to you all that you say; for all the city of my people does know that you are a worthy woman.</text>
+    <text>Now, my daughter, don’t be afraid. I will do to you all that you say; for all the city of my people knows that you are a worthy woman.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="12" characterId="Boaz">
     <verse num="12" />
-    <text>Now it is true that I am a near kinsman; however there is a kinsman nearer than I.</text>
+    <text>Now it is true that I am a near kinsman. However, there is a kinsman nearer than I.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="13" characterId="Boaz">
     <verse num="13" />
-    <text>Stay this night, and it shall be in the morning, that if he will perform for you the part of a kinsman, well; let him do the kinsman’s part. But if he will not do the part of a kinsman for you, then will I do the part of a kinsman for you, as God lives. Lie down until the morning.»</text>
+    <text>Stay this night, and in the morning, if he will perform for you the part of a kinsman, good. Let him do the kinsman’s duty. But if he will not do the duty of a kinsman for you, then I will do the duty of a kinsman for you, as Yahweh lives. Lie down until the morning.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="14" characterId="narrator-RUT">
     <verse num="14" />
-    <text>She lay at his feet until the morning. She rose up before one could discern another. For he said,</text>
+    <text>She lay at his feet until the morning, then she rose up before one could discern another. For he said,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="14" characterId="Boaz">
     <text>«Let it not be known that the woman came to the threshing floor.»</text>
@@ -360,7 +370,7 @@
     <text>«Bring the mantle that is on you, and hold it.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="15" characterId="narrator-RUT">
-    <text>She held it; and he measured six measures of barley, and laid it on her; and he went into the city.</text>
+    <text>She held it; and he measured six measures of barley, and laid it on her; then he went into the city.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="16" characterId="narrator-RUT">
     <verse num="16" />
@@ -370,40 +380,46 @@
     <text>«How did it go, my daughter?»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="16" characterId="narrator-RUT">
-    <text>She told her all that the man had done to her. </text>
+    <text>She told her all that the man had done for her.</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="17" characterId="narrator-RUT">
     <verse num="17" />
     <text>She said,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="17" characterId="Ruth">
-    <text>«He gave me these six measures of barley; for he said, Don’t go empty to your mother-in-law.»</text>
+    <text>«He gave me these six measures of barley; for he said, ‹Don’t go empty to your mother-in-law.› »</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="18" characterId="narrator-RUT">
     <verse num="18" />
     <text>Then she said,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="18" characterId="Naomi">
-    <text>«Sit still, my daughter, until you know how the matter will fall; for the man will not rest, until he has finished the thing this day.»</text>
+    <text>«Wait, my daughter, until you know what will happen; for the man will not rest until he has settled this today.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="RUT" initialStartVerse="0" characterId="BC-RUT">
     <text>4</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="1" characterId="narrator-RUT">
     <verse num="1" />
-    <text>Now Boaz went up to the gate, and sat down there. Behold, the near kinsman of whom Boaz spoke came by; to whom he said,</text>
+    <text>Now Boaz went up to the gate and sat down there. Behold, the near kinsman of whom Boaz spoke came by. Boaz said to him,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="1" characterId="Boaz">
     <text>«Come over here, friend, and sit down!»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="1" characterId="narrator-RUT">
-    <text>He turned aside, and sat down. </text>
-    <verse num="2" />
-    <text>He took ten men of the elders of the city, and said,</text>
-  </block>
-  <block style="p" chapter="4" initialStartVerse="2" characterId="Boaz">
-    <text>«Sit down here.»</text>
+    <text>He came over, and sat down.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="2" characterId="narrator-RUT">
-    <text>They sat down. </text>
+    <verse num="2" />
+    <text>Boaz took ten men of the elders of the city, and said,</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="2" characterId="Boaz">
+    <text>«Sit down here,»</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="2" characterId="narrator-RUT">
+    <text>and they sat down.</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="3" characterId="narrator-RUT">
     <verse num="3" />
     <text>He said to the near kinsman,</text>
   </block>
@@ -412,7 +428,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="4" characterId="Boaz">
     <verse num="4" />
-    <text>I thought to disclose it to you, saying, ‹Buy it before those who sit here, and before the elders of my people.› If you will redeem it, redeem it; but if you will not redeem it, then tell me, that I may know. For there is no one to redeem it besides you; and I am after you.»</text>
+    <text>I thought I should tell you, saying, ‹Buy it before those who sit here, and before the elders of my people.› If you will redeem it, redeem it; but if you will not redeem it, then tell me, that I may know. For there is no one to redeem it besides you; and I am after you.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="4" characterId="narrator-RUT">
     <text>He said,</text>
@@ -432,76 +448,90 @@
     <text>The near kinsman said,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="6" characterId="kinsman-redeemer">
-    <text>«I can’t redeem it for myself, lest I mar my own inheritance. Take my right of redemption for yourself; for I can’t redeem it.»</text>
+    <text>«I can’t redeem it for myself, lest I endanger my own inheritance. Take my right of redemption for yourself; for I can’t redeem it.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="7" characterId="narrator-RUT">
     <verse num="7" />
-    <text>Now this was the custom in former time in Israel concerning redeeming and concerning exchanging, to confirm all things: a man took off his shoe, and gave it to his neighbor; and this was the way of attestation in Israel. </text>
+    <text>Now this was the custom in former time in Israel concerning redeeming and concerning exchanging, to confirm all things: a man took off his sandal, and gave it to his neighbor; and this was the way of formalizing transactions in Israel.</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="8" characterId="narrator-RUT">
     <verse num="8" />
     <text>So the near kinsman said to Boaz,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="8" characterId="kinsman-redeemer">
-    <text>«Buy it for yourself.»</text>
+    <text>«Buy it for yourself,»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="8" characterId="narrator-RUT">
-    <text>He took off his shoe. </text>
+    <text>then he took off his sandal.</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="9" characterId="narrator-RUT">
     <verse num="9" />
-    <text>Boaz said to the elders, and to all the people,</text>
+    <text>Boaz said to the elders and to all the people,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="9" characterId="Boaz">
-    <text>«You are witnesses this day, that I have bought all that was Elimelech’s, and all that was Chilion’s and Mahlon’s, from the hand of Naomi.</text>
+    <text>«You are witnesses today, that I have bought all that was Elimelech’s, and all that was Chilion’s and Mahlon’s, from the hand of Naomi.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="10" characterId="Boaz">
     <verse num="10" />
-    <text>Moreover Ruth the Moabitess, the wife of Mahlon, I have purchased to be my wife, to raise up the name of the dead on his inheritance, that the name of the dead not be cut off from among his brothers, and from the gate of his place. You are witnesses this day.»</text>
+    <text>Moreover, Ruth the Moabitess, the wife of Mahlon, I have purchased to be my wife, to raise up the name of the dead on his inheritance, that the name of the dead may not be cut off from among his brothers and from the gate of his place. You are witnesses today.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="11" characterId="narrator-RUT">
     <verse num="11" />
     <text>All the people who were in the gate, and the elders, said,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="11" characterId="elders">
-    <text>«We are witnesses. May God make the woman who has come into your house like Rachel and like Leah, which two built the house of Israel; and treat you worthily in Ephrathah, and be famous in Bethlehem.</text>
+    <text>«We are witnesses. May Yahweh make the woman who has come into your house like Rachel and like Leah, which both built the house of Israel; and treat you worthily in Ephrathah, and be famous in Bethlehem.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="12" characterId="elders">
     <verse num="12" />
-    <text>Let your house be like the house of Perez, whom Tamar bore to Judah, of the seed which God shall give you of this young woman.»</text>
+    <text>Let your house be like the house of Perez, whom Tamar bore to Judah, of the offspring which Yahweh will give you by this young woman.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="13" characterId="narrator-RUT">
     <verse num="13" />
-    <text>So Boaz took Ruth, and she became his wife; and he went in to her, and God gave her conception, and she bore a son. </text>
+    <text>So Boaz took Ruth and she became his wife; and he went in to her, and Yahweh enabled her to conceive, and she bore a son.</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="14" characterId="narrator-RUT">
     <verse num="14" />
     <text>The women said to Naomi,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="14" characterId="women of Bethlehem">
-    <text>«Blessed be God, who has not left you this day without a near kinsman; and let his name be famous in Israel.</text>
+    <text>«Blessed be Yahweh, who has not left you today without a near kinsman. Let his name be famous in Israel.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="15" characterId="women of Bethlehem">
     <verse num="15" />
-    <text>He shall be to you a restorer of life, and sustain you in your old age, for your daughter-in-law, who loves you, who is better to you than seven sons, has borne him.»</text>
+    <text>He shall be to you a restorer of life and sustain you in your old age; for your daughter-in-law, who loves you, who is better to you than seven sons, has given birth to him.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="16" characterId="narrator-RUT">
     <verse num="16" />
-    <text>Naomi took the child, and laid it in her bosom, and became nurse to it.</text>
+    <text>Naomi took the child, laid him in her bosom, and became nurse to him.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="17" characterId="narrator-RUT">
     <verse num="17" />
     <text>The women, her neighbors, gave him a name, saying,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="17" characterId="women of Bethlehem">
-    <text>«There is a son born to Naomi;»</text>
+    <text>«A son is born to Naomi.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="17" characterId="narrator-RUT">
-    <text>and they named him Obed. He is the father of Jesse, the father of David.</text>
+    <text>They named him Obed. He is the father of Jesse, the father of David.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="18" characterId="narrator-RUT">
     <verse num="18" />
-    <text>Now this is the history of the generations of Perez: Perez became the father of Hezron, </text>
+    <text>Now this is the history of the generations of Perez: Perez became the father of Hezron,</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="19" characterId="narrator-RUT">
     <verse num="19" />
-    <text>and Hezron became the father of Ram, and Ram became the father of Amminadab, </text>
+    <text>and Hezron became the father of Ram, and Ram became the father of Amminadab,</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="20" characterId="narrator-RUT">
     <verse num="20" />
-    <text>and Amminadab became the father of Nahshon, and Nahshon became the father of Salmon, </text>
+    <text>and Amminadab became the father of Nahshon, and Nahshon became the father of Salmon,</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="21" characterId="narrator-RUT">
     <verse num="21" />
-    <text>and Salmon became the father of Boaz, and Boaz became the father of Obed, </text>
+    <text>and Salmon became the father of Boaz, and Boaz became the father of Obed,</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="22" characterId="narrator-RUT">
     <verse num="22" />
     <text>and Obed became the father of Jesse, and Jesse became the father of David.</text>
   </block>

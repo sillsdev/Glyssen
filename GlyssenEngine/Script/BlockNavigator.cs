@@ -85,9 +85,9 @@ namespace GlyssenEngine.Script
 			throw new ArgumentOutOfRangeException(nameof(block), block.ToString(), "Block not found in any book!");
 		}
 
-		public BookBlockIndices GetIndicesOfFirstBlockAtReference(VerseRef verseRef, bool allowMidQuoteBlock = false)
+		public BookBlockIndices GetIndicesOfFirstBlockAtReference(IScrVerseRef verseRef, bool allowMidQuoteBlock = false)
 		{
-			if (!verseRef.Valid)
+			if (verseRef is VerseRef vr && !vr.Valid)
 				return null;
 			var bookId = verseRef.Book;
 			int bookIndex = -1;

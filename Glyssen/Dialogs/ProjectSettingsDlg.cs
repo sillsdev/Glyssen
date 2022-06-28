@@ -16,8 +16,6 @@ using GlyssenEngine.Utilities;
 using GlyssenEngine.ViewModels;
 using GlyssenFileBasedPersistence;
 using L10NSharp;
-using L10NSharp.XLiffUtils;
-using L10NSharp.UI;
 using SIL.Extensions;
 using SIL.IO;
 using SIL.Reporting;
@@ -28,7 +26,7 @@ using BlockNavigatorViewModel = GlyssenEngine.ViewModels.BlockNavigatorViewModel
 
 namespace Glyssen.Dialogs
 {
-	public partial class ProjectSettingsDlg : FormWithPersistedSettings
+	public partial class ProjectSettingsDlg : FormWithPersistedSettings, ILocalizable
 	{
 		private ProjectSettingsViewModel m_model;
 		private WritingSystemSetupModel m_wsViewModel;
@@ -70,12 +68,12 @@ namespace Glyssen.Dialogs
 			if (books.All(book => IsNullOrEmpty(book.MainTitle)))
 				RemoveItemFromBookMarkerCombo(ChapterAnnouncement.MainTitle1);
 
-			LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
 			SetViewModel(model, wsViewModel);
+			Program.RegisterLocalizable(this);
 			HandleStringsLocalized();
 		}
 
-		private void HandleStringsLocalized()
+		public void HandleStringsLocalized()
 		{
 			LoadReferenceTextOptions();
 			LoadProjectDramatizationOptions();
@@ -102,7 +100,7 @@ namespace Glyssen.Dialogs
 				(project.QuoteSystemStatus & QuoteSystemStatus.ParseReady) != 0)
 			{
 				var paratextProj = project.GetParatextScrTextWrapper();
-				if (paratextProj != null &&
+				if (paratextProj != null && paratextProj.QuotationMarks.Any() &&
 					!project.WritingSystem.QuotationMarks.SequenceEqual(project.GetQuotationMarksWithFullySpecifiedContinuers(paratextProj.QuotationMarks)))
 				{
 					string msg = Format(LocalizationManager.GetString("Project.ParatextQuoteSystemChanged",

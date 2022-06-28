@@ -11,7 +11,7 @@ namespace GlyssenEngine.Script
 		Block CurrentEndBlock { get; }
 		BookBlockIndices GetIndices();
 		BookBlockIndices GetIndicesOfSpecificBlock(Block block);
-		BookBlockIndices GetIndicesOfFirstBlockAtReference(VerseRef verseRef, bool allowMidQuoteBlock = false);
+		BookBlockIndices GetIndicesOfFirstBlockAtReference(IScrVerseRef verseRef, bool allowMidQuoteBlock = false);
 		BookScript GetBookScriptContainingBlock(Block block);
 		bool IsLastBook(BookScript book);
 		bool IsLastBlock();

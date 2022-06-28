@@ -1,0 +1,1 @@
+^\s*<trans-unit id="[^>]+>(\r|\n)+\s*<source xml:lang="en">[^<]+</source>(\r|\n)+\s*(<note>[^<]+</note>(\r|\n)+\s*)+<target xml:lang="[^"]+" state="needs-translation">[^<]+</target>(\r|\n)+\s*</trans-unit>(\r|\n)+

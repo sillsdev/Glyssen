@@ -81,10 +81,17 @@ namespace GlyssenEngine.ViewModels
 				var startingBlock = GetBlock(startingIndices);
 				if (startingBlock != null && !CharacterVerseData.IsCharacterExtraBiblical(startingBlock.CharacterId))
 				{
-					SetBlock(startingIndices);
-					m_currentRelevantIndex = m_relevantBookBlockIndices.IndexOf(startingIndices);
+					// Note: we don't want to use the normal BookBlockIndices.Equal to find the requested index because the data
+					// could have changed in a way that causes the extent of the matchup to have changed. In that case, we want
+					// to use the now relevant matchup at the previous block index. Otherwise, we can end up with a crash later.
+					m_currentRelevantIndex = m_relevantBookBlockIndices.FindIndex(bbi => bbi.BookIndex == startingIndices.BookIndex && bbi.BlockIndex == startingIndices.BlockIndex);
 					if (m_currentRelevantIndex < 0)
+					{
+						SetBlock(startingIndices);
 						m_temporarilyIncludedBookBlockIndices = startingIndices;
+					}
+					else
+						SetBlock(m_relevantBookBlockIndices[m_currentRelevantIndex]);
 				}
 			}
 		}
@@ -185,6 +192,16 @@ namespace GlyssenEngine.ViewModels
 		public bool CanDisplayReferenceTextForCurrentBlock => m_project.ReferenceText.CanDisplayReferenceTextForBook(CurrentBook) && !CurrentBook.SingleVoice;
 
 		public bool IsCurrentLocationRelevant =>  m_relevantBookBlockIndices.Any(i => i.Contains(BlockAccessor.GetIndices()));
+
+		public bool IsReferenceOutsideCurrentScope(IScrVerseRef reference)
+		{
+			var blockRef = GetBlockVerseRef();
+			int versesInSelection = GetLastVerseInCurrentQuote() - blockRef.VerseNum;
+			var refInControl = new BCVRef(reference.BookNum,
+				reference.ChapterNum, reference.VerseNum);
+			var displayedRefMinusBlockStartRef = refInControl.BBCCCVVV - blockRef.BBBCCCVVV;
+			return displayedRefMinusBlockStartRef < 0 || displayedRefMinusBlockStartRef > versesInSelection;
+		}
 
 		public IEnumerable<string> IncludedBooks => m_includedBooks;
 		public TFont Font => m_font.Font;
@@ -629,7 +646,7 @@ namespace GlyssenEngine.ViewModels
 			}
 		}
 
-		public bool TryLoadBlock(VerseRef verseRef)
+		public bool TryLoadBlock(IScrVerseRef verseRef)
 		{
 			if (TrySelectRefInCurrentBlockMatchup(verseRef))
 				return true;
@@ -656,7 +673,7 @@ namespace GlyssenEngine.ViewModels
 			return true;
 		}
 
-		private bool TrySelectRefInCurrentBlockMatchup(VerseRef verseRef)
+		private bool TrySelectRefInCurrentBlockMatchup(IScrVerseRef verseRef)
 		{
 			if (m_currentRefBlockMatchups != null && CurrentBook.BookNumber == verseRef.BookNum && CurrentBlock.ChapterNumber == verseRef.ChapterNum &&
 				m_currentRefBlockMatchups.CorrelatedBlocks.First().InitialStartVerseNumber <= verseRef.VerseNum &&
@@ -709,11 +726,33 @@ namespace GlyssenEngine.ViewModels
 		{
 			if (IsCurrentLocationRelevant)
 			{
+				int prevIndex = m_currentRelevantIndex;
 				if (BlockGroupingStyle == BlockGroupingType.Quote)
 					m_currentRelevantIndex++;
 				else
 					m_currentRelevantIndex = GetIndexOfNextRelevantBlockNotInCurrentMatchup();
-				SetBlock(m_relevantBookBlockIndices[m_currentRelevantIndex]);
+				try
+				{
+					SetBlock(m_relevantBookBlockIndices[m_currentRelevantIndex]);
+				}
+				catch (ArgumentOutOfRangeException e)
+				{
+					ErrorReport.NotifyUserOfProblem(e, Localizer.GetString(
+						"DialogBoxes.BlockNavigator.LoadNextRelevantBlockIndexOutOfRange",
+						"Sorry! {0} has gotten a little confused and can't go to the next " +
+						"place that matches the filter.\r\n" +
+						"Please click Details and send in a report to notify the developers.\r\n" +
+						"After reporting this error, close the Identify Speaking Parts dialog box " +
+						"and reopen it.", "Parameter is \"Glyssen\" (product name)") +
+						"\r\nInformation for developers (PG-1462):\r\n" +
+						"previous index = {1}\r\n" +
+						"new index = {2}\r\n" +
+						"relevant indices = {3}\r\n" +
+						"grouping style = {4}\r\n" +
+						"current block = {5}",
+						GlyssenInfo.Product, prevIndex, m_currentRelevantIndex, m_relevantBookBlockIndices.Count,
+						BlockGroupingStyle, CurrentBlock);
+				}
 			}
 			else
 				LoadClosestRelevantBlock(false);
@@ -895,7 +934,11 @@ namespace GlyssenEngine.ViewModels
 				throw new InvalidOperationException("No current reference text block matchup!");
 			Debug.Assert(m_currentRefBlockMatchups != null);
 			if (!m_currentRefBlockMatchups.HasOutstandingChangesToApply)
-				throw new InvalidOperationException("Current reference text block matchup has no outstanding changes!");
+			{
+				throw new InvalidOperationException("Current reference text block matchup has no outstanding changes!\r\n" +
+					m_currentRefBlockMatchups);
+			}
+
 			var insertions = m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting;
 			var insertionIndex = m_currentRelevantIndex;
 
