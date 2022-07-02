@@ -519,12 +519,6 @@ namespace GlyssenEngine
 			}
 		}
 
-		public string GetStandardCharacterName(string character, string bookId, int chapter,
-			IEnumerable<IVerse> verses, out string singleKnownDelivery, out string defaultcharacter)
-		{
-			throw new NotImplementedException();
-		}
-
 		public bool IsProjectSpecificCharacter(string character)
 		{
 			return ProjectCharacterDetail.Any(d => d.CharacterId == character);

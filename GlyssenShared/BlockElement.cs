@@ -95,7 +95,7 @@ namespace Glyssen.Shared
 		// can be just a numeric "word."
 		public bool ContainsNoWords => !Content.Any(IsLetterOrDigit);
 
-		// In almost all situations, this is the opposite of ContainsNoWords, except perhaps for
+		// In almost all situations, this is the same as ContainsNoWords, except perhaps for
 		// bizarre situations where the content could consist entirely of symbols or other weird
 		// characters.
 		public bool ContainsOnlyWhitespaceAndPunctuation => Content.All(c => IsPunctuation(c) || IsWhiteSpace(c));

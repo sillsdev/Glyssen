@@ -895,10 +895,12 @@ namespace GlyssenEngine.Script
 		/// not be a big deal.)
 		/// </summary>
 		public bool IsQuote => !CharacterVerseData.IsCharacterStandard(CharacterId) ||
-			UserConfirmed ||
-			// REVIEW: If this last condition is what makes this a quote, should we also ensure
-			// that the character is not narrator?
-			TryGetQuoteStartMilestoneLevel(StyleTag, out _); 
+			UserConfirmed;
+			//
+			// REVIEW: The following condition is not needed for any unit tests. Is it needed?
+			// Seems unlikely, since this property is never used in UsxParser and by the time
+			// the USX parse is done the character ID should be set as best we can.
+			// || TryGetQuoteStartMilestoneLevel(StyleTag, out _); 
 
 		public bool IsNarratorOrPotentialNarrator(string bookId) =>
 			CharacterIs(bookId, CharacterVerseData.StandardCharacter.Narrator) ||

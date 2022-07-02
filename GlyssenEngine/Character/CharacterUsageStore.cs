@@ -11,6 +11,10 @@ using FuzzySharp;
 
 namespace GlyssenEngine.Character
 {
+	/// <summary>
+	/// A repository of information about "standard" (as defined by Glyssen) characters and their
+	/// corresponding deliveries in the Scripture passages where they are known to speak.
+	/// </summary>
 	internal class CharacterUsageStore : ICharacterUsageStore
 	{
 		public ScrVers Versification { get; }
@@ -27,6 +31,12 @@ namespace GlyssenEngine.Character
 			m_getVariants = getLocalizedVariants;
 		}
 
+		/// <summary>
+		/// Class to represent all variants (individual character IDs and aliases) of actual known
+		/// characters for the purpose of fuzzy matching against a literal character string in the
+		/// data. (Each entry in the Character-Verse data for a particular verse/passage will be
+		/// represented by one or more of these objects.)
+		/// </summary>
 		private class FuzzyMatchCandidate
 		{
 			private readonly CharacterSpeakingMode m_csm;
@@ -49,6 +59,23 @@ namespace GlyssenEngine.Character
 			public string UnderlyingCharacter => m_csm.Character;
 		}
 
+		/// <summary>
+		/// Given a "character" which might not be a "standard" character ID known to Glyssen,
+		/// returns a standard character ID that is known to speak in the specified location in
+		/// Scripture, assuming it is possibly to reliably infer a single character based on the
+		/// given one.
+		/// </summary>
+		/// <param name="character">A string representing a character name, description, etc.
+		/// </param>
+		/// <param name="bookNum">1-based Scripture book number</param>
+		/// <param name="chapter">Chapter number</param>
+		/// <param name="verses">One or more verses in which the character speaks</param>
+		/// <param name="singleKnownDelivery">If a reliable match is found and the character
+		/// has a single known delivery in the given verse(s), then this delivery is returned in
+		/// this parameter.</param>
+		/// <param name="defaultCharacter">If a reliable match is found and the standard character
+		/// ID represents multiple characters, then the standard default character is returned in
+		/// this parameter.</param>
 		public string GetStandardCharacterName(string character, int bookNum, int chapter,
 			IReadOnlyCollection<IVerse> verses, out string singleKnownDelivery, out string defaultCharacter)
 		{
@@ -87,7 +114,7 @@ namespace GlyssenEngine.Character
 				}
 			}
 
-			// Finally, try for a fuzzy match. The following "magic numbers" are based on some
+			// Finally, try for a fuzzy match.
 			var candidates = new List<FuzzyMatchCandidate>(charactersInPassage.Count);
 
 			foreach (var candidateChar in charactersInPassage)

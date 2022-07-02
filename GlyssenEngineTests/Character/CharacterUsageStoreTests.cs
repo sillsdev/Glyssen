@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Glyssen.Shared;
 using GlyssenEngine.Character;
 using GlyssenEngineTests.Properties;
 using NUnit.Framework;
 using SIL.Scripture;
+using static System.Int32;
 
 namespace GlyssenEngineTests.Character
 {
@@ -220,13 +222,39 @@ namespace GlyssenEngineTests.Character
 		[TestCase("REV", 1, "17", "someone li", ExpectedResult = "Jesus")]
 		[TestCase("REV", 1, "17", "son of man", ExpectedResult = "Jesus")]
 		[TestCase("REV", 1, "17", "Son of man", ExpectedResult = "Jesus")]
-		[TestCase("ISA", 45, "24", "tongue", ExpectedResult = "every tongue")]
-		public string GetStandardCharacterName_OnlyMatchingSubstring_ReturnsStandardCharacterName(
-			string bookCode, int chapterNum, string verse, string alias)
+		public string GetStandardCharacterName_SingleEntryHasMatchingSubstring_ReturnsStandardCharacterName(
+			string bookCode, int chapterNum, string verse, string charStringInData)
 		{
+			var bookNum = BCVRef.BookToNumber(bookCode);
+			// Verify that the C-V data is as follows:
+			// REV	1	17	Jesus		someone like a son of man	Normal
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(bookNum, chapterNum,
+				Parse(verse)).Single().Alias, Is.EqualTo("someone like a son of man"));
+
 			var store = new CharacterUsageStore(ScrVers.English, 
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			return store.GetStandardCharacterName(alias, BCVRef.BookToNumber(bookCode),
+			return store.GetStandardCharacterName(charStringInData, BCVRef.BookToNumber(bookCode),
+				chapterNum, new[] {new Verse(verse)}, out _, out _);
+		}
+
+		[TestCase("ISA", 45, "24", "tongue", ExpectedResult = "every tongue")]
+		[TestCase("ISA", 45, "24", "Yahweh", ExpectedResult = "God")]
+		public string GetStandardCharacterName_SingleMatchingSubstring_ReturnsStandardCharacterNameCorrespondingToSubstringMatch(
+			string bookCode, int chapterNum, string verse, string charStringInData)
+		{
+			var bookNum = BCVRef.BookToNumber(bookCode);
+			// Verify that the C-V data is as follows:
+			// ISA	45	24	God		God (Yahweh)	Normal		
+			// ISA	45	24	every tongue			Hypothetical
+			var entries = ControlCharacterVerseData.Singleton.GetCharacters(bookNum, chapterNum,
+				Parse(verse)).ToList();
+			Assert.That(entries.Count, Is.GreaterThan(1));
+			Assert.That(entries.Count(c => c.Character.Contains(charStringInData) ||
+				c.Alias.Contains(charStringInData)), Is.EqualTo(1));
+
+			var store = new CharacterUsageStore(ScrVers.English, 
+				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
+			return store.GetStandardCharacterName(charStringInData, BCVRef.BookToNumber(bookCode),
 				chapterNum, new[] {new Verse(verse)}, out _, out _);
 		}
 
