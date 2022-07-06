@@ -5,7 +5,7 @@ using SIL.Scripture;
 namespace GlyssenEngine.Character
 {
 	/// <summary>
-	/// A repository of information about "standard" characters and their
+	/// A repository of information about "official" characters and their
 	/// corresponding deliveries in the Scripture passages where they are known to speak.
 	/// </summary>
 	/// <remarks>There is a standard implementation of this interface for Glyssen, but this
@@ -13,7 +13,7 @@ namespace GlyssenEngine.Character
 	public interface ICharacterUsageStore
 	{
 		/// <summary>
-		/// Given a "character" which might not be a "standard" character ID, returns a standard
+		/// Given a "character" which might not be an "official" character ID, returns a standard
 		/// character ID that is known to speak in the specified location in Scripture, assuming
 		/// it is possibly to reliably infer a single character based on the given one.
 		/// </summary>

@@ -12,7 +12,7 @@ using FuzzySharp;
 namespace GlyssenEngine.Character
 {
 	/// <summary>
-	/// A repository of information about "standard" (as defined by Glyssen) characters and their
+	/// A repository of information about "official" (as defined by Glyssen) characters and their
 	/// corresponding deliveries in the Scripture passages where they are known to speak.
 	/// </summary>
 	internal class CharacterUsageStore : ICharacterUsageStore
@@ -60,7 +60,7 @@ namespace GlyssenEngine.Character
 		}
 
 		/// <summary>
-		/// Given a "character" which might not be a "standard" character ID known to Glyssen,
+		/// Given a "character" which might not be an "official" character ID known to Glyssen,
 		/// returns a standard character ID that is known to speak in the specified location in
 		/// Scripture, assuming it is possibly to reliably infer a single character based on the
 		/// given one.
