@@ -301,7 +301,9 @@ namespace GlyssenEngine.Script
 		/// Gets whether the block had the character pre-determined in the source. If this block is
 		/// later user-confirmed, that's okay, but if the user actually overrides the pre-
 		/// determined character, we (hopefully consistently) alter the style tag so that it does
-		/// not appear that the new character is the one that was predetermined.
+		/// not appear that the new character is the one that was predetermined. Note that for the
+		/// purposes of this property, we do not include special predetermined character styles,
+		/// such as \wj. (REVIEW: Should we?)
 		/// </summary>
 		public bool HasPreConfirmedCharacter =>
 			CharacterId != null && !CharacterIsUnclear && IsPredeterminedFirstLevelQuoteStart;

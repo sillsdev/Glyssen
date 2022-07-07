@@ -110,13 +110,41 @@ namespace GlyssenEngine
 		private ExplicitQuoteInfo m_currentExplicitQuote;
 		private ExplicitInterruptionInfo m_currentExplicitInterruption;
 
+		/// <summary>
+		/// Information about an explicit quote that is marked up in the USFM (using
+		/// a qt-s marker) that allows the parser to keep track of state.
+		/// </summary>
 		private class ExplicitQuoteInfo
 		{
+			/// <summary>
+			/// The first block of the explicit quote
+			/// </summary>
 			protected internal Block StartBlock { get; set; }
+			/// <summary>
+			/// The explicit quote ID in the USFM data, if any (may be null)
+			/// </summary>
 			protected internal string Id { get; }
+			/// <summary>
+			/// The character name/label/description specified in the USFM data, if any (may be
+			/// null)
+			/// </summary>
 			protected internal string SpecifiedCharacter { get; }
+			/// <summary>
+			/// Flag indicating whether the specified character, if supplied, has been resolved to
+			/// either a known ("official") character ID or a "Needs Review". (If no character was
+			/// specified in the data, this is always false.)
+			/// </summary>
 			protected internal bool Resolved { get; set; }
+			/// <summary>
+			/// Quote nesting level. Since the parser only cares about first-level quotes, this is
+			/// usually 1. However, in the case of a nested interruption, it can be greater than 1.
+			/// </summary>
 			protected internal virtual uint Level => 1;
+			/// <summary>
+			/// If a quote (or more typically an interruption) is opened without the current open
+			/// quote being explicitly closed, this is the quote that was open when this quote or
+			/// interruption starts.
+			/// </summary>
 			protected internal ExplicitQuoteInfo PreviouslyOpenQuote { get; }
 
 			internal ExplicitQuoteInfo(Block startBlock, string quoteId, string character, ExplicitQuoteInfo previouslyOpenQuote)
@@ -152,6 +180,10 @@ namespace GlyssenEngine
 			}
 		}
 
+		/// <summary>
+		/// A class for the special-case where the "quote" is actually an
+		/// interruption (by the narrator) of an quote.
+		/// </summary>
 		private class ExplicitInterruptionInfo : ExplicitQuoteInfo
 		{
 			protected internal override uint Level { get; }
@@ -280,7 +312,7 @@ namespace GlyssenEngine
 						foreach (XmlNode childNode in usxPara.ChildNodes)
 							ProcessParaChildNode(childNode, sb, ref block, blocks, usxPara.StyleTag);
 
-						FlushStringBuilderToBlockElement(sb, block, !(block.BlockElements.LastOrDefault() is QuoteId));
+						FlushStringBuilderToBlockElement(sb, block, trim: !(block.BlockElements.LastOrDefault() is QuoteId));
 						if (RemoveEmptyTrailingVerse(block))
 						{
 							var lastVerse = block.LastVerse;
@@ -389,7 +421,7 @@ namespace GlyssenEngine
 					{
 						var character = childNode.GetOptionalStringAttribute("who", default);
 						var id = childNode.GetOptionalStringAttribute("sid", default);
-						if (IsQuoteInterruption(character, m_currentExplicitQuote != null))
+						if (IsQuoteInterruption(character, inExplicitQuote: m_currentExplicitQuote != null))
 						{
 							ProcessInterruptionStart(sb, id, ref block, blocks, styleTag, level);
 						}
@@ -438,7 +470,7 @@ namespace GlyssenEngine
 						if (m_currentExplicitQuote == null)
 						{
 							var character = childNode.GetOptionalStringAttribute("who", default);
-							if (!AddQuoteIdIfNarrator(character, sb, block, quoteId, false))
+							if (!AddQuoteIdIfNarrator(character, sb, block, quoteId, start: false))
 								Logger.WriteEvent($"End quote milestone {childNode} does not correspond to a start milestone.");
 							break;
 						}
@@ -536,7 +568,7 @@ namespace GlyssenEngine
 			    (!(lastElement is QuoteId quid) || !quid.IsNarrator))
 				return false;
 
-			FlushStringBuilderToBlockElement(sb, block, !block.BlockElements.Any());
+			FlushStringBuilderToBlockElement(sb, block, trim: !block.BlockElements.Any());
 			block.BlockElements.Add(new QuoteId
 			{
 				Id = id,
@@ -730,7 +762,8 @@ namespace GlyssenEngine
 					block.MultiBlockQuote = MultiBlockQuote.Continuation;
 					block.CharacterId = m_currentExplicitQuote.StartBlock.CharacterId;
 					block.CharacterIdInScript = m_currentExplicitQuote.StartBlock.CharacterIdInScript;
-					// REVIEW: What about the delivery
+					// REVIEW: What about the delivery? Currently there is no standard field to set this
+					// defined in USFM. Should there be?
 				}
 			}
 

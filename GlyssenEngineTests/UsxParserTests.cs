@@ -931,14 +931,30 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(++i, blocks.Count);
 		}
 
+		bool HasAPeterAndHJohnCharacter(ICharacterDeliveryInfo cv)
+		{
+			var individuals = cv.Character.Split(new[] { CharacterSpeakingMode.kMultiCharacterIdSeparator }, StringSplitOptions.None);
+			return individuals.Length > 1 && individuals.Any(c => c == "John") && individuals.Any(c => c == "Peter (Simon)");
+		}
+
 		// Note: In production, we have tried to clean up this kind of C-V data so this can't
 		// happen because it seldom makes sense.
 		[Test]
 		public void Parse_QtMilestonesForTwoVersesWithSameGroupCharactersButDifferentDefaults_DefaultFromFirstVerseUsed()
 		{
+			var bookNbrActs = BCVRef.BookToNumber("ACT");
+			var chapter = 4;
+
+			// Confirm pre-conditions in CV file
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(bookNbrActs, chapter, 19)
+				.Single(HasAPeterAndHJohnCharacter).DefaultCharacter, Is.Not.EqualTo(
+				ControlCharacterVerseData.Singleton.GetCharacters(bookNbrActs, chapter, 20)
+				.Single(HasAPeterAndHJohnCharacter).DefaultCharacter));
+
+			// Setup
 			var doc = UsxDocumentTests.CreateDocFromString(
 				string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"ACT\"")
-						.Replace("<chapter number=\"1\"", "<chapter number=\"4\""),
+						.Replace("<chapter number=\"1\"", $"<chapter number=\"{chapter}\""),
 				"<para style=\"p\">" +
 				"<verse number=\"19\" style=\"v\" />" +
 				"But Peter and John replied, " +
@@ -949,9 +965,13 @@ namespace GlyssenEngineTests
 				GetQtMilestoneElement("end") +
 				"</para>"));
 			var parser = GetUsxParser(doc, "ACT");
+
+			// SUT
 			var blocks = parser.Parse().ToList();
+
+			// Verify
 			int i = 0;
-			Assert.AreEqual(4, blocks[i].ChapterNumber);
+			Assert.AreEqual(chapter, blocks[i].ChapterNumber);
 			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
 
 			Assert.AreEqual(19, blocks[++i].InitialStartVerseNumber);
@@ -980,9 +1000,19 @@ namespace GlyssenEngineTests
 		public void Parse_QtMilestonesForExplicitMemberOfGroup_CharacterInUseSetAsSpecified(
 			string characterForV19, string characterForV20)
 		{
+			var bookNbrActs = BCVRef.BookToNumber("ACT");
+			var chapter = 4;
+
+			// Confirm pre-conditions in CV file
+			Assert.True(ControlCharacterVerseData.Singleton.GetCharacters(bookNbrActs, chapter, 19)
+				.Any(HasAPeterAndHJohnCharacter));
+			Assert.True(ControlCharacterVerseData.Singleton.GetCharacters(bookNbrActs, chapter, 20)
+				.Any(HasAPeterAndHJohnCharacter));
+
+			// Setup
 			var doc = UsxDocumentTests.CreateDocFromString(
 				string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"ACT\"")
-						.Replace("<chapter number=\"1\"", "<chapter number=\"4\""),
+						.Replace("<chapter number=\"1\"", $"<chapter number=\"{chapter}\""),
 					"<para style=\"p\">" +
 					"<verse number=\"19\" style=\"v\" />" +
 					"But Peter and John replied, " +
@@ -995,15 +1025,18 @@ namespace GlyssenEngineTests
 					GetQtMilestoneElement("end") +
 					"</para>"));
 			var parser = GetUsxParser(doc, "ACT");
+
+			// SUT
 			var blocks = parser.Parse().ToList();
-			
+
+			// Verify
 			if (characterForV19 == "Peter")
 				characterForV19 = "Peter (Simon)";
 			if (characterForV20 == "Peter")
 				characterForV20 = "Peter (Simon)";
 
 			int i = 0;
-			Assert.AreEqual(4, blocks[i].ChapterNumber);
+			Assert.AreEqual(chapter, blocks[i].ChapterNumber);
 			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
 
 			Assert.AreEqual(19, blocks[++i].InitialStartVerseNumber);
@@ -1034,12 +1067,24 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(++i, blocks.Count);
 		}
 
+		// Note: In production, we have tried to clean up this kind of C-V data so this can't
+		// happen because it seldom makes sense.
 		[Test]
 		public void Parse_SeparateQtMilestonesForTwoVersesWithSameGroupCharactersButDifferentDefaults_DefaultFromEachVerseUsed()
 		{
+			var bookNbrActs = BCVRef.BookToNumber("ACT");
+			var chapter = 4;
+
+			// Confirm pre-conditions in CV file
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(bookNbrActs, chapter, 19)
+				.Single(HasAPeterAndHJohnCharacter).DefaultCharacter, Is.Not.EqualTo(
+				ControlCharacterVerseData.Singleton.GetCharacters(bookNbrActs, chapter, 20)
+					.Single(HasAPeterAndHJohnCharacter).DefaultCharacter));
+
+			// Setup
 			var doc = UsxDocumentTests.CreateDocFromString(
 				string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"ACT\"")
-						.Replace("<chapter number=\"1\"", "<chapter number=\"4\""),
+						.Replace("<chapter number=\"1\"", $"<chapter number=\"{chapter}\""),
 					"<para style=\"p\">" +
 					"<verse number=\"19\" style=\"v\" />" +
 					"But Peter and John replied, " +
@@ -1052,10 +1097,13 @@ namespace GlyssenEngineTests
 					GetQtMilestoneElement("end") +
 					"</para>"));
 			var parser = GetUsxParser(doc, "ACT");
+
+			// SUT
 			var blocks = parser.Parse().ToList();
-			
+
+			// Verify
 			int i = 0;
-			Assert.AreEqual(4, blocks[i].ChapterNumber);
+			Assert.AreEqual(chapter, blocks[i].ChapterNumber);
 			Assert.IsTrue(blocks[i].IsChapterAnnouncement);
 
 			Assert.AreEqual(19, blocks[++i].InitialStartVerseNumber);
@@ -2604,15 +2652,17 @@ namespace GlyssenEngineTests
 		[Test]
 		public void Parse_StartQtMilestoneAtEndOfParagraph_IgnoredOrProcessed()
 		{
-			Assert.Inconclusive("REVIEW: if we encounter a start milestone at the end of a paragraph, " +
-				"should we assume that it is a mistake and ignore it, or should we handle it, as " +
-				"an opener (perhaps only in the case where the paragraph does not end with " +
-				"sentence-ending punctuation)?");
+			Assert.Inconclusive("REVIEW: if we encounter a start milestone at the end of a " +
+				"paragraph, should we assume that it is a mistake and ignore it, or should we " +
+				"handle it as an opener (perhaps only in the case where the paragraph does not " +
+				"end with sentence-ending punctuation)? We should probably wait to resolve this " +
+				"question until we actually encounter is on some real data and see what the " +
+				"user intended.");
 		}
 
 		[TestCase(true)]
 		[TestCase(false)]
-		public void Parse_QtMilestonesLeftOpenFollowedByHebrewSubtitle_WjClosesOpenMilestoneQuote(bool includeSectionHead)
+		public void Parse_QtMilestonesLeftOpenFollowedByHebrewSubtitle_HebrewSubtitleClosesOpenMilestoneQuote(bool includeSectionHead)
 		{
 			var doc = UsxDocumentTests.CreateDocFromString(
 				string.Format(UsxDocumentTests.kUsxFrame.Replace("\"MRK\"", "\"PSA\"")
@@ -2721,18 +2771,6 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(MultiBlockQuote.None, blocks[i].MultiBlockQuote);
 
 			Assert.AreEqual(++i, blocks.Count);
-		}
-
-		[Test]
-		public void Parse_QtMilestonesQuoteOpenPastLastVerseWhereCharacterIsExpected_LastBlockForExpectedVerseAndBlockPrecedingCloseNeedsReview()
-		{
-			Assert.Ignore("Write this test (unless we determine that the QuoteParser can handle this case.");
-		}
-
-		[Test]
-		public void Parse_QtMilestonesNotClosed_LastBlockForExpectedVerseNeedsReview()
-		{
-			Assert.Ignore("Write this test (unless we determine that the QuoteParser can handle this case.");
 		}
 
 		private string GetQtMilestoneElement(string startOrEnd, string character = null, string qtId = null, int level = 0)

@@ -348,7 +348,7 @@ namespace GlyssenEngine.Quote
 									}
 
 									m_currentMultiBlockQuote.Clear();
-									FlushStringBuilderAndBlock(sb, ref styleTag, m_quoteLevel > 0, true);
+									FlushStringBuilderAndBlock(sb, styleTag, m_quoteLevel > 0, true);
 									SetBlockInitialVerseFromVerseElement(verseElement);
 									if (!pendingColon)
 										m_quoteLevel = 0;
@@ -471,7 +471,7 @@ namespace GlyssenEngine.Quote
 									if (m_ignoringNarratorQuotation)
 										m_ignoringNarratorQuotation = false;
 									else
-										FlushStringBuilderAndBlock(sb, ref styleTag, true);
+										FlushStringBuilderAndBlock(sb, styleTag, true);
 									potentialDialogueContinuer = false;
 									inPairedFirstLevelQuote = false;
 								}
@@ -492,7 +492,7 @@ namespace GlyssenEngine.Quote
 										m_ignoringNarratorQuotation = true;
 									}
 									else
-										FlushStringBuilderAndBlock(sb, ref styleTag, false);
+										FlushStringBuilderAndBlock(sb, styleTag, false);
 								}
 								sb.Append(token);
 								IncrementQuoteLevel();
@@ -507,7 +507,7 @@ namespace GlyssenEngine.Quote
 									blockInWhichDialogueQuoteStarted = null;
 									sb.Append(token);
 								}
-								FlushStringBuilderAndBlock(sb, ref styleTag, false);
+								FlushStringBuilderAndBlock(sb, styleTag, false);
 								if (!pendingColon)
 								{
 									blockInWhichDialogueQuoteStarted = block;
@@ -523,7 +523,7 @@ namespace GlyssenEngine.Quote
 									DecrementQuoteLevel();
 									potentialDialogueContinuer = false;
 									blockInWhichDialogueQuoteStarted = null;
-									FlushStringBuilderAndBlock(sb, ref styleTag, true);
+									FlushStringBuilderAndBlock(sb, styleTag, true);
 								}
 								else
 								{
@@ -609,12 +609,12 @@ namespace GlyssenEngine.Quote
 				sb.Clear();
 			}
 
-			// TODO: Write unit test with special character style following explicit quote following parser-detected quote
 			m_setNextNormalBlockToNeedsReview = false;
 			m_nextBlockContinuesQuote = false;
 			m_workingBlock = block;
 			MoveTrailingElementsIfNecessary();
 			m_outputBlocks.Add(m_workingBlock);
+			m_quoteLevel = 0;
 		}
 
 		private void ProcessPossibleRunOfPoetryBlocksAsScripture()
@@ -1023,7 +1023,7 @@ namespace GlyssenEngine.Quote
 		/// Flush the current string builder to a block element,
 		/// and flush the current block elements to a block
 		/// </summary>
-		private void FlushStringBuilderAndBlock(StringBuilder sb, ref string styleTag, bool nonNarrator, bool characterUnknown = false)
+		private void FlushStringBuilderAndBlock(StringBuilder sb, string styleTag, bool nonNarrator, bool characterUnknown = false)
 		{
 			Debug.Assert(!m_ignoringNarratorQuotation,
 				"This should only happen if the data is bad or the settings have an ending quote mark that is not properly paired with the starting quote mark.");
