@@ -28,7 +28,7 @@ namespace GlyssenEngine.Character
 			var bookNum = BCVRef.BookToNumber(bookScript.BookId);
 			foreach (Block block in bookScript.GetScriptBlocks().Where(b => !b.CharacterIsStandard))
 			{
-				if (!block.UserConfirmed || overwriteUserConfirmed)
+				if (!(block.UserConfirmed || block.HasPreConfirmedCharacter) || overwriteUserConfirmed)
 				{
 					block.SetCharacterAndDelivery(m_interruptionFinder, m_cvInfo.GetCharacters(bookNum, block.ChapterNumber, block.AllVerses, bookScript.Versification));
 				}

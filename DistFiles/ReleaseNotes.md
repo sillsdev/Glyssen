@@ -44,6 +44,9 @@ back-up plan.)
 
 # Release Notes
 
+## April 14 2022 Glyssen 4.0.0
+Enhanced USX parser to correctly process ["milestone"](https://ubsicap.github.io/usfm/milestones/index.html) markers.
+
 ## April 11 2022 Glyssen 3.1.4
 When a reference text row is selected, Paratext is notified so it can sync to that location in the text.
 

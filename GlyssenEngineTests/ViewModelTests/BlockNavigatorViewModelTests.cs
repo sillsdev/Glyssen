@@ -1359,6 +1359,35 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.IsFalse(model.CanNavigateToNextRelevantBlock);
 		}
 
+		[Test]
+		public void SetMode_BlockHasPreConfirmedCharacterThatWasUserConfirmedWithSameCharacter_IsNotRelevant()
+		{
+			var charactersForLukC3V14 = new string[]
+			{
+				"soldiers",
+				"John the Baptist"
+			};
+
+			// Set up initial data state
+			var i = 0;
+			foreach (var block in m_testProject.Books.Single(b => b.BookId == "LUK").GetBlocksForVerse(3, 14).Where(b => b.CharacterIsUnclear))
+			{
+				block.StyleTag = "qt-s";
+				block.CharacterId = charactersForLukC3V14[i++ % charactersForLukC3V14.Length];
+				block.UserConfirmed = true;
+			}
+			Assert.That(i >= charactersForLukC3V14.Length,
+				"Test Setup problem: Did not find as many unclear blocks in Luk 3:14 as we thought there would be.");
+
+			// Create model and initialize state
+			var model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NotAssignedAutomatically);
+
+			while (model.CurrentBlock.ChapterNumber <= 3 && model.CanNavigateToNextRelevantBlock)
+			{
+				Assert.IsTrue(model.CurrentBlock.ChapterNumber != 3 || model.CurrentBlock.InitialStartVerseNumber != 14);
+				model.LoadNextRelevantBlock();
+			}
+		}
 	}
 
 	[TestFixture]

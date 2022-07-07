@@ -148,13 +148,19 @@ namespace GlyssenEngine.Character
 
 		public static string GetCharacterNameForUi(string characterId)
 		{
-			var standardCharacterType = GetStandardCharacterType(characterId);
-			string localizedCharacterId = standardCharacterType == StandardCharacter.NonStandard ?
-				Localizer.GetDynamicString(GlyssenInfo.ApplicationId, "CharacterName." + characterId, characterId) :
-				GetStandardCharacterNameForUi(standardCharacterType, GetBookCodeFromStandardCharacterId(characterId));
+			var localizedCharacterId = GetCharacterNameForUi(characterId, (id, english)
+				=> Localizer.GetDynamicString(GlyssenInfo.ApplicationId, id, english));
 			SingletonLocalizedCharacterIdToCharacterIdDictionary[localizedCharacterId] = characterId;
 
 			return localizedCharacterId;
+		}
+
+		public static string GetCharacterNameForUi(string characterId, Func<string, string, string> localizer)
+		{
+			var standardCharacterType = GetStandardCharacterType(characterId);
+			return standardCharacterType == StandardCharacter.NonStandard ?
+				localizer("CharacterName." + characterId, characterId) :
+				GetStandardCharacterNameForUi(standardCharacterType, GetBookCodeFromStandardCharacterId(characterId));
 		}
 
 		private static string GetStandardCharacterNameFormatForUi(StandardCharacter standardCharacter)

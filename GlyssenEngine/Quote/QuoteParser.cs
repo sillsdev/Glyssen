@@ -16,6 +16,7 @@ using SIL.Extensions;
 using SIL.Scripture;
 using SIL.Unicode;
 using static System.Char;
+using static GlyssenEngine.Character.CharacterVerseData;
 
 namespace GlyssenEngine.Quote
 {
@@ -74,6 +75,7 @@ namespace GlyssenEngine.Quote
 		private readonly List<Block> m_currentMultiBlockQuote = new List<Block>();
 		private List<string> m_possibleCharactersForCurrentQuote = new List<string>();
 		private bool m_ignoringNarratorQuotation;
+		private bool m_setNextNormalBlockToNeedsReview;
 		private int m_outputBlockInWhichPoetryStarted = -1;
 		#endregion
 
@@ -217,8 +219,6 @@ namespace GlyssenEngine.Quote
 				if (block.UserConfirmed)
 					throw new InvalidOperationException($"Should not be parsing blocks that already have user-decisions applied. ({m_bookId} {block.ChapterNumber}:{block.InitialStartVerseNumber}");
 
-				bool thisBlockStartsWithAContinuer = false;
-
 				if (!block.IsScripture)
 				{
 					m_nextBlockContinuesQuote = false;
@@ -226,36 +226,70 @@ namespace GlyssenEngine.Quote
 					continue;
 				}
 
-				if (StyleToCharacterMappings.IncludesCharStyle(block.StyleTag))
+				if (block.IsPredeterminedQuoteInterruption)
 				{
-					var cvInfo = GetMatchingCharacter(m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, block.AllVerses, m_versification),
-						new CharacterVerseData.SimpleCharacterInfoWithoutDelivery(block.CharacterId));
-					if (cvInfo ==  null)
+					m_setNextNormalBlockToNeedsReview = false;
+					m_nextBlockContinuesQuote = false;
+					m_outputBlocks.Add(block);
+					continue;
+				}
+
+				if (block.IsPredeterminedFirstLevelQuoteStart)
+				{
+					ProcessMultiBlock();
+					m_setNextNormalBlockToNeedsReview = false;
+
+					void DetectHangingOpenQuote()
 					{
-						block.CharacterId = CharacterVerseData.kNeedsReview;
+						if (m_quoteLevel > 0)
+						{
+							m_quoteLevel = 0;
+							m_setNextNormalBlockToNeedsReview = inPairedFirstLevelQuote;
+							inPairedFirstLevelQuote = false;
+						}
+					}
+
+					if (block.CharacterId == null)
+					{
+						if (!m_outputBlocks.Last().IsPredeterminedQuoteInterruption)
+						{
+							if (m_quoteLevel > 0)
+							{
+								m_setNextNormalBlockToNeedsReview = inPairedFirstLevelQuote;
+								inPairedFirstLevelQuote = false;
+							}
+							IncrementQuoteLevel(block);
+						}
 					}
 					else
 					{
-						block.CharacterId = cvInfo.Character;
-						block.Delivery = cvInfo.Delivery;
+						m_outputBlocks.Add(block);
+						if (block.IsPredeterminedFirstLevelQuoteEnd)
+						{
+							DetectHangingOpenQuote();
+							m_possibleCharactersForCurrentQuote.Clear();
+						}
+						else
+						{
+							DetectHangingOpenQuote();
+							block.MultiBlockQuote = MultiBlockQuote.Start;
+							m_nextBlockContinuesQuote = true;
+							m_currentMultiBlockQuote.Add(block);
+							m_quoteLevel = 1;
+							m_possibleCharactersForCurrentQuote = new List<string>(new[] { block.CharacterId });
+						}
+						continue;
 					}
+				}
 
-					if (sb.Length > 0)
-					{
-						var pendingText = sb.ToString();
-						Debug.Assert(!pendingText.Any(IsLetterOrDigit));
-						if (!(block.BlockElements.First() is ScriptText textElement))
-							throw new Exception($"Pending text \"{pendingText}\" was left from " +
-								$"previous block, but following block does not start with text: {block.ToString(true, m_bookId)}");
-						textElement.Content = pendingText + textElement.Content;
-						sb.Clear();
-					}
-					m_nextBlockContinuesQuote = false;
-					m_workingBlock = block;
-					MoveTrailingElementsIfNecessary();
-					m_outputBlocks.Add(m_workingBlock);
+				bool thisBlockStartsWithAContinuer = false;
+
+				var styleTag = block.StyleTag;
+
+				if (StyleToCharacterMappings.IncludesCharStyle(styleTag))
+				{
+					AddBlockWithMappedCharStyle(block, sb);
 					continue;
-
 				}
 
 				if (m_quoteLevel == 1 && blockInWhichDialogueQuoteStarted != null &&
@@ -269,8 +303,8 @@ namespace GlyssenEngine.Quote
 						(s_quoteSystem.NormalLevels.Count > 0 && s_quoteSystem.NormalLevels[0].Continue != s_quoteSystem.NormalLevels[0].Open);
 				}
 
-				m_workingBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber)
-					{ IsParagraphStart = block.IsParagraphStart };
+				m_workingBlock = new Block(styleTag, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber)
+					{ IsParagraphStart = block.IsParagraphStart, MultiBlockQuote = block.MultiBlockQuote, CharacterId = block.CharacterId };
 				if (!m_workingBlock.IsContinuationParagraphStyle && m_workingBlock.IsFollowOnParagraphStyle)
 				{
 					if (m_outputBlockInWhichPoetryStarted < 0)
@@ -287,8 +321,11 @@ namespace GlyssenEngine.Quote
 					var scriptText = element as ScriptText;
 					if (scriptText == null)
 					{
-						// Add the element to our working list in case we need to move it to the next block (see MoveTrailingElementsIfNecessary)
-						m_nonScriptTextBlockElements.Add(element);
+						if (!element.CanBeLastElementInBlock)
+						{
+							// Add the element to our working list in case we need to move it to the next block (see MoveTrailingElementsIfNecessary)
+							m_nonScriptTextBlockElements.Add(element);
+						}
 
 						var verseElement = element as Verse;
 						if (verseElement != null)
@@ -307,11 +344,11 @@ namespace GlyssenEngine.Quote
 									foreach (var multiBlock in m_currentMultiBlockQuote)
 									{
 										multiBlock.MultiBlockQuote = MultiBlockQuote.None;
-										multiBlock.CharacterId = CharacterVerseData.kUnexpectedCharacter;
-										multiBlock.Delivery = null;
+										multiBlock.SetNonDramaticCharacterId(kUnexpectedCharacter);
 									}
+
 									m_currentMultiBlockQuote.Clear();
-									FlushStringBuilderAndBlock(sb, block.StyleTag, m_quoteLevel > 0, true);
+									FlushStringBuilderAndBlock(sb, styleTag, m_quoteLevel > 0, true);
 									SetBlockInitialVerseFromVerseElement(verseElement);
 									if (!pendingColon)
 										m_quoteLevel = 0;
@@ -434,7 +471,7 @@ namespace GlyssenEngine.Quote
 									if (m_ignoringNarratorQuotation)
 										m_ignoringNarratorQuotation = false;
 									else
-										FlushStringBuilderAndBlock(sb, block.StyleTag, true);
+										FlushStringBuilderAndBlock(sb, styleTag, true);
 									potentialDialogueContinuer = false;
 									inPairedFirstLevelQuote = false;
 								}
@@ -449,13 +486,13 @@ namespace GlyssenEngine.Quote
 									// (There is a slight chance a stray "he said" could mess us up here, but that's unlikely.)
 									CharacterSpeakingMode onlyChar = characters.OnlyOrDefault();
 									if (onlyChar?.QuoteType == QuoteType.Quotation &&
-										CharacterVerseData.IsCharacterOfType(onlyChar.Character, CharacterVerseData.StandardCharacter.Narrator) ||
+										IsCharacterOfType(onlyChar.Character, StandardCharacter.Narrator) ||
 										onlyChar?.QuoteType == QuoteType.ImplicitWithPotentialSelfQuote)
 									{
 										m_ignoringNarratorQuotation = true;
 									}
 									else
-										FlushStringBuilderAndBlock(sb, block.StyleTag, false);
+										FlushStringBuilderAndBlock(sb, styleTag, false);
 								}
 								sb.Append(token);
 								IncrementQuoteLevel();
@@ -470,7 +507,7 @@ namespace GlyssenEngine.Quote
 									blockInWhichDialogueQuoteStarted = null;
 									sb.Append(token);
 								}
-								FlushStringBuilderAndBlock(sb, block.StyleTag, false);
+								FlushStringBuilderAndBlock(sb, styleTag, false);
 								if (!pendingColon)
 								{
 									blockInWhichDialogueQuoteStarted = block;
@@ -486,7 +523,7 @@ namespace GlyssenEngine.Quote
 									DecrementQuoteLevel();
 									potentialDialogueContinuer = false;
 									blockInWhichDialogueQuoteStarted = null;
-									FlushStringBuilderAndBlock(sb, block.StyleTag, true);
+									FlushStringBuilderAndBlock(sb, styleTag, true);
 								}
 								else
 								{
@@ -515,7 +552,14 @@ namespace GlyssenEngine.Quote
 							m_outputBlocks.Last().BlockElements.OfType<ScriptText>().Last().Content += sb.ToString();
 					}
 				}
-				FlushBlock(block.StyleTag, m_quoteLevel > 0);
+				FlushBlock(styleTag, m_quoteLevel > 0);
+
+				if (m_outputBlocks.LastOrDefault().IsPredeterminedFirstLevelQuoteEnd && m_quoteLevel > 0)
+				{
+					m_quoteLevel = 0;
+					m_possibleCharactersForCurrentQuote.Clear();
+				}
+
 			}
 			if (blockInWhichDialogueQuoteStarted != null || !inPairedFirstLevelQuote)
 			{
@@ -526,7 +570,7 @@ namespace GlyssenEngine.Quote
 				foreach (var multiBlock in m_currentMultiBlockQuote)
 				{
 					multiBlock.MultiBlockQuote = MultiBlockQuote.None;
-					multiBlock.CharacterId = CharacterVerseData.kUnexpectedCharacter;
+					multiBlock.CharacterId = kUnexpectedCharacter;
 					multiBlock.Delivery = null;
 				}
 			}
@@ -538,6 +582,39 @@ namespace GlyssenEngine.Quote
 			ProcessPossibleRunOfPoetryBlocksAsScripture();
 			SetImplicitCharacters();
 			return m_outputBlocks;
+		}
+
+		private void AddBlockWithMappedCharStyle(Block block, StringBuilder sb)
+		{
+			var cvInfo = GetMatchingCharacter(m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, block.AllVerses, m_versification),
+				new SimpleCharacterInfoWithoutDelivery(block.CharacterId));
+			if (cvInfo == null)
+			{
+				block.CharacterId = kNeedsReview;
+			}
+			else
+			{
+				block.CharacterId = cvInfo.Character;
+				block.Delivery = cvInfo.Delivery;
+			}
+
+			if (sb.Length > 0)
+			{
+				var pendingText = sb.ToString();
+				Debug.Assert(!pendingText.Any(IsLetterOrDigit));
+				if (!(block.BlockElements.First() is ScriptText textElement))
+					throw new Exception($"Pending text \"{pendingText}\" was left from " +
+						$"previous block, but following block does not start with text: {block.ToString(true, m_bookId)}");
+				textElement.Content = pendingText + textElement.Content;
+				sb.Clear();
+			}
+
+			m_setNextNormalBlockToNeedsReview = false;
+			m_nextBlockContinuesQuote = false;
+			m_workingBlock = block;
+			MoveTrailingElementsIfNecessary();
+			m_outputBlocks.Add(m_workingBlock);
+			m_quoteLevel = 0;
 		}
 
 		private void ProcessPossibleRunOfPoetryBlocksAsScripture()
@@ -564,7 +641,7 @@ namespace GlyssenEngine.Quote
 				return m_outputBlockInWhichPoetryStarted >= 0 && m_outputBlockInWhichPoetryStarted < m_outputBlocks.Count &&
 					m_outputBlocks.Skip(m_outputBlockInWhichPoetryStarted).All(b =>
 					{
-						if (!b.CharacterIs(m_bookId, CharacterVerseData.StandardCharacter.Narrator))
+						if (!b.CharacterIs(m_bookId, StandardCharacter.Narrator))
 							return false;
 
 						var characters = m_cvInfo.GetCharacters(m_bookNum, b.ChapterNumber, b.AllVerses, m_versification, true);
@@ -572,7 +649,7 @@ namespace GlyssenEngine.Quote
 							return false;
 
 						return characters.Count == 1 || (characters.Count == 2 &&
-							characters.Any(c => CharacterVerseData.IsCharacterOfType(c.Character, CharacterVerseData.StandardCharacter.Narrator)));
+							characters.Any(c => IsCharacterOfType(c.Character, StandardCharacter.Narrator)));
 					});
 			}
 		}
@@ -605,7 +682,7 @@ namespace GlyssenEngine.Quote
 			for (int i = 0; i < m_outputBlocks.Count; i++)
 			{
 				var block = m_outputBlocks[i];
-				if (block.CharacterIs(m_bookId, CharacterVerseData.StandardCharacter.Narrator))
+				if (block.CharacterIs(m_bookId, StandardCharacter.Narrator))
 				{
 					var initialImplicitCv = m_cvInfo.GetImplicitCharacter(m_bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber,
 						 m_versification);
@@ -639,13 +716,13 @@ namespace GlyssenEngine.Quote
 						// Decide how to assign the newly split-off (preceding) block. There are four possibilities.
 						ICharacterDeliveryInfo leadInCharacter;
 						if (subsequentImplicitCv != null &&
-							(leadInCharacter = GetMatchingCharacter(m_cvInfo.GetCharacters(m_bookNum, newBlock.ChapterNumber, new SingleVerse(newBlock.LastVerseNum),
-								versification: m_versification), subsequentImplicitCv)) != null)
+							(leadInCharacter = GetMatchingCharacter(m_cvInfo.GetCharacters(m_bookNum, newBlock.ChapterNumber,
+								new SingleVerse(newBlock.LastVerseNum), m_versification), subsequentImplicitCv)) != null)
 						{
 							if (newBlock.ContainsVerseNumber)
 							{
 								// 1) Whole verse(s). Not a likely lead-in, though still possible. User should have a look.
-								newBlock.CharacterId = CharacterVerseData.kNeedsReview;
+								newBlock.CharacterId = kNeedsReview;
 							}
 							else
 							{
@@ -718,7 +795,7 @@ namespace GlyssenEngine.Quote
 
 						if (needsReview)
 						{
-							block.CharacterId = CharacterVerseData.kNeedsReview;
+							block.CharacterId = kNeedsReview;
 						}
 						else
 						{
@@ -758,7 +835,7 @@ namespace GlyssenEngine.Quote
 					// delivery matches, but that's extremely unlikely and not worth further complexity.
 					// What we really want to do is return an object representing the correct character
 					// but an ambiguous delivery, but we have no such notion.
-					return CharacterVerseData.NeedsReviewCharacter.Singleton;
+					return NeedsReviewCharacter.Singleton;
 				}
 			}
 
@@ -790,9 +867,7 @@ namespace GlyssenEngine.Quote
 				int lengthOfQuotation = match.Index - quotationStartPos;
 				if (lengthOfQuotation > (content.Length - pos) / 2)
 					return true;
-				if (content.Skip(quotationStartPos).Take(lengthOfQuotation).Count(IsWhiteSpace) > 2)
-					return true;
-				return false;
+				return content.Skip(quotationStartPos).Take(lengthOfQuotation).Count(IsWhiteSpace) > 2;
 			}
 			return false;
 		}
@@ -863,9 +938,14 @@ namespace GlyssenEngine.Quote
 
 		private void IncrementQuoteLevel()
 		{
+			IncrementQuoteLevel(m_workingBlock);
+		}
+
+		private void IncrementQuoteLevel(Block currentBlock)
+		{
 			if (m_quoteLevel++ == 0)
-				m_possibleCharactersForCurrentQuote = m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber,
-					(Block.InitialVerseNumberBridgeFromBlock)m_workingBlock, m_versification, true).Select(cv => cv.Character).ToList();
+				m_possibleCharactersForCurrentQuote = m_cvInfo.GetCharacters(m_bookNum, currentBlock.ChapterNumber,
+					(Block.InitialVerseNumberBridgeFromBlock)currentBlock, m_versification, true).Select(cv => cv.Character).ToList();
 		}
 
 		private void DecrementQuoteLevel()
@@ -875,10 +955,10 @@ namespace GlyssenEngine.Quote
 				m_possibleCharactersForCurrentQuote.Clear();
 		}
 
-		public string ContinuerForCurrentLevel { get { return s_quoteSystem.NormalLevels[m_quoteLevel - 1].Continue; } }
-		public string ContinuerForNextLevel { get { return s_quoteSystem.NormalLevels[m_quoteLevel].Continue; } }
-		public string CloserForCurrentLevel { get { return s_quoteSystem.NormalLevels[m_quoteLevel - 1].Close; } }
-		public string OpenerForNextLevel { get { return s_quoteSystem.NormalLevels[m_quoteLevel].Open; } }
+		public string ContinuerForCurrentLevel => s_quoteSystem.NormalLevels[m_quoteLevel - 1].Continue;
+		public string ContinuerForNextLevel => s_quoteSystem.NormalLevels[m_quoteLevel].Continue;
+		public string CloserForCurrentLevel => s_quoteSystem.NormalLevels[m_quoteLevel - 1].Close;
+		public string OpenerForNextLevel => s_quoteSystem.NormalLevels[m_quoteLevel].Open;
 
 		/// <summary>
 		/// Flush the current string builder to a block element
@@ -970,7 +1050,7 @@ namespace GlyssenEngine.Quote
 			Block blockFollowingInterruption = null;
 			if (characterUnknown)
 			{
-				m_workingBlock.CharacterId = CharacterVerseData.kUnexpectedCharacter;
+				m_workingBlock.CharacterId = kUnexpectedCharacter;
 				m_workingBlock.Delivery = null;
 			}
 			else
@@ -980,7 +1060,6 @@ namespace GlyssenEngine.Quote
 					if (m_nextBlockContinuesQuote)
 						m_workingBlock.MultiBlockQuote = MultiBlockQuote.Continuation;
 					m_nextBlockContinuesQuote = m_quoteLevel > 0;
-					//m_workingBlock.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.Narrator);
 				}
 				else if (nonNarrator)
 				{
@@ -1038,7 +1117,7 @@ namespace GlyssenEngine.Quote
 				else
 				{
 					m_nextBlockContinuesQuote = false;
-					m_workingBlock.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.Narrator);
+					m_workingBlock.SetStandardCharacter(m_bookId, StandardCharacter.Narrator);
 				}
 			}
 
@@ -1083,6 +1162,12 @@ namespace GlyssenEngine.Quote
 						break;
 				}
 
+				if (m_setNextNormalBlockToNeedsReview &&
+				    m_workingBlock.MultiBlockQuote != MultiBlockQuote.Continuation)
+				{
+					m_workingBlock.SetNonDramaticCharacterId(kNeedsReview);
+					m_setNextNormalBlockToNeedsReview = false;
+				}
 				m_outputBlocks.Add(m_workingBlock);
 			}
 
@@ -1100,6 +1185,7 @@ namespace GlyssenEngine.Quote
 				verseStartNum = lastVerse.StartVerse;
 				verseEndNum = lastVerse.EndVerse;
 			}
+
 			m_workingBlock = new Block(styleTag, m_workingBlock.ChapterNumber, verseStartNum, verseEndNum);
 		}
 
