@@ -307,6 +307,7 @@
     <None Include="Character\Template\CharacterGroupTemplateExcelFileTests.cs" />
     <None Include="Character\Template\CharacterGroupTemplateTests.cs" />
     <Compile Include="Character\CharacterGroupTests.cs" />
+    <Compile Include="Character\CharacterUsageStoreTests.cs" />
     <Compile Include="Character\CharacterVerseDataTests.cs" />
     <Compile Include="Character\ControlCharacterVerseDataTests.cs" />
     <Compile Include="Character\NarratorOverridesTests.cs" />

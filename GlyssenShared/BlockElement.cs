@@ -20,6 +20,8 @@ namespace Glyssen.Shared
 		{
 			return (BlockElement)MemberwiseClone();
 		}
+
+		public abstract bool CanBeLastElementInBlock { get; }
 	}
 
 	public class BlockElementContentsComparer : IEqualityComparer<BlockElement>
@@ -71,6 +73,8 @@ namespace Glyssen.Shared
 			Content = content;
 		}
 
+		public override bool CanBeLastElementInBlock => true;
+
 		[XmlText]
 		public string Content
 		{
@@ -90,6 +94,11 @@ namespace Glyssen.Shared
 		// This used to be !Content.Any(IsLetter), but there are (unusual) situations where a ScriptText
 		// can be just a numeric "word."
 		public bool ContainsNoWords => !Content.Any(IsLetterOrDigit);
+
+		// In almost all situations, this is the same as ContainsNoWords, except perhaps for
+		// bizarre situations where the content could consist entirely of symbols or other weird
+		// characters.
+		public bool ContainsOnlyWhitespaceAndPunctuation => Content.All(c => IsPunctuation(c) || IsWhiteSpace(c));
 
 		public bool StartsWithEllipsis => s_startsWithEllipsis.IsMatch(Content);
 
@@ -159,6 +168,8 @@ namespace Glyssen.Shared
 			Number = number;
 		}
 
+		public override bool CanBeLastElementInBlock => false;
+
 		[XmlAttribute("num")]
 		public string Number { get; set; }
 
@@ -194,9 +205,12 @@ namespace Glyssen.Shared
 
 	[XmlInclude(typeof(Pause))]
 	[XmlInclude(typeof(Sound))]
+	[XmlInclude(typeof(QuoteId))]
 	public abstract class ScriptAnnotation : BlockElement
 	{
 		public abstract string ToDisplay(string elementSeparator = " ");
+
+		public override bool CanBeLastElementInBlock => true;
 	}
 
 	public class Pause : ScriptAnnotation
@@ -439,6 +453,38 @@ namespace Glyssen.Shared
 			}
 		}
 		#endregion
+	}
+
+	public class QuoteId : ScriptAnnotation
+	{
+		[XmlAttribute("id")]
+		public string Id { get; set; }
+
+		[XmlAttribute("start")]
+		public bool Start { get; set; }
+
+		[XmlAttribute("narrator")]
+		[DefaultValue(false)]
+		public bool IsNarrator { get; set; }
+
+		public override bool CanBeLastElementInBlock => !Start;
+
+		public override string ToDisplay(string elementSeparator = " ")
+		{
+			var sb = new StringBuilder(IsNarrator ? "Narrator" : "Quote");
+			sb.Append(" ");
+			if (Start)
+				sb.Append("start");
+			else
+				sb.Append("end");
+			if (Id != null)
+			{
+				sb.Append("(");
+				sb.Append(Id);
+				sb.Append(")");
+			}
+			return sb.ToString();
+		}
 	}
 
 	public enum SoundType

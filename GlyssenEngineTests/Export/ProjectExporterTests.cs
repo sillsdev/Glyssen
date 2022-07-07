@@ -232,6 +232,7 @@ namespace GlyssenEngineTests.Export
 		public void GetExportData_SpecifiedActor_OutputOnlyIncludesBlocksForThatActor()
 		{
 			var project = TestProject.CreateBasicTestProject();
+			TestProject.SimulateDisambiguationForAllBooks(project);
 			var metadata = (GlyssenDblTextMetadata)ReflectionHelper.GetField(project, "m_metadata");
 			metadata.IncludeChapterAnnouncementForFirstChapter = true;
 			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;

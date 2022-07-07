@@ -28,6 +28,11 @@ namespace GlyssenEngine.Script
 
 		public const int kNotSplit = -1;
 
+		private const string kLevel = "level";
+		private const string kFmtRegex = "^qt(?<{0}>[1-9])?-{1}$";
+		private static Regex s_regexQuoteMilestoneStartMarker = new Regex(Format(kFmtRegex, kLevel, "s"), RegexOptions.Compiled);
+		private static Regex s_regexQuoteMilestoneEndMarker = new Regex(Format(kFmtRegex, kLevel, "e"), RegexOptions.Compiled);
+
 		public const string kCssFrame = "body{{font-family:{0};font-size:{1}pt}}" +
 						".right-to-left{{direction:rtl}}" +
 						".scripttext {{display:inline}}";
@@ -265,6 +270,58 @@ namespace GlyssenEngine.Script
 		[DefaultValue(false)]
 		public bool UserConfirmed { get; set; }
 
+		public static bool IsFirstLevelQuoteMilestoneStart(string styleTag) =>
+			TryGetQuoteStartMilestoneLevel(styleTag, out var level) && level == 1;
+
+		public static bool IsFirstLevelQuoteMilestoneEnd(string styleTag) =>
+			TryGetQuoteEndMilestoneLevel(styleTag, out var level) && level == 1;
+
+		public static bool TryGetQuoteStartMilestoneLevel(string styleTag, out uint level) =>
+			TryGetQuoteMilestoneLevel(styleTag, s_regexQuoteMilestoneStartMarker, out level);
+
+		public static bool TryGetQuoteEndMilestoneLevel(string styleTag, out uint level) =>
+			TryGetQuoteMilestoneLevel(styleTag, s_regexQuoteMilestoneEndMarker, out level);
+
+		private static bool TryGetQuoteMilestoneLevel(string styleTag, Regex regex, out uint level)
+		{
+			level = 1;
+			if (styleTag == null)
+				return false;
+			var match = regex.Match(styleTag);
+			if (!match.Success)
+				return false;
+
+			var sLevel = match.Groups[kLevel]?.Value;
+			if (sLevel != Empty)
+				level = uint.Parse(sLevel);
+			return true;
+		}
+
+		/// <summary>
+		/// Gets whether the block had the character pre-determined in the source. If this block is
+		/// later user-confirmed, that's okay, but if the user actually overrides the pre-
+		/// determined character, we (hopefully consistently) alter the style tag so that it does
+		/// not appear that the new character is the one that was predetermined. Note that for the
+		/// purposes of this property, we do not include special predetermined character styles,
+		/// such as \wj. (REVIEW: Should we?)
+		/// </summary>
+		public bool HasPreConfirmedCharacter =>
+			CharacterId != null && !CharacterIsUnclear && IsPredeterminedFirstLevelQuoteStart;
+
+		private bool IsNarrator =>
+			CharacterVerseData.IsCharacterOfType(CharacterId, CharacterVerseData.StandardCharacter.Narrator);
+
+		public bool IsPredeterminedFirstLevelQuoteStart =>
+			IsFirstLevelQuoteMilestoneStart(StyleTag) && (CharacterId == null || !IsNarrator);
+
+		public bool IsPredeterminedQuoteInterruption =>
+			TryGetQuoteStartMilestoneLevel(StyleTag, out _) && CharacterId != null && IsNarrator;
+
+		public bool IsPredeterminedFirstLevelQuoteEnd =>
+			BlockElements.LastOrDefault() is QuoteId quid &&
+			!quid.Start && !quid.IsNarrator &&
+			(CharacterId == null || !IsNarrator || IsPredeterminedQuoteInterruption);
+
 		[XmlAttribute("multiBlockQuote")]
 		[DefaultValue(MultiBlockQuote.None)]
 		public MultiBlockQuote MultiBlockQuote { get; set; }
@@ -317,7 +374,7 @@ namespace GlyssenEngine.Script
 		/// reference blocks are found at the requested (or any lower) level.
 		/// </summary>
 		/// <param name="depth">Current constraints elsewhere in the code make it such that this should never be
-		/// greater than 1, but this method is implemented to support a (future) scenerio allowing more deeply
+		/// greater than 1, but this method is implemented to support a (future) scenario allowing more deeply
 		/// nested reference texts.</param>
 		public string GetReferenceTextAtDepth(int depth)
 		{
@@ -719,7 +776,8 @@ namespace GlyssenEngine.Script
 		/// Technically, any preceding ScriptText element that consists entirely of punctuation will be
 		/// considered as being part of the following verse.)
 		/// </summary>
-		public bool StartsAtVerseStart => !(BlockElements.First() is ScriptText) || (StartsWithScriptTextElementContainingOnlyPunctuation && ContainsVerseNumber);
+		public bool StartsAtVerseStart => BlockElements.FirstOrDefault(e => !(e is ScriptAnnotation)) is Verse ||
+			StartsWithScriptTextElementContainingOnlyPunctuation && ContainsVerseNumber;
 
 		/// <summary>
 		/// <see cref="StartsAtVerseStart"/> or <see cref="IsChapterAnnouncement"/>
@@ -749,13 +807,8 @@ namespace GlyssenEngine.Script
 
 		public bool StartsWithEllipsis => BlockElements.OfType<ScriptText>().FirstOrDefault()?.StartsWithEllipsis ?? false;
 
-		public bool StartsWithScriptTextElementContainingOnlyPunctuation
-		{
-			get
-			{
-				return (BlockElements.FirstOrDefault() as ScriptText)?.Content.All(c => IsPunctuation(c) || IsWhiteSpace(c)) ?? false;
-			}
-		}
+		public bool StartsWithScriptTextElementContainingOnlyPunctuation =>
+			(BlockElements.FirstOrDefault() as ScriptText)?.ContainsOnlyWhitespaceAndPunctuation ?? false;
 
 		public string GetTextAsHtml(bool showVerseNumbers, bool rightToLeftScript)
 		{
@@ -834,17 +887,22 @@ namespace GlyssenEngine.Script
 		}
 
 		/// <summary>
-		/// Gets whether this block is a quote. It's not 100% reliable since there's the possibility that the user
-		/// could assign the character for a block (or that Glyssen could think it was a quote) and then assign it
-		/// back to Narrator. This would result in UserConfirmed being set to true even though it was a "non-quote"
-		/// (unmarked) narrator block. Depending on how this property gets used in the future, we might need to
-		/// actually store an additional piece of information about the block to distinguish this case and prevent
-		/// a false positive. (For the current planned usage, an occasional false positive will not be a big deal.)
+		/// Gets whether this block is a quote. It's not 100% reliable since it's possible that the
+		/// user could assign the character for a block (or that Glyssen could think it was a
+		/// quote) and then assign it back to Narrator. This would result in UserConfirmed being
+		/// set to true even though it was a "non-quote" (unmarked) narrator block. Depending on
+		/// how this property gets used in the future, we might need to actually store an
+		/// additional piece of information about the block to distinguish this case and prevent
+		/// a false positive. (For the current planned usage, an occasional false positive will
+		/// not be a big deal.)
 		/// </summary>
-		public bool IsQuote
-		{
-			get { return !CharacterVerseData.IsCharacterStandard(CharacterId) || UserConfirmed; }
-		}
+		public bool IsQuote => !CharacterVerseData.IsCharacterStandard(CharacterId) ||
+			UserConfirmed;
+			//
+			// REVIEW: The following condition is not needed for any unit tests. Is it needed?
+			// Seems unlikely, since this property is never used in UsxParser and by the time
+			// the USX parse is done the character ID should be set as best we can.
+			// || TryGetQuoteStartMilestoneLevel(StyleTag, out _); 
 
 		public bool IsNarratorOrPotentialNarrator(string bookId) =>
 			CharacterIs(bookId, CharacterVerseData.StandardCharacter.Narrator) ||
@@ -853,16 +911,14 @@ namespace GlyssenEngine.Script
 		public bool IsQuoteStart => IsQuote && !IsContinuationOfPreviousBlockQuote;
 
 		/// <summary>
-		/// Gets whether the specified block represents Scripture text. (Only Scripture blocks can have their
-		/// character/delivery changed. Book titles, chapters, and section heads have characters assigned
-		/// programmatically and cannot be changed.)
+		/// Gets whether the specified block represents Scripture text. (Only Scripture blocks can
+		/// have their character/delivery changed. Book titles, chapters, and section heads have
+		/// characters assigned programmatically and cannot be changed.)
 		/// </summary>
 		public bool IsScripture => !CharacterVerseData.IsCharacterExtraBiblical(CharacterId);
 
 		public bool CharacterIs(string bookId, CharacterVerseData.StandardCharacter standardCharacterType)
-		{
-			return CharacterId == CharacterVerseData.GetStandardCharacterId(bookId, standardCharacterType);
-		}
+			=> CharacterId == CharacterVerseData.GetStandardCharacterId(bookId, standardCharacterType);
 
 		public bool CharacterIsUnclear => CharacterVerseData.IsCharacterUnclear(CharacterId);
 
@@ -875,9 +931,20 @@ namespace GlyssenEngine.Script
 		// fields are cleared that would be inappropriate for this kind of character.
 		public void SetNonDramaticCharacterId(string characterID)
 		{
-			CharacterId = characterID;
+			ChangeCharacterId(characterID);
 			m_characterIdInScriptOverride = null;
 			Delivery = null;
+		}
+
+		private void ChangeCharacterId(string newCharacterId)
+		{
+			if (CharacterId == newCharacterId)
+				return;
+			if (IsPredeterminedFirstLevelQuoteStart && CharacterId != null)
+				StyleTag += "|" + CharacterId; //  Remember that we *were* predetermined, but now we're not.
+			// REVIEW: If we change it back to its previous predetermined value, should we put the the style
+			// tag back? (We probably don't much care at that point.)
+			CharacterId = newCharacterId;
 		}
 
 		public string GetAsXml(bool includeXmlDeclaration = true)
@@ -953,7 +1020,7 @@ namespace GlyssenEngine.Script
 					m_characterIdInScriptOverride = null;
 				return;
 			}
-			CharacterId = characterId;
+			ChangeCharacterId(characterId);
 			UseDefaultForMultipleChoiceCharacter(getMatchingCharacterForVerse);
 		}
 
@@ -1174,7 +1241,7 @@ namespace GlyssenEngine.Script
 
 		public void SetCharacterInfo(Block basedOnBlock)
 		{
-			CharacterId = basedOnBlock.CharacterId;
+			ChangeCharacterId(basedOnBlock.CharacterId);
 			m_characterIdInScriptOverride = basedOnBlock.m_characterIdInScriptOverride;
 		}
 
@@ -1404,9 +1471,9 @@ namespace GlyssenEngine.Script
 						return new Tuple<QuoteInterruption, string>(interruption, verse);
 					startCharIndex = 1;
 				}
-				else
+				else if (element is Verse verseElement)
 				{
-					verse = ((Verse)element).Number;
+					verse = verseElement.Number;
 				}
 			}
 			return null;

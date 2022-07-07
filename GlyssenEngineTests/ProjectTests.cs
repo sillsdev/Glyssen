@@ -1343,7 +1343,7 @@ namespace GlyssenEngineTests
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.RUT);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
-			Assert.IsTrue(testProject.SpeechDistributionScoreByCharacterId["Boaz"] >= 7);
+			Assert.That(testProject.SpeechDistributionScoreByCharacterId["Boaz"], Is.GreaterThanOrEqualTo(7));
 		}
 
 		private static void SetAndConfirmCharacterAndDeliveryForAllCorrelatedBlocks(BlockMatchup matchup, int bookNumber, Project testProject, string character, string delivery = "foamy")

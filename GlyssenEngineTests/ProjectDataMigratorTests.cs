@@ -68,7 +68,7 @@ namespace GlyssenEngineTests
 		}
 
 		[Test]
-		public void MigrateInvalidMultiBlockQuoteDataToVersion88_SplitDoesntStartWithMultiBlockStart_DataUnchanged()
+		public void MigrateInvalidMultiBlockQuoteDataToVersion88_SplitDoesNotStartWithMultiBlockStart_DataUnchanged()
 		{
 			var block1 = new Block
 			{
@@ -1020,7 +1020,7 @@ namespace GlyssenEngineTests
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 
 			var bookScript = testProject.IncludedBooks.Single();
-			var verses13and14Block = bookScript.GetBlocksForVerse(1, 13).Single();
+			var verses13And14Block = bookScript.GetBlocksForVerse(1, 13).Single();
 			var originalVerse14Blocks = bookScript.GetBlocksForVerse(1, 14);
 
 			// Use reflection to get around a check to ensure we don't do this in production code
@@ -1030,23 +1030,23 @@ namespace GlyssenEngineTests
 			//Combine verse 13 and 14 blocks
 			foreach (var block in originalVerse14Blocks)
 			{
-				verses13and14Block.BlockElements.AddRange(block.BlockElements);
+				verses13And14Block.BlockElements.AddRange(block.BlockElements);
 
 				blocks.Remove(block);
 				blockCount--;
 			}
 			ReflectionHelper.SetField(bookScript, "m_blockCount", blockCount);
 
-			verses13and14Block.CharacterId = "Enoch";
+			verses13And14Block.CharacterId = "Enoch";
 
 			//Setup check
-			Assert.AreEqual("Enoch", verses13and14Block.CharacterId);
+			Assert.AreEqual("Enoch", verses13And14Block.CharacterId);
 
 			//SUT
 			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 
-			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, verses13and14Block.CharacterId);
-			Assert.IsFalse(verses13and14Block.UserConfirmed);
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, verses13And14Block.CharacterId);
+			Assert.IsFalse(verses13And14Block.UserConfirmed);
 		}
 
 		[Test]
@@ -1056,7 +1056,7 @@ namespace GlyssenEngineTests
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 
 			var bookScript = testProject.IncludedBooks.Single();
-			var verses13and14Block = bookScript.GetBlocksForVerse(1, 13).Single();
+			var verses13And14Block = bookScript.GetBlocksForVerse(1, 13).Single();
 			var originalVerse14Blocks = bookScript.GetBlocksForVerse(1, 14);
 
 			// Use reflection to get around a check to ensure we don't do this in production code
@@ -1066,26 +1066,26 @@ namespace GlyssenEngineTests
 			//Combine verse 13 and 14 blocks
 			foreach (var block in originalVerse14Blocks)
 			{
-				verses13and14Block.BlockElements.AddRange(block.BlockElements);
+				verses13And14Block.BlockElements.AddRange(block.BlockElements);
 
 				blocks.Remove(block);
 				blockCount--;
 			}
 			ReflectionHelper.SetField(bookScript, "m_blockCount", blockCount);
 
-			verses13and14Block.CharacterId = "Enoch";
-			verses13and14Block.UserConfirmed = true;
-			testProject.ProjectCharacterVerseData.AddEntriesFor(65, verses13and14Block);
+			verses13And14Block.CharacterId = "Enoch";
+			verses13And14Block.UserConfirmed = true;
+			testProject.ProjectCharacterVerseData.AddEntriesFor(65, verses13And14Block);
 
 			//Setup check
-			Assert.AreEqual("Enoch", verses13and14Block.CharacterId);
+			Assert.AreEqual("Enoch", verses13And14Block.CharacterId);
 
 			//SUT - Call it twice to make sure first time doesn't delete project CV entry
 			Assert.AreEqual(0, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 			Assert.AreEqual(0, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 
-			Assert.AreEqual("Enoch", verses13and14Block.CharacterId);
-			Assert.IsTrue(verses13and14Block.UserConfirmed);
+			Assert.AreEqual("Enoch", verses13And14Block.CharacterId);
+			Assert.IsTrue(verses13And14Block.UserConfirmed);
 			Assert.IsTrue(testProject.ProjectCharacterVerseData.Any());
 		}
 
@@ -1173,6 +1173,29 @@ namespace GlyssenEngineTests
 		//	Assert.AreEqual("Mary, sister of Martha", marySpeakingInJhn1134.CharacterIdInScript);
 		//	Assert.IsTrue(marySpeakingInJhn1134.UserConfirmed);
 		//}
+
+		[Test]
+		public void MigrateDeprecatedCharacterIds_PredeterminedCharacterMarkedNeedsReviewLaterAddedToControlFile_CharacterIdSetAndNoLongerNeedsReview()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
+			// The following setup steps simulate a condition where the original translators used a quote
+			// milestone to specify a character ID that was not in the control file at the time of the
+			// original parse. (But then that character was later added.)
+			var altarBlocksInRev16v7 = testProject.IncludedBooks.Single().GetBlocksForVerse(16, 7).Where(b => b.CharacterId == "altar").ToList();
+			Assert.IsTrue(altarBlocksInRev16v7.Any());
+			foreach (var block in altarBlocksInRev16v7)
+			{
+				block.StyleTag = "qt1-s";
+				block.CharacterId = CharacterVerseData.kNeedsReview;
+				block.CharacterIdInScript = "altar";
+			}
+
+			Assert.AreEqual(altarBlocksInRev16v7.Count, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+
+			Assert.IsTrue(altarBlocksInRev16v7.All(b => b.CharacterId == "altar" &&
+				b.CharacterIdInScript == b.CharacterId &&
+				b.IsPredeterminedFirstLevelQuoteStart), "The blocks should no longer be \"Needs Review\".");
+		}
 
 		[TestCase("c")]
 		[TestCase("cl")]

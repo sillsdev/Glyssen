@@ -4587,6 +4587,12 @@ namespace GlyssenEngineTests.Script
 			return block;
 		}
 
+		internal static Block AddEndQuoteId(this Block block, string id = null)
+		{
+			block.BlockElements.Add(new QuoteId {IsNarrator = false, Start = false, Id = id});
+			return block;
+		}
+
 		internal static string RandomString()
 		{
 			var chars = " AAAAABB CCDDD EEEEFF GGHHIIJK LLMMNNN OOPPP QRRRS SSTTTTU VWWXYYZ aaaaaabb cccddd eeeeefff gggghhh iiiiijjk llll mmmnnnn ooooo pppp qqrrrr sssss tttttuu vvwwwxyyz ,,,.... !?? AAAAABB CCDDD EEEEFF GGHHIIJK LLMMNNN OOPPP QRRRS SSTTTTU VWWXYYZ aaaaaabb cccddd eeeeefff gggghhh iiiiijjk llll mmmnnnn ooooo pppp qqrrrr sssss tttttuu vvwwwxyyz ,,,.... !??\u2014";
