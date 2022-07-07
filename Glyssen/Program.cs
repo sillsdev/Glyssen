@@ -13,6 +13,7 @@ using Glyssen.Properties;
 using Glyssen.Shared;
 using Glyssen.Utilities;
 using GlyssenEngine;
+using GlyssenEngine.Character;
 using GlyssenEngine.Utilities;
 using GlyssenFileBasedPersistence;
 using L10NSharp;
@@ -249,6 +250,7 @@ namespace Glyssen
 				var persistenceImpl = new PersistenceImplementation();
 				ProjectBase.Reader = ReferenceTextProxy.Reader = persistenceImpl;
 				Project.Writer = persistenceImpl;
+				Project.GetDynamicLocalizedCharacterIdVariants = GetDynamicLocalizedCharacterIdVariants;
 				var upgradeInfo = DataMigrator.UpgradeToCurrentDataFormatVersion(HandleMissingBundleNeededForUpgrade,
 					HandleProjectPathChanged, ConfirmSafeAudioAudioReplacements);
 				if (upgradeInfo != null)
@@ -283,6 +285,17 @@ namespace Glyssen
 				{
 					Sldr.Cleanup();
 				}
+			}
+		}
+
+		private static IEnumerable<string> GetDynamicLocalizedCharacterIdVariants(string englishCharId)
+		{
+			foreach (var language in LocalizationManager.GetAvailableLocalizedLanguages())
+			{
+				var localized = CharacterVerseData.GetCharacterNameForUi(englishCharId,
+					(id, english) => LocalizationManager.GetDynamicStringOrEnglish(GlyssenInfo.ApplicationId, id, english, null, language));
+				if (localized != englishCharId)
+					yield return localized;
 			}
 		}
 

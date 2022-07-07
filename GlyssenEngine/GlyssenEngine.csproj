@@ -68,6 +68,7 @@ See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.
 
   <ItemGroup>
     <PackageReference Include="DotNetZip" Version="1.13.8" />
+    <PackageReference Include="FuzzySharp" Version="2.0.2" />
     <PackageReference Include="GitVersion.MsBuild" Version="5.8.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

@@ -37,7 +37,7 @@ namespace GlyssenEngine
 {
 	public class Project : ProjectBase, IUserProject
 	{
-		public const int kParserVersion = 52;
+		public const int kParserVersion = 53;
 
 		private const double kUsxPercent = 0.25;
 		private const double kGuessPercent = 0.10;
@@ -75,6 +75,8 @@ namespace GlyssenEngine
 
 		public delegate BadLdmlRecoveryAction BadLdmlHandler(Project sender, string error, bool attemptToUseBackup);
 		public static BadLdmlHandler GetBadLdmlRecoveryAction;
+
+		public static Func<string, IEnumerable<string>> GetDynamicLocalizedCharacterIdVariants;
 
 		public static IFontRepository FontRepository { get; set; }
 		public static IProjectPersistenceWriter Writer { get; set; }
@@ -1524,7 +1526,10 @@ namespace GlyssenEngine
 
 			var backgroundWorker = (BackgroundWorker)sender;
 
-			var parsedBooks = UsxParser.ParseBooks(books, stylesheet, i => backgroundWorker.ReportProgress(i));
+			var parsedBooks = UsxParser.ParseBooks(books, stylesheet,
+				new CharacterUsageStore(Versification, new CombinedCharacterVerseData(this),
+					GetDynamicLocalizedCharacterIdVariants),
+				i => backgroundWorker.ReportProgress(i));
 
 			if (postParseAction != null)
 			{
@@ -2191,12 +2196,13 @@ namespace GlyssenEngine
 						character = narratorToUseForSingleVoiceBook;
 					else
 					{
-						if (block.CharacterIsUnclear)
-							continue; // REVIEW: Should we throw an exception if this happens (in production code)?
+						// The "Needs Review" character should never be added to a group.
+						// REVIEW: By the time we get here (in production code), it shouldn't be possible
+						// to have any characters that have not been disambiguated. Should we throw an
+						// exception if this happens?
+						if (block.CharacterIsUnclear || block.CharacterId == CharacterVerseData.kNeedsReview)
+							continue;
 						character = book.GetCharacterIdInScript(block);
-
-						if (character == CharacterVerseData.kNeedsReview)
-							continue; // The "Needs Review" character should never be added to a group.
 
 						if (character == null)
 						{
@@ -2372,7 +2378,8 @@ namespace GlyssenEngine
 				usxDocsForBooksToInclude = scrTextWrapper.UsxDocumentsForIncludedBooks;
 				stylesheet = scrTextWrapper.Stylesheet;
 			}
-			var books = UsxParser.ParseBooks(usxDocsForBooksToInclude, stylesheet, null);
+			var books = UsxParser.ParseBooks(usxDocsForBooksToInclude, stylesheet,
+				new CharacterUsageStore(Versification, cvInfo, GetDynamicLocalizedCharacterIdVariants), null);
 
 			var blocksInBook = books.ToDictionary(b => b.BookId, b => b.GetScriptBlocks());
 

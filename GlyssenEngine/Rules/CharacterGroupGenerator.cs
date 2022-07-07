@@ -234,7 +234,7 @@ namespace GlyssenEngine.Rules
 				}
 
 				// TODO: The parameter indicating whether to allow the extra-biblical role(s) to be done by a female actor should be set
-				// based on a user-contolled option.
+				// based on a user-controlled option.
 				var trialConfigurationsForNarratorsAndExtras = TrialGroupConfiguration.GeneratePossibilities(fallbackPass, characterGroups,
 					maleNarrators, femaleNarrators, !enforceProximityAndGenderConstraints, includedCharacterDetails, m_project.KeyStrokesByCharacterId,
 					m_project, characterDetails);

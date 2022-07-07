@@ -7031,6 +7031,9 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	19	11	Jehoshaphat, king of Judah			Normal		
 2CH	20	2	men, some			Normal		
 2CH	20	2	narrator-2CH			Interruption		
+2CH	20	3	Jehoshaphat, king of Judah	alarmed		Rare		
+2CH	20	3	Jehoshaphat, king of Judah	proclamation		Rare		
+2CH	20	3	Needs Review			Potential		
 2CH	20	6	Jehoshaphat, king of Judah	praying		Normal		
 2CH	20	7	Jehoshaphat, king of Judah	praying		Normal		
 2CH	20	8	Jehoshaphat, king of Judah	praying		Normal		
@@ -20486,10 +20489,14 @@ JAS	5	17	Elijah	praying		Indirect
 2JN	1	10	anyone			Hypothetical		
 2JN	1	11	anyone			Hypothetical		
 JUD	1	8	dreamers			Indirect		
-JUD	1	9	Michael, archangel			Normal		
-JUD	1	14	Enoch			Normal		
-JUD	1	15	Enoch			Normal		
-JUD	1	18	disciples		apostles	Normal		
+JUD	1	9	Michael, archangel			Quotation		
+JUD	1	9	narrator-JUD			Quotation		
+JUD	1	14	Enoch			Quotation		
+JUD	1	14	narrator-JUD			Quotation		
+JUD	1	15	Enoch			Quotation		
+JUD	1	15	narrator-JUD			Quotation		
+JUD	1	18	disciples		apostles	Quotation		
+JUD	1	18	narrator-JUD			Quotation		
 REV	1	7	narrator-REV			Quotation		
 REV	1	8	God		God (the Lord)	Alternate		
 REV	1	8	Jesus		Jesus (the Lord)	Normal		

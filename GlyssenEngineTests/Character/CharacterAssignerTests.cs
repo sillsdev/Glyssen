@@ -75,10 +75,19 @@ namespace GlyssenEngineTests.Character
 			return newBook;
 		}
 
-		[Test]
-		public void AssignAll_SetDefaultForMultipleChoiceCharactersFalseOverwriteUserConfirmedFalse_OverwritesOnlyUnconfirmedBlocks()
+		[TestCase()]
+		[TestCase(true)]
+		public void AssignAll_SetDefaultForMultipleChoiceCharactersFalseOverwriteUserConfirmedFalse_OverwritesOnlyUnconfirmedBlocks(
+			bool preConfirmed = false)
 		{
 			var bookScript = GetSimpleBookScript();
+			if (preConfirmed)
+				foreach (var block in bookScript.Blocks.Where(b => b.UserConfirmed))
+				{
+					block.StyleTag = "qt-s";
+					block.UserConfirmed = false;
+				}
+
 			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 4, ScrVers.English, "King Saul");
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 5, ScrVers.English, "Jesus");

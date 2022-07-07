@@ -117,8 +117,8 @@ namespace GlyssenEngine.Rules
 
 					// The original logic here was NOT split out for the single character vs. multiple character scenarios.
 					// This made the code much more readable, but the performance was atrocious since we were creating
-					// extra hashsets and doing extra intersects. Please consider the performance implications of any
-					// changes to this code.  (I'm sure it could be optimized further, too...)
+					// extra hash sets and doing extra intersects. Please consider the performance implications of any
+					// changes to this code. (I'm sure it could be optimized further, too...)
 
 					ISet<string> matchingCharacterIds = null;
 					if (calculateAnyRelatedCharacters &&
