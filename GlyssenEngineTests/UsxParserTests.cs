@@ -931,7 +931,7 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(++i, blocks.Count);
 		}
 
-		bool HasAPeterAndHJohnCharacter(ICharacterDeliveryInfo cv)
+		bool HasAPeterAndJohnCharacter(ICharacterDeliveryInfo cv)
 		{
 			var individuals = cv.Character.Split(new[] { CharacterSpeakingMode.kMultiCharacterIdSeparator }, StringSplitOptions.None);
 			return individuals.Length > 1 && individuals.Any(c => c == "John") && individuals.Any(c => c == "Peter (Simon)");
@@ -947,9 +947,9 @@ namespace GlyssenEngineTests
 
 			// Confirm pre-conditions in CV file
 			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(bookNbrActs, chapter, 19)
-				.Single(HasAPeterAndHJohnCharacter).DefaultCharacter, Is.Not.EqualTo(
+				.Single(HasAPeterAndJohnCharacter).DefaultCharacter, Is.Not.EqualTo(
 				ControlCharacterVerseData.Singleton.GetCharacters(bookNbrActs, chapter, 20)
-				.Single(HasAPeterAndHJohnCharacter).DefaultCharacter));
+				.Single(HasAPeterAndJohnCharacter).DefaultCharacter));
 
 			// Setup
 			var doc = UsxDocumentTests.CreateDocFromString(
@@ -1005,9 +1005,9 @@ namespace GlyssenEngineTests
 
 			// Confirm pre-conditions in CV file
 			Assert.True(ControlCharacterVerseData.Singleton.GetCharacters(bookNbrActs, chapter, 19)
-				.Any(HasAPeterAndHJohnCharacter));
+				.Any(HasAPeterAndJohnCharacter));
 			Assert.True(ControlCharacterVerseData.Singleton.GetCharacters(bookNbrActs, chapter, 20)
-				.Any(HasAPeterAndHJohnCharacter));
+				.Any(HasAPeterAndJohnCharacter));
 
 			// Setup
 			var doc = UsxDocumentTests.CreateDocFromString(
@@ -1077,9 +1077,9 @@ namespace GlyssenEngineTests
 
 			// Confirm pre-conditions in CV file
 			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(bookNbrActs, chapter, 19)
-				.Single(HasAPeterAndHJohnCharacter).DefaultCharacter, Is.Not.EqualTo(
+				.Single(HasAPeterAndJohnCharacter).DefaultCharacter, Is.Not.EqualTo(
 				ControlCharacterVerseData.Singleton.GetCharacters(bookNbrActs, chapter, 20)
-					.Single(HasAPeterAndHJohnCharacter).DefaultCharacter));
+					.Single(HasAPeterAndJohnCharacter).DefaultCharacter));
 
 			// Setup
 			var doc = UsxDocumentTests.CreateDocFromString(
@@ -2656,7 +2656,7 @@ namespace GlyssenEngineTests
 				"paragraph, should we assume that it is a mistake and ignore it, or should we " +
 				"handle it as an opener (perhaps only in the case where the paragraph does not " +
 				"end with sentence-ending punctuation)? We should probably wait to resolve this " +
-				"question until we actually encounter is on some real data and see what the " +
+				"question until we actually encounter it on some real data and see what the " +
 				"user intended.");
 		}
 

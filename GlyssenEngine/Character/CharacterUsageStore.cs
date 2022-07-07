@@ -61,9 +61,8 @@ namespace GlyssenEngine.Character
 
 		/// <summary>
 		/// Given a "character" which might not be an "official" character ID known to Glyssen,
-		/// returns a standard character ID that is known to speak in the specified location in
-		/// Scripture, assuming it is possibly to reliably infer a single character based on the
-		/// given one.
+		/// returns a character ID that is known to speak in the specified location in Scripture,
+		/// assuming it is possibly to reliably infer a single character based on the given one.
 		/// </summary>
 		/// <param name="character">A string representing a character name, description, etc.
 		/// </param>
@@ -76,7 +75,7 @@ namespace GlyssenEngine.Character
 		/// <param name="defaultCharacter">If a reliable match is found and the standard character
 		/// ID represents multiple characters, then the standard default character is returned in
 		/// this parameter.</param>
-		public string GetStandardCharacterName(string character, int bookNum, int chapter,
+		public string GetKnownCharacterName(string character, int bookNum, int chapter,
 			IReadOnlyCollection<IVerse> verses, out string singleKnownDelivery, out string defaultCharacter)
 		{
 			character = character.Trim();

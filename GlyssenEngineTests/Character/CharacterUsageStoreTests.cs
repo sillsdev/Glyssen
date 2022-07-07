@@ -17,7 +17,7 @@ namespace GlyssenEngineTests.Character
 		{
 			var store = new CharacterUsageStore(ScrVers.English, 
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			Assert.AreEqual("Jesus", store.GetStandardCharacterName("Jesus", BCVRef.BookToNumber("MRK"),
+			Assert.AreEqual("Jesus", store.GetKnownCharacterName("Jesus", BCVRef.BookToNumber("MRK"),
 				6, new[] {new Verse("38")},  out var delivery, out var defaultCharacter));
 			Assert.AreEqual("questioning", delivery);
 			Assert.IsNull(defaultCharacter);
@@ -28,7 +28,7 @@ namespace GlyssenEngineTests.Character
 		{
 			var store = new CharacterUsageStore(ScrVers.English, 
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			Assert.AreEqual("Jesus", store.GetStandardCharacterName("Jesus", BCVRef.BookToNumber("MRK"),
+			Assert.AreEqual("Jesus", store.GetKnownCharacterName("Jesus", BCVRef.BookToNumber("MRK"),
 				6, new[] {new Verse("36-38")},  out var delivery, out var defaultCharacter));
 			Assert.IsNull(delivery);
 			Assert.IsNull(defaultCharacter);
@@ -39,7 +39,7 @@ namespace GlyssenEngineTests.Character
 		{
 			var store = new CharacterUsageStore(ScrVers.English, 
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			Assert.AreEqual("Andrew", store.GetStandardCharacterName("Andrés", BCVRef.BookToNumber("MRK"),
+			Assert.AreEqual("Andrew", store.GetKnownCharacterName("Andrés", BCVRef.BookToNumber("MRK"),
 				6, new[] {new Verse("38")}, out var delivery, out var defaultCharacter));
 			Assert.IsNull(delivery);
 			Assert.IsNull(defaultCharacter);
@@ -56,7 +56,7 @@ namespace GlyssenEngineTests.Character
 		{
 			var store = new CharacterUsageStore(ScrVers.English, 
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			Assert.IsNull(store.GetStandardCharacterName("Unrealistic scenario",
+			Assert.IsNull(store.GetKnownCharacterName("Unrealistic scenario",
 				BCVRef.BookToNumber("MRK"), 6, new[] {new Verse("38")},
 				out var delivery, out var defaultCharacter));
 			Assert.IsNull(delivery);
@@ -68,7 +68,7 @@ namespace GlyssenEngineTests.Character
 		{
 			var store = new CharacterUsageStore(ScrVers.English, 
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			Assert.AreEqual("Jesus", store.GetStandardCharacterName("Jésus", BCVRef.BookToNumber("MRK"),
+			Assert.AreEqual("Jesus", store.GetKnownCharacterName("Jésus", BCVRef.BookToNumber("MRK"),
 				6, new[] {new Verse("38")}, out var delivery, out var defaultCharacter));
 			Assert.AreEqual("questioning", delivery);
 			Assert.IsNull(defaultCharacter);
@@ -81,7 +81,7 @@ namespace GlyssenEngineTests.Character
 			var store = new CharacterUsageStore(ScrVers.English, 
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
 
-			var result = store.GetStandardCharacterName(alias, BCVRef.BookToNumber(bookCode),
+			var result = store.GetKnownCharacterName(alias, BCVRef.BookToNumber(bookCode),
 				chapterNum, new[] { new Verse(verse) }, out var delivery, out var defaultCharacter);
 
 			Assert.IsNull(delivery);
@@ -95,7 +95,7 @@ namespace GlyssenEngineTests.Character
 		{
 			var store = new CharacterUsageStore(ScrVers.English, 
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			Assert.AreEqual("Barnabas/Paul", store.GetStandardCharacterName("Barnabus/Paulus", BCVRef.BookToNumber("ACT"),
+			Assert.AreEqual("Barnabas/Paul", store.GetKnownCharacterName("Barnabus/Paulus", BCVRef.BookToNumber("ACT"),
 				14, new[] {new Verse("15-16"), new Verse("17")}, out var delivery, out var defaultCharacter));
 			Assert.AreEqual("preaching", delivery);
 			Assert.AreEqual("Paul", defaultCharacter);
@@ -106,7 +106,7 @@ namespace GlyssenEngineTests.Character
 		{
 			var store = new CharacterUsageStore(ScrVers.English, 
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			Assert.AreEqual("Jesus", store.GetStandardCharacterName("Jesus", BCVRef.BookToNumber("MAT"),
+			Assert.AreEqual("Jesus", store.GetKnownCharacterName("Jesus", BCVRef.BookToNumber("MAT"),
 				14, new[] {new Verse("19")}, out var delivery, out var defaultCharacter));
 			Assert.IsNull(delivery);
 			Assert.IsNull(defaultCharacter);
@@ -117,7 +117,7 @@ namespace GlyssenEngineTests.Character
 		{
 			var store = new CharacterUsageStore(ScrVers.English, 
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			Assert.AreEqual("Jesus", store.GetStandardCharacterName("Jesucristo", BCVRef.BookToNumber("MAT"),
+			Assert.AreEqual("Jesus", store.GetKnownCharacterName("Jesucristo", BCVRef.BookToNumber("MAT"),
 				14, new[] {new Verse("19")}, out var delivery, out var defaultCharacter));
 			Assert.IsNull(delivery);
 			Assert.IsNull(defaultCharacter);
@@ -128,7 +128,7 @@ namespace GlyssenEngineTests.Character
 		{
 			var store = new CharacterUsageStore(ScrVers.English, 
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			Assert.AreEqual("Pharisees/teachers of religious law", store.GetStandardCharacterName("teachers of religious law", BCVRef.BookToNumber("MRK"),
+			Assert.AreEqual("Pharisees/teachers of religious law", store.GetKnownCharacterName("teachers of religious law", BCVRef.BookToNumber("MRK"),
 				7, new[] {new Verse("5")}, out var delivery, out var defaultCharacter));
 			Assert.AreEqual("critical", delivery);
 			Assert.AreEqual("teachers of religious law", defaultCharacter);
@@ -151,7 +151,7 @@ namespace GlyssenEngineTests.Character
 		{
 			var store = new CharacterUsageStore(ScrVers.English, 
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			Assert.AreEqual("Pharisees/teachers of religious law", store.GetStandardCharacterName(close, BCVRef.BookToNumber("MRK"),
+			Assert.AreEqual("Pharisees/teachers of religious law", store.GetKnownCharacterName(close, BCVRef.BookToNumber("MRK"),
 				7, new[] {new Verse("5")}, out var delivery, out var defaultCharacter));
 			Assert.AreEqual("critical", delivery);
 			Assert.AreEqual("Pharisees", defaultCharacter);
@@ -164,7 +164,7 @@ namespace GlyssenEngineTests.Character
 		{
 			var store = new CharacterUsageStore(ScrVers.English, 
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			Assert.AreEqual("Pharisees/teachers of religious law", store.GetStandardCharacterName(close, BCVRef.BookToNumber("MRK"),
+			Assert.AreEqual("Pharisees/teachers of religious law", store.GetKnownCharacterName(close, BCVRef.BookToNumber("MRK"),
 				7, new[] {new Verse("5")}, out var delivery, out var defaultCharacter));
 			Assert.AreEqual("critical", delivery);
 			Assert.AreEqual("teachers of religious law", defaultCharacter);
@@ -186,7 +186,7 @@ namespace GlyssenEngineTests.Character
 		{
 			var store = new CharacterUsageStore(ScrVers.English, 
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			var result = store.GetStandardCharacterName(close, BCVRef.BookToNumber(bookCode),
+			var result = store.GetKnownCharacterName(close, BCVRef.BookToNumber(bookCode),
 				chapterNum, new[] {new Verse(verse)}, out var delivery, out _);
 			Assert.AreEqual(expectedDelivery, delivery);
 			return result;
@@ -202,7 +202,7 @@ namespace GlyssenEngineTests.Character
 		{
 			var store = new CharacterUsageStore(ScrVers.English, 
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			Assert.That(store.GetStandardCharacterName(close, BCVRef.BookToNumber(bookCode),
+			Assert.That(store.GetKnownCharacterName(close, BCVRef.BookToNumber(bookCode),
 				chapterNum, new[] {new Verse(verse)}, out _, out _), Is.Null);
 		}
 
@@ -213,7 +213,7 @@ namespace GlyssenEngineTests.Character
 		{
 			var store = new CharacterUsageStore(ScrVers.English, 
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			var result = store.GetStandardCharacterName(close, BCVRef.BookToNumber(bookCode),
+			var result = store.GetKnownCharacterName(close, BCVRef.BookToNumber(bookCode),
 				chapterNum, new[] {new Verse(verse)}, out var delivery, out _);
 			Assert.AreEqual(expectedDelivery, delivery);
 			return result;
@@ -233,7 +233,7 @@ namespace GlyssenEngineTests.Character
 
 			var store = new CharacterUsageStore(ScrVers.English, 
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			return store.GetStandardCharacterName(charStringInData, BCVRef.BookToNumber(bookCode),
+			return store.GetKnownCharacterName(charStringInData, BCVRef.BookToNumber(bookCode),
 				chapterNum, new[] {new Verse(verse)}, out _, out _);
 		}
 
@@ -254,7 +254,7 @@ namespace GlyssenEngineTests.Character
 
 			var store = new CharacterUsageStore(ScrVers.English, 
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			return store.GetStandardCharacterName(charStringInData, BCVRef.BookToNumber(bookCode),
+			return store.GetKnownCharacterName(charStringInData, BCVRef.BookToNumber(bookCode),
 				chapterNum, new[] {new Verse(verse)}, out _, out _);
 		}
 
@@ -267,7 +267,7 @@ namespace GlyssenEngineTests.Character
 		{
 			var store = new CharacterUsageStore(ScrVers.English, 
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			Assert.That(store.GetStandardCharacterName(alias, BCVRef.BookToNumber(bookCode),
+			Assert.That(store.GetKnownCharacterName(alias, BCVRef.BookToNumber(bookCode),
 				chapterNum, new[] {new Verse(verse)}, out _, out _), Is.Null);
 		}
 
@@ -278,7 +278,7 @@ namespace GlyssenEngineTests.Character
 		{
 			var store = new CharacterUsageStore(ScrVers.English, 
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			Assert.That(store.GetStandardCharacterName(alias, BCVRef.BookToNumber(bookCode),
+			Assert.That(store.GetKnownCharacterName(alias, BCVRef.BookToNumber(bookCode),
 				chapterNum, new[] {new Verse(verse)}, out _, out _), Is.Null);
 		}
 
@@ -292,7 +292,7 @@ namespace GlyssenEngineTests.Character
 		{
 			var store = new CharacterUsageStore(ScrVers.English, 
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			return store.GetStandardCharacterName(alias, BCVRef.BookToNumber(bookCode),
+			return store.GetKnownCharacterName(alias, BCVRef.BookToNumber(bookCode),
 				chapterNum, new[] {new Verse(verse)}, out _, out _);
 		}
 
@@ -301,7 +301,7 @@ namespace GlyssenEngineTests.Character
 		{
 			var store = new CharacterUsageStore(ScrVers.English, 
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			Assert.IsNull(store.GetStandardCharacterName("Andrew/Jesus", BCVRef.BookToNumber("MRK"),
+			Assert.IsNull(store.GetKnownCharacterName("Andrew/Jesus", BCVRef.BookToNumber("MRK"),
 				6, new[] {new Verse("38")}, out var delivery, out var defaultCharacter));
 			Assert.IsNull(delivery);
 			Assert.IsNull(defaultCharacter);
@@ -312,7 +312,7 @@ namespace GlyssenEngineTests.Character
 		{
 			var store = new CharacterUsageStore(ScrVers.English, 
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			Assert.IsNull(store.GetStandardCharacterName("Asher", BCVRef.BookToNumber("GEN"),
+			Assert.IsNull(store.GetKnownCharacterName("Asher", BCVRef.BookToNumber("GEN"),
 				6, new[] {new Verse("38")}, out var delivery, out var defaultCharacter));
 			Assert.IsNull(delivery);
 			Assert.IsNull(defaultCharacter);
@@ -325,7 +325,7 @@ namespace GlyssenEngineTests.Character
 		{
 			var store = new CharacterUsageStore(ScrVers.English,
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			Assert.AreEqual("narrator-MAT", store.GetStandardCharacterName(narratorChar, BCVRef.BookToNumber("MAT"),
+			Assert.AreEqual("narrator-MAT", store.GetKnownCharacterName(narratorChar, BCVRef.BookToNumber("MAT"),
 				2, new[] {new Verse("1")}, out var delivery, out var defaultCharacter));
 			Assert.IsNull(delivery);
 			Assert.IsNull(defaultCharacter);
@@ -338,7 +338,7 @@ namespace GlyssenEngineTests.Character
 		{
 			var store = new CharacterUsageStore(ScrVers.English,
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			Assert.IsNull(store.GetStandardCharacterName(character, BCVRef.BookToNumber(bookCode),
+			Assert.IsNull(store.GetKnownCharacterName(character, BCVRef.BookToNumber(bookCode),
 				chapterNum, new[] {new Verse(verse)}, out var delivery, out var defaultCharacter));
 			Assert.IsNull(delivery);
 			Assert.IsNull(defaultCharacter);
@@ -348,7 +348,7 @@ namespace GlyssenEngineTests.Character
 		{
 			var store = new CharacterUsageStore(ScrVers.English,
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-			Assert.IsNull(store.GetStandardCharacterName("Jesus", BCVRef.BookToNumber("MAT"),
+			Assert.IsNull(store.GetKnownCharacterName("Jesus", BCVRef.BookToNumber("MAT"),
 				1, new[] {new Verse("1")}, out var delivery, out var defaultCharacter));
 			Assert.IsNull(delivery);
 			Assert.IsNull(defaultCharacter);
@@ -364,7 +364,7 @@ namespace GlyssenEngineTests.Character
 				ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 				var store = new CharacterUsageStore(ScrVers.English,
 					ControlCharacterVerseData.Singleton, GetLocalizedVariants);
-				Assert.AreEqual("Peter (Simon)/John", store.GetStandardCharacterName("Peter (Simon)/John", BCVRef.BookToNumber("ACT"),
+				Assert.AreEqual("Peter (Simon)/John", store.GetKnownCharacterName("Peter (Simon)/John", BCVRef.BookToNumber("ACT"),
 					4, new[] {new Verse("19"), new Verse("20")}, out var delivery, out var defaultCharacter));
 				Assert.IsNull(delivery);
 				Assert.AreEqual("Peter (Simon)", defaultCharacter);

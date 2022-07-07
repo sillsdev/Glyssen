@@ -181,8 +181,8 @@ namespace GlyssenEngine
 		}
 
 		/// <summary>
-		/// A class for the special-case where the "quote" is actually an
-		/// interruption (by the narrator) of an quote.
+		/// A class for the special case where the "quote" is actually an
+		/// interruption (by the narrator) of a quote.
 		/// </summary>
 		private class ExplicitInterruptionInfo : ExplicitQuoteInfo
 		{
@@ -783,7 +783,7 @@ namespace GlyssenEngine
 
 			if (m_currentExplicitQuote.SpecifiedCharacter != null)
 			{
-				var standardCharacter = m_characterUsageStore.GetStandardCharacterName(
+				var standardCharacter = m_characterUsageStore.GetKnownCharacterName(
 					m_currentExplicitQuote.SpecifiedCharacter, m_bookNum, m_currentChapter, block.AllVerses,
 					out var delivery, out var defaultCharacter);
 				if (standardCharacter != null)
