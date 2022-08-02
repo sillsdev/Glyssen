@@ -598,7 +598,7 @@ namespace Glyssen
 
 			if (!LoadAndHandleApplicationExceptions(() =>
 			{
-				var scrText = ScrTextCollection.FindById(paratextProjectId);
+				var scrText = ScrTextCollection.FindById(HexId.FromStrSafe(paratextProjectId), paratextProjName);
 				paratextProject = new ParatextScrTextWrapper(scrText);
 			}))
 			{

@@ -158,14 +158,14 @@
     <Reference Include="PangoSharp, Version=3.22.24.37, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
       <HintPath>..\packages\PangoSharp-signed.3.22.24.37\lib\netstandard2.0\PangoSharp.dll</HintPath>
     </Reference>
-    <Reference Include="Paratext.LexicalContracts, Version=9.1.10.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ParatextData.9.1.10-beta\lib\netstandard2.0\Paratext.LexicalContracts.dll</HintPath>
+    <Reference Include="Paratext.LexicalContracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9a5af29a0e638a7b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ParatextData.9.2.6.5\lib\netstandard2.0\Paratext.LexicalContracts.dll</HintPath>
     </Reference>
-    <Reference Include="ParatextData, Version=9.1.10.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ParatextData.9.1.10-beta\lib\netstandard2.0\ParatextData.dll</HintPath>
+    <Reference Include="ParatextData, Version=9.2.6.5, Culture=neutral, PublicKeyToken=583bede96b7c94a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\ParatextData.9.2.6.5\lib\netstandard2.0\ParatextData.dll</HintPath>
     </Reference>
-    <Reference Include="PtxUtils, Version=9.1.10.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ParatextData.9.1.10-beta\lib\netstandard2.0\PtxUtils.dll</HintPath>
+    <Reference Include="PtxUtils, Version=9.2.6.5, Culture=neutral, PublicKeyToken=583bede96b7c94a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\ParatextData.9.2.6.5\lib\netstandard2.0\PtxUtils.dll</HintPath>
     </Reference>
     <Reference Include="Rhino.Mocks">
       <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
@@ -493,6 +493,7 @@
     <Error Condition="!Exists('..\packages\SIL.Windows.Forms.10.0.0-beta0081\build\SIL.Windows.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SIL.Windows.Forms.10.0.0-beta0081\build\SIL.Windows.Forms.targets'))" />
     <Error Condition="!Exists('..\packages\Geckofx60.64.60.0.55\build\Geckofx60.64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Geckofx60.64.60.0.55\build\Geckofx60.64.targets'))" />
     <Error Condition="!Exists('..\packages\System.Text.Json.6.0.5\build\System.Text.Json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Text.Json.6.0.5\build\System.Text.Json.targets'))" />
+    <Error Condition="!Exists('..\packages\ParatextData.9.2.6.5\build\ParatextData.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ParatextData.9.2.6.5\build\ParatextData.targets'))" />
   </Target>
   <!-- Do not need/want a nuget package for this project. -->
   <Target Name="Pack" />
@@ -506,6 +507,7 @@
   <Import Project="..\packages\SIL.Windows.Forms.10.0.0-beta0081\build\SIL.Windows.Forms.targets" Condition="Exists('..\packages\SIL.Windows.Forms.10.0.0-beta0081\build\SIL.Windows.Forms.targets')" />
   <Import Project="..\packages\Geckofx60.64.60.0.55\build\Geckofx60.64.targets" Condition="Exists('..\packages\Geckofx60.64.60.0.55\build\Geckofx60.64.targets')" />
   <Import Project="..\packages\System.Text.Json.6.0.5\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.5\build\System.Text.Json.targets')" />
+  <Import Project="..\packages\ParatextData.9.2.6.5\build\ParatextData.targets" Condition="Exists('..\packages\ParatextData.9.2.6.5\build\ParatextData.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -35,7 +35,8 @@ namespace GlyssenEngine.Paratext
 		public string Name => CanBeFoundUsingShortName ? ScrText.Name :
 			$"{ScrText.Name} ({ScrText.FullName})";
 
-		public string Id => ScrText.Settings.DBLId ?? (CanBeFoundUsingShortName ? ScrText.Name : ScrText.Guid);
+		public string Id => ScrText.Settings.DBLId?.Id ??
+			(CanBeFoundUsingShortName ? ScrText.Name : ScrText.Guid.ToString());
 
 		public DblMetadataLanguage Language { get; }
 	}
