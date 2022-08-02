@@ -249,8 +249,8 @@ are trying to support, you're better off using non-advertised shortcuts." -->
             <File Id="L10NSharp.dll" Name="L10NSharp.dll" KeyPath="yes" Source="..\output\release\L10NSharp.dll" ProcessorArchitecture="x64"/>
           </Component>
 
-          <Component Id="Analytics.NET.dll" Guid="*" Win64="yes">
-            <File Id="Analytics.NET.dll" Name="Analytics.NET.dll" KeyPath="yes" Source="..\output\release\Analytics.NET.dll" ProcessorArchitecture="x64"/>
+          <Component Id="Analytics.dll" Guid="*" Win64="yes">
+            <File Id="Analytics.dll" Name="Analytics.dll" KeyPath="yes" Source="..\output\release\Analytics.dll" ProcessorArchitecture="x64"/>
           </Component>
 
           <Component Id="DesktopAnalytics.dll" Guid="*" Win64="yes">
@@ -324,7 +324,7 @@ are trying to support, you're better off using non-advertised shortcuts." -->
       <ComponentRef Id="GlyssenShared.dll"/>
       <ComponentRef Id="GlyssenEngine.dll"/>
       <ComponentRef Id="GlyssenFileBasedPersistence.dll"/>
-      <ComponentRef Id="Analytics.NET.dll"/>
+      <ComponentRef Id="Analytics.dll"/>
       <ComponentRef Id="DesktopAnalytics.dll"/>
       <ComponentRef Id="Newtonsoft.Json.dll"/>
       <ComponentRef Id="EPPlus.dll"/>
