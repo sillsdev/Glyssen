@@ -16,6 +16,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [4.0.0] - 2022-08-05
+
 ### Changed
 
 - Updated to latest SIL libraries, which included several interface changes:
