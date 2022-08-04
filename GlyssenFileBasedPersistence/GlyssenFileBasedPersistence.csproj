@@ -38,7 +38,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="SIL.Core" Version="10.0.0-beta0081" />
+    <PackageReference Include="SIL.Core" Version="10.0.0" />
   </ItemGroup>
 
   <ItemGroup>
