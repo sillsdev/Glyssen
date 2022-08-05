@@ -27,7 +27,7 @@ See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="GitVersion.MsBuild" Version="5.8.1">
+    <PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

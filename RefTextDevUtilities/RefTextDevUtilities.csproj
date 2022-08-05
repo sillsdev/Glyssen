@@ -107,7 +107,7 @@
       <Version>4.0.5</Version>
     </PackageReference>
     <PackageReference Include="GitVersion.MsBuild">
-      <Version>5.8.1</Version>
+      <Version>5.10.3</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

@@ -69,8 +69,8 @@
     <Reference Include="icu.net, Version=2.8.0.0, Culture=neutral, PublicKeyToken=416fdd914afa6b66, processorArchitecture=MSIL">
       <HintPath>..\packages\icu.net.2.8.1\lib\net451\icu.net.dll</HintPath>
     </Reference>
-    <Reference Include="JetBrains.Annotations, Version=2020.3.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
-      <HintPath>..\packages\JetBrains.Annotations.2020.3.0\lib\net20\JetBrains.Annotations.dll</HintPath>
+    <Reference Include="JetBrains.Annotations, Version=4242.42.42.42, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Annotations.2022.1.0\lib\net20\JetBrains.Annotations.dll</HintPath>
     </Reference>
     <Reference Include="L10NSharp, Version=5.0.0.0, Culture=neutral, PublicKeyToken=fd0b3e309a5b7c28, processorArchitecture=MSIL">
       <HintPath>..\packages\L10NSharp.5.0.0\lib\net461\L10NSharp.dll</HintPath>
@@ -84,8 +84,8 @@
     <Reference Include="Microsoft.Extensions.DependencyModel, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.DependencyModel.6.0.0\lib\net461\Microsoft.Extensions.DependencyModel.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.2.2.0\lib\net462\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Win32.Registry, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Win32.Registry.5.0.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
