@@ -27,7 +27,7 @@
 	<Target Name="RestoreLocalPackages" DependsOnTargets="CheckPrerequisites">
 		<Message Text="Calling $(NuGetCommand) restore ../$(Solution)" />
 		<Exec Command='$(NuGetCommand) restore ../$(Solution)' />
-		<Exec Command='$(NuGetCommand) install SIL.BuildTasks -excludeVersion -version 2.5.0 -source "$(PackageSources)" -solutionDirectory "$(RootDir)"' />
+		<Exec Command='$(NuGetCommand) install SIL.BuildTasks -excludeVersion -PreRelease -source "$(PackageSources)" -solutionDirectory "$(RootDir)"' />
 		<Exec Command='$(NuGetCommand) install SIL.libpalaso.l10ns -excludeVersion -Version 9.0.1-beta0011 -source "$(PackageSources)" -solutionDirectory "$(SolutionDir)."' />
 		<Message Text="RestartBuild=$(RestartBuild)"/>
 		<MSBuild Projects="$(MSBuildProjectFullPath)" Targets="BuildInternal" Properties="Configuration=$(Configuration)" Condition="$(RestartBuild)" />
