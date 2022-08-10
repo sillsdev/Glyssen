@@ -102,9 +102,9 @@ namespace Glyssen
 				{
 					ParatextData.Initialize();
 					sldrIsInitialized = true;
-					userName = RegistrationInfo.UserName;
+					userName = RegistrationInfo.DefaultUser.Name;
 					Logger.WriteEvent($"Paratext user name: {userName}");
-					s_userInfo.Email = RegistrationInfo.EmailAddress;
+					s_userInfo.Email = RegistrationInfo.DefaultUser.EmailAddress;
 					foreach (var errMsgInfo in CompatibleParatextProjectLoadErrors.Where(e => e.Reason == UnsupportedReason.Unspecified))
 					{
 						_pendingExceptionsToReportToAnalytics.Add(errMsgInfo.Exception);

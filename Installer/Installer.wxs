@@ -203,8 +203,12 @@ are trying to support, you're better off using non-advertised shortcuts." -->
             <File Id="icuuc59.dll" Name="icuuc59.dll" KeyPath="yes" Source="..\output\release\lib\win-x64\icuuc59.dll" />
           </Component>
 
+          <Component Id="System.Buffers.dll" Guid="*">
+              <File Id="System.Buffers.dll" Name="System.Buffers.dll" KeyPath="yes" Source="..\output\release\System.Buffers.dll" />
+          </Component>
+
           <Component Id="System.ValueTuple.dll" Guid="*">
-            <File Id="System.ValueTuple.dll" Name="System.ValueTuple.dll" KeyPath="yes" Source="..\output\release\System.ValueTuple.dll" />
+              <File Id="System.ValueTuple.dll" Name="System.ValueTuple.dll" KeyPath="yes" Source="..\output\release\System.ValueTuple.dll" />
           </Component>
 
           <Component Id="ParatextData.dll" Guid="*" Win64="yes">
@@ -304,6 +308,7 @@ are trying to support, you're better off using non-advertised shortcuts." -->
       <ComponentRef Id="icudt59.dll"/>
       <ComponentRef Id="icuin59.dll"/>
       <ComponentRef Id="icuuc59.dll"/>
+	  <ComponentRef Id="System.Buffers.dll"/>
 	  <ComponentRef Id="System.ValueTuple.dll"/>
       <ComponentRef Id="ParatextData.dll"/>
       <ComponentRef Id="PtxUtils.dll"/>
