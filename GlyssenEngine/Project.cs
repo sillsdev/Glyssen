@@ -251,19 +251,20 @@ namespace GlyssenEngine
 		{
 			if (m_projectMetadata.Type != ParatextScrTextWrapper.kLiveParatextProjectType)
 				throw new InvalidOperationException("GetSourceParatextProject should only be used for projects based on live Paratext projects.");
-			// As of Paratext 9.1: To get a project, we first need to try to "Find" it using the
-			// GUID (because in P9.1 it is possible to have multiple projects with the same name).
-			// If we have not saved a GUID for the project in the metadata (this is probably never
-			// the case) or we cannot find a match on the GUID, then as a fallback we'll try to
-			// "Get" it by name, though I'm kind of doubting this would ever succeed. If that
-			// fails, Paratext throws a ProjectNotFoundException, and the caller needs to deal with
-			// it.
+			// As of Paratext 9.1: To get a project, we to try to "Find" it using the GUID (because
+			// in P9.1 it is possible to have multiple projects with the same name). If we have not
+			// saved a GUID for the project in the metadata (this is probably never the case), then
+			// as a fallback we try to "Get" it by name, though I kind of doubt this would ever
+			// succeed. If that fails, Paratext throws a ProjectNotFoundException, and the caller
+			// needs to deal with it.
 			// Note: If there is more than one local project with the same name, attempting to load
 			// by name will not work - they can only be loaded by ID.
 			var id = m_projectMetadata.ParatextProjectUniqueId;
 			if (!IsNullOrEmpty(id))
 			{
-				var scrText = ScrTextCollection.FindById(id);
+				// The following falls back to looking for the project by name if
+				// the id is null or looks to be an invalid ID.
+				var scrText = ScrTextCollection.FindById(HexId.FromStrSafe(id), ParatextProjectName);
 				if (scrText != null)
 					return scrText;
 			}

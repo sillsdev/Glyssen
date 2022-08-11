@@ -181,7 +181,7 @@ namespace GlyssenEngine.Paratext
 					var languageInfo = UnderlyingScrText.Language;
 					m_metadata = new GlyssenDblTextMetadata
 					{
-						Id = UnderlyingScrText.Settings.DBLId,
+						Id = UnderlyingScrText.Settings.DBLId.Id,
 						ParatextProjectId = ProjectName,
 						Type = kLiveParatextProjectType,
 						Revision = 1,
@@ -191,7 +191,7 @@ namespace GlyssenEngine.Paratext
 							Name = UnderlyingScrText.FullName,
 							SystemIds = new HashSet<DblMetadataSystemId>(new[]
 							{
-								new DblMetadataSystemId {Type = GlyssenDblTextMetadata.kParatextSystemId, Id = UnderlyingScrText.Guid}
+								new DblMetadataSystemId {Type = GlyssenDblTextMetadata.kParatextSystemId, Id = UnderlyingScrText.Guid.Id}
 							})
 						},
 
