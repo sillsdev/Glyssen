@@ -112,9 +112,6 @@
     <Reference Include="icu.net, Version=2.8.0.0, Culture=neutral, PublicKeyToken=416fdd914afa6b66, processorArchitecture=MSIL">
       <HintPath>..\packages\icu.net.2.8.1\lib\net451\icu.net.dll</HintPath>
     </Reference>
-    <Reference Include="JetBrains.Annotations, Version=4242.42.42.42, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
-      <HintPath>..\packages\JetBrains.Annotations.2022.1.0\lib\net20\JetBrains.Annotations.dll</HintPath>
-    </Reference>
     <Reference Include="L10NSharp, Version=5.0.0.0, Culture=neutral, PublicKeyToken=fd0b3e309a5b7c28, processorArchitecture=MSIL">
       <HintPath>..\packages\L10NSharp.5.0.0\lib\net461\L10NSharp.dll</HintPath>
     </Reference>
