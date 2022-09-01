@@ -98,6 +98,8 @@ GEN	9	14	God		God (Yahweh)	Implicit
 GEN	9	15	God		God (Yahweh)	Implicit		
 GEN	9	16	God		God (Yahweh)	Implicit		
 GEN	9	17	God		God (Yahweh)	Normal		
+GEN	9	22	Ham			Rare		
+GEN	9	22	Needs Review			Potential		
 GEN	9	25	Noah			Normal		
 GEN	9	26	Noah			Normal		
 GEN	9	27	Noah			Implicit		
@@ -123,6 +125,8 @@ GEN	13	15	God		God (Yahweh)	Implicit
 GEN	13	16	God		God (Yahweh)	Implicit		
 GEN	13	17	God		God (Yahweh)	Implicit		
 GEN	14	4	Bera, king of Sodom/Birsha, king of Gomorrah/Shinab, king of Admah/Shemeber, king of Zeboiim/king of Bela			Indirect	Bera, king of Sodom	
+GEN	14	13	one who had escaped			Rare		
+GEN	14	13	Needs Review			Potential		
 GEN	14	17	narrator-GEN			Quotation		
 GEN	14	19	Melchizedek, king of Salem (priest of God Most High)			Normal		
 GEN	14	20	Melchizedek, king of Salem (priest of God Most High)			Normal		
@@ -411,6 +415,8 @@ GEN	27	39	Isaac (old)			Normal
 GEN	27	40	Isaac (old)			Normal		
 GEN	27	41	Esau			Normal		
 GEN	27	42	Rebekah			Normal		
+GEN	27	42	person who informed Rebekah			Rare		
+GEN	27	42	Needs Review			Rare		
 GEN	27	43	Rebekah			Normal		
 GEN	27	44	Rebekah			Normal		
 GEN	27	45	Rebekah			Normal		
@@ -437,6 +443,7 @@ GEN	29	6	Jacob (Israel)			Dialogue
 GEN	29	6	shepherds at well			Dialogue		
 GEN	29	7	Jacob (Israel)			Dialogue		
 GEN	29	8	shepherds at well			Dialogue		
+GEN	29	12	Jacob (Israel)		Jacob	Indirect		
 GEN	29	14	Laban			Normal		
 GEN	29	15	Laban			Normal		
 GEN	29	18	Jacob (Israel)			Normal		
@@ -490,6 +497,7 @@ GEN	31	13	Jacob (Israel)			Normal
 GEN	31	14	Rachel/Leah			Normal	Rachel	
 GEN	31	15	Rachel/Leah			Normal	Rachel	
 GEN	31	16	Rachel/Leah			Normal	Rachel	
+GEN	31	22	person who informed Laban			Indirect		
 GEN	31	24	God		God (Yahweh) (in vision)	Normal		
 GEN	31	26	Laban			Normal		
 GEN	31	27	Laban			Normal		
@@ -651,6 +659,7 @@ GEN	40	16	chief baker of Egypt			Normal
 GEN	40	17	chief baker of Egypt			Normal		
 GEN	40	18	Joseph			Normal		
 GEN	40	19	Joseph			Normal		
+GEN	41	8	Pharaoh (2nd)		Pharaoh	Indirect		
 GEN	41	9	chief cupbearer of Egypt			Normal		
 GEN	41	10	chief cupbearer of Egypt			Normal		
 GEN	41	11	chief cupbearer of Egypt			Normal		
@@ -1140,6 +1149,8 @@ EXO	14	2	God		God (Yahweh)	Normal
 EXO	14	3	God		God (Yahweh)	Normal		
 EXO	14	4	God		God (Yahweh)	Normal		
 EXO	14	5	Pharaoh (3rd)/Pharaoh's officials		Pharaoh/Pharaoh's officials	Normal		
+EXO	14	5	person who informed Pharaoh			Rare		
+EXO	14	5	Needs Review			Rare		
 EXO	14	11	Israelites	terrified		Normal		
 EXO	14	12	Israelites	terrified		Normal		
 EXO	14	13	Moses			Normal		
@@ -1904,6 +1915,7 @@ LEV	10	12	Moses			Normal
 LEV	10	13	Moses			Normal		
 LEV	10	14	Moses			Normal		
 LEV	10	15	Moses			Normal		
+LEV	10	16	Moses			Indirect		
 LEV	10	17	Moses			Normal		
 LEV	10	18	Moses			Normal		
 LEV	10	19	Aaron			Normal		
@@ -4534,6 +4546,8 @@ JDG	4	6	Deborah		Deborah, prophetess	Normal
 JDG	4	7	Deborah		Deborah, prophetess	Normal		
 JDG	4	8	Barak			Normal		
 JDG	4	9	Deborah		Deborah, prophetess	Normal		
+JDG	4	12	person who informed Sisera			Rare		
+JDG	4	12	Needs Review			Potential		
 JDG	4	14	Deborah		Deborah, prophetess	Normal		
 JDG	4	18	Jael			Normal		
 JDG	4	19	Sisera			Normal		
@@ -4657,6 +4671,8 @@ JDG	9	17	Jotham, son of Gideon (Jerubbaal)			Normal
 JDG	9	18	Jotham, son of Gideon (Jerubbaal)			Normal		
 JDG	9	19	Jotham, son of Gideon (Jerubbaal)			Normal		
 JDG	9	20	Jotham, son of Gideon (Jerubbaal)			Normal		
+JDG	9	25	messenger to Abimelech			Rare		
+JDG	9	25	Needs Review			Potential		
 JDG	9	28	Gaal, son of Ebed			Normal		
 JDG	9	29	Gaal, son of Ebed			Normal		
 JDG	9	31	Zebul, governor of Shechem			Normal		
@@ -4666,6 +4682,8 @@ JDG	9	36	Gaal, son of Ebed			Normal
 JDG	9	36	Zebul, governor of Shechem			Normal		
 JDG	9	37	Gaal, son of Ebed			Normal		
 JDG	9	38	Zebul, governor of Shechem			Normal		
+JDG	9	42	messenger to Abimelech			Rare		
+JDG	9	42	Needs Review			Potential		
 JDG	9	47	messenger to Abimelech			Indirect		
 JDG	9	48	Abimelech, son of Gideon (Jerubbaal)			Normal		
 JDG	9	54	Abimelech, son of Gideon (Jerubbaal)			Normal		
@@ -5326,6 +5344,7 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	23	2	God		God (Yahweh)	Normal		
 1SA	23	3	David's men			Normal		
 1SA	23	4	God		God (Yahweh)	Normal		
+1SA	23	4	David			Indirect		
 1SA	23	7	Saul			Normal		
 1SA	23	7	messenger to Saul			Indirect		
 1SA	23	9	David			Normal		
@@ -5417,6 +5436,8 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	28	1	Achish, king of Gath			Normal		
 1SA	28	2	Achish, king of Gath			Normal		
 1SA	28	2	David			Normal		
+1SA	28	6	Saul			Rare		
+1SA	28	6	Needs Review			Potential		
 1SA	28	7	Saul			Normal		
 1SA	28	7	Saul's servants			Normal		
 1SA	28	8	Saul			Normal		
@@ -5593,6 +5614,7 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	10	11	Joab			Normal		
 2SA	10	12	Joab			Normal		
 2SA	11	3	man answered David			Normal		
+2SA	11	3	David			Indirect		
 2SA	11	5	Bathsheba			Normal		
 2SA	11	6	David		David, king	Normal		
 2SA	11	7	David		David, king	Indirect		
@@ -6742,6 +6764,8 @@ RUT	4	17	women of Bethlehem			Normal
 1CH	14	12	David			Rare		
 1CH	14	12	Needs Review			Potential		
 1CH	14	14	God			Normal		
+1CH	14	14	David			Rare		
+1CH	14	14	Needs Review			Rare		
 1CH	14	15	God		God (Yahweh)	Normal		
 1CH	15	2	David		David, king	Normal		
 1CH	15	12	David		David, king	Normal		
@@ -19837,6 +19861,8 @@ ACT	20	35	Paul			Normal
 ACT	20	37	elders, Ephesian			Rare		
 ACT	20	37	Needs Review			Potential		
 ACT	20	38	elders, Ephesian			Indirect		
+ACT	20	38	narrator-ACT			Quotation		
+ACT	20	38	Needs Review			Potential		
 ACT	21	4	disciples		Holy Spirit through disciples	Indirect		
 ACT	21	11	Agabus the prophet	proclaim		Dialogue		
 ACT	21	13	Paul	sad		Dialogue		
