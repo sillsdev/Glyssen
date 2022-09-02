@@ -191,22 +191,22 @@
       <Version>3.22.24.37</Version>
     </PackageReference>
     <PackageReference Include="SIL.Core">
-      <Version>10.0.0</Version>
+      <Version>11.0.0-beta0024</Version>
     </PackageReference>
     <PackageReference Include="SIL.Core.Desktop">
-      <Version>10.0.0</Version>
+      <Version>11.0.0-beta0024</Version>
     </PackageReference>
     <PackageReference Include="SIL.DblBundle">
-      <Version>10.0.0</Version>
+      <Version>11.0.0-beta0024</Version>
     </PackageReference>
     <PackageReference Include="SIL.Scripture">
-      <Version>10.0.0</Version>
+      <Version>11.0.0-beta0024</Version>
     </PackageReference>
     <PackageReference Include="SIL.Windows.Forms">
-      <Version>10.0.0</Version>
+      <Version>11.0.0-beta0024</Version>
     </PackageReference>
     <PackageReference Include="SIL.WritingSystems">
-      <Version>10.0.0</Version>
+      <Version>11.0.0-beta0024</Version>
     </PackageReference>
     <PackageReference Include="System.Buffers">
       <Version>4.5.1</Version>

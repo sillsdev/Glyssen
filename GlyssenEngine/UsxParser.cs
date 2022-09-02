@@ -226,17 +226,17 @@ namespace GlyssenEngine
 				Block block = null;
 				switch (node.Name)
 				{
-					case "chapter":
+					case UsxNode.kChapterNodeName:
 						AddMainTitleIfApplicable(blocks, titleBuilder);
 						block = ProcessChapterNode(node);
 						if (block == null)
 							continue;
 						break;
-					case "para":
+					case UsxNode.kParaNodeName:
 						if (!node.HasChildNodes)
 							continue;
 
-						var usxPara = new UsxNode(node);
+						var usxPara = new UsxPara(node);
 						IStyle style = m_stylesheet.GetStyle(usxPara.StyleTag);
 						if (style.IsChapterLabel)
 						{
@@ -339,7 +339,7 @@ namespace GlyssenEngine
 		{
 			switch (childNode.Name)
 			{
-				case "verse":
+				case UsxNode.kVerseNodeName:
 					var verseNumAttr = childNode.Attributes.GetNamedItem("number");
 					if (verseNumAttr == null)
 						return;
@@ -367,8 +367,8 @@ namespace GlyssenEngine
 
 					block.BlockElements.Add(new Verse(verseNumStr));
 					break;
-				case "char":
-					var charTag = (new UsxNode(childNode)).StyleTag;
+				case UsxNode.kCharNodeName:
+					var charTag = (new UsxChar(childNode)).StyleTag;
 					IStyle charStyle = m_stylesheet.GetStyle(charTag);
 					if (!charStyle.IsInlineQuotationReference && charStyle.IsPublishable)
 					{
@@ -407,7 +407,7 @@ namespace GlyssenEngine
 					}
 
 					break;
-				case "ms": // Milestone (PG-1419)
+				case UsxNode.kMilestoneNodeName: // Milestone (PG-1419)
 					if (m_currentChapter == 0)
 					{
 						Logger.WriteEvent($"Ignoring milestone node {childNode} in intro material.");
@@ -981,6 +981,8 @@ namespace GlyssenEngine
 		private Block ProcessChapterNode(XmlNode node)
 		{
 			var usxChapter = new UsxChapter(node);
+			if (!usxChapter.IsChapterStart)
+				return null; // We can ignore chapter end milestones
 			string chapterText;
 			if (m_bookLevelChapterLabel != null)
 			{
