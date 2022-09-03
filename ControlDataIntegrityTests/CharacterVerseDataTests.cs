@@ -424,7 +424,7 @@ namespace ControlDataIntegrityTests
 		/// input from a native speaker to know whether or not to dramatize it as actual spoken words (or thinking out loud) or treat
 		/// it as "hypothetical" speech that should be read by the narrator to convey an attitude, thought or belief of a character.
 		/// In many cases review may also be needed to determine which character is thinking or speaking the quoted text. Furthermore,
-		/// if all the possible quotes in the verse are Rare, the the Needs Review should be of type Potential, so that it will be
+		/// if all the possible quotes in the verse are Rare, then the Needs Review should be of type Potential, so that it will be
 		/// assigned automatically to any quoted text found. However, if the verse has a mix of Rare and non-Rare quotes, then the
 		/// Needs Review entry should itself be marked as Rare (at least until we find a plausible exception) if there is exactly
 		/// one such entry, so that it would not cause a needless ambiguity in the most common case where the only quoted text in

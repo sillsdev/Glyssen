@@ -241,7 +241,7 @@ Dathan	1	Male			son of Eliab (Reubenite)	NUM 16:3 <-(2 more)-> NUM 16:14
 daughter of Zion	-1	Female				JER 4:31 <-(20 more)-> ZEP 3:17
 daughters of Philip the evangelist	4	Female				ACT 20:12
 daughters of Zelophehad	-1	Female				NUM 27:3 <-(1 more)-> JOS 17:4	Daughter of Zelophehad (female)
-David	1	Male	Adult			1SA 17:26 <-(402 more)-> PRO 4:9
+David	1	Male	Adult			1SA 17:26 <-(405 more)-> PRO 4:9
 David (old)	1	Male	Elder			1KI 1:16 <-(14 more)-> 1KI 2:9
 David's enemies	-1	Male				PSA 3:2 <-(12 more)-> PSA 71:11
 David's men	-1	Male				1SA 23:3 <-(2 more)-> 2SA 21:17
@@ -407,6 +407,7 @@ Hadad the Edomite	1	Male				1KI 11:21 & 1KI 11:22
 Hagar, Sarai's maid	1	Female				GEN 16:8 <-(1 more)-> GEN 21:16
 Haggai	1	Male				HAG 1:2 <-(28 more)-> HAG 2:23
 half-tribe of Manasseh	-1	Male				JOS 1:16 <-(9 more)-> JOS 22:29
+Ham	1	Male				GEN 9:22
 Haman, highest noble to Xerxes, king	1	Male				EST 3:8 <-(7 more)-> EST 6:11
 Hamor, Hivite ruler	1	Male				GEN 34:8 <-(4 more)-> GEN 34:23
 Hanamel (Jeremiah's cousin)	1	Male				JER 32:8
@@ -491,7 +492,7 @@ Issachar	1	Male	Adult			GEN 37:8 <-(33 more)-> GEN 50:18
 Ittai	1	Male				2SA 15:21
 Jabez	1	Male				1CH 4:10
 Jabez's mother	1	Female				1CH 4:9
-Jacob (Israel)	1	Male				GEN 25:31 <-(142 more)-> GEN 49:32
+Jacob (Israel)	1	Male				GEN 25:31 <-(143 more)-> GEN 49:32
 Jael	1	Female				JDG 4:18 & JDG 4:22
 Jahaziel	1	Male				2CH 20:15 <-(1 more)-> 2CH 20:17
 jailer in Philippi	1	Male				ACT 16:27 <-(2 more)-> ACT 16:36
@@ -505,7 +506,7 @@ Jehoash, king of Israel	1	Male				2KI 13:14 <-(3 more)-> 2CH 25:19
 Jehoiada the priest	1	Male				2KI 11:5 <-(10 more)-> 2CH 23:14
 Jehoiada's sons	-1	Male				2CH 23:11
 Jehonadab, son of Rechab	1	Male				2KI 10:15
-Jehoshaphat, king of Judah	1	Male				1KI 22:4 <-(23 more)-> 2CH 20:20
+Jehoshaphat, king of Judah	1	Male				1KI 22:4 <-(25 more)-> 2CH 20:20
 Jehu, son of Hanani	1	Male				2CH 19:2 & 2CH 19:3	Jehu (prophet)
 Jehu, son of Nimshi	1	Male				2KI 9:5 <-(30 more)-> 2KI 10:25	Jehu
 Jehucal	1	Male			son of Shelemiah	JER 37:3 <-(1 more)-> JER 38:25
@@ -711,7 +712,7 @@ messenger	-1					2CH 18:12 <-(8 more)-> JER 27:11
 messenger from battle to David	1	Male				2SA 11:23 & 2SA 11:24
 messenger from guardians of Ahab's children	1	Male				2KI 10:8	Messenger
 messenger of Ahab, king of Israel	1	Male				1KI 22:13
-messenger to Abimelech	1	Male				JDG 9:47
+messenger to Abimelech	1	Male				JDG 9:25 <-(1 more)-> JDG 9:47
 messenger to Abraham	1	Male				GEN 22:20 <-(1 more)-> GEN 22:22
 messenger to David	1	Male				2SA 15:13
 messenger to Jesus	1	Male				MAT 4:12
@@ -754,7 +755,7 @@ Moabitesses (female)	-1	Female				ISA 16:3 & ISA 16:4	Daughter of Moab (female)
 mob	-1	PreferMale				ACT 17:6 & ACT 17:7
 molded thing	1					ROM 9:20
 Mordecai, cousin of Esther	1	Male				EST 4:13 & EST 4:14
-Moses	1	Male				EXO 2:13 <-(1186 more)-> NEH 8:15
+Moses	1	Male				EXO 2:13 <-(1187 more)-> NEH 8:15
 mother of cured man, blind from birth	1	Female				JHN 9:20 <-(2 more)-> JHN 9:23
 mother of false prophet	1	Female				ZEC 13:3
 mother of the sons of Zebedee (James and John)	1	Female				MAT 20:20 & MAT 20:21
@@ -823,6 +824,7 @@ one of the others who stood on the river bank	1	Male				DAN 12:6
 one of you	-1					ROM 9:19 & JAS 2:16
 one who allowed Paul to live by himself	-1	Male				ACT 28:16
 one who brings good news	-1	PreferMale				ISA 40:9 & ISA 52:7
+one who had escaped	1	Male				GEN 14:13
 one who robs his father or mother	1	Male				PRO 28:24
 onlookers	-1					ISA 14:16 & ISA 14:17
 oppressors of poor	-1					AMO 8:5 & AMO 8:6
@@ -884,8 +886,12 @@ person near Lazarus' grave who informed Jesus	1					JHN 11:17
 person sacrificing	1					1SA 2:16	Man
 person warning people of Benjamin to flee	1					JER 6:1
 person who informed Judah	1					GEN 38:24
+person who informed Laban	1					GEN 31:22
 person who informed people of Gaza	1					JDG 16:2	Man
+person who informed Pharaoh	1	Male				EXO 14:5
 person who informed Rabshakeh	1					2KI 19:9 & ISA 37:9
+person who informed Rebekah	1					GEN 27:42
+person who informed Sisera	1	PreferMale				JDG 4:12
 person who informed Solomon	1					1KI 2:29
 person who informed Tamar, daughter-in-law of Judah	1					GEN 38:13
 person who informed the sons of Israel	1					JOS 22:11
@@ -902,7 +908,7 @@ person who told the guards and priests where the apostles were	1	Male				ACT 5:2
 person without the gift of tongues	1					1CO 14:16
 Peter (Simon)	1	Male				MAT 14:28 <-(187 more)-> GAL 2:10
 Pharaoh (1st)	1	Male				GEN 12:18 & GEN 12:19	Pharaoh 1st
-Pharaoh (2nd)	1	Male				GEN 41:15 <-(22 more)-> GEN 50:6	Pharaoh 2nd
+Pharaoh (2nd)	1	Male				GEN 41:8 <-(23 more)-> GEN 50:6	Pharaoh 2nd
 Pharaoh (2nd)'s men	-1	Male				GEN 41:43
 Pharaoh (3rd)	1	Male				EXO 1:9 <-(28 more)-> EXO 14:5	Pharaoh 3rd
 Pharaoh (6th)	1	Male				1KI 11:22	Pharaoh 4th
@@ -1009,7 +1015,7 @@ Sarah (Sarai)	1	Female	Adult			GEN 16:2 & GEN 16:5
 Sarah (Sarai) (old)	1	Female	Elder			GEN 18:12 <-(3 more)-> GEN 21:10
 Satan (Devil)	1	Male			In the OT, FCBH uses "Satan" as the label	1CH 21:1 <-(15 more)-> LUK 4:11	Devil
 satraps	-1	Male				DAN 6:5 <-(5 more)-> DAN 6:15
-Saul	1	Male				1SA 9:5 <-(90 more)-> 1CH 10:4
+Saul	1	Male				1SA 9:5 <-(91 more)-> 1CH 10:4
 Saul's announcement	1	Male				1SA 13:4
 Saul's messengers to Jesse	-1	Male				1SA 16:19 & 1SA 16:22
 Saul's servant (young)	1	Male	YoungAdult			1SA 16:18
