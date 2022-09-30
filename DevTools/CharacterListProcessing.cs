@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using GlyssenEngine.Character;
+using GlyssenCharacters;
+using SIL.Extensions;
 
 namespace DevTools
 {
@@ -249,11 +250,10 @@ namespace DevTools
 			File.WriteAllText(Path.Combine(kBaseDirForHelperOutput, "UniqueDeliveries.txt"), TabDelimited(deliveries));
 		}
 
-		private static void FindDeliveries(IEnumerable<GlyssenEngine.Character.CharacterVerse> allCv)
+		private static void FindDeliveries(IEnumerable<GlyssenCharacters.CharacterVerse> allCv)
 		{
 			var deliveries = new SortedSet<string>();
-			foreach (GlyssenEngine.Character.CharacterVerse cv in allCv)
-				deliveries.Add(cv.Delivery);
+			deliveries.AddRange(allCv.Select(cv => cv.Delivery));
 			File.WriteAllText(Path.Combine(kBaseDirForHelperOutput, "UniqueDeliveries.txt"), TabDelimited(deliveries));
 		}
 	}

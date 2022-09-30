@@ -1,8 +1,7 @@
 ﻿using System.Linq;
+using GlyssenCharacters;
 using GlyssenEngine.Bundle;
-using GlyssenEngine.Character;
 using GlyssenEngine.ViewModels;
-using GlyssenEngineTests.Properties;
 using NUnit.Framework;
 
 namespace GlyssenEngineTests.ViewModelTests
@@ -19,7 +18,6 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			public int MaleNarratorsValue => m_maleNarratorsValue;
 			public int FemaleNarratorsValue => m_femaleNarratorsValue;
-			public bool MaleNarratorsValueChangedEventNeverFired => m_maleNarratorsValue == -1;
 			public bool FemaleNarratorsValueChangedEventNeverFired => m_femaleNarratorsValue == -1;
 
 			public MockCastSizePlanningDialog(CastSizePlanningViewModel model)
@@ -45,8 +43,8 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
-			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetailOct2015;
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = GlyssenCharactersTests.Properties.Resources.TestCharacterVerseOct2015;
+			CharacterDetailData.TabDelimitedCharacterDetailData = GlyssenCharactersTests.Properties.Resources.TestCharacterDetailOct2015;
 		}
 
 		[OneTimeTearDown]
@@ -55,12 +53,15 @@ namespace GlyssenEngineTests.ViewModelTests
 			TestProject.DeleteTestProjects();
 		}
 
-		private CastSizePlanningViewModel CreateModelWithInitialCustomValues(GlyssenEngine.Project project, int maleNarrators, int femaleNarrators)
+		private CastSizePlanningViewModel CreateModelWithInitialCustomValues(
+			GlyssenEngine.Project project, int maleNarrators, int femaleNarrators)
 		{
-			var model = new CastSizePlanningViewModel(project);
-			model.NarratorOption = NarratorsOption.Custom;
-			model.MaleNarrators = maleNarrators;
-			model.FemaleNarrators = femaleNarrators;
+			var model = new CastSizePlanningViewModel(project)
+			{
+				NarratorOption = NarratorsOption.Custom,
+				MaleNarrators = maleNarrators,
+				FemaleNarrators = femaleNarrators
+			};
 			return model;
 		}
 
@@ -173,8 +174,10 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void GetCastSizeRowValues_ProjectHasTwoBooksByDifferentAuthorsWithNoSpeakingParts_AllCastSizesHaveThreeMalesForNarratorAndExtra()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.PHM, TestProject.TestBook.IIIJN);
-			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject);
-			model.NarratorOption = NarratorsOption.NarrationByAuthor;
+			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject)
+			{
+				NarratorOption = NarratorsOption.NarrationByAuthor
+			};
 			testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.MaleActor;
 			testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.MaleActor;
 
@@ -201,8 +204,10 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void GetCastSizeRowValues_ProjectHasTwoBooksBySameAuthorsWithNoSpeakingParts_AllCastSizesHaveTwoMalesForNarratorAndExtra()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IIJN, TestProject.TestBook.IIIJN);
-			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject);
-			model.NarratorOption = NarratorsOption.NarrationByAuthor;
+			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject)
+			{
+				NarratorOption = NarratorsOption.NarrationByAuthor
+			};
 
 			var smallCast = model.GetCastSizeRowValues(CastSizeOption.Small);
 			Assert.AreEqual(2, smallCast.Male);
@@ -227,10 +232,12 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void GetCastSizeRowValues_ProjectHasTwoBooksWithNoSpeakingPartsCustomNarratorValues_AllCastSizesHaveBasedOnCustomNarratorsPlusExtraMale()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IIJN, TestProject.TestBook.IIIJN);
-			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject);
-			model.NarratorOption = NarratorsOption.Custom;
-			model.MaleNarrators = 1;
-			model.FemaleNarrators = 1;
+			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject)
+			{
+				NarratorOption = NarratorsOption.Custom,
+				MaleNarrators = 1,
+				FemaleNarrators = 1
+			};
 
 			var smallCast = model.GetCastSizeRowValues(CastSizeOption.Small);
 			Assert.AreEqual(2, smallCast.Male);
@@ -325,10 +332,12 @@ namespace GlyssenEngineTests.ViewModelTests
 			var harvestersBlock = testProject.IncludedBooks[0].GetScriptBlocks().First(b => b.ChapterNumber == 2 &&
 				b.InitialStartVerseNumber == 4 && !b.ContainsVerseNumber);
 			harvestersBlock.CharacterId = "harvesters";
-			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject);
-			model.NarratorOption = NarratorsOption.Custom;
-			model.MaleNarrators = 0;
-			model.FemaleNarrators = 1;
+			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject)
+			{
+				NarratorOption = NarratorsOption.Custom,
+				MaleNarrators = 0,
+				FemaleNarrators = 1
+			};
 
 			var smallCast = model.GetCastSizeRowValues(CastSizeOption.Small);
 			Assert.AreEqual(3, smallCast.Male);
@@ -355,10 +364,12 @@ namespace GlyssenEngineTests.ViewModelTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.ACT, TestProject.TestBook.RUT,
 				TestProject.TestBook.JUD, TestProject.TestBook.LUK, TestProject.TestBook.JOS);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
-			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject);
-			model.NarratorOption = NarratorsOption.Custom;
-			model.MaleNarrators = 1;
-			model.FemaleNarrators = 1;
+			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject)
+			{
+				NarratorOption = NarratorsOption.Custom,
+				MaleNarrators = 1,
+				FemaleNarrators = 1
+			};
 
 			var smallCast = model.GetCastSizeRowValues(CastSizeOption.Small);
 			Assert.AreEqual(9, smallCast.Male);

@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Glyssen.Shared;
-using GlyssenEngine.Character;
-using GlyssenEngineTests.Properties;
+using GlyssenCharacters;
+using GlyssenCharactersTests.Properties;
 using NUnit.Framework;
 using SIL.Scripture;
 using static System.Int32;
 
-namespace GlyssenEngineTests.Character
+namespace GlyssenCharactersTests
 {
 	[TestFixture]
 	class CharacterUsageStoreTests

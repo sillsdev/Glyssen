@@ -2,7 +2,6 @@
 using Glyssen.Shared.Bundle;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
-using GlyssenEngine.Character;
 using GlyssenEngine.Script;
 using GlyssenEngineTests.Script;
 using GlyssenSharedTests;
@@ -19,9 +18,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using GlyssenCharacters;
 using SIL.Extensions;
 using static System.String;
-using Resources = GlyssenEngineTests.Properties.Resources;
 
 namespace GlyssenEngineTests
 {
@@ -33,10 +32,10 @@ namespace GlyssenEngineTests
 		[OneTimeSetUp]
 		public void OneTimeSetUp()
 		{
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
-			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetailOct2015;
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = GlyssenCharactersTests.Properties.Resources.TestCharacterVerseOct2015;
+			CharacterDetailData.TabDelimitedCharacterDetailData = GlyssenCharactersTests.Properties.Resources.TestCharacterDetailOct2015;
 
-			m_vernVersification = Versification.Table.Implementation.Load(new StringReader(Resources.TestVersification), "Resources.TestVersification", "Test");
+			m_vernVersification = Versification.Table.Implementation.Load(new StringReader(GlyssenCharactersTests.Properties.Resources.TestVersification), "Resources.TestVersification", "Test");
 		}
 
 		[TearDown]
@@ -3183,7 +3182,7 @@ namespace GlyssenEngineTests
 
 			// SETUP
 			// =====
-			var testProject = TestProject.CreateTestProject(Resources.RussianOrthodoxVersification, TestProject.TestBook.PSA_NoData);
+			var testProject = TestProject.CreateTestProject(GlyssenEngineTests.Properties.Resources.RussianOrthodoxVersification, TestProject.TestBook.PSA_NoData);
 			var psalms = testProject.Books[0];
 			var vernacularBlocks = new List<Block>();
 
@@ -4386,7 +4385,8 @@ namespace GlyssenEngineTests
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_VernacularVerseMapsIntoMultiVerseRefBlockInPreviousChapter_MatchupCrossesChapterBoundary()
 		{
-			var testProject = TestProject.CreateTestProject(Resources.OriginalVersification, TestProject.TestBook.NUM);
+			var testProject = TestProject.CreateTestProject(Properties.Resources.OriginalVersification,
+				TestProject.TestBook.NUM);
 
 			var numbersVern = testProject.GetBook("NUM");
 			var iNum16V35VernBlock = numbersVern.GetIndexOfFirstBlockForVerse(16, 35);

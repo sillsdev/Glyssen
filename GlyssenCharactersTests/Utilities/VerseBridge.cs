@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using Glyssen.Shared;
 
-namespace GlyssenEngineTests.Utilities
+namespace GlyssenCharactersTests.Utilities
 {
 	internal class VerseBridge : IVerse
 	{

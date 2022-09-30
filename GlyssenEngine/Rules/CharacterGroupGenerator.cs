@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using GlyssenCharacters;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Casting;
-using GlyssenEngine.Character;
 using GlyssenEngine.Utilities;
 using GlyssenEngine.ViewModels;
 using SIL.Extensions;
 using SIL.Reporting;
+using CharacterGroup = GlyssenEngine.Character.CharacterGroup;
+using CharacterGroupList = GlyssenEngine.Character.CharacterGroupList;
 
 namespace GlyssenEngine.Rules
 {

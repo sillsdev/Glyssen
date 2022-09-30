@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Glyssen.Shared;
+using GlyssenCharacters;
 using GlyssenEngine.Character;
 using GlyssenEngine.Script;
 using SIL.Extensions;
@@ -331,8 +332,9 @@ namespace GlyssenEngine
 									var projectCvEntryRemoved = false;
 									foreach (var verseNum in block.AllVerses.SelectMany(v => v.AllVerseNumbers))
 									{
-										if (ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, verseNum)
-											.Any(cv => cv.Character == block.CharacterId && cv.Delivery == (block.Delivery ?? "")))
+										if (ControlCharacterVerseData.GetMatchingCharacters(bookNum,
+											    block.ChapterNumber, new SingleVerse(verseNum), block.CharacterId)
+											.Any(cv => cv.Delivery == (block.Delivery ?? "")))
 										{
 											projectCvEntryRemoved |= project.ProjectCharacterVerseData.RemoveEntryForBlock(bookNum, block, verseNum);
 										}

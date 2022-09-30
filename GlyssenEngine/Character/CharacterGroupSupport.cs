@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.Serialization;
+using GlyssenCharacters;
 
 namespace GlyssenEngine.Character
 {

@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Glyssen.Shared;
-using GlyssenEngine.Utilities;
-using SIL.Extensions;
+using SIL.Linq;
 using SIL.Scripture;
 using static System.String;
 using FuzzySharp;
+using SIL.Extensions;
 
-namespace GlyssenEngine.Character
+namespace GlyssenCharacters
 {
 	/// <summary>
 	/// A repository of information about "official" (as defined by Glyssen) characters and their
 	/// corresponding deliveries in the Scripture passages where they are known to speak.
 	/// </summary>
-	internal class CharacterUsageStore : ICharacterUsageStore
+	public class CharacterUsageStore : ICharacterUsageStore
 	{
 		public ScrVers Versification { get; }
 
@@ -23,7 +23,7 @@ namespace GlyssenEngine.Character
 		private readonly Func<string, IEnumerable<string>> m_getVariants;
 		private static readonly Regex s_regexTextInParentheses = new Regex(@"\([^)]*\)", RegexOptions.Compiled);
 
-		internal CharacterUsageStore(ScrVers versification, ICharacterVerseInfo cvInfo,
+		public CharacterUsageStore(ScrVers versification, ICharacterVerseInfo cvInfo,
 			Func<string, IEnumerable<string>> getLocalizedVariants)
 		{
 			Versification = versification;

@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using Glyssen.Shared;
+using GlyssenCharacters;
+using GlyssenCharactersTests.Utilities;
 using GlyssenEngine;
-using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
 using GlyssenEngine.Script;
 using GlyssenEngineTests.Script;
-using GlyssenEngineTests.Utilities;
 using NUnit.Framework;
 using SIL.Extensions;
 using SIL.ObjectModel;
 using SIL.Scripture;
 using SIL.WritingSystems;
-using static GlyssenEngine.Character.CharacterSpeakingMode;
-using static GlyssenEngine.Character.CharacterVerseData;
-using static GlyssenEngine.Character.CharacterVerseData.StandardCharacter;
+using static GlyssenCharacters.CharacterSpeakingMode;
+using static GlyssenCharacters.CharacterVerseData;
+using static GlyssenCharacters.CharacterVerseData.StandardCharacter;
+using Resources = GlyssenCharactersTests.Properties.Resources;
 
 namespace GlyssenEngineTests.Quote
 {
@@ -30,7 +31,7 @@ namespace GlyssenEngineTests.Quote
 		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 		}
 
 		[Test]
@@ -6054,7 +6055,7 @@ namespace GlyssenEngineTests.Quote
 		public void FixtureSetup()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerseOct2015;
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 		}
 
 		[Test]

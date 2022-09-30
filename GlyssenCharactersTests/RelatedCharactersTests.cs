@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using GlyssenEngine.Character;
-using GlyssenEngineTests.Properties;
+using GlyssenCharacters;
+using GlyssenCharactersTests.Properties;
 using NUnit.Framework;
 using SIL.Xml;
 
-namespace GlyssenEngineTests.Character
+namespace GlyssenCharactersTests
 {
 	class RelatedCharactersTests
 	{
@@ -20,16 +21,21 @@ namespace GlyssenEngineTests.Character
 		[Test]
 		public void Serialize()
 		{
-			HashSet<RelatedCharacters> set = new HashSet<RelatedCharacters>();
-			set.Add(new RelatedCharacters
+			HashSet<RelatedCharacters> set = new HashSet<RelatedCharacters>
 			{
-				CharacterIds = new List<string> { "David", "David (old)" },
-				RelationshipType = CharacterRelationshipType.SameCharacterWithMultipleAges
-			});
+				new RelatedCharacters
+				{
+					CharacterIds = new List<string> { "David", "David (old)" },
+					RelationshipType = CharacterRelationshipType.SameCharacterWithMultipleAges
+				}
+			};
 			var serializedString = XmlSerializationHelper.SerializeToString(set);
-			Assert.AreNotEqual(-1, serializedString.IndexOf("<RelatedCharacters RelationshipType=\"SameCharacterWithMultipleAges\">"));
-			Assert.AreNotEqual(-1, serializedString.IndexOf("<CharacterId>David</CharacterId>"));
-			Assert.AreNotEqual(-1, serializedString.IndexOf("<CharacterId>David (old)</CharacterId>"));
+			Assert.That(serializedString.IndexOf("<RelatedCharacters RelationshipType=\"SameCharacterWithMultipleAges\">",
+				StringComparison.Ordinal), Is.GreaterThanOrEqualTo(0));
+			Assert.That(serializedString.IndexOf("<CharacterId>David</CharacterId>",
+				StringComparison.Ordinal), Is.GreaterThanOrEqualTo(0));
+			Assert.That(serializedString.IndexOf("<CharacterId>David (old)</CharacterId>",
+				StringComparison.Ordinal), Is.GreaterThanOrEqualTo(0));
 		}
 
 		[Test]

@@ -11,6 +11,7 @@ using DesktopAnalytics;
 using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Utilities;
+using GlyssenCharacters;
 using GlyssenEngine;
 using GlyssenEngine.Casting;
 using GlyssenEngine.Character;

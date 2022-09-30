@@ -225,6 +225,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GlyssenCharacters\GlyssenCharacters.csproj">
+      <Project>{7e9e51ef-c687-441e-8a1a-d2a4b4a96d58}</Project>
+      <Name>GlyssenCharacters</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GlyssenEngine\GlyssenEngine.csproj">
       <Project>{fdf9df2e-776b-4d7c-8e63-61dad4c39ac3}</Project>
       <Name>GlyssenEngine</Name>

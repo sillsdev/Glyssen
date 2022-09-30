@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using GlyssenEngine.Character;
+using GlyssenCharacters;
 using NUnit.Framework;
 
 namespace ControlDataIntegrityTests

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
+using GlyssenCharacters;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Casting;
@@ -12,7 +13,8 @@ using GlyssenEngine.Rules;
 using GlyssenEngine.ViewModels;
 using NUnit.Framework;
 using SIL.Extensions;
-using Resources = GlyssenEngineTests.Properties.Resources;
+using CharacterIdHashSet = GlyssenEngine.Character.CharacterIdHashSet;
+using Resources = GlyssenCharactersTests.Properties.Resources;
 
 namespace GlyssenEngineTests.Rules
 {
@@ -25,7 +27,7 @@ namespace GlyssenEngineTests.Rules
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
-			RelatedCharactersData.Source = GlyssenEngineTests.Properties.Resources.TestRelatedCharacters;
+			RelatedCharactersData.Source = Resources.TestRelatedCharacters;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.JUD);
 			TestProject.SimulateDisambiguationForAllBooks(m_testProject);
 
@@ -343,7 +345,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.IsTrue(GetNarratorGroupForBook(groups, "MRK").CharacterIds.All(
 				i => CharacterVerseData.IsCharacterOfType(i, CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.IsTrue(groups.Single(g => g.CharacterIds.Contains("BC-MRK")).CharacterIds.All(
-				i => CharacterVerseData.IsCharacterExtraBiblical(i)));
+				CharacterVerseData.IsCharacterExtraBiblical));
 			Assert.GreaterOrEqual(groups.Count(g => g.CharacterIds.All(c =>
 			{
 				if (CharacterVerseData.IsCharacterStandard(c))
@@ -2076,7 +2078,7 @@ namespace GlyssenEngineTests.Rules
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetailOct2015;
-			RelatedCharactersData.Source = GlyssenEngineTests.Properties.Resources.TestRelatedCharacters;
+			RelatedCharactersData.Source = Resources.TestRelatedCharacters;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.IJN, TestProject.TestBook.IIJN, TestProject.TestBook.EPH);
 			TestProject.SimulateDisambiguationForAllBooks(m_testProject);
 
@@ -2116,7 +2118,7 @@ namespace GlyssenEngineTests.Rules
 	}
 
 	[TestFixture]
-	public class CharacterGroupGeneratorTestsWithExtrabiblicalCharacterOptions : CharacterGroupGeneratorAndAdjusterTestBase
+	public class CharacterGroupGeneratorTestsWithExtraBiblicalCharacterOptions : CharacterGroupGeneratorAndAdjusterTestBase
 	{
 		[OneTimeSetUp]
 		public void OneTimeSetUp()

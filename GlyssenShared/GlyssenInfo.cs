@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Glyssen.Shared
+﻿namespace Glyssen.Shared
 {
 	/// <summary>
 	/// Information about the program which may be needed outside the assembly

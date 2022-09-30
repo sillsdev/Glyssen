@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Glyssen.Shared;
+using GlyssenCharacters;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
@@ -11,6 +12,7 @@ using NUnit.Framework;
 using SIL.Extensions;
 using SIL.Scripture;
 using AssignCharacterViewModel = GlyssenEngine.ViewModels.AssignCharacterViewModel<Rhino.Mocks.Interfaces.IMockedObject>;
+using Resources = GlyssenCharactersTests.Properties.Resources;
 
 namespace GlyssenEngineTests.ViewModelTests
 {
@@ -26,7 +28,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = null;
 			CreateTestProjectForMark();
 		}
@@ -534,7 +536,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			FindRefInMark(5, 9);
 			m_model.GetUniqueCharactersForCurrentReference();
 			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("man with evil spirit")).ToArray();
-			Assert.AreEqual(1, deliveries.Count());
+			Assert.AreEqual(1, deliveries.Length);
 			Assert.AreEqual(AssignCharacterViewModel.Delivery.Normal, deliveries.First());
 		}
 
@@ -544,7 +546,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			FindRefInMark(5, 9);
 			m_model.GetUniqueCharactersForCurrentReference();
 			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("Jesus")).ToArray();
-			Assert.AreEqual(2, deliveries.Count());
+			Assert.AreEqual(2, deliveries.Length);
 			Assert.Contains(new AssignCharacterViewModel.Delivery("questioning"), deliveries.ToList());
 			Assert.Contains(AssignCharacterViewModel.Delivery.Normal, deliveries.ToList());
 		}
@@ -759,7 +761,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			// List<KeyValuePair<int, string>> characters, Block currentBlock
 
-			m_model.SplitBlock(new[] {new BlockSplitData(1, currentBlock, "2", 6)}, GetListOfCharacters(2, new string[0]));
+			m_model.SplitBlock(new[] {new BlockSplitData(1, currentBlock, "2", 6)}, GetListOfCharacters(2, Array.Empty<string>()));
 			Assert.AreEqual(currentBlock, m_model.CurrentBlock);
 			var splitPartA = m_model.CurrentBlock;
 			m_model.LoadNextRelevantBlock();
@@ -792,7 +794,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.AreEqual(currentBlock, model.CurrentBlock);
 			var preSplit = currentBlock.Clone();
 
-			model.SplitBlock(new[] {new BlockSplitData(1, currentBlock, "2", 6)}, GetListOfCharacters(2, new string[0]));
+			model.SplitBlock(new[] {new BlockSplitData(1, currentBlock, "2", 6)}, GetListOfCharacters(2, Array.Empty<string>()));
 			var splitPartA = model.CurrentBlock;
 			model.LoadNextRelevantBlock();
 			var splitPartB = model.CurrentBlock;
@@ -886,7 +888,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			{
 				new BlockSplitData(1, currentBlock, "2", 6),
 				new BlockSplitData(2, nextBlock, "4", 8),
-			}, GetListOfCharacters(3, new string[0]));
+			}, GetListOfCharacters(3, Array.Empty<string>()));
 
 			var split1PartA = m_model.CurrentBlock;
 			m_model.LoadNextRelevantBlock();
@@ -960,7 +962,7 @@ namespace GlyssenEngineTests.ViewModelTests
 						new BlockSplitData(1, block1, "2", 13),
 						new BlockSplitData(2, block2, null, 0),
 						new BlockSplitData(3, block2, "3", 10)
-					}, GetListOfCharacters(4, new string[0]))
+					}, GetListOfCharacters(4, Array.Empty<string>()))
 			);
 		}
 
@@ -1004,7 +1006,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				new BlockSplitData(1, block1, block1StartVerse.ToString(), 13),
 				new BlockSplitData(2, block2, null, 0),
 				new BlockSplitData(3, block2, block1StartVerse.ToString(), 10)
-			}, GetListOfCharacters(4, new string[0]));
+			}, GetListOfCharacters(4, Array.Empty<string>()));
 
 			// check the text
 			Assert.AreEqual(text1.Substring(0, 13), m_testProject.Books[0].Blocks[i].GetText(false));
@@ -1042,9 +1044,9 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.AreEqual("MRK", model.CurrentBookId, "Changing the filter should not have caused us to go to a different book.");
 			model.CurrentBlockIndexInBook = indexOfBlockToSplit;
 			Assert.AreEqual(currentBlock, model.CurrentBlock, "Setting the CurrentBlockIndexInBook should have moved us back to the block we intend to split.");
-			Assert.IsFalse(model.IsCurrentLocationRelevant, "The block we intend to split must not be condidered \"relevant\" with the \"NeedAssignments\" filter.");
+			Assert.IsFalse(model.IsCurrentLocationRelevant, "The block we intend to split must not be considered \"relevant\" with the \"NeedAssignments\" filter.");
 
-			// Now go to the next relevant block in this same book and rememeber which block it is. After splitting, going to the next block
+			// Now go to the next relevant block in this same book and remember which block it is. After splitting, going to the next block
 			// should still take us to this same block.
 			model.LoadNextRelevantBlock();
 			var nextBlock = model.CurrentBlock;
@@ -1063,7 +1065,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var splitPartA = model.CurrentBlock;
 			model.CurrentBlockIndexInBook = indexOfBlockToSplit + 1;
 			var splitPartB = model.CurrentBlock;
-			Assert.IsFalse(model.IsCurrentLocationRelevant, "The second part of the split block should not be condidered \"relevant\" with the \"NeedAssignments\" filter.");
+			Assert.IsFalse(model.IsCurrentLocationRelevant, "The second part of the split block should not be considered \"relevant\" with the \"NeedAssignments\" filter.");
 			var partALength = splitPartA.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length);
 			Assert.AreEqual(splitIndex, partALength);
 			Assert.IsTrue(blockTextBeforeSplit.StartsWith(splitPartA.GetText(true)));
@@ -2380,8 +2382,8 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerseOct2015;
-			CharacterDetailData.TabDelimitedCharacterDetailData = Properties.Resources.TestCharacterDetailOct2015;
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
+			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetailOct2015;
 			CreateTestProjectForActs();
 		}
 
@@ -2506,7 +2508,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerseOct2015;
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 		}
 
 		[SetUp]
@@ -2531,7 +2533,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		}
 
 		[Test]
-		public void SetReferenceTextMatchupCharacter_BlockIsStartOfMultiblockQuote_CharacterSetForAllContinuationBlocks()
+		public void SetReferenceTextMatchupCharacter_BlockIsStartOfMultiBlockQuote_CharacterSetForAllContinuationBlocks()
 		{
 			Func<Block, bool> isAmbiguousStartBlock = block => block.MultiBlockQuote == MultiBlockQuote.Start && block.CharacterId == CharacterVerseData.kAmbiguousCharacter;
 			// Find a matchup that has a multi-block quote that is ambiguous.
@@ -2566,7 +2568,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		}
 
 		[Test]
-		public void SetReferenceTextMatchupCharacter_BlockIsStartOfMultiblockQuote_SetToNarrator_QuoteChainBrokenIntoIndividual()
+		public void SetReferenceTextMatchupCharacter_BlockIsStartOfMultiBlockQuote_SetToNarrator_QuoteChainBrokenIntoIndividual()
 		{
 			Func<Block, bool> isAmbiguousStartBlock = block => block.MultiBlockQuote == MultiBlockQuote.Start && block.CharacterId == CharacterVerseData.kAmbiguousCharacter;
 			// Find a matchup that has a multi-block quote that is ambiguous.
@@ -2602,7 +2604,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		}
 
 		[Test]
-		public void SetReferenceTextMatchupCharacter_BlockIsStartOfMultiblockQuoteButMatchupContainsNoContinuationBlocks_DoesNotCrash()
+		public void SetReferenceTextMatchupCharacter_BlockIsStartOfMultiBlockQuoteButMatchupContainsNoContinuationBlocks_DoesNotCrash()
 		{
 			Func<Block, bool> isStartBlockAtEndOfMatchup = block => block.MultiBlockQuote == MultiBlockQuote.Start && block == m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last();
 			// Find a matchup that ends with the first block of a multi-block quote.
@@ -2639,7 +2641,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerseOct2015;
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 		}
 
 		[SetUp]

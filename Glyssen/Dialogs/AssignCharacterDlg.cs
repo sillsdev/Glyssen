@@ -16,7 +16,7 @@ using System.Windows.Forms;
 using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Utilities;
-using GlyssenEngine.Character;
+using GlyssenCharacters;
 using GlyssenEngine.Script;
 using GlyssenEngine.ViewModels;
 using L10NSharp;

@@ -47,21 +47,11 @@ See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Character\Template\CharacterGroupTemplate.cs" />
-    <Compile Remove="Character\Template\CharacterGroupTemplateExcelFile.cs" />
-    <Compile Remove="Character\Template\ICharacterGroupSource.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="Resources\Annotations.txt" />
     <None Remove="Resources\BiblicalAuthors.txt" />
     <None Remove="Resources\BlockSplit.css" />
-    <None Remove="Resources\CharacterDetail.txt" />
-    <None Remove="Resources\CharacterVerse.txt" />
     <None Remove="Resources\EnglishVersification.txt" />
-    <None Remove="Resources\NarratorOverrides.xml" />
     <None Remove="Resources\quoteSystems.xml" />
-    <None Remove="Resources\RelatedCharacters.xml" />
     <None Remove="Resources\SampleMRK.xml" />
     <None Remove="Resources\Silent.wav" />
   </ItemGroup>
@@ -95,6 +85,7 @@ See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GlyssenCharacters\GlyssenCharacters.csproj" />
     <ProjectReference Include="..\GlyssenShared\GlyssenShared.csproj" />
   </ItemGroup>
 
@@ -117,20 +108,10 @@ See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.
     <Content Include="Resources\Annotations.txt" />
     <Content Include="Resources\BiblicalAuthors.txt" />
     <Content Include="Resources\BlockSplit.css" />
-    <Content Include="Resources\CharacterDetail.txt" />
-    <Content Include="Resources\CharacterVerse.txt" />
     <Content Include="Resources\EnglishVersification.txt" />
-    <Content Include="Resources\NarratorOverrides.xml" />
     <Content Include="Resources\quoteSystems.xml" />
-    <Content Include="Resources\RelatedCharacters.xml" />
     <Content Include="Resources\SampleMRK.xml" />
     <Content Include="Resources\Silent.wav" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Character\Template\CharacterGroupTemplate.cs" />
-    <None Include="Character\Template\CharacterGroupTemplateExcelFile.cs" />
-    <None Include="Character\Template\ICharacterGroupSource.cs" />
   </ItemGroup>
 
   <ItemGroup>

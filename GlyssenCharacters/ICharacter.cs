@@ -1,4 +1,4 @@
-﻿namespace GlyssenEngine.Character
+﻿namespace GlyssenCharacters
 {
 	public interface ICharacter
 	{

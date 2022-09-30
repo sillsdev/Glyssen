@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Glyssen
+﻿namespace Glyssen
 {
 	/// <summary>
 	/// Interface for windows/controls that need to do something special when on-the-fly

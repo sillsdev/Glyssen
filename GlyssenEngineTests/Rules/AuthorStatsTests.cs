@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using GlyssenCharacters;
 using GlyssenEngine;
-using GlyssenEngine.Character;
 using GlyssenEngine.Rules;
 using NUnit.Framework;
 

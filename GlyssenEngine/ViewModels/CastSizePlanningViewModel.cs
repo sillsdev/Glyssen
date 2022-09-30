@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using GlyssenCharacters;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Casting;
-using GlyssenEngine.Character;
 
 namespace GlyssenEngine.ViewModels
 {

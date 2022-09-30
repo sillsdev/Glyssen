@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
+using GlyssenCharacters;
 using GlyssenEngine.Casting;
 using GlyssenEngine.Character;
 using GlyssenEngine.Rules;
@@ -10,6 +11,7 @@ using GlyssenEngine.UndoActions;
 using SIL;
 using SIL.Extensions;
 using SIL.Reporting;
+using CharacterGroup = GlyssenEngine.Character.CharacterGroup;
 
 namespace GlyssenEngine.ViewModels
 {

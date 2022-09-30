@@ -2,7 +2,7 @@
 using System.Text;
 using System.Xml;
 using Glyssen.Shared;
-using GlyssenEngine.Character;
+using GlyssenCharacters;
 using GlyssenEngine.Script;
 using GlyssenEngine.ViewModels;
 using GlyssenEngineTests.Script;

@@ -3,7 +3,7 @@ using System.Data;
 using System.Text.RegularExpressions;
 using SIL.Scripture;
 
-namespace GlyssenEngine.Character
+namespace GlyssenCharacters
 {
 	public enum CharacterAge
 	{

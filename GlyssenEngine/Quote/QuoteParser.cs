@@ -9,6 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Glyssen.Shared;
+using GlyssenCharacters;
 using GlyssenEngine.Character;
 using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
@@ -16,7 +17,7 @@ using SIL.Extensions;
 using SIL.Scripture;
 using SIL.Unicode;
 using static System.Char;
-using static GlyssenEngine.Character.CharacterVerseData;
+using static GlyssenCharacters.CharacterVerseData;
 
 namespace GlyssenEngine.Quote
 {

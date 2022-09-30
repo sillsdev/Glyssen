@@ -5,8 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Glyssen.Shared;
+using GlyssenCharacters;
 using GlyssenEngine;
-using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
 using GlyssenEngine.Script;
 using NUnit.Framework;
@@ -15,7 +15,7 @@ using SIL.IO;
 using SIL.Scripture;
 using SIL.WritingSystems;
 using SIL.Xml;
-using Resources = GlyssenEngineTests.Properties.Resources;
+using Resources = GlyssenCharactersTests.Properties.Resources;
 
 namespace GlyssenEngineTests.Script
 {

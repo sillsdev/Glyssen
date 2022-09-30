@@ -1,8 +1,9 @@
 ﻿using System.Linq;
 using Glyssen.Shared;
-using GlyssenEngine.Character;
+using GlyssenCharacters;
 using GlyssenEngine.Quote;
 using NUnit.Framework;
+using Resources = GlyssenCharactersTests.Properties.Resources;
 
 namespace GlyssenEngineTests.Quote
 {
@@ -13,7 +14,7 @@ namespace GlyssenEngineTests.Quote
 		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerseOct2015;
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 		}
 
 		[TestCase(19, 10, "6", "man, wicked")]

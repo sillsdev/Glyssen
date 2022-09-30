@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Glyssen.Shared;
-using GlyssenEngine;
-using GlyssenEngine.Character;
+using GlyssenCharacters;
 using NUnit.Framework;
 using SIL.Scripture;
 using static System.String;
+using NarratorOverrides = GlyssenCharacters.NarratorOverrides;
+using Resources = GlyssenCharacters.Properties.Resources;
 
 namespace ControlDataIntegrityTests
 {
@@ -17,7 +18,7 @@ namespace ControlDataIntegrityTests
 		private const string kRegexBCV = "^(?<bookId>...)\t(?<chapter>\\d+)\t(?<verse>\\d+)(-(?<endVerse>\\d+))?\t";
 
 		private IEnumerable<string> AllDataLines =>
-            Resources.CharacterVerseData.Split(new[] {"\r", "\n"}, StringSplitOptions.RemoveEmptyEntries).Skip(1).Where(l => !l.StartsWith("#"));
+			Resources.CharacterVerseData.Split(new[] {"\r", "\n"}, StringSplitOptions.RemoveEmptyEntries).Skip(1).Where(l => !l.StartsWith("#"));
 
 		[OneTimeSetUp]
 		public void OneTimeSetUp()
@@ -163,7 +164,7 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_AllCharacterIdsAndDefaultCharactersHaveCharacterDetail()
 		{
-			CharacterDetailData.TabDelimitedCharacterDetailData = GlyssenEngine.Resources.CharacterDetail; //resets cache
+			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.CharacterDetail; //resets cache
 
 			var charactersHavingDetail = CharacterDetailData.Singleton.GetAll().Select(d => d.CharacterId).ToList();
 			ISet<string> missingCharacters = new SortedSet<string>();

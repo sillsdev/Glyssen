@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Glyssen.Shared;
+using GlyssenCharacters;
 using GlyssenEngine;
-using GlyssenEngine.Character;
 using GlyssenEngine.Script;
 using GlyssenEngineTests.Script;
 using NUnit.Framework;
@@ -11,7 +11,9 @@ using SIL.Extensions;
 using SIL.Reflection;
 using SIL.Scripture;
 using static System.String;
+using static GlyssenEngineTests.TestProject;
 using BlockNavigatorViewModel = GlyssenEngine.ViewModels.BlockNavigatorViewModel<Rhino.Mocks.Interfaces.IMockedObject>;
+using Resources = GlyssenCharactersTests.Properties.Resources;
 
 namespace GlyssenEngineTests.ViewModelTests
 {
@@ -25,8 +27,8 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
-			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.JUD);
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+			m_testProject = CreateTestProject(TestBook.MRK, TestBook.JUD);
 		}
 
 		[SetUp]
@@ -40,7 +42,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjects();
+			DeleteTestProjects();
 		}
 
 		[Test]
@@ -296,14 +298,16 @@ namespace GlyssenEngineTests.ViewModelTests
 		[Test]
 		public void GetIndexOfClosestRelevantBlock_PreviousBlockIsRelevant_ReturnsClosestPreviousRelevantBlock()
 		{
-			var relevantBlocks = new List<BookBlockIndices>();
-			relevantBlocks.Add(new BookBlockIndices(1, 2));
-			relevantBlocks.Add(new BookBlockIndices(1, 20));
-			relevantBlocks.Add(new BookBlockIndices(2, 1));
-			relevantBlocks.Add(new BookBlockIndices(2, 7));
-			relevantBlocks.Add(new BookBlockIndices(2, 8));
-			relevantBlocks.Add(new BookBlockIndices(2, 14));
-			relevantBlocks.Add(new BookBlockIndices(3, 2));
+			var relevantBlocks = new List<BookBlockIndices>
+			{
+				new BookBlockIndices(1, 2),
+				new BookBlockIndices(1, 20),
+				new BookBlockIndices(2, 1),
+				new BookBlockIndices(2, 7),
+				new BookBlockIndices(2, 8),
+				new BookBlockIndices(2, 14),
+				new BookBlockIndices(3, 2)
+			};
 			Assert.AreEqual(4, BlockNavigatorViewModel.GetIndexOfClosestRelevantBlock(
 				relevantBlocks, new BookBlockIndices(2, 10), true, 0, relevantBlocks.Count - 1));
 		}
@@ -311,9 +315,11 @@ namespace GlyssenEngineTests.ViewModelTests
 		[Test]
 		public void GetIndexOfClosestRelevantBlock_NoPreviousBlockIsRelevant_ReturnsNegative1()
 		{
-			var relevantBlocks = new List<BookBlockIndices>();
-			relevantBlocks.Add(new BookBlockIndices(2, 14));
-			relevantBlocks.Add(new BookBlockIndices(3, 2));
+			var relevantBlocks = new List<BookBlockIndices>
+			{
+				new BookBlockIndices(2, 14),
+				new BookBlockIndices(3, 2)
+			};
 			Assert.AreEqual(-1, BlockNavigatorViewModel.GetIndexOfClosestRelevantBlock(
 				relevantBlocks, new BookBlockIndices(1, 3), true, 0, relevantBlocks.Count - 1));
 		}
@@ -321,14 +327,16 @@ namespace GlyssenEngineTests.ViewModelTests
 		[Test]
 		public void GetIndexOfClosestRelevantBlock_FollowingBlockIsRelevant_ReturnsClosestFollowingRelevantBlock()
 		{
-			var relevantBlocks = new List<BookBlockIndices>();
-			relevantBlocks.Add(new BookBlockIndices(1, 2));
-			relevantBlocks.Add(new BookBlockIndices(1, 20));
-			relevantBlocks.Add(new BookBlockIndices(2, 1));
-			relevantBlocks.Add(new BookBlockIndices(2, 7));
-			relevantBlocks.Add(new BookBlockIndices(2, 8));
-			relevantBlocks.Add(new BookBlockIndices(2, 14));
-			relevantBlocks.Add(new BookBlockIndices(3, 2));
+			var relevantBlocks = new List<BookBlockIndices>
+			{
+				new BookBlockIndices(1, 2),
+				new BookBlockIndices(1, 20),
+				new BookBlockIndices(2, 1),
+				new BookBlockIndices(2, 7),
+				new BookBlockIndices(2, 8),
+				new BookBlockIndices(2, 14),
+				new BookBlockIndices(3, 2)
+			};
 			Assert.AreEqual(2, BlockNavigatorViewModel.GetIndexOfClosestRelevantBlock(
 				relevantBlocks, new BookBlockIndices(1, 21), false, 0, relevantBlocks.Count - 1));
 		}
@@ -336,14 +344,16 @@ namespace GlyssenEngineTests.ViewModelTests
 		[Test]
 		public void GetIndexOfClosestRelevantBlock_NoFollowingBlockIsRelevant_ReturnsNegative1()
 		{
-			var relevantBlocks = new List<BookBlockIndices>();
-			relevantBlocks.Add(new BookBlockIndices(1, 2));
-			relevantBlocks.Add(new BookBlockIndices(1, 20));
-			relevantBlocks.Add(new BookBlockIndices(2, 1));
-			relevantBlocks.Add(new BookBlockIndices(2, 7));
-			relevantBlocks.Add(new BookBlockIndices(2, 8));
-			relevantBlocks.Add(new BookBlockIndices(2, 14));
-			relevantBlocks.Add(new BookBlockIndices(3, 2));
+			var relevantBlocks = new List<BookBlockIndices>
+			{
+				new BookBlockIndices(1, 2),
+				new BookBlockIndices(1, 20),
+				new BookBlockIndices(2, 1),
+				new BookBlockIndices(2, 7),
+				new BookBlockIndices(2, 8),
+				new BookBlockIndices(2, 14),
+				new BookBlockIndices(3, 2)
+			};
 			Assert.AreEqual(-1, BlockNavigatorViewModel.GetIndexOfClosestRelevantBlock(
 				relevantBlocks, new BookBlockIndices(3, 3), false, 0, relevantBlocks.Count - 1));
 		}
@@ -390,7 +400,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		}
 
 		[Test]
-		public void CanNavigateToPreviousRelevantBlock_CurrentBlockIsAdHocLocationInMIddleOfBook_ReturnsTrue()
+		public void CanNavigateToPreviousRelevantBlock_CurrentBlockIsAdHocLocationInMiddleOfBook_ReturnsTrue()
 		{
 			m_model.CurrentBlockIndexInBook = 400;
 			Assert.IsFalse(m_model.IsCurrentLocationRelevant, "If this fails, we chose a relevant block index by accident.");
@@ -398,7 +408,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		}
 
 		[Test]
-		public void CanNavigateToNextRelevantBlock_CurrentBlockIsAdHocLocationInMIddleOfBook_ReturnsTrue()
+		public void CanNavigateToNextRelevantBlock_CurrentBlockIsAdHocLocationInMiddleOfBook_ReturnsTrue()
 		{
 			m_model.CurrentBlockIndexInBook = 400;
 			Assert.IsFalse(m_model.IsCurrentLocationRelevant, "If this fails, we chose a relevant block index by accident.");
@@ -628,7 +638,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.AreNotEqual(lastBlock, m_model.CurrentBlock);
 			Assert.AreEqual(MultiBlockQuote.Continuation, lastBlock.MultiBlockQuote);
 
-			m_model.LoadNextRelevantBlock(); // Goes to next block not in this multiblock quote
+			m_model.LoadNextRelevantBlock(); // Goes to next block not in this multi-block quote
 
 			Assert.AreEqual(m_model.CurrentBlockIndexInBook - 1, m_model.GetBlockIndices(lastBlock).BlockIndex);
 		}
@@ -1023,20 +1033,20 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 		}
 
 		[SetUp]
 		public void SetUp()
 		{
-			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.ACT);
+			m_testProject = CreateTestProject(TestBook.MRK, TestBook.ACT);
 			m_model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NotAssignedAutomatically);
 		}
 
 		[TearDown]
 		public void TearDown()
 		{
-			TestProject.DeleteTestProjects();
+			DeleteTestProjects();
 		}
 
 		[Test]
@@ -1264,14 +1274,14 @@ namespace GlyssenEngineTests.ViewModelTests
 		[SetUp]
 		public void SetUp()
 		{
-			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.ICO);
+			m_testProject = CreateTestProject(TestBook.ICO);
 			m_model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NotAssignedAutomatically);
 		}
 
 		[TearDown]
 		public void TearDown()
 		{
-			TestProject.DeleteTestProjects();
+			DeleteTestProjects();
 		}
 
 		// PG-823: Prevent out of range index
@@ -1312,19 +1322,19 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 		}
 
 		[SetUp]
 		public void SetUp()
 		{
-			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK, TestProject.TestBook.JHN);
+			m_testProject = CreateTestProject(TestBook.LUK, TestBook.JHN);
 		}
 
 		[TearDown]
 		public void TearDown()
 		{
-			TestProject.DeleteTestProjects();
+			DeleteTestProjects();
 		}
 
 		/// <summary>
@@ -1334,7 +1344,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void ApplyCurrentReferenceTextMatchup_ApplyCausesSplittingOfUserConfirmedBlockThatDoesNotMatchFilter_NewBlocksAreNotAddedToRelevantBlocks()
 		{
 			// Set up initial data state
-			TestProject.SimulateDisambiguationForAllBooks(m_testProject);
+			SimulateDisambiguationForAllBooks(m_testProject);
 			var blockToMatchFilter = m_testProject.IncludedBooks.First().GetScriptBlocks().First(b => b.UserConfirmed);
 			blockToMatchFilter.UserConfirmed = false;
 			blockToMatchFilter.CharacterId = CharacterVerseData.kUnexpectedCharacter;
@@ -1362,7 +1372,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		[Test]
 		public void SetMode_BlockHasPreConfirmedCharacterThatWasUserConfirmedWithSameCharacter_IsNotRelevant()
 		{
-			var charactersForLukC3V14 = new string[]
+			var charactersForLukC3V14 = new []
 			{
 				"soldiers",
 				"John the Baptist"
@@ -1400,8 +1410,8 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerseOct2015;
-			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
+			m_testProject = CreateTestProject(TestBook.MRK);
 		}
 
 		[SetUp]
@@ -1413,7 +1423,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjects();
+			DeleteTestProjects();
 		}
 
 		[Test]
@@ -1546,7 +1556,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		[OneTimeSetUp]
 		public void OneTimeSetUp()
 		{
-			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
+			m_testProject = CreateTestProject(TestBook.MRK);
 			var mark = m_testProject.IncludedBooks.Single();
 			var bookNum = mark.BookNumber;
 			var lastBlockInChapter = m_testProject.IncludedBooks.Single().Blocks.First(b =>
@@ -1581,7 +1591,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjects();
+			DeleteTestProjects();
 		}
 
 		/// <summary>
@@ -1604,19 +1614,19 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerseOct2015;
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 		}
 
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjects();
+			DeleteTestProjects();
 		}
 
 		[Test]
 		public void IsRelevant_MissingExpectedQuote_BlockWithMultiple_BlocksWithMissingExpectedQuotes()
 		{
-			Project testProject = TestProject.CreateTestProject(TestProject.TestBook.MAT);
+			Project testProject = CreateTestProject(TestBook.MAT);
 			BlockNavigatorViewModel model = new BlockNavigatorViewModel(testProject, BlocksToDisplay.MissingExpectedQuote);
 			model.SetMode(model.Mode, true);
 

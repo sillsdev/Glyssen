@@ -139,20 +139,8 @@
   <data name="TestACT" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TestACT.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="TestCharacterDetail" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TestCharacterDetail.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="TestCharacterDetailOct2015" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TestCharacterDetailOct2015.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
   <data name="TestCharacterGroups" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TestCharacterGroups.xlsx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TestCharacterVerse" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TestCharacterVerse.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="TestCharacterVerseOct2015" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TestCharacterVerseOct2015.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="TestEmptyBook" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TestEmptyBook.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
@@ -187,12 +175,6 @@
   <data name="TestMRK" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TestMRK.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="TestNarratorOverrides" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TestNarratorOverrides.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
-  </data>
-  <data name="TestNarratorOverrides1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TestNarratorOverrides.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
-  </data>
   <data name="TestNUM" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TestNUM.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
@@ -202,16 +184,10 @@
   <data name="TestPHM" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TestPHM.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="TestRelatedCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TestRelatedCharacters.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
   <data name="TestREV" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TestREV.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="TestRUT" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TestRUT.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="TestVersification" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TestVersification.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
 </root>

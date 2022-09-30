@@ -2,9 +2,10 @@
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
+using GlyssenCharacters.Properties;
 using SIL.Extensions;
 
-namespace GlyssenEngine.Character
+namespace GlyssenCharacters
 {
 	public enum CharacterRelationshipType
 	{

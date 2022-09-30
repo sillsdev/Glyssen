@@ -1,5 +1,5 @@
-﻿using GlyssenEngine.Casting;
-using GlyssenEngine.Character;
+﻿using GlyssenCharacters;
+using GlyssenEngine.Casting;
 using NUnit.Framework;
 
 namespace GlyssenEngineTests.Casting

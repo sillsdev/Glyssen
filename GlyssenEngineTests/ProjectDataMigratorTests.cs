@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Glyssen.Shared;
+using GlyssenCharacters;
 using GlyssenEngine;
-using GlyssenEngine.Character;
 using GlyssenEngine.Script;
 using GlyssenEngineTests.Script;
 using NUnit.Framework;
@@ -11,7 +11,7 @@ using SIL.Reflection;
 using SIL.Scripture;
 using static System.String;
 using static GlyssenEngineTests.ReferenceTextTests;
-using Resources = GlyssenEngineTests.Properties.Resources;
+using Resources = GlyssenCharactersTests.Properties.Resources;
 
 namespace GlyssenEngineTests
 {

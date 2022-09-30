@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using GlyssenEngine.Character;
+using GlyssenCharacters;
 
 namespace GlyssenEngine.Rules
 {

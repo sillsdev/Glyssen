@@ -8,8 +8,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using Glyssen.Shared;
+using GlyssenCharacters;
 using GlyssenEngine;
-using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
 using GlyssenEngine.Script;
 using GlyssenFileBasedPersistence;
@@ -195,7 +195,7 @@ namespace Glyssen.RefTextDevUtilities
 			 * My process, after running in this mode, was to
 			 * 1) Do a bunch of checking, including making use of the output files in DevTools/Resources/temporary.
 			 * 2) Copy the book files files into a real Glyssen project which would not run a quote parse (version matched control file).
-			 * 3) Disambigute books using Identify Speaking Parts.
+			 * 3) Disambiguate books using Identify Speaking Parts.
 			 * 4) For any verse that has Needs Review Implicit (in CharacterVerse.txt), mark it accordingly in Identify Speaking Parts.
 			 *    (I considered whether this could be automated, but a few of the verses only need to have some of their blocks marked Needs Review in
 			 *    the reference text.)
@@ -533,10 +533,9 @@ namespace Glyssen.RefTextDevUtilities
 						if (mode == Mode.CreateBookTitleAndChapterLabelSummary)
 							continue;
 
-						int currChapter, currVerse;
-						if (!Int32.TryParse(referenceTextRow.Chapter, out currChapter))
+						if (!Int32.TryParse(referenceTextRow.Chapter, out var currChapter))
 							WriteOutput($"Invalid chapter number in {currBookId}: {referenceTextRow.Chapter}", true);
-						if (!Int32.TryParse(referenceTextRow.Verse, out currVerse))
+						if (!Int32.TryParse(referenceTextRow.Verse, out var currVerse))
 							WriteOutput($"Invalid verse number in {currBookId}: {referenceTextRow.Verse}", true);
 
 						Block existingEnglishRefBlock = null;
@@ -1136,7 +1135,6 @@ namespace Glyssen.RefTextDevUtilities
 
 		private static TitleAndChapterLabelInfo ProcessTitleAndInitialChapterLabel(string currBookId, ReferenceTextRow referenceTextRow, string language, List<BookTitleAndChapterLabelInfo> resultSummary, string justTheWordForChapter, List<Block> newBlocks)
 		{
-			TitleAndChapterLabelInfo currentTitleAndChapterLabelInfo;
 			string chapterLabel = null;
 
 			var newBlock = new Block("mt")
@@ -1153,7 +1151,7 @@ namespace Glyssen.RefTextDevUtilities
 				resultSummary.Add(summaryForBook);
 			}
 
-			currentTitleAndChapterLabelInfo = new TitleAndChapterLabelInfo
+			var currentTitleAndChapterLabelInfo = new TitleAndChapterLabelInfo
 			{
 				Language = language,
 				TitleAndChapterOneInfoFromXls = bookTitleAndChapter1Announcement
@@ -1221,8 +1219,7 @@ namespace Glyssen.RefTextDevUtilities
 			{
 				if (annotation != null && mode != Mode.GenerateEnglish && languageInfo.IsEnglish)
 				{
-					var pause = annotation as Pause;
-					var serializedAnnotation = pause != null
+					var serializedAnnotation = annotation is Pause pause
 						? XmlSerializationHelper.SerializeToString(pause, true)
 						: XmlSerializationHelper.SerializeToString((Sound)annotation, true);
 
@@ -1883,7 +1880,10 @@ namespace Glyssen.RefTextDevUtilities
 					CharacterVerseData.IsCharacterOfType(glyssenToFcbhIdsEntry.Key, CharacterVerseData.StandardCharacter.Narrator) ||
 					glyssenToFcbhIdsEntry.Value.Any(c => c.StartsWith("Narr_0")))
 				{
-					sb.Append(Format("{0}\t{1}", glyssenToFcbhIdsEntry.Key, glyssenToFcbhIdsEntry.Value.TabSeparated())).Append(Environment.NewLine);
+					sb.Append(glyssenToFcbhIdsEntry.Key)
+						.Append("\t")
+						.Append(glyssenToFcbhIdsEntry.Value.TabSeparated())
+						.Append(Environment.NewLine);
 				}
 			path = Path.Combine(kOutputDirForCharacterMapping, kOutputFileForGlyssenToFcbhMultiMap);
 			WriteOutput($"Writing {path}");
@@ -2067,7 +2067,8 @@ namespace Glyssen.RefTextDevUtilities
 		}
 
 		/// <summary>
-		/// Like the above method, this returns -1 if no unexcluded character is found in the range.
+		/// Like the above method, this returns -1 if no un-excluded character is found in the
+		/// range.
 		/// </summary>
 		/// <param name="s">The string to examine</param>
 		/// <param name="iStartAt">The index of the first character to examine</param>
@@ -2350,7 +2351,7 @@ namespace Glyssen.RefTextDevUtilities
 				var refText = ReferenceText.GetReferenceText(rt);
 				foreach (var book in refText.Books)
 				{
-					var fileName = Format("{0}{1}RefText.xml", rt.CustomIdentifier, book.BookId);
+					var fileName = $"{rt.CustomIdentifier}{book.BookId}RefText.xml";
 					var existingTestResourcePath = Path.Combine(baseResourcesDir, fileName);
 					var outputPath = Path.Combine(outputDir, fileName);
 					if (File.Exists(existingTestResourcePath) || File.Exists(outputPath))

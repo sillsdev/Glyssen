@@ -313,15 +313,8 @@
     <Compile Include="Bundle\GlyssenDblTextMetadataTests.cs" />
     <Compile Include="Character\CharacterAssignerTests.cs" />
     <Compile Include="Character\CharacterGroupListTests.cs" />
-    <None Include="Character\Template\CharacterGroupTemplateExcelFileTests.cs" />
-    <None Include="Character\Template\CharacterGroupTemplateTests.cs" />
     <Compile Include="Character\CharacterGroupTests.cs" />
-    <Compile Include="Character\CharacterUsageStoreTests.cs" />
-    <Compile Include="Character\CharacterVerseDataTests.cs" />
-    <Compile Include="Character\ControlCharacterVerseDataTests.cs" />
-    <Compile Include="Character\NarratorOverridesTests.cs" />
     <Compile Include="Character\ProjectCharacterVerseDataTests.cs" />
-    <Compile Include="Character\RelatedCharactersTests.cs" />
     <Compile Include="Export\ScriptExporterTests.cs" />
     <Compile Include="ProjectCharacterDetailDataTests.cs" />
     <Compile Include="ProjectDataMigratorTests.cs" />
@@ -367,7 +360,6 @@
     <Compile Include="Casting\VoiceActorTests.cs" />
     <Compile Include="Utilities\ListExtensionsTests.cs" />
     <Compile Include="Utilities\StringExtensionsTests.cs" />
-    <Compile Include="Utilities\VerseBridge.cs" />
     <Compile Include="ViewModelTests\AddCharactersToGroupViewModelTests.cs" />
     <Compile Include="ViewModelTests\AssignCharacterViewModelTests.cs" />
     <Compile Include="ViewModelTests\BlockNavigatorViewModelTests.cs" />
@@ -379,6 +371,14 @@
     <Compile Include="ViewModelTests\VoiceActorInformationViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GlyssenCharactersTests\GlyssenCharactersTests.csproj">
+      <Project>{b0011786-0107-4ddc-a5d4-2f4aaf542a64}</Project>
+      <Name>GlyssenCharactersTests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GlyssenCharacters\GlyssenCharacters.csproj">
+      <Project>{7e9e51ef-c687-441e-8a1a-d2a4b4a96d58}</Project>
+      <Name>GlyssenCharacters</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GlyssenEngine\GlyssenEngine.csproj">
       <Project>{FDF9DF2E-776B-4D7C-8E63-61DAD4C39AC3}</Project>
       <Name>GlyssenEngine</Name>
@@ -435,13 +435,6 @@
     <None Include="Resources\TestREV.xml" />
     <None Include="Resources\TestRUT.xml" />
     <Content Include="Resources\TestNUM.xml" />
-    <Content Include="Resources\TestVersification.txt" />
-    <None Include="Resources\TestCharacterDetailOct2015.txt" />
-    <None Include="Resources\TestCharacterDetail.txt" />
-    <None Include="Resources\TestCharacterVerse.txt" />
-    <Content Include="Resources\TestCharacterVerseOct2015.txt" />
-    <Content Include="Resources\TestNarratorOverrides.xml" />
-    <Content Include="Resources\TestRelatedCharacters.xml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

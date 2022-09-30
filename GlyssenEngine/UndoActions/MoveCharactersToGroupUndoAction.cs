@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using GlyssenEngine.Character;
 using SIL;
 using SIL.Extensions;
+using CharacterGroup = GlyssenEngine.Character.CharacterGroup;
 
 namespace GlyssenEngine.UndoActions
 {

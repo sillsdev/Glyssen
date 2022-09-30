@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Dialogs;
+using GlyssenCharacters;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
@@ -16,7 +17,6 @@ using L10NSharp;
 using NUnit.Framework;
 using SIL.Scripture;
 using SIL.TestUtilities;
-using SIL.WritingSystems;
 
 namespace GlyssenTests.Dialogs
 {
@@ -62,8 +62,7 @@ namespace GlyssenTests.Dialogs
 			{
 				foreach (var bookCode in ntBooks)
 				{
-					CastSizeRowValues validCast;
-					if (m_results.TryGetValue(bookCode, out validCast))
+					if (m_results.TryGetValue(bookCode, out var validCast))
 						Debug.WriteLine("[TestCase(\"" + bookCode + "\", " + (validCast.Male - 1) + ")]");
 				}
 				Debug.WriteLine("****************");
@@ -78,8 +77,7 @@ namespace GlyssenTests.Dialogs
 
 			foreach (var bookCode in ntBooks)
 			{
-				CastSizeRowValues validCast;
-				if (m_results.TryGetValue(bookCode, out validCast))
+				if (m_results.TryGetValue(bookCode, out var validCast))
 				{
 					Debug.WriteLine("case \"" + bookCode + "\":");
 					if (bookCode == "HEB")
@@ -191,8 +189,7 @@ namespace GlyssenTests.Dialogs
 			{
 				foreach (var bookCode in otBooks)
 				{
-					CastSizeRowValues validCast;
-					if (m_results.TryGetValue(bookCode, out validCast))
+					if (m_results.TryGetValue(bookCode, out var validCast))
 						Debug.WriteLine("[TestCase(\"" + bookCode + "\", " + (validCast.Male - 1) + ")]");
 				}
 				Debug.WriteLine("****************");
@@ -207,8 +204,7 @@ namespace GlyssenTests.Dialogs
 
 			foreach (var bookCode in otBooks)
 			{
-				CastSizeRowValues validCast;
-				if (m_results.TryGetValue(bookCode, out validCast))
+				if (m_results.TryGetValue(bookCode, out var validCast))
 				{
 					Debug.WriteLine("case \"" + bookCode + "\":");
 					Debug.WriteLine("smallCast.Male = Math.Max(smallCast.Male, " + (validCast.Male - 2) + ");");
@@ -291,7 +287,7 @@ namespace GlyssenTests.Dialogs
 				women = 3;
 			CastSizeRowValues validCast = new CastSizeRowValues(initialGuess + 2, women, 1);
 			var currentCast = new CastSizeRowValues(initialGuess + 1, women, 1);
-			List<CharacterGroup> groups = null;
+			List<CharacterGroup> groups;
 			do
 			{
 				var gen = new CharacterGroupGenerator(m_project, currentCast);

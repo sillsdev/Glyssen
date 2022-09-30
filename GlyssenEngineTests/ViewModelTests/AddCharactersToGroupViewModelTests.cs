@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using GlyssenCharacters;
 using GlyssenEngine;
-using GlyssenEngine.Character;
 using GlyssenEngine.ViewModels;
 using NUnit.Framework;
+using CharacterIdHashSet = GlyssenEngine.Character.CharacterIdHashSet;
+using Resources = GlyssenCharactersTests.Properties.Resources;
 
 namespace GlyssenEngineTests.ViewModelTests
 {
@@ -20,8 +22,8 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerseOct2015;
-			CharacterDetailData.TabDelimitedCharacterDetailData = Properties.Resources.TestCharacterDetailOct2015;
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
+			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetailOct2015;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
 		}
 

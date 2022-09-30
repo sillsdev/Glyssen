@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using GlyssenEngine.Character;
+using GlyssenCharacters;
 using SIL.Scripture;
 
 namespace DevTools.FCBH
@@ -39,8 +39,7 @@ namespace DevTools.FCBH
 			var fcbhDictionary = new Dictionary<BCVRef, List<TemplateDatum>>();
 			foreach (TemplateDatum d in allFcbh)
 			{
-				List<TemplateDatum> list;
-				if (fcbhDictionary.TryGetValue(d.BcvRef, out list))
+				if (fcbhDictionary.TryGetValue(d.BcvRef, out var list))
 				{
 					if (!list.Select(f => f.CharacterId).Contains(d.CharacterId))
 						list.Add(d);
@@ -52,27 +51,24 @@ namespace DevTools.FCBH
 				}
 			}
 
-			var controlDictionary = new Dictionary<BCVRef, List<GlyssenEngine.Character.CharacterVerse>>();
-			foreach (GlyssenEngine.Character.CharacterVerse cv in control)
+			var controlDictionary = new Dictionary<BCVRef, List<GlyssenCharacters.CharacterVerse>>();
+			foreach (GlyssenCharacters.CharacterVerse cv in control)
 			{
-				List<GlyssenEngine.Character.CharacterVerse> list;
-				if (controlDictionary.TryGetValue(cv.BcvRef, out list))
+				if (controlDictionary.TryGetValue(cv.BcvRef, out var list))
 				{
 					list.Add(cv);
 				}
 				else
 				{
-					list = new List<GlyssenEngine.Character.CharacterVerse> { cv };
+					list = new List<GlyssenCharacters.CharacterVerse> { cv };
 					controlDictionary.Add(cv.BcvRef, list);
 				}
 			}
 
 			foreach (BCVRef bcvRef in new SortedSet<BCVRef>(fcbhDictionary.Keys.Union(controlDictionary.Keys)))
 			{
-				List<TemplateDatum> fcbhList;
-				List<GlyssenEngine.Character.CharacterVerse> controlList;
-				bool hasFcbh = fcbhDictionary.TryGetValue(bcvRef, out fcbhList);
-				bool hasControl = controlDictionary.TryGetValue(bcvRef, out controlList);
+				bool hasFcbh = fcbhDictionary.TryGetValue(bcvRef, out var fcbhList);
+				bool hasControl = controlDictionary.TryGetValue(bcvRef, out var controlList);
 				if (hasFcbh && fcbhList.Count == 1 && hasControl && controlList.Count == 1)
 				{
 					var cv = controlList[0];
@@ -86,7 +82,7 @@ namespace DevTools.FCBH
 				else
 				{
 					if (hasControl)
-						foreach (GlyssenEngine.Character.CharacterVerse cv in controlList)
+						foreach (GlyssenCharacters.CharacterVerse cv in controlList)
 						{
 							if (hasFcbh && fcbhList.Select(f => f.CharacterId).Contains(cv.Character))
 							{

@@ -1,7 +1,7 @@
-﻿using GlyssenEngine.Character;
+﻿using GlyssenCharacters;
 using NUnit.Framework;
 
-namespace GlyssenEngineTests.Character
+namespace GlyssenCharactersTests
 {
 	[TestFixture]
 	class CharacterVerseDataTests
