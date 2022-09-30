@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Glyssen.Shared;
+using GlyssenCharacters;
 using GlyssenEngine;
-using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
 using GlyssenEngine.Script;
 using GlyssenSharedTests;
@@ -16,8 +16,8 @@ using SIL.TestUtilities;
 using SIL.WritingSystems;
 using SIL.Xml;
 using static System.String;
-using static GlyssenEngine.Character.CharacterVerseData;
-using Resources = GlyssenEngineTests.Properties.Resources;
+using static GlyssenCharacters.CharacterVerseData;
+using Resources = GlyssenCharactersTests.Properties.Resources;
 
 namespace GlyssenEngineTests.Script
 {
@@ -60,7 +60,7 @@ namespace GlyssenEngineTests.Script
 			var rtEnglish = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 			var block = new Block("p", 1, 10);
 			block.BlockElements.Add(new ScriptText("dijo."));
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.CharacterId = GetStandardCharacterId("MRK", StandardCharacter.Narrator);
 			block.SetMatchedReferenceBlock(rtEnglish.HeSaidText);
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
@@ -73,7 +73,7 @@ namespace GlyssenEngineTests.Script
 		{
 			var rtEnglish = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 			var block = new Block("p", 1, 10).AddVerse(10, "dijo."); // vernacular
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.CharacterId = GetStandardCharacterId("MRK", StandardCharacter.Narrator);
 			block.SetMatchedReferenceBlock("{10}\u00A0" + rtEnglish.HeSaidText);
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
@@ -85,7 +85,7 @@ namespace GlyssenEngineTests.Script
 		public void ChangeReferenceText_FrenchToEnglish_EnglishMovedFromSecondaryToPrimary()
 		{
 			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.CharacterId = GetStandardCharacterId("MRK", StandardCharacter.Narrator);
 			var refBlock = block.SetMatchedReferenceBlock("{10}\u00A0This is some arbitrary French reference text.");
 			refBlock.SetMatchedReferenceBlock("{10}\u00A0This is some arbitrary English reference text.");
 			Assert.IsTrue(block.ChangeReferenceText("MRK", ReferenceText.GetStandardReferenceText(ReferenceTextType.English),
@@ -99,7 +99,7 @@ namespace GlyssenEngineTests.Script
 			var block = new Block("p", 2, 1)
 				.AddVerse(1, "Now when Jesus was born in Bethlehem, Judea during King Herod's reign of terror, oriental magi came to Zion, ")
 				.AddVerse(2, "wondering where the King of the Jews was supposed to be born because they had seen his star in the sky and come to worship."); // vernacular
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.CharacterId = GetStandardCharacterId("MAT", StandardCharacter.Narrator);
 			var frenchRefText = block.SetMatchedReferenceBlock("{1}\u00A0Jésus ... {2}\u00A0Ils ... demandent: <<Où ... l'adorer.>>");
 			frenchRefText.SetMatchedReferenceBlock("{1}\u00A0Now when Jesus was born in Bethlehem of Judea in the days of King Herod, behold, wise men from the east came to Jerusalem, " +
 				"{2}\u00A0saying, «Where is the one who is born King of the Jews? For we saw his star in the east, and have come to worship him.»");
@@ -117,7 +117,7 @@ namespace GlyssenEngineTests.Script
 		public void ChangeReferenceText_EnglishToFrenchArbitraryEditing_ReturnsFalse()
 		{
 			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.CharacterId = GetStandardCharacterId("MRK", StandardCharacter.Narrator);
 			block.SetMatchedReferenceBlock("{10}\u00A0This is some arbitrary English reference text.");
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			Assert.IsFalse(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
@@ -131,7 +131,7 @@ namespace GlyssenEngineTests.Script
 		public void ChangeReferenceText_EnglishToFrenchWhiteSpaceOnlyAfterVerseNumber_VerseNumberKeptAsReferenceText()
 		{
 			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.CharacterId = GetStandardCharacterId("MRK", StandardCharacter.Narrator);
 			block.SetMatchedReferenceBlock("{10}\u00A0     ");
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
@@ -145,7 +145,7 @@ namespace GlyssenEngineTests.Script
 		public void ChangeReferenceText_EnglishToFrenchWhiteSpaceOnlyNoVerseNumber_BlankReferenceText()
 		{
 			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.CharacterId = GetStandardCharacterId("MRK", StandardCharacter.Narrator);
 			block.SetMatchedReferenceBlock("     ");
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
@@ -159,7 +159,7 @@ namespace GlyssenEngineTests.Script
 		public void ChangeReferenceText_EnglishToAzeriDifferentNumberOfBlockElements_DoesNotMatch_ReturnsFalse()
 		{
 			var block = new Block("p", 12, 17).AddVerse(17, "blah blah blah.").AddVerse(18, "More blah blah."); // vernacular
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator);
+			block.CharacterId = GetStandardCharacterId("REV", StandardCharacter.Narrator);
 			block.SetMatchedReferenceBlock("{17} Stuff that doesn't match...");
 			ReferenceText rtAzeri = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.AzeriREV);
 			Assert.IsFalse(block.ChangeReferenceText("REV", rtAzeri, ScrVers.English));
@@ -200,7 +200,7 @@ namespace GlyssenEngineTests.Script
 			}
 
 			var block = new Block("p", 5, 43).AddVerse(43, "Whatever. ").AddVerse(44, "Cool.");
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.CharacterId = GetStandardCharacterId("MRK", StandardCharacter.Narrator);
 			block.SetMatchedReferenceBlock("{43} He strictly ordered them, saying: «Tell no one about this!» Then he said: «Give her something to eat.» " +
 				"{1} He went out from there. He came into his own country, and his disciples followed him.");
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
@@ -273,11 +273,14 @@ namespace GlyssenEngineTests.Script
 		public void IsSimpleBridge_StartsWithBridgeAndHasNoOtherVerses_ReturnsTrue(int bridgeStartVerse, int bridgeEndVerse)
 		{
 			var block = new Block("p", 1, bridgeStartVerse, bridgeEndVerse)
-				{ BlockElements = new List<BlockElement>() };
-			block.BlockElements.Add(new Verse($"{bridgeStartVerse}-{bridgeEndVerse}"));
-			block.BlockElements.Add(new ScriptText("This is the text of the only verse "));
-			block.BlockElements.Add(new Sound {UserSpecifiesLocation = true, EffectName = "Warbling noise"});
-			block.BlockElements.Add(new ScriptText("in this block."));
+				{ BlockElements = new List<BlockElement>
+					{
+						new Verse($"{bridgeStartVerse}-{bridgeEndVerse}"),
+						new ScriptText("This is the text of the only verse "),
+						new Sound {UserSpecifiesLocation = true, EffectName = "Warbling noise"},
+						new ScriptText("in this block.")
+					}
+				};
 			Assert.IsFalse(block.CoversMoreThanOneVerse);
 			// SUT
 			Assert.IsTrue(block.IsSimpleBridge);
@@ -288,8 +291,8 @@ namespace GlyssenEngineTests.Script
 		public void IsSimpleBridge_ContinuesVerseBridgeStartedInPreviousBlockAndHasNoOtherVerses_ReturnsTrue(int bridgeStartVerse, int bridgeEndVerse)
 		{
 			var block = new Block("p", 1, bridgeStartVerse, bridgeEndVerse)
-				{ BlockElements = new List<BlockElement>() };
-			block.BlockElements.Add(new ScriptText("“This is the thing spoken by the guy whose reporting clause was in the previous block.”"));
+				{ BlockElements = new List<BlockElement> { new ScriptText("“This is the thing spoken by the guy whose reporting clause was in the previous block.”") }
+				};
 			Assert.IsFalse(block.CoversMoreThanOneVerse);
 			// SUT
 			Assert.IsTrue(block.IsSimpleBridge);
@@ -300,9 +303,12 @@ namespace GlyssenEngineTests.Script
 		public void IsSimpleBridge_StartsWithSingleVerseAndHasNoOtherVerses_ReturnsFalse(int verse)
 		{
 			var block = new Block("p", 1, verse)
-				{ BlockElements = new List<BlockElement>() };
-			block.BlockElements.Add(new Verse($"{verse}"));
-			block.BlockElements.Add(new ScriptText("This is the text of the only verse in this block."));
+				{ BlockElements = new List<BlockElement>
+					{
+						new Verse($"{verse}"),
+						new ScriptText("This is the text of the only verse in this block.")
+					}
+				};
 			Assert.IsFalse(block.CoversMoreThanOneVerse,
 				"Note: Even if the block covers only a single verse, it is not a simple bridge if that verse is not a verse bridge.");
 			// SUT
@@ -314,13 +320,16 @@ namespace GlyssenEngineTests.Script
 		public void IsSimpleBridge_StartsWithBridgeButHasAnotherVerse_ReturnsFalse(int bridgeStartVerse, int bridgeEndVerse)
 		{
 			var block = new Block("p", 1, bridgeStartVerse, bridgeEndVerse)
-				{ BlockElements = new List<BlockElement>() };
-			block.BlockElements.Add(new Verse($"{bridgeStartVerse}-{bridgeEndVerse}"));
-			block.BlockElements.Add(new ScriptText("This is the text of the verse bridge."));
-			block.BlockElements.Add(new Verse($"{bridgeEndVerse + 1}"));
-			block.BlockElements.Add(new ScriptText("This is the next verse."));
+				{ BlockElements = new List<BlockElement>
+					{
+						new Verse($"{bridgeStartVerse}-{bridgeEndVerse}"),
+						new ScriptText("This is the text of the verse bridge."),
+						new Verse($"{bridgeEndVerse + 1}"),
+						new ScriptText("This is the next verse.")
+					}
+				};
 			Assert.IsTrue(block.CoversMoreThanOneVerse, "If block covers more than one verse, then it is not a simple bridge.");
-			/// SUT
+			// SUT
 			Assert.IsFalse(block.IsSimpleBridge);
 		}
 
@@ -329,10 +338,13 @@ namespace GlyssenEngineTests.Script
 		public void IsSimpleBridge_ContinuesVerseBridgeStartedInPreviousBlockButHasAnotherVerse_ReturnsFalse(int bridgeStartVerse, int bridgeEndVerse)
 		{
 			var block = new Block("p", 1, bridgeStartVerse, bridgeEndVerse)
-				{ BlockElements = new List<BlockElement>() };
-			block.BlockElements.Add(new ScriptText("“This is the thing spoken by the guy whose reporting clause was in the previous block.”"));
-			block.BlockElements.Add(new Verse($"{bridgeEndVerse + 1}"));
-			block.BlockElements.Add(new ScriptText("This is the next verse."));
+				{ BlockElements = new List<BlockElement>
+					{
+						new ScriptText("“This is the thing spoken by the guy whose reporting clause was in the previous block.”"),
+						new Verse($"{bridgeEndVerse + 1}"),
+						new ScriptText("This is the next verse.")
+					}
+				};
 			Assert.IsTrue(block.CoversMoreThanOneVerse, "If block covers more than one verse, then it is not a simple bridge.");
 			// SUT
 			Assert.IsFalse(block.IsSimpleBridge);
@@ -343,10 +355,13 @@ namespace GlyssenEngineTests.Script
 		public void CoversMoreThanOneVerse_StartsWithTextOfPreviousVerseButHasAnotherVerses_ReturnsTrue(int prevVerse)
 		{
 			var block = new Block("p", 1, prevVerse)
-				{ BlockElements = new List<BlockElement>() };
-			block.BlockElements.Add(new ScriptText("rest of the text of the verse started in the previous block. "));
-			block.BlockElements.Add(new Verse($"{prevVerse + 1}"));
-			block.BlockElements.Add(new ScriptText("This is the text of the verse started in this block."));
+				{ BlockElements = new List<BlockElement>
+					{
+						new ScriptText("rest of the text of the verse started in the previous block. "),
+						new Verse($"{prevVerse + 1}"),
+						new ScriptText("This is the text of the verse started in this block.")
+					}
+				};
 			Assert.IsTrue(block.CoversMoreThanOneVerse);
 		}
 
@@ -585,7 +600,7 @@ namespace GlyssenEngineTests.Script
 		public void GetText_GetBookNameNull_ChapterBlockTextBasedOnStoredText()
 		{
 			var block = new Block("c", 4);
-			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.BookOrChapter);
+			block.SetStandardCharacter("MRK", StandardCharacter.BookOrChapter);
 			block.BlockElements.Add(new ScriptText("Chapter 4"));
 
 			Assert.AreEqual("Chapter 4", block.GetText(true));
@@ -598,14 +613,14 @@ namespace GlyssenEngineTests.Script
 		{
 			Block.FormatChapterAnnouncement = (bookId, chapterNum) => chapterNum + (bookId == "MRK" ? " Marky" : " Unknown");
 			var block = new Block(chapterStyleTag, 4) { BookCode = "MRK" };
-			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.BookOrChapter);
+			block.SetStandardCharacter("MRK", StandardCharacter.BookOrChapter);
 			block.BlockElements.Add(new ScriptText("Chapter 4"));
 
 			Assert.AreEqual("4 Marky", block.GetText(true));
 			Assert.AreEqual("4 Marky", block.GetText(false));
 
 			block = new Block(chapterStyleTag, 1) { BookCode = "LUK" };
-			block.SetStandardCharacter("LUK", CharacterVerseData.StandardCharacter.BookOrChapter);
+			block.SetStandardCharacter("LUK", StandardCharacter.BookOrChapter);
 			block.BlockElements.Add(new ScriptText("Chapter 1"));
 
 			Assert.AreEqual("1 Unknown", block.GetText(true));
@@ -618,7 +633,7 @@ namespace GlyssenEngineTests.Script
 		{
 			Block.FormatChapterAnnouncement = (bookId, chapterNum) => (bookId == null) ? "ARGHHHH!" : "Marky " + chapterNum;
 			var block = new Block(chapterStyleTag, 4) { BookCode = "MRK" };
-			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.BookOrChapter);
+			block.SetStandardCharacter("MRK", StandardCharacter.BookOrChapter);
 			block.BlockElements.Add(new ScriptText("Chapter 4"));
 
 			Assert.AreEqual("Marky 4", block.GetText(false));
@@ -631,7 +646,7 @@ namespace GlyssenEngineTests.Script
 		{
 			Block.FormatChapterAnnouncement = (bookId, chapterNum) => null;
 			var block = new Block("c", 4) { BookCode = "MRK" };
-			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.BookOrChapter);
+			block.SetStandardCharacter("MRK", StandardCharacter.BookOrChapter);
 			block.BlockElements.Add(new ScriptText("Chapter 4"));
 
 			Assert.AreEqual("Chapter 4", block.GetText(false));
@@ -667,7 +682,7 @@ namespace GlyssenEngineTests.Script
 		public void GetAsXml_VerseAndTextElements_XmlHasCorrectAttributesAndAlternatingVerseAndTextElements()
 		{
 			var block = new Block("p", 4);
-			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetStandardCharacter("MRK", StandardCharacter.Narrator);
 			block.BlockElements.Add(new Verse("1"));
 			block.BlockElements.Add(new ScriptText("Text of verse one. "));
 			block.BlockElements.Add(new Verse("2"));
@@ -685,8 +700,10 @@ namespace GlyssenEngineTests.Script
 		[Test]
 		public void GetAsXml_TextBeginsMidVerse_XmlHasCorrectVerseInfo()
 		{
-			var block = new Block("p", 4, 3);
-			block.IsParagraphStart = true;
+			var block = new Block("p", 4, 3)
+			{
+				IsParagraphStart = true
+			};
 			block.BlockElements.Add(new ScriptText("Text of verse three, part two. "));
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
@@ -706,8 +723,10 @@ namespace GlyssenEngineTests.Script
 		[Test]
 		public void GetAsXml_VerseBridge_XmlHasCorrectVerseInfo()
 		{
-			var block = new Block("p", 4, 3, 5);
-			block.IsParagraphStart = true;
+			var block = new Block("p", 4, 3, 5)
+			{
+				IsParagraphStart = true
+			};
 			block.BlockElements.Add(new ScriptText("Text of verse three, part two. "));
 			block.BlockElements.Add(new Verse("4-5"));
 			block.BlockElements.Add(new ScriptText("Text of verse four and five."));
@@ -790,8 +809,8 @@ namespace GlyssenEngineTests.Script
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
 			block.CharacterId = "Fred";
 			block.Delivery = "Freakin' out";
-			block.SetCharacterAndDelivery(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes, new CharacterSpeakingMode[0]);
-			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, block.CharacterId);
+			block.SetCharacterAndDelivery(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes, Array.Empty<CharacterSpeakingMode>());
+			Assert.AreEqual(kUnexpectedCharacter, block.CharacterId);
 			Assert.IsNull(block.Delivery);
 		}
 
@@ -804,7 +823,7 @@ namespace GlyssenEngineTests.Script
 			block.CharacterId = "Fred";
 			block.Delivery = "Freakin' out";
 			block.SetCharacterAndDelivery(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes, new [] { JesusCommanding, JesusQuestioning, Andrew });
-			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, block.CharacterId);
+			Assert.AreEqual(kAmbiguousCharacter, block.CharacterId);
 			Assert.IsNull(block.Delivery);
 		}
 
@@ -876,7 +895,7 @@ namespace GlyssenEngineTests.Script
 			var block = new Block("p", 4, 4);
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
-			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetStandardCharacter("MRK", StandardCharacter.Narrator);
 			Assert.IsTrue(block.CharacterIsStandard);
 		}
 
@@ -886,7 +905,7 @@ namespace GlyssenEngineTests.Script
 			var block = new Block("p", 4, 4);
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
-			block.SetStandardCharacter("GEN", CharacterVerseData.StandardCharacter.ExtraBiblical);
+			block.SetStandardCharacter("GEN", StandardCharacter.ExtraBiblical);
 			Assert.IsTrue(block.CharacterIsStandard);
 		}
 
@@ -895,7 +914,7 @@ namespace GlyssenEngineTests.Script
 		{
 			var block = new Block("c", 4);
 			block.BlockElements.Add(new ScriptText("4"));
-			block.SetStandardCharacter("REV", CharacterVerseData.StandardCharacter.BookOrChapter);
+			block.SetStandardCharacter("REV", StandardCharacter.BookOrChapter);
 			Assert.IsTrue(block.CharacterIsStandard);
 		}
 
@@ -904,7 +923,7 @@ namespace GlyssenEngineTests.Script
 		{
 			var block = new Block("ip");
 			block.BlockElements.Add(new ScriptText("This is a yadda yadda..."));
-			block.SetStandardCharacter("ROM", CharacterVerseData.StandardCharacter.Intro);
+			block.SetStandardCharacter("ROM", StandardCharacter.Intro);
 			Assert.IsTrue(block.CharacterIsStandard);
 		}
 
@@ -959,9 +978,11 @@ namespace GlyssenEngineTests.Script
 		[Test]
 		public void UseDefaultForMultipleChoiceCharacter_NotMultipleChoice_DoNothing()
 		{
-			var block = new Block("p", 4, 38);
-			block.CharacterId = "disciples";
-			block.CharacterIdInScript = "Peter (Simon)";
+			var block = new Block("p", 4, 38)
+			{
+				CharacterId = "disciples",
+				CharacterIdInScript = "Peter (Simon)"
+			};
 			block.UseDefaultForMultipleChoiceCharacter(BCVRef.BookToNumber("MRK"));
 			Assert.AreEqual("Peter (Simon)", block.CharacterIdInScript);
 		}
@@ -969,8 +990,7 @@ namespace GlyssenEngineTests.Script
 		[Test]
 		public void UseDefaultForMultipleChoiceCharacter_NoExplicitDefault_UseFirst()
 		{
-			var block = new Block("p", 40, 8);
-			block.CharacterId = "chief cupbearer/chief baker";
+			var block = new Block("p", 40, 8) { CharacterId = "chief cupbearer/chief baker" };
 			block.UseDefaultForMultipleChoiceCharacter(BCVRef.BookToNumber("GEN"));
 			Assert.AreEqual("chief cupbearer", block.CharacterIdInScript);
 		}
@@ -978,8 +998,7 @@ namespace GlyssenEngineTests.Script
 		[Test]
 		public void UseDefaultForMultipleChoiceCharacter_ExplicitDefault_UseDefault()
 		{
-			var block = new Block("p", 9, 11);
-			block.CharacterId = "Peter (Simon)/James/John";
+			var block = new Block("p", 9, 11) { CharacterId = "Peter (Simon)/James/John" };
 			block.UseDefaultForMultipleChoiceCharacter(BCVRef.BookToNumber("MRK"));
 			Assert.AreEqual("John", block.CharacterIdInScript);
 		}
@@ -987,20 +1006,24 @@ namespace GlyssenEngineTests.Script
 		[Test]
 		public void UseDefaultForMultipleChoiceCharacter_AlreadySetToAnotherValue_OverwriteWithDefault()
 		{
-			var block = new Block("p", 40, 8);
-			block.CharacterId = "chief cupbearer/chief baker";
-			block.CharacterIdInScript = "chief baker";
+			var block = new Block("p", 40, 8)
+			{
+				CharacterId = "chief cupbearer/chief baker",
+				CharacterIdInScript = "chief baker"
+			};
 			block.UseDefaultForMultipleChoiceCharacter(BCVRef.BookToNumber("GEN"));
 			Assert.AreEqual("chief cupbearer", block.CharacterIdInScript);
 		}
 
-		[TestCase(CharacterVerseData.kAmbiguousCharacter)]
-		[TestCase(CharacterVerseData.kUnexpectedCharacter)]
+		[TestCase(kAmbiguousCharacter)]
+		[TestCase(kUnexpectedCharacter)]
 		public void SetCharacterAndCharacterIdInScript_CharacterIdSetUnclear_CharacterIdInScriptSetToNull(string unclearCharacterId)
 		{
-			var block = new Block("p", 40, 8);
-			block.CharacterIdInScript = "chief monkey";
-			block.CharacterId = "chief monkey";
+			var block = new Block("p", 40, 8)
+			{
+				CharacterIdInScript = "chief monkey",
+				CharacterId = "chief monkey"
+			};
 			Assert.AreEqual("chief monkey", block.CharacterId);
 			Assert.AreEqual("chief monkey", block.CharacterIdInScript);
 			Assert.AreEqual("chief monkey", block.CharacterIdOverrideForScript);
@@ -1025,9 +1048,11 @@ namespace GlyssenEngineTests.Script
 		[Test]
 		public void SetCharacterAndCharacterIdInScript_NotMultipleChoiceCharacterIdInScriptAlreadySet_CharacterIdInScriUnchanged()
 		{
-			var block = new Block("p", 40, 8);
-			block.CharacterId = "live frog";
-			block.CharacterIdInScript = "dead frog";
+			var block = new Block("p", 40, 8)
+			{
+				CharacterId = "live frog",
+				CharacterIdInScript = "dead frog"
+			};
 			block.SetCharacterIdAndCharacterIdInScript("subordinate monkey", BCVRef.BookToNumber("REV"));
 			Assert.AreEqual("subordinate monkey", block.CharacterId);
 			Assert.AreEqual("dead frog", block.CharacterIdInScript);
@@ -1036,9 +1061,11 @@ namespace GlyssenEngineTests.Script
 		[Test]
 		public void SetCharacterAndCharacterIdInScript_NoChangeToCharacterIdAndCharacterIdInScriptAlreadySetToAnotherValue_NoChange()
 		{
-			var block = new Block("p", 40, 8);
-			block.CharacterId = "chief cupbearer/chief baker";
-			block.CharacterIdInScript = "dead frog";
+			var block = new Block("p", 40, 8)
+			{
+				CharacterId = "chief cupbearer/chief baker",
+				CharacterIdInScript = "dead frog"
+			};
 			block.SetCharacterIdAndCharacterIdInScript("chief cupbearer/chief baker", BCVRef.BookToNumber("GEN"));
 			Assert.AreEqual("chief cupbearer/chief baker", block.CharacterId);
 			Assert.AreEqual("dead frog", block.CharacterIdInScript);
@@ -1058,9 +1085,11 @@ namespace GlyssenEngineTests.Script
 		[Test]
 		public void SetCharacterAndCharacterIdInScript_ChangeCharacterIdAndCharacterIdInScriptAlreadySetToAnotherValue_CharacterIdInScriptChanged()
 		{
-			var block = new Block("p", 40, 8);
-			block.CharacterId = "chief cupbearer/chief baker";
-			block.CharacterIdInScript = "chief cupbearer";
+			var block = new Block("p", 40, 8)
+			{
+				CharacterId = "chief cupbearer/chief baker",
+				CharacterIdInScript = "chief cupbearer"
+			};
 			block.SetCharacterIdAndCharacterIdInScript("David/Goliath", BCVRef.BookToNumber("GEN"));
 			Assert.AreEqual("David/Goliath", block.CharacterId);
 			Assert.AreEqual("David", block.CharacterIdInScript);
@@ -1069,13 +1098,15 @@ namespace GlyssenEngineTests.Script
 		[Test]
 		public void SerializeDeserialize_ContainsScriptAnnotations_RoundtripDataRemainsTheSame()
 		{
-			var block = new Block();
-			block.BlockElements = new List<BlockElement>
+			var block = new Block
 			{
-				new ScriptText("script text"),
-				new Sound { SoundType = SoundType.Sfx, EffectName = "effect name", StartVerse = 2 },
-				new Verse("2"),
-				new ScriptText("script text 2"),
+				BlockElements = new List<BlockElement>
+				{
+					new ScriptText("script text"),
+					new Sound { SoundType = SoundType.Sfx, EffectName = "effect name", StartVerse = 2 },
+					new Verse("2"),
+					new ScriptText("script text 2"),
+				}
 			};
 
 			var blockBefore = block.Clone();
@@ -1088,15 +1119,13 @@ namespace GlyssenEngineTests.Script
 		[Test]
 		public void SerializeDeserialize_ContainsPrimaryReferenceText_RoundtripDataRemainsTheSame()
 		{
-			var block = new Block();
-			block.BlockElements = new List<BlockElement>
+			var block = new Block
 			{
-				new ScriptText("script text"),
+				BlockElements = new List<BlockElement> { new ScriptText("script text"), }
 			};
-			var primaryReferenceTextBlock = new Block();
-			primaryReferenceTextBlock.BlockElements = new List<BlockElement>
+			var primaryReferenceTextBlock = new Block
 			{
-				new ScriptText("primary reference text")
+				BlockElements = new List<BlockElement> { new ScriptText("primary reference text") }
 			};
 			block.SetMatchedReferenceBlock(primaryReferenceTextBlock);
 
@@ -1160,9 +1189,12 @@ namespace GlyssenEngineTests.Script
 			refBlockMatthewEnglish.BlockElements.Add(new ScriptText("“We knew that.”"));
 			refBlockMatthewPortuguese.SetMatchedReferenceBlock(refBlockMatthewEnglish);
 
-			var joinedFrenchRefBlock = new Block(refBlockNarratorFrench.StyleTag, refBlockNarratorFrench.ChapterNumber, refBlockNarratorFrench.InitialStartVerseNumber);
-			joinedFrenchRefBlock.CharacterId = narrator;
-			joinedFrenchRefBlock.Delivery = "raspy";
+			var joinedFrenchRefBlock = new Block(refBlockNarratorFrench.StyleTag,
+				refBlockNarratorFrench.ChapterNumber, refBlockNarratorFrench.InitialStartVerseNumber)
+			{
+				CharacterId = narrator,
+				Delivery = "raspy"
+			};
 			ReferenceText rt = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMAT);
 			joinedFrenchRefBlock.AppendJoinedBlockElements(new List<Block> { refBlockNarratorFrench, refBlockMatthewFrench }, rt);
 			Assert.AreEqual("{2}\u00A0Jésus a dit. Pour que Matthieu a répondu, «Nous savions que.»", joinedFrenchRefBlock.GetText(true));
@@ -1401,7 +1433,7 @@ namespace GlyssenEngineTests.Script
 			block.BlockElements.Add(new Sound {EndVerse = 31});
 			var expected = block.GetText(true, true);
 
-			block.RemoveVerseNumbers(new Verse[0]);
+			block.RemoveVerseNumbers(Array.Empty<Verse>());
 			Assert.AreEqual(expected, block.GetText(true, true));
 		}
 
@@ -1455,9 +1487,11 @@ namespace GlyssenEngineTests.Script
 		[TestCase("\u00A0")]
 		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBHasNoVerseNumber_VernHasLaterVerse_LeadingVerseStaysWithRowA(string separator)
 		{
-			var vernBlocks = new List<Block>();
-			vernBlocks.Add(new Block("p", 8, 20).AddVerse("20", "Verse 20 text."));
-			vernBlocks.Add(new Block("q", 8, 20).AddText("More verse 20 text."));
+			var vernBlocks = new List<Block>
+			{
+				new Block("p", 8, 20).AddVerse("20", "Verse 20 text."),
+				new Block("q", 8, 20).AddText("More verse 20 text.")
+			};
 			Block.GetSwappedReferenceText(vernBlocks, "MAT", 8, 0, ScrVers.English, 
 				"{19}"+  separator + "Cool. {20}" + separator + "Fine", "This is another chunk of some verse.",
 				out var newRowAValue, out var newRowBValue);
@@ -1500,12 +1534,14 @@ namespace GlyssenEngineTests.Script
 		public void GetSwappedReferenceText_VerseRangesWithPartialOverlapBetweenRefAndVern_LeadingVerseStaysWithRowA(
 			string bookId, int chapter, int vernStartVerse, int vernEndVerse, string refVerseRange, ScrVersType vernVersification)
 		{
-			var vernBlocks = new List<Block>();
-			vernBlocks.Add(new Block("p", chapter, vernStartVerse, vernEndVerse) {BookCode = bookId}
-				.AddVerse($"{vernStartVerse}-{vernEndVerse}", "Gobbledygook and monkey soup."));
-			vernBlocks.Add(new Block("p", chapter, vernStartVerse, vernEndVerse) {BookCode = bookId}
-				.AddText("Zubbety lubble fmoodic'ka.")
-				.AddVerse(vernEndVerse + 1, "Some more text for the next verse."));
+			var vernBlocks = new List<Block>
+			{
+				new Block("p", chapter, vernStartVerse, vernEndVerse) {BookCode = bookId}
+					.AddVerse($"{vernStartVerse}-{vernEndVerse}", "Gobbledygook and monkey soup."),
+				new Block("p", chapter, vernStartVerse, vernEndVerse) {BookCode = bookId}
+					.AddText("Zubbety lubble fmoodic'ka.")
+					.AddVerse(vernEndVerse + 1, "Some more text for the next verse.")
+			};
 			for (int vernRowCorrespondingToA = 0; vernRowCorrespondingToA < 2; vernRowCorrespondingToA++)
 			{
 				Block.GetSwappedReferenceText(vernBlocks, bookId, chapter,
@@ -1521,11 +1557,13 @@ namespace GlyssenEngineTests.Script
 		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBIsEmpty_VernHasCorrespondingVerseInDifferentChapterInDifferentVersification_LeadingVerseStaysWithRowA(
 			string bookId, int vernChapter, int refChapter, int vernVerse, int refVerse, ScrVersType vernVersification)
 		{
-			var vernBlocks = new List<Block>();
-			vernBlocks.Add(new Block("p", vernChapter, vernVerse) {BookCode = bookId}
-				.AddVerse($"{vernVerse}", "Gobbledygook and monkey soup."));
-			vernBlocks.Add(new Block("p", vernChapter, vernVerse) {BookCode = bookId}
-				.AddText("Zubbety lubble fmoodic'ka."));
+			var vernBlocks = new List<Block>
+			{
+				new Block("p", vernChapter, vernVerse) {BookCode = bookId}
+					.AddVerse($"{vernVerse}", "Gobbledygook and monkey soup."),
+				new Block("p", vernChapter, vernVerse) {BookCode = bookId}
+					.AddText("Zubbety lubble fmoodic'ka.")
+			};
 			for (int vernRowCorrespondingToA = 0; vernRowCorrespondingToA < 2; vernRowCorrespondingToA++)
 			{
 				Block.GetSwappedReferenceText(vernBlocks, bookId, refChapter,
@@ -1542,10 +1580,12 @@ namespace GlyssenEngineTests.Script
 		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBIsEmpty_VernHasCorrespondingVerseInDifferentVersification_LeadingVerseStaysWithRowA(
 			int vernRowCorrespondingToA)
 		{
-			var vernBlocks = new List<Block>();
-			vernBlocks.Add(new Block("p", 2, 6).AddVerse("6", "Start of verse 6 (verse 2 in English) text."));
-			vernBlocks.Add(new Block("p", 2, 6).AddText("Rest of verse 6 (2 in en).")
-				.AddVerse("7", "Verse 7(3) text.").AddVerse("8", "Verse 8(4) text."));
+			var vernBlocks = new List<Block>
+			{
+				new Block("p", 2, 6).AddVerse("6", "Start of verse 6 (verse 2 in English) text."),
+				new Block("p", 2, 6).AddText("Rest of verse 6 (2 in en).")
+					.AddVerse("7", "Verse 7(3) text.").AddVerse("8", "Verse 8(4) text.")
+			};
 			Block.GetSwappedReferenceText(vernBlocks, "ZEC", 2, vernRowCorrespondingToA, ScrVers.Original,
 				"{2}\u00A0Cool and fine", "",
 				out var newRowAValue, out var newRowBValue);
@@ -1558,10 +1598,12 @@ namespace GlyssenEngineTests.Script
 		[TestCase("\u00A0")]
 		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBHasNoVerseNumber_VernHasCorrespondingVerseAbove_LeadingVerseStaysWithRowA(string separator)
 		{
-			var vernBlocks = new List<Block>();
-			vernBlocks.Add(new Block("p", 8, 19).AddVerse("19", "Verse 19 text."));
-			vernBlocks.Add(new Block("p", 8, 20).AddVerse("20", "Verse 20 text."));
-			vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text."));
+			var vernBlocks = new List<Block>
+			{
+				new Block("p", 8, 19).AddVerse("19", "Verse 19 text."),
+				new Block("p", 8, 20).AddVerse("20", "Verse 20 text."),
+				new Block("p", 8, 21).AddVerse("21", "Verse 21 text.")
+			};
 			Block.GetSwappedReferenceText(vernBlocks, "MAT", 8, 1, ScrVers.English,
 				"{19}"+  separator + "Cool. {20}" + separator + "Fine", "This is another chunk of some verse.",
 				out var newRowAValue, out var newRowBValue);
@@ -1574,10 +1616,12 @@ namespace GlyssenEngineTests.Script
 		[TestCase("\u00A0")]
 		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBHasNoVerseNumber_VernHasCorrespondingVerseAtSameRow_LeadingVerseStaysWithRowA(string separator)
 		{
-			var vernBlocks = new List<Block>();
-			vernBlocks.Add(new Block("p", 8, 19).AddVerse("19", "Verse 19 text."));
-			vernBlocks.Add(new Block("p", 8, 20).AddVerse("20", "Verse 20 text."));
-			vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text."));
+			var vernBlocks = new List<Block>
+			{
+				new Block("p", 8, 19).AddVerse("19", "Verse 19 text."),
+				new Block("p", 8, 20).AddVerse("20", "Verse 20 text."),
+				new Block("p", 8, 21).AddVerse("21", "Verse 21 text.")
+			};
 			Block.GetSwappedReferenceText(vernBlocks, "MAT", 8, 0, ScrVers.English,
 				"{19}"+  separator + "Cool. {20}" + separator + "Fine", "This is another chunk of some verse.",
 				out var newRowAValue, out var newRowBValue);
@@ -1591,12 +1635,14 @@ namespace GlyssenEngineTests.Script
 		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBHasNoVerseNumber_VernHasCorrespondingVerseSubsequentRow_LeadingVerseMovesWithRowAContents(
 			string separator, int currentRow)
 		{
-			var vernBlocks = new List<Block>();
-			vernBlocks.Add(new Block("p", 8, 17).AddVerse("17", "Verse 17 text."));
-			vernBlocks.Add(new Block("p", 8, 18).AddVerse("18", "Verse 18 text."));
-			vernBlocks.Add(new Block("p", 8, 19).AddVerse("19", "Verse 19 text."));
-			vernBlocks.Add(new Block("p", 8, 20).AddVerse("20", "Verse 20 text."));
-			vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text."));
+			var vernBlocks = new List<Block>
+			{
+				new Block("p", 8, 17).AddVerse("17", "Verse 17 text."),
+				new Block("p", 8, 18).AddVerse("18", "Verse 18 text."),
+				new Block("p", 8, 19).AddVerse("19", "Verse 19 text."),
+				new Block("p", 8, 20).AddVerse("20", "Verse 20 text."),
+				new Block("p", 8, 21).AddVerse("21", "Verse 21 text.")
+			};
 			Block.GetSwappedReferenceText(vernBlocks, "MAT", 8, currentRow, ScrVers.English,
 				"{19}"+  separator + "Cool. {20}" + separator + "Fine", "This is another chunk of some verse.",
 				out var newRowAValue, out var newRowBValue);
@@ -1610,12 +1656,14 @@ namespace GlyssenEngineTests.Script
 		public void GetSwappedReferenceText_RowAHasNonLeadingVerseNumber_RowBHasNoVerseNumber_EntireContentsSwap(
 			string separator, int currentRow)
 		{
-			var vernBlocks = new List<Block>();
-			vernBlocks.Add(new Block("p", 8, 17).AddVerse("17", "Verse 17 text."));
-			vernBlocks.Add(new Block("p", 8, 18).AddVerse("18", "Verse 18 text."));
-			vernBlocks.Add(new Block("p", 8, 19).AddVerse("19", "Verse 19 text."));
-			vernBlocks.Add(new Block("p", 8, 20).AddVerse("20", "Verse 20 text."));
-			vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text."));
+			var vernBlocks = new List<Block>
+			{
+				new Block("p", 8, 17).AddVerse("17", "Verse 17 text."),
+				new Block("p", 8, 18).AddVerse("18", "Verse 18 text."),
+				new Block("p", 8, 19).AddVerse("19", "Verse 19 text."),
+				new Block("p", 8, 20).AddVerse("20", "Verse 20 text."),
+				new Block("p", 8, 21).AddVerse("21", "Verse 21 text.")
+			};
 			Block.GetSwappedReferenceText(vernBlocks, "MAT", 8, currentRow, ScrVers.English,
 				"Cool. {20}" + separator + "Fine", "This is another chunk of some verse.",
 				out var newRowAValue, out var newRowBValue);
@@ -1629,12 +1677,14 @@ namespace GlyssenEngineTests.Script
 		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBHasNonLeadingVerseNumber_LeadingVerseStaysWithRowA(
 			string separator, int currentRow)
 		{
-			var vernBlocks = new List<Block>();
-			vernBlocks.Add(new Block("p", 8, 17).AddVerse("17", "Verse 17 text."));
-			vernBlocks.Add(new Block("p", 8, 18).AddVerse("18", "Verse 18 text."));
-			vernBlocks.Add(new Block("p", 8, 19).AddVerse("19", "Verse 19 text."));
-			vernBlocks.Add(new Block("p", 8, 20).AddVerse("20", "Verse 20 text."));
-			vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text."));
+			var vernBlocks = new List<Block>
+			{
+				new Block("p", 8, 17).AddVerse("17", "Verse 17 text."),
+				new Block("p", 8, 18).AddVerse("18", "Verse 18 text."),
+				new Block("p", 8, 19).AddVerse("19", "Verse 19 text."),
+				new Block("p", 8, 20).AddVerse("20", "Verse 20 text."),
+				new Block("p", 8, 21).AddVerse("21", "Verse 21 text.")
+			};
 			Block.GetSwappedReferenceText(vernBlocks, "MAT", 8, currentRow, ScrVers.English,
 				"Cool. {20}" + separator + "Fine", "This is another chunk of some verse. {21}" + separator + "Verse twenty-one.",
 				out var newRowAValue, out var newRowBValue);
@@ -1648,12 +1698,14 @@ namespace GlyssenEngineTests.Script
 		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBHasLeadingVerseNumber_EntireContentsSwap(
 			string separator, int currentRow)
 		{
-			var vernBlocks = new List<Block>();
-			vernBlocks.Add(new Block("p", 8, 17).AddVerse("17", "Verse 17 text."));
-			vernBlocks.Add(new Block("p", 8, 18).AddVerse("18", "Verse 18 text."));
-			vernBlocks.Add(new Block("p", 8, 19).AddVerse("19", "Verse 19 text."));
-			vernBlocks.Add(new Block("p", 8, 20).AddVerse("20", "Verse 20 text."));
-			vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text."));
+			var vernBlocks = new List<Block>
+			{
+				new Block("p", 8, 17).AddVerse("17", "Verse 17 text."),
+				new Block("p", 8, 18).AddVerse("18", "Verse 18 text."),
+				new Block("p", 8, 19).AddVerse("19", "Verse 19 text."),
+				new Block("p", 8, 20).AddVerse("20", "Verse 20 text."),
+				new Block("p", 8, 21).AddVerse("21", "Verse 21 text.")
+			};
 			Block.GetSwappedReferenceText(vernBlocks, "MAT", 8, currentRow, ScrVers.English,
 				"{19}" + separator + "Cool. {20}" + separator + "Fine", "{21}" + separator + "Verse twenty-one.",
 				out var newRowAValue, out var newRowBValue);
@@ -1664,9 +1716,11 @@ namespace GlyssenEngineTests.Script
 		[Test]
 		public void GetSwappedReferenceText_RowAIsNull_EntireContentsSwap()
 		{
-			var vernBlocks = new List<Block>();
-			vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text. "));
-			vernBlocks.Add(new Block("p", 8, 21).AddText("Blah."));
+			var vernBlocks = new List<Block>
+			{
+				new Block("p", 8, 21).AddVerse("21", "Verse 21 text. "),
+				new Block("p", 8, 21).AddText("Blah.")
+			};
 			Block.GetSwappedReferenceText(vernBlocks, "MAT", 8, 0, ScrVers.English, null, "{21} Verse twenty-one.",
 				out string newRowAValue, out string newRowBValue);
 			
@@ -1677,9 +1731,11 @@ namespace GlyssenEngineTests.Script
 		[Test]
 		public void GetSwappedReferenceText_RowBIsNull_EntireContentsSwap()
 		{
-			var vernBlocks = new List<Block>();
-			vernBlocks.Add(new Block("p", 8, 21).AddVerse("21", "Verse 21 text. "));
-			vernBlocks.Add(new Block("p", 8, 21).AddText("Blah."));
+			var vernBlocks = new List<Block>
+			{
+				new Block("p", 8, 21).AddVerse("21", "Verse 21 text. "),
+				new Block("p", 8, 21).AddText("Blah.")
+			};
 			Block.GetSwappedReferenceText(vernBlocks, "MAT", 8, 0, ScrVers.English, "{21} Verse twenty-one.", null,
 				out string newRowAValue, out string newRowBValue);
 
@@ -1748,7 +1804,7 @@ namespace GlyssenEngineTests.Script
 			Block.FormatChapterAnnouncement = (bookCode, chapterNumber) => $"{bookCode} {chapterNumber}";
 			Assert.AreEqual("MAT 1".Length, chapterAnnouncementBlock.Length);
 
-			// If the formating Func returns null, we get the text from the ScriptText element
+			// If the formatting Func returns null, we get the text from the ScriptText element
 			Block.FormatChapterAnnouncement = (s, i) => null;
 			Assert.AreEqual(text.Length, chapterAnnouncementBlock.Length);
 
@@ -1897,7 +1953,7 @@ namespace GlyssenEngineTests.Script
 		/// PG-1311: Test that the initial start verse number for the new block is set correctly (based on first actual verse element)
 		/// </summary>
 		[TestCase("[")] // This is the likely case
-		[TestCase(".")] // This would probably be a mistake (see ENHANCE comment in SplitBlockDlg.DetermineSplitLocatino),
+		[TestCase(".")] // This would probably be a mistake (see ENHANCE comment in SplitBlockDlg.DetermineSplitLocation),
 						// but if the user did it, we would also need this same behavior.
 		public void SplitBlock_SplitBeforeTrailingPunctuation_NewBlockInitialVerseNumberBasedOnFirstVerseNumber(string trailingPunctuation)
 		{
@@ -2092,7 +2148,7 @@ namespace GlyssenEngineTests.Script
 		{
 			var block = new Block("p", 1, 2)
 			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", StandardCharacter.Narrator),
+				CharacterId = GetStandardCharacterId("MAT", StandardCharacter.Narrator),
 				BookCode = "MAT",
 				BlockElements =
 				{
@@ -2109,7 +2165,7 @@ namespace GlyssenEngineTests.Script
 		{
 			var block = new Block("p", 1, 2)
 			{
-				CharacterId = CharacterVerseData.kNeedsReview,
+				CharacterId = kNeedsReview,
 				BookCode = "MAT",
 				BlockElements =
 				{
@@ -2119,7 +2175,7 @@ namespace GlyssenEngineTests.Script
 			};
 			Assert.IsTrue(block.TryMatchToReportingClause(new []{"el dijo"}, ReferenceText.GetStandardReferenceText(ReferenceTextType.English),
 				40, ScrVers.English));
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", StandardCharacter.Narrator),
+			Assert.AreEqual(GetStandardCharacterId("MAT", StandardCharacter.Narrator),
 				block.CharacterId);
 		}
 

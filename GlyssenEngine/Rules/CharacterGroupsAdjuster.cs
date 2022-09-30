@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using GlyssenEngine.Character;
+using GlyssenCharacters;
 using SIL.Extensions;
+using CharacterGroup = GlyssenEngine.Character.CharacterGroup;
 
 namespace GlyssenEngine.Rules
 {

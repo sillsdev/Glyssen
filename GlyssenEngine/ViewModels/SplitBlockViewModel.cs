@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using Glyssen.Shared;
-using GlyssenEngine.Character;
+using GlyssenCharacters;
 using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
 using static System.String;

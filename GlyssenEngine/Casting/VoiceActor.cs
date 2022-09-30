@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
-using GlyssenEngine.Character;
+using GlyssenCharacters;
 
 namespace GlyssenEngine.Casting
 {

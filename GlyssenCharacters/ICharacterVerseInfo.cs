@@ -3,7 +3,7 @@ using Glyssen.Shared;
 using SIL.ObjectModel;
 using SIL.Scripture;
 
-namespace GlyssenEngine.Character
+namespace GlyssenCharacters
 {
 	public interface ICharacterDeliveryInfo
 	{

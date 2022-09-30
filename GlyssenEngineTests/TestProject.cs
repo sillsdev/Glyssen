@@ -6,15 +6,16 @@ using System.Threading;
 using System.Xml;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
+using GlyssenCharacters;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
-using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
 using InMemoryTestPersistence;
 using NUnit.Framework;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
 using SIL.WritingSystems;
+using static System.String;
 
 namespace GlyssenEngineTests
 {
@@ -49,7 +50,7 @@ namespace GlyssenEngineTests
 			Project.FontRepository = new TestFontRepository();
 		}
 
-		private static Exception m_errorDuringProjectCreation;
+		private static Exception s_errorDuringProjectCreation;
 		[SuppressMessage("ReSharper", "InconsistentNaming")]
 		public enum TestBook
 		{
@@ -102,14 +103,16 @@ namespace GlyssenEngineTests
 
 		public static Project CreateTestProject(string versificationInfo, params TestBook[] booksToInclude)
 		{
-			m_errorDuringProjectCreation = null;
+			s_errorDuringProjectCreation = null;
 
 			AppDomain.CurrentDomain.UnhandledException += HandleErrorDuringProjectCreation;
 			var metadataId = TestContext.CurrentContext.Test.ID;
 			try
 			{
-				var sampleMetadata = new GlyssenDblTextMetadata();
-				sampleMetadata.AvailableBooks = new List<Book>();
+				var sampleMetadata = new GlyssenDblTextMetadata
+				{
+					AvailableBooks = new List<Book>()
+				};
 				var books = new List<UsxDocument>();
 
 				foreach (var testBook in booksToInclude)
@@ -128,7 +131,7 @@ namespace GlyssenEngineTests
 				var project = new Project(sampleMetadata, books, SfmLoader.GetUsfmStylesheet(), sampleWs, versificationInfo);
 
 				// Wait for quote parse to finish
-				while (project.ProjectState != ProjectState.FullyInitialized && m_errorDuringProjectCreation == null)
+				while (project.ProjectState != ProjectState.FullyInitialized && s_errorDuringProjectCreation == null)
 					Thread.Sleep(30);
 			}
 			finally
@@ -136,15 +139,15 @@ namespace GlyssenEngineTests
 				AppDomain.CurrentDomain.UnhandledException -= HandleErrorDuringProjectCreation;
 			}
 
-			if (m_errorDuringProjectCreation != null)
-				throw m_errorDuringProjectCreation;
+			if (s_errorDuringProjectCreation != null)
+				throw s_errorDuringProjectCreation;
 
 			return LoadExistingTestProject(metadataId);
 		}
 
 		private static void HandleErrorDuringProjectCreation(object sender, UnhandledExceptionEventArgs e)
 		{
-			m_errorDuringProjectCreation = (e.ExceptionObject as Exception) ?? new Exception("Something went wrong on background thread trying to create test project.");
+			s_errorDuringProjectCreation = (e.ExceptionObject as Exception) ?? new Exception("Something went wrong on background thread trying to create test project.");
 		} 
 
 		private class TestProjectStub: IUserProject
@@ -206,10 +209,9 @@ namespace GlyssenEngineTests
 
 		private static void AddBook(TestBook testBook, GlyssenDblTextMetadata metadata, List<UsxDocument> usxDocuments)
 		{
-			var book = new Book();
-			book.IncludeInScript = true;
+			var book = new Book { IncludeInScript = true };
 
-			XmlDocument xmlDocument = new XmlDocument();
+			var xmlDocument = new XmlDocument();
 
 			switch (testBook)
 			{
@@ -235,7 +237,7 @@ namespace GlyssenEngineTests
 					book.Code = "PSA";
 					book.LongName = "The Book of Psalms";
 					book.ShortName = "Psalms";
-					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					xmlDocument.LoadXml(Format(Properties.Resources.TestEmptyBook, book.Code));
 					break;
 				case TestBook.OBA:
 					book.Code = "OBA";
@@ -277,7 +279,7 @@ namespace GlyssenEngineTests
 					book.Code = "ROM";
 					book.LongName = "The Epistle of Paul to the Romans";
 					book.ShortName = "Romans";
-					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					xmlDocument.LoadXml(Format(Properties.Resources.TestEmptyBook, book.Code));
 					break;
 				case TestBook.ICO:
 					book.Code = "1CO";
@@ -289,7 +291,7 @@ namespace GlyssenEngineTests
 					book.Code = "2CO";
 					book.LongName = "The First Epistle of Paul to the Church of Corinth";
 					book.ShortName = "2 Corinthians";
-					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					xmlDocument.LoadXml(Format(Properties.Resources.TestEmptyBook, book.Code));
 					break;
 				case TestBook.GAL:
 					book.Code = "GAL";
@@ -307,43 +309,43 @@ namespace GlyssenEngineTests
 					book.Code = "PHP";
 					book.LongName = "The Epistle of Paul to the Philippians";
 					book.ShortName = "Philippians";
-					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					xmlDocument.LoadXml(Format(Properties.Resources.TestEmptyBook, book.Code));
 					break;
 				case TestBook.COL_NoData:
 					book.Code = "COL";
 					book.LongName = "The Epistle of Paul to the Colossians";
 					book.ShortName = "Colossians";
-					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					xmlDocument.LoadXml(Format(Properties.Resources.TestEmptyBook, book.Code));
 					break;
 				case TestBook.ITH_NoData:
 					book.Code = "1TH";
 					book.LongName = "The First Epistle of Paul to the Thessalonians";
 					book.ShortName = "1 Thessalonians";
-					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					xmlDocument.LoadXml(Format(Properties.Resources.TestEmptyBook, book.Code));
 					break;
 				case TestBook.IITH_NoData:
 					book.Code = "2TH";
 					book.LongName = "The Second Epistle of Paul to the Thessalonians";
 					book.ShortName = "2 Thessalonians";
-					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					xmlDocument.LoadXml(Format(Properties.Resources.TestEmptyBook, book.Code));
 					break;
 				case TestBook.ITI_NoData:
 					book.Code = "1TI";
 					book.LongName = "The First Epistle of Paul to Timothy";
 					book.ShortName = "1 Timothy";
-					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					xmlDocument.LoadXml(Format(Properties.Resources.TestEmptyBook, book.Code));
 					break;
 				case TestBook.IITI_NoData:
 					book.Code = "2TI";
 					book.LongName = "The Second Epistle of Paul to Timothy";
 					book.ShortName = "2 Timothy";
-					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					xmlDocument.LoadXml(Format(Properties.Resources.TestEmptyBook, book.Code));
 					break;
 				case TestBook.TIT_NoData:
 					book.Code = "TIT";
 					book.LongName = "The Epistle of Paul to Titus";
 					book.ShortName = "Titus";
-					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					xmlDocument.LoadXml(Format(Properties.Resources.TestEmptyBook, book.Code));
 					break;
 				case TestBook.PHM:
 					book.Code = "PHM";
@@ -361,19 +363,19 @@ namespace GlyssenEngineTests
 					book.Code = "JAS";
 					book.LongName = "The Epistle of James";
 					book.ShortName = "James";
-					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					xmlDocument.LoadXml(Format(Properties.Resources.TestEmptyBook, book.Code));
 					break;
 				case TestBook.IPE_NoData:
 					book.Code = "1PE";
 					book.LongName = "The First Epistle of Peter";
 					book.ShortName = "1 Peter";
-					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					xmlDocument.LoadXml(Format(Properties.Resources.TestEmptyBook, book.Code));
 					break;
 				case TestBook.IIPE_NoData:
 					book.Code = "2PE";
 					book.LongName = "The Second Epistle of Peter";
 					book.ShortName = "2 Peter";
-					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					xmlDocument.LoadXml(Format(Properties.Resources.TestEmptyBook, book.Code));
 					break;
 				case TestBook.IJN:
 					book.Code = "1JN";
@@ -406,7 +408,7 @@ namespace GlyssenEngineTests
 					xmlDocument.LoadXml(Properties.Resources.TestREV);
 					break;
 				default:
-					throw new ArgumentOutOfRangeException("testBook", testBook, null);
+					throw new ArgumentOutOfRangeException(nameof(testBook), testBook, null);
 			}
 
 			var insertAt = 0;

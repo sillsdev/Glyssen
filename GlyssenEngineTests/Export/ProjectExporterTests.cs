@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using Glyssen.Shared;
+using GlyssenCharacters;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Casting;

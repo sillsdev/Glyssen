@@ -1,6 +1,5 @@
 ﻿using Glyssen.Shared;
 using GlyssenEngine;
-using GlyssenEngine.Character;
 using GlyssenEngine.Script;
 using NUnit.Framework;
 using Paratext.Data;
@@ -14,8 +13,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Xml;
-using static GlyssenEngine.Character.CharacterVerseData;
-using Resources = GlyssenEngineTests.Properties.Resources;
+using GlyssenCharacters;
+using static GlyssenCharacters.CharacterVerseData;
+using Resources = GlyssenCharactersTests.Properties.Resources;
 
 namespace GlyssenEngineTests
 {

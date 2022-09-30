@@ -7,7 +7,7 @@ using SIL;
 using SIL.Scripture;
 using static System.String;
 
-namespace GlyssenEngine.Character
+namespace GlyssenCharacters
 {
 	// REVIEW: It would be really nice to be able to make this Flags, but some of the useful "flag" values
 	// (e.g., Expected) would not be valid values to set the property of a CharacterSpeakingMode to, so
@@ -161,7 +161,7 @@ namespace GlyssenEngine.Character
 	public class CharacterSpeakingMode : ICharacterDeliveryInfo
 	{
 		public const string kScriptureCharacter = "scripture";
-		internal const string kMultiCharacterIdSeparator = "/";
+		public const string kMultiCharacterIdSeparator = "/";
 		private string m_localizedCharacter;
 		private string m_localizedAlias;
 

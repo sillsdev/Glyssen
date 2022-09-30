@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using GlyssenCharacters.Properties;
 using SIL.Scripture;
 
-namespace GlyssenEngine.Character
+namespace GlyssenCharacters
 {
 	public class CharacterDetailData
 	{

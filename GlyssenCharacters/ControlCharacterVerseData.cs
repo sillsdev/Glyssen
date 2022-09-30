@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Glyssen.Shared;
+using GlyssenCharacters.Properties;
 using SIL.Extensions;
 using SIL.Scripture;
 using static System.String;
 
-namespace GlyssenEngine.Character
+namespace GlyssenCharacters
 {
 	public class ControlCharacterVerseData : CharacterVerseData
 	{
@@ -165,6 +166,13 @@ namespace GlyssenEngine.Character
 			return result;
 		}
 
+		public static IEnumerable<CharacterSpeakingMode> GetMatchingCharacters(int bookNum,
+			int chapter, IVerse verseOrBridge, string character, ScrVers versification = null,
+			bool includeAlternatesAndRareQuotes = false, bool includeNarratorOverrides = false) =>
+			Singleton.GetCharacters(bookNum, chapter, verseOrBridge, versification,
+					includeAlternatesAndRareQuotes, includeNarratorOverrides)
+				.Where(cv => cv.Character == character);
+
 		/// <summary>
 		/// Even though two CharacterSpeakingModes are equal if their character and delivery values are equal, some are "more
 		/// equal than others". This custom intersection logic prefers regular entries over unusual (rare/alternate ones) and
@@ -172,7 +180,7 @@ namespace GlyssenEngine.Character
 		/// </summary>
 		/// <param name="result"></param>
 		/// <param name="entriesForCurrentVerseBridge"></param>
-		internal void PerformPreferentialIntersection(ref HashSet<CharacterSpeakingMode> result, ISet<CharacterSpeakingMode> entriesForCurrentVerseBridge)
+		public void PerformPreferentialIntersection(ref HashSet<CharacterSpeakingMode> result, ISet<CharacterSpeakingMode> entriesForCurrentVerseBridge)
 		{
 			if (result.Any())
 			{

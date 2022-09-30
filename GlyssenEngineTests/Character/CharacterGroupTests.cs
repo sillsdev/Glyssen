@@ -1,4 +1,5 @@
-﻿using GlyssenEngine;
+﻿using GlyssenCharacters;
+using GlyssenEngine;
 using GlyssenEngine.Casting;
 using GlyssenEngine.Character;
 using GlyssenEngine.Rules;

@@ -228,7 +228,7 @@
 			this.m_listboxExisting.Sorted = true;
 			this.m_listboxExisting.TabIndex = 1;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_listboxExisting, false);
-			this.m_listboxExisting.SelectedIndexChanged += new System.EventHandler(this.Listboxes_SelectedIndexChanged);
+			this.m_listboxExisting.SelectedIndexChanged += new System.EventHandler(this.ListBoxes_SelectedIndexChanged);
 			// 
 			// m_listboxNew
 			// 
@@ -243,7 +243,7 @@
 			this.m_listboxNew.Sorted = true;
 			this.m_listboxNew.TabIndex = 2;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_listboxNew, false);
-			this.m_listboxNew.SelectedIndexChanged += new System.EventHandler(this.Listboxes_SelectedIndexChanged);
+			this.m_listboxNew.SelectedIndexChanged += new System.EventHandler(this.ListBoxes_SelectedIndexChanged);
 			// 
 			// tableLayoutPanel1
 			// 

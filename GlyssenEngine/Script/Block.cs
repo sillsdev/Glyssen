@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Xml.Serialization;
 using Glyssen.Shared;
-using GlyssenEngine.Character;
+using GlyssenCharacters;
 using GlyssenEngine.Quote;
 using GlyssenEngine.Utilities;
 using SIL.Code;

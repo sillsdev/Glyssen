@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using GlyssenEngine.Character;
+using GlyssenCharacters;
 using SIL.Xml;
 
 namespace DevTools.BiblicalTerms

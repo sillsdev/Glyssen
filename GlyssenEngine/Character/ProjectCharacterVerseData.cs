@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Glyssen.Shared;
+using GlyssenCharacters;
 using GlyssenEngine.Script;
 using SIL.Extensions;
 using SIL.Scripture;
@@ -38,8 +39,10 @@ namespace GlyssenEngine.Character
 			bool added = false;
 			foreach (var verse in block.AllVerses)
 			{
-				if (!ControlCharacterVerseData.Singleton.GetCharacters(bookNumber, block.ChapterNumber, verse, m_versification, true, true)
-					.Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? Empty)))
+				if (!ControlCharacterVerseData.GetMatchingCharacters(bookNumber,
+						    block.ChapterNumber, verse, block.CharacterId,
+						    m_versification, true, true)
+					.Any(c => c.Delivery == (block.Delivery ?? Empty)))
 				{
 					foreach (var v in verse.AllVerseNumbers)
 					{

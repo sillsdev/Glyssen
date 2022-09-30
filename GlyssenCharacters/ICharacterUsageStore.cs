@@ -2,7 +2,7 @@
 using Glyssen.Shared;
 using SIL.Scripture;
 
-namespace GlyssenEngine.Character
+namespace GlyssenCharacters
 {
 	/// <summary>
 	/// A repository of information about "official" characters and their

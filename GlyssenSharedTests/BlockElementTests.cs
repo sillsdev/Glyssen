@@ -3,7 +3,7 @@ using NUnit.Framework;
 using SIL.TestUtilities;
 using SIL.Xml;
 
-namespace GlyssenTests
+namespace GlyssenSharedTests
 {
 	class BlockElementTests
 	{

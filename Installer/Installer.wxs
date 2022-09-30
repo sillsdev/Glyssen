@@ -99,6 +99,14 @@ are trying to support, you're better off using non-advertised shortcuts." -->
             <File Id="GlyssenShared.pdb" Name="GlyssenShared.pdb" KeyPath="yes" Source="..\output\release\GlyssenShared.pdb" />
           </Component>
 
+          <Component Id="GlyssenCharacters.dll" Guid="*" Win64="yes">
+              <File Id="GlyssenCharacters.dll" Name="GlyssenCharacters.dll" KeyPath="yes" Source="..\output\release\GlyssenCharacters.dll" ProcessorArchitecture="x64"/>
+          </Component>
+
+          <Component Id="GlyssenCharacters.pdb" Guid="*">
+              <File Id="GlyssenCharacters.pdb" Name="GlyssenCharacters.pdb" KeyPath="yes" Source="..\output\release\GlyssenCharacters.pdb" />
+          </Component>
+
           <Component Id="GlyssenEngine.dll" Guid="*" Win64="yes">
             <File Id="GlyssenEngine.dll" Name="GlyssenEngine.dll" KeyPath="yes" Source="..\output\release\GlyssenEngine.dll" ProcessorArchitecture="x64"/>
           </Component>
@@ -327,6 +335,7 @@ are trying to support, you're better off using non-advertised shortcuts." -->
       <ComponentRef Id="GlyssenShortcut" />
       <ComponentRef Id="Glyssen.exe.config" />
       <ComponentRef Id="GlyssenShared.dll"/>
+      <ComponentRef Id="GlyssenCharacters.dll"/>
       <ComponentRef Id="GlyssenEngine.dll"/>
       <ComponentRef Id="GlyssenFileBasedPersistence.dll"/>
       <ComponentRef Id="Analytics.dll"/>
@@ -339,6 +348,7 @@ are trying to support, you're better off using non-advertised shortcuts." -->
 
       <ComponentRef Id="Glyssen.pdb" />
       <ComponentRef Id="GlyssenShared.pdb" />
+      <ComponentRef Id="GlyssenCharacters.pdb" />
       <ComponentRef Id="GlyssenEngine.pdb" />
       <ComponentRef Id="GlyssenFileBasedPersistence.pdb"/>
 

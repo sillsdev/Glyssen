@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using GlyssenEngine;
 using GlyssenEngine.Script;
 using NUnit.Framework;
 using SIL.DblBundle.Text;
@@ -15,7 +14,7 @@ namespace GlyssenEngineTests.Script
 		public void OldTestament()
 		{
 			BookSet oldTestament = BookSetUtils.OldTestament;
-			IEnumerable<string> otBookIds = oldTestament.SelectedBookIds;
+			IEnumerable<string> otBookIds = oldTestament.SelectedBookIds.ToList();
 			Assert.AreEqual(39, otBookIds.Count());
 			Assert.IsTrue(otBookIds.Contains("GEN"));
 			Assert.IsTrue(otBookIds.Contains("PSA"));
@@ -25,7 +24,7 @@ namespace GlyssenEngineTests.Script
 		public void NewTestament()
 		{
 			BookSet newTestament = BookSetUtils.NewTestament;
-			IEnumerable<string> ntBookIds = newTestament.SelectedBookIds;
+			IEnumerable<string> ntBookIds = newTestament.SelectedBookIds.ToList();
 			Assert.AreEqual(27, ntBookIds.Count());
 			Assert.IsTrue(ntBookIds.Contains("MAT"));
 			Assert.IsTrue(ntBookIds.Contains("TIT"));
@@ -38,7 +37,7 @@ namespace GlyssenEngineTests.Script
 			var books = new List<string> { "MRK", "LUK", "1TH" };
 			IEnumerable<BookScript> bookScripts = books.ToBookScriptEnumerable();
 			BookSet bookSet = bookScripts.ToBookSet();
-			IEnumerable<string> bookIds = bookSet.SelectedBookIds;
+			IEnumerable<string> bookIds = bookSet.SelectedBookIds.ToList();
 			Assert.AreEqual(3, bookIds.Count());
 			Assert.IsTrue(bookIds.Contains("MRK"));
 			Assert.IsTrue(bookIds.Contains("LUK"));
@@ -51,7 +50,7 @@ namespace GlyssenEngineTests.Script
 			var books = new List<string> { "MRK", "LUK", "1TH" };
 			IEnumerable<Book> bookScripts = books.ToBookEnumerable();
 			BookSet bookSet = bookScripts.ToBookSet();
-			IEnumerable<string> bookIds = bookSet.SelectedBookIds;
+			IEnumerable<string> bookIds = bookSet.SelectedBookIds.ToList();
 			Assert.AreEqual(3, bookIds.Count());
 			Assert.IsTrue(bookIds.Contains("MRK"));
 			Assert.IsTrue(bookIds.Contains("LUK"));
@@ -150,19 +149,13 @@ namespace GlyssenEngineTests.Script
 
 	public static class BookSetUtilsTestsExtensions
 	{
-		public static string BookSummary(this IEnumerable<string> bookStrs)
-		{
-			return bookStrs.Select(b => new BookScript(b, Enumerable.Empty<Block>(), null)).BookSummary();
-		}
+		public static string BookSummary(this IEnumerable<string> bookIds) =>
+			bookIds.Select(b => new BookScript(b, Enumerable.Empty<Block>(), null)).BookSummary();
 
-		public static IEnumerable<BookScript> ToBookScriptEnumerable(this IEnumerable<string> bookStrs)
-		{
-			return bookStrs.Select(b => new BookScript(b, Enumerable.Empty<Block>(), null));
-		}
+		public static IEnumerable<BookScript> ToBookScriptEnumerable(this IEnumerable<string> bookIds) =>
+			bookIds.Select(b => new BookScript(b, Enumerable.Empty<Block>(), null));
 
-		public static IEnumerable<Book> ToBookEnumerable(this IEnumerable<string> bookStrs)
-		{
-			return bookStrs.Select(b => new Book{Code = b});
-		}
+		public static IEnumerable<Book> ToBookEnumerable(this IEnumerable<string> bookIds) =>
+			bookIds.Select(b => new Book{Code = b});
 	}
 }

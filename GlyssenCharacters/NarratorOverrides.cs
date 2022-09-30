@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Xml.Serialization;
+using GlyssenCharacters.Properties;
 using SIL.Scripture;
 using SIL.Xml;
 using static System.Int32;
 
-namespace GlyssenEngine.Character
+namespace GlyssenCharacters
 {
 	[XmlRoot("NarratorOverrides")]
 	public class NarratorOverrides

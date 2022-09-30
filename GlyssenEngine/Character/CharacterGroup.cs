@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Xml.Serialization;
 using Glyssen.Shared;
+using GlyssenCharacters;
 using GlyssenEngine.Casting;
 using GlyssenEngine.Rules;
 using SIL;

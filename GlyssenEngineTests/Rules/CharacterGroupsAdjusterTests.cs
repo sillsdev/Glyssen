@@ -1,11 +1,11 @@
 ﻿using System.Linq;
+using GlyssenCharacters;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Casting;
-using GlyssenEngine.Character;
 using GlyssenEngine.Rules;
 using NUnit.Framework;
 using SIL.Scripture;
-using Resources = GlyssenEngineTests.Properties.Resources;
+using Resources = GlyssenCharactersTests.Properties.Resources;
 
 namespace GlyssenEngineTests.Rules
 {

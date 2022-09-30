@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using GlyssenEngine.Character;
+using GlyssenCharacters;
+using GlyssenCharacters.Properties;
 using NUnit.Framework;
+using NarratorOverrides = GlyssenCharacters.NarratorOverrides;
 
 namespace ControlDataIntegrityTests
 {
@@ -24,7 +26,7 @@ namespace ControlDataIntegrityTests
 			Regex regex = new Regex("^[^\t/]+\t\\-?\\d+\t(" + typeof(CharacterGender).GetRegexEnumValuesString() + ")?\t(" +
 				typeof(CharacterAge).GetRegexEnumValuesString() + ")?\tY?\t[^\t]*\t[^\t]*\t?[^\t]*$", RegexOptions.Compiled);
 			Regex extraSpacesRegex = new Regex("^ |\t | \t| $", RegexOptions.Compiled);
-			string[] allLines = GlyssenEngine.Resources.CharacterDetail.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+			string[] allLines = Resources.CharacterDetail.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
 			var set = new HashSet<string>();
 			foreach (var line in allLines.Skip(1))

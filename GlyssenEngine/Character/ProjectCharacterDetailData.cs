@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using GlyssenCharacters;
 using SIL.Reporting;
 using static System.String;
 

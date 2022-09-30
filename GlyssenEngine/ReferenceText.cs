@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
-using GlyssenEngine.Character;
+using GlyssenCharacters;
 using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
 using SIL.Extensions;
@@ -149,7 +149,8 @@ namespace GlyssenEngine
 		public string WordSeparator => " ";
 
 		public string HeSaidText => m_metadata.Language.HeSaidText ?? "he said.";
-		private static Regex s_regexEnglishReportingClause = new Regex(@"(?<clause>((?<pronoun>(He)|(She)|(They)) |((The )?(\w+ ){1,2}))said\b([^\.\w]*\w+){0,2})[,:]\s*$");
+		private static readonly Regex s_regexEnglishReportingClause =
+			new Regex(@"(?<clause>((?<pronoun>(He)|(She)|(They)) |((The )?(\w+ ){1,2}))said\b([^\.\w]*\w+){0,2})[,:]\s*$");
 
 		private bool BlockIsOmissibleReportingClause(Block refBlock, out string modifiedOmittedHeSaidText)
 		{
@@ -261,7 +262,7 @@ namespace GlyssenEngine
 			IReadOnlyCollection<string> reportingClauses = null, uint predeterminedBlockCount = 0, bool allowSplitting = true)
 		{
 			if (iBlock < 0 || iBlock >= vernacularBook.GetScriptBlocks().Count)
-				throw new ArgumentOutOfRangeException("iBlock");
+				throw new ArgumentOutOfRangeException(nameof(iBlock));
 
 			if (!CanDisplayReferenceTextForBook(vernacularBook))
 				return null;
@@ -510,13 +511,17 @@ namespace GlyssenEngine
 					// 2) The end refs don't match and the ref block has a character speaking in
 					// that is unexpected for the end ref (in which case the reference text
 					// probably has a mistake and should be looked at).
-					var correspondingReferenceBlocks = refBlockList.Skip(indexOfRefVerseStart).Take(numberOfRefBlocksInVerseChunk).ToList();
+					var correspondingReferenceBlocks = refBlockList.Skip(indexOfRefVerseStart)
+						.Take(numberOfRefBlocksInVerseChunk).ToList();
 					var lastRefBlock = correspondingReferenceBlocks.Last();
 					var endRef = lastRefBlock.EndRef(bookNum, Versification);
-					if (correspondingReferenceBlocks.First().StartRef(bookNum, Versification).CompareTo(vernInitStartVerse) == 0 &&
+					var startRef = correspondingReferenceBlocks.First()
+						.StartRef(bookNum, Versification);
+					if (startRef.CompareTo(vernInitStartVerse) == 0 &&
 						(endRef.CompareTo(lastVernVerseFound) == 0 ||
 						!lastRefBlock.IsQuote ||
-						ControlCharacterVerseData.Singleton.GetCharacters(bookNum, endRef.ChapterNum, endRef.VerseNum).Any(cv => cv.Character ==  lastRefBlock.CharacterId)))
+						ControlCharacterVerseData.GetMatchingCharacters(bookNum, endRef.ChapterNum,
+							new SingleVerse(endRef.VerseNum), lastRefBlock.CharacterId).Any()))
 					{
 						currentVernBlock.SetMatchedReferenceBlock(bookNum, vernacularVersification, this,
 							correspondingReferenceBlocks);

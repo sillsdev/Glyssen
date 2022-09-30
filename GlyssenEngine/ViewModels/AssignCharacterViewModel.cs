@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Glyssen.Shared;
+using GlyssenCharacters;
 using GlyssenEngine.Character;
 using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;

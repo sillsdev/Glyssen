@@ -1,11 +1,12 @@
-﻿using System.Xml.Serialization;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Xml.Serialization;
+using GlyssenCharacters.Properties;
 using SIL.Xml;
-using System;
 
-namespace GlyssenEngine.Character
+namespace GlyssenCharacters
 {
 	[XmlRoot(ElementName="StyleToCharacterMappings")]
 	public class StyleToCharacterMappings

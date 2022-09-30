@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using GlyssenEngine.Character;
+using CharacterGroup = GlyssenEngine.Character.CharacterGroup;
 
 namespace GlyssenEngine.UndoActions
 {

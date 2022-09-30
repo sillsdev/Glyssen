@@ -417,6 +417,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GlyssenCharacters\GlyssenCharacters.csproj">
+      <Project>{7e9e51ef-c687-441e-8a1a-d2a4b4a96d58}</Project>
+      <Name>GlyssenCharacters</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GlyssenEngineTests\GlyssenEngineTests.csproj">
       <Project>{aa6a1cfd-60a1-4f19-b88e-ca7758e2b4de}</Project>
       <Name>GlyssenEngineTests</Name>

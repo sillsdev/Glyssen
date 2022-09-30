@@ -19,7 +19,7 @@ namespace GlyssenEngineTests.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -202,85 +202,12 @@ namespace GlyssenEngineTests.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to #Character ID	Max Speakers	Gender	Age	Status	Comment	Reference Comment
-        ///2 other disciples	2	Male	Adult		Not Peter (Simon), Thomas, Nathaniel, James, or John	
-        ///250 Israelite leaders	250	Male	Adult			
-        ///a Jew	1	Male	Adult			
-        ///Aaron	1	Male	Adult			EXO 32:2 &lt;-(6 more)-&gt; NUM 12:12
-        ///Abednego	1	Male	Adult		original Hebrew name: Azariah	
-        ///Abigail	1	Female	Adult			1SA 25:19 &lt;-(8 more)-&gt; 1SA 25:41
-        ///Abijah, king of Judah	1	Male	Adult			2CH 13:4 &lt;-(7 more)-&gt; 2CH 13:12
-        ///Abimelech, king of Gerar	1	Male	Adult			GEN 20:4 &lt;- [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string TestCharacterDetail {
-            get {
-                return ResourceManager.GetString("TestCharacterDetail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to #Character ID	Max Speakers	Gender	Age	Status	Comment	Reference Comment
-        ///2 other disciples	2	Male	Adult		Not Peter (Simon), Thomas, Nathaniel, James, or John	
-        ///250 Israelite leaders	250	Male	Adult			
-        ///a Jew	1	Male	Adult			
-        ///Aaron	1	Male	Adult			EXO 32:2 &lt;-(6 more)-&gt; NUM 12:12
-        ///Abednego	1	Male	Adult		original Hebrew name: Azariah	
-        ///Abigail	1	Female	Adult			1SA 25:19 &lt;-(8 more)-&gt; 1SA 25:41
-        ///Abijah, king of Judah	1	Male	Adult			2CH 13:4 &lt;-(7 more)-&gt; 2CH 13:12
-        ///Abimelech, king of Gerar	1	Male	Adult			GEN 20:4 &lt;- [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string TestCharacterDetailOct2015 {
-            get {
-                return ResourceManager.GetString("TestCharacterDetailOct2015", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] TestCharacterGroups {
             get {
                 object obj = ResourceManager.GetObject("TestCharacterGroups", resourceCulture);
                 return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Control File Version	3	Generated	Thu, 04 Dec 2014 16:01:02 GMT
-        ///GEN	1	3	God		God (the LORD)
-        ///GEN	1	5	narrator-GEN		
-        ///GEN	1	6	God		God (the LORD)
-        ///GEN	1	8	narrator-GEN		
-        ///GEN	1	9	God		God (the LORD)
-        ///GEN	1	10	narrator-GEN		
-        ///GEN	1	11	God		God (the LORD)
-        ///GEN	1	14	God		God (the LORD)
-        ///GEN	1	15	God		God (the LORD)
-        ///GEN	1	20	God		God (the LORD)
-        ///GEN	1	22	God		God (the LORD)
-        ///GEN	1	24	God		God (the LORD)
-        ///GEN	1	26	God		God (the LORD)
-        ///GEN	1	28	God	blessing	God (the LORD)
-        ///GEN	1	29	God		God (the LORD)
-        ///GEN	1	30	G [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string TestCharacterVerse {
-            get {
-                return ResourceManager.GetString("TestCharacterVerse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Control File Version	79
-        ///#	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
-        ///# This is a TEST version of this file. It corresponds to version 79 of the actual production file (in use as of October 2015).
-        ///# It can be used together with TestCharacterDetailOct2015 for testing code that requires the character verse data and the
-        ///# character detail data to be in synch.
-        ///# This is a regex that can be used in VS to find places where the delivery changes for a character: (MAT\t[0-9]+\t [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string TestCharacterVerseOct2015 {
-            get {
-                return ResourceManager.GetString("TestCharacterVerseOct2015", resourceCulture);
             }
         }
         
@@ -504,40 +431,6 @@ namespace GlyssenEngineTests.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;
-        ///&lt;!-- This test version allows us to write unit tests against a known version of this file so that subsequent improvements won&apos;t break existing tests. --&gt;
-        ///&lt;NarratorOverrides&gt;
-        ///    &lt;Book id=&quot;EZR&quot;&gt;
-        ///      &lt;Override startChapter=&quot;7&quot; startVerse=&quot;27&quot; endChapter=&quot;9&quot; character=&quot;Ezra, priest and teacher&quot;/&gt;
-        ///    &lt;/Book&gt;
-        ///    &lt;Book id=&quot;NEH&quot;&gt;
-        ///        &lt;Override startChapter=&quot;1&quot; startVerse=&quot;1&quot; startBlock=&quot;2&quot; endChapter=&quot;2&quot; character=&quot;Nehemiah&quot;/&gt;
-        ///        &lt;Override startChapter=&quot; [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string TestNarratorOverrides {
-            get {
-                return ResourceManager.GetString("TestNarratorOverrides", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;
-        ///&lt;!-- This test version allows us to write unit tests against a known version of this file so that subsequent improvements won&apos;t break existing tests. --&gt;
-        ///&lt;NarratorOverrides&gt;
-        ///    &lt;Book id=&quot;EZR&quot;&gt;
-        ///      &lt;Override startChapter=&quot;7&quot; startVerse=&quot;27&quot; endChapter=&quot;9&quot; character=&quot;Ezra, priest and teacher&quot;/&gt;
-        ///    &lt;/Book&gt;
-        ///    &lt;Book id=&quot;NEH&quot;&gt;
-        ///        &lt;Override startChapter=&quot;1&quot; startVerse=&quot;1&quot; startBlock=&quot;2&quot; endChapter=&quot;2&quot; character=&quot;Nehemiah&quot;/&gt;
-        ///        &lt;Override startChapter=&quot; [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string TestNarratorOverrides1 {
-            get {
-                return ResourceManager.GetString("TestNarratorOverrides1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;usx version=&quot;2.0&quot;&gt;
         ///  &lt;book code=&quot;NUM&quot; style=&quot;id&quot;&gt;Some Bible from Asia&lt;/book&gt;
@@ -594,26 +487,6 @@ namespace GlyssenEngineTests.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;RelatedCharacterSets&gt;
-        ///	&lt;RelatedCharacters RelationshipType=&quot;SameCharacterWithMultipleAges&quot;&gt;
-        ///		&lt;CharacterId&gt;Barzillai&lt;/CharacterId&gt;
-        ///		&lt;CharacterId&gt;Barzillai (old)&lt;/CharacterId&gt;
-        ///	&lt;/RelatedCharacters&gt;
-        ///	&lt;RelatedCharacters RelationshipType=&quot;SameCharacterWithMultipleAges&quot;&gt;
-        ///		&lt;CharacterId&gt;David&lt;/CharacterId&gt;
-        ///		&lt;CharacterId&gt;David (old)&lt;/CharacterId&gt;
-        ///	&lt;/RelatedCharacters&gt;
-        ///	&lt;RelatedCharacters RelationshipType=&quot;SameCharacterWithMultipleAges&quot;&gt;
-        ///		&lt;CharacterId&gt;Elisha&lt;/CharacterId&gt;
-        ///		&lt;CharacterId&gt;Elisha (old)&lt; [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string TestRelatedCharacters {
-            get {
-                return ResourceManager.GetString("TestRelatedCharacters", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;usx version=&quot;2.0&quot;&gt;
         ///  &lt;book code=&quot;REV&quot; style=&quot;id&quot;&gt;Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013&lt;/book&gt;
@@ -651,26 +524,6 @@ namespace GlyssenEngineTests.Properties {
         internal static string TestRUT {
             get {
                 return ResourceManager.GetString("TestRUT", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to # Versification  &quot;Test&quot;
-        ///# Version=1.9
-        ///#
-        ///# List of books, chapters, verses
-        ///# One line per book.
-        ///# One entry for each chapter.
-        ///# Verse number is the maximum verse number for that chapter.
-        ///# See the lines containing =&apos;s below for verse mappings.
-        ///#
-        ///#--------------------------------------------------
-        ///# Old Testament
-        ///GEN 1:31 2:25 3:24 4:26 5:32 6:22 7:24 8:22 9:29 10:32 11:32 12:20 13:18 14:24 15:21 16:16 17:27 18:33 19:38 20:18 21:34 22:24 23:20 24:67 25:34 26:35 27:46 28:22 29:35 30:43 31:54 32:33 3 [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string TestVersification {
-            get {
-                return ResourceManager.GetString("TestVersification", resourceCulture);
             }
         }
     }

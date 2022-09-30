@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
-using GlyssenEngine.Character;
 using GlyssenEngine.UndoActions;
 using GlyssenEngine.Casting;
 using SIL;
 using SIL.Extensions;
+using CharacterGroup = GlyssenEngine.Character.CharacterGroup;
 
 namespace GlyssenEngine.ViewModels
 {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using GlyssenCharacters;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Casting;
@@ -9,7 +10,7 @@ using GlyssenEngine.Character;
 using GlyssenEngine.Rules;
 using NUnit.Framework;
 using SIL.Extensions;
-using Resources = GlyssenEngineTests.Properties.Resources;
+using Resources = GlyssenCharactersTests.Properties.Resources;
 
 namespace GlyssenEngineTests.Rules
 {
@@ -29,16 +30,20 @@ namespace GlyssenEngineTests.Rules
 		[Test]
 		public void DistributeBooksAmongNarratorGroups_FourAuthorsOfFourBooksAmongThreeNarrators_TwoAuthorsWithShortestBooksCombined()
 		{
-			var keyStrokesByBook = new Dictionary<string, int>();
-			keyStrokesByBook[GetNarratorId("JER")] = 52000;
-			keyStrokesByBook[GetNarratorId("EZK")] = 48000;
-			keyStrokesByBook[GetNarratorId("HOS")] = 12000;
-			keyStrokesByBook[GetNarratorId("JUD")] = 1000;
-			var authorStats = new List<AuthorStats>();
-			authorStats.Add(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("JER"), keyStrokesByBook, "JER"));
-			authorStats.Add(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("EZK"), keyStrokesByBook, "EZK"));
-			authorStats.Add(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("HOS"), keyStrokesByBook, "HOS"));
-			authorStats.Add(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("JUD"), keyStrokesByBook, "JUD"));
+			var keyStrokesByBook = new Dictionary<string, int>
+			{
+				[GetNarratorId("JER")] = 52000,
+				[GetNarratorId("EZK")] = 48000,
+				[GetNarratorId("HOS")] = 12000,
+				[GetNarratorId("JUD")] = 1000
+			};
+			var authorStats = new List<AuthorStats>
+			{
+				new AuthorStats(BiblicalAuthors.GetAuthorOfBook("JER"), keyStrokesByBook, "JER"),
+				new AuthorStats(BiblicalAuthors.GetAuthorOfBook("EZK"), keyStrokesByBook, "EZK"),
+				new AuthorStats(BiblicalAuthors.GetAuthorOfBook("HOS"), keyStrokesByBook, "HOS"),
+				new AuthorStats(BiblicalAuthors.GetAuthorOfBook("JUD"), keyStrokesByBook, "JUD")
+			};
 
 			var narratorGroups = GetNarratorCharacterGroups(3);
 
@@ -53,23 +58,26 @@ namespace GlyssenEngineTests.Rules
 		[Test]
 		public void DistributeBooksAmongNarratorGroups_SixSimilarAuthorsOfEightBooksAmongThreeNarrators_AuthorOfLargestBookCombinesWithShortestEtc()
 		{
-			var keyStrokesByBook = new Dictionary<string, int>();
-			keyStrokesByBook[GetNarratorId("GEN")] = 50000;
-			keyStrokesByBook[GetNarratorId("ISA")] = 66000;
-			keyStrokesByBook[GetNarratorId("JER")] = 52000;
-			keyStrokesByBook[GetNarratorId("EZK")] = 48000;
-			keyStrokesByBook[GetNarratorId("LUK")] = 24000; // 52000 combined
-			keyStrokesByBook[GetNarratorId("ACT")] = 28000;
-			keyStrokesByBook[GetNarratorId("JHN")] = 20000; // 42000 combined
-			keyStrokesByBook[GetNarratorId("REV")] = 22000;
-			var authorStats = new List<AuthorStats>();
-
-			authorStats.Add(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("GEN"), keyStrokesByBook, "GEN"));
-			authorStats.Add(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("ISA"), keyStrokesByBook, "ISA"));
-			authorStats.Add(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("JER"), keyStrokesByBook, "JER"));
-			authorStats.Add(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("EZK"), keyStrokesByBook, "EZK"));
-			authorStats.Add(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("LUK"), keyStrokesByBook, "LUK", "ACT"));
-			authorStats.Add(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("JHN"), keyStrokesByBook, "JHN", "REV"));
+			var keyStrokesByBook = new Dictionary<string, int>
+			{
+				[GetNarratorId("GEN")] = 50000,
+				[GetNarratorId("ISA")] = 66000,
+				[GetNarratorId("JER")] = 52000,
+				[GetNarratorId("EZK")] = 48000,
+				[GetNarratorId("LUK")] = 24000, // 52000 combined
+				[GetNarratorId("ACT")] = 28000,
+				[GetNarratorId("JHN")] = 20000, // 42000 combined
+				[GetNarratorId("REV")] = 22000
+			};
+			var authorStats = new List<AuthorStats>
+			{
+				new AuthorStats(BiblicalAuthors.GetAuthorOfBook("GEN"), keyStrokesByBook, "GEN"),
+				new AuthorStats(BiblicalAuthors.GetAuthorOfBook("ISA"), keyStrokesByBook, "ISA"),
+				new AuthorStats(BiblicalAuthors.GetAuthorOfBook("JER"), keyStrokesByBook, "JER"),
+				new AuthorStats(BiblicalAuthors.GetAuthorOfBook("EZK"), keyStrokesByBook, "EZK"),
+				new AuthorStats(BiblicalAuthors.GetAuthorOfBook("LUK"), keyStrokesByBook, "LUK", "ACT"),
+				new AuthorStats(BiblicalAuthors.GetAuthorOfBook("JHN"), keyStrokesByBook, "JHN", "REV")
+			};
 
 			var narratorGroups = GetNarratorCharacterGroups(3);
 
@@ -92,13 +100,15 @@ namespace GlyssenEngineTests.Rules
 		[Test]
 		public void DistributeBooksAmongNarratorGroups_FourAuthorsOfSixBooksAmongFiveNarrators_AuthorWithLongestBooksSplit()
 		{
-			var keyStrokesByBook = new Dictionary<string, int>();
-			keyStrokesByBook[GetNarratorId("GEN")] = 50000;
-			keyStrokesByBook[GetNarratorId("EXO")] = 28000;
-			keyStrokesByBook[GetNarratorId("JER")] = 52000;
-			keyStrokesByBook[GetNarratorId("LAM")] = 6000;
-			keyStrokesByBook[GetNarratorId("HOS")] = 12000;
-			keyStrokesByBook[GetNarratorId("JUD")] = 1000;
+			var keyStrokesByBook = new Dictionary<string, int>
+			{
+				[GetNarratorId("GEN")] = 50000,
+				[GetNarratorId("EXO")] = 28000,
+				[GetNarratorId("JER")] = 52000,
+				[GetNarratorId("LAM")] = 6000,
+				[GetNarratorId("HOS")] = 12000,
+				[GetNarratorId("JUD")] = 1000
+			};
 
 			var narratorGroups = GetNarratorCharacterGroups(5);
 
@@ -120,13 +130,15 @@ namespace GlyssenEngineTests.Rules
 		[Test]
 		public void DistributeBooksAmongNarratorGroups_TwoAuthorsOfSixBooksAmongFiveNarrators_AuthorWithLongestBooksSplit()
 		{
-			var keyStrokesByBook = new Dictionary<string, int>();
-			keyStrokesByBook[GetNarratorId("GEN")] = 50000;
-			keyStrokesByBook[GetNarratorId("EXO")] = 28000;
-			keyStrokesByBook[GetNarratorId("LEV")] = 28000;
-			keyStrokesByBook[GetNarratorId("DEU")] = 28000;
-			keyStrokesByBook[GetNarratorId("JHN")] = 20000;
-			keyStrokesByBook[GetNarratorId("REV")] = 22000;
+			var keyStrokesByBook = new Dictionary<string, int>
+			{
+				[GetNarratorId("GEN")] = 50000,
+				[GetNarratorId("EXO")] = 28000,
+				[GetNarratorId("LEV")] = 28000,
+				[GetNarratorId("DEU")] = 28000,
+				[GetNarratorId("JHN")] = 20000,
+				[GetNarratorId("REV")] = 22000
+			};
 
 			var narratorGroups = GetNarratorCharacterGroups(5);
 
@@ -560,7 +572,7 @@ namespace GlyssenEngineTests.Rules
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
-			RelatedCharactersData.Source = GlyssenEngineTests.Properties.Resources.TestRelatedCharacters;
+			RelatedCharactersData.Source = Resources.TestRelatedCharacters;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK, TestProject.TestBook.JUD);
 		}
 
@@ -636,7 +648,7 @@ namespace GlyssenEngineTests.Rules
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
-			RelatedCharactersData.Source = GlyssenEngineTests.Properties.Resources.TestRelatedCharacters;
+			RelatedCharactersData.Source = Resources.TestRelatedCharacters;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.ACT, TestProject.TestBook.MRK,
 				TestProject.TestBook.GAL, TestProject.TestBook.IIPE_NoData);
 			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.NotSet;
@@ -830,7 +842,7 @@ namespace GlyssenEngineTests.Rules
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
-			RelatedCharactersData.Source = GlyssenEngineTests.Properties.Resources.TestRelatedCharacters;
+			RelatedCharactersData.Source = Resources.TestRelatedCharacters;
 			m_testProject = TestProject.CreateTestProject(
 				TestProject.TestBook.MAT,
 				TestProject.TestBook.MRK,
@@ -895,7 +907,7 @@ namespace GlyssenEngineTests.Rules
 
 		private void PopulateKeyStrokesByCharId(int charactersSpokenByNarratorOfGalatians,
 			int charactersSpokenByNarratorOf2Peter, int charactersSpokenByPaul, int charactersSpokenByPeter,
-			int defaultCharcCount = 9000)
+			int defaultCharCount = 9000)
 		{
 			m_keyStrokesByCharId = new Dictionary<string, int>
 			{
@@ -912,7 +924,7 @@ namespace GlyssenEngineTests.Rules
 			foreach (var bookNarrator in m_testProject.IncludedBookIds.Select(GetNarratorId))
 			{
 				if (!m_keyStrokesByCharId.ContainsKey(bookNarrator))
-					m_keyStrokesByCharId[bookNarrator] = defaultCharcCount;
+					m_keyStrokesByCharId[bookNarrator] = defaultCharCount;
 			}
 		}
 
@@ -935,7 +947,7 @@ namespace GlyssenEngineTests.Rules
 		[TestCase(30000, 30000, 1000, 999)]
 		[TestCase(30000, 29000, 1000, 1000)]
 		[TestCase(30000, 29000, 900, 1000)]
-		public void GeneratePossibilities_TwoNarrators_OnlyPaulGroupedwithCharacter(
+		public void GeneratePossibilities_TwoNarrators_OnlyPaulGroupedWithCharacter(
 			int charactersSpokenByNarratorOfGalatians, int charactersSpokenByNarratorOf2Peter,
 			int charactersSpokenByPaul, int charactersSpokenByPeter)
 		{

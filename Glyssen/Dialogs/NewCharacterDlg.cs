@@ -1,6 +1,6 @@
 ﻿using System.Data;
 using System.Windows.Forms;
-using GlyssenEngine.Character;
+using GlyssenCharacters;
 using L10NSharp;
 
 namespace Glyssen.Dialogs

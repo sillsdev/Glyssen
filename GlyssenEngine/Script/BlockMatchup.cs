@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Glyssen.Shared;
-using GlyssenEngine.Character;
+using GlyssenCharacters;
 using SIL.Extensions;
 using SIL.Reporting;
 using SIL.Scripture;

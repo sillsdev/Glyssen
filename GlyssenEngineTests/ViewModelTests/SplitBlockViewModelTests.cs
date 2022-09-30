@@ -1,6 +1,6 @@
 ﻿using System;
 using Glyssen.Shared;
-using GlyssenEngine.Character;
+using GlyssenCharacters;
 using GlyssenEngine.Script;
 using GlyssenEngine.ViewModels;
 using NUnit.Framework;
@@ -24,7 +24,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			var block = new Block("p", 4, 3);
 			block.BlockElements.Add(new ScriptText("Text"));
-			var model = new SplitBlockViewModel(new TestFont(), new [] {block}, new ICharacter[0], "MAT");
+			var model = new SplitBlockViewModel(new TestFont(), new [] {block}, Array.Empty<ICharacter>(), "MAT");
 			Assert.Throws<IndexOutOfRangeException>(
 				() => model.GetSplitTextAsHtml(block, 0, false, new[] {new BlockSplitData(1, block, "3", 5)}));
 		}
@@ -39,12 +39,13 @@ namespace GlyssenEngineTests.ViewModelTests
 			block.BlockElements.Add(new ScriptText("Text of vers " + open + "sic" + close + " four. "));
 			block.BlockElements.Add(new Verse("5"));
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
-			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, new ICharacter[0], "MAT");
+			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, Array.Empty<ICharacter>(), "MAT");
 
 			var expected = SplitBlockViewModel.BuildSplitLineHtml(1);
 			var actual = model.GetSplitTextAsHtml(block, 0, false, new[] { new BlockSplitData(1, block, "4", 5) });
 
-			Assert.IsTrue(actual.Contains(expected), string.Format("The output string did not contain: {0}", expected));
+			Assert.IsTrue(actual.Contains(expected),
+				$"The output string did not contain: {expected}");
 		}
 
 		[Test]
@@ -55,7 +56,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			block.BlockElements.Add(new ScriptText("The Lord says: This is what I say. "));
 			block.BlockElements.Add(new Verse("2"));
 			block.BlockElements.Add(new ScriptText("Text of verse two."));
-			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, new ICharacter[0], "ISA");
+			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, Array.Empty<ICharacter>(), "ISA");
 
 			string GetSelectCharacter(int splitId) => "<select class=\"select-character\" data-splitid=\"" + splitId + "\"><option value=\"\"></option><option value=\"narrator-ISA\">" +
 				"narrator (ISA)</option><option value=\"God\">God (the LORD)</option><option value=\"Isaiah\">Isaiah</option></select>";
@@ -64,7 +65,8 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			var actual = model.GetSplitTextAsHtml(block, 99, false, new[] { new BlockSplitData(42, block, "1", 15) }, GetSelectCharacter);
 
-			Assert.IsTrue(actual.Contains(expectedToContain), string.Format("The output string did not contain: {0}", expectedToContain));
+			Assert.IsTrue(actual.Contains(expectedToContain),
+				$"The output string did not contain: {expectedToContain}");
 		}
 
 		[TestCase("[", "]")]
@@ -90,7 +92,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				SplitBlockViewModel.BuildSplitLineHtml(4) +
 				"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"5\"> of verse five.</div>";
 
-			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, new ICharacter[0], "MAT");
+			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, Array.Empty<ICharacter>(), "MAT");
 			var actual = model.GetSplitTextAsHtml(block, 0, false, new[]
 			{
 				new BlockSplitData(1, block, "4", 5),
@@ -120,7 +122,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				SplitBlockViewModel.BuildSplitLineHtml(3) +
 				"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">saedgi be binsanoniki? Dulemarga be gakan-imaksasulid, Bab-Dummadga be gakan-imaksad.</div>";
 
-			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, new ICharacter[0], "ACT");
+			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, Array.Empty<ICharacter>(), "ACT");
 			var actual = model.GetSplitTextAsHtml(block, 0, false, new[]
 			{
 				new BlockSplitData(1, block, "3", 111),
@@ -141,7 +143,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				SplitBlockViewModel.BuildSplitLineHtml(1) +
 				"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">узь&#246;</div>";
 
-			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, new ICharacter[0], "ACT");
+			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, Array.Empty<ICharacter>(), "ACT");
 			var actual = model.GetSplitTextAsHtml(block, 0, false, new[] { new BlockSplitData(1, block, "3", 19) });
 
 			Assert.AreEqual(expected, actual);
@@ -162,7 +164,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\"></div>" +
 				"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\"><sup>4&#160;</sup>Нылыс эз кув, сiй&#246; узь&#246;</div>";
 
-			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, new ICharacter[0], "ACT");
+			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, Array.Empty<ICharacter>(), "ACT");
 			var actual = model.GetSplitTextAsHtml(block, 0, false, new[]
 			{
 				new BlockSplitData(2, block, "3", BookScript.kSplitAtEndOfVerse),
@@ -178,7 +180,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var block = new Block("p", 4, 3);
 			block.BlockElements.Add(new ScriptText("A & <<B>> C"));
 			var expected = "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">A &amp; &lt;&lt;B&gt;&gt; </div>" + SplitBlockViewModel.BuildSplitLineHtml(1) + "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">C</div>";
-			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, new ICharacter[0], "ACT");
+			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, Array.Empty<ICharacter>(), "ACT");
 			var actual = model.GetSplitTextAsHtml(block, 0, false, new[] { new BlockSplitData(1, block, "3", 10) });
 			Assert.AreEqual(expected, actual);
 		}
@@ -195,7 +197,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			var expected = "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\"><span class=\"leading-punctuation\">(</span><sup>3&#160;</sup>main</div>" + SplitBlockViewModel.BuildSplitLineHtml(1) + "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\"> text.) </div>" +
 				"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\"><sup>4&#160;</sup>Ver</div>" + SplitBlockViewModel.BuildSplitLineHtml(2) + "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">se 4.</div>";
-			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, new ICharacter[0], "ACT");
+			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, Array.Empty<ICharacter>(), "ACT");
 			var actual = model.GetSplitTextAsHtml(block, 0, false, new[]
 			{
 				new BlockSplitData(1, block, "3", 4),
@@ -217,7 +219,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var expected = "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\"><span class=\"leading-punctuation\">(</span><sup>3&#160;</sup>main text.) </div>" + SplitBlockViewModel.BuildSplitLineHtml(1) +
 				"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\"></div>" +
 				"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\"><sup>4&#160;</sup>Ver</div>" + SplitBlockViewModel.BuildSplitLineHtml(2) + "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">se 4.</div>";
-			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, new ICharacter[0], "ACT");
+			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, Array.Empty<ICharacter>(), "ACT");
 			var actual = model.GetSplitTextAsHtml(block, 0, false, new[]
 			{
 				new BlockSplitData(1, block, "3", PortionScript.kSplitAtEndOfVerse),
@@ -241,7 +243,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				SplitBlockViewModel.BuildSplitLineHtml(1) +
 				$"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">{text2}</div>";
 
-			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, new ICharacter[0], "ACT");
+			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, Array.Empty<ICharacter>(), "ACT");
 			var actual = model.GetSplitTextAsHtml(block, 0, false, new[]
 			{
 				new BlockSplitData(1, block, "3", offset)

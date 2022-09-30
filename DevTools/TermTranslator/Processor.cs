@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using GlyssenEngine.Character;
+using GlyssenCharacters;
 using L10NSharp.XLiffUtils;
 using SIL.Extensions;
 using static System.Char;

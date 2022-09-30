@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using GlyssenCharacters;
 using GlyssenEngine;
 using GlyssenEngine.Casting;
 using GlyssenEngine.Character;
@@ -9,7 +10,8 @@ using GlyssenEngine.UndoActions;
 using GlyssenEngine.ViewModels;
 using NUnit.Framework;
 using SIL.Extensions;
-using Resources = GlyssenEngineTests.Properties.Resources;
+using CharacterIdHashSet = GlyssenEngine.Character.CharacterIdHashSet;
+using Resources = GlyssenCharactersTests.Properties.Resources;
 
 namespace GlyssenEngineTests.ViewModelTests
 {

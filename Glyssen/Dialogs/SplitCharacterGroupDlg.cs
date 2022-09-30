@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Linq;
 using System.Windows.Forms;
+using GlyssenCharacters;
 using GlyssenEngine.Character;
 using GlyssenEngine.ViewModels;
 
@@ -49,7 +50,7 @@ namespace Glyssen.Dialogs
 			MoveSelectedItems(m_listboxNew, m_listboxExisting);
 		}
 
-		private void Listboxes_SelectedIndexChanged(object sender, System.EventArgs e)
+		private void ListBoxes_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
 			m_btnAdd.Enabled = m_listboxExisting.SelectedItems.Count > 0;
 			m_btnRemove.Enabled = m_listboxNew.SelectedItems.Count > 0;
@@ -68,8 +69,8 @@ namespace Glyssen.Dialogs
 				LocalizedCharacterId = CharacterVerseData.GetCharacterNameForUi(characterId);
 			}
 
-			public string CharacterId { get; private set; }
-			public string LocalizedCharacterId { get; private set; }
+			public string CharacterId { get; }
+			public string LocalizedCharacterId { get; }
 
 			public override string ToString()
 			{

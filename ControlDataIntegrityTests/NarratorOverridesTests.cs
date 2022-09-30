@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using GlyssenEngine.Character;
+using GlyssenCharacters;
 using NUnit.Framework;
 using SIL.Scripture;
 
@@ -22,7 +21,7 @@ namespace ControlDataIntegrityTests
 			foreach (var overrideDetail in NarratorOverrides.NarratorOverridesByBookId.Values.SelectMany(o => o))
 			{
 				Assert.True(CharacterDetailData.Singleton.GetDictionary().Keys.Contains(overrideDetail.Character),
-					$"Character {overrideDetail.Character} in NarratorOverides.xml was not found in CharacterDetail");
+					$"Character {overrideDetail.Character} In NarratorOverrides.xml was not found in CharacterDetail");
 			}
 		}
 
@@ -34,16 +33,16 @@ namespace ControlDataIntegrityTests
 				foreach (var overrideDetail in NarratorOverrides.GetNarratorOverridesForBook(bookId))
 				{
 					Assert.True(overrideDetail.StartChapter <= overrideDetail.EndChapter,
-						$"In NarratorOverides.xml, book {bookId}: end chapter {overrideDetail.EndChapter} precedes start chapter {overrideDetail.StartChapter}.");
+						$"In NarratorOverrides.xml, book {bookId}: end chapter {overrideDetail.EndChapter} precedes start chapter {overrideDetail.StartChapter}.");
 					if (overrideDetail.StartChapter == overrideDetail.EndChapter)
 					{
 						Assert.True(overrideDetail.StartVerse <= overrideDetail.EndVerse,
-							$"In NarratorOverides.xml, book {bookId}, chapter {overrideDetail.StartChapter}: end verse {overrideDetail.EndVerse} precedes start verse {overrideDetail.StartVerse}.");
+							$"In NarratorOverrides.xml, book {bookId}, chapter {overrideDetail.StartChapter}: end verse {overrideDetail.EndVerse} precedes start verse {overrideDetail.StartVerse}.");
 
 						if (overrideDetail.StartVerse == overrideDetail.EndVerse)
 						{
 							Assert.True(overrideDetail.StartBlock <= overrideDetail.EndBlock,
-								$"In NarratorOverides.xml, an entry for {bookId} {overrideDetail.StartChapter}:{overrideDetail.EndVerse} " +
+								$"In NarratorOverrides.xml, an entry for {bookId} {overrideDetail.StartChapter}:{overrideDetail.EndVerse} " +
 								$"has an end block {overrideDetail.EndBlock} that precedes its start block {overrideDetail.StartBlock}.");
 						}
 					}
@@ -58,13 +57,13 @@ namespace ControlDataIntegrityTests
 			{
 				foreach (var overrideDetail in NarratorOverrides.GetNarratorOverridesForBook(bookId))
 				{
-					Assert.IsTrue(overrideDetail.StartChapter >= 1, $"In NarratorOverides.xml, book {bookId}, StartChapter not set for override {overrideDetail}.");
+					Assert.IsTrue(overrideDetail.StartChapter >= 1, $"In NarratorOverrides.xml, book {bookId}, StartChapter not set for override {overrideDetail}.");
 				}
 			}
 		}
 
 		/// <summary>
-		/// Currently, 2 is the biggest we need. Can't imagine ever needing anything bigger than 3. (Following test woudn't work if the start block was > 9.)
+		/// Currently, 2 is the biggest we need. Can't imagine ever needing anything bigger than 3. (Following test wouldn't work if the start block was > 9.)
 		/// </summary>
 		[Test]
 		public void DataIntegrity_StartBlockLessThanSix()
@@ -73,7 +72,7 @@ namespace ControlDataIntegrityTests
 			{
 				foreach (var overrideDetail in NarratorOverrides.GetNarratorOverridesForBook(bookId))
 				{
-					Assert.IsTrue(overrideDetail.StartBlock < 6, $"In NarratorOverides.xml, book {bookId}, StartBlock set to invalid value for override {overrideDetail}.");
+					Assert.IsTrue(overrideDetail.StartBlock < 6, $"In NarratorOverrides.xml, book {bookId}, StartBlock set to invalid value for override {overrideDetail}.");
 				}
 			}
 		}
@@ -102,7 +101,7 @@ namespace ControlDataIntegrityTests
 				{
 					var newKey = new BCVRef(bookNum, overrideDetail.StartChapter, overrideDetail.StartVerse).BBCCCVVV * 10 + overrideDetail.StartBlock;
 					if (dictionary.ContainsKey(newKey))
-						Assert.Fail($"In NarratorOverides.xml, book {bookId}: two overrides start at the same place:\n{dictionary[newKey]}\nAND\n{overrideDetail}");
+						Assert.Fail($"In NarratorOverrides.xml, book {bookId}: two overrides start at the same place:\n{dictionary[newKey]}\nAND\n{overrideDetail}");
 
 					dictionary.Add(newKey, overrideDetail);
 				}
@@ -119,7 +118,7 @@ namespace ControlDataIntegrityTests
 						Assert.True(overrideDetail.EndChapter > prev.EndChapter || (overrideDetail.EndChapter == prev.EndChapter &&
 								overrideDetail.EndVerse > prev.EndVerse) || (overrideDetail.EndChapter == prev.EndChapter &&
 								overrideDetail.EndVerse == prev.EndVerse && overrideDetail.EndBlock > prev.EndBlock),
-							$"In NarratorOverides.xml, book {kvp.Key}: override {overrideDetail} overlaps {prev}.");
+							$"In NarratorOverrides.xml, book {kvp.Key}: override {overrideDetail} overlaps {prev}.");
 					}
 					prev = overrideDetail;
 				}
@@ -209,7 +208,7 @@ namespace ControlDataIntegrityTests
 							o.EndVerse == partialStart.StartVerse).ToList();
 						Assert.IsTrue(endsForSameChapterAndVerse.All(e => e.EndBlock > 0), $"An override for {book.Id} " +
 							$"{partialStart.StartChapter}:{partialStart.StartVerse} has a start block ({partialStart.StartBlock}) " +
-							$"that is already covered by the end verse of another entry!");
+							"that is already covered by the end verse of another entry!");
 
 						if (partialStart.StartBlock >= 3)
 						{
@@ -227,7 +226,7 @@ namespace ControlDataIntegrityTests
 								}
 								else
 								{
-									// If this exception is thrown, check the specififed entry carefully. If it is intentional, add another exception above.
+									// If this exception is thrown, check the specified entry carefully. If it is intentional, add another exception above.
 									throw new InconclusiveException($"Possible error: {msg}");
 								}
 							}

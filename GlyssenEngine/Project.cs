@@ -2,7 +2,6 @@
 using GlyssenEngine.Analysis;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Casting;
-using GlyssenEngine.Character;
 using GlyssenEngine.ErrorHandling;
 using GlyssenEngine.Paratext;
 using GlyssenEngine.Quote;
@@ -30,8 +29,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using GlyssenCharacters;
+using GlyssenEngine.Character;
 using SIL.Xml;
 using static System.String;
+using CharacterGroup = GlyssenEngine.Character.CharacterGroup;
+using CharacterGroupList = GlyssenEngine.Character.CharacterGroupList;
 
 namespace GlyssenEngine
 {

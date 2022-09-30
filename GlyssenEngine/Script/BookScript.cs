@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 using Glyssen.Shared;
-using GlyssenEngine.Character;
+using GlyssenCharacters;
 using GlyssenEngine.Paratext;
 using GlyssenEngine.Quote;
 using SIL.Extensions;

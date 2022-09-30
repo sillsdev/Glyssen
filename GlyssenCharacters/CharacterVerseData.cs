@@ -11,7 +11,7 @@ using SIL.Scripture;
 using static System.Int32;
 using static System.String;
 
-namespace GlyssenEngine.Character
+namespace GlyssenCharacters
 {
 	public abstract class CharacterVerseData : ICharacterVerseInfo
 	{
@@ -194,7 +194,7 @@ namespace GlyssenEngine.Character
 			return characterId.Substring(characterId.Length - 3);
 		}
 
-		internal static string GetCharacterPrefix(StandardCharacter standardCharacterType)
+		public static string GetCharacterPrefix(StandardCharacter standardCharacterType)
 		{
 			switch (standardCharacterType)
 			{

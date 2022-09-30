@@ -1,14 +1,14 @@
 ﻿using System.IO;
 using System.Linq;
 using Glyssen.Shared;
-using GlyssenEngine.Character;
-using GlyssenEngineTests.Utilities;
+using GlyssenCharacters;
+using GlyssenCharactersTests.Properties;
+using GlyssenCharactersTests.Utilities;
 using NUnit.Framework;
 using SIL.IO;
 using SIL.Scripture;
-using Resources = GlyssenEngineTests.Properties.Resources;
 
-namespace GlyssenEngineTests.Character
+namespace GlyssenCharactersTests
 {
 	/// <summary>
 	/// Note that these tests purport to test the GetCharacters method, but in fact that is just a simple LINQ statement;
@@ -150,7 +150,7 @@ namespace GlyssenEngineTests.Character
 		public void GetCharacters_MoreThanOneWithNoDuplicates_ReturnsAll()
 		{
 			var characters = ControlCharacterVerseData.Singleton.GetCharacters(kMRKbookNum, 6, new SingleVerse(24));
-			Assert.AreEqual(2, characters.Count());
+			Assert.AreEqual(2, characters.Count);
 			Assert.AreEqual(1, characters.Count(c => c.Character == "Herodias"));
 			Assert.AreEqual(1, characters.Count(c => c.Character == "Herodias' daughter"));
 		}
@@ -166,7 +166,7 @@ namespace GlyssenEngineTests.Character
 		public void GetCharacters_MultipleCharactersInMultipleVerses_ReturnsAmbiguous()
 		{
 			var characters = ControlCharacterVerseData.Singleton.GetCharacters(k1SAbookNum, 8, new[] { new SingleVerse(21), new SingleVerse(22) });
-			Assert.AreEqual(2, characters.Count());
+			Assert.AreEqual(2, characters.Count);
 			Assert.AreEqual(1, characters.Count(c => c.Character == "God"));
 			Assert.AreEqual(1, characters.Count(c => c.Character == "Samuel"));
 		}

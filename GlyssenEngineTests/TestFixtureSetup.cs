@@ -2,18 +2,21 @@
 using InMemoryTestPersistence;
 using NUnit.Framework;
 
-/// <summary>
-/// Assembly-level one-time setup (https://github.com/nunit/nunit/issues/1577)
-/// </summary>
-[SetUpFixture]
-public class TestFixtureSetUp
+namespace GlyssenEngineTests
 {
-	[OneTimeSetUp]
-	public void OneTimeSetUp()
+	/// <summary>
+	/// Assembly-level one-time setup (https://github.com/nunit/nunit/issues/1577)
+	/// </summary>
+	[SetUpFixture]
+	public class TestFixtureSetUp
 	{
-		var persistenceImpl = new PersistenceImplementation();
-		ProjectBase.Reader = persistenceImpl;
-		ReferenceTextProxy.Reader = persistenceImpl;
-		Project.Writer = persistenceImpl;
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
+		{
+			var persistenceImpl = new PersistenceImplementation();
+			ProjectBase.Reader = persistenceImpl;
+			ReferenceTextProxy.Reader = persistenceImpl;
+			Project.Writer = persistenceImpl;
+		}
 	}
 }

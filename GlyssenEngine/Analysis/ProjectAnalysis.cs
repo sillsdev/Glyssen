@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
-using GlyssenEngine.Character;
+using GlyssenCharacters;
 using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
 

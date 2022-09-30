@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
+using GlyssenCharacters;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Casting;
@@ -26,6 +27,7 @@ using SIL.Reflection;
 using SIL.Scripture;
 using SIL.TestUtilities;
 using SIL.WritingSystems;
+using Resources = GlyssenCharactersTests.Properties.Resources;
 
 namespace GlyssenEngineTests
 {
@@ -121,8 +123,8 @@ namespace GlyssenEngineTests
 				Project.FontRepository = new TestProject.TestFontRepository();
 
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
-			CharacterDetailData.TabDelimitedCharacterDetailData = Properties.Resources.TestCharacterDetail;
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
 		}
 
 		[OneTimeTearDown]
