@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using DesktopAnalytics;
 using Glyssen.Shared;
 using GlyssenEngine.Export;
 using L10NSharp;
@@ -57,6 +59,12 @@ namespace Glyssen.Dialogs
 			Cursor = Cursors.WaitCursor;
 			try
 			{
+				Analytics.Track("Export", new Dictionary<string, string>
+				{
+					{ "exportType", Constants.kGlyssenScriptFileExtension.TrimStart('.') },
+					{ "includeVoiceActors", m_viewModel.IncludeVoiceActors.ToString() },
+					{ "includeDelivery", m_viewModel.IncludeDelivery.ToString() }
+				});
 				ScriptExporter.MakeGlyssenScriptFile(m_viewModel, m_fileNameTextBox.Text);
 			}
 			finally
