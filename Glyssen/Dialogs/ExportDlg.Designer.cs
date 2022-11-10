@@ -475,7 +475,7 @@ namespace Glyssen.Dialogs
             this.m_checkSeparateChapterSheets.ForeColor = System.Drawing.SystemColors.WindowText;
             this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_checkSeparateChapterSheets, null);
             this.m_l10NSharpExtender.SetLocalizationComment(this.m_checkSeparateChapterSheets, null);
-            this.m_l10NSharpExtender.SetLocalizingId(this.m_checkSeparateChapterSheets, "DialogBoxes.checkBox1");
+            this.m_l10NSharpExtender.SetLocalizingId(this.m_checkSeparateChapterSheets, "DialogBoxes.ExportDlg.m_checkSeparateChapterSheets");
             this.m_checkSeparateChapterSheets.Location = new System.Drawing.Point(28, 243);
             this.m_checkSeparateChapterSheets.Name = "m_checkSeparateChapterSheets";
             this.m_checkSeparateChapterSheets.Size = new System.Drawing.Size(184, 17);
