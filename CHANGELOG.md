@@ -16,6 +16,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [5.0.0] - 2022-11-10
+
+### Changed
+
+- Updated to the latest libraries. This includes a fix for a potential security vulnerability.
+- Separated some existing functionality into a separate DLL for use in other software.
+
 ## [4.0.0] - 2022-08-10
 
 ### Changed
