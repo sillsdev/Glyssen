@@ -109,7 +109,7 @@ namespace Glyssen.Dialogs
 		{
 			if (m_checkIncludeBookBreakdown.Checked)
 			{
-				m_lblBookDirectory.Visible = true;
+				m_lblBookDirectory.Visible = m_checkSeparateChapterSheets.Visible = true;
 				m_lblBookDirectory.Text = string.Format(m_bookDirectoryFmt, m_viewModel.BookDirectory);
 				m_lblBookDirectoryExists.Visible = Directory.Exists(m_viewModel.BookDirectory);
 			}
@@ -224,6 +224,7 @@ namespace Glyssen.Dialogs
 		private void CheckIncludeBookBreakdown_CheckedChanged(object sender, EventArgs e)
 		{
 			m_viewModel.IncludeBookBreakdown = m_checkIncludeBookBreakdown.Checked;
+
 			UpdateBookDisplay();
 			UpdateOpenForMeDisplay();
 		}
@@ -236,6 +237,13 @@ namespace Glyssen.Dialogs
 
 		private void BtnOk_Click(object sender, EventArgs e)
 		{
+			if (m_viewModel.IncludeBookBreakdown)
+			{
+				m_viewModel.SeparateChapterSheets = m_checkSeparateChapterSheets.Checked;
+				m_viewModel.SheetNameFormat = LocalizationManager.GetString("DialogBoxes.ExportDlg.ChapterSheetLabelFormat",
+					"Chapter {0}", "Used to format sheet names when exporting to Excel with each chapter in its own sheet.");
+			}
+
 			Enabled = false;
 			IReadOnlyDictionary<string, List<string>> lockedFiles;
 			do

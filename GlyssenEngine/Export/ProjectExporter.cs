@@ -11,6 +11,7 @@ using GlyssenCharacters;
 using GlyssenEngine.Casting;
 using GlyssenEngine.ErrorHandling;
 using GlyssenEngine.Script;
+using Microsoft.SqlServer.Server;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using SIL;
@@ -43,6 +44,13 @@ namespace GlyssenEngine.Export
 		EnglishReferenceText = 11,
 		VernacularTextLength = 12,
 		ClipFileLink = 13,
+	}
+
+	public enum ExportFormat
+	{
+		Normal,
+		IndividualBookWithChapterSheets,
+		MasterFileWithAnnotations,
 	}
 
 	public class ProjectExporter
@@ -81,6 +89,8 @@ namespace GlyssenEngine.Export
 		public bool IncludeVoiceActors { get; }
 		public bool IncludeActorBreakdown { get; set; }
 		public bool IncludeBookBreakdown { get; set; }
+		public bool SeparateChapterSheets { get; set; }
+		public string SheetNameFormat { get; set; }
 		public bool IncludeCreateClips { get; set; }
 		public bool ExportAnnotationsInSeparateRows { get; set; }
 
@@ -245,19 +255,20 @@ namespace GlyssenEngine.Export
 
 		private IEnumerable<Tuple<string, string>> GenerateMasterScriptFile(string path)
 		{
-			return GenerateFile(path, () => GetExportData(), true);
+			return GenerateFile(path, () => GetExportData(), ExportFormat.MasterFileWithAnnotations);
 		}
 
-		private IEnumerable<Tuple<string, string>> GenerateFile(string path, Func<IEnumerable<ExportBlock>> getData, bool masterFileWithAnnotations = false)
+		private IEnumerable<Tuple<string, string>> GenerateFile(string path, Func<IReadOnlyList<ExportBlock>> getData,
+			ExportFormat format = ExportFormat.Normal)
 		{
-			Action<string, IEnumerable<List<object>>, bool> generateFile = (SelectedFileType == ExportFileType.TabSeparated)
-				? (Action<string, IEnumerable<List<object>>, bool>) GenerateTabSeparatedFile
+			Action<string, IReadOnlyList<List<object>>, ExportFormat> generateFile = (SelectedFileType == ExportFileType.TabSeparated)
+				? (Action<string, IReadOnlyList<List<object>>, ExportFormat>) GenerateTabSeparatedFile
 				: GenerateExcelFile;
 
 			Exception caughtException = null;
 			try
 			{
-				generateFile(path, getData().Select(d => d.AsObjectArray().ToList()), masterFileWithAnnotations);
+				generateFile(path, getData().Select(d => d.AsObjectArray().ToList()).ToList(), format);
 				m_numberOfFilesSuccessfullyExported++;
 			}
 			catch (Exception ex)
@@ -292,7 +303,8 @@ namespace GlyssenEngine.Export
 			foreach (var book in m_booksToExport)
 			{
 				var bookId = book.BookId;
-				foreach (var lockedFile in GenerateFile(Path.Combine(directoryPath, book.BookId), () => GetExportData(bookId)))
+				foreach (var lockedFile in GenerateFile(Path.Combine(directoryPath, book.BookId), () => GetExportData(bookId),
+					SeparateChapterSheets ? ExportFormat.IndividualBookWithChapterSheets : ExportFormat.Normal))
 				{
 					yield return lockedFile;
 				}
@@ -350,7 +362,8 @@ namespace GlyssenEngine.Export
 					"Could not create destination folder for clip files: {0}", "{0} is a directory name."), folder));
 		}
 
-		private void GenerateTabSeparatedFile(string path, IEnumerable<List<object>> data, bool b)
+		private void GenerateTabSeparatedFile(string path, IReadOnlyList<List<object>> data,
+			ExportFormat _ = ExportFormat.Normal)
 		{
 			if (Path.GetExtension(path) != kTabDelimitedFileExtension)
 				path += kTabDelimitedFileExtension;
@@ -363,7 +376,7 @@ namespace GlyssenEngine.Export
 			}
 		}
 
-		private void GenerateExcelFile(string path, IEnumerable<List<object>> data, bool masterFileWithAnnotations)
+		private void GenerateExcelFile(string path, IReadOnlyList<List<object>> data, ExportFormat format)
 		{
 			if (Path.GetExtension(path) != Constants.kExcelFileExtension)
 				path += Constants.kExcelFileExtension;
@@ -372,15 +385,6 @@ namespace GlyssenEngine.Export
 			// confirmed he wants to overwrite it.
 			// We need to delete it first or the code will attempt to modify it instead.
 			File.Delete(path);
-
-			var dataArray = data.Select(d => d.ToArray()).ToList();
-			//if (IncludeCreateClips)
-			//{
-			//	int clipFileColIndex = GetColumnIndex(ExportColumn.ClipFileLink);
-			//	foreach (var row in dataArray)
-			//		row[clipFileColIndex] = "= HYPERLINK(\"" + row[clipFileColIndex] + "\")";
-			//}
-			dataArray.Insert(0, GetHeaders().ToArray());
 
 			void AppendReferenceTextCopyrightInfo(ReferenceText referenceText, ref string copyrightInfo)
 			{
@@ -401,114 +405,148 @@ namespace GlyssenEngine.Export
 					AppendReferenceTextCopyrightInfo(Project.ReferenceText.SecondaryReferenceText, ref copyrightInfo);
 				if (copyrightInfo.Length > 0)
 					xls.Workbook.Properties.Comments = copyrightInfo;
-				var sheet = xls.Workbook.Worksheets.Add("Script");
-				var firstCell = sheet.Cells["A1"];
-				firstCell.LoadFromArrays(dataArray);
 
-				if (masterFileWithAnnotations)
-					ColorizeAnnotations(sheet);
-
-				sheet.Cells.Style.VerticalAlignment = ExcelVerticalAlignment.Top;
-				sheet.Row(1).Style.Font.Bold = true;
-
-				var columnNum = 1;
-				sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // line number
-				// add a column for the voice actor (hidden if not relevant)
-				if (IncludeVoiceActors)
-					sheet.Column(columnNum++).AutoFit(2d, 20d);
-				else
-					sheet.Column(columnNum++).Hidden = true;
-				sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // style tag
-				sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // book
-				sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // chapter
-				sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // verse
-				sheet.Column(columnNum++).AutoFit(2d, 20d); // character ID
-
-				// add a column for the localized character id (hidden if not relevant)
-				if (Localizer.UILanguageId != "en")
-					sheet.Column(columnNum++).AutoFit(2d, 20d);
-				else
-					sheet.Column(columnNum++).Hidden = true;
-
-				// No special formatting for the delivery column, unless we're hiding it
-				if (IncludeDelivery)
-					columnNum++;
-				else
-					sheet.Column(columnNum++).Hidden = true;
-
-				// for script text set text wrapping, language-specific info, width, etc.
-				sheet.Column(columnNum).Style.WrapText = true; // script text
-				sheet.Column(columnNum).Style.Font.Name = Project.FontFamily;
-				sheet.Column(columnNum).Style.Font.Size = Project.FontSizeInPoints;
-				if (Project.RightToLeftScript)
-					sheet.Column(columnNum).Style.ReadingOrder = ExcelReadingOrder.RightToLeft;
-
-				// it is much faster to reset the column header font than to select every cell except the first one
-				sheet.Cells[1, columnNum].Style.Font.Name = firstCell.Style.Font.Name;
-				sheet.Cells[1, columnNum].Style.Font.Size = firstCell.Style.Font.Size;
-
-				sheet.Column(columnNum++).Width = 50d;
-
-				if (Project.ReferenceText.HasSecondaryReferenceText)
+				if (format == ExportFormat.IndividualBookWithChapterSheets)
 				{
-					sheet.Column(columnNum).Style.WrapText = true; // secondary reference text
-					if (!IsNullOrEmpty(Project.ReferenceText.FontFamily))
+					var chapterCol = (int)ExportColumn.Chapter;
+					var i = 0;
+					while (i < data.Count)
 					{
-						sheet.Column(columnNum).Style.Font.Name = Project.ReferenceText.FontFamily;
-						// it is much faster to reset the column header font than to select every cell except the first one
-						sheet.Cells[1, columnNum].Style.Font.Name = firstCell.Style.Font.Name;
+						var currentChapterNum = (int)data[i][chapterCol];
+						var sheet = xls.Workbook.Worksheets.Add(
+							Format(SheetNameFormat, currentChapterNum));
+						var chapterData = data.Skip(i)
+							.TakeWhile(d => (int)d[chapterCol] == currentChapterNum).ToList();
+						LoadSheetCells(sheet, chapterData);
+						i += chapterData.Count;
 					}
-					if (Project.ReferenceText.FontSizeInPoints > 9)
-					{
-						sheet.Column(columnNum).Style.Font.Size = Project.ReferenceText.FontSizeInPoints;
-						// it is much faster to reset the column header font size than to select every cell except the first one
-						sheet.Cells[1, columnNum].Style.Font.Size = firstCell.Style.Font.Size;
-					}
-					if (Project.ReferenceText.RightToLeftScript)
-					{
-						sheet.Column(columnNum).Style.ReadingOrder = ExcelReadingOrder.RightToLeft;
-						// it is much faster to reset the column header reading order than to select every cell except the first one
-						sheet.Cells[1, columnNum].Style.ReadingOrder = ExcelReadingOrder.ContextDependent;
-					}
-					sheet.Column(columnNum).Width = 50d;
 				}
 				else
 				{
-					sheet.Column(columnNum).Hidden = true;
+					var sheet = xls.Workbook.Worksheets.Add("Script");
+					LoadSheetCells(sheet, data, format == ExportFormat.MasterFileWithAnnotations);
 				}
-				columnNum++;
-
-				// English reference text
-				sheet.Column(columnNum).Style.WrapText = true;
-				sheet.Column(columnNum++).Width = 50d;
-
-				sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // block length
-
-				if (IncludeCreateClips)
-				{
-					// this is the last column, no need to increment columnNum
-					for (int i = 2; i <= dataArray.Count; i++)
-					{
-						var filename = (string) sheet.Cells[i, columnNum].Value;
-						if (!IsNullOrEmpty(filename))
-						{
-							// This approach causes problems in Excel 2007
-							//sheet.Cells[i, columnNum].Hyperlink =  = new ExcelHyperLink(filename, UriKind.Absolute) {Display = filename};
-							//sheet.Cells[i, columnNum].Value = filename;
-							sheet.Cells[i, columnNum].Formula = "HYPERLINK(\"" + filename + "\",\"" + filename + "\")";
-							sheet.Cells[i, columnNum].Style.Font.UnderLine = true;
-							m_excelColorizer?.SetCellHotTrackColor(sheet.Cells[i, columnNum]);
-						}
-					}
-					// EPPlus doesn't support AutoFit of columns with formulas. The length of a filename + 1 gets us pretty close to the ideal width.
-					if (dataArray.Any())
-						sheet.Column(columnNum).Width = dataArray.Skip(1).First()[columnNum - 1].ToString().Length + 1; // clip file length
-				}
-
-				sheet.View.FreezePanes(2, 1);
 
 				xls.Save();
 			}
+		}
+
+		private void LoadSheetCells(ExcelWorksheet sheet, IEnumerable<List<object>> data, bool masterFileWithAnnotations = false)
+		{
+			var dataArray = data.Select(d => d.ToArray()).ToList();
+			dataArray.Insert(0, GetHeaders().ToArray());
+
+			var firstCell = sheet.Cells["A1"];
+
+			firstCell.LoadFromArrays(dataArray);
+
+			if (masterFileWithAnnotations)
+				ColorizeAnnotations(sheet);
+
+			sheet.Cells.Style.VerticalAlignment = ExcelVerticalAlignment.Top;
+			sheet.Row(1).Style.Font.Bold = true;
+
+			var columnNum = 1;
+			sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // line number
+			// add a column for the voice actor (hidden if not relevant)
+			if (IncludeVoiceActors)
+				sheet.Column(columnNum++).AutoFit(2d, 20d);
+			else
+				sheet.Column(columnNum++).Hidden = true;
+			sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // style tag
+			sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // book
+			sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // chapter
+			sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // verse
+			sheet.Column(columnNum++).AutoFit(2d, 20d); // character ID
+
+			// add a column for the localized character id (hidden if not relevant)
+			if (Localizer.UILanguageId != "en")
+				sheet.Column(columnNum++).AutoFit(2d, 20d);
+			else
+				sheet.Column(columnNum++).Hidden = true;
+
+			// No special formatting for the delivery column, unless we're hiding it
+			if (IncludeDelivery)
+				columnNum++;
+			else
+				sheet.Column(columnNum++).Hidden = true;
+
+			// for script text set text wrapping, language-specific info, width, etc.
+			sheet.Column(columnNum).Style.WrapText = true; // script text
+			sheet.Column(columnNum).Style.Font.Name = Project.FontFamily;
+			sheet.Column(columnNum).Style.Font.Size = Project.FontSizeInPoints;
+			if (Project.RightToLeftScript)
+				sheet.Column(columnNum).Style.ReadingOrder = ExcelReadingOrder.RightToLeft;
+
+			// it is much faster to reset the column header font than to select every cell except the first one
+			sheet.Cells[1, columnNum].Style.Font.Name = firstCell.Style.Font.Name;
+			sheet.Cells[1, columnNum].Style.Font.Size = firstCell.Style.Font.Size;
+
+			sheet.Column(columnNum++).Width = 50d;
+
+			if (Project.ReferenceText.HasSecondaryReferenceText)
+			{
+				sheet.Column(columnNum).Style.WrapText = true; // secondary reference text
+				if (!IsNullOrEmpty(Project.ReferenceText.FontFamily))
+				{
+					sheet.Column(columnNum).Style.Font.Name = Project.ReferenceText.FontFamily;
+					// it is much faster to reset the column header font than to select every cell except the first one
+					sheet.Cells[1, columnNum].Style.Font.Name = firstCell.Style.Font.Name;
+				}
+
+				if (Project.ReferenceText.FontSizeInPoints > 9)
+				{
+					sheet.Column(columnNum).Style.Font.Size = Project.ReferenceText.FontSizeInPoints;
+					// it is much faster to reset the column header font size than to select every cell except the first one
+					sheet.Cells[1, columnNum].Style.Font.Size = firstCell.Style.Font.Size;
+				}
+
+				if (Project.ReferenceText.RightToLeftScript)
+				{
+					sheet.Column(columnNum).Style.ReadingOrder = ExcelReadingOrder.RightToLeft;
+					// it is much faster to reset the column header reading order than to select every cell except the first one
+					sheet.Cells[1, columnNum].Style.ReadingOrder = ExcelReadingOrder.ContextDependent;
+				}
+
+				sheet.Column(columnNum).Width = 50d;
+			}
+			else
+			{
+				sheet.Column(columnNum).Hidden = true;
+			}
+
+			columnNum++;
+
+			// English reference text
+			sheet.Column(columnNum).Style.WrapText = true;
+			sheet.Column(columnNum++).Width = 50d;
+
+			sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // block length
+
+			if (IncludeCreateClips)
+			{
+				// this is the last column, no need to increment columnNum
+				for (int i = 2; i <= dataArray.Count; i++)
+				{
+					var filename = (string)sheet.Cells[i, columnNum].Value;
+					if (!IsNullOrEmpty(filename))
+					{
+						// This approach causes problems in Excel 2007
+						//sheet.Cells[i, columnNum].Hyperlink =  = new ExcelHyperLink(filename, UriKind.Absolute) {Display = filename};
+						//sheet.Cells[i, columnNum].Value = filename;
+						sheet.Cells[i, columnNum].Formula = "HYPERLINK(\"" + filename + "\",\"" + filename + "\")";
+						sheet.Cells[i, columnNum].Style.Font.UnderLine = true;
+						m_excelColorizer?.SetCellHotTrackColor(sheet.Cells[i, columnNum]);
+					}
+				}
+
+				// EPPlus doesn't support AutoFit of columns with formulas. The length of a filename + 1 gets us pretty close to the ideal width.
+				if (dataArray.Any())
+					sheet.Column(columnNum).Width = dataArray.Skip(1).First()[columnNum - 1].ToString().Length + 1; // clip file length
+			}
+
+			sheet.View.FreezePanes(2, 1);
+
 		}
 
 		private void ColorizeAnnotations(ExcelWorksheet sheet)
