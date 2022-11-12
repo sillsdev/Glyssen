@@ -87,6 +87,86 @@ namespace GlyssenEngine
 
 		public Func<bool> IsOkayToClearExistingRefBlocksWhenChangingReferenceText { get; set; }
 
+		/// <summary>
+		/// Creates a project and parses it from a Paratext project's Scriptures. 
+		/// </summary>
+		/// <remarks>This factory method pattern is an alternative to some of the constructors in this class which launch
+		/// a background worker. It enables Vessel to await for the parsing to be finished, and to embed the entire
+		/// process within a try-catch. </remarks>
+		public static async Task<Project> CreateAndLoadAsync(ParatextScrTextWrapper paratextProject, Action<int> reportProgressAsPercent)
+		{
+			// Use the constructor that does not launch the ParseAndSetBooks background worker
+			var glyssenProject = new Project(paratextProject.GlyssenDblTextMetadata, null, false, paratextProject.WritingSystem);
+
+			// From the other constructor
+			Writer.SetUpProjectPersistence(glyssenProject);
+			ProcessParatextProjectQuotationRules(glyssenProject, paratextProject);
+
+			// Sanity Checks
+			if (glyssenProject.m_books.Any())
+				throw new InvalidOperationException("Project already contains books. If the intention is to replace the existing ones, let's clear the list first. Otherwise, call ParseAndIncludeBooks.");
+			if (glyssenProject.Versification == null)
+				throw new NullReferenceException("Project is missing versification");
+
+			// Replaces background worker approach with an awaitable
+			await glyssenProject.ParseAndSetBooksAsync(paratextProject, reportProgressAsPercent);
+			return glyssenProject;
+		}
+
+		/// <summary>
+		/// Parses the Paratext books of Scripture, converts them into BookScripts, places them into the project,
+		/// and performs various initializations.
+		/// </summary>
+		/// <remarks>TODO: This method has the code from UsxWorker_DoWork and UsxWorker_RunWorkerCompleted. A complete violation of DRY,
+		/// in that this code now lives in the two places. A reasonable refactoring would be to use this Factory approach of CreateAndLoadAsync
+		/// instead of launching the background worker in the Project constructor. I (JSW) have insufficient understanding of Glyssen
+		/// architecture to attempt that myself. Aug 17, 2020.</remarks>
+		private async Task ParseAndSetBooksAsync(ParatextScrTextWrapper paratextProject, Action<int> reportProgressAsPercent)
+		{
+			await Task.Run(() =>
+			{
+				ProjectState = ProjectState.Initial | (ProjectState & ProjectState.WritingSystemRecoveryInProcess);
+
+				// Relevant code from UsxWorker_DoWork.
+				var bookScripts = UsxParser.ParseBooks(paratextProject.UsxDocumentsForIncludedBooks,
+					paratextProject.Stylesheet, reportProgressAsPercent);
+
+				// TODO: The Vessel use-case does not require a postParseAction, thus it is not included here.
+
+				foreach (var bookScript in bookScripts)
+				{
+					ThrowIfNullBookScript(bookScripts, bookScript);
+					bookScript.Initialize(Versification);
+				}
+
+				ProcessNewProjectBooks(bookScripts);
+				ProcessQuotes(bookScripts);
+			});
+		}
+
+		/// <summary>
+		/// This code is an attempt to figure out how we are getting null reference exceptions when using the
+		/// objects in the list (See PG-275 & PG-287)
+		/// </summary>
+		private void ThrowIfNullBookScript(ICollection<BookScript> bookScripts, BookScript bookScript)
+		{
+			if (bookScript?.BookId != null)
+				return;
+
+			var nonNullBookScripts = bookScripts
+				.Where(b => b != null)
+				.Select(b => b.BookId);
+
+			var nonNullBookScriptsStr = Join(";", nonNullBookScripts);
+
+			var initialMessage = bookScript == null
+				? "BookScript is null."
+				: "BookScript has null BookId.";
+
+			throw new ApplicationException($"{initialMessage} Number of BookScripts: {bookScripts.Count}. " +
+				$"BookScripts which are NOT null: {nonNullBookScriptsStr}");
+		}
+
 		/// <exception cref="ProjectNotFoundException">Paratext was unable to access the project (only pertains to
 		/// Glyssen projects that are associated with a live Paratext project)</exception>
 		public Project(GlyssenDblTextMetadata metadata, string recordingProjectName = null, bool installFonts = false,
@@ -202,13 +282,17 @@ namespace GlyssenEngine
 			this(paratextProject.GlyssenDblTextMetadata, null, false, paratextProject.WritingSystem)
 		{
 			Writer.SetUpProjectPersistence(this);
+			ProcessParatextProjectQuotationRules(this, paratextProject);
+			ParseAndSetBooks(paratextProject.UsxDocumentsForIncludedBooks, paratextProject.Stylesheet);
+		}
+
+		public static void ProcessParatextProjectQuotationRules(Project glyssenProject, ParatextScrTextWrapper paratextProject)
+		{
 			if (paratextProject.HasQuotationRulesSet)
 			{
-				QuoteSystemStatus = QuoteSystemStatus.Obtained;
-				SetWsQuotationMarksUsingFullySpecifiedContinuers(paratextProject.QuotationMarks);
+				glyssenProject.QuoteSystemStatus = QuoteSystemStatus.Obtained;
+				glyssenProject.SetWsQuotationMarksUsingFullySpecifiedContinuers(paratextProject.QuotationMarks);
 			}
-
-			ParseAndSetBooks(paratextProject.UsxDocumentsForIncludedBooks, paratextProject.Stylesheet);
 		}
 
 		/// <summary>
@@ -1574,15 +1658,25 @@ namespace GlyssenEngine
 			}
 			else
 			{
-				m_books.AddRange(bookScripts);
-				m_projectMetadata.ParserVersion = kParserVersion;
-				if (m_books.All(b => IsNullOrEmpty(b.PageHeader)))
-					ChapterAnnouncementStyle = ChapterAnnouncement.ChapterLabel;
-				UpdateControlFileVersion();
-				RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
-				AddMissingAvailableBooks();
+				ProcessNewProjectBooks(bookScripts);
 			}
 
+			ProcessQuotes(bookScripts);
+		}
+
+		public void ProcessNewProjectBooks(List<BookScript> bookScripts)
+		{
+			m_books.AddRange(bookScripts);
+			m_projectMetadata.ParserVersion = kParserVersion;
+			if (m_books.All(b => IsNullOrEmpty(b.PageHeader)))
+				ChapterAnnouncementStyle = ChapterAnnouncement.ChapterLabel;
+			UpdateControlFileVersion();
+			RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
+			AddMissingAvailableBooks();
+		}
+
+		public void ProcessQuotes(List<BookScript> bookScripts)
+		{
 			if (QuoteSystem == null)
 				GuessAtQuoteSystem();
 			else if (IsQuoteSystemReadyForParse)
