@@ -44,6 +44,9 @@ back-up plan.)
 
 # Release Notes
 
+## November 11 2022 Glyssen 5.0.0
+Added an option when exporting to Excel to break out chapters into separate sheets.
+
 ## August 10 2022 Glyssen 4.0.0
 Enhanced USX parser to correctly process ["milestone"](https://ubsicap.github.io/usfm/milestones/index.html) markers.
 
