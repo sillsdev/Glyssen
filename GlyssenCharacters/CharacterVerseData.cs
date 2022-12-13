@@ -23,10 +23,11 @@ namespace GlyssenCharacters
 		public const string kNeedsReview = "Needs Review";
 
 		public const int kiMinRequiredFields = 5;
-		protected const int kiQuoteType = kiMinRequiredFields + 1;
+		protected internal const int kiQuoteType = kiMinRequiredFields + 1;
 		protected const int kiDefaultCharacter = kiQuoteType + 1;
 		protected const int kiParallelPassageInfo = kiDefaultCharacter + 1;
-		protected const int kMaxItems = kiParallelPassageInfo + 1;
+		protected internal const int kiQuotePosition = kiParallelPassageInfo + 1;
+		protected internal const int kMaxItems = kiQuotePosition + 1;
 
 		private static Dictionary<string, string> s_singletonLocalizedCharacterIdToCharacterIdDictionary;
 
@@ -392,7 +393,7 @@ namespace GlyssenCharacters
 		/// <param name="items">field values from the line (tab-delimited in file)</param>
 		/// <param name="lineNumber">1-based line number (used only for error reporting)</param>
 		/// <exception cref="ApplicationException">Bad data (incorrect number of fields, etc.)</exception>
-		protected virtual IList<CharacterVerse> ProcessLine(string[] items, int lineNumber)
+		protected internal virtual IList<CharacterVerse> ProcessLine(string[] items, int lineNumber)
 		{
 			if (items.Length < kiQuoteType)
 				throw new ApplicationException($"Bad format in CharacterVerse control file! Line #: {lineNumber}; Line contents: {string.Join("\t", items)}");

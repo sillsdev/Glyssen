@@ -2,3 +2,4 @@
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("GlyssenTests")]
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("GlyssenEngineTests")]
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("GlyssenCharactersTests")]
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("DevTools")]

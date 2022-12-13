@@ -1116,5 +1116,16 @@ namespace GlyssenEngine.Script
 				}
 			}
 		}
+
+		public QuotePosition GetProposedQuotePosition(int chapter, int verse)
+		{
+			var blocks = GetBlocksForVerse(chapter, verse).ToList();
+			if (blocks.Count == 0)
+				return QuotePosition.Unspecified;
+			if (blocks.All(b => b.IsQuote) && blocks.Select(b => b.CharacterId).Distinct().Count() == 1)
+				return QuotePosition.EntireVerse;
+			// TODO: deal with possibility of preceding paragraph before which quote was not closed.
+			return QuotePosition.Unspecified;
+		}
 	}
 }

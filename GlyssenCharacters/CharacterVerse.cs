@@ -61,12 +61,14 @@ namespace GlyssenCharacters
 		/// <summary>
 		/// Potential direct speech that is
 		/// a) in verses that are not found in some manuscripts and may be omitted from translations;
+		/// * ENHANCE: These really should be treated as <seealso cref="Normal"/> quotes if the text
+		/// does contain the verse.
 		/// b) likely to be marked up using poetry but without quotes;
 		/// c) likely not to be marked as speech at all, but in these cases <seealso cref="Rare"/> is
-		/// probably a better choice.
+		/// probably a better choice;
 		/// d) A self-quote by the narrator (especially where the narrator refers to himself in the
 		/// first person). * ENHANCE: We might want to consider breaking this case out into a
-		/// distinct type.
+		/// distinct type;
 		/// e) In verses where the text could be read by the narrator but there is also a reasonable
 		/// narrator override, the non-narrator option(s) will be listed as potential speakers, so
 		/// scripter can choose the override character if so desired.
@@ -146,6 +148,22 @@ namespace GlyssenCharacters
 		/// handle Rare when it occurs along with other quote types in a verse.
 		/// </summary>
 		Rare,
+	}
+
+	/// <summary>
+	/// Indicates where the quoted/speech is likely to occur within a verse. Note that this
+	/// cannot be used as an absolute expectation since it may vary somewhat from one
+	/// language/translation to another. But particularly when the speech is dialogue or occurs
+	/// at the start or end of a discourse that spans multiple verses, it may be helpful in
+	/// making sense of the overall speech event.
+	/// </summary>
+	public enum QuotePosition
+	{
+		Unspecified,
+		StartOfVerse,
+		EndOfVerse,
+		ContainedWithinVerse,
+		EntireVerse,
 	}
 
 	/// <summary>
@@ -346,7 +364,8 @@ namespace GlyssenCharacters
 		private readonly QuoteType m_origQuoteType;
 
 		public CharacterVerse(BCVRef bcvRef, string character, string delivery, string alias, bool projectSpecific,
-			QuoteType quoteType = QuoteType.Normal, string defaultCharacter = null, string parallelPassageReferences = null) :
+			QuoteType quoteType = QuoteType.Normal, string defaultCharacter = null, string parallelPassageReferences = null,
+			QuotePosition position = QuotePosition.Unspecified) :
 			base(character, delivery, alias, projectSpecific, quoteType, defaultCharacter, parallelPassageReferences)
 		{
 			BcvRef = new BCVRef(bcvRef);

@@ -16,6 +16,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- GlyssenCharacters.CharacterVerse Added parameter to the constructor to set the QuotePosition.
+- GlyssenCharacters.CharacterVerseData Changed several protected members to protected internal to support use by new CharacterVerseUpdater class in DevTools.
+- GlyssenCharacters.ControlCharacterVerseData Changed protected ProcessLine method to protected internal to support use by new CharacterVerseUpdater class in DevTools.
+
+### Added
+
+- GlyssenCharacters.QuotePosition enum.
+- Optional Quote Position column to CharacterVerse.txt data
+- GlyssenEngine.Script.BookScript.GetProposedQuotePosition method
+
 ## [5.0.0] - 2022-11-11
 
 ### Changed

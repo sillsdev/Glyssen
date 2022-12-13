@@ -298,6 +298,7 @@
     <Compile Include="BiblicalTerms\BiblicalTermsList.cs" />
     <Compile Include="BiblicalTerms\Processor.cs" />
     <Compile Include="CharacterCharacterId.cs" />
+    <Compile Include="CharacterVerseUpdater.cs" />
     <Compile Include="CharacterDetailProcessing.cs" />
     <Compile Include="CharacterListProcessing.cs" />
     <Compile Include="CharacterVerse.cs" />

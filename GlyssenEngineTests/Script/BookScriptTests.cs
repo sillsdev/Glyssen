@@ -4515,6 +4515,161 @@ namespace GlyssenEngineTests.Script
 		}
 		#endregion
 
+		#region GetProposedQuotePosition Tests
+		[TestCase(1, 4)]
+		[TestCase(2, 1)]
+		public void GetProposedQuotePosition_NoBlocksFound_Unspecified(int chapter, int verse)
+		{
+			var mrkBlocks = new List<Block>
+			{
+				NewChapterBlock(1),
+				NewSingleVersePara(1),
+				NewSingleVersePara(2),
+				NewSingleVersePara(3)
+			};
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
+			Assert.That(bookScript.GetProposedQuotePosition(chapter, verse), Is.EqualTo(QuotePosition.Unspecified));
+		}
+		 
+		[TestCase(1, 3, true, true)]
+		[TestCase(1, 3, false, true)]
+		[TestCase(1, 3, true, false)]
+		[TestCase(2, 1, false, false)]
+		public void GetProposedQuotePosition_SingleBlockIsQuoteCoveringVerse_EntireVerse(int chapter, int verse,
+			bool includePrevVerseInBlock, bool includeNextVerseInBlock)
+		{
+			var mrkBlocks = new List<Block>
+			{
+				NewChapterBlock(chapter),
+				NewSingleVersePara(1)
+			};
+			if (includePrevVerseInBlock)
+			{
+				Assert.That(verse, Is.GreaterThan(2), "Not a valid test case.");
+				mrkBlocks.Add(NewSingleVersePara(verse - 1).AddVerse(verse));
+			}
+			else if (includeNextVerseInBlock)
+			{
+				mrkBlocks.Add(NewSingleVersePara(verse));
+				mrkBlocks.Last().AddVerse(verse + 1);
+			}
+			else
+				Assert.That(verse, Is.EqualTo(1), "Not a valid test case.");
+
+			mrkBlocks.Last().CharacterId = "Priest";
+
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
+			Assert.That(bookScript.GetProposedQuotePosition(chapter, verse), Is.EqualTo(QuotePosition.EntireVerse));
+		}
+
+		[TestCase(1, 3, true, true)]
+		[TestCase(1, 3, false, true)]
+		[TestCase(1, 3, true, false)]
+		[TestCase(2, 1, false, false)]
+		public void GetProposedQuotePosition_MultipleBlocksCoveringVerseWithSameCharacter_EntireVerse(int chapter, int verse,
+			bool includePrevVerseInBlock, bool includeNextVerseInBlock)
+		{
+			var mrkBlocks = new List<Block>
+			{
+				NewChapterBlock(chapter),
+				NewSingleVersePara(1)
+			};
+			if (verse == 1 || (verse == 2 && includePrevVerseInBlock))
+				mrkBlocks.Last().CharacterId = "boy";
+			else if (includePrevVerseInBlock)
+			{
+				mrkBlocks.Add(NewSingleVersePara(verse - 1).AddVerse(verse));
+				m_curSetupVerse = verse;
+				mrkBlocks.Last().CharacterId = "boy";
+			}
+
+			mrkBlocks.Add(NewBlock("More text", "boy"));
+			mrkBlocks.Add(NewBlock("Even more text", "boy"));
+
+			if (includeNextVerseInBlock)
+				mrkBlocks.Last().AddVerse(verse + 1);
+
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
+			Assert.That(bookScript.GetProposedQuotePosition(chapter, verse), Is.EqualTo(QuotePosition.EntireVerse));
+		}
+		
+		[Test]
+		public void GetProposedQuotePosition_MultipleBlocksCoveringVerseWithCharacterAndNarrator_Unspecified()
+		{
+			var mrkBlocks = new List<Block>
+			{
+				NewChapterBlock(2),
+				NewSingleVersePara(1, "MRK"),
+				NewSingleVersePara(2, "“I know why people think I am good,”")
+			};
+
+			mrkBlocks.Last().CharacterId = "good boy";
+			mrkBlocks.Add(NewBlock(" he said. And then he continued, ",
+				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator)));
+			mrkBlocks.Add(NewBlock("“I am good.”", "good boy"));
+
+			mrkBlocks.Add(NewSingleVersePara(3));
+
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
+			Assert.That(bookScript.GetProposedQuotePosition(2, 2), Is.EqualTo(QuotePosition.Unspecified));
+		}
+
+		[Test]
+		public void GetProposedQuotePosition_MultipleBlocksCoveringVerseWithDifferentCharacters_Unspecified()
+		{
+			var mrkBlocks = new List<Block>
+			{
+				NewChapterBlock(2),
+				NewSingleVersePara(1, "MRK"),
+				NewSingleVersePara(2)
+			};
+
+			mrkBlocks.Last().CharacterId = "good boy";
+			mrkBlocks.Add(NewBlock("-I am bad.", "bad boy"));
+			mrkBlocks.Add(NewBlock("-I am good.", "good boy"));
+
+			mrkBlocks.Add(NewSingleVersePara(3));
+
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
+			Assert.That(bookScript.GetProposedQuotePosition(2, 2), Is.EqualTo(QuotePosition.Unspecified));
+		}
+		
+		[TestCase]
+		[TestCase("p")]
+		[TestCase("q1", "q2", "q1")]
+		[TestCase("q", "m")]
+		public void GetProposedQuotePosition_VerseStartsWithQuoteAndEndsWithNarrator_StartOfVerse(params string[] additionalParaTags)
+		{
+			var mrkBlocks = new List<Block>
+			{
+				NewChapterBlock(2),
+				NewSingleVersePara(1, "MRK"),
+				NewSingleVersePara(2, "“I know why people think I am good,")
+			};
+
+			mrkBlocks.Last().CharacterId = "good boy";
+
+			foreach (var paraTag in additionalParaTags)
+			{
+				var sb = new StringBuilder();
+				if (paraTag == "p")
+					sb.Append("“");
+				sb.Append($"Some speech marked up as {paraTag}.");
+				var block = NewBlock(sb.ToString(), "good boy");
+				block.IsParagraphStart = true;
+				mrkBlocks.Add(block);
+			}
+
+			mrkBlocks.Add(NewBlock(" he said.",
+				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator)));
+
+			mrkBlocks.Add(NewSingleVersePara(3));
+
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
+			Assert.That(bookScript.GetProposedQuotePosition(2, 2), Is.EqualTo(QuotePosition.StartOfVerse));
+		}
+		#endregion
+
 		[TestCase(true)]
 		[TestCase(false)]
 		public void Clone_AllMembersAndAutoPropertiesDeepCopied(bool singleVoice)
