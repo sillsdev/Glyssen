@@ -11529,7 +11529,12 @@ JER	28	14	Jeremiah			Alternate
 JER	28	15	Jeremiah			Normal		
 JER	28	16	Jeremiah		Jeremiah (Yahweh says)	Normal		
 JER	28	16	God		God (Yahweh)	Quotation		
-JER	29	4-23	Jeremiah	letter	Jeremiah (Yahweh says)	Normal		
+# Assuming this letter should be read by a single speaker, the entirety of it
+# should be Implicit (especially since many texts will introduce it with a colon and
+# not put it in first-level quotes. Whether the quotes it contains are regarded as
+# "self quotes" depends on which character is chosen to speak it. The embedded quotes
+# are actually God, not Jeremish.
+JER	29	4-23	Jeremiah	letter	Jeremiah (Yahweh says)	ImplicitWithPotentialSelfQuote		
 JER	29	4-23	Elasah, son of Shaphan/Gemariah, son of Hilkiah	letter		Alternate		
 JER	29	4-23	God		God (Yahweh)	Alternate		
 JER	29	24	God		God (Yahweh)	Potential		
@@ -18541,14 +18546,14 @@ JHN	3	10	Jesus			Normal
 JHN	3	11	Jesus			Normal		
 JHN	3	12	Jesus			Normal		
 JHN	3	13	Jesus			Normal		
-JHN	3	14	Jesus			Normal		
-JHN	3	15	Jesus			Normal		
-JHN	3	16	Jesus			Normal		
-JHN	3	17	Jesus			Normal		
-JHN	3	18	Jesus			Normal		
-JHN	3	19	Jesus			Normal		
-JHN	3	20	Jesus			Normal		
-JHN	3	21	Jesus			Normal		
+JHN	3	14	Jesus			Potential		
+JHN	3	15	Jesus			Potential		
+JHN	3	16	Jesus			Potential		
+JHN	3	17	Jesus			Potential		
+JHN	3	18	Jesus			Potential		
+JHN	3	19	Jesus			Potential		
+JHN	3	20	Jesus			Potential		
+JHN	3	21	Jesus			Potential		
 JHN	3	26	disciples of John the Baptist/a Jew	concerned		Dialogue		
 JHN	3	27	John the Baptist			Dialogue		
 JHN	3	28	John the Baptist			Normal		
