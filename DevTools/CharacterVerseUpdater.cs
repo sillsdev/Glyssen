@@ -7,10 +7,9 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using GlyssenCharacters;
 using GlyssenEngine;
-using GlyssenEngine.Paratext;
 using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
-using Paratext.Data;
+using InMemoryTestPersistence;
 using SIL.Scripture;
 using static System.String;
 
@@ -23,19 +22,29 @@ namespace DevTools
 
 		public static void MakeNormalQuotesImplicit()
 		{
+			var persistenceImpl = new PersistenceImplementation();
+			ProjectBase.Reader = ReferenceTextProxy.Reader = persistenceImpl;
+			Project.Writer = persistenceImpl;
+
 			int versionNumber = ControlCharacterVerseData.Singleton.ControlFileVersion + 1;
 
-			ScrTextCollection.Initialize();
-			var standardTexts = new Project[3];
+			const int numberOfStdTexts = 3;
+
+			var standardTexts = new Project[numberOfStdTexts];
 			int i = 0;
-			foreach (var text in new [] { ScrTextCollection.Get("CEVUS06"), ScrTextCollection.Get("NVI-S"), ScrTextCollection.Get("ESVUS16") })
-				standardTexts[i++] = new Project(new ParatextScrTextWrapper(text));
+
+			foreach (var text in new[] { "CEVUS06", "NVI-S", "ESVUS16" })
+			{
+				var wrapper = new ParatextUnzippedResourceWrapper(text);
+				standardTexts[i++] = new Project(wrapper);
+			}
+
 			do
 			{
 				Thread.Sleep(500);
 			} while (standardTexts.Any(p => p.ProjectState != ProjectState.FullyInitialized));
 
-			var currentBook = new BookScript[3];
+			var currentBook = new BookScript[numberOfStdTexts];
 
 			var sb = new StringBuilder("Control File Version\t");
 			sb.Append(versionNumber).Append(Environment.NewLine);
@@ -87,7 +96,6 @@ namespace DevTools
 						var stdText = standardTexts[i];
 						if (currentBook[i] == null || currentBook[i].BookNumber != cv.Book)
 							currentBook[i] = stdText.GetBook(cv.Book);
-
 					}
 				}
 				SetQuotePosition(items, sb, line,
@@ -114,6 +122,12 @@ namespace DevTools
 
 		private static void SetQuotePosition(string[] items, StringBuilder sb, object line, QuotePosition position)
 		{
+			if (position == QuotePosition.EntireVerse &&
+			    items[CharacterVerseData.kiQuoteType] != QuoteType.Implicit.ToString() &&
+			    items[CharacterVerseData.kiQuoteType] != QuoteType.ImplicitWithPotentialSelfQuote.ToString())
+			{
+				items[CharacterVerseData.kiQuoteType] = QuoteType.Implicit.ToString();
+			}
 			var sPos = position.ToString();
 			if (items.Length > CharacterVerseData.kiQuotePosition)
 			{

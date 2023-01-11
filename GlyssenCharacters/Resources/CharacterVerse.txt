@@ -1,4 +1,4 @@
-Control File Version	163
+Control File Version	164
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage	Quote Position
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5
 GEN	1	3	God		God (Yahweh)	Normal		
@@ -1619,9 +1619,11 @@ EXO	32	2	Aaron			Normal
 EXO	32	4	Israelites			Normal		
 EXO	32	5	Aaron			Normal		
 EXO	32	7	God		God (Yahweh)	Normal		
-EXO	32	8	God		God (Yahweh)	Normal		
+# The quote in v. 8 is not really a "self-quote" but it is a quotation of Israel's words that
+# should normally be spoken by God.
+EXO	32	8	God		God (Yahweh)	ImplicitWithPotentialSelfQuote		
 EXO	32	9	God		God (Yahweh)	Normal		
-EXO	32	10	God		God (Yahweh)	Normal		
+EXO	32	10	God		God (Yahweh)	Implicit		
 EXO	32	11	Moses			Normal		
 EXO	32	12	Moses			Normal		
 EXO	32	13	Moses			Normal		
@@ -5675,6 +5677,7 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	13	30	man reporting to David			Normal		
 2SA	13	32	Jonadab	shrewd		Normal		
 2SA	13	33	Jonadab	shrewd		Normal		
+2SA	13	34	Jonadab	shrewd		Rare		
 2SA	13	34	watchman			Rare		
 2SA	13	34	Needs Review			Potential		
 2SA	13	35	Jonadab	shrewd		Normal		
@@ -6200,6 +6203,9 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	17	24	widow at Zarephath			Normal		
 1KI	18	1	God		God (Yahweh)	Normal		
 1KI	18	5	Ahab, king of Israel			Normal		
+1KI	18	6	Ahab, king of Israel			Rare		
+1KI	18	6	Obadiah, manager of Ahab's palace			Rare		
+1KI	18	6	Needs Review			Potential		
 1KI	18	7	Obadiah, manager of Ahab's palace			Dialogue		
 1KI	18	8	Elijah			Dialogue		
 1KI	18	9	Obadiah, manager of Ahab's palace			Normal		
@@ -6748,6 +6754,10 @@ RUT	4	17	women of Bethlehem			Normal
 1CH	10	4	Saul			Normal		
 1CH	11	1	Israel, all			Normal		
 1CH	11	2	Israel, all			Normal		
+1CH	11	3	Israel, all			Rare		
+1CH	11	3	elders of Israel			Rare		
+1CH	11	3	David			Rare		
+1CH	11	3	Needs Review			Potential		
 1CH	11	5	Jebusites			Normal		
 1CH	11	6	David			Normal		
 1CH	11	17	David			Normal		
@@ -7087,6 +7097,10 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	23	14	Jehoiada the priest			Normal		
 2CH	24	5	Joash, king of Judah			Normal		
 2CH	24	6	Joash, king of Judah			Normal		
+2CH	24	7	Joash, king of Judah			Rare		
+2CH	24	7	Needs Review			Potential		
+2CH	24	8	Joash, king of Judah			Potential		
+2CH	24	8	proclamation			Indirect		
 2CH	24	20	Zechariah, son of Jehoiada the priest			Normal		
 2CH	24	22	Zechariah, son of Jehoiada the priest			Normal		
 2CH	25	4	scripture		scripture (law of Moses)	Quotation	Moses	
@@ -8925,6 +8939,8 @@ ECC	2	2	narrator-ECC			Quotation
 ECC	2	2	Solomon, king		teacher (Preacher)	Quotation		
 ECC	2	15	narrator-ECC			Quotation		
 ECC	2	15	Solomon, king	said/thought in heart	teacher (Preacher)	Quotation		
+ECC	2	16	narrator-ECC			Potential		
+ECC	2	16	Solomon, king	said/thought in heart	teacher (Preacher)	Potential		
 ECC	3	17	narrator-ECC			Quotation		
 ECC	3	17	Solomon, king	said/thought in heart	teacher (Preacher)	Quotation		
 ECC	3	18	narrator-ECC			Quotation		
@@ -10633,17 +10649,18 @@ JER	3	25	Needs Review			Implicit
 JER	4	1	God		God (Yahweh)	Normal		
 JER	4	2	God		God (Yahweh)	Normal		
 JER	4	2	Israel			Hypothetical		
-JER	4	3	God		God (Yahweh)	Normal		
-JER	4	4	God		God (Yahweh)	Implicit		
+JER	4	3	God	commanding	God (Yahweh)	Normal		
+JER	4	4	God	commanding	God (Yahweh)	Implicit		
 JER	4	5	God	commanding	God (Yahweh)	Normal		
 JER	4	5	people of Jerusalem	declaration of alarm		Hypothetical		
 JER	4	5	Jeremiah	declaration of alarm		Hypothetical		
 JER	4	5	Jeremiah	commanding		Potential		
 JER	4	5	Needs Review			Potential		
-JER	4	6	God		God (Yahweh)	Implicit		
+JER	4	6	God	commanding	God (Yahweh)	Implicit		
 JER	4	7	God		God (Yahweh)	Potential		
 JER	4	7	Jeremiah			Potential		
 JER	4	8	Jeremiah			Potential		
+JER	4	8	God	commanding	God (Yahweh)	Potential		
 JER	4	9	God		God (Yahweh)	Normal		
 JER	4	10	Jeremiah			Quotation		
 JER	4	10	God		God (Yahweh)	Quotation		
@@ -11010,10 +11027,21 @@ JER	13	16	God		God (Yahweh)	Potential
 JER	13	16	Jeremiah			Potential		
 JER	13	17	God		God (Yahweh)	Potential		
 JER	13	17	Jeremiah			Potential		
+JER	13	18	messenger to the king and to the queen mother			Hypothetical		
 JER	13	18	God		God (Yahweh)	Potential		
 JER	13	18	Jeremiah			Potential		
-JER	13	18	messenger to the king and to the queen mother			Hypothetical		
 JER	13	19	messenger to the king and to the queen mother			Hypothetical		
+JER	13	19	God		God (Yahweh)	Potential		
+JER	13	19	Jeremiah			Potential		
+JER	13	20	messenger to the king and to the queen mother			Hypothetical		
+JER	13	20	God		God (Yahweh)	Potential		
+JER	13	20	Jeremiah			Potential		
+JER	13	21	messenger to the king and to the queen mother			Hypothetical		
+JER	13	21	Jeremiah			Potential		
+JER	13	21	God		God (Yahweh)	Potential		
+JER	13	22	messenger to the king and to the queen mother			Hypothetical		
+JER	13	22	Jeremiah			Potential		
+JER	13	22	God		God (Yahweh)	Potential		
 JER	13	22	Judah, all	say in your heart	you (Judah)	Hypothetical		
 JER	13	23	God		God (Yahweh)	Potential		
 JER	13	24	God		God (Yahweh)	Implicit		
@@ -14306,6 +14334,7 @@ DAN	2	42	Daniel			Implicit
 DAN	2	43	Daniel			Implicit		
 DAN	2	44	Daniel			Implicit		
 DAN	2	45	Daniel			Implicit		
+DAN	2	46	Nebuchadnezzar, king of Babylon			Indirect		
 DAN	2	47	Nebuchadnezzar, king of Babylon			Normal		
 DAN	2	48	Nebuchadnezzar, king of Babylon			Potential		
 DAN	2	49	Daniel	requesting		Indirect		
@@ -14467,93 +14496,211 @@ DAN	7	26	angel	vision	one of those who stood there	Quotation
 DAN	7	27	Daniel	vision		Normal		
 DAN	7	27	angel	vision	one of those who stood there	Quotation		
 DAN	7	28	Daniel	vision		Normal		
+# Unlike the preceding chapter where Daniel's vision is introduced using
+# third-person and his dream is recorded as being written by him, the vision
+# in chapter 8, the preamble to his prayer in chapter 9, and the preamble and
+# vision in 10:2ff are introduced as a first-person narrative and are unlikely
+# to be in quotes. However, the NVI-S does put them in quotes.
+DAN	8	1	Daniel	vision		Potential		
+DAN	8	2	Daniel	vision		Potential		
+DAN	8	3	Daniel	vision		Potential		
+DAN	8	4	Daniel	vision		Potential		
+DAN	8	5	Daniel	vision		Potential		
+DAN	8	6	Daniel	vision		Potential		
+DAN	8	7	Daniel	vision		Potential		
+DAN	8	8	Daniel	vision		Potential		
+DAN	8	9	Daniel	vision		Potential		
+DAN	8	10	Daniel	vision		Potential		
+DAN	8	11	Daniel	vision		Potential		
+DAN	8	12	Daniel	vision		Potential		
+DAN	8	13	Daniel	vision		Potential		
 DAN	8	13	another holy one (in vision)			Normal		
+# The normal/implicit quotes in the following verses will be level 2 quotes if this
+# whole chapter is in first-level quotes with Daniel speaking.
 DAN	8	14	holy one (in vision)			Normal		
+DAN	8	14	Daniel	vision		Potential		
+DAN	8	15	Daniel	vision		Potential		
 DAN	8	16	man's voice from the Ulai (in vision)			Normal		
+DAN	8	16	Daniel	vision		Potential		
 DAN	8	17	Gabriel			Normal		
+DAN	8	17	Daniel	vision		Potential		
+DAN	8	18	Daniel	vision		Potential		
 DAN	8	19	Gabriel			Normal		
+DAN	8	19	Daniel	vision		Potential		
 DAN	8	20	Gabriel			Implicit		
+DAN	8	20	Daniel	vision		Alternate		
 DAN	8	21	Gabriel			Implicit		
+DAN	8	21	Daniel	vision		Alternate		
 DAN	8	22	Gabriel			Implicit		
+DAN	8	22	Daniel	vision		Alternate		
 DAN	8	23	Gabriel			Implicit		
+DAN	8	23	Daniel	vision		Alternate		
 DAN	8	24	Gabriel			Implicit		
+DAN	8	24	Daniel	vision		Alternate		
 DAN	8	25	Gabriel			Implicit		
+DAN	8	25	Daniel	vision		Alternate		
 DAN	8	26	Gabriel			Implicit		
+DAN	8	26	Daniel	vision		Alternate		
+DAN	9	1	Daniel	vision		Potential		
+DAN	9	2	Daniel	vision		Potential		
+DAN	9	3	Daniel	vision		Potential		
 DAN	9	4-19	narrator-DAN			ImplicitWithPotentialSelfQuote		
 DAN	9	4-19	Daniel	prayer of repentance		Alternate		
+DAN	9	20	Daniel	vision		Potential		
+DAN	9	21	Daniel	vision		Potential		
+DAN	9	22	Daniel	vision		Potential		
 DAN	9	22	Gabriel			Normal		
 DAN	9	23	Gabriel			Implicit		
+DAN	9	23	Daniel	vision		Alternate		
 DAN	9	24	Gabriel			Implicit		
+DAN	9	24	Daniel	vision		Alternate		
 DAN	9	25	Gabriel			Implicit		
+DAN	9	25	Daniel	vision		Alternate		
 DAN	9	26	Gabriel			Implicit		
+DAN	9	26	Daniel	vision		Alternate		
 DAN	9	27	Gabriel			Implicit		
+DAN	9	27	Daniel	vision		Alternate		
+DAN	10	2	Daniel	vision		Potential		
+DAN	10	3	Daniel	vision		Potential		
+DAN	10	4	Daniel	vision		Potential		
+DAN	10	5	Daniel	vision		Potential		
+DAN	10	6	Daniel	vision		Potential		
+DAN	10	7	Daniel	vision		Potential		
+DAN	10	8	Daniel	vision		Potential		
+DAN	10	9	Daniel	vision		Potential		
+DAN	10	10	Daniel	vision		Potential		
+DAN	10	11	Daniel	vision		Potential		
 DAN	10	11	man in linen above river			Normal		
 DAN	10	12	man in linen above river			Normal		
+DAN	10	12	Daniel	vision		Potential		
 DAN	10	13	man in linen above river			Normal		
+DAN	10	13	Daniel	vision		Potential		
 DAN	10	14	man in linen above river			Normal		
+DAN	10	14	Daniel	vision		Potential		
+DAN	10	15	Daniel	vision		Potential		
 DAN	10	16	Daniel			Normal		
 DAN	10	17	Daniel			Normal		
 DAN	10	19	Daniel			Normal		
 DAN	10	19	man in linen above river			Normal		
 DAN	10	20	man in linen above river			Normal		
+DAN	10	20	Daniel	vision		Potential		
 DAN	10	21	man in linen above river			Implicit		
+DAN	10	21	Daniel	vision		Alternate		
 DAN	11	1	man in linen above river			Implicit		
+DAN	11	1	Daniel	vision		Alternate		
 DAN	11	2	man in linen above river			Implicit		
+DAN	11	2	Daniel	vision		Alternate		
 DAN	11	3	man in linen above river			Implicit		
+DAN	11	3	Daniel	vision		Alternate		
 DAN	11	4	man in linen above river			Implicit		
+DAN	11	4	Daniel	vision		Alternate		
 DAN	11	5	man in linen above river			Implicit		
+DAN	11	5	Daniel	vision		Alternate		
 DAN	11	6	man in linen above river			Implicit		
+DAN	11	6	Daniel	vision		Alternate		
 DAN	11	7	man in linen above river			Implicit		
+DAN	11	7	Daniel	vision		Alternate		
 DAN	11	8	man in linen above river			Implicit		
+DAN	11	8	Daniel	vision		Alternate		
 DAN	11	9	man in linen above river			Implicit		
+DAN	11	9	Daniel	vision		Alternate		
 DAN	11	10	man in linen above river			Implicit		
+DAN	11	10	Daniel	vision		Alternate		
 DAN	11	11	man in linen above river			Implicit		
+DAN	11	11	Daniel	vision		Alternate		
 DAN	11	12	man in linen above river			Implicit		
+DAN	11	12	Daniel	vision		Alternate		
 DAN	11	13	man in linen above river			Implicit		
+DAN	11	13	Daniel	vision		Alternate		
 DAN	11	14	man in linen above river			Implicit		
+DAN	11	14	Daniel	vision		Alternate		
 DAN	11	15	man in linen above river			Implicit		
+DAN	11	15	Daniel	vision		Alternate		
 DAN	11	16	man in linen above river			Implicit		
+DAN	11	16	Daniel	vision		Alternate		
 DAN	11	17	man in linen above river			Implicit		
+DAN	11	17	Daniel	vision		Alternate		
 DAN	11	18	man in linen above river			Implicit		
+DAN	11	18	Daniel	vision		Alternate		
 DAN	11	19	man in linen above river			Implicit		
+DAN	11	19	Daniel	vision		Alternate		
 DAN	11	20	man in linen above river			Implicit		
+DAN	11	20	Daniel	vision		Alternate		
 DAN	11	21	man in linen above river			Implicit		
+DAN	11	21	Daniel	vision		Alternate		
 DAN	11	22	man in linen above river			Implicit		
+DAN	11	22	Daniel	vision		Alternate		
 DAN	11	23	man in linen above river			Implicit		
+DAN	11	23	Daniel	vision		Alternate		
 DAN	11	24	man in linen above river			Implicit		
+DAN	11	24	Daniel	vision		Alternate		
 DAN	11	25	man in linen above river			Implicit		
+DAN	11	25	Daniel	vision		Alternate		
 DAN	11	26	man in linen above river			Implicit		
+DAN	11	26	Daniel	vision		Alternate		
 DAN	11	27	man in linen above river			Implicit		
+DAN	11	27	Daniel	vision		Alternate		
 DAN	11	28	man in linen above river			Implicit		
+DAN	11	28	Daniel	vision		Alternate		
 DAN	11	29	man in linen above river			Implicit		
+DAN	11	29	Daniel	vision		Alternate		
 DAN	11	30	man in linen above river			Implicit		
+DAN	11	30	Daniel	vision		Alternate		
 DAN	11	31	man in linen above river			Implicit		
+DAN	11	31	Daniel	vision		Alternate		
 DAN	11	32	man in linen above river			Implicit		
+DAN	11	32	Daniel	vision		Alternate		
 DAN	11	33	man in linen above river			Implicit		
+DAN	11	33	Daniel	vision		Alternate		
 DAN	11	34	man in linen above river			Implicit		
+DAN	11	34	Daniel	vision		Alternate		
 DAN	11	35	man in linen above river			Implicit		
+DAN	11	35	Daniel	vision		Alternate		
 DAN	11	36	man in linen above river			Implicit		
+DAN	11	36	Daniel	vision		Alternate		
 DAN	11	37	man in linen above river			Implicit		
+DAN	11	37	Daniel	vision		Alternate		
 DAN	11	38	man in linen above river			Implicit		
+DAN	11	38	Daniel	vision		Alternate		
 DAN	11	39	man in linen above river			Implicit		
+DAN	11	39	Daniel	vision		Alternate		
 DAN	11	40	man in linen above river			Implicit		
+DAN	11	40	Daniel	vision		Alternate		
 DAN	11	41	man in linen above river			Implicit		
+DAN	11	41	Daniel	vision		Alternate		
 DAN	11	42	man in linen above river			Implicit		
+DAN	11	42	Daniel	vision		Alternate		
 DAN	11	43	man in linen above river			Implicit		
+DAN	11	43	Daniel	vision		Alternate		
 DAN	11	44	man in linen above river			Implicit		
+DAN	11	44	Daniel	vision		Alternate		
 DAN	11	45	man in linen above river			Implicit		
+DAN	11	45	Daniel	vision		Alternate		
 DAN	12	1	man in linen above river			Implicit		
+DAN	12	1	Daniel	vision		Alternate		
 DAN	12	2	man in linen above river			Implicit		
+DAN	12	2	Daniel	vision		Alternate		
 DAN	12	3	man in linen above river			Implicit		
+DAN	12	3	Daniel	vision		Alternate		
 DAN	12	4	man in linen above river			Implicit		
+DAN	12	4	Daniel	vision		Alternate		
+DAN	12	5	Daniel	vision		Potential		
+DAN	12	6	Daniel	vision		Potential		
 DAN	12	6	one of the others who stood on the river bank			Normal		
+DAN	12	7	Daniel	vision		Potential		
 DAN	12	7	man in linen above river			Indirect		
+DAN	12	8	Daniel	vision		Potential		
 DAN	12	8	narrator-DAN			Quotation		
+DAN	12	9	Daniel	vision		Potential		
 DAN	12	9	man in linen above river			Normal		
 DAN	12	10	man in linen above river			Normal		
+DAN	12	10	Daniel	vision		Potential		
 DAN	12	11	man in linen above river			Normal		
+DAN	12	11	Daniel	vision		Potential		
 DAN	12	12	man in linen above river			Normal		
+DAN	12	12	Daniel	vision		Potential		
 DAN	12	13	man in linen above river			Normal		
+DAN	12	13	Daniel	vision		Potential		
 HOS	1	2	God		God (Yahweh)	Normal		
 HOS	1	4	God		God (Yahweh)	Normal		
 HOS	1	5	God		God (Yahweh)	Normal		
@@ -20140,6 +20287,10 @@ ROM	9	17	scripture			Quotation	God
 ROM	9	19	one of you			Hypothetical		
 ROM	9	20	molded thing			Hypothetical		
 ROM	9	20	scripture			Potential	Isaiah	
+ROM	9	20	narrator-ROM			Rare		
+ROM	9	20	Needs Review			Rare		
+ROM	9	21	narrator-ROM			Rare		
+ROM	9	21	Needs Review			Potential		
 ROM	9	25	scripture			Quotation	God	
 ROM	9	26	scripture			Quotation	Hosea	
 ROM	9	27	scripture			Quotation	Isaiah	

@@ -16,6 +16,7 @@ using SIL.WritingSystems;
 using static GlyssenCharacters.CharacterSpeakingMode;
 using static GlyssenCharacters.CharacterVerseData;
 using static GlyssenCharacters.CharacterVerseData.StandardCharacter;
+using static GlyssenEngineTests.Quote.QuoteParserTests;
 using Resources = GlyssenCharactersTests.Properties.Resources;
 
 namespace GlyssenEngineTests.Quote
@@ -41,7 +42,6 @@ namespace GlyssenEngineTests.Quote
 			block.BlockElements.Add(new ScriptText("He replied, «Isaiah was right when he prophesied about you.»"));
 			block.UserConfirmed = true;
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input);
 			Assert.Throws<InvalidOperationException>(() => parser.Parse());
 		}
@@ -63,7 +63,6 @@ namespace GlyssenEngineTests.Quote
 			var blockN2 = new Block(endStyle, 6, 38).AddText("they replied after Jesus told them,");
 			var blockJ2 = new Block(styleTag, 6, 38).AddText("\"Go check!\""); // Note: character not set
 			var input = new List<Block> { blockJ1, blockN1, blockD, blockN2, blockJ2 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
 
@@ -102,7 +101,6 @@ namespace GlyssenEngineTests.Quote
 				.AddEndQuoteId();
 			var block3 = new Block("p", 6, 38).AddText("they replied.");
 			var input = new List<Block> { block1, block2, block3 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 
@@ -153,7 +151,6 @@ namespace GlyssenEngineTests.Quote
 			var block4 = new Block("p", 6, 38)
 				.AddText("When they found out, they said, «Five, plus two squirmy fish.»");
 			var input = new List<Block> { block1, block2, block3, block4 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 			var narrator = GetStandardCharacterId("MRK", Narrator);
 			int i = 0;
@@ -206,7 +203,6 @@ namespace GlyssenEngineTests.Quote
 			var input = new List<Block> { block1, block2 };
 			if (includeFollowingParagraph)
 				input.Add(new Block("p", 6, 39).AddVerse(39, "Then Jesus told them to have the crowd huddle up on the sod."));
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 			Assert.AreEqual(includeFollowingParagraph ? 5 : 4, output.Count);
 
@@ -255,8 +251,8 @@ namespace GlyssenEngineTests.Quote
 
 			var input = new List<Block>
 				{ blockC1, blockV9, blockV10, blockV11a, blockV11b, blockV11c };
-			SetQuoteSystemToStandardAmericanEnglish();
-			var output = new QuoteParser(ControlCharacterVerseData.Singleton, "JER", input)
+			var output = new QuoteParser(ControlCharacterVerseData.Singleton, "JER", input,
+					QuoteSystemForStandardAmericanEnglish)
 				.Parse().ToList();
 			
 			Assert.That(output.All(b => !b.IsPredeterminedQuoteInterruption));
@@ -347,7 +343,6 @@ namespace GlyssenEngineTests.Quote
 
 			var input = new List<Block> { blockC5, blockV12, blockV3a, blockV3b, blockV4a, blockV4b,
 				blockV11ff, blockC6, block6V1ff, block6V3a, block6V3b };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(input.Count - 2, output.Count,
 				"Poetry blocks not ending with periods should have joined with following poetry blocks.");
@@ -425,7 +420,6 @@ namespace GlyssenEngineTests.Quote
 				block28.AddEndQuoteId("end of sermon");
 
 			var input = new List<Block> { blockC7, blockJ24, block28 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(input.Count, output.Count);
 
@@ -463,7 +457,6 @@ namespace GlyssenEngineTests.Quote
 				.AddText("said Fred.");
 
 			var input = new List<Block> { blockC7, blockJ24, blockJ27b };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(input.Count, output.Count);
 
@@ -492,7 +485,6 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p", 7, 6);
 			block.BlockElements.Add(new ScriptText("He replied, «Isaiah was right when he prophesied about you.»"));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
@@ -514,7 +506,6 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p", 2, 10);
 			block.BlockElements.Add(new ScriptText("But the angel said to them, «Do not be afraid!"));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
@@ -535,7 +526,6 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("«Go!» he said."));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
@@ -552,7 +542,6 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, «Go!»  «Make me!»"));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
@@ -576,8 +565,7 @@ namespace GlyssenEngineTests.Quote
 			block.BlockElements.Add(new ScriptText("Ociko lwak ni gubed piny i ŋom, "));
 			var input = new List<Block> { block };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
 
 			Assert.AreEqual("Yecu openyogi ni, ", output[0].GetText(false));
@@ -602,7 +590,6 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, «Go!» quietly."));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
@@ -624,7 +611,6 @@ namespace GlyssenEngineTests.Quote
 			var block2 = new Block("p");
 			block2.BlockElements.Add(new ScriptText("See Jane see Spot run."));
 			var input = new List<Block> { block, block2 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
@@ -642,7 +628,6 @@ namespace GlyssenEngineTests.Quote
 			var block2 = new Block("p");
 			block2.BlockElements.Add(new ScriptText("«Go!»"));
 			var input = new List<Block> { block, block2 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
@@ -661,7 +646,6 @@ namespace GlyssenEngineTests.Quote
 			var block2 = new Block("p");
 			block2.BlockElements.Add(new ScriptText("«Make me!»"));
 			var input = new List<Block> { block, block2 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
@@ -677,7 +661,6 @@ namespace GlyssenEngineTests.Quote
 			var block2 = new Block("p");
 			block2.BlockElements.Add(new ScriptText("west!»"));
 			var input = new List<Block> { block, block2 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
@@ -697,8 +680,7 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new ScriptText(firstLevelContinuer + "Get!»"));
 			var input = new List<Block> { block, block2 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("«", "»", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal), null, null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(false));
@@ -735,8 +717,7 @@ namespace GlyssenEngineTests.Quote
 			block4.BlockElements.Add(new ScriptText("Deginbali."));
 			var input = new List<Block> { block1, block2, block3, block4 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal), null, null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
 
 			Assert.AreEqual("{10}\u00A0Jesús e-sapinganga sogdebalid, ", output[0].GetText(true));
@@ -774,7 +755,6 @@ namespace GlyssenEngineTests.Quote
 			var block2 = new Block("p") { IsParagraphStart = true };
 			block2.BlockElements.Add(new ScriptText("«Get!» Thus he ended."));
 			var input = new List<Block> { block, block2 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
@@ -804,7 +784,6 @@ namespace GlyssenEngineTests.Quote
 			var block3 = new Block("p") { IsParagraphStart = true };
 			block3.BlockElements.Add(new ScriptText("«No,» she replied."));
 			var input = new List<Block> { block, block2, block3 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
@@ -839,8 +818,7 @@ namespace GlyssenEngineTests.Quote
 			var block2 = new Block("p") { IsParagraphStart = true };
 			block2.BlockElements.Add(new ScriptText("«‹«Get!»›» Thus he ended."));
 			var input = new List<Block> { block, block2 };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(false));
@@ -866,8 +844,7 @@ namespace GlyssenEngineTests.Quote
 			var block3 = new Block("p") { IsParagraphStart = true };
 			block3.BlockElements.Add(new ScriptText("Thus he ended."));
 			var input = new List<Block> { block, block2, block3 };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(false));
@@ -909,8 +886,7 @@ namespace GlyssenEngineTests.Quote
 			var block4 = new Block("p") { IsParagraphStart = true };
 			block4.BlockElements.Add(new ScriptText("Still in quote.›»"));
 			var input = new List<Block> { block, block2, block3, block4 };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(false));
@@ -950,8 +926,7 @@ namespace GlyssenEngineTests.Quote
 			var block4 = new Block("p") { IsParagraphStart = true };
 			block4.BlockElements.Add(new ScriptText(secondLevelContinuer + "Still in quote.›»"));
 			var input = new List<Block> { block, block2, block3, block4 };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(false));
@@ -997,8 +972,7 @@ namespace GlyssenEngineTests.Quote
 			var block4 = new Block("p") { IsParagraphStart = true };
 			block4.BlockElements.Add(new ScriptText("Still in quote.›»"));
 			var input = new List<Block> { block, block2, block3, block4 };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(false));
@@ -1034,8 +1008,7 @@ namespace GlyssenEngineTests.Quote
 			var block2 = new Block("p") { IsParagraphStart = true };
 			block2.BlockElements.Add(new ScriptText(thirdLevelContinuer + "Get!»›» Thus he ended."));
 			var input = new List<Block> { block, block2 };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(false));
@@ -1058,8 +1031,7 @@ namespace GlyssenEngineTests.Quote
 			var block3 = new Block("p") { IsParagraphStart = true };
 			block3.BlockElements.Add(new ScriptText("«No,» she replied."));
 			var input = new List<Block> { block, block2, block3 };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(false));
@@ -1083,8 +1055,7 @@ namespace GlyssenEngineTests.Quote
 			var block3 = new Block("p") { IsParagraphStart = true };
 			block3.BlockElements.Add(new ScriptText("«No,» she replied."));
 			var input = new List<Block> { block, block2, block3 };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(false));
@@ -1105,8 +1076,7 @@ namespace GlyssenEngineTests.Quote
 			var block3 = new Block("p") { IsParagraphStart = true };
 			block3.BlockElements.Add(new ScriptText("«Get!» rudely.›»"));
 			var input = new List<Block> { block, block3 };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(false));
@@ -1121,8 +1091,7 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("<<Go!>> he said."));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("<<Go!>> ", output[0].GetText(false));
@@ -1136,8 +1105,7 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, <<Go!>> loudly."));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(false));
@@ -1152,8 +1120,7 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, <<Go!>>"));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(false));
@@ -1168,8 +1135,7 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, <<She said <Go!> and <Get!> >> and then he finished."));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(false));
@@ -1190,8 +1156,7 @@ namespace GlyssenEngineTests.Quote
 			var block3 = new Block("p");
 			block3.BlockElements.Add(new ScriptText("Not a quote."));
 			var input = new List<Block> { block, block2, block3 };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(false));
@@ -1220,8 +1185,7 @@ namespace GlyssenEngineTests.Quote
 			var block8 = new Block("p");
 			block8.BlockElements.Add(new ScriptText("Undi ken or lè he."));
 			var input = new List<Block> { block1, block2, block3, block6, block7, block8 };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 
 			Assert.AreEqual("A gye 'ushu kong le, ", output[0].GetText(false));
@@ -1244,8 +1208,7 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("&*Go!^~ he said."));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("&*Go!^~ ", output[0].GetText(false));
@@ -1259,8 +1222,7 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, &*Go!^~ loudly."));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(false));
@@ -1275,8 +1237,7 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, &*Go!^~"));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(false));
@@ -1290,8 +1251,7 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("<<<Go!>>> he said."));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("<<<Go!>>> ", output[0].GetText(false));
@@ -1305,8 +1265,7 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, <<<Go!>>> loudly."));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(false));
@@ -1321,8 +1280,7 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, <<<Go!>>>"));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(false));
@@ -1336,8 +1294,7 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, \"Go!\""));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(false));
@@ -1351,8 +1308,7 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("\"Go!\" he said."));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("\"Go!\" ", output[0].GetText(false));
@@ -1366,8 +1322,7 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, \"Go!\" quietly."));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(false));
@@ -1384,8 +1339,7 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, \"She said, 'They said, \"No way.\"'\""));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(true));
@@ -1404,7 +1358,6 @@ namespace GlyssenEngineTests.Quote
 			Assert.AreEqual(5, input[0].ChapterNumber);
 			Assert.AreEqual(3, input[0].InitialStartVerseNumber);
 
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
@@ -1431,7 +1384,6 @@ namespace GlyssenEngineTests.Quote
 			Assert.AreEqual(5, input[0].ChapterNumber);
 			Assert.AreEqual(3, input[0].InitialStartVerseNumber);
 
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
@@ -1457,7 +1409,6 @@ namespace GlyssenEngineTests.Quote
 			Assert.AreEqual(6, input[0].ChapterNumber);
 			Assert.AreEqual(2, input[0].InitialStartVerseNumber);
 
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
@@ -1481,7 +1432,6 @@ namespace GlyssenEngineTests.Quote
 			Assert.AreEqual(1, input.Count);
 			Assert.AreEqual("«Go!» {3}\u00A0he said.", input[0].GetText(true));
 
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
@@ -1502,7 +1452,6 @@ namespace GlyssenEngineTests.Quote
 			Assert.AreEqual(6, input[0].ChapterNumber);
 			Assert.AreEqual(3, input[0].InitialStartVerseNumber);
 
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
@@ -1527,7 +1476,6 @@ namespace GlyssenEngineTests.Quote
 			block.BlockElements.Add(new ScriptText("jkl "));
 			var input = new List<Block> { block };
 
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
@@ -1547,7 +1495,6 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, «Go!»"));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
@@ -1560,7 +1507,6 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("«Go»!! he said."));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
@@ -1574,7 +1520,6 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, «Go»!"));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
@@ -1594,7 +1539,6 @@ namespace GlyssenEngineTests.Quote
 			// The en-dash is supposed to be a tone-mark that applies to the word "Ma".
 			block.AddVerse(23, $"Ɔ ya maa neencla le: «Nyinyia ‑anɩ saa ɔ ya 'lɛ nʋ bha?» {punctuation}Ma maa ka...");
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
@@ -1610,8 +1554,7 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("“Go!” he said."));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("“Go!” ", output[0].GetText(true));
@@ -1625,8 +1568,7 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, “She said, ‘Get lost.’”"));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(true));
@@ -1641,8 +1583,7 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, “She said, ‘They said, “No way.”’”"));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(true));
@@ -1652,12 +1593,11 @@ namespace GlyssenEngineTests.Quote
 		[Test]
 		public void Parse_Level3_ContinuesInside_BreakOnFirstLevelQuoteOnly()
 		{
-			SetQuoteSystemToStandardAmericanEnglish();
-
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, “She said, ‘They said, “No way!” rudely.’”"));
 			var input = new List<Block> { block };
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input,
+				QuoteSystemForStandardAmericanEnglish).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(true));
@@ -1667,12 +1607,11 @@ namespace GlyssenEngineTests.Quote
 		[Test]
 		public void Parse_Level3_ContinuesOutside_BreakOnFirstLevelQuoteOnly()
 		{
-			SetQuoteSystemToStandardAmericanEnglish();
-
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, “She said, ‘They said, “No way!” rudely,’” politely."));
 			var input = new List<Block> { block };
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input,
+				QuoteSystemForStandardAmericanEnglish).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(true));
@@ -1686,8 +1625,6 @@ namespace GlyssenEngineTests.Quote
 		[Test]
 		public void Parse_Level3_WordInSecondLevelContainsApostropheWhichIsSecondLevelCloser_ApostropheDoesNotEndSecondLevelQuote()
 		{
-			SetQuoteSystemToStandardAmericanEnglish();
-
 			var block = new Block("p") { IsParagraphStart = true };
 			block.BlockElements.Add(new Verse("11"));
 			block.BlockElements.Add(new ScriptText("Then Nathan spoke to Bathsheba the mother of Solomon, saying, “Haven’t you heard that Adonijah the son of Haggith reigns, and David our lord doesn’t know it? "));
@@ -1698,7 +1635,8 @@ namespace GlyssenEngineTests.Quote
 			block.BlockElements.Add(new Verse("14"));
 			block.BlockElements.Add(new ScriptText("Behold, while you are still talking there with the king, I will also come in after you and confirm your words.”"));
 			var input = new List<Block> { block };
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "1KI", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "1KI", input,
+				QuoteSystemForStandardAmericanEnglish).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("{11}\u00A0Then Nathan spoke to Bathsheba the mother of Solomon, saying, ", output[0].GetText(true));
@@ -1714,8 +1652,6 @@ namespace GlyssenEngineTests.Quote
 		[Test]
 		public void Parse_Level3_WordInSecondLevelContainsPluralPossessiveApostropheWhichIsSecondLevelCloser_ApostropheDoesNotEndSecondLevelQuote()
 		{
-			SetQuoteSystemToStandardAmericanEnglish();
-
 			var block = new Block("p") { IsParagraphStart = true };
 			block.BlockElements.Add(new Verse("11"));
 			block.BlockElements.Add(new ScriptText("Then Nathan spoke to Bathsheba the mother of Solomon, saying, “Haven’t you heard that Adonijah the son of Haggith reigns, and David our lord doesn’t know it? "));
@@ -1726,7 +1662,8 @@ namespace GlyssenEngineTests.Quote
 			block.BlockElements.Add(new Verse("14"));
 			block.BlockElements.Add(new ScriptText("Behold, while you are still talking there with the king, I will also come in after you and confirm your words.”"));
 			var input = new List<Block> { block };
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "1KI", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "1KI", input,
+				QuoteSystemForStandardAmericanEnglish).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("{11}\u00A0Then Nathan spoke to Bathsheba the mother of Solomon, saying, ", output[0].GetText(true));
@@ -1742,12 +1679,12 @@ namespace GlyssenEngineTests.Quote
 		[Test]
 		public void Parse_ParagraphContainsFirstLevelQuoteWithNestedSecondLevelQuoteFolloweByAnotherFirstLevelQuote_SecondLevelCloserNotTreatedAsAnApostrophe()
 		{
-			SetQuoteSystemToStandardAmericanEnglish();
 			var block = new Block("p", 13) { IsParagraphStart = true };
 			block.BlockElements.Add(new Verse("14"));
 			block.BlockElements.Add(new ScriptText("“Oona gwine see ‘De Horrible Bad Ting wa mek God place empty’ da stanop een de place weh e ain oughta dey.” (Leh oona wa da read ondastan wa dis mean.) “Wen dat time come, de people een Judea mus ron way quick ta de hill country.”"));
 			var input = new List<Block> { block };
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input,
+				QuoteSystemForStandardAmericanEnglish).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("{14}\u00A0“Oona gwine see ‘De Horrible Bad Ting wa mek God place empty’ da stanop een de place weh e ain oughta dey.” ", output[0].GetText(true));
@@ -1770,8 +1707,7 @@ namespace GlyssenEngineTests.Quote
 			var block2 = new Block("p");
 			block2.BlockElements.Add(new ScriptText("He continued, “The end.”"));
 			var input = new List<Block> { block, block2 };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(true));
@@ -1818,8 +1754,7 @@ namespace GlyssenEngineTests.Quote
 			block3.BlockElements.Add(new Verse("12"));
 			block3.BlockElements.Add(new ScriptText("I spoke to Zedekiah all these words, saying, “Bring your necks under the yoke of Babylon, and live.”"));
 			var input = new List<Block> { block, block2, block3 };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JER", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JER", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
 
 			Assert.AreEqual("{1}\u00A0In the beginning, this word came from Yahweh, saying, " +
@@ -1870,8 +1805,7 @@ namespace GlyssenEngineTests.Quote
 			paraBlock.BlockElements.Add(new Verse("1"));
 			paraBlock.BlockElements.Add(new ScriptText("Jesus said, “Is that John?”"));
 			var input = new List<Block> { titleBlock, introBlock1, introBlock2, chapterBlock, sectionHeadBlock, paraBlock };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(7, output.Count);
 
 			Assert.AreEqual("Gospel of Mark", output[0].GetText(true));
@@ -1904,7 +1838,6 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p") { IsParagraphStart = true };
 			block.BlockElements.Add(new ScriptText("He said, «Go»!"));
 			var input = new List<Block> { chapterBlock, block };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
@@ -1924,7 +1857,6 @@ namespace GlyssenEngineTests.Quote
 			block.BlockElements.Add(new Verse("23"));
 			block.BlockElements.Add(new ScriptText("«Wya dzaʼa zlghafzlgha daghala makwa ta kul snaŋtá zgun ta huɗi, ŋa yatani ta zwaŋa zgun,"));
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(1, output.Count);
 
@@ -1941,7 +1873,6 @@ namespace GlyssenEngineTests.Quote
 			var block2 = new Block("q1") { IsParagraphStart = true, ChapterNumber = 1, InitialStartVerseNumber = 23};
 			block2.BlockElements.Add(new ScriptText("ŋa tsanaftá hgani ka Emanuwel,» manda mnay kazlay: Kawadaga Lazglafta nda amu kəʼa ya."));
 			var input = new List<Block> { block, block2 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
@@ -1982,8 +1913,7 @@ namespace GlyssenEngineTests.Quote
 			var block6 = new Block("q2", 1, 15) { IsParagraphStart = true };
 			block6.BlockElements.Add(new ScriptText("Deyob gunonikid."));
 			var input = new List<Block> { block1, /*block2,*/ block3, block4, block5, block6 };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
 
 			int i = 0;
@@ -2014,7 +1944,6 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new ScriptText("«What verse is this?»"));
 			var input = new List<Block> { block1, block2 };
 
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
@@ -2034,7 +1963,6 @@ namespace GlyssenEngineTests.Quote
 			block1.BlockElements.Add(new ScriptText("Then the narrator said something."));
 			var input = new List<Block> { block1 };
 
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
@@ -2061,7 +1989,6 @@ namespace GlyssenEngineTests.Quote
 			block1.BlockElements.Add(new ScriptText("Then the narrator said something."));
 			var input = new List<Block> { block1 };
 
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
@@ -2087,7 +2014,6 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new ScriptText("«And don't call me Shirley.»"));
 			var input = new List<Block> { block1, block2 };
 
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
 
@@ -2108,7 +2034,6 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new ScriptText("«Oh, and his brother, too.»"));
 			var input = new List<Block> { block1, block2 };
 
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
@@ -2129,7 +2054,6 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new ScriptText("ŋa tsanaftá hgani ka Emanuwel,» manda mnay kazlay: Kawadaga Lazglafta nda amu kəʼa ya."));
 			var input = new List<Block> { block1, block2 };
 
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
@@ -2153,7 +2077,6 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new ScriptText("Text in the next chapter and «another quote»"));
 			var input = new List<Block> { block1, blockC, block2 };
 
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
 			Assert.AreEqual(6, output.Count);
 			Assert.AreEqual("narrator-GEN", output[0].CharacterId);
@@ -2171,7 +2094,6 @@ namespace GlyssenEngineTests.Quote
 			block1.BlockElements.Add(new Verse("13"));
 			block1.BlockElements.Add(new ScriptText(" «Guŋamo doggi calo lyel ma twolo,»"));
 			var input = new List<Block> { block1 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ROM", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
@@ -2199,8 +2121,7 @@ namespace GlyssenEngineTests.Quote
 			var block3 = new Block("p") { IsParagraphStart = true };
 			block3.BlockElements.Add(new ScriptText("Thus he ended."));
 			var input = new List<Block> { block, block2, block3 };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 
 			Assert.AreEqual("He said, ", output[0].GetText(false));
@@ -2226,9 +2147,10 @@ namespace GlyssenEngineTests.Quote
 			var block1 = new Block("p", 1, 23) { IsParagraphStart = true };
 			block1.BlockElements.Add(new ScriptText("“Na njə́a mənə, wuntə digəlyi dzəgə kə́lə hwi, a njə dzəgə ye zəgwi rə kə za, a mbəlyi dzəgə ka zəgwi tsa Immanuʼel.” " + openingPunctuation + "“Immanuʼel” tsa ná, njə́ nee, “tá myi Hyalatəmwə,” əkwə.)"));
 			var input = new List<Block> { block1 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“",
+				1, QuotationMarkingSystemType.Normal), null, null);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT",
+				input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
 
 			Assert.AreEqual("“Na njə́a mənə, wuntə digəlyi dzəgə kə́lə hwi, a njə dzəgə ye zəgwi rə kə za, a mbəlyi dzəgə ka zəgwi tsa Immanuʼel.” ", output[0].GetText(true));
@@ -2248,9 +2170,10 @@ namespace GlyssenEngineTests.Quote
 				"your heart, you may,” replied Phillip. And he answered and said, “I believe that Jesus Christ is the Son of God.”] ").AddVerse(
 				38, "He ordered the carriage to stop, and they went down into the water, and Philip baptized him.")
 			};
-			QuoteParser.SetQuoteSystem(QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal),
-				null, null));
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT", input).Parse().ToList();
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“",
+				1, QuotationMarkingSystemType.Normal), null, null);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT",
+				input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(6, output.Count);
 
 			Assert.AreEqual("“Look, here is water. Why shouldn't I be baptized?” ", output[1].GetText(true));
@@ -2281,9 +2204,10 @@ namespace GlyssenEngineTests.Quote
 				"your heart, you may.” The eunuch answered, “I believe that Jesus Christ is the Son of God.”] ").AddVerse(
 				38, "He ordered the carriage to stop, and they went down into the water, and Philip baptized him.")
 			};
-			QuoteParser.SetQuoteSystem(QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal),
-				null, null));
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT", input).Parse().ToList();
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal),
+				null, null);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT",
+				input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(7, output.Count);
 
 			Assert.AreEqual("“Look, here is water. Why shouldn't I be baptized?” ", output[1].GetText(true));
@@ -2318,9 +2242,10 @@ namespace GlyssenEngineTests.Quote
 				new Block("wj", 23, 14) { CharacterId = "Jesus" }.AddText("अ़चाअ़त्‍मादा।]"),
 				new Block("wj", 23, 15) { CharacterId = "Jesus", IsParagraphStart = true }.AddVerse(15, "अ़चाअ़त्‍मादा।")
 			};
-			QuoteParser.SetQuoteSystem(QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal),
-				null, null));
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“",
+					1, QuotationMarkingSystemType.Normal), null, null);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT",
+				input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("Jesus", output[0].CharacterId);
@@ -2346,8 +2271,7 @@ namespace GlyssenEngineTests.Quote
 			block1.BlockElements.Add(new ScriptText("Pero ri Jesús xuchꞌolij ri itziel espíritu: " + openingPunctuation + "Man chic cachꞌoꞌ y catiel-el riqꞌuin ri ache!"));
 			var input = new List<Block> { block1 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("Pero ri Jesús xuchꞌolij ri itziel espíritu: ", output[0].GetText(true));
@@ -2361,8 +2285,7 @@ namespace GlyssenEngineTests.Quote
 			block1.BlockElements.Add(new ScriptText("“Na njə́a mənə, wuntə digəlyi dzəgə”."));
 			var input = new List<Block> { block1 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(1, output.Count);
 			Assert.AreEqual("“Na njə́a mənə, wuntə digəlyi dzəgə”.", output[0].GetText(true));
 		}
@@ -2381,7 +2304,6 @@ namespace GlyssenEngineTests.Quote
 			var block4 = new Block("q1", 1, 23) { IsParagraphStart = true };
 			block4.BlockElements.Add(new ScriptText("«Gibicako nyiŋe Emmanuel»"));
 			var input = new List<Block> { block1, block2, block3, block4 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
@@ -2410,7 +2332,6 @@ namespace GlyssenEngineTests.Quote
 			var block4 = new Block("pi", 1, 23) { IsParagraphStart = true };
 			block4.BlockElements.Add(new ScriptText("«Gibicako nyiŋe Emmanuel»"));
 			var input = new List<Block> { block1, block2, block3, block4 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 
@@ -2433,7 +2354,6 @@ namespace GlyssenEngineTests.Quote
 			var block4 = new Block("q1", 5, 17) { IsParagraphStart = true };
 			block4.BlockElements.Add(new ScriptText("Ada awaco botwu ni.»"));
 			var input = new List<Block> { block1, block2, block3, block4 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 
@@ -2462,7 +2382,6 @@ namespace GlyssenEngineTests.Quote
 			var block4 = new Block("q1", 5, 17) { IsParagraphStart = true };
 			block4.BlockElements.Add(new ScriptText("Ada awaco botwu ni»"));
 			var input = new List<Block> { block1, block2, block3, block4 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 			Assert.AreEqual("Jesus", output[0].CharacterId);
@@ -2485,8 +2404,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("—Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, ", output[0].GetText(false));
@@ -2515,8 +2433,7 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new ScriptText("Felipe le dijo: Señor, muéstranos al Padre, y nos basta."));
 			var input = new List<Block> { block1, block2 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 
 			Assert.AreEqual("{6}\u00A0Jesús le dijo: ", output[0].GetText(true));
@@ -2609,8 +2526,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("—Wína nemartustaram: “Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum,” ", output[0].GetText(false));
@@ -2641,8 +2557,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(1, output.Count);
 
 			Assert.AreEqual("—Wína nemartustaram: “Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum,” —timiayi.", output[0].GetText(false));
@@ -2661,8 +2576,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("“The following is just an ordinary m-dash — don't treat it as a dialogue quote — okay?”, ", output[0].GetText(false));
@@ -2692,8 +2606,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 
 			Assert.AreEqual("—Belén yaktanam Judá nungkanam nuni akiinatnuitai. Cristo akiinatniuri pachis aarmauka nuwaitai:", output[0].GetText(true));
@@ -2728,8 +2641,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 
 			Assert.AreEqual("—Quote:", output[0].GetText(true));
@@ -2770,8 +2682,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("{17}\u00A0Quia joˈ tso Jesús nda̱a̱na:", output[0].GetText(true));
@@ -2823,8 +2734,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("Jesus said ", output[0].GetText(true));
@@ -2847,8 +2757,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("Jesus said ", output[0].GetText(true));
@@ -2858,24 +2767,27 @@ namespace GlyssenEngineTests.Quote
 			Assert.AreEqual(kUnexpectedCharacter, output[1].CharacterId);
 		}
 
-		[TestCase("—“", true)]
-		[TestCase("—”", true)]
-		[TestCase("—", true)]
-		[TestCase("— ", true)]
-		[TestCase("—“", false)]
-		[TestCase("—”", false)]
-		[TestCase("—", false)]
-		[TestCase("— ", false)]
-		public void Parse_DialogQuoteEndingWithSpuriousQuotationPunctuationFollowingCloserAndNoFollowingText_TrailingPunctuationIncludedInQuoteBlock(string trailingPunctuation, bool includeSecondNormalLevel)
+		[TestCase("—“", true, true)]
+		[TestCase("—”", true, false)]
+		[TestCase("—", true, true)]
+		[TestCase("—", true, false)]
+		[TestCase("— ", true, true)]
+		[TestCase("—“", false, true)]
+		[TestCase("—”", false, true)]
+		[TestCase("—", false, true)]
+		[TestCase("—", false, false)]
+		[TestCase("— ", false, true)]
+		[TestCase("— ", false, false)]
+		public void Parse_DialogQuoteEndingWithSpuriousQuotationPunctuationFollowingCloserAndNoFollowingText_TrailingPunctuationIncludedInQuoteBlock(
+			string trailingPunctuation, bool includeSecondNormalLevel, bool isParaStart)
 		{
-			var block1 = new Block("p", 6, 48);
+			var block1 = new Block("p", 6, 48) { IsParagraphStart = isParaStart };
 			block1.BlockElements.Add(new ScriptText("Jesus said —Nintimrataram splintaram " + trailingPunctuation));
 			var input = new List<Block> { block1 };
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("Jesus said ", output[0].GetText(true));
@@ -2901,8 +2813,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("Jesus said ", output[0].GetText(true));
@@ -2930,8 +2841,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", dialogQuoteEnd);
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("Jesus said ", output[0].GetText(true));
@@ -3049,8 +2959,7 @@ namespace GlyssenEngineTests.Quote
 			block3.BlockElements.Add(new ScriptText("“Don't even go there!”"));
 			var input = new List<Block> { block1, block2, block3 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("Jesus said ", output[0].GetText(true));
@@ -3077,8 +2986,7 @@ namespace GlyssenEngineTests.Quote
 			block3.BlockElements.Add(new ScriptText("“Don't even go there!”"));
 			var input = new List<Block> { block1, block2, block3 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", dialogQuoteEnd);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("Jesus said ", output[0].GetText(true));
@@ -3128,8 +3036,7 @@ namespace GlyssenEngineTests.Quote
 			block1.BlockElements.Add(new ScriptText("Jesus said: “Nintimrataram splintaram" + endingPunctuation));
 			var input = new List<Block> { block1, };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", dialogQuoteEnd);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
@@ -3254,8 +3161,7 @@ namespace GlyssenEngineTests.Quote
 			block3.BlockElements.Add(new ScriptText("Don't even go there!"));
 			var input = new List<Block> { block1, block2, block3 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal), ":", null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
@@ -3285,8 +3191,7 @@ namespace GlyssenEngineTests.Quote
 			block4.BlockElements.Add(new ScriptText("I didn't."));
 			var input = new List<Block> { block1, block2, block3, block4 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal), ":", null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
@@ -3429,8 +3334,7 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new ScriptText("Remember that John said, “He must increase. I must decrease" + endingPunctuation + " Text following nested quote."));
 			var input = new List<Block> { block1, block2 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
@@ -3454,8 +3358,7 @@ namespace GlyssenEngineTests.Quote
 			block1.BlockElements.Add(new ScriptText("Ome Jesús-e-morduku-ebusgu, yog-nuguar naded. Geb ome na magasaila itosad, ede nugusa."));
 			var input = new List<Block> { block1 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("{28}\u00A0Ar ome binsaed: ", output[0].GetText(true));
@@ -3488,8 +3391,7 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new ScriptText("“Ome Jesús-e-morduku-ebusgu, yog-nuguar naded. Geb ome na magasaila itosad, ede nugusa.”"));
 			var input = new List<Block> { block1, block2 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("{17}\u00A0Ar ome binsaed: ", output[0].GetText(true));
@@ -3535,8 +3437,7 @@ namespace GlyssenEngineTests.Quote
 			block4.BlockElements.Add(new ScriptText("Deginbali."));
 			var input = new List<Block> { block1, block2, block3, block4 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal), ":", dialogueQuoteCloser);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
 
 			Assert.AreEqual("{10}\u00A0Jesús e-sapinganga sogdebalid: ", output[0].GetText(true));
@@ -3584,8 +3485,7 @@ namespace GlyssenEngineTests.Quote
 			block3.BlockElements.Add(new ScriptText("Previous paragraph didn't have a closer!"));
 			var input = new List<Block> { block1, block2, block3 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 
 			Assert.AreEqual("{17}\u00A0Ar ome binsaed: ", output[0].GetText(true));
@@ -3624,8 +3524,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal), ":", ".");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("Then he said: ", output[0].GetText(true));
@@ -3655,8 +3554,7 @@ namespace GlyssenEngineTests.Quote
 			block.IsParagraphStart = true;
 			var input = new List<Block> { block };
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), dialogueDash, dialogueDash);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			var outputBlock = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA", input).Parse().Single();
+			var outputBlock = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA", input, quoteSystem).Parse().Single();
 			
 			Assert.AreEqual(block.GetText(true), outputBlock.GetText(true));
 			Assert.IsTrue(outputBlock.CharacterIsStandard);
@@ -3684,8 +3582,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal), "—", "—");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("—Wikia tuke pujutan sukartin asan. ", output[0].GetText(true));
@@ -3725,8 +3622,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal), "—", "—");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("—Wikia tuke pujutan sukartin asan. ", output[0].GetText(true));
@@ -3754,8 +3650,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("—Wikia tuke pujutan sukartin asan. ", output[0].GetText(true));
@@ -3787,8 +3682,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", levelOneContinuer, 1, QuotationMarkingSystemType.Normal), "—", "~");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("—Wikia tuke pujutan sukartin asan. ", output[0].GetText(true));
@@ -3817,8 +3711,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("—Wikia tuke pujutan sukartin asan. ", output[0].GetText(true));
@@ -3901,8 +3794,7 @@ namespace GlyssenEngineTests.Quote
 			block2.AddVerse(48, "Wikia tuke pujutan sukartin asan; ");
 			var input = new List<Block> { block1, block2 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
@@ -3921,8 +3813,7 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new ScriptText("Wikia tuke pujutan sukartin asan; "));
 			var input = new List<Block> { block1, block2 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
@@ -3940,8 +3831,7 @@ namespace GlyssenEngineTests.Quote
 			block1.AddVerse(48, "Wikia tuke pujutan sukartin asan. ");
 			var input = new List<Block> { block1 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
@@ -4005,8 +3895,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", continuer, 1, QuotationMarkingSystemType.Normal), "—", "—");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 
 			Assert.AreEqual("—Wikia tuke pujutan sukartin asan. ", output[0].GetText(true));
@@ -4042,8 +3931,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 
 			Assert.AreEqual("—Wikia tuke pujutan sukartin asan. ", output[0].GetText(true));
@@ -4081,8 +3969,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 
 			int i = 0;
@@ -4121,8 +4008,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", continuer, 1, QuotationMarkingSystemType.Normal), "—", "—");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("—Wikia tuke pujutan sukartin asan. ", output[0].GetText(true));
@@ -4151,8 +4037,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("—Wikia tuke pujutan sukartin asan. ", output[0].GetText(true));
@@ -4175,8 +4060,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "-", "-");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("-Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, ", output[0].GetText(false));
@@ -4201,8 +4085,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "--", "--");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("--Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, ", output[0].GetText(false));
@@ -4237,8 +4120,7 @@ namespace GlyssenEngineTests.Quote
 						quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“", 3, QuotationMarkingSystemType.Normal));
 				}
 			}
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("–Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, ", output[0].GetText(false));
@@ -4274,8 +4156,7 @@ namespace GlyssenEngineTests.Quote
 						quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“", 3, QuotationMarkingSystemType.Normal));
 				}
 			}
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("—¿Exota naexana pexuyo, po pexuyo judiomonae itorobiya pia pepa peewatsinchi exanaeinchi poxonae pinyo tsane? Paxan payaputan xua bapon naexana xote tsipei bapon pia opiteito tatsi panaitomatsiya punaenaponan pata nacua werena, po nacuatha ichaxota pocotsiwa xometo weecoina. Papatan xua pata wʉnae jainchiwa tsane barapo pexuyo", output[0].GetText(false));
@@ -4306,8 +4187,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", ", jei");
 			if (includeSecondNormalLevel)
 				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("—Jiwi ba jopa bewa.", output[0].GetText(false));
@@ -4336,7 +4216,6 @@ namespace GlyssenEngineTests.Quote
 			block1.BlockElements.Add(new Verse("27-28"));
 			block1.BlockElements.Add(new ScriptText("«Quote.»"));
 			var input = new List<Block> { block1 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ROM", input).Parse().ToList();
 			Assert.AreEqual(1, output.Count);
 			Assert.AreEqual(kAmbiguousCharacter, output[0].CharacterId);
@@ -4352,7 +4231,6 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new Verse("8"));
 			block2.BlockElements.Add(new ScriptText("«Continuation of quote by a second speaker.»"));
 			var input = new List<Block> { block1, block2 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 
 			// Validate environment
@@ -4381,7 +4259,6 @@ namespace GlyssenEngineTests.Quote
 			block3.BlockElements.Add(new Verse("18"));
 			block3.BlockElements.Add(new ScriptText("«Continuation of quote by ambiguous speaker.»"));
 			var input = new List<Block> { block1, block2, block3 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 
 			// Validate environment
@@ -4415,7 +4292,6 @@ namespace GlyssenEngineTests.Quote
 			block3.BlockElements.Add(new Verse("25")); // no one
 			block3.BlockElements.Add(new ScriptText("«Continuation of quote by an unknown speaker."));
 			var input = new List<Block> { block1, block2, block3 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 
 			// Validate environment
@@ -4445,7 +4321,6 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new Verse("18"));
 			block2.BlockElements.Add(new ScriptText("«Continuation of quote by ambiguous speaker.»"));
 			var input = new List<Block> { block1, block2 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 
 			// Validate environment
@@ -4472,7 +4347,6 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new Verse("9"));
 			block2.BlockElements.Add(new ScriptText("«Continuation of quote by unknown speaker."));
 			var input = new List<Block> { block1, block2 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 
 			// Validate environment
@@ -4498,7 +4372,6 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new Verse("19"));
 			block2.BlockElements.Add(new ScriptText("«Quote seems to continue by unknown speaker."));
 			var input = new List<Block> { block1, block2 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 
 			// Validate environment
@@ -4525,7 +4398,6 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new Verse("17"));
 			block2.BlockElements.Add(new ScriptText("«Continuation of quote by same speaker and different delivery.»"));
 			var input = new List<Block> { block1, block2 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 
 			// Validate environment
@@ -4555,7 +4427,6 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new Verse("29"));
 			block2.BlockElements.Add(new ScriptText("«Continuation of quote by ambiguous speaker.»"));
 			var input = new List<Block> { block1, block2 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 
 			// Validate environment
@@ -4580,8 +4451,7 @@ namespace GlyssenEngineTests.Quote
 			block.BlockElements.Add(new ScriptText("–Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, –timiayi."));
 			var input = new List<Block> { block };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("–", "–", null, 1, QuotationMarkingSystemType.Narrative), null, null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("–Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, ", output[0].GetText(false));
@@ -4603,8 +4473,7 @@ namespace GlyssenEngineTests.Quote
 			block.BlockElements.Add(new ScriptText("–Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, –timiayi."));
 			var input = new List<Block> { block };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("–", null, null, 1, QuotationMarkingSystemType.Narrative), null, null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(1, output.Count);
 			Assert.AreEqual("–Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, –timiayi.", output[0].GetText(false));
 			Assert.AreEqual("Jesus", output[0].CharacterId);
@@ -4618,8 +4487,7 @@ namespace GlyssenEngineTests.Quote
 			var block2 = new Block("p", 1, 18);
 			block2.BlockElements.Add(new ScriptText("timiayi."));
 			input = new List<Block> { block1, block2 };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("–Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum.", output[0].GetText(false));
 			Assert.AreEqual("Jesus", output[0].CharacterId);
@@ -4707,8 +4575,7 @@ namespace GlyssenEngineTests.Quote
 		//	block.BlockElements.Add(new Verse("1"));
 		//	block.BlockElements.Add(new ScriptText(originalText));
 		//	var input = new List<Block> { block };
-		//	QuoteParser.SetQuoteSystem(QuoteSystem.Default);
-		//	IList<Block> output1 = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+		//		//	IList<Block> output1 = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 		//	Assert.AreEqual(3, output1.Count);
 		//	Assert.AreEqual("He said, ", output1[0].GetText(false));
 		//	Assert.IsTrue(output1[0].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
@@ -4785,10 +4652,10 @@ namespace GlyssenEngineTests.Quote
 			{
 				new QuotationMark(":", "", null, 1, QuotationMarkingSystemType.Narrative)
 			};
-			QuoteParser.SetQuoteSystem(new QuoteSystem(levels));
 
 			// originally it was throwing "Object reference not set to an instance of an object."
-			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input);
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input,
+				new QuoteSystem(levels));
 			Assert.DoesNotThrow(() => parser.Parse());
 		}
 
@@ -4815,9 +4682,9 @@ namespace GlyssenEngineTests.Quote
 			{
 				new QuotationMark(quoteDashMark, quoteDashMark, null, 1, QuotationMarkingSystemType.Narrative)
 			};
-			QuoteParser.SetQuoteSystem(new QuoteSystem(levels));
 
-			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input);
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input,
+				new QuoteSystem(levels));
 			// originally this was throwing an index-out-of-range exception
 			var result = parser.Parse().ToList();
 			Assert.AreEqual(2, result.Count);
@@ -4851,9 +4718,9 @@ namespace GlyssenEngineTests.Quote
 			{
 				new QuotationMark(quoteDashMark, "", null, 1, QuotationMarkingSystemType.Narrative)
 			};
-			QuoteParser.SetQuoteSystem(new QuoteSystem(levels));
 
-			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input);
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input,
+				new QuoteSystem(levels));
 			// originally this was throwing an index-out-of-range exception
 			var result = parser.Parse().ToList();
 			Assert.AreEqual(1, result.Count);
@@ -4883,9 +4750,9 @@ namespace GlyssenEngineTests.Quote
 			{
 				new QuotationMark("«", "»", "»", 1, QuotationMarkingSystemType.Normal),
 			};
-			QuoteParser.SetQuoteSystem(new QuoteSystem(levels));
 
-			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input);
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input,
+				new QuoteSystem(levels));
 			var results = parser.Parse().ToList();
 
 			Assert.AreEqual(4, results.Count);
@@ -4923,7 +4790,6 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new Verse("4"));
 			block2.BlockElements.Add(new ScriptText("Back to narrator.  No one in the control file for this verse. "));
 			var input = new List<Block> { block1, block2 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
 
 			Assert.AreEqual(2, output.Count);
@@ -4946,7 +4812,6 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new Verse("4"));
 			block2.BlockElements.Add(new ScriptText("Back to narrator.  No one in the control file for this verse. "));
 			var input = new List<Block> { block1, block2 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
 
 			Assert.AreEqual(2, output.Count);
@@ -4973,7 +4838,6 @@ namespace GlyssenEngineTests.Quote
 			block1.BlockElements.Add(new Verse("4")); // no one
 			block1.BlockElements.Add(new ScriptText("No one in the control file for this verse. "));
 			var input = new List<Block> { block1 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
 
 			Assert.AreEqual(2, output.Count);
@@ -5004,7 +4868,6 @@ namespace GlyssenEngineTests.Quote
 			block1.BlockElements.Add(new Verse("4")); // FakeGuy2
 			block1.BlockElements.Add(new ScriptText("Further possible continuation of quote (but it isn't because there is no continuity of characters).»"));
 			var input = new List<Block> { block1 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "REV", input).Parse().ToList();
 
 			Assert.AreEqual(2, output.Count);
@@ -5032,7 +4895,6 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new Verse("10"));
 			block2.BlockElements.Add(new ScriptText("Back to narrator.  Narrator is explicitly in the control file for this verse. "));
 			var input = new List<Block> { block1, block2 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
 
 			Assert.AreEqual(2, output.Count);
@@ -5057,7 +4919,6 @@ namespace GlyssenEngineTests.Quote
 			block3.BlockElements.Add(new Verse("6"));
 			block3.BlockElements.Add(new ScriptText("Back to narrator.  No one in the control file for this verse. "));
 			var input = new List<Block> { block1, block2, block3 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
 
 			Assert.AreEqual(3, output.Count);
@@ -5082,7 +4943,6 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new Verse("13"));
 			block2.BlockElements.Add(new ScriptText("Different character in the control file here but no quote marks, so set to narrator. "));
 			var input = new List<Block> { block1, block2 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
 
 			Assert.AreEqual(2, output.Count);
@@ -5104,7 +4964,6 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new Verse("12"));
 			block2.BlockElements.Add(new ScriptText("«Quote by different character.» "));
 			var input = new List<Block> { block1, block2 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
 
 			Assert.AreEqual(2, output.Count);
@@ -5129,7 +4988,6 @@ namespace GlyssenEngineTests.Quote
 			block3.BlockElements.Add(new Verse("42"));
 			block3.BlockElements.Add(new ScriptText("Back to narrator. "));
 			var input = new List<Block> { block1, block2, block3 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 
 			Assert.AreEqual(3, output.Count);
@@ -5151,7 +5009,6 @@ namespace GlyssenEngineTests.Quote
 			block1.BlockElements.Add(new Verse("43"));
 			block1.BlockElements.Add(new ScriptText("«Quote. But where does it end? "));
 			var input = new List<Block> { block1 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 
 			Assert.AreEqual(1, output.Count);
@@ -5172,7 +5029,6 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new Verse("44")); // no one
 			block2.BlockElements.Add(new ScriptText("No character in control file for this verse. "));
 			var input = new List<Block> { block1, blockSect, block2 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 
 			Assert.AreEqual(3, output.Count);
@@ -5203,7 +5059,6 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new Verse("44")); // no one
 			block2.BlockElements.Add(new ScriptText("No character in control file for this verse. "));
 			var input = new List<Block> { block1, blockSect, block2 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 
 			Assert.AreEqual(4, output.Count);
@@ -5239,8 +5094,7 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new ScriptText("No character in control file for this verse. "));
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal), null, null);
 			var input = new List<Block> { block1, blockSect, block2 };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
 
 			Assert.AreEqual(4, output.Count);
 
@@ -5286,8 +5140,7 @@ namespace GlyssenEngineTests.Quote
 			block1.BlockElements.Add(new ScriptText("No one in the control file for this verse. "));
 			var input = new List<Block> { block1 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal), "—", null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input, quoteSystem).Parse().ToList();
 
 			Assert.AreEqual(2, output.Count);
 
@@ -5325,9 +5178,9 @@ namespace GlyssenEngineTests.Quote
 				new QuotationMark("«", "»", "«", 2, QuotationMarkingSystemType.Normal),
 				new QuotationMark("«", "»", "»", 3, QuotationMarkingSystemType.Normal)
 			};
-			QuoteParser.SetQuoteSystem(new QuoteSystem(levels));
 
-			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "ROM", input);
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "ROM", input,
+				new QuoteSystem(levels));
 			var results = parser.Parse().ToList();
 
 			Assert.AreEqual(5, results.Count);
@@ -5367,9 +5220,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
 			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "«‹", 2, QuotationMarkingSystemType.Normal));
 			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "«‹«", 3, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-
-			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "ROM", input);
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "ROM", input, quoteSystem);
 			var results = parser.Parse().ToList();
 
 			Assert.AreEqual(5, results.Count);
@@ -5402,9 +5253,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
 			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "«‹", 2, QuotationMarkingSystemType.Normal));
 			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "«‹«", 3, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-
-			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input);
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem);
 			var results = parser.Parse().ToList();
 
 			Assert.AreEqual(5, results.Count);
@@ -5464,9 +5313,7 @@ namespace GlyssenEngineTests.Quote
 
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal));
 			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“‘", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-
-			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input);
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem);
 			var results = parser.Parse().ToList();
 
 			Assert.AreEqual(10, results.Count);
@@ -5521,9 +5368,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
 			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "«‹", 2, QuotationMarkingSystemType.Normal));
 			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "«‹«", 3, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-
-			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input);
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem);
 			var results = parser.Parse().ToList();
 
 			Assert.AreEqual(4, results.Count);
@@ -5562,9 +5407,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
 			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "«‹", 2, QuotationMarkingSystemType.Normal));
 			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "«‹«", 3, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-
-			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input);
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem);
 			var results = parser.Parse().ToList();
 
 			Assert.AreEqual(5, results.Count);
@@ -5608,9 +5451,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
 			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "«‹", 2, QuotationMarkingSystemType.Normal));
 			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "«‹«", 3, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-
-			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input);
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem);
 			var results = parser.Parse().ToList();
 
 			Assert.AreEqual(5, results.Count);
@@ -5656,9 +5497,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
 			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "«‹", 2, QuotationMarkingSystemType.Normal));
 			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "«‹«", 3, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-
-			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "ROM", input);
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "ROM", input, quoteSystem);
 			var results = parser.Parse().ToList();
 
 			Assert.AreEqual(5, results.Count);
@@ -5687,8 +5526,7 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new ScriptText("Jesus looked upon him, and said: Thou art Simon the son of John; thou shalt be called Cephas (which is by interpretation, Peter)."));
 			var input = new List<Block> { block1, block2 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 
 			int i = 0;
@@ -5721,9 +5559,7 @@ namespace GlyssenEngineTests.Quote
 
 			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
 			quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "«“", 2, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-
-			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "ROM", input);
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "ROM", input, quoteSystem);
 			var results = parser.Parse().ToList();
 
 			Assert.AreEqual(5, results.Count);
@@ -5753,9 +5589,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), dialogueDash, dialogueDash);
 			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“ ‘", 2, QuotationMarkingSystemType.Normal));
 			quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“ ‘ “", 3, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-
-			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input);
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem);
 			var results = parser.Parse().ToList();
 
 			Assert.AreEqual(4, results.Count);
@@ -5785,9 +5619,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), dialogueDash, null);
 			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“ ‘", 2, QuotationMarkingSystemType.Normal));
 			quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“ ‘ “", 3, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-
-			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input);
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem);
 			var results = parser.Parse().ToList();
 
 			Assert.AreEqual(2, results.Count);
@@ -5825,9 +5657,7 @@ namespace GlyssenEngineTests.Quote
 			var input = new List<Block> { block1 };
 
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), dialogueDash, null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-
-			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input);
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem);
 			var results = parser.Parse().ToList();
 
 			Assert.AreEqual(2, results.Count);
@@ -5857,9 +5687,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), dialogueDash, null);
 			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“ ‘", 2, QuotationMarkingSystemType.Normal));
 			quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“ ‘ “", 3, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-
-			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input);
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem);
 			var results = parser.Parse().ToList();
 
 			Assert.AreEqual(3, results.Count);
@@ -5879,8 +5707,6 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p", 13, 14)
 				.AddVerse(14, "«The virgin will conceive and give birth to a son, and they will call him Immanuel (which means God with us).»");
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
-
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 
 			Assert.AreEqual(2, output.Count);
@@ -5898,7 +5724,6 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p", 13, 14).AddVerse(14, "«The virgin will conceive and give birth to a son, ");
 			var block2 = new Block("p", 13, 14).AddText("and they will call him Immanuel (which means God with us).»");
 			var input = new List<Block> { block, block2 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 
 			Assert.AreEqual(3, output.Count);
@@ -5920,7 +5745,6 @@ namespace GlyssenEngineTests.Quote
 			var block2 = new Block("p", 13, 14).AddText("and give birth to a son, ");
 			var block3 = new Block("p", 13, 14).AddText("and they will call him Immanuel (which means God with us).»");
 			var input = new List<Block> { block, block2, block3 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 
 			Assert.AreEqual(4, output.Count);
@@ -5939,7 +5763,6 @@ namespace GlyssenEngineTests.Quote
 			var block3 = new Block("p", 13, 14).AddText("and they will call him Immanuel (which means God with us) ");
 			var block4 = new Block("p", 13, 14).AddText("thusly.»");
 			var input = new List<Block> { block, block2, block3, block4 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 
 			Assert.AreEqual(5, output.Count);
@@ -5961,7 +5784,6 @@ namespace GlyssenEngineTests.Quote
 			var block3 = new Block("p", 13, 14).AddText("and they will call him Immanuel (which means God with us) thusly ");
 			var block5 = new Block("p", 13, 14).AddText("and such»");
 			var input = new List<Block> { block, block2, block3, block5 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 
 			Assert.AreEqual(6, output.Count);
@@ -5987,7 +5809,6 @@ namespace GlyssenEngineTests.Quote
 			var block4 = new Block("p", 13, 14).AddText("thusly ");
 			var block5 = new Block("p", 13, 14).AddText("and such»");
 			var input = new List<Block> { block, block2, block3, block4, block5 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 
 			Assert.AreEqual(6, output.Count);
@@ -6015,11 +5836,12 @@ namespace GlyssenEngineTests.Quote
 			.AddVerse(7, "Dara ... touwero. (Anai ... touohob.) ")
 			.AddVerse(8, "Doba ... endagai: Allah ... terimda.");
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(new QuoteSystem(new BulkObservableList<QuotationMark>
+			var quoteSystem = new QuoteSystem(new BulkObservableList<QuotationMark>
 			{
 				new QuotationMark(":", null, null, 1, QuotationMarkingSystemType.Narrative)
-			}));
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ROM", input).Parse().ToList();
+			});
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ROM",
+				input, quoteSystem).Parse().ToList();
 
 			Assert.AreEqual(6, output.Count);
 
@@ -6039,12 +5861,15 @@ namespace GlyssenEngineTests.Quote
 		}
 		#endregion
 
-		internal static void SetQuoteSystemToStandardAmericanEnglish()
+		internal static QuoteSystem QuoteSystemForStandardAmericanEnglish
 		{
-			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal));
-			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“ ‘", 2, QuotationMarkingSystemType.Normal));
-			quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“ ‘ “", 3, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
+			get
+			{
+				var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal));
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“ ‘", 2, QuotationMarkingSystemType.Normal));
+				quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“ ‘ “", 3, QuotationMarkingSystemType.Normal));
+				return quoteSystem;
+			}
 		}
 	}
 
@@ -6063,7 +5888,6 @@ namespace GlyssenEngineTests.Quote
 		{
 			var block = new Block("p", 3, 2).AddVerse(2, "A crippled guy was carried to the, «Beautiful» gate to beg.").AddVerse(3, "When he saw...");
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT", input).Parse().ToList();
 			Assert.AreEqual(1, output.Count);
 
@@ -6077,7 +5901,6 @@ namespace GlyssenEngineTests.Quote
 			var block = new Block("p", 5, 1).AddVerse(1, "This is the book of Adam's race. When God created man, He made him in his image.")
 				.AddVerse(2, "He created them and blessed them and named them «Man» that day.");
 			var input = new List<Block> { block };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 			Assert.IsTrue(output[1].CharacterIsUnclear);
@@ -6097,7 +5920,6 @@ namespace GlyssenEngineTests.Quote
 
 			var input = new List<Block> { new Block("p", 10, 15)
 				.AddVerse(15, "Il entend la voix ... fois. Elle lui dit: «Ce que Dieu a ... interdit!»") };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
@@ -6133,7 +5955,6 @@ namespace GlyssenEngineTests.Quote
 				new Block("p", 37, 6) {IsParagraphStart = true}.AddText("Tell your master, God says: Don't fear the blasphemous words of the servants of the king of Assyria.")
 				.AddVerse(7, "Lo I will freak him out with some news to make him go home and get killed there."),
 			};
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
@@ -6175,7 +5996,6 @@ namespace GlyssenEngineTests.Quote
 						$"{openQuoteMarkForExpressionIfAny}Beulah{closeQuoteMarkForExpressionIfAny}; for God delights in you, and your land shall be married.")
 					.AddVerse(5, "For as a young man marries a virgin, so your sons shall marry you and God will rejoice over you." + closeQuoteMarkForPassageIfAny)
 			};
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA", input).Parse().ToList();
 			Assert.AreEqual(1, output.Count);
 			Assert.AreEqual("God", output[0].CharacterId);
@@ -6215,8 +6035,7 @@ namespace GlyssenEngineTests.Quote
 					.AddVerse(5, "“Why be struck down? Why continue to rebel? Your head is sick, and your heart is faint.”")
 			};
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "\u2014", "\u2014");
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(input.Count + 1, output.Count);
 
 			Assert.IsTrue(output[0].CharacterIs("ISA", Narrator));
@@ -6298,8 +6117,7 @@ namespace GlyssenEngineTests.Quote
 			var textOfVerseWhereQuoteStarts = (ScriptText)input.First(b => b.InitialStartVerseNumber == quoteStartVerse).BlockElements[1];
 			textOfVerseWhereQuoteStarts.Content = "The LORD says, “" + textOfVerseWhereQuoteStarts.Content;
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "", 1, QuotationMarkingSystemType.Normal), null, null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA", input, quoteSystem).Parse().ToList();
 			// Note: after skipping any verse that precede the beginning of the verse where the quote starts, we also need to
 			// skip the narrator block that introduces the speaking.
 			Assert.IsTrue(output.SkipWhile(b => b.InitialStartVerseNumber < quoteStartVerse).Skip(1).All(b => b.CharacterId == "God"));
@@ -6315,9 +6133,8 @@ namespace GlyssenEngineTests.Quote
 					.AddVerse(40, "‘Ditak igyai ba. Dikes bingat ba, niti au. Diyai nok ingkwei hanyen Da bidibindei, hanyen bi.’ ”"),
 			};
 
-			QuoteParserTests.SetQuoteSystemToStandardAmericanEnglish();
-
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input,
+				QuoteSystemForStandardAmericanEnglish).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			Assert.AreEqual("narrator-JHN", output[0].CharacterId);
@@ -6334,9 +6151,8 @@ namespace GlyssenEngineTests.Quote
 					"so despised their Lord as to utterly forsake him, and now they have become cut off and are buried under a pile of sin.”"),
 			};
 
-			QuoteParserTests.SetQuoteSystemToStandardAmericanEnglish();
-
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA", input,
+				QuoteSystemForStandardAmericanEnglish).Parse().ToList();
 			Assert.AreEqual(1, output.Count);
 			Assert.AreEqual(kAmbiguousCharacter, output[0].CharacterId);
 		}
@@ -6354,8 +6170,7 @@ namespace GlyssenEngineTests.Quote
 			};
 
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "\u2014", "\u2014");
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 
 			Assert.AreEqual("narrator-JHN", output[0].CharacterId);
@@ -6382,7 +6197,6 @@ namespace GlyssenEngineTests.Quote
 				new Block(q1, 119, 9) {IsParagraphStart = true}.AddVerse(9, "How shall a pipsqueak cleanse his way?"),
 			};
 
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "PSA", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
@@ -6431,9 +6245,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
 			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“ ‘", 2, QuotationMarkingSystemType.Normal));
 			quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“ ‘ “", 3, QuotationMarkingSystemType.Normal));
-			QuoteParser.SetQuoteSystem(quoteSystem);
-
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT", input, quoteSystem).Parse().ToList();
 
 			int i = 0;
 			var block = output[i++];
@@ -6527,8 +6339,7 @@ namespace GlyssenEngineTests.Quote
 			input.Add(new Block("q", 8, 35) { IsParagraphStart = true }.AddText("¿Nuzxa caz gac quixjöʼ zxguiaʼ nabágaʼgac bunách uládz queëʼ?"));
 
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "―", null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT", input, quoteSystem).Parse().ToList();
 
 			Assert.AreEqual(4, output.Count);
 
@@ -6565,8 +6376,7 @@ namespace GlyssenEngineTests.Quote
 			input.Add(new Block("q", 8, 33) { IsParagraphStart = true }.AddText("¿Nuzxa caz gac quixjöʼ zxguiaʼ nabágaʼgac bunách uládz queëʼ?"));
 
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "―", null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT", input, quoteSystem).Parse().ToList();
 
 			Assert.AreEqual(5, output.Count);
 
@@ -6616,9 +6426,7 @@ namespace GlyssenEngineTests.Quote
 				.AddVerse(37, "and then surviving as a widow for 84 more), who didn’t leave the temple, where she worshipped with fasting and prayer.");
 			var input = new List<Block> { block1, block2, block3, block4, block5, block6, block7, block8, block9 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input, quoteSystem).Parse().ToList();
 
 			int i = 0;
 			var block = output[i++];
@@ -6671,8 +6479,6 @@ namespace GlyssenEngineTests.Quote
 				.AddVerse(35, "Staying there night and day will keep you from dying. ")
 				.AddVerse(36, "So that's what Aaron and the boys did.");
 			var input = new List<Block> { chapter, block1 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
-
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LEV", input).Parse().ToList();
 
 			int i = 1;
@@ -6702,8 +6508,6 @@ namespace GlyssenEngineTests.Quote
 				.AddVerse(34, "This is how the Lord will make atonement. ").AddVerse(35, "Staying there night and day will keep you from dying. ")
 				.AddVerse(36, "So that's what Aaron and the boys did.");
 			var input = new List<Block> { chapter, block1 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
-
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LEV", input).Parse().ToList();
 
 			int i = 1;
@@ -6734,8 +6538,6 @@ namespace GlyssenEngineTests.Quote
 				.AddVerse(34, "This is how the Lord will make atonement. ").AddVerse(35, "Staying there night and day will keep you from dying. ");
 			var block3 = new Block("q1", 8, 36) {IsParagraphStart = true}.AddVerse(36, "So that's what Aaron and the boys did.");
 			var input = new List<Block> {chapter, block1, block2, block3 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
-
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LEV", input).Parse().ToList();
 
 			int i = 1;
@@ -6773,8 +6575,6 @@ namespace GlyssenEngineTests.Quote
 				.AddVerse(23, "You call that noise worship music!? If you want me to listen,")
 				.AddVerse(24, "Start pursuing justice and righteousness.");
 			var input = new List<Block> {chapter, block1, block2};
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
-
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "AMO", input).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 
@@ -6797,8 +6597,6 @@ namespace GlyssenEngineTests.Quote
 				.AddVerse(35, "Staying there night and day will keep you from dying,» said he.");
 			var block3 = new Block("q1", 8, 36) { IsParagraphStart = true }.AddVerse(36, "So that's what Aaron and the boys did.");
 			var input = new List<Block> { chapter, block1, block2, block3 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
-
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LEV", input).Parse().ToList();
 
 			int i = 1;
@@ -6850,8 +6648,6 @@ namespace GlyssenEngineTests.Quote
 				.AddVerse(35, "«Stay there night and day to keep you from dying.»");
 			var block3 = new Block("q1", 8, 36) { IsParagraphStart = true }.AddVerse(36, "So that's what Aaron and the boys did.");
 			var input = new List<Block> { chapter, block1, block2, block3 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
-
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LEV", input).Parse().ToList();
 
 			int i = 1;
@@ -6890,8 +6686,6 @@ namespace GlyssenEngineTests.Quote
 			var block2 = new Block("q1", 51, 16) { IsParagraphStart = true }.AddText("I spread out the heavens and laid foundations for the earth.");
 			var block3 = new Block("q1", 51, 16) { IsParagraphStart = true }.AddText("Now I say, «Jerusalem, your people are mine.»");
 			var input = new List<Block> { chapter, block1, block2, block3 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
-
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA", input).Parse().ToList();
 
 			Assert.AreEqual(4, output.Count);
@@ -6910,8 +6704,6 @@ namespace GlyssenEngineTests.Quote
 				.AddVerse(35, "Staying there night and day will keep you from dying,» said he.");
 			var block2 = new Block("q1", 8, 36) { IsParagraphStart = true }.AddVerse(36, "So that's what Aaron and the boys did.");
 			var input = new List<Block> { chapter, block1, block2 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
-
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LEV", input).Parse().ToList();
 
 			int i = 1;
@@ -6956,8 +6748,6 @@ namespace GlyssenEngineTests.Quote
 			var block5 = new Block("q2", 8, 35) { IsParagraphStart = true }.AddVerse(35, "Staying there night and day will keep you from dying.");
 			var block6 = new Block("q1", 8, 36) { IsParagraphStart = true }.AddVerse(36, "So that's what Aaron and the boys did.");
 			var input = new List<Block> { chapter, block1, block2, block3, block4, block5, block6 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
-
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LEV", input).Parse().ToList();
 
 			Assert.AreEqual(input.Count, output.Count);
@@ -6998,8 +6788,6 @@ namespace GlyssenEngineTests.Quote
 				.AddVerse(34, "This is how the Lord will make atonement. ")
 				.AddVerse("35-36", "So that's what Aaron and the boys did because Moses said, Staying there night and day will keep you from dying.");
 			var input = new List<Block> { chapter, block1 };
-			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
-
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LEV", input).Parse().ToList();
 
 			int i = 1;
@@ -7038,11 +6826,11 @@ namespace GlyssenEngineTests.Quote
 			.AddVerse(21, "The eye can't tell the hand, “I don’t need you!” And the head can't tell the feet, “I don’t need you!”");
 			var input = new List<Block> { chapter, block1, block2 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-
+			
 			var cvRepo = new ParserCharacterRepository(ControlCharacterVerseData.Singleton,
 				ReferenceText.GetStandardReferenceText(ReferenceTextType.Russian));
-			IList<Block> output = new QuoteParser(cvRepo, "1CO", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(cvRepo, "1CO", input, quoteSystem).Parse()
+				.ToList();
 
 			Assert.AreEqual(input.Count, output.Count);
 			Assert.IsTrue(output.Skip(1).All(b => b.CharacterIs("1CO", Narrator)));
@@ -7071,11 +6859,11 @@ namespace GlyssenEngineTests.Quote
 				block9a, block9b, block9c, block10a, block10b, block11a, block11b };
 
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
 
 			var cvRepo = new ParserCharacterRepository(ControlCharacterVerseData.Singleton,
 				ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
-			IList<Block> output = new QuoteParser(cvRepo, "PSA", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(cvRepo, "PSA", input, quoteSystem).Parse()
+				.ToList();
 
 			int i = 1;
 			var narrator = GetStandardCharacterId("PSA", Narrator);
@@ -7126,8 +6914,7 @@ namespace GlyssenEngineTests.Quote
 			block5.BlockElements.Add(new ScriptText("He will command his angels to hold you up and not let you smash your foot on a rock."));
 			var input = new List<Block> {block1, block2, block3, block4, block5};
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), dialogueQuoteStart, null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(10, output.Count);
 
 			int i = 0;
@@ -7196,8 +6983,7 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new ScriptText("because that is what pleases you. "));
 			var input = new List<Block> { block1, block2 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			int i = 0;
@@ -7234,8 +7020,7 @@ namespace GlyssenEngineTests.Quote
 			block1.BlockElements.Add(new ScriptText("Second thing.”"));
 			var input = new List<Block> { block1 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			int i = 0;
@@ -7260,8 +7045,7 @@ namespace GlyssenEngineTests.Quote
 			block2.BlockElements.Add(new ScriptText("and have everyone sit down on the turf. "));
 			var input = new List<Block> { block1, block2 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			int i = 0;
@@ -7293,8 +7077,7 @@ namespace GlyssenEngineTests.Quote
 			block1.BlockElements.Add(new ScriptText("Second thing.”"));
 			var input = new List<Block> { block1 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			int i = 0;
@@ -7334,9 +7117,9 @@ namespace GlyssenEngineTests.Quote
 			{
 				new QuotationMark("«", "»", "»", 1, QuotationMarkingSystemType.Normal),
 			};
-			QuoteParser.SetQuoteSystem(new QuoteSystem(levels));
 
-			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, blockChapter1.BookCode, input);
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton,
+				blockChapter1.BookCode, input, new QuoteSystem(levels));
 			var results = parser.Parse().ToList();
 
 			Assert.AreEqual(4, results.Count);
@@ -7386,9 +7169,9 @@ namespace GlyssenEngineTests.Quote
 			{
 				new QuotationMark("«", "»", "»", 1, QuotationMarkingSystemType.Normal),
 			};
-			QuoteParser.SetQuoteSystem(new QuoteSystem(levels));
 
-			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, blockChapter1.BookCode, input);
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton,
+				blockChapter1.BookCode, input, new QuoteSystem(levels));
 			var results = parser.Parse().ToList();
 
 			Assert.AreEqual(5, results.Count);
@@ -7456,9 +7239,9 @@ namespace GlyssenEngineTests.Quote
 			{
 				new QuotationMark("«", "»", "»", 1, QuotationMarkingSystemType.Normal),
 			};
-			QuoteParser.SetQuoteSystem(new QuoteSystem(levels));
 
-			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, blockChapter1.BookCode, input);
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton,
+				blockChapter1.BookCode, input, new QuoteSystem(levels));
 			var results = parser.Parse().ToList();
 
 			Assert.AreEqual(6, results.Count);
@@ -7553,11 +7336,11 @@ namespace GlyssenEngineTests.Quote
 			{
 				new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal),
 			};
-			QuoteParser.SetQuoteSystem(new QuoteSystem(levels));
-
+			
 			var input = new List<Block> { blockChapter4, block1, block2, block3 };
 
-			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, blockChapter4.BookCode, input);
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton,
+				blockChapter4.BookCode, input, new QuoteSystem(levels));
 			var results = parser.Parse().ToList();
 
 			Assert.AreEqual(5, results.Count);
@@ -7611,11 +7394,11 @@ namespace GlyssenEngineTests.Quote
 			var levels = new BulkObservableList<QuotationMark>
 			{
 			};
-			QuoteParser.SetQuoteSystem(new QuoteSystem(levels));
 
 			var input = new List<Block> {blockChapter1, block1};
 
-			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, blockChapter1.BookCode, input);
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton,
+				blockChapter1.BookCode, input, new QuoteSystem(levels));
 			var results = parser.Parse().ToList();
 
 			Assert.AreEqual(2, results.Count);
@@ -7664,9 +7447,9 @@ namespace GlyssenEngineTests.Quote
 			blockJehoshaphat3b.AddEndQuoteId(includeQuoteIdsForQuotes ? "j1" : null);
 
 			var input = new List<Block> { blockC20, block1, block2a, blockMen2b, blockInt2c, blockMen2d, block3a, blockJehoshaphat3b };
-			QuoteParserTests.SetQuoteSystemToStandardAmericanEnglish();
 
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "2CH", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "2CH", input,
+				QuoteSystemForStandardAmericanEnglish).Parse().ToList();
 			Assert.AreEqual(input.Count, output.Count);
 			var i = 0;
 			Assert.AreEqual(chapterCharacter, output[i].CharacterId);
@@ -7744,8 +7527,8 @@ namespace GlyssenEngineTests.Quote
 				.AddVerse(3, "Alarmed, Jehoshaphat resolved to inquire of the Lord, and he proclaimed: “All Judah must fast.” ");
 
 			var input = new List<Block> { blockC20, block1, block2a, blockInt2b, block2c3 };
-			QuoteParserTests.SetQuoteSystemToStandardAmericanEnglish();
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "2CH", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "2CH", input,
+				QuoteSystemForStandardAmericanEnglish).Parse().ToList();
 			var i = 0;
 			Assert.AreEqual(chapterCharacter, output[i].CharacterId);
 
@@ -7826,10 +7609,9 @@ namespace GlyssenEngineTests.Quote
 			var input = new List<Block> {
 				blockC24, blockV4a, blockV4thru8, blockV9thru14, blockV15a, blockInt15,
 				blockV16thru21 };
-			QuoteParserTests.SetQuoteSystemToStandardAmericanEnglish();
 
-			var output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input)
-				.Parse().ToList();
+			var output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input,
+					QuoteSystemForStandardAmericanEnglish).Parse().ToList();
 			Assert.AreEqual(input.Count, output.Count);
 			var i = 0;
 			Assert.AreEqual(chapterCharacter, output[i].CharacterId);
@@ -7914,8 +7696,8 @@ namespace GlyssenEngineTests.Quote
 					"tear down, to destroy and overthrow, to build and to plant.”");
 
 			var input = new List<Block> { blockC1, blockV6, blockV7a, blockV7b, blockV7c, blockV9 };
-			QuoteParserTests.SetQuoteSystemToStandardAmericanEnglish();
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JER", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JER", input,
+				QuoteSystemForStandardAmericanEnglish).Parse().ToList();
 			
 			Assert.That(output.All(b => b.MultiBlockQuote == MultiBlockQuote.None),
 				"Even if this results in two adjacent blocks with the same speaker, they should not" +
@@ -7992,5 +7774,179 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(output.Count, Is.EqualTo(++i));
 		}
 		#endregion // PG-1419 tests (blocks created by quote milestones)
+
+		#region Tests related to NVI-S for PTX-22920
+		
+		/// <summary>
+		/// Although the official NVI-S resource has the same character for the start and end
+		/// dialogue dash (―), this resource appears never to use it as an ending marker. But
+		/// it does use the double right guillemets (») to explicitly mark the end of a multi-
+		/// paragraph dialogue quotation. So I'm using that as the end marker and have written
+		/// this test accordingly.
+		/// </summary>
+		private QuoteSystem GetNviQuoteSystem()
+		{
+			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "»", 1, QuotationMarkingSystemType.Normal), "\u2015", "»");
+			quoteSystem.SetReportingClauseDelimiters("\u2014");
+			return quoteSystem;
+		}
+
+		[Test]
+		public void Parse_DialogueQuoteWithMultipleParagraphsHavingEndQuoteAsContinuers_EndedByFirstLevelEnd()
+		{
+			var block0 = new Block("p", 2, 27) {IsParagraphStart = true};
+			block0.BlockElements.Add(new Verse("27"));
+			block0.BlockElements.Add(new ScriptText("Daniel respondió: "));
+			var block1 = new Block("p", 2, 27) {IsParagraphStart = true};
+			block1.BlockElements.Add(new ScriptText("\u2015No hay ningún mago que pueda explicarle el misterio. "));
+			block1.BlockElements.Add(new Verse("28-30"));
+			block1.BlockElements.Add(new ScriptText("Pero hay much que decir. "));
+			var block2 = new Block("p", 2, 31) {IsParagraphStart = true};
+			block2.BlockElements.Add(new Verse("31"));
+			block2.BlockElements.Add(new ScriptText("»En su sueño Su Majestad veía una estatua enorme. "));
+			block2.BlockElements.Add(new Verse("32-38"));
+			block2.BlockElements.Add(new ScriptText("Yadda yadda. "));
+			var block3 = new Block("p", 2, 39) {IsParagraphStart = true};
+			block3.BlockElements.Add(new Verse("39"));
+			block3.BlockElements.Add(new ScriptText("»Después de Su Majestad surgirá. "));
+			block3.BlockElements.Add(new Verse("40"));
+			block3.BlockElements.Add(new ScriptText("Finalmente, vendrá un cuarto reino, sólido como el hierro. "));
+			var block4 = new Block("p", 2, 41) {IsParagraphStart = true};
+			block4.BlockElements.Add(new Verse("41"));
+			block4.BlockElements.Add(new ScriptText("»Su Majestad veía que los pies de la estatua eran de hierro y barro. "));
+			block4.BlockElements.Add(new Verse("42-43"));
+			block4.BlockElements.Add(new ScriptText("Su Majestad vio dos elementos que no pueden fundirse. El pueblo no será unida. "));
+			var block5 = new Block("p", 2, 44) {IsParagraphStart = true};
+			block5.BlockElements.Add(new Verse("44"));
+			block5.BlockElements.Add(new ScriptText("»En los días Dios establecerá un reino permanente y hará pedazos a estos reinos. "));
+			block5.BlockElements.Add(new Verse("45"));
+			block5.BlockElements.Add(new ScriptText("Dios le ha mostrado el futuro. La interpretación es digna de confianza». "));
+			var block6 = new Block("p", 2, 46) {IsParagraphStart = true};
+			block6.BlockElements.Add(new Verse("46"));
+			block6.BlockElements.Add(new ScriptText("Al oír esto, el rey ordenó que se le presentara una ofrenda, "));
+			block6.BlockElements.Add(new Verse("47"));
+			block6.BlockElements.Add(new ScriptText("y le dijo: "));
+			var input = new List<Block> { block0, block1, block2, block3, block4, block5, block6 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "DAN",
+				input, GetNviQuoteSystem()).Parse().ToList();
+			Assert.AreEqual(7, output.Count);
+
+			Assert.AreEqual("Daniel respondió: ", output[0].GetText(false));
+			Assert.IsTrue(output[0].CharacterIs("DAN", Narrator));
+
+			Assert.AreEqual("―No hay ningún mago que pueda explicarle el misterio. Pero hay much que decir. ", output[1].GetText(false));
+			Assert.AreEqual("Daniel", output[1].CharacterId);
+
+			Assert.AreEqual("»En su sueño Su Majestad veía una estatua enorme. Yadda yadda. ", output[2].GetText(false));
+			Assert.AreEqual("Daniel", output[2].CharacterId);
+
+			Assert.AreEqual("»Después de Su Majestad surgirá. " +
+				"Finalmente, vendrá un cuarto reino, sólido como el hierro. ", output[3].GetText(false));
+			Assert.AreEqual("Daniel", output[3].CharacterId);
+
+			Assert.AreEqual("»Su Majestad veía que los pies de la estatua eran de hierro y barro. " +
+				"Su Majestad vio dos elementos que no pueden fundirse. El pueblo no será unida. ", output[4].GetText(false));
+			Assert.AreEqual("Daniel", output[4].CharacterId);
+
+			Assert.AreEqual("»En los días Dios establecerá un reino permanente y hará pedazos a estos reinos. " +
+				"Dios le ha mostrado el futuro. La interpretación es digna de confianza». ", output[5].GetText(false));
+			Assert.AreEqual("Daniel", output[5].CharacterId);
+
+			Assert.AreEqual("Al oír esto, el rey ordenó que se le presentara una ofrenda, y le dijo: ", output[6].GetText(false));
+			Assert.IsTrue(output[6].CharacterIs("DAN", Narrator));
+		}
+
+		[Test]
+		public void Parse_DialogueDashFollowedByParagraphStartingANewDialogueSpeakerWithReportingClauseInterruptions_SpeakerChangeNotedCorrectly()
+		{
+			var block1 = new Block("p", 5, 3);
+			block1.BlockElements.Add(new Verse("3"));
+			block1.BlockElements.Add(new ScriptText("El rey le preguntó:"));
+			block1.IsParagraphStart = true;
+			var block2 = new Block("p", 5, 3);
+			block2.BlockElements.Add(new ScriptText("\u2015¿Qué te pasa, Ester? ¿Cuál es tu petición? ¡Aun la mitad del reino te concedería! "));
+			var block3 = new Block("p", 5, 4);
+			block3.BlockElements.Add(new Verse("4"));
+			block3.BlockElements.Add(new ScriptText("\u2015Si le parece bien \u2014respondió Ester\u2014, vengan al banquete que ofrezco. "));
+			var block4 = new Block("p", 5, 5);
+			block4.BlockElements.Add(new Verse("5"));
+			block4.BlockElements.Add(new ScriptText("\u2015Traigan a Amán, para poder cumplir con su deseo \u2014ordenó el rey. "));
+			var input = new List<Block> { block1, block2, block3, block4 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "EST",
+				input, GetNviQuoteSystem()).Parse().ToList();
+			Assert.AreEqual(7, output.Count);
+			Assert.That(output.All(b => b.MultiBlockQuote == MultiBlockQuote.None));
+
+			Assert.AreEqual("El rey le preguntó:", output[0].GetText(false));
+			Assert.IsTrue(IsCharacterOfType(output[0].CharacterId, Narrator));
+
+			Assert.AreEqual("\u2015¿Qué te pasa, Ester? ¿Cuál es tu petición? ¡Aun la mitad del reino te concedería! ", output[1].GetText(true));
+			Assert.AreEqual("Xerxes, king of Persia and Media (Ahasuerus)", output[1].CharacterId);
+
+			Assert.AreEqual("\u2015Si le parece bien ", output[2].GetText(false));
+			Assert.AreEqual("Esther, queen", output[2].CharacterId);
+
+			Assert.AreEqual("\u2014respondió Ester\u2014, ", output[3].GetText(false));
+			Assert.IsTrue(IsCharacterOfType(output[3].CharacterId, Narrator));
+
+			Assert.AreEqual("vengan al banquete que ofrezco. ", output[4].GetText(true));
+			Assert.AreEqual("Esther, queen", output[4].CharacterId);
+
+			Assert.AreEqual("\u2015Traigan a Amán, para poder cumplir con su deseo ", output[5].GetText(false));
+			Assert.AreEqual("Xerxes, king of Persia and Media (Ahasuerus)", output[5].CharacterId);
+
+			Assert.AreEqual("\u2014ordenó el rey. ", output[6].GetText(false));
+			Assert.IsTrue(IsCharacterOfType(output[6].CharacterId, Narrator));
+		}
+
+		[Test]
+		public void Parse_DialogueDashFollowedByContinuationParagraphWithReportingClauseandSentencePunctBeforeVerseNumber_ReportingClauseBrokenOut()
+		{
+			var block1 = new Block("p", 32, 7);
+			block1.BlockElements.Add(new Verse("7"));
+			block1.BlockElements.Add(new ScriptText("El Señor le dijo a Moisés: "));
+			block1.IsParagraphStart = true;
+			var block2 = new Block("p", 32, 7);
+			block2.IsParagraphStart = true;
+			block2.BlockElements.Add(new ScriptText("\u2015Baja. Se ha corrompido Israel. "));
+			block2.BlockElements.Add(new Verse("8"));
+			block2.BlockElements.Add(new ScriptText("No solo han hecho un ídolo, sino que le han " +
+				"ofrecido sacrificios y han declarado: “Israel, ¡he aquí tu dios que te liberó!” "));
+			var block3 = new Block("p", 32, 9);
+			block3.IsParagraphStart = true;
+			block3.BlockElements.Add(new Verse("9"));
+			block3.BlockElements.Add(new ScriptText("»Este es un pueblo terco —añadió el Señor, " +
+				"dirigiéndose a Moisés—. "));
+			block3.BlockElements.Add(new Verse("10"));
+			block3.BlockElements.Add(new ScriptText("Los voy a destruir en mi ira. " +
+				"Pero de ti haré una nación». "));
+			var input = new List<Block> { block1, block2, block3 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "EXO",
+				input, GetNviQuoteSystem()).Parse().ToList();
+			Assert.AreEqual(5, output.Count);
+
+			Assert.AreEqual("El Señor le dijo a Moisés: ", output[0].GetText(false));
+			Assert.IsTrue(IsCharacterOfType(output[0].CharacterId, Narrator));
+			Assert.That(output[0].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+
+			Assert.AreEqual("\u2015Baja. Se ha corrompido Israel. No solo han hecho un ídolo, " +
+				"sino que le han ofrecido sacrificios y han declarado: “Israel, ¡he aquí tu " +
+				"dios que te liberó!” ", output[1].GetText(false));
+			Assert.AreEqual("God", output[1].CharacterId);
+			Assert.That(output[1].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
+
+			Assert.AreEqual("»Este es un pueblo terco ", output[2].GetText(false));
+			Assert.AreEqual("God", output[2].CharacterId);
+			Assert.That(output[2].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Continuation));
+
+			Assert.AreEqual("—añadió el Señor, dirigiéndose a Moisés—. ", output[3].GetText(true));
+			Assert.IsTrue(IsCharacterOfType(output[3].CharacterId, Narrator));
+			Assert.That(output[3].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+
+			Assert.AreEqual("Los voy a destruir en mi ira. Pero de ti haré una nación». ", output[4].GetText(false));
+			Assert.AreEqual("God", output[4].CharacterId);
+			Assert.That(output[4].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+		}
+		#endregion
 	}
 }

@@ -1122,10 +1122,46 @@ namespace GlyssenEngine.Script
 			var blocks = GetBlocksForVerse(chapter, verse).ToList();
 			if (blocks.Count == 0)
 				return QuotePosition.Unspecified;
-			if (blocks.All(b => b.IsQuote) && blocks.Select(b => b.CharacterId).Distinct().Count() == 1)
-				return QuotePosition.EntireVerse;
+			string character = null;
+			QuotePosition position = QuotePosition.Unspecified;
+			foreach (var block in blocks)
+			{
+				if (block.IsQuote)
+				{
+					switch (position)
+					{
+						case QuotePosition.Unspecified:
+							position = QuotePosition.EntireVerse;
+							break;
+						case QuotePosition.StartOfVerse:
+						case QuotePosition.ContainedWithinVerse:
+							return QuotePosition.Unspecified;
+					}
+
+					if (character == null)
+						character = block.CharacterId;
+					else if (character != block.CharacterId)
+						return QuotePosition.Unspecified;
+				}
+				else
+				{
+					switch (position)
+					{
+						case QuotePosition.Unspecified:
+							position = QuotePosition.EndOfVerse;
+							break;
+						case QuotePosition.EndOfVerse:
+							if (character != null)
+								position = QuotePosition.ContainedWithinVerse;
+							break;
+						case QuotePosition.EntireVerse:
+							position = QuotePosition.StartOfVerse;
+							break;
+					}
+				}
+			}
 			// TODO: deal with possibility of preceding paragraph before which quote was not closed.
-			return QuotePosition.Unspecified;
+			return position;
 		}
 	}
 }

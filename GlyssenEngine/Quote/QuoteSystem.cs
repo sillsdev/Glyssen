@@ -10,6 +10,7 @@ using SIL.ObjectModel;
 using SIL.WritingSystems;
 using SIL.Xml;
 using static System.Char;
+using static System.String;
 
 namespace GlyssenEngine.Quote
 {
@@ -19,6 +20,7 @@ namespace GlyssenEngine.Quote
 		public static IComparer<QuotationMark> QuotationMarkTypeAndLevelComparer = new TypeAndLevelComparer();
 
 		private Regex m_regexInterruption;
+		private Regex m_regexReportingClause = null;
 
 		/// <summary>
 		/// This is deprecated and should only be used for upgrading from old data
@@ -45,8 +47,8 @@ namespace GlyssenEngine.Quote
 				foreach (var level2 in QuoteUtils.GetLevel2Possibilities(quoteSystem.FirstLevel))
 				{
 					var qs = new QuoteSystem(quoteSystem);
-					if (!string.IsNullOrWhiteSpace(quoteSystem.Name))
-						qs.Name = String.Format("{0} with levels 2 ({1}/{2}) and 3.", quoteSystem.Name, level2.Open, level2.Close);
+					if (!IsNullOrWhiteSpace(quoteSystem.Name))
+						qs.Name = Format("{0} with levels 2 ({1}/{2}) and 3.", quoteSystem.Name, level2.Open, level2.Close);
 					qs.AllLevels.Add(level2);
 					qs.AllLevels.Add(QuoteUtils.GenerateLevel3(qs, true));
 					systemsWithAllLevels.Add(qs);
@@ -142,6 +144,61 @@ namespace GlyssenEngine.Quote
 
 		[XmlIgnore]
 		public QuotationMark FirstLevel => AllLevels[0];
+
+		public void SetReportingClauseDelimiters(string start, string end = default)
+		{
+			const string kMustBePunctMsg = "Reporting clause delimiter character(s) must be punctuation.";
+			if (IsNullOrEmpty(start))
+				throw new ArgumentNullException(nameof(start));
+			if (!start.All(IsPunctuation))
+				throw new ArgumentException(kMustBePunctMsg, nameof(start));
+			if (IsNullOrEmpty(end))
+				end = start;
+			else
+			{
+				if (!end.All(IsPunctuation))
+					throw new ArgumentException(kMustBePunctMsg, nameof(end));
+			}
+
+			var escStart = Regex.Escape(start);
+			var escEndUniqueChars = Regex.Escape(new string(end.Distinct().ToArray()));
+			var escEnd = Regex.Escape(end);
+
+			m_regexReportingClause = new Regex($"({escStart}\\s*([^{escEndUniqueChars}\\s]+\\s*)+{escEnd}?" +
+				"\\p{P}\\s*)");
+		}
+
+		public IEnumerable<string> GetSpeakingAndReportingClauses(string text)
+		{
+			if (m_regexReportingClause == null)
+				yield return text;
+			else
+			{
+				do
+				{
+					var match = m_regexReportingClause.Match(text);
+					if (match.Success && match.Index > 0)
+					{
+						var preceding = text.Substring(0, match.Index);
+						if (!preceding.Any(IsLetter) ||
+						    (NormalLevels.Count > 1 && preceding.Contains(NormalLevels[1].Open)))
+						{
+							yield return text;
+							yield break;
+						}
+						yield return preceding;
+						yield return match.Value;
+						text = text.Substring(match.Index + match.Value.Length);
+					}
+					else
+					{
+						yield return text;
+						yield break;
+					}
+					
+				} while (text.Length > 0);
+			}
+		}
 
 		[XmlElement("StartQuoteMarker")]
 		public string StartQuoteMarker_DeprecatedXml
@@ -286,7 +343,7 @@ namespace GlyssenEngine.Quote
 
 				StringBuilder sb = new StringBuilder();
 				sb.Append(firstLevel);
-				if (!string.IsNullOrEmpty(QuotationDashMarker))
+				if (!IsNullOrEmpty(QuotationDashMarker))
 				{
 					var dashLevel = (QuotationDashMarker + " " + QuotationDashEndMarker ?? "").Trim();
 					if (dashLevel != firstLevel)
@@ -313,9 +370,9 @@ namespace GlyssenEngine.Quote
 				sb.Append(level.Open).Append(" ").Append(level.Continue).Append(" ").Append(level.Close).Append(" / ");
 			if (sb.Length >= 3)
 				sb.Length -= 3;
-			if (!string.IsNullOrEmpty(QuotationDashMarker))
+			if (!IsNullOrEmpty(QuotationDashMarker))
 				sb.Append(" / ").Append(QuotationDashMarker);
-			if (!string.IsNullOrEmpty(QuotationDashEndMarker))
+			if (!IsNullOrEmpty(QuotationDashEndMarker))
 				sb.Append(" ").Append(QuotationDashEndMarker);
 			return sb.ToString();
 		}

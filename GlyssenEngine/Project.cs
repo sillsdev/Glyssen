@@ -40,7 +40,7 @@ namespace GlyssenEngine
 {
 	public class Project : ProjectBase, IUserProject
 	{
-		public const int kParserVersion = 53;
+		public const int kParserVersion = 54;
 
 		private const double kUsxPercent = 0.25;
 		private const double kGuessPercent = 0.10;
@@ -206,6 +206,9 @@ namespace GlyssenEngine
 			{
 				QuoteSystemStatus = QuoteSystemStatus.Obtained;
 				SetWsQuotationMarksUsingFullySpecifiedContinuers(paratextProject.QuotationMarks);
+				if (paratextProject.ReportingClauseStartDelimiter != null)
+					QuoteSystem.SetReportingClauseDelimiters(paratextProject.ReportingClauseStartDelimiter,
+						paratextProject.ReportingClauseEndDelimiter);
 			}
 
 			ParseAndSetBooks(paratextProject.UsxDocumentsForIncludedBooks, paratextProject.Stylesheet);
@@ -2388,11 +2391,11 @@ namespace GlyssenEngine
 			var blocksInBook = books.ToDictionary(b => b.BookId, b => b.GetScriptBlocks());
 
 			var parsedBlocksByBook = new ConcurrentDictionary<string, BookScript>();
-			QuoteParser.SetQuoteSystem(altQuoteSystem);
 			Parallel.ForEach(blocksInBook, bookIdBlocksPair =>
 			{
 				var bookId = bookIdBlocksPair.Key;
-				var blocks = new QuoteParser(cvInfo, bookId, bookIdBlocksPair.Value, Versification).Parse().ToList();
+				var blocks = new QuoteParser(cvInfo, bookId, bookIdBlocksPair.Value,
+					altQuoteSystem, Versification).Parse().ToList();
 				var parsedBook = new BookScript(bookId, blocks, Versification);
 				parsedBlocksByBook.AddOrUpdate(bookId, parsedBook, (s, script) => parsedBook);
 			});

@@ -116,6 +116,9 @@ namespace GlyssenEngine
 		}
 		#endregion
 
+		/// <summary>
+		/// Note that this is NOT thread-safe!
+		/// </summary>
 		public static ReferenceTextProxy GetOrCreate(ReferenceTextType referenceTextType, string proprietaryReferenceTextIdentifier = null)
 		{
 			ReferenceTextProxy proxy;

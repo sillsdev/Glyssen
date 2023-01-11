@@ -4599,7 +4599,7 @@ namespace GlyssenEngineTests.Script
 			var mrkBlocks = new List<Block>
 			{
 				NewChapterBlock(2),
-				NewSingleVersePara(1, "MRK"),
+				NewSingleVersePara(1, "Blah", "MRK"),
 				NewSingleVersePara(2, "“I know why people think I am good,”")
 			};
 
@@ -4620,7 +4620,7 @@ namespace GlyssenEngineTests.Script
 			var mrkBlocks = new List<Block>
 			{
 				NewChapterBlock(2),
-				NewSingleVersePara(1, "MRK"),
+				NewSingleVersePara(1, "Blah", "MRK"),
 				NewSingleVersePara(2)
 			};
 
@@ -4643,7 +4643,7 @@ namespace GlyssenEngineTests.Script
 			var mrkBlocks = new List<Block>
 			{
 				NewChapterBlock(2),
-				NewSingleVersePara(1, "MRK"),
+				NewSingleVersePara(1, "Blah", "MRK"),
 				NewSingleVersePara(2, "“I know why people think I am good,")
 			};
 
@@ -4667,6 +4667,91 @@ namespace GlyssenEngineTests.Script
 
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.That(bookScript.GetProposedQuotePosition(2, 2), Is.EqualTo(QuotePosition.StartOfVerse));
+		}
+		
+		[TestCase(QuotePosition.StartOfVerse, QuotePosition.EndOfVerse)]
+		[TestCase(QuotePosition.StartOfVerse, QuotePosition.ContainedWithinVerse)]
+		[TestCase(QuotePosition.ContainedWithinVerse, QuotePosition.EndOfVerse)]
+		[TestCase(QuotePosition.ContainedWithinVerse, QuotePosition.ContainedWithinVerse)]
+		public void GetProposedQuotePosition_SameCharacterSpeaksTwiceInVerse_Unspecified(params QuotePosition[] positions)
+		{
+			var mrkBlocks = new List<Block>
+			{
+				NewChapterBlock(2),
+				NewSingleVersePara(1, "Some words.", "MRK"),
+			};
+
+			var narrator = CharacterVerseData.GetStandardCharacterId("MRK",
+				CharacterVerseData.StandardCharacter.Narrator);
+
+			foreach (var position in positions)
+			{
+				switch (position)
+				{
+					case QuotePosition.StartOfVerse:
+						mrkBlocks[1].CharacterId = "woman";
+						mrkBlocks.Add(new Block("p", 2, 1, 1) { CharacterId = narrator});
+						break;
+					case QuotePosition.EndOfVerse:
+						mrkBlocks.Add(new Block("p", 2, 1, 1) { CharacterId = "woman"});
+						break;
+					case QuotePosition.ContainedWithinVerse:
+						if (mrkBlocks.Last().CharacterId != narrator)
+							mrkBlocks.Add(new Block("p", 2, 1, 1) { CharacterId = narrator});
+						mrkBlocks.Add(new Block("p", 2, 1, 1) { CharacterId = "woman"});
+						mrkBlocks.Add(new Block("p", 2, 1, 1) { CharacterId = narrator});
+						break;
+					default:
+						throw new ArgumentOutOfRangeException();
+				}
+			}
+
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
+			Assert.That(bookScript.GetProposedQuotePosition(2, 1), Is.EqualTo(QuotePosition.Unspecified));
+		}
+		
+		[Test]
+		public void GetProposedQuotePosition_SingleCharacterSpeaksOnceInMiddleOfVerse_ContainedInVerse()
+		{
+			var mrkBlocks = new List<Block>
+			{
+				NewChapterBlock(2),
+				NewSingleVersePara(1, "Jesus answered, ", "MRK"),
+				NewBlock("“This is all I can say,”", "Jesus"),
+				NewBlock("he said.", CharacterVerseData.GetStandardCharacterId("MRK",
+					CharacterVerseData.StandardCharacter.Narrator))
+			};
+
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
+			Assert.That(bookScript.GetProposedQuotePosition(2, 1), Is.EqualTo(QuotePosition.ContainedWithinVerse));
+		}
+		
+		[TestCase("p")]
+		[TestCase("q1", "q2", "q1")]
+		[TestCase("q", "m")]
+		public void GetProposedQuotePosition_VerseStartsWithNarratorAndEndsWithQuote_EndOfVerse(params string[] paraTagsForQuote)
+		{
+			var mrkBlocks = new List<Block>
+			{
+				NewChapterBlock(2),
+				NewSingleVersePara(1, "Spake he thus, ", "MRK"),
+			};
+
+			foreach (var paraTag in paraTagsForQuote)
+			{
+				var sb = new StringBuilder();
+				if (paraTag == "p")
+					sb.Append("“");
+				sb.Append($"Some speech marked up as {paraTag}.");
+				var block = NewBlock(sb.ToString(), "good boy");
+				block.IsParagraphStart = true;
+				mrkBlocks.Add(block);
+			}
+
+			mrkBlocks.Add(NewSingleVersePara(2));
+
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
+			Assert.That(bookScript.GetProposedQuotePosition(2, 1), Is.EqualTo(QuotePosition.EndOfVerse));
 		}
 		#endregion
 

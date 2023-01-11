@@ -22,8 +22,8 @@ namespace GlyssenCharacters
 		/// <summary>Special character ID that the user can use for a quote that needs further review (by a vernacular speaker, advisor, etc.)</summary>
 		public const string kNeedsReview = "Needs Review";
 
-		public const int kiMinRequiredFields = 5;
-		protected internal const int kiQuoteType = kiMinRequiredFields + 1;
+		private const int kiMinRequiredFields = 6;
+		protected internal const int kiQuoteType = kiMinRequiredFields;
 		protected const int kiDefaultCharacter = kiQuoteType + 1;
 		protected const int kiParallelPassageInfo = kiDefaultCharacter + 1;
 		protected internal const int kiQuotePosition = kiParallelPassageInfo + 1;
@@ -395,7 +395,7 @@ namespace GlyssenCharacters
 		/// <exception cref="ApplicationException">Bad data (incorrect number of fields, etc.)</exception>
 		protected internal virtual IList<CharacterVerse> ProcessLine(string[] items, int lineNumber)
 		{
-			if (items.Length < kiQuoteType)
+			if (items.Length < kiMinRequiredFields)
 				throw new ApplicationException($"Bad format in CharacterVerse control file! Line #: {lineNumber}; Line contents: {string.Join("\t", items)}");
 			if (items.Length > kMaxItems)
 				throw new ApplicationException($"Incorrect number of fields in CharacterVerse control file! Line #: {lineNumber}; Line contents: {string.Join("\t", items)}");

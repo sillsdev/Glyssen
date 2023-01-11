@@ -26,7 +26,7 @@ namespace DevTools
 			Console.WriteLine("12) Obfuscate proprietary reference texts to make testing resources (output in GlyssenTests/Resources/temporary)");
 			Console.WriteLine("13) Generate reference text book title and chapter label summary");
 			Console.WriteLine("14) Create new English reference text (see comments in the Mode enum in ReferenceTextUtility). May append OT or NT.");
-			Console.WriteLine("15) Update Normal to Implicit based on Paratext resource texts.");
+			Console.WriteLine("15) Update Normal to Implicit based on Paratext resource texts. (Paratext dev use only. Requires unzipping Paratext resources.)");
 			Console.WriteLine("16) Exit without doing anything.");
 
 			int command = -1;
@@ -99,7 +99,6 @@ namespace DevTools
 						break;
 					case 15:
 						CharacterVerseUpdater.MakeNormalQuotesImplicit(); break;
-						break;
 					default:
 						return;
 				}
