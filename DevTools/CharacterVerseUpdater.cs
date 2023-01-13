@@ -68,14 +68,13 @@ namespace DevTools
 
 				if (sRegexSkipMultiVerseLine.IsMatch(line.Contents))
 				{
-					InsertEmptyQuotePositionIfNeeded(items, sb, line);
+					InsertEmptyQuotePositionIfNeeded(items, sb, line.Contents);
 					continue;
 				}
 
 				var cv = ControlCharacterVerseData.Singleton.ProcessLine(items, line.Number).Single();
 				if (cv.QuoteType == QuoteType.Indirect || cv.QuoteType == QuoteType.Interruption ||
-				    cv.QuoteType == QuoteType.Implicit || cv.QuoteType == QuoteType.ImplicitWithPotentialSelfQuote ||
-				    cv.QuoteType == QuoteType.Rare ||
+				    cv.QuoteType == QuoteType.Implicit || cv.QuoteType == QuoteType.Rare ||
 				    NarratorOverrides.GetCharacterOverrideDetailsForRefRange(new VerseRef(cv.BcvRef.BBCCCVVV, ScrVers.English),
 					    cv.Verse).Any() ||
 				    ControlCharacterVerseData.Singleton.GetCharacters(cv.Book, cv.Chapter, cv.Verse)
@@ -85,7 +84,7 @@ namespace DevTools
 								    c.QuoteType == QuoteType.Alternate)))))
 
 				{
-					InsertEmptyQuotePositionIfNeeded(items, sb, line);
+					InsertEmptyQuotePositionIfNeeded(items, sb, line.Contents);
 					continue;
 				}
 
@@ -98,7 +97,7 @@ namespace DevTools
 							currentBook[i] = stdText.GetBook(cv.Book);
 					}
 				}
-				SetQuotePosition(items, sb, line,
+				SetQuotePosition(cv, items, sb, line.Contents,
 					currentBook.Select(b => b.GetProposedQuotePosition(cv.Chapter, cv.Verse, cv.Character))
 						.Distinct().OnlyOrDefault());
 			}
@@ -106,7 +105,7 @@ namespace DevTools
 			WriteFile(sb.ToString());
 		}
 
-		private static void InsertEmptyQuotePositionIfNeeded(string[] items, StringBuilder sb, object line)
+		private static void InsertEmptyQuotePositionIfNeeded(string[] items, StringBuilder sb, string line)
 		{
 			if (items.Length >= CharacterVerseData.kiQuotePosition && items.Length < CharacterVerseData.kMaxItems)
 			{
@@ -120,11 +119,13 @@ namespace DevTools
 			sb.Append(Environment.NewLine);
 		}
 
-		private static void SetQuotePosition(string[] items, StringBuilder sb, object line, QuotePosition position)
+		private static void SetQuotePosition(GlyssenCharacters.CharacterVerse cv, string[] items, StringBuilder sb,
+			string line, QuotePosition position)
 		{
 			if (position == QuotePosition.EntireVerse &&
 			    items[CharacterVerseData.kiQuoteType] != QuoteType.Implicit.ToString() &&
-			    items[CharacterVerseData.kiQuoteType] != QuoteType.ImplicitWithPotentialSelfQuote.ToString())
+			    items[CharacterVerseData.kiQuoteType] != QuoteType.ImplicitWithPotentialSelfQuote.ToString() &&
+			    !ControlCharacterVerseData.GetOtherEntriesIncompatibleWithImplicitCv(cv).Any())
 			{
 				items[CharacterVerseData.kiQuoteType] = QuoteType.Implicit.ToString();
 			}

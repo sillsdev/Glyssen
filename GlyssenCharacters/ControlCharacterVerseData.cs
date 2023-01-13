@@ -166,6 +166,14 @@ namespace GlyssenCharacters
 			return result;
 		}
 
+		internal static IEnumerable<CharacterSpeakingMode> GetOtherEntriesIncompatibleWithImplicitCv(CharacterVerse cv)
+		{
+			return ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber(cv.BookCode),
+					cv.Chapter, new SingleVerse(cv.Verse), ScrVers.English)
+				.Where(c => c != cv && c.QuoteType != QuoteType.Hypothetical &&
+					(c.QuoteType != QuoteType.Quotation || c.Character != cv.Character));
+		}
+
 		public static IEnumerable<CharacterSpeakingMode> GetMatchingCharacters(int bookNum,
 			int chapter, IVerse verseOrBridge, string character, ScrVers versification = null,
 			bool includeAlternatesAndRareQuotes = false, bool includeNarratorOverrides = false) =>

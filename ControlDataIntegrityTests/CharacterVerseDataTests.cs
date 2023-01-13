@@ -36,7 +36,7 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_RequiredFieldsHaveValidFormatAndThereAreNoDuplicateLines()
 		{
-			Regex regex = new Regex(kRegexBCV + "(?<character>[^\t]+)\t(?<delivery>[^\t]*)\t(?<alias>[^\t]*)\t(?<type>" + typeof(QuoteType).GetRegexEnumValuesString() + ")\t(?<defaultCharacter>[^\t]*)\t(?<parallelPassageRef>[^\t]*)$", RegexOptions.Compiled);
+			Regex regex = new Regex(kRegexBCV + "(?<character>[^\t]+)\t(?<delivery>[^\t]*)\t(?<alias>[^\t]*)\t(?<type>" + typeof(QuoteType).GetRegexEnumValuesString() + ")\t(?<defaultCharacter>[^\t]*)\t(?<parallelPassageRef>[^\t]*)(\t(?<quotePosition>[^\t]*))?$", RegexOptions.Compiled);
 			Regex extraSpacesRegex = new Regex("^ |\t | \t| $", RegexOptions.Compiled);
 
 			var set = new HashSet<string>();
@@ -93,11 +93,27 @@ namespace ControlDataIntegrityTests
 				var matchResult = match.Result("$&");
 				Assert.IsTrue(set.Add(matchResult), "Duplicate line: " + matchResult);
 
-				Assert.IsTrue(QuoteType.TryParse(typeAsString, out QuoteType type));
+				Assert.IsTrue(Enum.TryParse(typeAsString, out QuoteType type));
 				foreach (var bcvRef in CharacterVerseData.GetAllVerses(new [] {bookId, chapterAsString, verseAsString}, () => throw new Exception("This should never happen")))
 				{
 					var cv = new CharacterVerse(bcvRef, character, match.Result("${delivery}"), alias, false, type, defaultCharacter);
 					Assert.IsTrue(uniqueCharacterVerses.Add(cv), "Line is equivalent to another line even though they are not identical: " + matchResult);
+				}
+
+				var sPosition = match.Result("${quotePosition}");
+				if (!IsNullOrEmpty(sPosition))
+				{
+					Assert.IsTrue(Enum.TryParse(sPosition, out QuotePosition position), "Invalid QuotePosition: " + sPosition);
+					if (position == QuotePosition.EntireVerse)
+					{
+						Assert.That(type, Is.EqualTo(QuoteType.Implicit)
+							.Or.EqualTo(QuoteType.ImplicitWithPotentialSelfQuote), "Line: " + line);
+					}
+					else
+					{
+						Assert.That(type, Is.Not.EqualTo(QuoteType.Implicit)
+							.And.Not.EqualTo(QuoteType.ImplicitWithPotentialSelfQuote), "Line: " + line);
+					}
 				}
 
 				var extraSpacesMatch = extraSpacesRegex.Match(line);
@@ -263,10 +279,8 @@ namespace ControlDataIntegrityTests
 			foreach (var cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo()
 				.Where(i => i.IsImplicit && i.Character != CharacterVerseData.kNeedsReview))
 			{
-				var otherEntries = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber(cv.BookCode),
-					cv.Chapter, new SingleVerse(cv.Verse), ScrVers.English)
-					.Where(c => c != cv && c.QuoteType != QuoteType.Hypothetical &&
-					(c.QuoteType != QuoteType.Quotation || c.Character != cv.Character)).ToList();
+				var otherEntries = ControlCharacterVerseData
+					.GetOtherEntriesIncompatibleWithImplicitCv(cv).ToList();
 				if (otherEntries.Any())
 				{
 					Assert.IsTrue(cv.BookCode == "DEU" && otherEntries.All(o => 
