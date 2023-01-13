@@ -4516,9 +4516,9 @@ namespace GlyssenEngineTests.Script
 		#endregion
 
 		#region GetProposedQuotePosition Tests
-		[TestCase(1, 4)]
-		[TestCase(2, 1)]
-		public void GetProposedQuotePosition_NoBlocksFound_Unspecified(int chapter, int verse)
+		[TestCase(1, 4, "John the Baptist")]
+		[TestCase(2, 1, "people in Capernaum")]
+		public void GetProposedQuotePosition_NoBlocksFound_Unspecified(int chapter, int verse, string character)
 		{
 			var mrkBlocks = new List<Block>
 			{
@@ -4528,15 +4528,16 @@ namespace GlyssenEngineTests.Script
 				NewSingleVersePara(3)
 			};
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
-			Assert.That(bookScript.GetProposedQuotePosition(chapter, verse), Is.EqualTo(QuotePosition.Unspecified));
+			Assert.That(bookScript.GetProposedQuotePosition(chapter, verse, character),
+				Is.EqualTo(QuotePosition.Unspecified));
 		}
 		 
-		[TestCase(1, 3, true, true)]
-		[TestCase(1, 3, false, true)]
-		[TestCase(1, 3, true, false)]
-		[TestCase(2, 1, false, false)]
+		[TestCase(1, 3, "scripture", true, true)]
+		[TestCase(1, 3, "scripture", false, true)]
+		[TestCase(1, 3, "scripture", true, false)]
+		[TestCase(2, 1, "people in Capernaum", false, false)]
 		public void GetProposedQuotePosition_SingleBlockIsQuoteCoveringVerse_EntireVerse(int chapter, int verse,
-			bool includePrevVerseInBlock, bool includeNextVerseInBlock)
+			string character, bool includePrevVerseInBlock, bool includeNextVerseInBlock)
 		{
 			var mrkBlocks = new List<Block>
 			{
@@ -4556,18 +4557,20 @@ namespace GlyssenEngineTests.Script
 			else
 				Assert.That(verse, Is.EqualTo(1), "Not a valid test case.");
 
-			mrkBlocks.Last().CharacterId = "Priest";
+			mrkBlocks.Last().CharacterId = character;
 
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
-			Assert.That(bookScript.GetProposedQuotePosition(chapter, verse), Is.EqualTo(QuotePosition.EntireVerse));
+			Assert.That(bookScript.GetProposedQuotePosition(chapter, verse, character),
+				Is.EqualTo(QuotePosition.EntireVerse));
 		}
 
-		[TestCase(1, 3, true, true)]
-		[TestCase(1, 3, false, true)]
-		[TestCase(1, 3, true, false)]
-		[TestCase(2, 1, false, false)]
-		public void GetProposedQuotePosition_MultipleBlocksCoveringVerseWithSameCharacter_EntireVerse(int chapter, int verse,
-			bool includePrevVerseInBlock, bool includeNextVerseInBlock)
+		[TestCase(1, 3, "scripture", true, true)]
+		[TestCase(1, 3, "scripture", false, true)]
+		[TestCase(1, 3, "scripture", true, false)]
+		[TestCase(2, 1, "people in Capernaum", false, false)]
+		public void GetProposedQuotePosition_MultipleBlocksCoveringVerseWithSameCharacter_EntireVerse(
+			int chapter, int verse, string character, bool includePrevVerseInBlock,
+			bool includeNextVerseInBlock)
 		{
 			var mrkBlocks = new List<Block>
 			{
@@ -4575,22 +4578,23 @@ namespace GlyssenEngineTests.Script
 				NewSingleVersePara(1)
 			};
 			if (verse == 1 || (verse == 2 && includePrevVerseInBlock))
-				mrkBlocks.Last().CharacterId = "boy";
+				mrkBlocks.Last().CharacterId = character;
 			else if (includePrevVerseInBlock)
 			{
 				mrkBlocks.Add(NewSingleVersePara(verse - 1).AddVerse(verse));
 				m_curSetupVerse = verse;
-				mrkBlocks.Last().CharacterId = "boy";
+				mrkBlocks.Last().CharacterId = character;
 			}
 
-			mrkBlocks.Add(NewBlock("More text", "boy"));
-			mrkBlocks.Add(NewBlock("Even more text", "boy"));
+			mrkBlocks.Add(NewBlock("More text", character));
+			mrkBlocks.Add(NewBlock("Even more text", character));
 
 			if (includeNextVerseInBlock)
 				mrkBlocks.Last().AddVerse(verse + 1);
 
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
-			Assert.That(bookScript.GetProposedQuotePosition(chapter, verse), Is.EqualTo(QuotePosition.EntireVerse));
+			Assert.That(bookScript.GetProposedQuotePosition(chapter, verse, character),
+				Is.EqualTo(QuotePosition.EntireVerse));
 		}
 		
 		[Test]
@@ -4605,7 +4609,8 @@ namespace GlyssenEngineTests.Script
 			};
 
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
-			Assert.That(bookScript.GetProposedQuotePosition(12, 18), Is.EqualTo(QuotePosition.Unspecified));
+			Assert.That(bookScript.GetProposedQuotePosition(12, 18, "Sadducees"),
+				Is.EqualTo(QuotePosition.Unspecified));
 		}
 		
 		[Test]
@@ -4626,11 +4631,16 @@ namespace GlyssenEngineTests.Script
 			mrkBlocks.Add(NewSingleVersePara(3));
 
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
-			Assert.That(bookScript.GetProposedQuotePosition(2, 2), Is.EqualTo(QuotePosition.Unspecified));
+			Assert.That(bookScript.GetProposedQuotePosition(2, 2, "good boy"),
+				Is.EqualTo(QuotePosition.Unspecified));
 		}
 
-		[Test]
-		public void GetProposedQuotePosition_MultipleBlocksCoveringVerseWithDifferentCharacters_Unspecified()
+		[TestCase("some boy", ExpectedResult = QuotePosition.StartOfVerse)]
+		[TestCase("good boy", ExpectedResult = QuotePosition.EndOfVerse)]
+		[TestCase("bad boy", ExpectedResult = QuotePosition.ContainedWithinVerse)]
+		[TestCase("no boy", ExpectedResult = QuotePosition.Unspecified)]
+		public QuotePosition GetProposedQuotePosition_MultipleBlocksCoveringVerseWithDifferentCharacters_DependsOnCharacter(
+			string character)
 		{
 			var mrkBlocks = new List<Block>
 			{
@@ -4639,14 +4649,14 @@ namespace GlyssenEngineTests.Script
 				NewSingleVersePara(2)
 			};
 
-			mrkBlocks.Last().CharacterId = "good boy";
+			mrkBlocks.Last().CharacterId = "some boy";
 			mrkBlocks.Add(NewBlock("-I am bad.", "bad boy"));
 			mrkBlocks.Add(NewBlock("-I am good.", "good boy"));
 
 			mrkBlocks.Add(NewSingleVersePara(3));
 
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
-			Assert.That(bookScript.GetProposedQuotePosition(2, 2), Is.EqualTo(QuotePosition.Unspecified));
+			return bookScript.GetProposedQuotePosition(2, 2, character);
 		}
 		
 		[TestCase]
@@ -4681,14 +4691,35 @@ namespace GlyssenEngineTests.Script
 			mrkBlocks.Add(NewSingleVersePara(3));
 
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
-			Assert.That(bookScript.GetProposedQuotePosition(2, 2), Is.EqualTo(QuotePosition.StartOfVerse));
+			Assert.That(bookScript.GetProposedQuotePosition(2, 2, "good boy"),
+				Is.EqualTo(QuotePosition.StartOfVerse));
+		}
+
+		[TestCase("Seraiah", ExpectedResult = QuotePosition.Unspecified)]
+		[TestCase("Jeremiah", ExpectedResult = QuotePosition.StartOfVerse)]
+		public QuotePosition GetProposedQuotePosition_VerseStartsWithQuote_DependsOnCharacter(string character)
+		{
+			var jerBlocks = new List<Block>
+			{
+				NewChapterBlock(51),
+				NewSingleVersePara(63, "Then you shall bind a stone to it and cast it into the Euphrates. "),
+				NewSingleVersePara(64, "Then you shall say, ‹Thus will Babylon sink and not rise again; and they will be weary.› »"),
+				NewBlock("Thus far are the words of Jeremiah.", CharacterVerseData.GetStandardCharacterId("JER", CharacterVerseData.StandardCharacter.Narrator))
+			};
+
+			jerBlocks[1].CharacterId = "Jeremiah";
+			jerBlocks[2].CharacterId = "Jeremiah";
+
+			var bookScript = new BookScript("JER", jerBlocks, ScrVers.English);
+			return bookScript.GetProposedQuotePosition(51, 64, character);
 		}
 		
-		[TestCase(QuotePosition.StartOfVerse, QuotePosition.EndOfVerse)]
-		[TestCase(QuotePosition.StartOfVerse, QuotePosition.ContainedWithinVerse)]
-		[TestCase(QuotePosition.ContainedWithinVerse, QuotePosition.EndOfVerse)]
-		[TestCase(QuotePosition.ContainedWithinVerse, QuotePosition.ContainedWithinVerse)]
-		public void GetProposedQuotePosition_SameCharacterSpeaksTwiceInVerse_Unspecified(params QuotePosition[] positions)
+		[TestCase(QuotePosition.StartOfVerse, QuotePosition.EndOfVerse, ExpectedResult = QuotePosition.Unspecified)]
+		[TestCase(QuotePosition.StartOfVerse, QuotePosition.ContainedWithinVerse, ExpectedResult = QuotePosition.Unspecified)]
+		[TestCase(QuotePosition.ContainedWithinVerse, QuotePosition.EndOfVerse, ExpectedResult = QuotePosition.Unspecified)]
+		[TestCase(QuotePosition.ContainedWithinVerse, QuotePosition.ContainedWithinVerse, ExpectedResult = QuotePosition.ContainedWithinVerse)]
+		public QuotePosition GetProposedQuotePosition_SameCharacterSpeaksTwiceInVerse_DependsOnPosition(
+			params QuotePosition[] positions)
 		{
 			var mrkBlocks = new List<Block>
 			{
@@ -4722,7 +4753,7 @@ namespace GlyssenEngineTests.Script
 			}
 
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
-			Assert.That(bookScript.GetProposedQuotePosition(2, 1), Is.EqualTo(QuotePosition.Unspecified));
+			return bookScript.GetProposedQuotePosition(2, 1, "woman");
 		}
 		
 		[Test]
@@ -4738,7 +4769,8 @@ namespace GlyssenEngineTests.Script
 			};
 
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
-			Assert.That(bookScript.GetProposedQuotePosition(2, 1), Is.EqualTo(QuotePosition.ContainedWithinVerse));
+			Assert.That(bookScript.GetProposedQuotePosition(2, 1, "Jesus"),
+				Is.EqualTo(QuotePosition.ContainedWithinVerse));
 		}
 		
 		[TestCase("p")]
@@ -4766,7 +4798,8 @@ namespace GlyssenEngineTests.Script
 			mrkBlocks.Add(NewSingleVersePara(2));
 
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
-			Assert.That(bookScript.GetProposedQuotePosition(2, 1), Is.EqualTo(QuotePosition.EndOfVerse));
+			Assert.That(bookScript.GetProposedQuotePosition(2, 1, "good boy"),
+				Is.EqualTo(QuotePosition.EndOfVerse));
 		}
 		#endregion
 

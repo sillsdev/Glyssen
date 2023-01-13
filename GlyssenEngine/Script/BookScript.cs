@@ -1117,17 +1117,16 @@ namespace GlyssenEngine.Script
 			}
 		}
 
-		public QuotePosition GetProposedQuotePosition(int chapter, int verse)
+		public QuotePosition GetProposedQuotePosition(int chapter, int verse, string character)
 		{
 			var blocks = GetBlocksForVerse(chapter, verse).ToList();
 			if (blocks.Count == 0)
 				return QuotePosition.Unspecified;
-			string character = null;
 			QuotePosition position = QuotePosition.Unspecified;
 			bool quoteBlockFound = false;
 			foreach (var block in blocks)
 			{
-				if (block.IsQuote)
+				if (block.IsQuote && block.CharacterId == character)
 				{
 					quoteBlockFound = true;
 					switch (position)
@@ -1136,14 +1135,12 @@ namespace GlyssenEngine.Script
 							position = QuotePosition.EntireVerse;
 							break;
 						case QuotePosition.StartOfVerse:
-						case QuotePosition.ContainedWithinVerse:
 							return QuotePosition.Unspecified;
+						case QuotePosition.ContainedWithinVerse:
+							if (block == blocks.Last())
+								return QuotePosition.Unspecified;
+							break;
 					}
-
-					if (character == null)
-						character = block.CharacterId;
-					else if (character != block.CharacterId)
-						return QuotePosition.Unspecified;
 				}
 				else
 				{
@@ -1153,7 +1150,7 @@ namespace GlyssenEngine.Script
 							position = QuotePosition.EndOfVerse;
 							break;
 						case QuotePosition.EndOfVerse:
-							if (character != null)
+							if (quoteBlockFound)
 								position = QuotePosition.ContainedWithinVerse;
 							break;
 						case QuotePosition.EntireVerse:
