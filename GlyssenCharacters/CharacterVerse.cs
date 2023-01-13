@@ -189,6 +189,7 @@ namespace GlyssenCharacters
 		public string Delivery { get; }
 		public string Alias { get; }
 		public QuoteType QuoteType { get; protected set; }
+		public QuotePosition ExpectedPosition { get; }
 		public bool IsDialogue => QuoteType == QuoteType.Dialogue;
 		public bool IsExpected => QuoteType == QuoteType.Dialogue || QuoteType == QuoteType.Normal || QuoteType == QuoteType.Implicit || QuoteType == QuoteType.ImplicitWithPotentialSelfQuote || IsScriptureQuotation;
 		public bool IsScriptureQuotation => QuoteType == QuoteType.Quotation && Character == kScriptureCharacter;
@@ -256,7 +257,8 @@ namespace GlyssenCharacters
 		public bool ProjectSpecific { get; }
 
 		public CharacterSpeakingMode(string character, string delivery, string alias, bool projectSpecific,
-			QuoteType quoteType = QuoteType.Normal, string defaultCharacter = null, string parallelPassageReferences = null)
+			QuoteType quoteType = QuoteType.Normal, string defaultCharacter = null,
+			string parallelPassageReferences = null, QuotePosition expectedPosition = default)
 		{
 			Character = character;
 			Delivery = delivery;
@@ -265,6 +267,7 @@ namespace GlyssenCharacters
 			ParallelPassageReferences = parallelPassageReferences;
 			ProjectSpecific = projectSpecific;
 			QuoteType = quoteType;
+			ExpectedPosition = expectedPosition;
 		}
 
 		public override string ToString()
@@ -363,10 +366,11 @@ namespace GlyssenCharacters
 		// is not readonly and therefore can't be used in determining equality. So here we store the original value.
 		private readonly QuoteType m_origQuoteType;
 
-		public CharacterVerse(BCVRef bcvRef, string character, string delivery, string alias, bool projectSpecific,
-			QuoteType quoteType = QuoteType.Normal, string defaultCharacter = null, string parallelPassageReferences = null,
-			QuotePosition position = QuotePosition.Unspecified) :
-			base(character, delivery, alias, projectSpecific, quoteType, defaultCharacter, parallelPassageReferences)
+		public CharacterVerse(BCVRef bcvRef, string character, string delivery, string alias,
+			bool projectSpecific, QuoteType quoteType = QuoteType.Normal, string defaultCharacter = null,
+			string parallelPassageReferences = null, QuotePosition position = QuotePosition.Unspecified) :
+			base(character, delivery, alias, projectSpecific, quoteType, defaultCharacter,
+				parallelPassageReferences, position)
 		{
 			BcvRef = new BCVRef(bcvRef);
 			m_origQuoteType = quoteType;

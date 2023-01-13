@@ -1124,10 +1124,12 @@ namespace GlyssenEngine.Script
 				return QuotePosition.Unspecified;
 			string character = null;
 			QuotePosition position = QuotePosition.Unspecified;
+			bool quoteBlockFound = false;
 			foreach (var block in blocks)
 			{
 				if (block.IsQuote)
 				{
+					quoteBlockFound = true;
 					switch (position)
 					{
 						case QuotePosition.Unspecified:
@@ -1160,8 +1162,7 @@ namespace GlyssenEngine.Script
 					}
 				}
 			}
-			// TODO: deal with possibility of preceding paragraph before which quote was not closed.
-			return position;
+			return quoteBlockFound ? position : QuotePosition.Unspecified;
 		}
 	}
 }

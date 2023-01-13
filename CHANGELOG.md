@@ -32,6 +32,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Optional Quote Position column to CharacterVerse.txt data
 - GlyssenEngine.Script.BookScript.GetProposedQuotePosition method
 - GlyssenEngine.Paratext.ParatextScrTextWrapper Added ReportingClauseStartDelimiter and ReportingClauseEndDelimiter properties
+- GlyssenCharacters.CharacterVerse.CharacterSpeakingMode Added parameter to the constructor to set the expected quote position and added ExpectedPosition property to expose this.
 
 ### Removed
 - GlyssenEngine.Quote.QuoteParser.SetQuoteSystem static method

@@ -4594,6 +4594,21 @@ namespace GlyssenEngineTests.Script
 		}
 		
 		[Test]
+		public void GetProposedQuotePosition_SingleNarratorBlock_Unspecified()
+		{
+			var mrkBlocks = new List<Block>
+			{
+				NewChapterBlock(12),
+				NewSingleVersePara(17, "Blah", "MRK"),
+				NewSingleVersePara(18, "There came to him Sadducees, who say that there is no resurrection. They asked him, saying,", "MRK"),
+				NewSingleVersePara(19)
+			};
+
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
+			Assert.That(bookScript.GetProposedQuotePosition(12, 18), Is.EqualTo(QuotePosition.Unspecified));
+		}
+		
+		[Test]
 		public void GetProposedQuotePosition_MultipleBlocksCoveringVerseWithCharacterAndNarrator_Unspecified()
 		{
 			var mrkBlocks = new List<Block>
