@@ -290,9 +290,9 @@ GEN	24	5	Abraham's chief servant			Normal
 GEN	24	6	Abraham (Abram)			Normal		
 GEN	24	7	Abraham (Abram)			Normal		
 GEN	24	8	Abraham (Abram)			Normal		
-GEN	24	12	Abraham's chief servant			Normal		
-GEN	24	13	Abraham's chief servant			Normal		
-GEN	24	14	Abraham's chief servant			Normal		
+GEN	24	12	Abraham's chief servant	praying		Normal		
+GEN	24	13	Abraham's chief servant	praying		Normal		
+GEN	24	14	Abraham's chief servant	praying		Normal		
 GEN	24	17	Abraham's chief servant			Normal		
 GEN	24	18	Rebekah			Normal		
 GEN	24	19	Rebekah			Normal		

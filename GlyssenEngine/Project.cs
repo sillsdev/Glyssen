@@ -207,8 +207,10 @@ namespace GlyssenEngine
 				QuoteSystemStatus = QuoteSystemStatus.Obtained;
 				SetWsQuotationMarksUsingFullySpecifiedContinuers(paratextProject.QuotationMarks);
 				if (paratextProject.ReportingClauseStartDelimiter != null)
+				{
 					QuoteSystem.SetReportingClauseDelimiters(paratextProject.ReportingClauseStartDelimiter,
 						paratextProject.ReportingClauseEndDelimiter);
+				}
 			}
 
 			ParseAndSetBooks(paratextProject.UsxDocumentsForIncludedBooks, paratextProject.Stylesheet);

@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Glyssen.Shared;
 using GlyssenEngine;
-using GlyssenEngine.Bundle;
 using GlyssenEngine.Paratext;
-using GlyssenEngine.Quote;
 using GlyssenEngine.Utilities;
 using Paratext.Data;
 using SIL.Scripture;
@@ -15,6 +10,10 @@ using SIL.WritingSystems;
 
 namespace DevTools
 {
+	/// <summary>
+	/// Allows "hard-coded" overrides of some properties that are not exposed by the
+	/// Paratext or Glyssen UI that affect the way quote parsing is done.
+	/// </summary>
 	internal class ParatextUnzippedResourceWrapper : ParatextScrTextWrapper
 	{
 		private static List<string> s_allCanonicalBookIds;
@@ -38,14 +37,15 @@ namespace DevTools
 			IncludeBooks(s_allCanonicalBookIds);
 		}
 
-		// Note to self: In my first attempt to parse NVI-S, I did quite a bit of manual cleanup
+		// Note: In my first attempt to parse NVI-S, I did quite a bit of manual cleanup
 		// on the quotation marks because of some "non-standard" ways of marking things up that
 		// Paratext and Glyssen do not support well. This almost certainly means that these
-		// programs room for improvement in it's quotation settings and parsing/checking.
+		// programs have room for improvement in their quotation settings and parsing/checking.
 		// I have introduced this class to handle these things by a) tweaking the existing closer
 		// for the alternate (dialogue) first-level quotes and b) adding a new property that is
 		// not currently exposed in the UI so that the characters used to set off reporting clauses
-		// can be specified.
+		// can be specified. Mike Lothers (Paratext UX) is looking into creating an issue to add
+		// new settings to Paratext in support of this.
 		private bool IsNVISpanish => UnderlyingScrText.Name == "NVI-S";
 
 		public override IEnumerable<QuotationMark> QuotationMarks

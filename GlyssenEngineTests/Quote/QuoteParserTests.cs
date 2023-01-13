@@ -8,6 +8,7 @@ using GlyssenEngine;
 using GlyssenEngine.Quote;
 using GlyssenEngine.Script;
 using GlyssenEngineTests.Script;
+using Mono.Unix.Native;
 using NUnit.Framework;
 using SIL.Extensions;
 using SIL.ObjectModel;
@@ -7787,7 +7788,18 @@ namespace GlyssenEngineTests.Quote
 		private QuoteSystem GetNviQuoteSystem()
 		{
 			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "»", 1, QuotationMarkingSystemType.Normal), "\u2015", "»");
+			quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "”", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "’", 3, QuotationMarkingSystemType.Normal));
 			quoteSystem.SetReportingClauseDelimiters("\u2014");
+			return quoteSystem;
+		}
+
+		private QuoteSystem GetCevUsQuoteSystem()
+		{
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "”", 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "’", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "”", 3, QuotationMarkingSystemType.Normal));
+			//quoteSystem.SetStylesToTreatImplicitlyAsSpeech(new [] {"pi"} );
 			return quoteSystem;
 		}
 
@@ -7946,6 +7958,140 @@ namespace GlyssenEngineTests.Quote
 			Assert.AreEqual("Los voy a destruir en mi ira. Pero de ti haré una nación». ", output[4].GetText(false));
 			Assert.AreEqual("God", output[4].CharacterId);
 			Assert.That(output[4].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+		}
+
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Parse_PiStyleWithoutQuotesCorrespondsToVersesWithExpectedSpeaker_PiBlocksTreatedAsQuote(bool includeFollowingPara)
+		{
+			var block1 = new Block("p", 1, 27);
+			block1.BlockElements.Add(new Verse("27"));
+			block1.BlockElements.Add(new ScriptText("God created humans in his image, both men and women. "));
+			block1.BlockElements.Add(new Verse("28"));
+			block1.BlockElements.Add(new ScriptText("He blessed them, saying: "));
+			block1.IsParagraphStart = true;
+			var block2 = new Block("pi", 1, 29);
+			block2.IsParagraphStart = true;
+			block2.BlockElements.Add(new Verse("29"));
+			block2.BlockElements.Add(new ScriptText("I have provided food for you to eat. "));
+			block2.BlockElements.Add(new Verse("30"));
+			// Note that in the CEV, the trailing comment "An so it was" is (incorrectly) included in
+			// the \pi block (spoken by God).
+			block2.BlockElements.Add(new ScriptText("Eat plants like the animals. And so it was. "));
+			var input = new List<Block> { block1, block2 };
+
+			if (includeFollowingPara)
+			{
+				var block3 = new Block("p", 1, 31);
+				block3.IsParagraphStart = true;
+				block3.BlockElements.Add(new Verse("31"));
+				block3.BlockElements.Add(new ScriptText("God looked at all the very good stuff he did. "));
+				input.Add(block3);
+			}
+
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN",
+				input, GetCevUsQuoteSystem()).Parse().ToList();
+			Assert.AreEqual(input.Count, output.Count);
+
+			Assert.IsTrue(IsCharacterOfType(output[0].CharacterId, Narrator));
+			Assert.That(output[0].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+
+			Assert.AreEqual("God", output[1].CharacterId);
+			Assert.That(output[1].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+
+			Assert.That(output.Skip(2).All(b => IsCharacterOfType(b.CharacterId, Narrator) &&
+				b.MultiBlockQuote == MultiBlockQuote.None));
+		}
+
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Parse_PiStyleWithoutQuotesCorrespondsToVersesWithExpectedSpeakerAndDelivery_PiBlocksTreatedAsQuote(bool includeFollowingPara)
+		{
+			var block1 = new Block("p", 24, 11) { IsParagraphStart = true}
+			.AddVerse(11, "When he got there, ")
+			.AddVerse(12, "he prayed: ");
+			var block2 = new Block("pi", 24, 12) { IsParagraphStart = true}
+			.AddText("You, are the God my master Abraham worships. ")
+			.AddVerse(13, "The young women of the city will soon come. ")
+			.AddVerse(14, "help me get a good one. ");
+			var input = new List<Block> { block1, block2 };
+
+			if (includeFollowingPara)
+			{
+				var block3 = new Block("p", 1, 15, 16) { IsParagraphStart = true}
+				.AddVerse("15-16", "While he was praying, a beautiful woman came with a jar. ");
+				input.Add(block3);
+			}
+
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN",
+				input, GetCevUsQuoteSystem()).Parse().ToList();
+			Assert.AreEqual(input.Count, output.Count);
+
+			Assert.IsTrue(IsCharacterOfType(output[0].CharacterId, Narrator));
+			Assert.That(output[0].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+
+			Assert.AreEqual("Abraham's chief servant", output[1].CharacterId);
+			Assert.AreEqual("praying", output[1].Delivery);
+			Assert.That(output[1].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+
+			Assert.That(output.Skip(2).All(b => IsCharacterOfType(b.CharacterId, Narrator) &&
+				b.MultiBlockQuote == MultiBlockQuote.None));
+		}
+
+		[Test]
+		public void Parse_MultiplePiStyleParasWithSectionHeadInteruption_PiBlocksTreatedAsQuote()
+		{
+			var chapterCharacter = GetStandardCharacterId("ISA", BookOrChapter);
+			var extraBiblical = GetStandardCharacterId("ISA", ExtraBiblical);
+
+			var block1 = new Block("p", 7, 13) { IsParagraphStart = true }
+				.AddVerse(13, "Then I said: ");
+			var block2 = new Block("pi", 7, 13) { IsParagraphStart = true }
+				.AddText("You have tried my patience and God's patience. ")
+				.AddVerse(14, "But the Lord will still give you proof. ")
+				.AddVerse("15-16", "Even before the boy is old, stuff will happen. ")
+				.AddVerse("17", "God will even bring Assyria to attack you. ");
+			var block3 = new Block("s1", 7, 17) { IsParagraphStart = true, CharacterId = extraBiblical}
+				.AddText("The Threat of an Invasion ");
+			var block4 = new Block("pi", 7, 18) { IsParagraphStart = true }
+				.AddVerse("18", "When that time comes, God will whistle. ")
+				.AddVerse("19", "They will settle everywhere—in valleys and between rocks. ");
+			var block5 = new Block("pi", 7, 20) { IsParagraphStart = true }
+				.AddVerse("20-25", "The Lord will pay the king of Assyria. And goats will be loose.");
+			var blockC8 = new Block("c", 8) { CharacterId = chapterCharacter };
+			var blockC81 = new Block("s1", 8, 0) { IsParagraphStart = true, CharacterId = extraBiblical }
+				.AddText("A Warning and a Hope ");
+			var blockC82 = new Block("p", 8, 1) { IsParagraphStart = true }
+				.AddVerse(1, "The Lord said... ");
+			var input = new List<Block> { block1, block2, block3, block4, block5, blockC8, blockC81, blockC82 };
+
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA",
+				input, GetCevUsQuoteSystem()).Parse().ToList();
+			Assert.AreEqual(input.Count, output.Count);
+
+			Assert.IsTrue(IsCharacterOfType(output[0].CharacterId, Narrator));
+			Assert.That(output[0].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+
+			Assert.AreEqual("Isaiah", output[1].CharacterId);
+			Assert.That(output[1].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
+
+			Assert.IsTrue(IsCharacterOfType(output[2].CharacterId, ExtraBiblical));
+			Assert.That(output[2].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+
+			Assert.AreEqual("Isaiah", output[3].CharacterId);
+			Assert.That(output[3].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Continuation));
+
+			Assert.AreEqual("Isaiah", output[4].CharacterId);
+			Assert.That(output[4].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Continuation));
+
+			Assert.IsTrue(IsCharacterOfType(output[5].CharacterId, BookOrChapter));
+			Assert.That(output[5].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+
+			Assert.IsTrue(IsCharacterOfType(output[6].CharacterId, ExtraBiblical));
+			Assert.That(output[6].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+
+			Assert.IsTrue(IsCharacterOfType(output[7].CharacterId, Narrator));
+			Assert.That(output[7].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 		}
 		#endregion
 	}

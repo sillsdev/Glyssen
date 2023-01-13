@@ -60,7 +60,7 @@ namespace DevTools
 
 				if (line.Contents.StartsWith("#"))
 				{
-					sb.Append(line).Append(Environment.NewLine);
+					sb.Append(line.Contents).Append(Environment.NewLine);
 					continue;
 				}
 

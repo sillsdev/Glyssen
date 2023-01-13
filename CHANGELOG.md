@@ -24,6 +24,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - GlyssenEngine.Quote.QuoteParser constructor now takes a QuoteSystem parameter (instead of setting via static SetQuoteSystem method)
 - GlyssenEngine.Quote.QuoteParser.Parse Fixed logic mistake to properly handle successive paragraphs with dialogue dashes
 - GlyssenEngine.Paratext.ParatextScrTextWrapper Made QuotationMarks property virtual and UnderlyingScrText property protected
+- GlyssenEngine.Quote.QuoteParser Detects places where \pi marker is used for discourse blocks that appear to be quotes (in the absence of quotation marks)
 
 ### Added
 

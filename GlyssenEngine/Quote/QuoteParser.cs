@@ -246,7 +246,8 @@ namespace GlyssenEngine.Quote
 					continue;
 				}
 
-				if (block.IsPredeterminedFirstLevelQuoteStart)
+				if (block.IsPredeterminedFirstLevelQuoteStart /* ||
+				    m_quoteSystem.StylesToTreatImplicitlyAsSpeech.Contains(block.StyleTag)*/)
 				{
 					ProcessMultiBlock();
 					m_setNextNormalBlockToNeedsReview = false;
@@ -570,6 +571,7 @@ namespace GlyssenEngine.Quote
 								{
 									if (reportingClause)
 									{
+										m_ignoringNarratorQuotation = false;
 										FlushStringBuilderAndBlock(sb, styleTag, true);
 										m_quoteLevel--;
 									}
@@ -633,7 +635,9 @@ namespace GlyssenEngine.Quote
 				ProcessMultiBlock();
 			}
 			ProcessPossibleRunOfPoetryBlocksAsScripture();
+			LookForPiQuoteInOutput();
 			SetImplicitCharacters();
+
 			return m_outputBlocks;
 		}
 
@@ -1221,6 +1225,10 @@ namespace GlyssenEngine.Quote
 					m_workingBlock.SetNonDramaticCharacterId(kNeedsReview);
 					m_setNextNormalBlockToNeedsReview = false;
 				}
+
+				if (m_workingBlock.StyleTag != "pi")
+					LookForPiQuoteInOutput();
+				
 				m_outputBlocks.Add(m_workingBlock);
 			}
 
@@ -1240,6 +1248,71 @@ namespace GlyssenEngine.Quote
 			}
 
 			m_workingBlock = new Block(styleTag, m_workingBlock.ChapterNumber, verseStartNum, verseEndNum);
+		}
+
+		private void LookForPiQuoteInOutput()
+		{
+			var i = m_outputBlocks.FindLastIndex(b => b.IsScripture);
+			if (i < 0)
+				return;
+			var prevBlock = m_outputBlocks[i];
+			if (prevBlock.StyleTag != "pi" ||
+			    !prevBlock.CharacterIs(m_bookId, StandardCharacter.Narrator))
+			{
+				return;
+			}
+
+			var cvPossibilities = m_cvInfo.GetCharacters(m_bookNum, prevBlock.ChapterNumber,
+				prevBlock.AllVerses, m_versification);
+			var possibleCharacters = new HashSet<string>(cvPossibilities.Select(cv => cv.Character));
+			var possibleDeliveries = new HashSet<string>(cvPossibilities.Select(cv => cv.Delivery));
+			var piBlocks = new List<Block>(new[] { prevBlock });
+			while (possibleCharacters.Any() && --i >= 0)
+			{
+				var currBlock = m_outputBlocks[i];
+				if (currBlock.StyleTag == "pi" &&
+				    currBlock.CharacterIs(m_bookId, StandardCharacter.Narrator))
+				{
+					possibleCharacters.IntersectWith(
+						m_cvInfo.GetCharacters(m_bookNum, currBlock.ChapterNumber, currBlock.AllVerses, m_versification, true)
+							.Select(cv => cv.Character));
+					possibleDeliveries.IntersectWith(
+						m_cvInfo.GetCharacters(m_bookNum, currBlock.ChapterNumber, currBlock.AllVerses, m_versification, true)
+							.Select(cv => cv.Delivery));
+					piBlocks.Insert(0, currBlock);
+				}
+				else if (currBlock.IsScripture)
+					break;
+			}
+
+			// If we don't find any character(s) known to speak throughout this run of
+			// contiguous \pi blocks, we will assume that \pi is being used her for something
+			// other than speech, and the blocks will be left as narrator blocks.
+			if (possibleCharacters.Any())
+			{
+				if (piBlocks.Count > 1)
+				{
+					piBlocks[0].MultiBlockQuote = MultiBlockQuote.Start;
+					foreach (var block in piBlocks.Skip(1))
+						block.MultiBlockQuote = MultiBlockQuote.Continuation;
+				}
+
+				if (possibleCharacters.Count == 1)
+				{
+					var character = possibleCharacters.Single();
+					var delivery = possibleDeliveries.OnlyOrDefault();
+					foreach (var block in piBlocks)
+					{
+						block.SetCharacterIdAndCharacterIdInScript(character, m_bookNum, m_versification);
+						block.Delivery = delivery;
+					}
+				}
+				else
+				{
+					foreach (var block in piBlocks)
+						block.SetNonDramaticCharacterId(kAmbiguousCharacter);
+				}
+			}
 		}
 
 		/// <summary>

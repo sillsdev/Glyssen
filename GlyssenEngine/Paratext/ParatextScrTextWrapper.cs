@@ -84,6 +84,8 @@ namespace GlyssenEngine.Paratext
 			}
 		}
 
+		// Mike Lothers (Paratext UX) is looking into creating an issue to add new settings to
+		// Paratext in support of these properties.
 		public virtual string ReportingClauseStartDelimiter => null;
 		public virtual string ReportingClauseEndDelimiter => null;
 
