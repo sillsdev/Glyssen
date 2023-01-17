@@ -7794,14 +7794,9 @@ namespace GlyssenEngineTests.Quote
 			return quoteSystem;
 		}
 
-		private QuoteSystem GetCevUsQuoteSystem()
-		{
-			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "”", 1, QuotationMarkingSystemType.Normal));
-			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "’", 2, QuotationMarkingSystemType.Normal));
-			quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "”", 3, QuotationMarkingSystemType.Normal));
-			//quoteSystem.SetStylesToTreatImplicitlyAsSpeech(new [] {"pi"} );
-			return quoteSystem;
-		}
+		private QuoteSystem GetUsQuoteSystem() =>
+			QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark(
+				"“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
 
 		[Test]
 		public void Parse_DialogueQuoteWithMultipleParagraphsHavingEndQuoteAsContinuers_EndedByFirstLevelEnd()
@@ -7990,7 +7985,7 @@ namespace GlyssenEngineTests.Quote
 			}
 
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN",
-				input, GetCevUsQuoteSystem()).Parse().ToList();
+				input, GetUsQuoteSystem()).Parse().ToList();
 			Assert.AreEqual(input.Count, output.Count);
 
 			Assert.IsTrue(IsCharacterOfType(output[0].CharacterId, Narrator));
@@ -8024,7 +8019,7 @@ namespace GlyssenEngineTests.Quote
 			}
 
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN",
-				input, GetCevUsQuoteSystem()).Parse().ToList();
+				input, GetUsQuoteSystem()).Parse().ToList();
 			Assert.AreEqual(input.Count, output.Count);
 
 			Assert.IsTrue(IsCharacterOfType(output[0].CharacterId, Narrator));
@@ -8066,7 +8061,7 @@ namespace GlyssenEngineTests.Quote
 			var input = new List<Block> { block1, block2, block3, block4, block5, blockC8, blockC81, blockC82 };
 
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA",
-				input, GetCevUsQuoteSystem()).Parse().ToList();
+				input, GetUsQuoteSystem()).Parse().ToList();
 			Assert.AreEqual(input.Count, output.Count);
 
 			Assert.IsTrue(IsCharacterOfType(output[0].CharacterId, Narrator));
@@ -8092,6 +8087,36 @@ namespace GlyssenEngineTests.Quote
 
 			Assert.IsTrue(IsCharacterOfType(output[7].CharacterId, Narrator));
 			Assert.That(output[7].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+		}
+
+		[Test]
+		public void Parse_ImplicitWithPotentialSelfQuote_TreatedAsQuote()
+		{
+			//Assert.Fail("Write a test based on ESV16 to see why ISA 41:9 is getting marked as Needs Review.");
+			var chapterCharacter = GetStandardCharacterId("ISA", BookOrChapter);
+			var extraBiblical = GetStandardCharacterId("ISA", ExtraBiblical);
+
+			var input = new List<Block>
+			{
+				new Block("c", 41) { CharacterId = chapterCharacter },
+				new Block("q1", 41, 8) { IsParagraphStart = true }
+					.AddVerse(8, "But you, Israel, my servant, "),
+				new Block("q2", 41, 8) { IsParagraphStart = true }
+					.AddText("Jacob, whom I chose, the descendent of my frind Abraham, "),
+				new Block("q1", 41, 9) { IsParagraphStart = true }
+					.AddVerse(9, "you whom I took from the ends of the earth, "),
+				new Block("q1", 41, 9) { IsParagraphStart = true }
+					.AddText("telling you, “You are my servant, "),
+				new Block("q2", 41, 9) { IsParagraphStart = true }
+					.AddText("I have chosen you and not cast you off”; "),
+				new Block("q1", 41, 10) { IsParagraphStart = true }
+					.AddVerse(10, "fear not, for I am with you. "),
+			};
+			
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA",
+				input, GetUsQuoteSystem()).Parse().ToList();
+
+			Assert.That(output.All(b => b.CharacterId != kNeedsReview), Is.True);
 		}
 		#endregion
 	}

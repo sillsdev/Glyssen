@@ -734,6 +734,26 @@ namespace GlyssenEngine.Quote
 		/// </remarks>
 		private void SetImplicitCharacters()
 		{
+			var hasPotentialQuote = new Dictionary<int, Dictionary<IVerse, bool>>();
+			bool HasPotentialQuote(Block b)
+			{
+				IVerse verse = (Block.InitialVerseNumberBridgeFromBlock)b;
+				if (hasPotentialQuote.TryGetValue(b.ChapterNumber, out var dictionary))
+				{
+					if (dictionary.TryGetValue(verse, out var result))
+						return result;
+				}
+				else
+				{
+					hasPotentialQuote[b.ChapterNumber] = dictionary =
+						new Dictionary<IVerse, bool>();
+				}
+
+				var hasQuote = m_cvInfo.GetCharacters(m_bookNum, b.ChapterNumber, verse, m_versification)
+					.Any(cv => cv.QuoteType == QuoteType.Quotation || cv.QuoteType == QuoteType.ImplicitWithPotentialSelfQuote);
+				dictionary[verse] = hasQuote;
+				return hasQuote;
+			}
 			var prevBlockWasOriginallyNarratorCharacter = false;
 			var comparer = new CharacterDeliveryEqualityComparer();
 			for (int i = 0; i < m_outputBlocks.Count; i++)
@@ -823,14 +843,12 @@ namespace GlyssenEngine.Quote
 							!prevBlockWasOriginallyNarratorCharacter && i > 0 &&
 							m_outputBlocks[i - 1].LastVerse.StartVerse == block.InitialStartVerseNumber &&
 							m_outputBlocks[i - 1].CharacterId == initialImplicitCv.Character &&
-							!m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, (Block.InitialVerseNumberBridgeFromBlock)block, m_versification)
-								.Any(cv => cv.QuoteType == QuoteType.Quotation);
+							!HasPotentialQuote(block);
 						var nextBlockForThisSameVerseIsSetToCorrectCharacterDueToExplicitlyMarkedQuotes =
 							i + 1 < m_outputBlocks.Count &&
 							m_outputBlocks[i + 1].InitialStartVerseNumber == block.LastVerse.StartVerse &&
 							m_outputBlocks[i + 1].CharacterId == initialImplicitCv.Character &&
-							!m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, (Block.InitialVerseNumberBridgeFromBlock)m_outputBlocks[i + 1], m_versification)
-								.Any(cv => cv.QuoteType == QuoteType.Quotation);
+							!HasPotentialQuote(m_outputBlocks[i + 1]);
 
 						bool needsReview;
 						if (block.BlockElements.OfType<Verse>().Skip(1).Any())

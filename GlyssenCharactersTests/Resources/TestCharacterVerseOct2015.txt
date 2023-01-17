@@ -8082,34 +8082,46 @@ ISA	40	8	voice (God?)			Normal	God
 ISA	40	9	one who brings good news			Hypothetical		
 ISA	40	25	God		God (the Holy One)	Normal		
 ISA	40	27	Israel			Hypothetical		
-ISA	41	1	God		God (the LORD)	Normal		
-ISA	41	2	God		God (the LORD)	Normal		
-ISA	41	3	God		God (the LORD)	Normal		
-ISA	41	4	God		God (the LORD)	Normal		
-ISA	41	6	islanders			Normal		
+ISA	41	1	God		God (Yahweh)	Implicit		
+ISA	41	2	God		God (Yahweh)	Implicit		
+ISA	41	3	God		God (Yahweh)	Implicit		
+ISA	41	4	God		God (Yahweh)	Implicit		
+ISA	41	5	God		God (Yahweh)	Potential		
+ISA	41	5	Isaiah			Alternate		
+ISA	41	6	God		God (Yahweh)	Potential		
+ISA	41	6	Isaiah			Alternate		
+ISA	41	6	islanders		everyone (islanders or foreigners)	Hypothetical		
+ISA	41	7	God		God (Yahweh)	Normal		
 ISA	41	7	craftsman			Hypothetical		
-ISA	41	8	God		God (the LORD, Redeemer, the Holy One of Israel)	Normal		
-ISA	41	9	God		God (the LORD, Redeemer, the Holy One of Israel)	Normal		
-ISA	41	10	God		God (the LORD, Redeemer, the Holy One of Israel)	Normal		
-ISA	41	11	God		God (the LORD, Redeemer, the Holy One of Israel)	Normal		
-ISA	41	12	God		God (the LORD, Redeemer, the Holy One of Israel)	Normal		
-ISA	41	13	God		God (the LORD, Redeemer, the Holy One of Israel)	Normal		
-ISA	41	14	God		God (the LORD, Redeemer, the Holy One of Israel)	Normal		
-ISA	41	15	God		God (the LORD, Redeemer, the Holy One of Israel)	Normal		
-ISA	41	16	God		God (the LORD, Redeemer, the Holy One of Israel)	Normal		
-ISA	41	17	God		God (the LORD, Redeemer, the Holy One of Israel)	Normal		
-ISA	41	18	God		God (the LORD, Redeemer, the Holy One of Israel)	Normal		
-ISA	41	19	God		God (the LORD, Redeemer, the Holy One of Israel)	Normal		
-ISA	41	20	God		God (the LORD, Redeemer, the Holy One of Israel)	Normal		
-ISA	41	21	God		God (the LORD, Jacob's king)	Normal		
-ISA	41	22	God		God (the LORD)	Normal		
-ISA	41	23	God		God (the LORD)	Normal		
-ISA	41	24	God		God (the LORD)	Normal		
-ISA	41	25	God		God (the LORD)	Normal		
-ISA	41	26	God		God (the LORD)	Normal		
-ISA	41	27	God		God (the LORD)	Normal		
-ISA	41	28	God		God (the LORD)	Normal		
-ISA	41	29	God		God (the LORD)	Normal		
+ISA	41	7	Isaiah			Alternate		
+ISA	41	8	God		God (Yahweh)	Implicit		
+ISA	41	9	God		God (Yahweh)	ImplicitWithPotentialSelfQuote		
+ISA	41	10	God		God (Yahweh)	ImplicitWithPotentialSelfQuote		
+ISA	41	11	God		God (Yahweh)	Implicit		
+ISA	41	12	God		God (Yahweh)	Implicit		
+ISA	41	13	God		God (Yahweh)	ImplicitWithPotentialSelfQuote		
+ISA	41	14	God		God (Yahweh)	Normal		
+ISA	41	14	Isaiah			Potential		
+ISA	41	15	God		God (Yahweh)	Implicit		
+ISA	41	16	God		God (Yahweh)	Implicit		
+ISA	41	17	God		God (Yahweh)	Implicit		
+ISA	41	18	God		God (Yahweh)	Implicit		
+ISA	41	19	God		God (Yahweh)	Implicit		
+ISA	41	20	God		God (Yahweh)	Implicit		
+ISA	41	21	God		God (Yahweh)	Normal		
+ISA	41	21	Isaiah			Potential		
+ISA	41	22	God		God (Yahweh)	Implicit		
+ISA	41	23	God		God (Yahweh)	Implicit		
+ISA	41	24	God		God (Yahweh)	Implicit		
+ISA	41	25	God		God (Yahweh)	Implicit		
+ISA	41	26	Needs Review			Implicit		
+ISA	41	26	God		God (Yahweh)	Alternate		
+ISA	41	26	Isaiah			Alternate		
+ISA	41	27	God		God (Yahweh)	ImplicitWithPotentialSelfQuote		
+ISA	41	28	God		God (Yahweh)	Implicit		
+ISA	41	28	Isaiah			Alternate		
+ISA	41	29	God		God (Yahweh)	Implicit		
+ISA	41	29	Isaiah			Alternate		
 ISA	42	1	God		God (the LORD)	Normal		
 ISA	42	2	God		God (the LORD)	Normal		
 ISA	42	3	God		God (the LORD)	Normal		
