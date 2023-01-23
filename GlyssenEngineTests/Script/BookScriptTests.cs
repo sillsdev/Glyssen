@@ -4518,7 +4518,7 @@ namespace GlyssenEngineTests.Script
 		#region GetProposedQuotePosition Tests
 		[TestCase(1, 4, "John the Baptist")]
 		[TestCase(2, 1, "people in Capernaum")]
-		public void GetProposedQuotePosition_NoBlocksFound_Unspecified(int chapter, int verse, string character)
+		public void GetQuotePosition_NoBlocksFound_Unspecified(int chapter, int verse, string character)
 		{
 			var mrkBlocks = new List<Block>
 			{
@@ -4528,7 +4528,7 @@ namespace GlyssenEngineTests.Script
 				NewSingleVersePara(3)
 			};
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
-			Assert.That(bookScript.GetProposedQuotePosition(chapter, verse, character),
+			Assert.That(bookScript.GetQuotePosition(chapter, verse, character),
 				Is.EqualTo(QuotePosition.Unspecified));
 		}
 		 
@@ -4536,7 +4536,7 @@ namespace GlyssenEngineTests.Script
 		[TestCase(1, 3, "scripture", false, true)]
 		[TestCase(1, 3, "scripture", true, false)]
 		[TestCase(2, 1, "people in Capernaum", false, false)]
-		public void GetProposedQuotePosition_SingleBlockIsQuoteCoveringVerse_EntireVerse(int chapter, int verse,
+		public void GetQuotePosition_SingleBlockIsQuoteCoveringVerse_EntireVerse(int chapter, int verse,
 			string character, bool includePrevVerseInBlock, bool includeNextVerseInBlock)
 		{
 			var mrkBlocks = new List<Block>
@@ -4560,7 +4560,7 @@ namespace GlyssenEngineTests.Script
 			mrkBlocks.Last().CharacterId = character;
 
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
-			Assert.That(bookScript.GetProposedQuotePosition(chapter, verse, character),
+			Assert.That(bookScript.GetQuotePosition(chapter, verse, character),
 				Is.EqualTo(QuotePosition.EntireVerse));
 		}
 
@@ -4568,7 +4568,7 @@ namespace GlyssenEngineTests.Script
 		[TestCase(1, 3, "scripture", false, true)]
 		[TestCase(1, 3, "scripture", true, false)]
 		[TestCase(2, 1, "people in Capernaum", false, false)]
-		public void GetProposedQuotePosition_MultipleBlocksCoveringVerseWithSameCharacter_EntireVerse(
+		public void GetQuotePosition_MultipleBlocksCoveringVerseWithSameCharacter_EntireVerse(
 			int chapter, int verse, string character, bool includePrevVerseInBlock,
 			bool includeNextVerseInBlock)
 		{
@@ -4593,12 +4593,12 @@ namespace GlyssenEngineTests.Script
 				mrkBlocks.Last().AddVerse(verse + 1);
 
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
-			Assert.That(bookScript.GetProposedQuotePosition(chapter, verse, character),
+			Assert.That(bookScript.GetQuotePosition(chapter, verse, character),
 				Is.EqualTo(QuotePosition.EntireVerse));
 		}
 		
 		[Test]
-		public void GetProposedQuotePosition_SingleNarratorBlock_Unspecified()
+		public void GetQuotePosition_SingleNarratorBlock_Unspecified()
 		{
 			var mrkBlocks = new List<Block>
 			{
@@ -4609,12 +4609,12 @@ namespace GlyssenEngineTests.Script
 			};
 
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
-			Assert.That(bookScript.GetProposedQuotePosition(12, 18, "Sadducees"),
+			Assert.That(bookScript.GetQuotePosition(12, 18, "Sadducees"),
 				Is.EqualTo(QuotePosition.Unspecified));
 		}
 		
 		[Test]
-		public void GetProposedQuotePosition_MultipleBlocksCoveringVerseWithCharacterAndNarrator_Unspecified()
+		public void GetQuotePosition_MultipleBlocksCoveringVerseWithCharacterAndNarrator_Unspecified()
 		{
 			var mrkBlocks = new List<Block>
 			{
@@ -4631,7 +4631,7 @@ namespace GlyssenEngineTests.Script
 			mrkBlocks.Add(NewSingleVersePara(3));
 
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
-			Assert.That(bookScript.GetProposedQuotePosition(2, 2, "good boy"),
+			Assert.That(bookScript.GetQuotePosition(2, 2, "good boy"),
 				Is.EqualTo(QuotePosition.Unspecified));
 		}
 
@@ -4639,7 +4639,7 @@ namespace GlyssenEngineTests.Script
 		[TestCase("good boy", ExpectedResult = QuotePosition.EndOfVerse)]
 		[TestCase("bad boy", ExpectedResult = QuotePosition.ContainedWithinVerse)]
 		[TestCase("no boy", ExpectedResult = QuotePosition.Unspecified)]
-		public QuotePosition GetProposedQuotePosition_MultipleBlocksCoveringVerseWithDifferentCharacters_DependsOnCharacter(
+		public QuotePosition GetQuotePosition_MultipleBlocksCoveringVerseWithDifferentCharacters_DependsOnCharacter(
 			string character)
 		{
 			var mrkBlocks = new List<Block>
@@ -4656,14 +4656,14 @@ namespace GlyssenEngineTests.Script
 			mrkBlocks.Add(NewSingleVersePara(3));
 
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
-			return bookScript.GetProposedQuotePosition(2, 2, character);
+			return bookScript.GetQuotePosition(2, 2, character);
 		}
 		
 		[TestCase]
 		[TestCase("p")]
 		[TestCase("q1", "q2", "q1")]
 		[TestCase("q", "m")]
-		public void GetProposedQuotePosition_VerseStartsWithQuoteAndEndsWithNarrator_StartOfVerse(params string[] additionalParaTags)
+		public void GetQuotePosition_VerseStartsWithQuoteAndEndsWithNarrator_StartOfVerse(params string[] additionalParaTags)
 		{
 			var mrkBlocks = new List<Block>
 			{
@@ -4691,13 +4691,13 @@ namespace GlyssenEngineTests.Script
 			mrkBlocks.Add(NewSingleVersePara(3));
 
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
-			Assert.That(bookScript.GetProposedQuotePosition(2, 2, "good boy"),
+			Assert.That(bookScript.GetQuotePosition(2, 2, "good boy"),
 				Is.EqualTo(QuotePosition.StartOfVerse));
 		}
 
 		[TestCase("Seraiah", ExpectedResult = QuotePosition.Unspecified)]
 		[TestCase("Jeremiah", ExpectedResult = QuotePosition.StartOfVerse)]
-		public QuotePosition GetProposedQuotePosition_VerseStartsWithQuote_DependsOnCharacter(string character)
+		public QuotePosition GetQuotePosition_VerseStartsWithQuote_DependsOnCharacter(string character)
 		{
 			var jerBlocks = new List<Block>
 			{
@@ -4711,14 +4711,14 @@ namespace GlyssenEngineTests.Script
 			jerBlocks[2].CharacterId = "Jeremiah";
 
 			var bookScript = new BookScript("JER", jerBlocks, ScrVers.English);
-			return bookScript.GetProposedQuotePosition(51, 64, character);
+			return bookScript.GetQuotePosition(51, 64, character);
 		}
 		
 		[TestCase(QuotePosition.StartOfVerse, QuotePosition.EndOfVerse, ExpectedResult = QuotePosition.Unspecified)]
 		[TestCase(QuotePosition.StartOfVerse, QuotePosition.ContainedWithinVerse, ExpectedResult = QuotePosition.Unspecified)]
 		[TestCase(QuotePosition.ContainedWithinVerse, QuotePosition.EndOfVerse, ExpectedResult = QuotePosition.Unspecified)]
 		[TestCase(QuotePosition.ContainedWithinVerse, QuotePosition.ContainedWithinVerse, ExpectedResult = QuotePosition.ContainedWithinVerse)]
-		public QuotePosition GetProposedQuotePosition_SameCharacterSpeaksTwiceInVerse_DependsOnPosition(
+		public QuotePosition GetQuotePosition_SameCharacterSpeaksTwiceInVerse_DependsOnPosition(
 			params QuotePosition[] positions)
 		{
 			var mrkBlocks = new List<Block>
@@ -4753,11 +4753,11 @@ namespace GlyssenEngineTests.Script
 			}
 
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
-			return bookScript.GetProposedQuotePosition(2, 1, "woman");
+			return bookScript.GetQuotePosition(2, 1, "woman");
 		}
 		
 		[Test]
-		public void GetProposedQuotePosition_SingleCharacterSpeaksOnceInMiddleOfVerse_ContainedInVerse()
+		public void GetQuotePosition_SingleCharacterSpeaksOnceInMiddleOfVerse_ContainedInVerse()
 		{
 			var mrkBlocks = new List<Block>
 			{
@@ -4769,14 +4769,14 @@ namespace GlyssenEngineTests.Script
 			};
 
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
-			Assert.That(bookScript.GetProposedQuotePosition(2, 1, "Jesus"),
+			Assert.That(bookScript.GetQuotePosition(2, 1, "Jesus"),
 				Is.EqualTo(QuotePosition.ContainedWithinVerse));
 		}
 		
 		[TestCase("p")]
 		[TestCase("q1", "q2", "q1")]
 		[TestCase("q", "m")]
-		public void GetProposedQuotePosition_VerseStartsWithNarratorAndEndsWithQuote_EndOfVerse(params string[] paraTagsForQuote)
+		public void GetQuotePosition_VerseStartsWithNarratorAndEndsWithQuote_EndOfVerse(params string[] paraTagsForQuote)
 		{
 			var mrkBlocks = new List<Block>
 			{
@@ -4798,7 +4798,7 @@ namespace GlyssenEngineTests.Script
 			mrkBlocks.Add(NewSingleVersePara(2));
 
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
-			Assert.That(bookScript.GetProposedQuotePosition(2, 1, "good boy"),
+			Assert.That(bookScript.GetQuotePosition(2, 1, "good boy"),
 				Is.EqualTo(QuotePosition.EndOfVerse));
 		}
 		#endregion

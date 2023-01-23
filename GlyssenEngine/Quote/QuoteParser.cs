@@ -246,8 +246,7 @@ namespace GlyssenEngine.Quote
 					continue;
 				}
 
-				if (block.IsPredeterminedFirstLevelQuoteStart /* ||
-				    m_quoteSystem.StylesToTreatImplicitlyAsSpeech.Contains(block.StyleTag)*/)
+				if (block.IsPredeterminedFirstLevelQuoteStart)
 				{
 					ProcessMultiBlock();
 					m_setNextNormalBlockToNeedsReview = false;

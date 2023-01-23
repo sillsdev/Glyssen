@@ -1117,7 +1117,21 @@ namespace GlyssenEngine.Script
 			}
 		}
 
-		public QuotePosition GetProposedQuotePosition(int chapter, int verse, string character)
+		/// <summary>
+		/// Gets the position where the given character's quote occurs in the specified verse.
+		/// In cases where the character speaks multiple times in the verse, this will typically
+		/// return <see cref="QuotePosition.Unspecified"/> (unless no occurrence is at the start
+		/// or end of the verse).
+		/// </summary>
+		/// <remarks>This method is public because it makes it easy to test and is also thereby
+		/// available to the utility program that needs it. Its intended purpose was for making an
+		/// educated guess about where a character is likely to speak in other translations.
+		/// Although the location is entirely unambiguous for any given text of a book in a
+		/// specific project, it cannot be regarded as a universal/normative indicator of where the
+		/// character *should* speak in some other translation. In the utility program it is called
+		/// for multiple texts and its result is only considered normative if all the texts agree
+		/// as to the position. That said, it may well be useful for some other purpose.</remarks>
+		public QuotePosition GetQuotePosition(int chapter, int verse, string character)
 		{
 			var blocks = GetBlocksForVerse(chapter, verse).ToList();
 			if (blocks.Count == 0)

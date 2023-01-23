@@ -98,7 +98,7 @@ namespace DevTools
 					}
 				}
 				SetQuotePosition(cv, items, sb, line.Contents,
-					currentBook.Select(b => b.GetProposedQuotePosition(cv.Chapter, cv.Verse, cv.Character))
+					currentBook.Select(b => b.GetQuotePosition(cv.Chapter, cv.Verse, cv.Character))
 						.Distinct().OnlyOrDefault());
 			}
 
