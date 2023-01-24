@@ -166,6 +166,14 @@ namespace GlyssenCharacters
 			return result;
 		}
 
+		internal static IEnumerable<CharacterSpeakingMode> GetOtherEntriesIncompatibleWithImplicitCv(CharacterVerse cv)
+		{
+			return ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber(cv.BookCode),
+					cv.Chapter, new SingleVerse(cv.Verse), ScrVers.English)
+				.Where(c => c != cv && c.QuoteType != QuoteType.Hypothetical &&
+					(c.QuoteType != QuoteType.Quotation || c.Character != cv.Character));
+		}
+
 		public static IEnumerable<CharacterSpeakingMode> GetMatchingCharacters(int bookNum,
 			int chapter, IVerse verseOrBridge, string character, ScrVers versification = null,
 			bool includeAlternatesAndRareQuotes = false, bool includeNarratorOverrides = false) =>
@@ -240,7 +248,7 @@ namespace GlyssenCharacters
 			return set;
 		}
 
-		protected override IList<CharacterVerse> ProcessLine(string[] items, int lineNumber)
+		protected internal override IList<CharacterVerse> ProcessLine(string[] items, int lineNumber)
 		{
 			if (lineNumber == 1) // Using 1-based index because this is reported in error messages
 			{
@@ -277,8 +285,11 @@ namespace GlyssenCharacters
 			var alias = items[5];
 			var defaultCharacter = (items.Length > kiDefaultCharacter) ? items[kiDefaultCharacter] : null;
 			var parallelPassageInfo = (items.Length > kiParallelPassageInfo) ? items[kiParallelPassageInfo] : null;
+			var position = (items.Length > kiQuotePosition && items[kiQuotePosition] != Empty) ?
+				(QuotePosition)Enum.Parse(typeof(QuotePosition), items[kiQuotePosition]) :
+				QuotePosition.Unspecified;
 
-			return new CharacterVerse(bcvRef, characterId, delivery, alias, false, quoteType, defaultCharacter, parallelPassageInfo);
+			return new CharacterVerse(bcvRef, characterId, delivery, alias, false, quoteType, defaultCharacter, parallelPassageInfo, position);
 		}
 
 		private void InitializeExpectedQuotes()

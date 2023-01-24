@@ -11,7 +11,7 @@ init:
       set GitVersion_NoNormalizeEnabled=true
       set IGNORE_NORMALISATION_GIT_HEAD_MOVE=1
 install:
-  - choco install gitversion.portable -pre -y
+  - choco install gitversion.portable --version 5.12.0 -y
 environment:
   ExtraExcludeCategories: SkipOnTeamCity
   Platform: Any CPU

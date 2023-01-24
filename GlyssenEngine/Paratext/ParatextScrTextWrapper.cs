@@ -33,7 +33,7 @@ namespace GlyssenEngine.Paratext
 		private GlyssenDblTextMetadata m_metadata;
 		private readonly ParatextProjectBookInfo m_bookInfo = new ParatextProjectBookInfo();
 
-		private ScrText UnderlyingScrText { get; }
+		protected ScrText UnderlyingScrText { get; }
 
 		private ScrVers Versification => UnderlyingScrText.Settings.Versification;
 		public IEnumerable<int> CanonicalBookNumbersInProject {
@@ -59,7 +59,7 @@ namespace GlyssenEngine.Paratext
 		private string UniqueProjectNameForUi => ScrTextCollection.Find(ProjectName) == null ? $"{ProjectName} ({ProjectFullName})" : ProjectName;
 		public bool UserCanEditProject => UnderlyingScrText.Permissions.AmAdministratorOrTeamMember;
 		public bool HasBooksWithoutProblems => m_bookInfo.HasBooksWithoutProblems;
-		public IEnumerable<QuotationMark> QuotationMarks
+		public virtual IEnumerable<QuotationMark> QuotationMarks
 		{
 			get
 			{
@@ -83,6 +83,12 @@ namespace GlyssenEngine.Paratext
 				}
 			}
 		}
+
+		// Mike Lothers (Paratext UX) is looking into creating an issue to add new settings to
+		// Paratext in support of these properties.
+		public virtual string ReportingClauseStartDelimiter => null;
+		public virtual string ReportingClauseEndDelimiter => null;
+
 		public bool HasQuotationRulesSet => QuotationMarks?.Any() ?? false;
 
 		public ParatextScrTextWrapper(ScrText underlyingText, bool ignoreQuotationProblemsIfRulesAreNotSet = false)

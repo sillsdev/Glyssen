@@ -311,6 +311,7 @@
     <Compile Include="BiblicalTerms\BiblicalTermsList.cs" />
     <Compile Include="BiblicalTerms\Processor.cs" />
     <Compile Include="CharacterCharacterId.cs" />
+    <Compile Include="CharacterVerseUpdater.cs" />
     <Compile Include="CharacterDetailProcessing.cs" />
     <Compile Include="CharacterListProcessing.cs" />
     <Compile Include="CharacterVerse.cs" />
@@ -323,6 +324,7 @@
     <Compile Include="FCBH\Processor.cs" />
     <Compile Include="FCBH\TemplateData.cs" />
     <Compile Include="FCBH\TemplateDatum.cs" />
+    <Compile Include="ParatextUnzippedResourceWrapper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TermTranslator\BiblicalTerms.cs" />
@@ -371,6 +373,10 @@
     <ProjectReference Include="..\Glyssen\Glyssen.csproj">
       <Project>{45321f2e-174c-482a-bda1-bf199366fbd6}</Project>
       <Name>Glyssen</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InMemoryTestPersistence\InMemoryTestPersistence.csproj">
+      <Project>{15569590-2f4b-4ac5-a174-407a35a3a797}</Project>
+      <Name>InMemoryTestPersistence</Name>
     </ProjectReference>
     <ProjectReference Include="..\RefTextDevUtilities\RefTextDevUtilities.csproj">
       <Project>{49c0c51d-190f-450d-a7be-14e843c2e89d}</Project>
