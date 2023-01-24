@@ -45,7 +45,7 @@ namespace GlyssenEngine.Quote
 				"narrator overrides. These should be applied only after user has done disambiguation.");
 			var result = m_cvInfo.GetCharacters(bookId, chapter, verses, versification,
 				includeAlternatesAndRareQuotes, includeNarratorOverrides);
-			// m_referenceText will never be null for Glyssen users, so the test for null will not effect Glyssen.
+			// m_referenceText will never be null for Glyssen users, so the test for null will not affect Glyssen.
 			// At this time, Vessel users never have a reference text, so this test prevents an exception being thrown.
 			// This logic may be changed in the future so that hypothetical speakers can be better handled. 
 			if (m_referenceText != null)

@@ -4515,6 +4515,294 @@ namespace GlyssenEngineTests.Script
 		}
 		#endregion
 
+		#region GetProposedQuotePosition Tests
+		[TestCase(1, 4, "John the Baptist")]
+		[TestCase(2, 1, "people in Capernaum")]
+		public void GetQuotePosition_NoBlocksFound_Unspecified(int chapter, int verse, string character)
+		{
+			var mrkBlocks = new List<Block>
+			{
+				NewChapterBlock(1),
+				NewSingleVersePara(1),
+				NewSingleVersePara(2),
+				NewSingleVersePara(3)
+			};
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
+			Assert.That(bookScript.GetQuotePosition(chapter, verse, character),
+				Is.EqualTo(QuotePosition.Unspecified));
+		}
+		 
+		[TestCase(1, 3, "scripture", true, true)]
+		[TestCase(1, 3, "scripture", false, true)]
+		[TestCase(1, 3, "scripture", true, false)]
+		[TestCase(2, 1, "people in Capernaum", false, false)]
+		public void GetQuotePosition_SingleBlockIsQuoteCoveringVerse_EntireVerse(int chapter, int verse,
+			string character, bool includePrevVerseInBlock, bool includeNextVerseInBlock)
+		{
+			var mrkBlocks = new List<Block>
+			{
+				NewChapterBlock(chapter),
+				NewSingleVersePara(1)
+			};
+			if (includePrevVerseInBlock)
+			{
+				Assert.That(verse, Is.GreaterThan(2), "Not a valid test case.");
+				mrkBlocks.Add(NewSingleVersePara(verse - 1).AddVerse(verse));
+			}
+			else if (includeNextVerseInBlock)
+			{
+				mrkBlocks.Add(NewSingleVersePara(verse));
+				mrkBlocks.Last().AddVerse(verse + 1);
+			}
+			else
+				Assert.That(verse, Is.EqualTo(1), "Not a valid test case.");
+
+			mrkBlocks.Last().CharacterId = character;
+
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
+			Assert.That(bookScript.GetQuotePosition(chapter, verse, character),
+				Is.EqualTo(QuotePosition.EntireVerse));
+		}
+
+		[TestCase(1, 3, "scripture", true, true)]
+		[TestCase(1, 3, "scripture", false, true)]
+		[TestCase(1, 3, "scripture", true, false)]
+		[TestCase(2, 1, "people in Capernaum", false, false)]
+		public void GetQuotePosition_MultipleBlocksCoveringVerseWithSameCharacter_EntireVerse(
+			int chapter, int verse, string character, bool includePrevVerseInBlock,
+			bool includeNextVerseInBlock)
+		{
+			var mrkBlocks = new List<Block>
+			{
+				NewChapterBlock(chapter),
+				NewSingleVersePara(1)
+			};
+			if (verse == 1 || (verse == 2 && includePrevVerseInBlock))
+				mrkBlocks.Last().CharacterId = character;
+			else if (includePrevVerseInBlock)
+			{
+				mrkBlocks.Add(NewSingleVersePara(verse - 1).AddVerse(verse));
+				m_curSetupVerse = verse;
+				mrkBlocks.Last().CharacterId = character;
+			}
+
+			mrkBlocks.Add(NewBlock("More text", character));
+			mrkBlocks.Add(NewBlock("Even more text", character));
+
+			if (includeNextVerseInBlock)
+				mrkBlocks.Last().AddVerse(verse + 1);
+
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
+			Assert.That(bookScript.GetQuotePosition(chapter, verse, character),
+				Is.EqualTo(QuotePosition.EntireVerse));
+		}
+		
+		[Test]
+		public void GetQuotePosition_SingleNarratorBlock_Unspecified()
+		{
+			var mrkBlocks = new List<Block>
+			{
+				NewChapterBlock(12),
+				NewSingleVersePara(17, "Blah", "MRK"),
+				NewSingleVersePara(18, "There came to him Sadducees, who say that there is no resurrection. They asked him, saying,", "MRK"),
+				NewSingleVersePara(19)
+			};
+
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
+			Assert.That(bookScript.GetQuotePosition(12, 18, "Sadducees"),
+				Is.EqualTo(QuotePosition.Unspecified));
+		}
+		
+		[Test]
+		public void GetQuotePosition_MultipleBlocksCoveringVerseWithCharacterAndNarrator_Unspecified()
+		{
+			var mrkBlocks = new List<Block>
+			{
+				NewChapterBlock(2),
+				NewSingleVersePara(1, "Blah", "MRK"),
+				NewSingleVersePara(2, "“I know why people think I am good,”")
+			};
+
+			mrkBlocks.Last().CharacterId = "good boy";
+			mrkBlocks.Add(NewBlock(" he said. And then he continued, ",
+				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator)));
+			mrkBlocks.Add(NewBlock("“I am good.”", "good boy"));
+
+			mrkBlocks.Add(NewSingleVersePara(3));
+
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
+			Assert.That(bookScript.GetQuotePosition(2, 2, "good boy"),
+				Is.EqualTo(QuotePosition.Unspecified));
+		}
+
+		[TestCase("some boy", ExpectedResult = QuotePosition.StartOfVerse)]
+		[TestCase("good boy", ExpectedResult = QuotePosition.EndOfVerse)]
+		[TestCase("bad boy", ExpectedResult = QuotePosition.ContainedWithinVerse)]
+		[TestCase("no boy", ExpectedResult = QuotePosition.Unspecified)]
+		public QuotePosition GetQuotePosition_MultipleBlocksCoveringVerseWithDifferentCharacters_DependsOnCharacter(
+			string character)
+		{
+			var mrkBlocks = new List<Block>
+			{
+				NewChapterBlock(2),
+				NewSingleVersePara(1, "Blah", "MRK"),
+				NewSingleVersePara(2)
+			};
+
+			mrkBlocks.Last().CharacterId = "some boy";
+			mrkBlocks.Add(NewBlock("-I am bad.", "bad boy"));
+			mrkBlocks.Add(NewBlock("-I am good.", "good boy"));
+
+			mrkBlocks.Add(NewSingleVersePara(3));
+
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
+			return bookScript.GetQuotePosition(2, 2, character);
+		}
+		
+		[TestCase]
+		[TestCase("p")]
+		[TestCase("q1", "q2", "q1")]
+		[TestCase("q", "m")]
+		public void GetQuotePosition_VerseStartsWithQuoteAndEndsWithNarrator_StartOfVerse(params string[] additionalParaTags)
+		{
+			var mrkBlocks = new List<Block>
+			{
+				NewChapterBlock(2),
+				NewSingleVersePara(1, "Blah", "MRK"),
+				NewSingleVersePara(2, "“I know why people think I am good,")
+			};
+
+			mrkBlocks.Last().CharacterId = "good boy";
+
+			foreach (var paraTag in additionalParaTags)
+			{
+				var sb = new StringBuilder();
+				if (paraTag == "p")
+					sb.Append("“");
+				sb.Append($"Some speech marked up as {paraTag}.");
+				var block = NewBlock(sb.ToString(), "good boy");
+				block.IsParagraphStart = true;
+				mrkBlocks.Add(block);
+			}
+
+			mrkBlocks.Add(NewBlock(" he said.",
+				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator)));
+
+			mrkBlocks.Add(NewSingleVersePara(3));
+
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
+			Assert.That(bookScript.GetQuotePosition(2, 2, "good boy"),
+				Is.EqualTo(QuotePosition.StartOfVerse));
+		}
+
+		[TestCase("Seraiah", ExpectedResult = QuotePosition.Unspecified)]
+		[TestCase("Jeremiah", ExpectedResult = QuotePosition.StartOfVerse)]
+		public QuotePosition GetQuotePosition_VerseStartsWithQuote_DependsOnCharacter(string character)
+		{
+			var jerBlocks = new List<Block>
+			{
+				NewChapterBlock(51),
+				NewSingleVersePara(63, "Then you shall bind a stone to it and cast it into the Euphrates. "),
+				NewSingleVersePara(64, "Then you shall say, ‹Thus will Babylon sink and not rise again; and they will be weary.› »"),
+				NewBlock("Thus far are the words of Jeremiah.", CharacterVerseData.GetStandardCharacterId("JER", CharacterVerseData.StandardCharacter.Narrator))
+			};
+
+			jerBlocks[1].CharacterId = "Jeremiah";
+			jerBlocks[2].CharacterId = "Jeremiah";
+
+			var bookScript = new BookScript("JER", jerBlocks, ScrVers.English);
+			return bookScript.GetQuotePosition(51, 64, character);
+		}
+		
+		[TestCase(QuotePosition.StartOfVerse, QuotePosition.EndOfVerse, ExpectedResult = QuotePosition.Unspecified)]
+		[TestCase(QuotePosition.StartOfVerse, QuotePosition.ContainedWithinVerse, ExpectedResult = QuotePosition.Unspecified)]
+		[TestCase(QuotePosition.ContainedWithinVerse, QuotePosition.EndOfVerse, ExpectedResult = QuotePosition.Unspecified)]
+		[TestCase(QuotePosition.ContainedWithinVerse, QuotePosition.ContainedWithinVerse, ExpectedResult = QuotePosition.ContainedWithinVerse)]
+		public QuotePosition GetQuotePosition_SameCharacterSpeaksTwiceInVerse_DependsOnPosition(
+			params QuotePosition[] positions)
+		{
+			var mrkBlocks = new List<Block>
+			{
+				NewChapterBlock(2),
+				NewSingleVersePara(1, "Some words.", "MRK"),
+			};
+
+			var narrator = CharacterVerseData.GetStandardCharacterId("MRK",
+				CharacterVerseData.StandardCharacter.Narrator);
+
+			foreach (var position in positions)
+			{
+				switch (position)
+				{
+					case QuotePosition.StartOfVerse:
+						mrkBlocks[1].CharacterId = "woman";
+						mrkBlocks.Add(new Block("p", 2, 1, 1) { CharacterId = narrator});
+						break;
+					case QuotePosition.EndOfVerse:
+						mrkBlocks.Add(new Block("p", 2, 1, 1) { CharacterId = "woman"});
+						break;
+					case QuotePosition.ContainedWithinVerse:
+						if (mrkBlocks.Last().CharacterId != narrator)
+							mrkBlocks.Add(new Block("p", 2, 1, 1) { CharacterId = narrator});
+						mrkBlocks.Add(new Block("p", 2, 1, 1) { CharacterId = "woman"});
+						mrkBlocks.Add(new Block("p", 2, 1, 1) { CharacterId = narrator});
+						break;
+					default:
+						throw new ArgumentOutOfRangeException();
+				}
+			}
+
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
+			return bookScript.GetQuotePosition(2, 1, "woman");
+		}
+		
+		[Test]
+		public void GetQuotePosition_SingleCharacterSpeaksOnceInMiddleOfVerse_ContainedInVerse()
+		{
+			var mrkBlocks = new List<Block>
+			{
+				NewChapterBlock(2),
+				NewSingleVersePara(1, "Jesus answered, ", "MRK"),
+				NewBlock("“This is all I can say,”", "Jesus"),
+				NewBlock("he said.", CharacterVerseData.GetStandardCharacterId("MRK",
+					CharacterVerseData.StandardCharacter.Narrator))
+			};
+
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
+			Assert.That(bookScript.GetQuotePosition(2, 1, "Jesus"),
+				Is.EqualTo(QuotePosition.ContainedWithinVerse));
+		}
+		
+		[TestCase("p")]
+		[TestCase("q1", "q2", "q1")]
+		[TestCase("q", "m")]
+		public void GetQuotePosition_VerseStartsWithNarratorAndEndsWithQuote_EndOfVerse(params string[] paraTagsForQuote)
+		{
+			var mrkBlocks = new List<Block>
+			{
+				NewChapterBlock(2),
+				NewSingleVersePara(1, "Spake he thus, ", "MRK"),
+			};
+
+			foreach (var paraTag in paraTagsForQuote)
+			{
+				var sb = new StringBuilder();
+				if (paraTag == "p")
+					sb.Append("“");
+				sb.Append($"Some speech marked up as {paraTag}.");
+				var block = NewBlock(sb.ToString(), "good boy");
+				block.IsParagraphStart = true;
+				mrkBlocks.Add(block);
+			}
+
+			mrkBlocks.Add(NewSingleVersePara(2));
+
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
+			Assert.That(bookScript.GetQuotePosition(2, 1, "good boy"),
+				Is.EqualTo(QuotePosition.EndOfVerse));
+		}
+		#endregion
+
 		[TestCase(true)]
 		[TestCase(false)]
 		public void Clone_AllMembersAndAutoPropertiesDeepCopied(bool singleVoice)

@@ -16,6 +16,28 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- GlyssenCharacters.CharacterVerse Added parameter to the constructor to set the QuotePosition.
+- GlyssenCharacters.CharacterVerseData Changed several protected members to protected internal to support use by new CharacterVerseUpdater class in DevTools.
+- GlyssenCharacters.ControlCharacterVerseData Changed protected ProcessLine method to protected internal to support use by new CharacterVerseUpdater class in DevTools.
+- GlyssenEngine.Quote.QuoteParser constructor now takes a QuoteSystem parameter (instead of setting via static SetQuoteSystem method)
+- GlyssenEngine.Quote.QuoteParser.Parse Fixed logic mistake to properly handle successive paragraphs with dialogue dashes
+- GlyssenEngine.Paratext.ParatextScrTextWrapper Made QuotationMarks property virtual and UnderlyingScrText property protected
+- GlyssenEngine.Quote.QuoteParser Detects places where \pi marker is used for discourse blocks that appear to be quotes (in the absence of quotation marks)
+
+### Added
+
+- GlyssenCharacters.QuotePosition enum.
+- Optional Quote Position column to CharacterVerse.txt data
+- GlyssenEngine.Script.BookScript.GetQuotePosition method
+- GlyssenEngine.Paratext.ParatextScrTextWrapper Added ReportingClauseStartDelimiter and ReportingClauseEndDelimiter properties
+- GlyssenCharacters.CharacterVerse.CharacterSpeakingMode Added parameter to the constructor to set the expected quote position and added ExpectedPosition property to expose this.
+
+### Removed
+- GlyssenEngine.Quote.QuoteParser.SetQuoteSystem static method
+- GlyssenCharacters.CharacterVerseData.kiMinRequiredFields (now private).
+
 ## [5.0.0] - 2022-11-11
 
 ### Changed

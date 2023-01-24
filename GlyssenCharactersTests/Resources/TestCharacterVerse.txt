@@ -1132,6 +1132,7 @@ NUM	10	8	God		God (the LORD)
 NUM	10	29	Moses		
 NUM	10	30	Hobab, Moses brother-in-law		
 NUM	10	31	Moses		
+NUM	10	32	Moses		
 NUM	10	35	Moses		
 NUM	10	36	Moses		
 NUM	11	4	Rabble/Complainer		
@@ -6617,10 +6618,22 @@ DAN	2	24	Daniel
 DAN	2	25	Arioch		
 DAN	2	26	Nebuchadnezzar, king of Babylon		
 DAN	2	27	Daniel		
+DAN	2	28	Daniel		
 DAN	2	29	Daniel		
+DAN	2	30	Daniel		
 DAN	2	31	Daniel		
+DAN	2	32	Daniel		
+DAN	2	33	Daniel		
+DAN	2	34	Daniel		
+DAN	2	35	Daniel		
 DAN	2	36	Daniel		
+DAN	2	37	Daniel		
+DAN	2	38	Daniel		
 DAN	2	39	Daniel		
+DAN	2	40	Daniel		
+DAN	2	41	Daniel		
+DAN	2	42	Daniel		
+DAN	2	43	Daniel		
 DAN	2	44	Daniel		
 DAN	2	45	Daniel		
 DAN	2	47	Nebuchadnezzar, king of Babylon		

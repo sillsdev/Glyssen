@@ -477,7 +477,7 @@ namespace Glyssen.Dialogs
 			Close();
 		}
 
-		private double PercentageOfExpectedQuotesFound(System.Collections.Generic.IReadOnlyList<BookScript> books)
+		private double PercentageOfExpectedQuotesFound(IReadOnlyList<BookScript> books)
 		{
 			var totalExpectedQuotesInIncludedChapters = 0;
 			var totalVersesWithExpectedQuotes = 0;
