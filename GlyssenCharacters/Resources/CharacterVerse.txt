@@ -19714,6 +19714,7 @@ ACT	10	4	angel		angel of God	Normal
 ACT	10	4	Cornelius	afraid		Normal			
 ACT	10	5	angel		angel of God	Implicit			EntireVerse
 ACT	10	6	angel		angel of God	Implicit			EntireVerse
+ACT	10	8	Cornelius			Potential			
 ACT	10	13	Holy Spirit, the		voice (of the Holy Spirit)	Normal			Unspecified
 ACT	10	13	God		voice (of God)	Alternate			
 ACT	10	13	Jesus		voice (of Jesus)	Alternate			
