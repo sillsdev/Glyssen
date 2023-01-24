@@ -16,6 +16,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [6.0.0] - 2023-01-24
+
 ### Changed
 
 - GlyssenCharacters.CharacterVerse Added parameter to the constructor to set the QuotePosition.

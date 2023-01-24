@@ -1430,6 +1430,7 @@ namespace Glyssen
 				var saveAsName = Path.Combine(shareFolder, m_project.LanguageIsoCode + "_" + m_project.Name) + kShareFileExtension;
 				using (var zip = new ZipFile())
 				{
+					zip.UseZip64WhenSaving = Zip64Option.AsNecessary;
 					zip.AddDirectory(sourceDir, nameInZip);
 					zip.Save(saveAsName);
 				}

@@ -205,7 +205,7 @@ company of the prophets (Jericho)	-1		Adult			2KI 2:5 <-(1 more)-> 2KI 2:16
 company of the prophets, one of (young man)	1	Male	YoungAdult			2KI 9:5 <-(4 more)-> 2KI 9:10	Prophet (young)
 conquerors of beast, image & his name	-1		Adult			REV 15:3 & REV 15:4
 conquerors of Lo Debar	-1	Male	Adult			AMO 6:13
-Cornelius	1	Male	Adult			ACT 10:4 <-(4 more)-> ACT 10:48
+Cornelius	1	Male	Adult			ACT 10:4 <-(5 more)-> ACT 10:48
 council of elders	-1	Male	Elder			LUK 22:67 <-(3 more)-> ACT 5:40
 craftsman	1	Male	Adult			EXO 36:5 <-(4 more)-> ISA 44:20
 craftsmen and workmen	-1	Male	Adult			ACT 19:28 <-(1 more)-> ACT 19:34
@@ -234,7 +234,7 @@ crowd, some in	-1		Adult			LUK 11:15
 cured man, blind from birth	1	Male	Adult			JHN 9:9 <-(11 more)-> JHN 9:38
 Cyrus, king of Persia	1	Male	Adult			2CH 36:23 <-(6 more)-> ISA 48:16
 Dan	1	Male	Adult			GEN 37:8 <-(33 more)-> GEN 50:18	Son of Jacob
-Daniel	1	Male	Adult			DAN 1:12 <-(98 more)-> DAN 10:19
+Daniel	1	Male	Adult			DAN 1:12 <-(209 more)-> DAN 12:13
 Danites	-1		Adult			JDG 18:2 <-(2 more)-> JDG 18:25
 Darius, king of Medes and Persians	1	Male	Adult			EZR 6:1 <-(15 more)-> DAN 6:27
 Dathan	1	Male			son of Eliab (Reubenite)	NUM 16:3 <-(2 more)-> NUM 16:14
@@ -392,7 +392,7 @@ Gideon (Jerubbaal)	1	Male				JDG 6:13 <-(21 more)-> JDG 8:24
 Gilead, elders of	-1	Male				JDG 11:6 <-(1 more)-> JDG 11:10	Elder
 Gilead, leaders of	-1	Male				JDG 10:18	Elder
 Gilead, men of	-1	Male				JDG 12:5 & JDG 12:6	Gileadite
-God	1	Male		Y		GEN 1:3 <-(5886 more)-> REV 21:8
+God	1	Male		Y		GEN 1:3 <-(5891 more)-> REV 21:8
 God's chosen (beloved) friend or ally	1	Male				ISA 48:16
 Gog	1	Male				EZK 38:11 & EZK 38:12
 Goliath, Philistine champion	1	Male	Adult			1SA 17:8 <-(3 more)-> 1SA 17:44
@@ -514,7 +514,7 @@ Jehudi	1	Male				JER 36:14
 Jephthah	1	Male				JDG 11:7 <-(7 more)-> JDG 12:4
 Jephthah's daughter	1	Female	YoungAdult		youth	JDG 11:36 & JDG 11:37
 Jephthah's half-brothers	-1	Male				JDG 11:2	Son of Gilead
-Jeremiah	1	Male				JER 1:6 <-(709 more)-> LAM 3:66
+Jeremiah	1	Male				JER 1:6 <-(713 more)-> LAM 3:66
 Jeremiah's enemies	-1	Male				JER 17:15 <-(1 more)-> JER 20:10
 Jeremiah's friends (bad)	-1	PreferMale				JER 20:10
 Jeroboam	1	Male				1KI 12:4 <-(10 more)-> 2CH 10:16
@@ -722,7 +722,7 @@ messenger to Job, still another	1					JOB 1:17	Messenger
 messenger to Job, yet another	1					JOB 1:18 & JOB 1:19	Messenger
 messenger to king of Jericho	1	Male				JOS 2:2
 messenger to Saul	1	Male				1SA 23:7 & 1SA 23:27
-messenger to the king and to the queen mother	1	Male				JER 13:18 & JER 13:19
+messenger to the king and to the queen mother	1	Male				JER 13:18 <-(3 more)-> JER 13:22
 messenger, Cushite	1	Male				2SA 18:31 & 2SA 18:32	Cushite
 messengers from Jephthah	-1	PreferMale				JDG 11:12 <-(12 more)-> JDG 11:27
 messengers Israel sent to Amorite king Sihon	-1	PreferMale				NUM 21:22
@@ -774,7 +774,7 @@ Nathan	1	Male				2SA 7:3 <-(20 more)-> 1CH 17:2
 Nathanael	1	Male				JHN 1:46 <-(3 more)-> JHN 21:5
 nations	-1	PreferMale				DEU 4:6 <-(14 more)-> ZEC 8:23
 nations, neighboring (reply)	-1	PreferMale				JER 22:9
-Nebuchadnezzar, king of Babylon	1	Male				JER 39:12 <-(58 more)-> DAN 4:37
+Nebuchadnezzar, king of Babylon	1	Male				JER 39:12 <-(59 more)-> DAN 4:37
 Nebuzaradan	1	Male				JER 39:14 <-(3 more)-> JER 40:5
 Neco, king of Egypt	1	Male				2CH 35:21	Ambassador
 Nehemiah	1	Male				NEH 1:2 <-(47 more)-> NEH 13:31

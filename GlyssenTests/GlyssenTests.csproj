@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\SIL.Windows.Forms.Keyboarding.11.0.0-beta0024\build\SIL.Windows.Forms.Keyboarding.props" Condition="Exists('..\packages\SIL.Windows.Forms.Keyboarding.11.0.0-beta0024\build\SIL.Windows.Forms.Keyboarding.props')" />
+  <Import Project="..\packages\SIL.Windows.Forms.Keyboarding.11.0.0\build\SIL.Windows.Forms.Keyboarding.props" Condition="Exists('..\packages\SIL.Windows.Forms.Keyboarding.11.0.0\build\SIL.Windows.Forms.Keyboarding.props')" />
   <Import Project="..\packages\icu.net.2.8.1\build\icu.net.props" Condition="Exists('..\packages\icu.net.2.8.1\build\icu.net.props')" />
   <Import Project="..\packages\NUnit.3.13.3\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.13.3\build\NUnit.props')" />
   <Import Project="..\packages\SIL.ReleaseTasks.2.5.0\build\SIL.ReleaseTasks.props" Condition="Exists('..\packages\SIL.ReleaseTasks.2.5.0\build\SIL.ReleaseTasks.props')" />
@@ -112,8 +112,8 @@
     <Reference Include="icu.net, Version=2.8.0.0, Culture=neutral, PublicKeyToken=416fdd914afa6b66, processorArchitecture=MSIL">
       <HintPath>..\packages\icu.net.2.8.1\lib\net451\icu.net.dll</HintPath>
     </Reference>
-    <Reference Include="L10NSharp, Version=5.0.0.0, Culture=neutral, PublicKeyToken=fd0b3e309a5b7c28, processorArchitecture=MSIL">
-      <HintPath>..\packages\L10NSharp.5.0.0\lib\net461\L10NSharp.dll</HintPath>
+    <Reference Include="L10NSharp, Version=6.0.0.0, Culture=neutral, PublicKeyToken=fd0b3e309a5b7c28, processorArchitecture=MSIL">
+      <HintPath>..\packages\L10NSharp.6.0.0\lib\net461\L10NSharp.dll</HintPath>
     </Reference>
     <Reference Include="Markdig.Signed, Version=0.30.0.0, Culture=neutral, PublicKeyToken=870da25a133885f8, processorArchitecture=MSIL">
       <HintPath>..\packages\Markdig.Signed.0.30.4\lib\net452\Markdig.Signed.dll</HintPath>
@@ -147,7 +147,7 @@
       <HintPath>..\packages\NDesk.DBus.0.15.0\lib\NDesk.DBus.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework, Version=3.13.3.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.13.3\lib\net45\nunit.framework.dll</HintPath>
@@ -168,43 +168,43 @@
       <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Core, Version=11.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Core.11.0.0-beta0024\lib\net461\SIL.Core.dll</HintPath>
+      <HintPath>..\packages\SIL.Core.11.0.0\lib\net461\SIL.Core.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Core.Desktop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Core.Desktop.11.0.0-beta0024\lib\net461\SIL.Core.Desktop.dll</HintPath>
+      <HintPath>..\packages\SIL.Core.Desktop.11.0.0\lib\net461\SIL.Core.Desktop.dll</HintPath>
     </Reference>
     <Reference Include="SIL.DblBundle, Version=11.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.DblBundle.11.0.0-beta0024\lib\net461\SIL.DblBundle.dll</HintPath>
+      <HintPath>..\packages\SIL.DblBundle.11.0.0\lib\net461\SIL.DblBundle.dll</HintPath>
     </Reference>
     <Reference Include="SIL.DblBundle.Tests, Version=11.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.DblBundle.Tests.11.0.0-beta0024\lib\net461\SIL.DblBundle.Tests.dll</HintPath>
+      <HintPath>..\packages\SIL.DblBundle.Tests.11.0.0\lib\net461\SIL.DblBundle.Tests.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Scripture, Version=11.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Scripture.11.0.0-beta0024\lib\net461\SIL.Scripture.dll</HintPath>
+      <HintPath>..\packages\SIL.Scripture.11.0.0\lib\net461\SIL.Scripture.dll</HintPath>
     </Reference>
     <Reference Include="SIL.TestUtilities, Version=11.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.TestUtilities.11.0.0-beta0024\lib\net461\SIL.TestUtilities.dll</HintPath>
+      <HintPath>..\packages\SIL.TestUtilities.11.0.0\lib\net461\SIL.TestUtilities.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Windows.Forms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Windows.Forms.11.0.0-beta0024\lib\net461\SIL.Windows.Forms.dll</HintPath>
+      <HintPath>..\packages\SIL.Windows.Forms.11.0.0\lib\net461\SIL.Windows.Forms.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Windows.Forms.DblBundle, Version=11.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Windows.Forms.DblBundle.11.0.0-beta0024\lib\net461\SIL.Windows.Forms.DblBundle.dll</HintPath>
+      <HintPath>..\packages\SIL.Windows.Forms.DblBundle.11.0.0\lib\net461\SIL.Windows.Forms.DblBundle.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Windows.Forms.GeckoBrowserAdapter, Version=11.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Windows.Forms.GeckoBrowserAdapter.11.0.0-beta0024\lib\net461\SIL.Windows.Forms.GeckoBrowserAdapter.dll</HintPath>
+      <HintPath>..\packages\SIL.Windows.Forms.GeckoBrowserAdapter.11.0.0\lib\net461\SIL.Windows.Forms.GeckoBrowserAdapter.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Windows.Forms.Keyboarding, Version=11.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Windows.Forms.Keyboarding.11.0.0-beta0024\lib\net461\SIL.Windows.Forms.Keyboarding.dll</HintPath>
+      <HintPath>..\packages\SIL.Windows.Forms.Keyboarding.11.0.0\lib\net461\SIL.Windows.Forms.Keyboarding.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Windows.Forms.Scripture, Version=11.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Windows.Forms.Scripture.11.0.0-beta0024\lib\net461\SIL.Windows.Forms.Scripture.dll</HintPath>
+      <HintPath>..\packages\SIL.Windows.Forms.Scripture.11.0.0\lib\net461\SIL.Windows.Forms.Scripture.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Windows.Forms.WritingSystems, Version=11.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Windows.Forms.WritingSystems.11.0.0-beta0024\lib\net461\SIL.Windows.Forms.WritingSystems.dll</HintPath>
+      <HintPath>..\packages\SIL.Windows.Forms.WritingSystems.11.0.0\lib\net461\SIL.Windows.Forms.WritingSystems.dll</HintPath>
     </Reference>
     <Reference Include="SIL.WritingSystems, Version=11.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.WritingSystems.11.0.0-beta0024\lib\net461\SIL.WritingSystems.dll</HintPath>
+      <HintPath>..\packages\SIL.WritingSystems.11.0.0\lib\net461\SIL.WritingSystems.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -269,11 +269,19 @@
       <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
     <Reference Include="System.Reflection.Context" />
+    <Reference Include="System.Resources.Extensions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Resources.Extensions.6.0.0\lib\net461\System.Resources.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
       <Private>True</Private>
@@ -316,8 +324,13 @@
     <Reference Include="System.Security.Cryptography.ProtectedData, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.Cryptography.ProtectedData.7.0.0\lib\net462\System.Security.Cryptography.ProtectedData.dll</HintPath>
     </Reference>
-    <Reference Include="System.Security.Cryptography.Xml, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Security.Cryptography.Xml.7.0.0\lib\net462\System.Security.Cryptography.Xml.dll</HintPath>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.2\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Xml, Version=7.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Xml.7.0.1\lib\net462\System.Security.Cryptography.Xml.dll</HintPath>
     </Reference>
     <Reference Include="System.Security.Permissions, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.Permissions.7.0.0\lib\net462\System.Security.Permissions.dll</HintPath>
@@ -355,11 +368,11 @@
     <Reference Include="System.Text.Encodings.Web, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Text.Encodings.Web.7.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
     </Reference>
-    <Reference Include="System.Text.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Json.7.0.0\lib\net462\System.Text.Json.dll</HintPath>
+    <Reference Include="System.Text.Json, Version=7.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.7.0.1\lib\net462\System.Text.Json.dll</HintPath>
     </Reference>
-    <Reference Include="System.Threading.AccessControl, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Threading.AccessControl.7.0.0\lib\net462\System.Threading.AccessControl.dll</HintPath>
+    <Reference Include="System.Threading.AccessControl, Version=7.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.AccessControl.7.0.1\lib\net462\System.Threading.AccessControl.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
@@ -485,10 +498,10 @@
     <Error Condition="!Exists('..\packages\icu.net.2.8.1\build\icu.net.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\icu.net.2.8.1\build\icu.net.props'))" />
     <Error Condition="!Exists('..\packages\icu.net.2.8.1\build\icu.net.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\icu.net.2.8.1\build\icu.net.targets'))" />
     <Error Condition="!Exists('..\packages\Geckofx60.64.60.0.55\build\Geckofx60.64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Geckofx60.64.60.0.55\build\Geckofx60.64.targets'))" />
-    <Error Condition="!Exists('..\packages\SIL.Windows.Forms.Keyboarding.11.0.0-beta0024\build\SIL.Windows.Forms.Keyboarding.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SIL.Windows.Forms.Keyboarding.11.0.0-beta0024\build\SIL.Windows.Forms.Keyboarding.props'))" />
-    <Error Condition="!Exists('..\packages\SIL.Windows.Forms.Keyboarding.11.0.0-beta0024\build\SIL.Windows.Forms.Keyboarding.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SIL.Windows.Forms.Keyboarding.11.0.0-beta0024\build\SIL.Windows.Forms.Keyboarding.targets'))" />
-    <Error Condition="!Exists('..\packages\SIL.Windows.Forms.11.0.0-beta0024\build\SIL.Windows.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SIL.Windows.Forms.11.0.0-beta0024\build\SIL.Windows.Forms.targets'))" />
     <Error Condition="!Exists('..\packages\ParatextData.9.3.0.9\build\ParatextData.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ParatextData.9.3.0.9\build\ParatextData.targets'))" />
+    <Error Condition="!Exists('..\packages\SIL.Windows.Forms.Keyboarding.11.0.0\build\SIL.Windows.Forms.Keyboarding.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SIL.Windows.Forms.Keyboarding.11.0.0\build\SIL.Windows.Forms.Keyboarding.props'))" />
+    <Error Condition="!Exists('..\packages\SIL.Windows.Forms.Keyboarding.11.0.0\build\SIL.Windows.Forms.Keyboarding.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SIL.Windows.Forms.Keyboarding.11.0.0\build\SIL.Windows.Forms.Keyboarding.targets'))" />
+    <Error Condition="!Exists('..\packages\SIL.Windows.Forms.11.0.0\build\SIL.Windows.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SIL.Windows.Forms.11.0.0\build\SIL.Windows.Forms.targets'))" />
   </Target>
   <!-- Do not need/want a nuget package for this project. -->
   <Target Name="Pack" />
@@ -499,9 +512,9 @@
   <Import Project="..\packages\Mono.Unix.7.1.0-final.1.21458.1\build\Mono.Unix.targets" Condition="Exists('..\packages\Mono.Unix.7.1.0-final.1.21458.1\build\Mono.Unix.targets')" />
   <Import Project="..\packages\icu.net.2.8.1\build\icu.net.targets" Condition="Exists('..\packages\icu.net.2.8.1\build\icu.net.targets')" />
   <Import Project="..\packages\Geckofx60.64.60.0.55\build\Geckofx60.64.targets" Condition="Exists('..\packages\Geckofx60.64.60.0.55\build\Geckofx60.64.targets')" />
-  <Import Project="..\packages\SIL.Windows.Forms.Keyboarding.11.0.0-beta0024\build\SIL.Windows.Forms.Keyboarding.targets" Condition="Exists('..\packages\SIL.Windows.Forms.Keyboarding.11.0.0-beta0024\build\SIL.Windows.Forms.Keyboarding.targets')" />
-  <Import Project="..\packages\SIL.Windows.Forms.11.0.0-beta0024\build\SIL.Windows.Forms.targets" Condition="Exists('..\packages\SIL.Windows.Forms.11.0.0-beta0024\build\SIL.Windows.Forms.targets')" />
   <Import Project="..\packages\ParatextData.9.3.0.9\build\ParatextData.targets" Condition="Exists('..\packages\ParatextData.9.3.0.9\build\ParatextData.targets')" />
+  <Import Project="..\packages\SIL.Windows.Forms.Keyboarding.11.0.0\build\SIL.Windows.Forms.Keyboarding.targets" Condition="Exists('..\packages\SIL.Windows.Forms.Keyboarding.11.0.0\build\SIL.Windows.Forms.Keyboarding.targets')" />
+  <Import Project="..\packages\SIL.Windows.Forms.11.0.0\build\SIL.Windows.Forms.targets" Condition="Exists('..\packages\SIL.Windows.Forms.11.0.0\build\SIL.Windows.Forms.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

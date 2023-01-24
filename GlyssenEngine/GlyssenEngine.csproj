@@ -7,7 +7,7 @@
 	<PackageOutputPath>../output</PackageOutputPath>
     <Authors>SIL International, Faith Comes By Hearing</Authors>
     <Company>FCBH-SIL</Company>
-    <Copyright>Copyright © 2014-2022 Faith Comes By Hearing and SIL International</Copyright>
+    <Copyright>Copyright © 2014-2023 Faith Comes By Hearing and SIL International</Copyright>
     <Description>Glyssen "business logic" layer used for working with projects to create audio Bible scripts.</Description>
     <RepositoryUrl>https://github.com/sillsdev/glyssen/</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
@@ -73,13 +73,13 @@ See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="ParatextData" Version="9.3.0.9" />
-    <PackageReference Include="SIL.Core" Version="11.0.0-beta0024" />
-    <PackageReference Include="SIL.DblBundle" Version="11.0.0-beta0024" />
+    <PackageReference Include="SIL.Core" Version="11.0.0" />
+    <PackageReference Include="SIL.DblBundle" Version="11.0.0" />
     <PackageReference Include="SIL.ReleaseTasks" Version="2.5.0" PrivateAssets="true" />
-    <PackageReference Include="SIL.Scripture" Version="11.0.0-beta0024" />
-    <PackageReference Include="SIL.WritingSystems" Version="11.0.0-beta0024" />
+    <PackageReference Include="SIL.Scripture" Version="11.0.0" />
+    <PackageReference Include="SIL.WritingSystems" Version="11.0.0" />
     <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
   </ItemGroup>
