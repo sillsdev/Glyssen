@@ -30,7 +30,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - GlyssenCharacters.QuotePosition enum.
 - Optional Quote Position column to CharacterVerse.txt data
-- GlyssenEngine.Script.BookScript.GetProposedQuotePosition method
+- GlyssenEngine.Script.BookScript.GetQuotePosition method
 - GlyssenEngine.Paratext.ParatextScrTextWrapper Added ReportingClauseStartDelimiter and ReportingClauseEndDelimiter properties
 - GlyssenCharacters.CharacterVerse.CharacterSpeakingMode Added parameter to the constructor to set the expected quote position and added ExpectedPosition property to expose this.
 

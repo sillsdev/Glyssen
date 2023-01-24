@@ -1136,6 +1136,9 @@ namespace GlyssenEngine.Script
 			var blocks = GetBlocksForVerse(chapter, verse).ToList();
 			if (blocks.Count == 0)
 				return QuotePosition.Unspecified;
+			// The logic here is a finite state machine. If the comments below don't succeed in
+			// making it clear how we progress through the states, find and run a relevant unit
+			// test and watch the magic unfold!
 			QuotePosition position = QuotePosition.Unspecified;
 			bool quoteBlockFound = false;
 			foreach (var block in blocks)
@@ -1146,9 +1149,16 @@ namespace GlyssenEngine.Script
 					switch (position)
 					{
 						case QuotePosition.Unspecified:
+							// This is the starting state (guaranteed to get here only the first
+							// time through), so if the first block has the character speaking,
+							// then, for now, we'll assume they are going to speak the entire
+							// verse. (We can get proven wrong later.)
 							position = QuotePosition.EntireVerse;
 							break;
 						case QuotePosition.StartOfVerse:
+							// Character was speaking at the start and now the same character
+							// is speaking again. We could have another QuotePosition value for
+							// this, but for our purposes, we'll just regard this as unspecified.
 							return QuotePosition.Unspecified;
 						case QuotePosition.ContainedWithinVerse:
 							if (block == blocks.Last())
@@ -1161,18 +1171,38 @@ namespace GlyssenEngine.Script
 					switch (position)
 					{
 						case QuotePosition.Unspecified:
+							// This is the starting state (guaranteed to get here only the first
+							// time through). Since the first block does not have the character
+							// speaking, for now, we'll assume they are going to speak at the end
+							// of the verse. (We can get proven wrong later.)
 							position = QuotePosition.EndOfVerse;
 							break;
 						case QuotePosition.EndOfVerse:
+							// (See above comment.) We were thinking the character was going to
+							// speak all the way through the end of the verse, but they stopped.
+							// So unless they start up talking later (e.g., at the end of the
+							// verse), we have a case where they speak in the middle of the verse
+							// with the narrator and/or some other character speaking before and
+							// after them. If they haven't started speaking at all (e.g., this is
+							// a second narrator block), then we stay in the same state and keep
+							// waiting for them to start talking.
 							if (quoteBlockFound)
 								position = QuotePosition.ContainedWithinVerse;
 							break;
 						case QuotePosition.EntireVerse:
+							// When they started talking at the start of the verse, we guessed
+							// that they were going to speak for the entire verse, but we were
+							// wrong.
 							position = QuotePosition.StartOfVerse;
 							break;
 					}
 				}
 			}
+			// We've now looked at all the blocks (unless we previously did an early return).
+			// If the character spoke at least once, we know the position in the verse where
+			// they spoke. If they didn't speak at all in this text (or, for example, if there
+			// was an ambiguous block, so we didn't know for sure if it was them), then we
+			// have to return unspecified.
 			return quoteBlockFound ? position : QuotePosition.Unspecified;
 		}
 	}
