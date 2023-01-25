@@ -18710,12 +18710,12 @@ JHN	3	27	John the Baptist			Dialogue			Unspecified
 JHN	3	28	John the Baptist			Implicit			EntireVerse
 JHN	3	29	John the Baptist			Implicit			EntireVerse
 JHN	3	30	John the Baptist			Implicit			EntireVerse
-JHN	3	31	John the Baptist			Potential			Unspecified
-JHN	3	32	John the Baptist			Potential			Unspecified
-JHN	3	33	John the Baptist			Potential			Unspecified
-JHN	3	34	John the Baptist			Potential			Unspecified
-JHN	3	35	John the Baptist			Potential			Unspecified
-JHN	3	36	John the Baptist			Potential			Unspecified
+JHN	3	31	John the Baptist			Potential			
+JHN	3	32	John the Baptist			Potential			
+JHN	3	33	John the Baptist			Potential			
+JHN	3	34	John the Baptist			Potential			
+JHN	3	35	John the Baptist			Potential			
+JHN	3	36	John the Baptist			Potential			
 JHN	4	1	people			Indirect			
 JHN	4	7	Jesus	requesting		Dialogue			EndOfVerse
 JHN	4	9	woman, Samaritan			Dialogue			Unspecified
@@ -19395,7 +19395,7 @@ JHN	20	16	Mary Magdalene			Dialogue			Unspecified
 JHN	20	16	narrator-JHN			Quotation			Unspecified
 JHN	20	16	interruption-JHN			Interruption			
 JHN	20	17	Jesus			Dialogue			Unspecified
-JHN	20	18	Mary Magdalene			Indirect			Unspecified
+JHN	20	18	Mary Magdalene			Indirect			
 JHN	20	19	Jesus			Dialogue			Unspecified
 JHN	20	21	Jesus			Dialogue			Unspecified
 JHN	20	22	Jesus			Dialogue			EndOfVerse
