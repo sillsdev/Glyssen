@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 using Glyssen.Shared;
 using GlyssenCharacters;
 using NUnit.Framework;
+using SIL.Extensions;
 using SIL.Scripture;
 using static System.String;
 using NarratorOverrides = GlyssenCharacters.NarratorOverrides;
@@ -114,6 +115,9 @@ namespace ControlDataIntegrityTests
 						Assert.That(type, Is.Not.EqualTo(QuoteType.Implicit)
 							.And.Not.EqualTo(QuoteType.ImplicitWithPotentialSelfQuote), "Line: " + line);
 					}
+
+					Assert.False(type.IsOneOf(QuoteType.Potential, QuoteType.Rare, QuoteType.Alternate,
+						QuoteType.Indirect, QuoteType.Interruption), "Line: " + line);
 				}
 
 				var extraSpacesMatch = extraSpacesRegex.Match(line);

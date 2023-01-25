@@ -75,6 +75,7 @@ namespace DevTools
 				var cv = ControlCharacterVerseData.Singleton.ProcessLine(items, line.Number).Single();
 				if (cv.QuoteType == QuoteType.Indirect || cv.QuoteType == QuoteType.Interruption ||
 				    cv.QuoteType == QuoteType.Implicit || cv.QuoteType == QuoteType.Rare ||
+				    cv.QuoteType == QuoteType.Potential ||
 				    NarratorOverrides.GetCharacterOverrideDetailsForRefRange(new VerseRef(cv.BcvRef.BBCCCVVV, ScrVers.English),
 					    cv.Verse).Any() ||
 				    ControlCharacterVerseData.Singleton.GetCharacters(cv.Book, cv.Chapter, cv.Verse)
