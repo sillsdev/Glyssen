@@ -1,4 +1,4 @@
-Control File Version	166
+Control File Version	167
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage	Quote Position
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5
 GEN	1	3	God		God (Yahweh)	Normal			ContainedWithinVerse
@@ -20903,12 +20903,30 @@ REV	21	7	God		one seated on throne (God)	Implicit			EntireVerse
 REV	21	8	God		one seated on throne (God)	Normal			Unspecified
 REV	21	9	angel (one of the seven)			Normal			EndOfVerse
 REV	22	6	angel (one of the seven)			Normal			Unspecified
-REV	22	7	Jesus			Normal			Unspecified
+# Based on the words spoken, v. 7 must be Jesus; however, since he is not introduced explicitly,
+# some translations may have the angel continue to speak, conveying a message from Jesus.
+REV	22	7	Jesus			Implicit			EntireVerse
+REV	22	7	angel (one of the seven)			Alternate			
+REV	22	7	Needs Review			Alternate			
 REV	22	9	angel (one of the seven)			Normal			Unspecified
+# Verses 10-11 are most likely the angel (see v. 8, but referred to in v. 10 only as "he"). But
+# if a translation continues the quote into vv. 12-13, it might make more sense to treat this as
+# Jesus speaking.
 REV	22	10	angel (one of the seven)			Normal			Unspecified
+REV	22	10	Jesus			Rare			
+REV	22	10	Needs Review			Rare			
 REV	22	11	angel (one of the seven)			Implicit			EntireVerse
+REV	22	11	Jesus			Alternate			
+REV	22	11	Needs Review			Alternate			
+# Based on the words spoken, vv. 12-13 must be Jesus; however, since he is not introduced
+# explicitly, some translations continue the previous quote with the angel conveying a message
+# from Jesus.
 REV	22	12	Jesus			Normal			Unspecified
+REV	22	12	angel (one of the seven)			Rare			
+REV	22	12	Needs Review			Rare			
 REV	22	13	Jesus			Implicit			EntireVerse
+REV	22	13	angel (one of the seven)			Alternate			
+REV	22	13	Needs Review			Alternate			
 REV	22	14	Jesus			Normal			Unspecified
 REV	22	15	Jesus			Normal			Unspecified
 REV	22	16	Jesus			Implicit			EntireVerse
