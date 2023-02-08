@@ -123,13 +123,6 @@ namespace DevTools
 		private static void SetQuotePosition(GlyssenCharacters.CharacterVerse cv, string[] items, StringBuilder sb,
 			string line, QuotePosition position)
 		{
-			if (position == QuotePosition.EntireVerse &&
-			    items[CharacterVerseData.kiQuoteType] != QuoteType.Implicit.ToString() &&
-			    items[CharacterVerseData.kiQuoteType] != QuoteType.ImplicitWithPotentialSelfQuote.ToString() &&
-			    !ControlCharacterVerseData.GetOtherEntriesIncompatibleWithImplicitCv(cv).Any())
-			{
-				items[CharacterVerseData.kiQuoteType] = QuoteType.Implicit.ToString();
-			}
 			var sPos = position.ToString();
 			if (items.Length > CharacterVerseData.kiQuotePosition)
 			{
