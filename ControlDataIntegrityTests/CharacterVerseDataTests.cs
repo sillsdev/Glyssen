@@ -105,19 +105,19 @@ namespace ControlDataIntegrityTests
 				if (!IsNullOrEmpty(sPosition))
 				{
 					Assert.IsTrue(Enum.TryParse(sPosition, out QuotePosition position), "Invalid QuotePosition: " + sPosition);
-					if (position == QuotePosition.EntireVerse)
-					{
-						Assert.That(type, Is.EqualTo(QuoteType.Implicit)
-							.Or.EqualTo(QuoteType.ImplicitWithPotentialSelfQuote), "Line: " + line);
-					}
-					else
-					{
-						Assert.That(type, Is.Not.EqualTo(QuoteType.Implicit)
-							.And.Not.EqualTo(QuoteType.ImplicitWithPotentialSelfQuote), "Line: " + line);
-					}
+					if (type == QuoteType.Implicit || type == QuoteType.ImplicitWithPotentialSelfQuote)
+						Assert.That(position, Is.EqualTo(QuotePosition.EntireVerse), "Line: " + line);
 
 					Assert.False(type.IsOneOf(QuoteType.Potential, QuoteType.Rare, QuoteType.Alternate,
 						QuoteType.Indirect, QuoteType.Interruption), "Line: " + line);
+				}
+				else
+				{
+					// For consistency and simplicity, we require that the quote position be set to
+					// EntireVerse for Implicit quotes (even though it could be unambiguously
+					// inferred from the quote type).
+					Assert.That(type, Is.Not.EqualTo(QuoteType.Implicit).And
+						.Not.EqualTo(QuoteType.ImplicitWithPotentialSelfQuote), "Line: " + line);
 				}
 
 				var extraSpacesMatch = extraSpacesRegex.Match(line);
