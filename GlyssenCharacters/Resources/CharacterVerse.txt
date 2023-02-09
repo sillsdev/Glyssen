@@ -7258,7 +7258,7 @@ EZR	8	28	narrator-EZR			Quotation
 EZR	8	29	narrator-EZR			Quotation			
 EZR	9	1	leaders			Normal			
 EZR	9	2	leaders			Normal			
-EZR	9	6-15	narrator-EZR			ImplicitWithPotentialSelfQuote			
+EZR	9	6-15	narrator-EZR			ImplicitWithPotentialSelfQuote			EntireVerse
 EZR	9	6	Ezra, priest and teacher	prayer (ashamed and disgraced)		Alternate			
 EZR	9	7	Ezra, priest and teacher	prayer (ashamed and disgraced)		Alternate			
 EZR	9	8	Ezra, priest and teacher	prayer (ashamed and disgraced)		Alternate			
@@ -7283,7 +7283,7 @@ EZR	10	14	assembly, whole			Normal			EntireVerse
 # then let Glyssen apply the narrator override to the second block.
 NEH	1	2	Nehemiah			Indirect			
 NEH	1	3	Hanani, brother of Nehemiah/Judah, men of		Hanani/men of Judah	Normal	Hanani, brother of Nehemiah		
-NEH	1	5-11	narrator-NEH			ImplicitWithPotentialSelfQuote			
+NEH	1	5-11	narrator-NEH			ImplicitWithPotentialSelfQuote			EntireVerse
 NEH	1	5	Nehemiah	praying		Alternate			
 NEH	1	6	Nehemiah	praying		Alternate			
 NEH	1	7	Nehemiah	praying		Alternate			
@@ -11562,7 +11562,7 @@ JER	28	16	God		God (Yahweh)	Quotation			Unspecified
 # not put it in first-level quotes. Whether the quotes it contains are regarded as
 # "self quotes" depends on which character is chosen to speak it. The embedded quotes
 # are actually God, not Jeremish.
-JER	29	4-23	Jeremiah	letter	Jeremiah (Yahweh says)	ImplicitWithPotentialSelfQuote			
+JER	29	4-23	Jeremiah	letter	Jeremiah (Yahweh says)	ImplicitWithPotentialSelfQuote			EntireVerse
 JER	29	4-23	Elasah, son of Shaphan/Gemariah, son of Hilkiah	letter		Alternate			
 JER	29	4-23	God		God (Yahweh)	Alternate			
 JER	29	24	God		God (Yahweh)	Potential			
@@ -14544,7 +14544,7 @@ DAN	8	26	Daniel	vision		Alternate
 DAN	9	1	Daniel	vision		Potential			
 DAN	9	2	Daniel	vision		Potential			
 DAN	9	3	Daniel	vision		Potential			
-DAN	9	4-19	narrator-DAN			ImplicitWithPotentialSelfQuote			
+DAN	9	4-19	narrator-DAN			ImplicitWithPotentialSelfQuote			EntireVerse
 DAN	9	4-19	Daniel	prayer of repentance		Alternate			
 DAN	9	20	Daniel	vision		Potential			
 DAN	9	21	Daniel	vision		Potential			
