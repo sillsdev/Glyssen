@@ -73,9 +73,24 @@ namespace DevTools
 				}
 
 				var cv = ControlCharacterVerseData.Singleton.ProcessLine(items, line.Number).Single();
+
+				// For re-processing purposes, we normally don't want to change anything
+				// that has already been set (in case some lines have been manually tweaked).
+				// Comment this block out to forcibly reprocess.
+				if (cv.ExpectedPosition != QuotePosition.Unspecified)
+				{
+					sb.Append(line.Contents).Append(Environment.NewLine);
+					continue;
+				}
+
+				if (cv.IsImplicit)
+				{
+					SetQuotePosition(cv, items, sb, line.Contents, QuotePosition.EntireVerse);
+					continue;
+				}
+
 				if (cv.QuoteType == QuoteType.Indirect || cv.QuoteType == QuoteType.Interruption ||
-				    cv.QuoteType == QuoteType.Implicit || cv.QuoteType == QuoteType.Rare ||
-				    cv.QuoteType == QuoteType.Potential ||
+				    cv.QuoteType == QuoteType.Rare || cv.QuoteType == QuoteType.Potential ||
 				    NarratorOverrides.GetCharacterOverrideDetailsForRefRange(new VerseRef(cv.BcvRef.BBCCCVVV, ScrVers.English),
 					    cv.Verse).Any() ||
 				    ControlCharacterVerseData.Singleton.GetCharacters(cv.Book, cv.Chapter, cv.Verse)

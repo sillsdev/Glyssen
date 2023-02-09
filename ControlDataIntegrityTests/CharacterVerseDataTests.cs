@@ -111,6 +111,14 @@ namespace ControlDataIntegrityTests
 					Assert.False(type.IsOneOf(QuoteType.Potential, QuoteType.Rare, QuoteType.Alternate,
 						QuoteType.Indirect, QuoteType.Interruption), "Line: " + line);
 				}
+				else
+				{
+					// For consistency and simplicity, we require that the quote position be set to
+					// EntireVerse for Implicit quotes (even though it could be unambiguously
+					// inferred from the quote type).
+					Assert.That(type, Is.Not.EqualTo(QuoteType.Implicit).And
+						.Not.EqualTo(QuoteType.ImplicitWithPotentialSelfQuote), "Line: " + line);
+				}
 
 				var extraSpacesMatch = extraSpacesRegex.Match(line);
 				Assert.IsFalse(extraSpacesMatch.Success, "Line with extra space(s): " + line);
