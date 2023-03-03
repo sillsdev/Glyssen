@@ -59,7 +59,7 @@ Ananias of Damascus	1	Male	Adult			ACT 9:10 <-(2 more)-> ACT 9:17
 Ananias of Jerusalem	1	Male	Adult			ACT 5:2 & ACT 5:5
 Andrew	1	Male	Adult			MAT 14:17 <-(8 more)-> JHN 6:9
 angel	-1	Male	Adult			1KI 19:5 <-(23 more)-> ACT 12:8
-angel (one of the seven)	1		Adult			REV 17:1 <-(19 more)-> REV 22:11
+angel (one of the seven)	1		Adult			REV 17:1 <-(22 more)-> REV 22:13
 angel flying directly overhead	1		Adult			REV 14:7
 angel flying directly overhead, second	1		Adult			REV 14:8
 angel flying directly overhead, third	1		Adult			REV 14:9 <-(2 more)-> REV 14:12
@@ -332,6 +332,7 @@ everyone seeing healing of paralyzed man	-1					LUK 5:26
 everyone who saw healing of paralytic	-1					MRK 2:12
 everyone who witnessed healing of boy	-1					LUK 9:43
 evil men and troublemakers	-1	Male				1SA 30:22
+evil spirit in boy	1	Male				MRK 9:26
 evil spirit in possessed man	1	Male				ACT 19:15
 evil spirits	-1					MRK 1:34 & MRK 3:11
 exiles	-1					ISA 48:20
@@ -521,7 +522,7 @@ Jeroboam	1	Male				1KI 12:4 <-(10 more)-> 2CH 10:16
 Jerusalem (personified)	1	Male				JER 51:34 & JER 51:35
 Jeshua	1	Male				EZR 4:3
 Jesse	1	Male				1SA 16:11 <-(2 more)-> 1SA 17:19
-Jesus	1	Male	Adult	Y		JOS 5:14 <-(2141 more)-> REV 22:20
+Jesus	1	Male	Adult	Y		JOS 5:14 <-(2143 more)-> REV 22:20
 Jesus (child)	1	Male	Child	Y	youth (12)	LUK 2:49	Child (Jesus)
 Jesus' brothers	4	Male				JHN 7:3 & JHN 7:4
 Jesus' family	-1	Either				MAT 12:46 <-(1 more)-> MRK 3:31
@@ -1180,6 +1181,7 @@ twenty-four elders	24	Male				REV 4:11 <-(4 more)-> REV 19:4
 Tyre (personified)	-1	Male				EZK 26:2
 unbeliever who comes under conviction	1					1CO 14:25
 unbelievers	-1					1TH 4:12
+ungodly people	-1	PreferMale				JUD 1:4
 Uriah	1	Male				2SA 11:11
 virgin	1	Female				AMO 8:14
 voice	1					EZK 10:13

@@ -17324,6 +17324,8 @@ MRK	9	23	Jesus			Dialogue			Unspecified
 MRK	9	24	father of demon-possessed boy			Dialogue			Unspecified
 MRK	9	25	Jesus	giving orders		Dialogue			Unspecified
 MRK	9	26	many in crowd	murmuring		Normal			Unspecified
+MRK	9	26	evil spirit in boy	shrieking		Rare			
+MRK	9	26	Needs Review			Rare			
 MRK	9	28	disciples	upset		Dialogue		MAT 17.19;MRK 9.28	EndOfVerse
 MRK	9	29	Jesus			Dialogue			Unspecified
 MRK	9	31	Jesus			Normal			Unspecified
@@ -20418,6 +20420,8 @@ ROM	16	22	Tertius			Implicit			EntireVerse
 2CO	8	15	scripture			Quotation			ContainedWithinVerse
 2CO	8	17	Titus			Indirect			
 2CO	9	2	Paul			Indirect			
+2CO	9	2	narrator-2CO			Quotation			
+2CO	9	6	narrator-2CO			Quotation			
 2CO	9	7	each one			Hypothetical			Unspecified
 2CO	9	9	scripture			Quotation	Moses		EndOfVerse
 2CO	10	1	narrator-2CO			Quotation			Unspecified
@@ -20507,6 +20511,7 @@ COL	4	17	narrator-COL			Quotation			Unspecified
 1TI	3	16	narrator-1TI			Quotation			Unspecified
 1TI	3	16	hymn, early creedal			Quotation	narrator-1TI		Unspecified
 1TI	4	3	false teachers			Hypothetical			Unspecified
+1TI	4	8	narrator-1TI			Quotation			
 1TI	5	18	scripture			Quotation			Unspecified
 # Use of quote in vv. 17-18 is rare. If it occurs, most likely it should be read by the narrator/author (Paul). But since he is telling Timothy what to say, a possible alternative would be to have a different character (Timothy) read the quote. Data integrity rules don't allow Alternate type to be used, but AdjustData will make this into an alternate.
 1TI	6	17	narrator-1TI			Quotation			Unspecified
@@ -20671,6 +20676,9 @@ JAS	5	17	Elijah	praying		Indirect
 2JN	1	6	Needs Review			Quotation			Unspecified
 2JN	1	10	anyone			Hypothetical			Unspecified
 2JN	1	11	anyone			Hypothetical			Unspecified
+JUD	1	4	ungodly people			Rare			
+JUD	1	4	narrator-JUD			Rare			
+JUD	1	4	Needs Review			Potential			
 JUD	1	8	dreamers			Indirect			
 JUD	1	9	Michael, archangel			Quotation			Unspecified
 JUD	1	9	narrator-JUD			Quotation			Unspecified
