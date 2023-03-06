@@ -20406,12 +20406,16 @@ ROM	16	22	Tertius			Implicit			EntireVerse
 1CO	15	45	scripture			Quotation			Unspecified
 1CO	15	54	scripture			Quotation	Isaiah		EndOfVerse
 1CO	15	55	scripture			Quotation	Hosea		EntireVerse
+# Quotes sometimes used for the word "Maranatha" or its target-language equivalent
+1CO	16	22	narrator-1CO			Quotation			ContainedWithinVerse
 2CO	1	17	narrator-2CO			Quotation			Unspecified
 2CO	1	18	narrator-2CO			Quotation			Unspecified
 2CO	1	19	narrator-2CO			Quotation			Unspecified
 2CO	1	20	narrator-2CO			Quotation			Unspecified
 2CO	2	13	Paul			Indirect			
 2CO	3	16	scripture			Quotation			Unspecified
+# Some translations put "The Lord" or "Adonai" in quotes
+2CO	3	17	narrator-2CO			Quotation			ContainedWithinVerse
 2CO	4	6	scripture			Quotation	God		Unspecified
 2CO	4	13	scripture			Quotation			ContainedWithinVerse
 2CO	6	2	scripture			Quotation	God		ContainedWithinVerse
@@ -20494,6 +20498,7 @@ EPH	1	7	Needs Review			Potential
 EPH	2	11	narrator-EPH			Quotation			Unspecified
 EPH	4	8	scripture			Quotation	David		EndOfVerse
 EPH	4	9	narrator-EPH			Quotation			Unspecified
+EPH	4	25	scripture			Quotation	Zechariah the prophet, son of Berechiah		ContainedWithinVerse
 EPH	4	26	scripture			Quotation	David		Unspecified
 EPH	5	14	scripture			Quotation			EndOfVerse
 EPH	5	31	scripture			Quotation			Unspecified
@@ -20524,7 +20529,8 @@ COL	4	17	narrator-COL			Quotation			Unspecified
 1TI	6	17	Timothy			Quotation	narrator-1TI		Unspecified
 1TI	6	18	narrator-1TI			Quotation			Unspecified
 1TI	6	18	Timothy			Quotation	narrator-1TI		Unspecified
-1TI	6	20	narrator-1TI			Quotation			Unspecified
+1TI	6	20	narrator-1TI			Quotation			ContainedWithinVerse
+1TI	6	21	narrator-1TI			Quotation			ContainedWithinVerse
 2TI	2	11	narrator-2TI			Quotation			Unspecified
 2TI	2	11	saying, true			Quotation	narrator-2TI		Unspecified
 2TI	2	12	narrator-2TI			Quotation			Unspecified
