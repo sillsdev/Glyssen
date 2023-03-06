@@ -20449,7 +20449,7 @@ GAL	1	8	narrator-GAL			Quotation			Unspecified
 GAL	1	9	narrator-GAL			Quotation			Unspecified
 GAL	1	23	narrator-GAL			Quotation			Unspecified
 GAL	1	23	report concerning Paul			Quotation	narrator-GAL		Unspecified
-# The word "pillars" might have scare quotes. Some looser translatios may have the implied
+# The word "pillars" might have scare quotes. Some looser translations may have the implied
 # agreement turned into a direct quotation
 GAL	2	9	narrator-GAL			Quotation			ContainedWithinVerse
 GAL	2	9	James/Peter (Simon)/John		James/Peter (Cephas)/John	Quotation			ContainedWithinVerse
