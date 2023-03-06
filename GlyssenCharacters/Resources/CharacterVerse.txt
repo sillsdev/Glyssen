@@ -1,4 +1,4 @@
-Control File Version	169
+Control File Version	170
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage	Quote Position
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5
 GEN	1	3	God		God (Yahweh)	Normal			ContainedWithinVerse
@@ -8880,6 +8880,7 @@ PRO	24	33	sluggard			Hypothetical
 PRO	25	7	king			Hypothetical			
 PRO	26	13	sluggard			Hypothetical			
 PRO	26	19	man, deceitful			Hypothetical			
+PRO	28	13	one who confesses sin			Hypothetical			
 PRO	28	24	one who robs his father or mother			Hypothetical			
 PRO	30	1	Agur			Potential			
 # Because of the difficult textual/translation issue in v. 1, if there are not explicit
@@ -17324,6 +17325,8 @@ MRK	9	23	Jesus			Dialogue			Unspecified
 MRK	9	24	father of demon-possessed boy			Dialogue			Unspecified
 MRK	9	25	Jesus	giving orders		Dialogue			Unspecified
 MRK	9	26	many in crowd	murmuring		Normal			Unspecified
+MRK	9	26	evil spirit in boy	shrieking		Rare			
+MRK	9	26	Needs Review			Rare			
 MRK	9	28	disciples	upset		Dialogue		MAT 17.19;MRK 9.28	EndOfVerse
 MRK	9	29	Jesus			Dialogue			Unspecified
 MRK	9	31	Jesus			Normal			Unspecified
@@ -20403,12 +20406,16 @@ ROM	16	22	Tertius			Implicit			EntireVerse
 1CO	15	45	scripture			Quotation			Unspecified
 1CO	15	54	scripture			Quotation	Isaiah		EndOfVerse
 1CO	15	55	scripture			Quotation	Hosea		EntireVerse
+# Quotes sometimes used for the word "Maranatha" or its target-language equivalent
+1CO	16	22	narrator-1CO			Quotation			ContainedWithinVerse
 2CO	1	17	narrator-2CO			Quotation			Unspecified
 2CO	1	18	narrator-2CO			Quotation			Unspecified
 2CO	1	19	narrator-2CO			Quotation			Unspecified
 2CO	1	20	narrator-2CO			Quotation			Unspecified
 2CO	2	13	Paul			Indirect			
 2CO	3	16	scripture			Quotation			Unspecified
+# Some translations put "The Lord" or "Adonai" in quotes
+2CO	3	17	narrator-2CO			Quotation			ContainedWithinVerse
 2CO	4	6	scripture			Quotation	God		Unspecified
 2CO	4	13	scripture			Quotation			ContainedWithinVerse
 2CO	6	2	scripture			Quotation	God		ContainedWithinVerse
@@ -20418,6 +20425,8 @@ ROM	16	22	Tertius			Implicit			EntireVerse
 2CO	8	15	scripture			Quotation			ContainedWithinVerse
 2CO	8	17	Titus			Indirect			
 2CO	9	2	Paul			Indirect			
+2CO	9	2	narrator-2CO			Quotation			
+2CO	9	6	narrator-2CO			Quotation			
 2CO	9	7	each one			Hypothetical			Unspecified
 2CO	9	9	scripture			Quotation	Moses		EndOfVerse
 2CO	10	1	narrator-2CO			Quotation			Unspecified
@@ -20440,6 +20449,11 @@ GAL	1	8	narrator-GAL			Quotation			Unspecified
 GAL	1	9	narrator-GAL			Quotation			Unspecified
 GAL	1	23	narrator-GAL			Quotation			Unspecified
 GAL	1	23	report concerning Paul			Quotation	narrator-GAL		Unspecified
+# The word "pillars" might have scare quotes. Some looser translations may have the implied
+# agreement turned into a direct quotation
+GAL	2	9	narrator-GAL			Quotation			ContainedWithinVerse
+GAL	2	9	James/Peter (Simon)/John		James/Peter (Cephas)/John	Quotation			ContainedWithinVerse
+GAL	2	9	Needs Review			Quotation			
 GAL	2	10	James/Peter (Simon)/John		James/Peter (Cephas)/John	Quotation			Unspecified
 GAL	2	10	narrator-GAL			Quotation			Unspecified
 GAL	2	10	Needs Review			Quotation			Unspecified
@@ -20484,6 +20498,7 @@ EPH	1	7	Needs Review			Potential
 EPH	2	11	narrator-EPH			Quotation			Unspecified
 EPH	4	8	scripture			Quotation	David		EndOfVerse
 EPH	4	9	narrator-EPH			Quotation			Unspecified
+EPH	4	25	scripture			Quotation	Zechariah the prophet, son of Berechiah		ContainedWithinVerse
 EPH	4	26	scripture			Quotation	David		Unspecified
 EPH	5	14	scripture			Quotation			EndOfVerse
 EPH	5	31	scripture			Quotation			Unspecified
@@ -20507,13 +20522,15 @@ COL	4	17	narrator-COL			Quotation			Unspecified
 1TI	3	16	narrator-1TI			Quotation			Unspecified
 1TI	3	16	hymn, early creedal			Quotation	narrator-1TI		Unspecified
 1TI	4	3	false teachers			Hypothetical			Unspecified
+1TI	4	8	narrator-1TI			Quotation			
 1TI	5	18	scripture			Quotation			Unspecified
 # Use of quote in vv. 17-18 is rare. If it occurs, most likely it should be read by the narrator/author (Paul). But since he is telling Timothy what to say, a possible alternative would be to have a different character (Timothy) read the quote. Data integrity rules don't allow Alternate type to be used, but AdjustData will make this into an alternate.
 1TI	6	17	narrator-1TI			Quotation			Unspecified
 1TI	6	17	Timothy			Quotation	narrator-1TI		Unspecified
 1TI	6	18	narrator-1TI			Quotation			Unspecified
 1TI	6	18	Timothy			Quotation	narrator-1TI		Unspecified
-1TI	6	20	narrator-1TI			Quotation			Unspecified
+1TI	6	20	narrator-1TI			Quotation			ContainedWithinVerse
+1TI	6	21	narrator-1TI			Quotation			ContainedWithinVerse
 2TI	2	11	narrator-2TI			Quotation			Unspecified
 2TI	2	11	saying, true			Quotation	narrator-2TI		Unspecified
 2TI	2	12	narrator-2TI			Quotation			Unspecified
@@ -20561,6 +20578,7 @@ HEB	4	4	scripture			Quotation	God		Unspecified
 HEB	4	5	scripture			Quotation	God		EndOfVerse
 HEB	4	7	narrator-HEB			Quotation			Unspecified
 HEB	4	7	scripture		scripture (God)	Quotation	God		Unspecified
+HEB	4	8	narrator-HEB			Quotation			ContainedWithinVerse
 HEB	5	5	scripture			Quotation	God		EndOfVerse
 HEB	5	6	scripture			Quotation	God		EndOfVerse
 HEB	6	14	scripture			Quotation	God		Unspecified
@@ -20661,6 +20679,11 @@ JAS	5	17	Elijah	praying		Indirect
 1JN	2	4	man who says 'I know him'			Hypothetical			Unspecified
 1JN	2	6	man who says 'we remain in union with God'			Hypothetical			Unspecified
 1JN	2	18	narrator-1JN			Quotation			Unspecified
+1JN	2	22	one who denies the Son			Hypothetical			
+1JN	2	23	one who denies the Son			Hypothetical			
+1JN	2	23	one who confesses the Son			Hypothetical			
+# Typically indirect
+1JN	4	2	spirit (or person) of God			Hypothetical			
 1JN	4	15	anyone			Hypothetical			Unspecified
 1JN	4	20	anyone			Hypothetical			Unspecified
 1JN	4	21	Jesus			Quotation	narrator-1JN		Unspecified
@@ -20671,6 +20694,9 @@ JAS	5	17	Elijah	praying		Indirect
 2JN	1	6	Needs Review			Quotation			Unspecified
 2JN	1	10	anyone			Hypothetical			Unspecified
 2JN	1	11	anyone			Hypothetical			Unspecified
+JUD	1	4	ungodly people			Rare			
+JUD	1	4	narrator-JUD			Rare			
+JUD	1	4	Needs Review			Potential			
 JUD	1	8	dreamers			Indirect			
 JUD	1	9	Michael, archangel			Quotation			Unspecified
 JUD	1	9	narrator-JUD			Quotation			Unspecified

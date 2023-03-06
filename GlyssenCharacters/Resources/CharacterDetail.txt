@@ -59,7 +59,7 @@ Ananias of Damascus	1	Male	Adult			ACT 9:10 <-(2 more)-> ACT 9:17
 Ananias of Jerusalem	1	Male	Adult			ACT 5:2 & ACT 5:5
 Andrew	1	Male	Adult			MAT 14:17 <-(8 more)-> JHN 6:9
 angel	-1	Male	Adult			1KI 19:5 <-(23 more)-> ACT 12:8
-angel (one of the seven)	1		Adult			REV 17:1 <-(19 more)-> REV 22:11
+angel (one of the seven)	1		Adult			REV 17:1 <-(22 more)-> REV 22:13
 angel flying directly overhead	1		Adult			REV 14:7
 angel flying directly overhead, second	1		Adult			REV 14:8
 angel flying directly overhead, third	1		Adult			REV 14:9 <-(2 more)-> REV 14:12
@@ -332,6 +332,7 @@ everyone seeing healing of paralyzed man	-1					LUK 5:26
 everyone who saw healing of paralytic	-1					MRK 2:12
 everyone who witnessed healing of boy	-1					LUK 9:43
 evil men and troublemakers	-1	Male				1SA 30:22
+evil spirit in boy	1	Male				MRK 9:26
 evil spirit in possessed man	1	Male				ACT 19:15
 evil spirits	-1					MRK 1:34 & MRK 3:11
 exiles	-1					ISA 48:20
@@ -498,7 +499,7 @@ Jahaziel	1	Male				2CH 20:15 <-(1 more)-> 2CH 20:17
 jailer in Philippi	1	Male				ACT 16:27 <-(2 more)-> ACT 16:36
 Jairus (synagogue leader)	1	Male				MAT 9:18 <-(2 more)-> LUK 8:41
 Jairus' wife	1	Female				MRK 5:42
-James	1	Male			The brother of Jesus and author of the book of James	JHN 21:5 <-(16 more)-> GAL 2:10
+James	1	Male			The brother of Jesus and author of the book of James	JHN 21:5 <-(17 more)-> GAL 2:10
 James, the disciple	1	Male			Do not confuse with James (the brother of Jesus and author of the book of James)	MAT 17:10 <-(11 more)-> JHN 21:3
 Jebusites	-1	Male				2SA 5:6 <-(1 more)-> 1CH 11:5	Jebusite
 Jehizkiah	1	Male			leader in Ephraim	2CH 28:13
@@ -521,7 +522,7 @@ Jeroboam	1	Male				1KI 12:4 <-(10 more)-> 2CH 10:16
 Jerusalem (personified)	1	Male				JER 51:34 & JER 51:35
 Jeshua	1	Male				EZR 4:3
 Jesse	1	Male				1SA 16:11 <-(2 more)-> 1SA 17:19
-Jesus	1	Male	Adult	Y		JOS 5:14 <-(2141 more)-> REV 22:20
+Jesus	1	Male	Adult	Y		JOS 5:14 <-(2143 more)-> REV 22:20
 Jesus (child)	1	Male	Child	Y	youth (12)	LUK 2:49	Child (Jesus)
 Jesus' brothers	4	Male				JHN 7:3 & JHN 7:4
 Jesus' family	-1	Either				MAT 12:46 <-(1 more)-> MRK 3:31
@@ -551,7 +552,7 @@ Job	1	Male				JOB 1:5 <-(509 more)-> JOB 42:6
 Job's wife	1	Female				JOB 2:9
 Joel	1	Male				JOL 3:9 <-(1 more)-> JOL 3:11
 Johanan	1	Male			son of Kareah	JER 40:14 <-(6 more)-> JER 43:3
-John	1	Male				MAT 17:10 <-(35 more)-> GAL 2:10
+John	1	Male				MAT 17:10 <-(36 more)-> GAL 2:10
 John the Baptist	1	Male				MAT 3:2 <-(48 more)-> JHN 3:36
 John, Alexander, and other men of the high priest's family	-1	Male				ACT 4:7 <-(4 more)-> ACT 4:18
 Jonadab	1	Male				2SA 13:4 <-(4 more)-> 2SA 13:35
@@ -824,6 +825,9 @@ one of the others who stood on the river bank	1	Male				DAN 12:6
 one of you	-1					ROM 9:19 & JAS 2:16
 one who allowed Paul to live by himself	-1	Male				ACT 28:16
 one who brings good news	-1	PreferMale				ISA 40:9 & ISA 52:7
+one who confesses sin	-1					PRO 28:13
+one who denies the Son	-1					1JN 2:22 & 1JN 2:23
+one who confesses the Son	-1					1JN 2:23
 one who had escaped	1	Male				GEN 14:13
 one who robs his father or mother	1	Male				PRO 28:24
 onlookers	-1					ISA 14:16 & ISA 14:17
@@ -906,7 +910,7 @@ person who told Saul where David was	1	Male				1SA 24:1
 person who told Shimei where his servants were	1	Male				1KI 2:39
 person who told the guards and priests where the apostles were	1	Male				ACT 5:25
 person without the gift of tongues	1					1CO 14:16
-Peter (Simon)	1	Male				MAT 14:28 <-(187 more)-> GAL 2:10
+Peter (Simon)	1	Male				MAT 14:28 <-(188 more)-> GAL 2:10
 Pharaoh (1st)	1	Male				GEN 12:18 & GEN 12:19	Pharaoh 1st
 Pharaoh (2nd)	1	Male				GEN 41:8 <-(23 more)-> GEN 50:6	Pharaoh 2nd
 Pharaoh (2nd)'s men	-1	Male				GEN 41:43
@@ -1047,7 +1051,7 @@ scoffers who rule people in Jerusalem	-1	Male				ISA 28:15	Scoffer
 scoundrels	-1	Male				1KI 21:13	Scoundrel
 scouts of Ben-Hadad, king of Aram	-1	Male				1KI 20:17
 scribes	-1	Male			Gr. grammateus	LUK 11:53 <-(3 more)-> LUK 23:10
-scripture	-1					2KI 14:6 <-(234 more)-> REV 19:15
+scripture	-1					2KI 14:6 <-(235 more)-> REV 19:15
 sea	1	Neuter				ISA 23:4
 sea captains, seafarers, sailors	-1	Male				REV 18:18 <-(1 more)-> REV 18:20
 second person to accuse Peter (man)	1	Male				LUK 22:58
@@ -1143,6 +1147,7 @@ sons of Korah's enemies	-1	Male				PSA 42:3
 sons of prophet in Bethel	-1	Male				1KI 13:30
 souls of those killed for word of God	-1					REV 6:10
 spies (from Pharisees and Herodians)	-1	Male				MAT 22:16 <-(10 more)-> LUK 20:26	Religious Leader
+spirit (or person) of God	-1	Male				1JN 4:2
 Stephen	1	Male				ACT 7:2 <-(53 more)-> ACT 7:60
 steward of Joseph's house	1	Male				GEN 43:23 <-(2 more)-> GEN 44:10	Steward
 stingy man	1	Male				PRO 23:7
@@ -1180,6 +1185,7 @@ twenty-four elders	24	Male				REV 4:11 <-(4 more)-> REV 19:4
 Tyre (personified)	-1	Male				EZK 26:2
 unbeliever who comes under conviction	1					1CO 14:25
 unbelievers	-1					1TH 4:12
+ungodly people	-1	PreferMale				JUD 1:4
 Uriah	1	Male				2SA 11:11
 virgin	1	Female				AMO 8:14
 voice	1					EZK 10:13
