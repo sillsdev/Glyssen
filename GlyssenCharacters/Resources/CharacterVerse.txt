@@ -19171,7 +19171,7 @@ JHN	13	20	Jesus			Normal			Unspecified
 JHN	13	21	Jesus			Dialogue			EndOfVerse
 JHN	13	22	disciples	perplexed		Rare			
 JHN	13	22	Needs Review			Potential			
-JHN	13	24	Peter (Simon)	stage whisper		Normal			Unspecified
+JHN	13	24	Peter (Simon)	stage whisper		Indirect			
 JHN	13	25	John	sad	John (disciple whom Jesus loved)	Dialogue			Unspecified
 JHN	13	26	Jesus			Dialogue			Unspecified
 JHN	13	27	Jesus	giving orders		Dialogue			Unspecified
@@ -20804,8 +20804,11 @@ REV	8	13	eagle crying with loud voice			Normal			EndOfVerse
 REV	9	11	narrator-REV			Quotation			Unspecified
 REV	9	14	voice from altar			Normal			EndOfVerse
 REV	10	4	voice from heaven (God?)		voice from heaven	Normal	God		EndOfVerse
-REV	10	6	angel standing on sea and land			Normal			Unspecified
-REV	10	7	angel standing on sea and land			Normal			Unspecified
+REV	10	6	angel standing on sea and land			Indirect			
+# v. 6 Can be direct or indirect; v. 7 might be a continuation of the angel's (direct or indirect)
+# speech; or it might just be a separate thought expressed by the narrator (though certainly
+# through divine revelation).
+REV	10	7	angel standing on sea and land			Potential			
 REV	10	8	voice from heaven (God?)		voice from heaven	Normal	God		EndOfVerse
 REV	10	9	angel standing on sea and land			Normal			EndOfVerse
 REV	10	11	angel standing on sea and land			Normal			EndOfVerse
@@ -20833,7 +20836,7 @@ REV	14	8	angel flying directly overhead, second			Normal			EndOfVerse
 REV	14	9	angel flying directly overhead, third			Normal			EndOfVerse
 REV	14	10	angel flying directly overhead, third			Normal			EntireVerse
 REV	14	11	angel flying directly overhead, third			Normal			EntireVerse
-REV	14	12	angel flying directly overhead, third			Normal			Unspecified
+REV	14	12	angel flying directly overhead, third			Potential			
 REV	14	13	voice from heaven (God?)		voice from heaven	Normal	God		
 REV	14	13	Holy Spirit, the		Spirit, the	Normal			
 REV	14	14	narrator-REV			Quotation			Unspecified
@@ -20874,28 +20877,28 @@ REV	18	6	voice from heaven, another			Implicit			EntireVerse
 REV	18	7	Babylon (personified as adulteress)			Hypothetical			Unspecified
 REV	18	7	voice from heaven, another			Implicit			EntireVerse
 REV	18	8	voice from heaven, another			Implicit			EntireVerse
-REV	18	9	voice from heaven, another			Normal			Unspecified
+REV	18	9	voice from heaven, another			Potential			
 REV	18	10	kings of the earth	weeping		Normal			
-REV	18	10	voice from heaven, another			Normal			
-REV	18	11	voice from heaven, another			Normal			Unspecified
-REV	18	12	voice from heaven, another			Normal			Unspecified
-REV	18	13	voice from heaven, another			Normal			Unspecified
+REV	18	10	voice from heaven, another			Potential			
+REV	18	11	voice from heaven, another			Potential			
+REV	18	12	voice from heaven, another			Potential			
+REV	18	13	voice from heaven, another			Potential			
 REV	18	14	merchants of the earth			Normal			
-REV	18	14	voice from heaven, another			Normal			
-REV	18	15	voice from heaven, another			Normal			
+REV	18	14	voice from heaven, another			Potential			
+REV	18	15	voice from heaven, another			Potential			
 REV	18	15	merchants of the earth			Normal			
 REV	18	16	merchants of the earth	weeping		Normal			
-REV	18	16	voice from heaven, another			Normal			
+REV	18	16	voice from heaven, another			Potential			
 REV	18	17	merchants of the earth	weeping		Normal			
-REV	18	17	voice from heaven, another			Normal			
+REV	18	17	voice from heaven, another			Potential			
 REV	18	18	sea captains, seafarers, sailors	weeping		Normal			
-REV	18	18	voice from heaven, another			Normal			
+REV	18	18	voice from heaven, another			Potential			
 REV	18	19	sea captains, seafarers, sailors	weeping		Normal			
-REV	18	19	voice from heaven, another			Normal			
-REV	18	20	voice from heaven, another			Normal			
+REV	18	19	voice from heaven, another			Potential			
+REV	18	20	voice from heaven, another			Normal			EntireVerse
 # Though it seems a bit out of character for the sea captain to speak v. 20, that's the way it is in the
 # ESV and ISV and FCBH says this is the most common way they see it in the vernacular.
-REV	18	20	sea captains, seafarers, sailors			Normal			
+REV	18	20	sea captains, seafarers, sailors			Normal			EntireVerse
 REV	18	21	angel, powerful			Normal			EndOfVerse
 REV	18	22	angel, powerful			Normal			EntireVerse
 REV	18	23	angel, powerful			Normal			EntireVerse
