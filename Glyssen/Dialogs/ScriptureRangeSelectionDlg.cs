@@ -198,13 +198,13 @@ namespace Glyssen.Dialogs
 				var booksWithFailingChecks = m_paratextScrTextWrapper.FailedChecksBooks.Where(b => booksToChange.Contains(b)).ToList();
 				if (booksWithFailingChecks.Any())
 				{
-					var msg = Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ExcludedParatextBookExplanation",
+					var msg = Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ExcludedSelectedBooksExplanation",
 						"{0} is not reporting a current successful status for the following books for all the basic checks that {1} usually requires to pass:" +
-						 "\r\n{2}\r\n\r\n" +
+						"\n{2}\n\n" +
 						"Although you can ignore this warning and proceed to include these books, {1} might fail to process the data " +
 						"properly, which could give the appearance of data loss or corruption and could even cause {1} to stop responding. " +
-						"Therefore, you should get these checks to pass in {0} project {3} before including them:\r\n" +
-						"   {4}\r\n\r\n" +
+						"Therefore, you should get these checks to pass in {0} project {3} before including them:\n" +
+						"   {4}\n\n" +
 						"Do you want {1} to select all the {5} books to include them in the {6} project script anyway?",
 						"Param 0: \"Paratext\" (product name); " +
 						"Param 1: \"Glyssen\" (product name); " +

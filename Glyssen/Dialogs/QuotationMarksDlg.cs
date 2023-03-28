@@ -161,7 +161,7 @@ namespace Glyssen.Dialogs
 								"Param 1: \"Paratext\" (product name)");
 
 						promptText = String.Format(doNotModifyDirectlyFmt + Environment.NewLine +
-							LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.HowToChangeParextProjectQuoteSystem",
+							LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.HowToChangeParatextProjectQuoteSystem",
 								"1) Open the {2} project in {1}, and on the Checking menu, click Quotation Rules.\r\n" +
 								"2) After saving the changes there, re-run the {3} check for all books included in this {0} project.\r\n" +
 								"   (Note: The {4} and {5} checks should also pass in order for a book to be included in a {0} project.)\r\n" +
