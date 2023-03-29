@@ -20215,6 +20215,7 @@ ACT	27	34	Paul	encouraging		Normal			EntireVerse
 ACT	27	39	captain of ship to Italy (Rome)/sailors on ship to Italy (Rome)		ship's crew	Indirect			
 ACT	27	42	soldiers			Indirect			
 ACT	27	43	centurion on ship with Paul			Indirect			
+ACT	27	44	centurion on ship with Paul			Indirect			
 ACT	28	1	narrator-ACT			Quotation			Unspecified
 ACT	28	4	Malta islanders	suspicious		Normal			EndOfVerse
 ACT	28	6	Malta islanders			Indirect			

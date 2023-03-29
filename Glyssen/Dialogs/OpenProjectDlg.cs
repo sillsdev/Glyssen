@@ -232,7 +232,7 @@ namespace Glyssen.Dialogs
 				errMsgInfo.ProjectName, GlyssenInfo.Product).Append(' ');
 		}
 
-		private void NotifyUserOfParatextProblem(string message, params string[] additionalInfo)
+		private static void NotifyUserOfParatextProblem(string message, params string[] additionalInfo)
 		{
 			additionalInfo.Aggregate(message, (current, s) => current + Environment.NewLine + s);
 
