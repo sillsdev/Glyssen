@@ -79,7 +79,7 @@
       </trans-unit>
       <trans-unit id="CharacterName.Abednego" sil:dynamic="true">
         <source xml:lang="en">Abednego</source>
-        <target xml:lang="es-ES" state="translated">Abednego, Abed-nego</target>
+        <target xml:lang="es-ES" state="translated">Abednego</target>
         <note>ID: CharacterName.Abednego</note>
       </trans-unit>
       <trans-unit id="CharacterName.Abigail" sil:dynamic="true">
@@ -814,7 +814,7 @@
       </trans-unit>
       <trans-unit id="CharacterName.Egyptians, all the" sil:dynamic="true">
         <source xml:lang="en">Egyptians, all the</source>
-        <target xml:lang="es-ES" state="needs-translation">Egyptians, all the</target>
+        <target xml:lang="es-ES" state="translated">todos los egipcios</target>
         <note>ID: CharacterName.Egyptians, all the</note>
       </trans-unit>
       <trans-unit id="CharacterName.Ehud, Israelite deliverer" sil:dynamic="true">
@@ -1159,7 +1159,7 @@
       </trans-unit>
       <trans-unit id="CharacterName.Gibeonites" sil:dynamic="true">
         <source xml:lang="en">Gibeonites</source>
-        <target xml:lang="es-ES" state="needs-translation">Gibeonites</target>
+        <target xml:lang="es-ES" state="translated">gabaonitas</target>
         <note>ID: CharacterName.Gibeonites</note>
       </trans-unit>
       <trans-unit id="CharacterName.Gideon (Jerubbaal)" sil:dynamic="true">
@@ -1191,11 +1191,6 @@
         <source xml:lang="en">God (Holy One of Israel)</source>
         <target xml:lang="es-ES" state="translated">Dios (el Santo de Israel)</target>
         <note>ID: CharacterName.God (Holy One of Israel)</note>
-      </trans-unit>
-      <trans-unit id="CharacterName.God (Yahweh" sil:dynamic="true">
-        <source xml:lang="en">God (Yahweh</source>
-        <target xml:lang="es-ES" state="needs-translation">God (Yahweh</target>
-        <note>ID: CharacterName.God (Yahweh</note>
       </trans-unit>
       <trans-unit id="CharacterName.God (Yahweh of Armies) (in vision)" sil:dynamic="true">
         <source xml:lang="en">God (Yahweh of Armies) (in vision)</source>
@@ -4224,7 +4219,7 @@
       </trans-unit>
       <trans-unit id="CharacterName.children of your people (i.e., Israel)" sil:dynamic="true">
         <source xml:lang="en">children of your people (i.e., Israel)</source>
-        <target xml:lang="es-ES" state="needs-translation">children of your people (i.e., Israel)</target>
+        <target xml:lang="es-ES" state="translated">los hijos de tu pueblo (es decir, Israel)</target>
         <note>ID: CharacterName.children of your people (i.e., Israel)</note>
       </trans-unit>
       <trans-unit id="CharacterName.citizens of Shechem" sil:dynamic="true">
@@ -4974,7 +4969,7 @@
       </trans-unit>
       <trans-unit id="CharacterName.guardians of Ahab's sons" sil:dynamic="true">
         <source xml:lang="en">guardians of Ahab's sons</source>
-        <target xml:lang="es-ES" state="needs-translation">guardians of Ahab's sons</target>
+        <target xml:lang="es-ES" state="translated">los protectores de los hijos de Acab</target>
         <note>ID: CharacterName.guardians of Ahab's sons</note>
       </trans-unit>
       <trans-unit id="CharacterName.guards at high priests' house" sil:dynamic="true">
@@ -5769,12 +5764,12 @@
       </trans-unit>
       <trans-unit id="CharacterName.messenger from guardians of Ahab's children" sil:dynamic="true">
         <source xml:lang="en">messenger from guardians of Ahab's children</source>
-        <target xml:lang="es-ES" state="needs-translation">messenger from guardians of Ahab's children</target>
+        <target xml:lang="es-ES" state="translated">mensajero de los protectores de los hijos de Acab</target>
         <note>ID: CharacterName.messenger from guardians of Ahab's children</note>
       </trans-unit>
       <trans-unit id="CharacterName.messenger of Ahab, king of Israel" sil:dynamic="true">
         <source xml:lang="en">messenger of Ahab, king of Israel</source>
-        <target xml:lang="es-ES" state="needs-translation">messenger of Ahab, king of Israel</target>
+        <target xml:lang="es-ES" state="translated">mensajero de Acab, rey de Israel</target>
         <note>ID: CharacterName.messenger of Ahab, king of Israel</note>
       </trans-unit>
       <trans-unit id="CharacterName.messenger telling about Zimri's conspiracy" sil:dynamic="true">
@@ -6104,7 +6099,7 @@
       </trans-unit>
       <trans-unit id="CharacterName.officials (elders) of Samaria (Jezreel) and the guardians of Ahab's sons" sil:dynamic="true">
         <source xml:lang="en">officials (elders) of Samaria (Jezreel) and the guardians of Ahab's sons</source>
-        <target xml:lang="es-ES" state="needs-translation">officials (elders) of Samaria (Jezreel) and the guardians of Ahab's sons</target>
+        <target xml:lang="es-ES" state="translated">funcionarios (ancianos) de Samaria (Jezreel) y los protectores de los hijos de Acab</target>
         <note>ID: CharacterName.officials (elders) of Samaria (Jezreel) and the guardians of Ahab's sons</note>
       </trans-unit>
       <trans-unit id="CharacterName.officials from chief priests and Pharisees" sil:dynamic="true">
@@ -10102,10 +10097,10 @@
         <target xml:lang="es-ES" state="translated">Igual que el guion inicial ({0})</target>
         <note>ID: DialogBoxes.QuotationMarksDlg.EndQuotationDashWithStartDash</note>
       </trans-unit>
-      <trans-unit id="DialogBoxes.QuotationMarksDlg.HowToChangeParextProjectQuoteSystem">
+      <trans-unit id="DialogBoxes.QuotationMarksDlg.HowToChangeParatextProjectQuoteSystem">
         <source xml:lang="en">1) Open the {2} project in {1}, and on the Checking menu, click Quotation Rules.\n2) After saving the changes there, re-run the {3} check for all books included in this {0} project.\n   (Note: The {4} and {5} checks should also pass in order for a book to be included in a {0} project.)\n3) Return to {0} and on the {6} tab of the {7} dialog box, click {8}.</source>
-        <target xml:lang="es-ES" state="translated">1) Abra el proyecto {2} en {1}, y en el menú Verificación haga clic en Reglas de comillas. \n2) Después de guardar los cambios, vuelva a ejecutar la verificación {3} en {1} para todos los libros incluidos en este proyecto de {0}. \n   (Nota: las verificaciones {4} y {5} también deben ejecutarse sin errores para cada libro que desea incluir en un proyecto de {0}.) \n3) Vuelva a {0} y en la pestaña {6} del cuadro de diálogo {7}, haga clic en {8}.</target>
-        <note>ID: DialogBoxes.QuotationMarksDlg.HowToChangeParextProjectQuoteSystem</note>
+        <target xml:lang="es-ES" state="needs-translation">1) Open the {2} project in {1}, and on the Checking menu, click Quotation Rules.\n2) After saving the changes there, re-run the {3} check for all books included in this {0} project.\n   (Note: The {4} and {5} checks should also pass in order for a book to be included in a {0} project.)\n3) Return to {0} and on the {6} tab of the {7} dialog box, click {8}.</target>
+        <note>ID: DialogBoxes.QuotationMarksDlg.HowToChangeParatextProjectQuoteSystem</note>
       </trans-unit>
       <trans-unit id="DialogBoxes.QuotationMarksDlg.Level1">
         <source xml:lang="en">Level 1:</source>
@@ -10314,7 +10309,7 @@
       </trans-unit>
       <trans-unit id="DialogBoxes.ScriptureRangeSelectionDlg.ExcludedParatextBookExplanation">
         <source xml:lang="en">{0} did not automatically include {1} of the books in project {2} because {3} is not reporting a current successful status for all the basic checks that {0} usually requires to pass. If you intend to prepare the recording script for any of the excluded books at this time, we strongly recommend that you get the following checks to pass in {2} before including them:</source>
-        <target xml:lang="es-ES" state="translated">{0} excluyó {1} de los libros en proyecto {2} automáticamente porque {3} no reporta un estado actual de éxito para todos los controles básicos que {0} normalmente exige. Si tiene intenciones de preparar el guión para cualquiera de los libros excluidos, se recomienda encarecidamente que cada libro pase los siguientes controles en {2} antes de ser incluido:</target>
+        <target xml:lang="es-ES" state="translated">{0} excluyó {1} de los libros en proyecto {2} automáticamente porque {3} no reporta un estado actual de éxito para todos las verificaciones básicas que {0} normalmente exige. Si tiene intenciones de preparar el guión para cualquiera de los libros excluidos, se recomienda encarecidamente que cada libro pase las siguientes verificaciones en {2} antes de ser incluido:</target>
         <note>ID: DialogBoxes.ScriptureRangeSelectionDlg.ExcludedParatextBookExplanation</note>
       </trans-unit>
       <trans-unit id="DialogBoxes.ScriptureRangeSelectionDlg.ExcludedSelectedBooksExplanation">
@@ -10324,7 +10319,7 @@
       </trans-unit>
       <trans-unit id="DialogBoxes.ScriptureRangeSelectionDlg.FailedChecksForBook">
         <source xml:lang="en">{0} is not reporting a current successful status for {1} in project {2} for the following basic checks that {3} usually requires to pass:\n{4}</source>
-        <target xml:lang="es-ES" state="translated">{0} no reporta un estado actual de éxito para {1} en el proyecto {2} para los siguientes controles básicos que {3} normalmente exige:\n{4}</target>
+        <target xml:lang="es-ES" state="translated">{0} no reporta un estado actual de éxito para {1} en el proyecto {2} para las siguientes verificaciones básicas que {3} normalmente exige:\n{4}</target>
         <note>ID: DialogBoxes.ScriptureRangeSelectionDlg.FailedChecksForBook</note>
       </trans-unit>
       <trans-unit id="DialogBoxes.ScriptureRangeSelectionDlg.GetUpdatedContent.ApplyToAll">
@@ -11459,7 +11454,7 @@
       </trans-unit>
       <trans-unit id="Project.NoBooksPassedChecks">
         <source xml:lang="en">{0} is not reporting a current successful status for any book in the {1} project for the basic checks that {2} usually requires to pass:\n   {3}\n{4}\nDo you want to proceed with creating a new {2} project for it anyway?</source>
-        <target xml:lang="es-ES" state="translated">{0} no reporta un estado actual de éxito para ningún libro en el proyecto {1} para los controles básicos que {2} normalmente exige:\n   {3}\n{4}\nSin embargo, {2} puede crear el nuevo proyecto y usted puede decidir cómo tratar los problemas más adelante. ¿Desea continuar?</target>
+        <target xml:lang="es-ES" state="translated">{0} no reporta un estado actual de éxito para ningún libro en el proyecto {1} para las verificaciones básicas que {2} normalmente exige:\n   {3}\n{4}\nSin embargo, {2} puede crear el nuevo proyecto y usted puede decidir cómo tratar los problemas más adelante. ¿Desea continuar?</target>
         <note>ID: Project.NoBooksPassedChecks</note>
       </trans-unit>
       <trans-unit id="Project.NoSupportedBooksInParatextProject">
@@ -11489,7 +11484,7 @@
       </trans-unit>
       <trans-unit id="Project.ParatextBooksNoLongerPassChecks">
         <source xml:lang="en">The following books no longer appear to pass the basic checks:\n   {0}\n(If needed, you can include these books again later in the {1} dialog box.)</source>
-        <target xml:lang="es-ES" state="translated">Los siguientes libros aparentemente ya no pasan los chequeos básicos:\n   {0}\n(Si es necesario, se pueden volver a incluir después en el cuadro de diálogo {1}.)</target>
+        <target xml:lang="es-ES" state="translated">Los siguientes libros aparentemente ya no pasan las verificaciones básicas:\n   {0}\n(Si es necesario, se pueden volver a incluir después en el cuadro de diálogo {1}.)</target>
         <note>ID: Project.ParatextBooksNoLongerPassChecks</note>
       </trans-unit>
       <trans-unit id="Project.ParatextProjectFallbackVersificationInvalid">
