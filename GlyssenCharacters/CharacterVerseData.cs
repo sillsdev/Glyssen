@@ -116,6 +116,7 @@ namespace GlyssenCharacters
 
 		public static bool IsCharacterExtraBiblical(string characterId)
 		{
+			// See comment in IsCharacterStandard regarding checking the length first as a the speed optimization
 			switch (characterId?.Length)
 			{
 				case 6: return characterId.StartsWith(kBookOrChapterPrefix, StringComparison.Ordinal);
@@ -126,6 +127,7 @@ namespace GlyssenCharacters
 
 		public static bool IsUserAssignable(string characterId)
 		{
+			// See comment in IsCharacterStandard regarding checking the length first as a the speed optimization
 			return !IsCharacterExtraBiblical(characterId) &&
 				(characterId?.Length != 16 || !characterId.StartsWith(kInterruptionPrefix, StringComparison.Ordinal));
 		}
