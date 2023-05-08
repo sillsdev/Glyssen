@@ -74,6 +74,11 @@ namespace GlyssenEngine.Character
 			return result;
 		}
 
+		/// <summary>
+		/// Gets all unique character/delivery information for the given book. Since this is
+		/// intended only for use in compiling a list of characters for assignment, it always
+		/// excludes interruptions (which should never be assigned).
+		/// </summary>
 		public ISet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryInfo(string bookCode)
 		{
 			var result = ControlCharacterVerseData.Singleton.GetUniqueCharacterDeliveryInfo(bookCode);

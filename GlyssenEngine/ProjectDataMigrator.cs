@@ -278,7 +278,17 @@ namespace GlyssenEngine
 							if (CharacterVerseData.IsCharacterStandard(block.CharacterId))
 								break;
 
-	                        var knownFactoryCharacter = characterDetailDictionary.ContainsKey(block.CharacterIdInScript);
+							// PG-1494: There was a bug that made it possible for the user to set the id to an interruption,
+							// rather than just setting it to narrator.
+							// Testing length first improves performance.
+							if (block.CharacterId.Length == 16 && block.CharacterId.StartsWith("interruption-"))
+							{
+								block.SetNonDramaticCharacterId(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator));
+								numberOfChangesMade++;
+								break;
+							}
+
+							var knownFactoryCharacter = characterDetailDictionary.ContainsKey(block.CharacterIdInScript);
 	                        var unknownCharacter = !knownFactoryCharacter && !project.IsProjectSpecificCharacter(block.CharacterIdInScript);
 	                        if (unknownCharacter && project.ProjectCharacterVerseData.GetCharacters(bookNum, block.ChapterNumber, block.AllVerses)
 	                            .Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))

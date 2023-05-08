@@ -220,7 +220,8 @@ namespace GlyssenEngine.ViewModels
 		private HashSet<CharacterSpeakingMode> GetUniqueCharacterVerseObjectsForBlock(Block block)
 		{
 			return new HashSet<CharacterSpeakingMode>(m_combinedCharacterVerseData.GetCharacters(CurrentBookNumber,
-				block.ChapterNumber, (Block.VerseRangeFromBlock)block, Versification, true, true));
+				block.ChapterNumber, (Block.VerseRangeFromBlock)block, Versification, true, true)
+				.Where(cv => cv.QuoteType != QuoteType.Interruption));
 		}
 
 		public IEnumerable<Character> GetCharactersForCurrentReferenceTextMatchup()
@@ -263,7 +264,7 @@ namespace GlyssenEngine.ViewModels
 				// This will get any expected characters from other verses in the current block.
 				var block = CurrentBlock;
 				CollectionExtensions.AddRange(m_currentCharacters, m_combinedCharacterVerseData.GetCharacters(CurrentBookNumber, block.ChapterNumber,
-					new[] { (Block.VerseRangeFromBlock)block }, Versification, true));
+					new[] { (Block.VerseRangeFromBlock)block }, Versification, true).Where(cv => cv.QuoteType != QuoteType.Interruption));
 
 				var listToAdd = new SortedSet<Character>(m_currentCharacters.Select(cv =>
 					new Character(cv.Character, cv.LocalizedCharacter, cv.Alias, cv.LocalizedAlias)), m_characterComparer).Where(c => !listToReturn.Contains(c)).ToList();
@@ -277,7 +278,7 @@ namespace GlyssenEngine.ViewModels
 				foreach (var block in ContextBlocksBackward.Union(ContextBlocksForward))
 				{
 					m_currentCharacters.UnionWith(m_combinedCharacterVerseData.GetCharacters(CurrentBookNumber, block.ChapterNumber,
-						(Block.VerseRangeFromBlock)block, Versification, true));
+						(Block.VerseRangeFromBlock)block, Versification, true).Where(c => c.QuoteType != QuoteType.Interruption));
 				}
 
 				var listToAdd = new SortedSet<Character>(m_currentCharacters.Select(cv =>
@@ -306,7 +307,8 @@ namespace GlyssenEngine.ViewModels
 					.Where(c => c.LocalizedAlias == null && c.LocalizedCharacter.Contains(filterText, StringComparison.OrdinalIgnoreCase)),
 					new CharacterDeliveryEqualityComparer());
 				m_currentCharacters.AddRange(CharacterDetailData.Singleton.GetAll()
-					.Where(c => c.CharacterId.Contains(filterText, StringComparison.OrdinalIgnoreCase))
+					.Where(c => CharacterVerseData.IsUserAssignable(c.CharacterId) &&
+						c.CharacterId.Contains(filterText, StringComparison.OrdinalIgnoreCase))
 					.Select(c => new CharacterSpeakingMode(c.CharacterId, null, null, false)));
 				m_currentCharacters.UnionWith(uniqueEntries.Where(c => c.LocalizedAlias != null &&
 					(c.LocalizedCharacter.Contains(filterText, StringComparison.OrdinalIgnoreCase) ||
