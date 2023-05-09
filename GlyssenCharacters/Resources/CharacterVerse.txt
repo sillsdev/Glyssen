@@ -1,4 +1,4 @@
-Control File Version	170
+Control File Version	171
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage	Quote Position
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5
 GEN	1	3	God		God (Yahweh)	Normal			ContainedWithinVerse

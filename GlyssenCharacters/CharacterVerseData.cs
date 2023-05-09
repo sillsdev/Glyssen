@@ -116,6 +116,7 @@ namespace GlyssenCharacters
 
 		public static bool IsCharacterExtraBiblical(string characterId)
 		{
+			// See comment in IsCharacterStandard regarding checking the length first as a speed optimization
 			switch (characterId?.Length)
 			{
 				case 6: return characterId.StartsWith(kBookOrChapterPrefix, StringComparison.Ordinal);
@@ -123,6 +124,15 @@ namespace GlyssenCharacters
 				default: return false;
 			}
 		}
+
+		public static bool IsInterruption(string characterId)
+		{
+			// See comment in IsCharacterStandard regarding checking the length first as a speed optimization
+			return characterId?.Length == 16 && characterId.StartsWith(kInterruptionPrefix, StringComparison.Ordinal);
+		}
+
+		public static bool IsUserAssignable(string characterId) =>
+			!IsCharacterExtraBiblical(characterId) && !IsInterruption(characterId);
 
 		// This above code could be replaced with the following slightly more readable/maintainable version, but because
 		// this is speed-critical, I optimized for performance based on extensive comparative testing. If you want to tweak
@@ -220,6 +230,8 @@ namespace GlyssenCharacters
 		protected const string kExtraBiblicalPrefix = "extra-";
 		/// <summary>Character ID prefix for intro material (not for UI)</summary>
 		protected const string kIntroPrefix = "intro-";
+		/// <summary>Character ID prefix for interruptions (not for UI or for assignment)</summary>
+		protected const string kInterruptionPrefix = "interruption-";
 
 		private static readonly Regex s_narratorRegex = new Regex($"{kNarratorPrefix}(?<bookId>...)");
 
@@ -303,11 +315,13 @@ namespace GlyssenCharacters
 			return false;
 		}
 
-		public bool Any()
-		{
-			return m_data.Any();
-		}
+		public bool Any() => m_data.Any();
 
+		/// <summary>
+		/// Gets a set of all unique character/delivery/alias entries. Since this is intended only
+		/// for use in compiling a list of characters for user assignment, it always excludes
+		/// interruptions.
+		/// </summary>
 		public IReadOnlySet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryAliasInfo()
 		{
 			return m_uniqueCharacterDeliverAliasEntries ??
@@ -316,12 +330,19 @@ namespace GlyssenCharacters
 
 		protected virtual HashSet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryAliasSet()
 		{
-			return new HashSet<ICharacterDeliveryInfo>(m_data, m_characterDeliveryAliasEqualityComparer);
+			return new HashSet<ICharacterDeliveryInfo>(m_data.Where(c => c.QuoteType != QuoteType.Interruption),
+				m_characterDeliveryAliasEqualityComparer);
 		}
 
+		/// <summary>
+		/// Gets all unique character/delivery information for the given book. Since this is
+		/// intended only for use in compiling a list of characters for assignment, it always
+		/// excludes interruptions (which should never be assigned).
+		/// </summary>
 		public virtual ISet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryInfo(string bookCode)
 		{
-			return new HashSet<ICharacterDeliveryInfo>(m_data.Where(cv => cv.BookCode == bookCode), m_characterDeliveryEqualityComparer);
+			return new HashSet<ICharacterDeliveryInfo>(m_data.Where(cv => cv.BookCode == bookCode && cv.QuoteType != QuoteType.Interruption),
+				m_characterDeliveryEqualityComparer);
 		}
 
 		public ISet<string> GetUniqueDeliveries()

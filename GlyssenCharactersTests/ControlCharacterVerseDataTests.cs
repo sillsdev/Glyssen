@@ -286,5 +286,19 @@ namespace GlyssenCharactersTests
 			// Every line in the control file for LEV 1 is Implicit.
 			Assert.True(ControlCharacterVerseData.Singleton.ExpectedQuotes[BCVRef.BookToNumber("LEV")].ContainsKey(1));
 		}
+
+		[Test]
+		public void GetUniqueCharacterDeliveryAliasInfo_DoesNotContainInterruption()
+		{
+			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetUniqueCharacterDeliveryAliasInfo()
+				.Any(c => c.Character.StartsWith("interruption-")));
+		}
+
+		[Test]
+		public void GetUniqueCharacterDeliveryInfo_DoesNotContainInterruption()
+		{
+			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetUniqueCharacterDeliveryInfo("JHN")
+				.Any(c => c.Character.StartsWith("interruption-")));
+		}
 	}
 }

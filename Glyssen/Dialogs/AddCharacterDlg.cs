@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Controls;
+using GlyssenCharacters;
 using GlyssenEngine.Script;
 using static System.String;
 using AssignCharacterViewModel = GlyssenEngine.ViewModels.AssignCharacterViewModel<System.Drawing.Font>;
@@ -68,7 +69,7 @@ namespace Glyssen.Dialogs
 
 		private void AddNewCharacter(string character)
 		{
-			if (IsNullOrWhiteSpace(character))
+			if (IsNullOrWhiteSpace(character) || !CharacterVerseData.IsUserAssignable(character))
 				return;
 
 			var existingItem = CurrentContextCharacters.FirstOrDefault(c => c.ToString().Equals(character, StringComparison.OrdinalIgnoreCase));

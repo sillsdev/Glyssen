@@ -16,6 +16,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [6.1.0] - 2023-05-09
+
+### Changed
+- In CharacterVerseData (and in its concrete implementations with overrides: ControlCharacterVerseData and CombinedCharacterVerseData), GetUniqueCharacterDeliveryAliasInfo and GetUniqueCharacterDeliveryInfo fixed so that they always exclude interruptions (since they are intended only for use in compiling a list of characters for user assignment).
+- AssignCharacterViewModel.GetUniqueCharacters(string filterText) fixed to exclude interruptions
+
+### Added
+- Added the following static methods to CharacterVerseData: IsUserAssignable, IsInterruption
+
 ## [6.0.0] - 2023-01-24
 
 ### Changed
