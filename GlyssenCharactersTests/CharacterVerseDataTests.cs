@@ -71,7 +71,7 @@ namespace GlyssenCharactersTests
 		[TestCase("interruption-MAT")]
 		[TestCase("interruption-JHN")]
 		[TestCase("interruption-FRG")]
-		public void IsInterruption_Interruption_ReturnsFalse(string characterId)
+		public void IsInterruption_Interruption_ReturnsTrue(string characterId)
 		{
 			Assert.IsTrue(CharacterVerseData.IsInterruption(characterId));
 		}
