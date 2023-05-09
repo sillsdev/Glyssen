@@ -125,12 +125,14 @@ namespace GlyssenCharacters
 			}
 		}
 
-		public static bool IsUserAssignable(string characterId)
+		public static bool IsInterruption(string characterId)
 		{
 			// See comment in IsCharacterStandard regarding checking the length first as a the speed optimization
-			return !IsCharacterExtraBiblical(characterId) &&
-				(characterId?.Length != 16 || !characterId.StartsWith(kInterruptionPrefix, StringComparison.Ordinal));
+			return characterId?.Length == 16 && characterId.StartsWith(kInterruptionPrefix, StringComparison.Ordinal);
 		}
+
+		public static bool IsUserAssignable(string characterId) =>
+			!IsCharacterExtraBiblical(characterId) && !IsInterruption(characterId);
 
 		// This above code could be replaced with the following slightly more readable/maintainable version, but because
 		// this is speed-critical, I optimized for performance based on extensive comparative testing. If you want to tweak
@@ -313,15 +315,12 @@ namespace GlyssenCharacters
 			return false;
 		}
 
-		public bool Any()
-		{
-			return m_data.Any();
-		}
+		public bool Any() => m_data.Any();
 
 		/// <summary>
 		/// Gets a set of all unique character/delivery/alias entries. Since this is intended only
 		/// for use in compiling a list of characters for user assignment, it always excludes
-		/// interruptions and extra-biblical IDs.
+		/// interruptions.
 		/// </summary>
 		public IReadOnlySet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryAliasInfo()
 		{
@@ -331,7 +330,7 @@ namespace GlyssenCharacters
 
 		protected virtual HashSet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryAliasSet()
 		{
-			return new HashSet<ICharacterDeliveryInfo>(m_data.Where(c => IsUserAssignable(c.Character)),
+			return new HashSet<ICharacterDeliveryInfo>(m_data.Where(c => c.QuoteType != QuoteType.Interruption),
 				m_characterDeliveryAliasEqualityComparer);
 		}
 

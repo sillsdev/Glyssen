@@ -280,9 +280,9 @@ namespace GlyssenEngine
 
 							// PG-1494: There was a bug that made it possible for the user to set the id to an interruption,
 							// rather than just setting it to narrator.
-							// Testing length first improves performance.
-							if (block.CharacterId.Length == 16 && block.CharacterId.StartsWith("interruption-"))
+							if (CharacterVerseData.IsInterruption(block.CharacterId))
 							{
+	                            project.ProjectCharacterVerseData.RemoveAllEntriesForBlock(bookNum, block);
 								block.SetNonDramaticCharacterId(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator));
 								numberOfChangesMade++;
 								break;

@@ -46,6 +46,48 @@ namespace GlyssenCharactersTests
 			Assert.IsFalse(CharacterVerseData.IsCharacterStandard(characterId));
 		}
 
+		[TestCase("intro-REV")]
+		[TestCase("BC-MAT")]
+		[TestCase("extra-JHN")]
+		[TestCase("interruption-JHN")]
+		public void IsUserAssignable_ExtraBiblicalOrInterruption_ReturnsFalse(string characterId)
+		{
+			Assert.IsFalse(CharacterVerseData.IsUserAssignable(characterId));
+		}
+
+		[TestCase("intro-REVELATION")]
+		[TestCase("BC-matthew")]
+		[TestCase("extraJHN")]
+		[TestCase("interruption")]
+		[TestCase("interruption-")]
+		[TestCase("interruption-Whatever")]
+		[TestCase("frog man")]
+		[TestCase("narrator-JHN")]
+		public void IsUserAssignable_NotExtraBiblicalOrInterruption_ReturnsTrue(string characterId)
+		{
+			Assert.IsTrue(CharacterVerseData.IsUserAssignable(characterId));
+		}
+
+		[TestCase("interruption-MAT")]
+		[TestCase("interruption-JHN")]
+		[TestCase("interruption-FRG")]
+		public void IsInterruption_Interruption_ReturnsFalse(string characterId)
+		{
+			Assert.IsTrue(CharacterVerseData.IsInterruption(characterId));
+		}
+
+		[TestCase("intro-REV")]
+		[TestCase("BC-MAT")]
+		[TestCase("extra-JHN")]
+		[TestCase("interruption")]
+		[TestCase("interruption-")]
+		[TestCase("interruption-Whatever")]
+		[TestCase("frog man")]
+		[TestCase("narrator-JHN")]
+		public void IsInterruption_NotInterruption_ReturnsFalse(string characterId)
+		{
+			Assert.IsFalse(CharacterVerseData.IsInterruption(characterId));
+		}
 
 		// If IsCharacterStandard and/or IsCharacterExtraBiblical need to be tweaked, the following test can be used (and adjusted as needed)
 		// to provide a good head-to-head comparison to make sure performance is optimized, since these methods are performance-critical.

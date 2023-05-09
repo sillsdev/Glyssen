@@ -232,6 +232,11 @@ namespace GlyssenCharacters
 			throw new ApplicationException("The control file cannot be modified programmatically.");
 		}
 
+		/// <summary>
+		/// Gets a set of all unique character/delivery/alias entries. Since this is intended only
+		/// for use in compiling a list of characters for user assignment, it always excludes
+		/// interruptions.
+		/// </summary>
 		protected override HashSet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryAliasSet()
 		{
 			var set = base.GetUniqueCharacterDeliveryAliasSet();
@@ -240,6 +245,11 @@ namespace GlyssenCharacters
 			return set;
 		}
 
+		/// <summary>
+		/// Gets all unique character/delivery information for the given book. Since this is
+		/// intended only for use in compiling a list of characters for assignment, it always
+		/// excludes interruptions (which should never be assigned).
+		/// </summary>
 		public override ISet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryInfo(string bookCode)
 		{
 			var set = base.GetUniqueCharacterDeliveryInfo(bookCode);
