@@ -6,7 +6,7 @@
   "platform_version": "",
   "architecture": "x64",
   "stability": "release",
-  "file": "ReleaseNotes.md",
-  "type": "md",
+  "file": "ReleaseNotes.htm",
+  "type": "HTML",
   "build": ""
 }

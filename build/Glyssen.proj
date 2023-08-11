@@ -10,25 +10,28 @@
 		<ExtraExcludeCategories Condition="'$(teamcity_version)' != ''">SkipOnTeamCity,$(ExtraExcludeCategories)</ExtraExcludeCategories>
 		<TeamCity Condition="'$(teamcity_version)' != ''">true</TeamCity>
 		<TeamCity Condition="'$(teamcity_version)' == ''">false</TeamCity>
-		<RestartBuild Condition="!Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')">true</RestartBuild>
-		<RestartBuild Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')">false</RestartBuild>
+		<SILBuildTasksDLL>$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll</SILBuildTasksDLL>
+		<SILReleaseTasksProps>$(RootDir)/packages/SIL.ReleaseTasks/build/SIL.ReleaseTasks.props</SILReleaseTasksProps>
+		<RestartBuild Condition="!Exists('$(SILBuildTasksDLL)') Or !Exists('$(SILReleaseTasksProps)')">true</RestartBuild>
+		<RestartBuild Condition="Exists('$(SILBuildTasksDLL)') And Exists('$(SILReleaseTasksProps)')">false</RestartBuild>
+		<Platform>x64</Platform>
 	</PropertyGroup>
 
-	<UsingTask TaskName="MakeWixForDirTree"
-		AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
-		Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
-	<UsingTask TaskName="FileUpdate"
-		AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
-		Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
-	<UsingTask TaskName="NUnit3" AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll" />
+	<UsingTask TaskName="MakeWixForDirTree" AssemblyFile="$(SILBuildTasksDLL)"
+		Condition="Exists('$(SILBuildTasksDLL)')" />
+	<UsingTask TaskName="FileUpdate" AssemblyFile="$(SILBuildTasksDLL)"
+		Condition="Exists('$(SILBuildTasksDLL)')" />
+	<UsingTask TaskName="NUnit3" AssemblyFile="$(SILBuildTasksDLL)" />
 
 	<Import Project="../.nuget/NuGet.targets" />
+	<Import Project="$(SILReleaseTasksProps)" Condition="Exists('$(SILReleaseTasksProps)')" />
 
 	<Target Name="RestoreLocalPackages" DependsOnTargets="CheckPrerequisites">
 		<Message Text="Calling $(NuGetCommand) restore ../$(Solution)" />
 		<Exec Command='$(NuGetCommand) restore ../$(Solution)' />
 		<Exec Command='$(NuGetCommand) install SIL.BuildTasks -excludeVersion -PreRelease -source "$(PackageSources)" -solutionDirectory "$(RootDir)"' />
-		<Exec Command='$(NuGetCommand) install SIL.libpalaso.l10ns -excludeVersion -Version 9.0.1-beta0011 -source "$(PackageSources)" -solutionDirectory "$(SolutionDir)."' />
+		<Exec Command='$(NuGetCommand) install SIL.ReleaseTasks -excludeVersion -PreRelease -source "$(PackageSources)" -solutionDirectory "$(RootDir)."' />
+		<Exec Command='$(NuGetCommand) install SIL.libpalaso.l10ns -excludeVersion -Version 9.0.1-beta0011 -source "$(PackageSources)" -solutionDirectory "$(RootDir)."' />
 		<Message Text="RestartBuild=$(RestartBuild)"/>
 		<MSBuild Projects="$(MSBuildProjectFullPath)" Targets="BuildInternal" Properties="Configuration=$(Configuration)" Condition="$(RestartBuild)" />
 	</Target>
@@ -72,6 +75,11 @@
 			Assemblies="@(TestAssemblies)"
 			ExcludeCategory="$(ExtraExcludeCategories)$(excludedCategories)" 
 			Force32Bit="false" />
+	</Target>
+		
+	<Target Name="ConvertReleaseNotesToHtml">
+		<CreateReleaseNotesHtml ChangelogFile="$(RootDir)/DistFiles/ReleaseNotes.md"
+			HtmlFile="$(RootDir)/output/ReleaseNotes.htm" />
 	</Target>
 	
 	<Target Name="Installer" DependsOnTargets="SetInstallerVersionNumber; MakeWixForDistFiles; MakeWixForXulRunner; Build ">
