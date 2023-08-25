@@ -55,7 +55,7 @@
 		<Message Text="BuildInternal : Configuration=$(Configuration)"/>
 		<MSBuild Projects="$(RootDir)/$(Solution)"
 			Targets="Rebuild"
-			Properties="Configuration=$(Configuration)" />
+			Properties="Configuration=$(Configuration);Platform=$(Platform)" />
 	</Target>
 
 	<Target Name="Test" DependsOnTargets="Build">
