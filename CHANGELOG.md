@@ -16,6 +16,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+- All assemblies are now strong-named.
+
 ## [6.1.0] - 2023-05-09
 
 ### Changed

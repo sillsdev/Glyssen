@@ -14,7 +14,7 @@
     <PackageProjectUrl>https://software.sil.org/glyssen/</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\glyssen.snk</AssemblyOriginatorKeyFile>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
@@ -80,6 +80,7 @@ See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.
     <PackageReference Include="SIL.ReleaseTasks" Version="2.5.0" PrivateAssets="true" />
     <PackageReference Include="SIL.Scripture" Version="12.0.1" />
     <PackageReference Include="SIL.WritingSystems" Version="12.0.1" />
+    <PackageReference Include="StrongNamer" Version="0.2.5" />
     <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
   </ItemGroup>
