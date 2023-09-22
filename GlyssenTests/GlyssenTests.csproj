@@ -499,6 +499,7 @@
     <Error Condition="!Exists('..\packages\SIL.Windows.Forms.Keyboarding.12.0.1\build\SIL.Windows.Forms.Keyboarding.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SIL.Windows.Forms.Keyboarding.12.0.1\build\SIL.Windows.Forms.Keyboarding.props'))" />
     <Error Condition="!Exists('..\packages\SIL.Windows.Forms.Keyboarding.12.0.1\build\SIL.Windows.Forms.Keyboarding.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SIL.Windows.Forms.Keyboarding.12.0.1\build\SIL.Windows.Forms.Keyboarding.targets'))" />
     <Error Condition="!Exists('..\packages\SIL.Windows.Forms.12.0.1\build\SIL.Windows.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SIL.Windows.Forms.12.0.1\build\SIL.Windows.Forms.targets'))" />
+    <Error Condition="!Exists('..\packages\StrongNamer.0.2.5\build\StrongNamer.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\StrongNamer.0.2.5\build\StrongNamer.targets'))" />
   </Target>
   <!-- Do not need/want a nuget package for this project. -->
   <Target Name="Pack" />
@@ -512,6 +513,7 @@
   <Import Project="..\packages\icu.net.2.9.0\build\icu.net.targets" Condition="Exists('..\packages\icu.net.2.9.0\build\icu.net.targets')" />
   <Import Project="..\packages\SIL.Windows.Forms.Keyboarding.12.0.1\build\SIL.Windows.Forms.Keyboarding.targets" Condition="Exists('..\packages\SIL.Windows.Forms.Keyboarding.12.0.1\build\SIL.Windows.Forms.Keyboarding.targets')" />
   <Import Project="..\packages\SIL.Windows.Forms.12.0.1\build\SIL.Windows.Forms.targets" Condition="Exists('..\packages\SIL.Windows.Forms.12.0.1\build\SIL.Windows.Forms.targets')" />
+  <Import Project="..\packages\StrongNamer.0.2.5\build\StrongNamer.targets" Condition="Exists('..\packages\StrongNamer.0.2.5\build\StrongNamer.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
