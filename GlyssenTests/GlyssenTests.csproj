@@ -83,9 +83,6 @@
     <Reference Include="Enchant.Net, Version=1.4.0.0, Culture=neutral, PublicKeyToken=ae135aeb3d479ab9, processorArchitecture=MSIL">
       <HintPath>..\packages\Enchant.Net.1.4.2\lib\net461\Enchant.Net.dll</HintPath>
     </Reference>
-    <Reference Include="FuzzySharp, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FuzzySharp.2.0.2\lib\net461\FuzzySharp.dll</HintPath>
-    </Reference>
     <Reference Include="GdkSharp, Version=3.22.24.37, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
       <HintPath>..\packages\GdkSharp-signed.3.22.24.37\lib\netstandard2.0\GdkSharp.dll</HintPath>
     </Reference>
@@ -499,7 +496,6 @@
     <Error Condition="!Exists('..\packages\SIL.Windows.Forms.Keyboarding.12.0.1\build\SIL.Windows.Forms.Keyboarding.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SIL.Windows.Forms.Keyboarding.12.0.1\build\SIL.Windows.Forms.Keyboarding.props'))" />
     <Error Condition="!Exists('..\packages\SIL.Windows.Forms.Keyboarding.12.0.1\build\SIL.Windows.Forms.Keyboarding.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SIL.Windows.Forms.Keyboarding.12.0.1\build\SIL.Windows.Forms.Keyboarding.targets'))" />
     <Error Condition="!Exists('..\packages\SIL.Windows.Forms.12.0.1\build\SIL.Windows.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SIL.Windows.Forms.12.0.1\build\SIL.Windows.Forms.targets'))" />
-    <Error Condition="!Exists('..\packages\StrongNamer.0.2.5\build\StrongNamer.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\StrongNamer.0.2.5\build\StrongNamer.targets'))" />
   </Target>
   <!-- Do not need/want a nuget package for this project. -->
   <Target Name="Pack" />
@@ -513,7 +509,6 @@
   <Import Project="..\packages\icu.net.2.9.0\build\icu.net.targets" Condition="Exists('..\packages\icu.net.2.9.0\build\icu.net.targets')" />
   <Import Project="..\packages\SIL.Windows.Forms.Keyboarding.12.0.1\build\SIL.Windows.Forms.Keyboarding.targets" Condition="Exists('..\packages\SIL.Windows.Forms.Keyboarding.12.0.1\build\SIL.Windows.Forms.Keyboarding.targets')" />
   <Import Project="..\packages\SIL.Windows.Forms.12.0.1\build\SIL.Windows.Forms.targets" Condition="Exists('..\packages\SIL.Windows.Forms.12.0.1\build\SIL.Windows.Forms.targets')" />
-  <Import Project="..\packages\StrongNamer.0.2.5\build\StrongNamer.targets" Condition="Exists('..\packages\StrongNamer.0.2.5\build\StrongNamer.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

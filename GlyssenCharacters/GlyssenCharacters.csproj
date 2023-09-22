@@ -55,17 +55,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="FuzzySharp" Version="2.0.2" />
     <PackageReference Include="GitVersion.MsBuild" Version="5.12.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="SIL.Scripture" Version="12.0.1" />
-    <PackageReference Include="StrongNamer" Version="0.2.5" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\GlyssenShared\GlyssenShared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="FuzzySharp">
+      <HintPath>..\lib\FuzzySharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
@@ -81,6 +85,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Content Include="..\lib\FuzzySharp.dll">
+        <Pack>true</Pack>
+        <PackagePath>lib\$(TargetFramework)</PackagePath>
+    </Content>
   </ItemGroup>
 
 </Project>
