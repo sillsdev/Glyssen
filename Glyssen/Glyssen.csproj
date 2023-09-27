@@ -59,7 +59,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>..\glyssen.snk</AssemblyOriginatorKeyFile>
@@ -561,9 +561,6 @@
     <PackageReference Include="EPPlus">
       <Version>4.0.5</Version>
     </PackageReference>
-    <PackageReference Include="FuzzySharp">
-      <Version>2.0.2</Version>
-    </PackageReference>
     <PackageReference Include="GdkSharp-signed">
       <Version>3.22.24.37</Version>
     </PackageReference>
@@ -624,7 +621,7 @@
       <Version>12.0.1</Version>
     </PackageReference>
     <PackageReference Include="SIL.DesktopAnalytics">
-      <Version>3.0.3</Version>
+      <Version>4.0.4</Version>
     </PackageReference>
     <PackageReference Include="SIL.libpalaso.l10ns">
       <Version>9.0.1-beta0011</Version>
@@ -653,6 +650,9 @@
     </PackageReference>
     <PackageReference Include="SIL.WritingSystems">
       <Version>12.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="StrongNamer">
+      <Version>0.2.5</Version>
     </PackageReference>
     <PackageReference Include="System.Drawing.Common">
       <Version>7.0.0</Version>

@@ -8,7 +8,7 @@ using Gecko.DOM;
 
 namespace Glyssen.Utilities
 {
-	static class GeckoUtilities
+	static internal class GeckoUtilities
 	{
 		public static bool ParseDomEventTargetAsGeckoElement(DomEventTarget domEventTarget, out GeckoElement geckoElement)
 		{

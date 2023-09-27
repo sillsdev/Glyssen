@@ -5,6 +5,8 @@
     <Platforms>x64;AnyCPU</Platforms>
 	<OutputPath>..\output\$(Configuration)\</OutputPath>
 	<IsPackable>false</IsPackable>
+	<SignAssembly>True</SignAssembly>
+	<AssemblyOriginatorKeyFile>..\glyssen.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
