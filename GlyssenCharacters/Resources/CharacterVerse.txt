@@ -20369,7 +20369,7 @@ ROM	16	22	Tertius			Implicit			EntireVerse
 1CO	6	12	saying about doing anything			Hypothetical			Unspecified
 1CO	6	13	saying about food			Hypothetical			Unspecified
 1CO	6	16	scripture			Quotation			EndOfVerse
-1CO	6	18	scripture			Quotation			Unspecified
+1CO	6	18	saying about sin			Hypothetical			Unspecified
 1CO	7	1	narrator-1CO			Quotation			Unspecified
 1CO	7	8	narrator-1CO			Potential			
 1CO	7	10	narrator-1CO			Potential			
@@ -20388,6 +20388,8 @@ ROM	16	22	Tertius			Implicit			EntireVerse
 # blocks in the reference text)
 1CO	10	28	scripture			Potential	David		
 1CO	10	28	Needs Review			Potential			
+1CO	10	29	argument about being judged			Hypothetical			
+1CO	10	30	argument about being judged			Hypothetical			
 1CO	11	24	Jesus			Normal			EndOfVerse
 1CO	11	25	Jesus			Normal			EndOfVerse
 1CO	12	3	narrator-1CO			Quotation			Unspecified
@@ -20398,6 +20400,9 @@ ROM	16	22	Tertius			Implicit			EntireVerse
 1CO	14	16	person without the gift of tongues			Hypothetical			Unspecified
 1CO	14	21	scripture			Quotation	God		Unspecified
 1CO	14	25	unbeliever who comes under conviction			Hypothetical			Unspecified
+# Typically the apostles' testimony is expressed as indirect speech.
+1CO	15	15	disciples		apostles	Quotation			Unspecified
+1CO	15	15	narrator-1CO			Quotation			Unspecified
 1CO	15	27	scripture			Quotation			Unspecified
 1CO	15	27	narrator-1CO			Quotation			Unspecified
 1CO	15	32	scripture			Quotation	someone in Jerusalem		Unspecified
@@ -20506,6 +20511,8 @@ EPH	5	31	scripture			Quotation			Unspecified
 EPH	6	2	scripture			Quotation	God		Unspecified
 EPH	6	3	scripture			Quotation	God		EntireVerse
 PHP	2	11	everyone			Hypothetical			Unspecified
+# TN marks "crooked and depraved generation" as an OT quote from Deu 32:5
+PHP	2	15	scripture			Quotation			Unspecified
 PHP	4	2	narrator-PHP			Potential			
 PHP	4	3	narrator-PHP			Potential			
 PHP	4	4	narrator-PHP			Potential			
@@ -20520,6 +20527,7 @@ COL	4	17	narrator-COL			Quotation			Unspecified
 2TH	3	10	narrator-2TH			Quotation			Unspecified
 2TH	3	10	rule given by Paul			Quotation	narrator-2TH		Unspecified
 1TI	1	15	narrator-1TI			Quotation			Unspecified
+1TI	3	1	trustworthy saying			Hypothetical			EndOfVerse
 1TI	3	16	narrator-1TI			Quotation			Unspecified
 1TI	3	16	hymn, early creedal			Quotation	narrator-1TI		Unspecified
 1TI	4	3	false teachers			Hypothetical			Unspecified
@@ -20615,6 +20623,11 @@ HEB	11	5	scripture			Quotation			Unspecified
 HEB	11	18	scripture			Quotation	God		Unspecified
 HEB	11	20	narrator-HEB			Quotation			Unspecified
 HEB	11	20	Isaac			Quotation			Unspecified
+HEB	11	20	scripture			Quotation	Isaac		Unspecified
+HEB	11	21	narrator-HEB			Quotation			Unspecified
+HEB	11	21	Jacob (Israel)			Quotation			Unspecified
+# GEN 47:31
+HEB	11	21	scripture			Quotation			Unspecified
 HEB	12	5	scripture			Quotation	Solomon, king		EndOfVerse
 HEB	12	6	scripture			Quotation	Solomon, king		EntireVerse
 HEB	12	13	scripture			Quotation			Unspecified
@@ -20653,6 +20666,8 @@ JAS	5	17	Elijah	praying		Indirect
 1PE	2	8	scripture			Quotation	God		Unspecified
 1PE	2	10	scripture			Quotation	God		Unspecified
 1PE	2	22	scripture			Quotation	Isaiah		Unspecified
+1PE	2	24	scripture			Quotation	Isaiah		Unspecified
+1PE	2	25	scripture			Quotation	Isaiah		Unspecified
 1PE	3	6	narrator-1PE			Quotation			Unspecified
 1PE	3	10	scripture			Quotation	David		Unspecified
 1PE	3	11	scripture			Quotation	David		EntireVerse
@@ -20783,6 +20798,8 @@ REV	6	3	living creature, second			Normal			EndOfVerse
 REV	6	5	living creature, third			Normal			ContainedWithinVerse
 REV	6	6	voice from among living creatures			Normal			EndOfVerse
 REV	6	7	living creature, fourth			Normal			EndOfVerse
+# Scare quote: horse called "Death"
+REV	6	8	narrator-REV			Normal			
 REV	6	10	souls of those killed for word of God			Normal			EndOfVerse
 REV	6	11	reply to the slain believers (in vision)			Indirect			
 REV	6	16	kings, princes, generals, rich, powerful, slave and free	crying		Normal			EndOfVerse
@@ -20821,6 +20838,7 @@ REV	11	15	voices in heaven, loud			Normal			EndOfVerse
 REV	11	17	twenty-four elders			Normal			EndOfVerse
 REV	11	18	twenty-four elders			Normal			EntireVerse
 REV	11	19	narrator-REV			Quotation			Unspecified
+REV	12	5	scripture			Quotation			Unspecified
 REV	12	10	voice in heaven, loud			Normal			EndOfVerse
 REV	12	11	voice in heaven, loud			Normal			EntireVerse
 REV	12	12	voice in heaven, loud			Normal			EntireVerse
