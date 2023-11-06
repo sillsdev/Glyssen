@@ -63,7 +63,7 @@ namespace GlyssenEngine.Script
 			// might be added to the USFM standard, this regex matches only the known allowed poetry markers. It specifically prevents matching
 			// "qa", which is an acrostic header and should not be treated like other poetry markers. As the standard is changed in the future,
 			// any new markers that should be treated as "follow on" paragraphs will need to be added here.
-			s_regexFollowOnParagraphStyles = new Regex("^((q((m?\\d?)|[rc])?)|m|mi|(pi\\d?)|(l(f|(i(m?)\\d?))))$", RegexOptions.Compiled);
+			s_regexFollowOnParagraphStyles = new Regex("^((q((m?\\d?)|[rc])?)|b|m|mi|(pi\\d?)|(l(f|(i(m?)\\d?))))$", RegexOptions.Compiled);
 		}
 
 		internal Block()
