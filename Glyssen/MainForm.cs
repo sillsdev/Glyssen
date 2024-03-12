@@ -304,7 +304,7 @@ namespace Glyssen
 			m_imgCheckAssignActors.Visible = m_btnAssignVoiceActors.Visible && m_btnAssignVoiceActors.Enabled && m_project.IsVoiceActorScriptReady;
 			m_lnkExit.Enabled = readyForUserInteraction;
 
-			m_shareMenu.Enabled = readyForUserInteraction;
+			m_exportMenu.Enabled = readyForUserInteraction;
 		}
 
 		private void ResetUi()
@@ -332,7 +332,7 @@ namespace Glyssen
 
 			m_lblFilesAreHere.Visible = false;
 
-			m_shareMenu.Enabled = false;
+			m_exportMenu.Enabled = false;
 		}
 
 		private void HandleOpenProject_Click(object sender, EventArgs e)
