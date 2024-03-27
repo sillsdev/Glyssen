@@ -33,3 +33,4 @@ lib/dotnet/MarkdownDeep.dll
 /DistFiles/localization/Palaso.*.xlf
 /build/engine.exe
 /*/gitversion.json
+/artwork/largelogos.png
