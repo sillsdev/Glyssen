@@ -226,6 +226,7 @@ namespace GlyssenEngineTests.Script
 		[TestCase("pi2")]
 		[TestCase("qr")] // Right-aligned poetic line: https://ubsicap.github.io/usfm/poetry/index.html#qr
 		[TestCase("qc")] // Centered poetic line: https://ubsicap.github.io/usfm/poetry/index.html#qc
+		[TestCase("b")] // Blank line: https://ubsicap.github.io/usfm/paragraphs/index.html#b
 		public void IsFollowOnParagraphStyle_LineBreakingUsfmTag_ReturnsTrue(string tag)
 		{
 			var block = new Block(tag);
