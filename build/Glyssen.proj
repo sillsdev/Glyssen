@@ -70,7 +70,7 @@
 		<NUnit3
 			TeamCity="$(TeamCity)"
 			Verbose="true"
-			ToolPath="$(RootDir)/packages/NUnit.ConsoleRunner.3.16.3/tools"
+			ToolPath="$(RootDir)/packages/NUnit.ConsoleRunner.3.17.0/tools"
 			WorkingDirectory="$(RootDir)/output/$(Configuration)"
 			Assemblies="@(TestAssemblies)"
 			ExcludeCategory="$(ExtraExcludeCategories)$(excludedCategories)" 

@@ -12,6 +12,7 @@ using Glyssen.Shared;
 using GlyssenCharacters;
 using GlyssenEngine.Quote;
 using GlyssenEngine.Utilities;
+using Paratext.Data;
 using SIL.Code;
 using SIL.Scripture;
 using SIL.Xml;
@@ -37,8 +38,6 @@ namespace GlyssenEngine.Script
 						".right-to-left{{direction:rtl}}" +
 						".scripttext {{display:inline}}";
 
-		private static readonly Regex s_regexFollowOnParagraphStyles;
-
 		public static Func<string /* Book ID */, int /*Chapter Number*/, string> FormatChapterAnnouncement;
 
 		private const string kRegexForVerseNumber = @"\{(?<verse>(?<startVerse>[0-9]+)((-|,)(?<endVerse>[0-9]+))?)\}";
@@ -59,11 +58,6 @@ namespace GlyssenEngine.Script
 				RegexOptions.Compiled);
 			s_emptyVerseText = new Regex("^ *(?<verseWithWhitespace>" + kRegexForVerseNumber + kRegexForWhitespaceFollowingVerseNumber + @")? *$",
 				RegexOptions.Compiled);
-			// Rather than a very permissive regex that attempts to include all \q* markers in hopes of catching any future markers that
-			// might be added to the USFM standard, this regex matches only the known allowed poetry markers. It specifically prevents matching
-			// "qa", which is an acrostic header and should not be treated like other poetry markers. As the standard is changed in the future,
-			// any new markers that should be treated as "follow on" paragraphs will need to be added here.
-			s_regexFollowOnParagraphStyles = new Regex("^((q((m?\\d?)|[rc])?)|m|mi|(pi\\d?)|(l(f|(i(m?)\\d?))))$", RegexOptions.Compiled);
 		}
 
 		internal Block()
@@ -171,8 +165,7 @@ namespace GlyssenEngine.Script
 			{
 				if (m_initialStartVerseNumber == 0)
 				{
-					var leadingVerseElement = BlockElements.FirstOrDefault() as Verse;
-					if (leadingVerseElement != null)
+					if (BlockElements.FirstOrDefault() is Verse leadingVerseElement)
 					{
 						m_initialStartVerseNumber = leadingVerseElement.StartVerse;
 					}
@@ -1105,7 +1098,7 @@ namespace GlyssenEngine.Script
 			return this;
 		}
 
-		public bool IsFollowOnParagraphStyle => s_regexFollowOnParagraphStyles.IsMatch(StyleTag);
+		public bool IsFollowOnParagraphStyle => ScrStylesheet.followOnParagraphStylesRegex.IsMatch(StyleTag);
 
 		/// <summary>
 		/// Gets whether the paragraph style associated with this block is a "continuation" style
