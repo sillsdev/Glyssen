@@ -406,22 +406,23 @@ namespace Glyssen
 			// a superset of the languages available for Glyssen. But it feels weird not to create
 			// the primary LM first, and the day could come where neither set of languages is a
 			// superset, and then this strategy wouldn't work.
-			LocalizationManager.Create(TranslationMemory.XLiff, desiredUiLangId, "Palaso", "Palaso", version,
+			LocalizationManager.Create(desiredUiLangId, "Palaso", "Palaso", version,
 				installedStringFileFolder, relativeSettingPathForLocalizationFolder, Resources.glyssenIcon, IssuesEmailAddress,
+				new [] {"SIL.Windows.Forms", "SIL.DblBundle"},
 				typeof(SIL.Localizer)
 					.GetMethods(BindingFlags.Static | BindingFlags.Public)
-					.Where(m => m.Name == "GetString"),
-				"SIL.Windows.Forms", "SIL.DblBundle");
+					.Where(m => m.Name == "GetString"));
 
 			var uiLanguage = LocalizationManager.UILanguageId;
 
 			// ENHANCE: Create a separate LM for GlyssenEngine, so we can generate a nuget package
 			// with the localized strings (similar to what we do for libpalaso and chorus).
-			var primaryMgr = LocalizationManager.Create(TranslationMemory.XLiff, uiLanguage, GlyssenInfo.ApplicationId, Application.ProductName, version,
+			var primaryMgr = LocalizationManager.Create(uiLanguage, GlyssenInfo.ApplicationId, Application.ProductName, version,
 				installedStringFileFolder, relativeSettingPathForLocalizationFolder, Resources.glyssenIcon, IssuesEmailAddress,
+				new [] {"Glyssen"},
 				typeof(SIL.Localizer)
 					.GetMethods(BindingFlags.Static | BindingFlags.Public)
-					.Where(m => m.Name == "GetString"), "Glyssen");
+					.Where(m => m.Name == "GetString"));
 
 			LocIncompleteViewModel = new LocalizationIncompleteViewModel(primaryMgr, "glyssen", IssueRequestForLocalization);
 
