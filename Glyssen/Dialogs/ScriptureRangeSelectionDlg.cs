@@ -545,8 +545,8 @@ namespace Glyssen.Dialogs
 			else
 			{
 				correspondingMultiVoiceCell.ReadOnly = true;
-				m_btnOk.Enabled = m_otBooksGrid.Rows.Cast<DataGridViewRow>().Any(row => row.Index != rowIndex && (bool)((DataGridViewCheckBoxCell)row.Cells[m_includeInScriptColumnIndex]).Value) ||
-				                  m_ntBooksGrid.Rows.Cast<DataGridViewRow>().Any(row => row.Index != rowIndex && (bool)((DataGridViewCheckBoxCell)row.Cells[m_includeInScriptColumnIndex]).Value);
+				m_btnOk.Enabled = m_otBooksGrid.Rows.Cast<DataGridViewRow>().Any(row => (row.Index != rowIndex || m_otBooksGrid != grid) && (bool)((DataGridViewCheckBoxCell)row.Cells[m_includeInScriptColumnIndex]).Value) ||
+				                  m_ntBooksGrid.Rows.Cast<DataGridViewRow>().Any(row => (row.Index != rowIndex || m_ntBooksGrid != grid) && (bool)((DataGridViewCheckBoxCell)row.Cells[m_includeInScriptColumnIndex]).Value);
 			}
 			grid.EndEdit();
 			grid.InvalidateCell(correspondingMultiVoiceCell);

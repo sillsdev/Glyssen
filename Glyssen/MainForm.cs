@@ -1075,7 +1075,7 @@ namespace Glyssen
 		private void ProjectStateChangedAfterSelectingBooks(object sender, Project.ProjectStateChangedEventArgs e)
 		{
 			if (m_project != sender /* This probably can't happen. */ ||
-			    (m_project.ProjectState & ProjectState.FullyInitialized) == 0)
+			    (m_project.ProjectState & ProjectState.ReadyForUserInteraction) == 0)
 				return;
 
 			if (!m_project.IncludedBooks.Any())

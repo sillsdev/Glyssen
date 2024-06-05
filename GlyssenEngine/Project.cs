@@ -1570,7 +1570,12 @@ namespace GlyssenEngine
 				bookScript.Initialize(Versification);
 			}
 
-			Debug.Assert(bookScripts.All(b => b.GetScriptBlocks().Any()));
+			if (bookScripts.All(b => !b.GetScriptBlocks().Any()))
+			{
+				// This is really unlikely for a real user.
+				Save();
+				return;
+			}
 
 			if (m_books.Any())
 			{
