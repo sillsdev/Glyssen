@@ -1054,19 +1054,23 @@ namespace Glyssen
 		{
 			using (var dlg = new ScriptureRangeSelectionDlg(m_project, m_paratextScrTextWrapperForRecentlyCreatedProject))
 			{
+				m_project.ProjectStateChanged += ProjectStateChangedAfterSelectingBooks;
+
 				if (ShowModalDialogWithWaitCursor(dlg) == DialogResult.OK)
 				{
 					m_project.ClearAssignCharacterStatus();
-					if ((m_project.ProjectState & ProjectState.FullyInitialized) > 0)
+					if ((m_project.ProjectState & ProjectState.ReadyForUserInteraction) > 0)
 					{
+						m_project.ProjectStateChanged -= ProjectStateChangedAfterSelectingBooks;
+
 						m_project.Analyze();
 						UpdateDisplayOfProjectInfo();
 						SaveCurrentProject(true);
 					}
-					else
-					{
-						m_project.ProjectStateChanged += ProjectStateChangedAfterSelectingBooks;
-					}
+				}
+				else
+				{
+					m_project.ProjectStateChanged -= ProjectStateChangedAfterSelectingBooks;
 				}
 			}
 			m_paratextScrTextWrapperForRecentlyCreatedProject = null;
