@@ -1570,13 +1570,6 @@ namespace GlyssenEngine
 				bookScript.Initialize(Versification);
 			}
 
-			if (bookScripts.All(b => !b.GetScriptBlocks().Any()))
-			{
-				// This is really unlikely for a real user.
-				Save();
-				return;
-			}
-
 			if (m_books.Any())
 			{
 				foreach (var book in bookScripts)
@@ -1593,7 +1586,9 @@ namespace GlyssenEngine
 				AddMissingAvailableBooks();
 			}
 
-			if (QuoteSystem == null)
+			if (!bookScripts.Any() || bookScripts.All(b => !b.GetScriptBlocks().Any())) // This is really unlikely for a real user (second part is probably impossible)
+				Save();
+			else if (QuoteSystem == null)
 				GuessAtQuoteSystem();
 			else if (IsQuoteSystemReadyForParse)
 				DoQuoteParse(bookScripts.Select(b => b.BookId));
