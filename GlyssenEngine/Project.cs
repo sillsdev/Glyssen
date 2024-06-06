@@ -1149,7 +1149,7 @@ namespace GlyssenEngine
 
 					existingAvailable.Remove(bookCode);
 				}
-				else
+				else if (newlyAvailableChecksPass != null || newlyAvailableChecksFail != null)
 				{
 					// New available book.
 					if (scrTextWrapper.DoesBookPassChecks(bookNum))

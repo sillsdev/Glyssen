@@ -58,7 +58,12 @@ namespace GlyssenEngine.Paratext
 
 		public BookState GetState(int bookNum)
 		{
-			return m_books[bookNum].State;
+			if (m_books.TryGetValue(bookNum, out var status))
+				return status.State;
+
+			// I think this should never happen now, but to avoid a crash, if we don't have a
+			// status for this book, treat it like not passing.
+			return BookState.FailedCheck;
 		}
 
 		public IEnumerable<string> GetFailedChecks(int bookNum)
