@@ -1054,19 +1054,23 @@ namespace Glyssen
 		{
 			using (var dlg = new ScriptureRangeSelectionDlg(m_project, m_paratextScrTextWrapperForRecentlyCreatedProject))
 			{
+				m_project.ProjectStateChanged += ProjectStateChangedAfterSelectingBooks;
+
 				if (ShowModalDialogWithWaitCursor(dlg) == DialogResult.OK)
 				{
 					m_project.ClearAssignCharacterStatus();
-					if ((m_project.ProjectState & ProjectState.FullyInitialized) > 0)
+					if ((m_project.ProjectState & ProjectState.ReadyForUserInteraction) > 0)
 					{
+						m_project.ProjectStateChanged -= ProjectStateChangedAfterSelectingBooks;
+
 						m_project.Analyze();
 						UpdateDisplayOfProjectInfo();
 						SaveCurrentProject(true);
 					}
-					else
-					{
-						m_project.ProjectStateChanged += ProjectStateChangedAfterSelectingBooks;
-					}
+				}
+				else
+				{
+					m_project.ProjectStateChanged -= ProjectStateChangedAfterSelectingBooks;
 				}
 			}
 			m_paratextScrTextWrapperForRecentlyCreatedProject = null;
@@ -1075,7 +1079,7 @@ namespace Glyssen
 		private void ProjectStateChangedAfterSelectingBooks(object sender, Project.ProjectStateChangedEventArgs e)
 		{
 			if (m_project != sender /* This probably can't happen. */ ||
-			    (m_project.ProjectState & ProjectState.FullyInitialized) == 0)
+			    (m_project.ProjectState & ProjectState.ReadyForUserInteraction) == 0)
 				return;
 
 			if (!m_project.IncludedBooks.Any())

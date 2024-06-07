@@ -1149,7 +1149,7 @@ namespace GlyssenEngine
 
 					existingAvailable.Remove(bookCode);
 				}
-				else
+				else if (newlyAvailableChecksPass != null || newlyAvailableChecksFail != null)
 				{
 					// New available book.
 					if (scrTextWrapper.DoesBookPassChecks(bookNum))
@@ -1570,8 +1570,6 @@ namespace GlyssenEngine
 				bookScript.Initialize(Versification);
 			}
 
-			Debug.Assert(bookScripts.All(b => b.GetScriptBlocks().Any()));
-
 			if (m_books.Any())
 			{
 				foreach (var book in bookScripts)
@@ -1588,7 +1586,9 @@ namespace GlyssenEngine
 				AddMissingAvailableBooks();
 			}
 
-			if (QuoteSystem == null)
+			if (!bookScripts.Any() || bookScripts.All(b => !b.GetScriptBlocks().Any())) // This is really unlikely for a real user (second part is probably impossible)
+				Save();
+			else if (QuoteSystem == null)
 				GuessAtQuoteSystem();
 			else if (IsQuoteSystemReadyForParse)
 				DoQuoteParse(bookScripts.Select(b => b.BookId));

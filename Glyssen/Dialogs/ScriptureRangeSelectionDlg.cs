@@ -344,12 +344,13 @@ namespace Glyssen.Dialogs
 
 		private bool UserWantsUpdatedContent(BookScript bookScriptFromExistingFile)
 		{
+			var bookNum = bookScriptFromExistingFile.BookNumber;
 			// If there is a newer version ask user if they want to get the updated version.
-			if (!GetParatextScrTextWrapperIfNeeded(true) || m_paratextScrTextWrapper.GetBookChecksum(bookScriptFromExistingFile.BookNumber) == bookScriptFromExistingFile.ParatextChecksum)
+			if (!GetParatextScrTextWrapperIfNeeded(true) || m_paratextScrTextWrapper.GetBookChecksum(bookNum) == bookScriptFromExistingFile.ParatextChecksum)
 				return false;
 			// If the updated version does NOT pass tests but the existing version does (i.e., user didn't override the checking status),
 			// we'll just stick with the version we have. If they want to update it manually later, they can.
-			if (m_paratextScrTextWrapper.DoesBookPassChecks(bookScriptFromExistingFile.BookNumber) && !bookScriptFromExistingFile.CheckStatusOverridden)
+			if (m_paratextScrTextWrapper.DoesBookPassChecks(bookNum) && !bookScriptFromExistingFile.CheckStatusOverridden)
 				return false;
 
 			var result = m_userDecisionAboutUpdatedBookContent;
@@ -545,8 +546,8 @@ namespace Glyssen.Dialogs
 			else
 			{
 				correspondingMultiVoiceCell.ReadOnly = true;
-				m_btnOk.Enabled = m_otBooksGrid.Rows.Cast<DataGridViewRow>().Any(row => row.Index != rowIndex && (bool)((DataGridViewCheckBoxCell)row.Cells[m_includeInScriptColumnIndex]).Value) ||
-				                  m_ntBooksGrid.Rows.Cast<DataGridViewRow>().Any(row => row.Index != rowIndex && (bool)((DataGridViewCheckBoxCell)row.Cells[m_includeInScriptColumnIndex]).Value);
+				m_btnOk.Enabled = m_otBooksGrid.Rows.Cast<DataGridViewRow>().Any(row => (row.Index != rowIndex || m_otBooksGrid != grid) && (bool)((DataGridViewCheckBoxCell)row.Cells[m_includeInScriptColumnIndex]).Value) ||
+				                  m_ntBooksGrid.Rows.Cast<DataGridViewRow>().Any(row => (row.Index != rowIndex || m_ntBooksGrid != grid) && (bool)((DataGridViewCheckBoxCell)row.Cells[m_includeInScriptColumnIndex]).Value);
 			}
 			grid.EndEdit();
 			grid.InvalidateCell(correspondingMultiVoiceCell);
