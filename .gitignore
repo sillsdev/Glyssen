@@ -34,4 +34,4 @@ lib/dotnet/MarkdownDeep.dll
 /build/engine.exe
 /*/gitversion.json
 /artwork/largelogos.png
-**/.vs/*.csproj.dtbcache.json
+**/.vs/*
