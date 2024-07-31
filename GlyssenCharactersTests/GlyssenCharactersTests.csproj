@@ -50,7 +50,7 @@
     <PackageReference Include="NUnit.Extension.NUnitV2ResultWriter" Version="3.7.0" />
     <PackageReference Include="NUnit.Extension.TeamCityEventListener" Version="1.0.9" />
     <PackageReference Include="NUnit.Extension.VSProjectLoader" Version="3.9.0" />
-    <PackageReference Include="SIL.Scripture" Version="13.0.1" />
+    <PackageReference Include="SIL.Scripture" Version="14.1.1" />
   </ItemGroup>
 
   <ItemGroup>
