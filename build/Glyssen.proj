@@ -215,7 +215,7 @@
 		<MakeWixForDirTree
 			DirectoryReferenceId="XulRunnerDir"
 			ComponentGroupId="XulRunner"
-			RootDirectory="$(RootDir)\packages\Geckofx60.64.60.0.55\content\Firefox"
+			RootDirectory="$(RootDir)\packages\Geckofx60.64.60.0.56\content\Firefox"
 			InstallerSourceDirectory="$(RootDir)\Installer"
 			OutputFilePath="$(RootDir)\output\installer\GeneratedXulRunner.wxs"
 			MatchRegExPattern=".*">

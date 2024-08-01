@@ -23,7 +23,7 @@ DevTools/Resources/temporary/*
 /Glyssen/Resources/Thumbs.db
 lib/dotnet/NetSparkle.Net40.dll
 lib/dotnet/MarkdownDeep.dll
-/.vs
+**/.vs/*
 /DistFiles/reference_texts/NewEnglish/
 ~$*.xlsx
 /DevTools/Resources/*.xlsm
@@ -34,4 +34,3 @@ lib/dotnet/MarkdownDeep.dll
 /build/engine.exe
 /*/gitversion.json
 /artwork/largelogos.png
-**/.vs/*.csproj.dtbcache.json

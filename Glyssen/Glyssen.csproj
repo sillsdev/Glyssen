@@ -565,7 +565,7 @@
       <Version>3.22.24.37</Version>
     </PackageReference>
     <PackageReference Include="Geckofx60.64">
-      <Version>60.0.55</Version>
+      <Version>60.0.56</Version>
     </PackageReference>
     <PackageReference Include="GioSharp-signed">
       <Version>3.22.24.37</Version>
@@ -579,13 +579,16 @@
       <Version>3.22.24.37</Version>
     </PackageReference>
     <PackageReference Include="icu.net">
-      <Version>2.9.0</Version>
+      <Version>2.10.0</Version>
     </PackageReference>
     <PackageReference Include="Icu4c.Win.Min">
       <Version>59.1.7</Version>
     </PackageReference>
     <PackageReference Include="L10NSharp">
       <Version>7.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Markdig.Signed">
+      <Version>0.37.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.CSharp">
       <Version>4.7.0</Version>
@@ -594,10 +597,10 @@
       <Version>3.1.6</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyModel">
-      <Version>7.0.0</Version>
+      <Version>8.0.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Windows.Compatibility">
-      <Version>7.0.5</Version>
+      <Version>8.0.7</Version>
     </PackageReference>
     <PackageReference Include="NetSparkle.Net40">
       <Version>1.2.0</Version>
@@ -612,50 +615,50 @@
       <Version>9.5.0.5</Version>
     </PackageReference>
     <PackageReference Include="SIL.Core">
-      <Version>13.0.1</Version>
+      <Version>14.1.1</Version>
     </PackageReference>
     <PackageReference Include="SIL.Core.Desktop">
-      <Version>13.0.1</Version>
+      <Version>14.1.1</Version>
     </PackageReference>
     <PackageReference Include="SIL.DblBundle">
-      <Version>13.0.1</Version>
+      <Version>14.1.1</Version>
     </PackageReference>
     <PackageReference Include="SIL.DesktopAnalytics">
-      <Version>5.1.0</Version>
+      <Version>6.0.1</Version>
     </PackageReference>
     <PackageReference Include="SIL.libpalaso.l10ns">
-      <Version>13.0.1</Version>
+      <Version>14.1.1</Version>
       <GeneratePathProperty>true</GeneratePathProperty>
     </PackageReference>
     <PackageReference Include="SIL.ReleaseTasks">
       <Version>2.5.0</Version>
     </PackageReference>
     <PackageReference Include="SIL.Scripture">
-      <Version>13.0.1</Version>
+      <Version>14.1.1</Version>
     </PackageReference>
     <PackageReference Include="SIL.Windows.Forms">
-      <Version>13.0.1</Version>
+      <Version>14.1.1</Version>
     </PackageReference>
     <PackageReference Include="SIL.Windows.Forms.DblBundle">
-      <Version>13.0.1</Version>
+      <Version>14.1.1</Version>
     </PackageReference>
     <PackageReference Include="SIL.Windows.Forms.GeckoBrowserAdapter">
-      <Version>13.0.1</Version>
+      <Version>14.1.1</Version>
     </PackageReference>
     <PackageReference Include="SIL.Windows.Forms.Scripture">
-      <Version>13.0.1</Version>
+      <Version>14.1.1</Version>
     </PackageReference>
     <PackageReference Include="SIL.Windows.Forms.WritingSystems">
-      <Version>13.0.1</Version>
+      <Version>14.1.1</Version>
     </PackageReference>
     <PackageReference Include="SIL.WritingSystems">
-      <Version>13.0.1</Version>
+      <Version>14.1.1</Version>
     </PackageReference>
     <PackageReference Include="StrongNamer">
       <Version>0.2.5</Version>
     </PackageReference>
     <PackageReference Include="System.Drawing.Common">
-      <Version>7.0.0</Version>
+      <Version>8.0.7</Version>
     </PackageReference>
     <PackageReference Include="System.Memory">
       <Version>4.5.5</Version>
