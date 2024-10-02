@@ -227,6 +227,18 @@ are trying to support, you're better off using non-advertised shortcuts." -->
               <File Id="System.Resources.Extensions.dll" Name="System.Resources.Extensions.dll" KeyPath="yes" Source="..\output\release\System.Resources.Extensions.dll" />
           </Component>
 
+          <Component Id="System.Text.Encodings.Web.dll" Guid="*">
+              <File Id="System.Text.Encodings.Web.dll" Name="System.Text.Encodings.Web.dll" KeyPath="yes" Source="..\output\release\System.Text.Encodings.Web.dll" />
+          </Component>
+
+          <Component Id="System.Text.Json.dll" Guid="*">
+              <File Id="System.Text.Json.dll" Name="System.Text.Json.dll" KeyPath="yes" Source="..\output\release\System.Text.Json.dll" />
+          </Component>
+
+          <Component Id="System.Threading.Tasks.Extensions.dll" Guid="*">
+              <File Id="System.Threading.Tasks.Extensions.dll" Name="System.Threading.Tasks.Extensions.dll" KeyPath="yes" Source="..\output\release\System.Threading.Tasks.Extensions.dll" />
+          </Component>
+
           <Component Id="ParatextData.dll" Guid="*" Win64="yes">
             <File Id="ParatextData.dll" Name="ParatextData.dll" KeyPath="yes" Source="..\output\release\ParatextData.dll" ProcessorArchitecture="x64"/>
           </Component>
@@ -235,10 +247,18 @@ are trying to support, you're better off using non-advertised shortcuts." -->
           <Component Id="PtxUtils.dll" Guid="*" Win64="yes">
             <File Id="PtxUtils.dll" Name="PtxUtils.dll" KeyPath="yes" Source="..\output\release\PtxUtils.dll" ProcessorArchitecture="x64"/>
           </Component>
+
+          <Component Id="Spart.dll" Guid="*" Win64="yes">
+              <File Id="Spart.dll" Name="Spart.dll" KeyPath="yes" Source="..\output\release\Spart.dll" ProcessorArchitecture="x64"/>
+          </Component>
           <!--End Needed for ParatextData-->
 
-		  <Component Id="Microsoft.DotNet.PlatformAbstractions.dll" Guid="*" Win64="yes">
-            <File Id="Microsoft.DotNet.PlatformAbstractions.dll" Name="Microsoft.DotNet.PlatformAbstractions.dll" KeyPath="yes" Source="..\output\release\Microsoft.DotNet.PlatformAbstractions.dll" ProcessorArchitecture="x64"/>
+          <Component Id="Microsoft.Bcl.AsyncInterfaces.dll" Guid="*" Win64="yes">
+              <File Id="Microsoft.Bcl.AsyncInterfaces.dll" Name="Microsoft.Bcl.AsyncInterfaces.dll" KeyPath="yes" Source="..\output\release\Microsoft.Bcl.AsyncInterfaces.dll" ProcessorArchitecture="x64"/>
+          </Component>
+
+          <Component Id="Microsoft.DotNet.PlatformAbstractions.dll" Guid="*" Win64="yes">
+              <File Id="Microsoft.DotNet.PlatformAbstractions.dll" Name="Microsoft.DotNet.PlatformAbstractions.dll" KeyPath="yes" Source="..\output\release\Microsoft.DotNet.PlatformAbstractions.dll" ProcessorArchitecture="x64"/>
           </Component>
 
           <Component Id="Microsoft.Extensions.DependencyModel.dll" Guid="*" Win64="yes">
@@ -340,11 +360,16 @@ are trying to support, you're better off using non-advertised shortcuts." -->
 	  <ComponentRef Id="System.ValueTuple.dll"/>
 	  <ComponentRef Id="System.Numerics.Vectors.dll"/>
 	  <ComponentRef Id="System.Resources.Extensions.dll"/>
+      <ComponentRef Id="System.Text.Encodings.Web.dll"/>
+      <ComponentRef Id="System.Text.Json.dll"/>
+      <ComponentRef Id="System.Threading.Tasks.Extensions.dll"/>
       <ComponentRef Id="ParatextData.dll"/>
       <ComponentRef Id="PtxUtils.dll"/>
+	  <ComponentRef Id="Spart.dll"/>   <!-- Referenced by ParatextData (results in Fusion load error, but maybe not actually needed) -->
 	  <ComponentRef Id="DotNetZip.dll"/>
 	  <ComponentRef Id="FuzzySharp.dll"/>
 	  <ComponentRef Id="Markdig.Signed.dll"/>
+	  <ComponentRef Id="Microsoft.Bcl.AsyncInterfaces.dll"/>
       <ComponentRef Id="Microsoft.DotNet.PlatformAbstractions.dll"/>
       <ComponentRef Id="Microsoft.Extensions.DependencyModel.dll"/>
       <ComponentRef Id="Microsoft.Win32.Registry.dll"/>
