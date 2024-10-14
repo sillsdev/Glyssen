@@ -74,7 +74,8 @@
 			WorkingDirectory="$(RootDir)/output/$(Configuration)"
 			Assemblies="@(TestAssemblies)"
 			ExcludeCategory="$(ExtraExcludeCategories)$(excludedCategories)" 
-			Force32Bit="false" />
+			Force32Bit="false"
+			Workers="1"	/>
 	</Target>
 		
 	<Target Name="ConvertReleaseNotesToHtml">
