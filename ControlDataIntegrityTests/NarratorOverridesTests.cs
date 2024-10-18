@@ -12,7 +12,7 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_LoadsCorrectly()
 		{
-			Assert.IsTrue(NarratorOverrides.GetNarratorOverridesForBook("PSA").Any());
+			Assert.That(NarratorOverrides.GetNarratorOverridesForBook("PSA"), Is.Not.Empty);
 		}
 
 		[Test]
@@ -20,7 +20,7 @@ namespace ControlDataIntegrityTests
 		{
 			foreach (var overrideDetail in NarratorOverrides.NarratorOverridesByBookId.Values.SelectMany(o => o))
 			{
-				Assert.True(CharacterDetailData.Singleton.GetDictionary().Keys.Contains(overrideDetail.Character),
+				Assert.That(CharacterDetailData.Singleton.GetDictionary().Keys, Does.Contain(overrideDetail.Character),
 					$"Character {overrideDetail.Character} In NarratorOverrides.xml was not found in CharacterDetail");
 			}
 		}
@@ -32,16 +32,16 @@ namespace ControlDataIntegrityTests
 			{
 				foreach (var overrideDetail in NarratorOverrides.GetNarratorOverridesForBook(bookId))
 				{
-					Assert.True(overrideDetail.StartChapter <= overrideDetail.EndChapter,
+					Assert.That(overrideDetail.StartChapter, Is.LessThanOrEqualTo(overrideDetail.EndChapter),
 						$"In NarratorOverrides.xml, book {bookId}: end chapter {overrideDetail.EndChapter} precedes start chapter {overrideDetail.StartChapter}.");
 					if (overrideDetail.StartChapter == overrideDetail.EndChapter)
 					{
-						Assert.True(overrideDetail.StartVerse <= overrideDetail.EndVerse,
+						Assert.That(overrideDetail.StartVerse, Is.LessThanOrEqualTo(overrideDetail.EndVerse),
 							$"In NarratorOverrides.xml, book {bookId}, chapter {overrideDetail.StartChapter}: end verse {overrideDetail.EndVerse} precedes start verse {overrideDetail.StartVerse}.");
 
 						if (overrideDetail.StartVerse == overrideDetail.EndVerse)
 						{
-							Assert.True(overrideDetail.StartBlock <= overrideDetail.EndBlock,
+							Assert.That(overrideDetail.StartBlock, Is.LessThanOrEqualTo(overrideDetail.EndBlock),
 								$"In NarratorOverrides.xml, an entry for {bookId} {overrideDetail.StartChapter}:{overrideDetail.EndVerse} " +
 								$"has an end block {overrideDetail.EndBlock} that precedes its start block {overrideDetail.StartBlock}.");
 						}
@@ -57,7 +57,8 @@ namespace ControlDataIntegrityTests
 			{
 				foreach (var overrideDetail in NarratorOverrides.GetNarratorOverridesForBook(bookId))
 				{
-					Assert.IsTrue(overrideDetail.StartChapter >= 1, $"In NarratorOverrides.xml, book {bookId}, StartChapter not set for override {overrideDetail}.");
+					Assert.That(overrideDetail.StartChapter, Is.GreaterThanOrEqualTo(1),
+						$"In NarratorOverrides.xml, book {bookId}, StartChapter not set for override {overrideDetail}.");
 				}
 			}
 		}
@@ -72,7 +73,8 @@ namespace ControlDataIntegrityTests
 			{
 				foreach (var overrideDetail in NarratorOverrides.GetNarratorOverridesForBook(bookId))
 				{
-					Assert.IsTrue(overrideDetail.StartBlock < 6, $"In NarratorOverrides.xml, book {bookId}, StartBlock set to invalid value for override {overrideDetail}.");
+					Assert.That(overrideDetail.StartBlock, Is.LessThan(6),
+						$"In NarratorOverrides.xml, book {bookId}, StartBlock set to invalid value for override {overrideDetail}.");
 				}
 			}
 		}
@@ -83,8 +85,8 @@ namespace ControlDataIntegrityTests
 			foreach (var bookId in NarratorOverrides.NarratorOverridesByBookId.Keys)
 			{
 				var bookNum = BCVRef.BookToNumber(bookId);
-				Assert.IsTrue(bookNum >= 1, $"Invalid book ID: {bookId}");
-				Assert.IsTrue(bookNum <= 66, $"Non-canonical book ID: {bookId}");
+				Assert.That(bookNum, Is.GreaterThanOrEqualTo(1), $"Invalid book ID: {bookId}");
+				Assert.That(bookNum, Is.LessThanOrEqualTo(66), $"Non-canonical book ID: {bookId}");
 			}
 		}
 
@@ -115,9 +117,9 @@ namespace ControlDataIntegrityTests
 				{
 					if (prev != null)
 					{
-						Assert.True(overrideDetail.EndChapter > prev.EndChapter || (overrideDetail.EndChapter == prev.EndChapter &&
+						Assert.That(overrideDetail.EndChapter > prev.EndChapter || (overrideDetail.EndChapter == prev.EndChapter &&
 								overrideDetail.EndVerse > prev.EndVerse) || (overrideDetail.EndChapter == prev.EndChapter &&
-								overrideDetail.EndVerse == prev.EndVerse && overrideDetail.EndBlock > prev.EndBlock),
+								overrideDetail.EndVerse == prev.EndVerse && overrideDetail.EndBlock > prev.EndBlock), Is.True,
 							$"In NarratorOverrides.xml, book {kvp.Key}: override {overrideDetail} overlaps {prev}.");
 					}
 					prev = overrideDetail;
@@ -133,9 +135,9 @@ namespace ControlDataIntegrityTests
 				var bookNum = BCVRef.BookToNumber(bookOverrides.Key);
 				foreach (NarratorOverrides.NarratorOverrideDetail overrideDetail in bookOverrides.Value)
 				{
-					Assert.True(overrideDetail.EndChapter <= ScrVers.English.GetLastChapter(bookNum),
+					Assert.That(overrideDetail.EndChapter, Is.LessThanOrEqualTo(ScrVers.English.GetLastChapter(bookNum)),
 						$"Invalid end chapter: {overrideDetail}");
-					Assert.True(overrideDetail.EndVerse <= ScrVers.English.GetLastVerse(bookNum, overrideDetail.EndChapter),
+					Assert.That(overrideDetail.EndVerse, Is.LessThanOrEqualTo(ScrVers.English.GetLastVerse(bookNum, overrideDetail.EndChapter)),
 						$"Invalid end verse: {overrideDetail}");
 				}
 			}
@@ -169,7 +171,7 @@ namespace ControlDataIntegrityTests
 			{
 				var verse = new VerseRef(BCVRef.BookToNumber(cv.BookCode), cv.Chapter, cv.Verse, ScrVers.English);
 				var overrideInfo = NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verse, cv.Verse);
-				Assert.IsTrue(overrideInfo.All(oi => oi.Character != cv.Character),
+				Assert.That(overrideInfo.All(oi => oi.Character != cv.Character), Is.True,
 					$"Character-verse file contains an Implicit quote for {cv.Character} in verse {verse} that is also covered " +
 					$"by narrator override {overrideInfo}.");
 			}
@@ -186,7 +188,8 @@ namespace ControlDataIntegrityTests
 					{
 						// This is an unusual situation, but it if happens that a character starts speaking in the first block
 						// of a verse, they have to stop in that same block; otherwise, they might as well have spoken the whole verse.
-						Assert.AreEqual(1, partialStart.EndBlock, $"Character {partialStart.Character} starts speaking in block 1 of {book.Id} " +
+						Assert.That(1, Is.EqualTo(partialStart.EndBlock),
+							$"Character {partialStart.Character} starts speaking in block 1 of {book.Id} " +
 							$"{partialStart.StartChapter}:{partialStart.StartVerse} but then keeps on talking!");
 					}
 					else
@@ -199,14 +202,14 @@ namespace ControlDataIntegrityTests
 						// in poetry and instead explicitly set the reference text and require the scripter to look at each place to get it right.
 						// This is an unusual situation, but it if happens that a character starts speaking in the first block
 						// of a verse, they have to stop in that same block; otherwise, they might as well have spoken the whole verse.
-						//Assert.IsTrue(partialStart.StartBlock == partialStart.EndBlock || partialStart.EndChapter > partialStart.StartChapter ||
-						//	partialStart.EndVerse > partialStart.StartVerse,
+						//Assert.That(partialStart.StartBlock == partialStart.EndBlock || partialStart.EndChapter > partialStart.StartChapter ||
+						//	partialStart.EndVerse > partialStart.StartVerse, Is.True,
 						//	$"Character {partialStart.Character} is assigned as the override for more than one contiguous block in {book.Id} " +
 						//	$"{partialStart.StartChapter}:{partialStart.StartVerse}!");
 
 						var endsForSameChapterAndVerse = book.Overrides.Where(o => o.EndChapter == partialStart.StartChapter &&
 							o.EndVerse == partialStart.StartVerse).ToList();
-						Assert.IsTrue(endsForSameChapterAndVerse.All(e => e.EndBlock > 0), $"An override for {book.Id} " +
+						Assert.That(endsForSameChapterAndVerse.All(e => e.EndBlock > 0), Is.True, $"An override for {book.Id} " +
 							$"{partialStart.StartChapter}:{partialStart.StartVerse} has a start block ({partialStart.StartBlock}) " +
 							"that is already covered by the end verse of another entry!");
 

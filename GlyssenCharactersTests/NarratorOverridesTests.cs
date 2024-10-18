@@ -18,7 +18,7 @@ namespace GlyssenCharactersTests
 		public void GetCharacterOverrideDetailsForRefRange_BookWithNoOverrides_ReturnsEmpty()
 		{
 			var genesis1_1 = new VerseRef(001001001, ScrVers.English);
-			Assert.IsFalse(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(genesis1_1, 1).Any());
+			Assert.That(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(genesis1_1, 1).Any(), Is.False);
 		}
 
 		[Test]
@@ -26,7 +26,7 @@ namespace GlyssenCharactersTests
 		{
 			var bookNum = BCVRef.BookToNumber("EZR");
 			var ezra1_1 = new VerseRef(new BCVRef(bookNum, 1, 1), ScrVers.English);
-			Assert.IsFalse(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(ezra1_1, 1).Any());
+			Assert.That(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(ezra1_1, 1).Any(), Is.False);
 		}
 
 		[Test]
@@ -34,7 +34,7 @@ namespace GlyssenCharactersTests
 		{
 			var bookNum = BCVRef.BookToNumber("EZR");
 			var ezra10_1 = new VerseRef(new BCVRef(bookNum, 10, 1), ScrVers.English);
-			Assert.IsFalse(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(ezra10_1, 1).Any());
+			Assert.That(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(ezra10_1, 1).Any(), Is.False);
 		}
 
 		[Test]
@@ -42,7 +42,7 @@ namespace GlyssenCharactersTests
 		{
 			var bookNum = BCVRef.BookToNumber("EZR");
 			var ezra7_26 = new VerseRef(new BCVRef(bookNum, 7, 26), ScrVers.English);
-			Assert.IsFalse(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(ezra7_26, 26).Any());
+			Assert.That(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(ezra7_26, 26).Any(), Is.False);
 		}
 
 		[Test]
@@ -50,7 +50,7 @@ namespace GlyssenCharactersTests
 		{
 			var bookNum = BCVRef.BookToNumber("NEH");
 			var nehemiah7_6 = new VerseRef(new BCVRef(bookNum, 7, 6), ScrVers.English);
-			Assert.IsFalse(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(nehemiah7_6, 6).Any());
+			Assert.That(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(nehemiah7_6, 6).Any(), Is.False);
 		}
 
 		[Test]
@@ -58,8 +58,8 @@ namespace GlyssenCharactersTests
 		{
 			var bookNum = BCVRef.BookToNumber("NEH");
 			var nehemiah7_5 = new VerseRef(new BCVRef(bookNum, 7, 5), ScrVers.English);
-			Assert.AreEqual("Nehemiah",
-				NarratorOverrides.GetCharacterOverrideDetailsForRefRange(nehemiah7_5, 5).Single().Character);
+			Assert.That(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(nehemiah7_5, 5).Single().Character,
+				Is.EqualTo("Nehemiah"));
 		}
 
 		[Test]
@@ -67,8 +67,8 @@ namespace GlyssenCharactersTests
 		{
 			var bookNum = BCVRef.BookToNumber("EZR");
 			var ezra7_27 = new VerseRef(new BCVRef(bookNum, 7, 27), ScrVers.English);
-			Assert.AreEqual("Ezra, priest and teacher",
-				NarratorOverrides.GetCharacterOverrideDetailsForRefRange(ezra7_27, 27).Single().Character);
+			Assert.That(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(ezra7_27, 27).Single().Character,
+				Is.EqualTo("Ezra, priest and teacher"));
 		}
 
 		//<Override startChapter="42" character="sons of Korah"/>
@@ -122,7 +122,7 @@ namespace GlyssenCharactersTests
 		{
 			var bookNum = BCVRef.BookToNumber(bookId);
 			var verseRef = new VerseRef(new BCVRef(bookNum, chapter, startVerse), ScrVers.English);
-			Assert.IsFalse(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, endVerse).Any());
+			Assert.That(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, endVerse).Any(), Is.False);
 		}
 
 		[Test]
@@ -130,7 +130,7 @@ namespace GlyssenCharactersTests
 		{
 			var bookNum = BCVRef.BookToNumber("PSA");
 			var verseRef = new VerseRef(new BCVRef(bookNum, 45, 0), ScrVers.English);
-			Assert.IsFalse(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, 2).Any());
+			Assert.That(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, 2).Any(), Is.False);
 		}
 
 		[Test]
@@ -170,7 +170,7 @@ namespace GlyssenCharactersTests
 			if (verse == -1)
 				verse = ScrVers.Vulgate.GetLastVerse(bookNum, kChapter);
 			var verseRef = new VerseRef(new BCVRef(bookNum, kChapter, verse), ScrVers.Vulgate);
-			Assert.AreEqual("psalmist", NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, verse).Single().Character);
+			Assert.That(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, verse).Single().Character, Is.EqualTo("psalmist"));
 		}
 	}
 }

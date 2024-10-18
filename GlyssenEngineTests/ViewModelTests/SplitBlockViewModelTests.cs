@@ -44,7 +44,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var expected = SplitBlockViewModel.BuildSplitLineHtml(1);
 			var actual = model.GetSplitTextAsHtml(block, 0, false, new[] { new BlockSplitData(1, block, "4", 5) });
 
-			Assert.IsTrue(actual.Contains(expected),
+			Assert.That(actual, Does.Contain(expected),
 				$"The output string did not contain: {expected}");
 		}
 
@@ -65,7 +65,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			var actual = model.GetSplitTextAsHtml(block, 99, false, new[] { new BlockSplitData(42, block, "1", 15) }, GetSelectCharacter);
 
-			Assert.IsTrue(actual.Contains(expectedToContain),
+			Assert.That(actual, Does.Contain(expectedToContain),
 				$"The output string did not contain: {expectedToContain}");
 		}
 
@@ -100,7 +100,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				new BlockSplitData(3, block, "4", 19),
 				new BlockSplitData(4, block, "5", 4)
 			});
-			Assert.AreEqual(expected, actual);
+			Assert.That(expected, Is.EqualTo(actual));
 		}
 
 		[Test]
@@ -130,7 +130,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				new BlockSplitData(3, block, "4", 113),
 				new BlockSplitData(4, block, "4", 41)
 			});
-			Assert.AreEqual(expected, actual);
+			Assert.That(expected, Is.EqualTo(actual));
 		}
 
 		[Test]
@@ -146,7 +146,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, Array.Empty<ICharacter>(), "ACT");
 			var actual = model.GetSplitTextAsHtml(block, 0, false, new[] { new BlockSplitData(1, block, "3", 19) });
 
-			Assert.AreEqual(expected, actual);
+			Assert.That(expected, Is.EqualTo(actual));
 		}
 
 		[Test]
@@ -171,7 +171,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				new BlockSplitData(1, block, "3", 2),
 			});
 
-			Assert.AreEqual(expected, actual);
+			Assert.That(expected, Is.EqualTo(actual));
 		}
 
 		[Test]
@@ -182,7 +182,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var expected = "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">A &amp; &lt;&lt;B&gt;&gt; </div>" + SplitBlockViewModel.BuildSplitLineHtml(1) + "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">C</div>";
 			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, Array.Empty<ICharacter>(), "ACT");
 			var actual = model.GetSplitTextAsHtml(block, 0, false, new[] { new BlockSplitData(1, block, "3", 10) });
-			Assert.AreEqual(expected, actual);
+			Assert.That(expected, Is.EqualTo(actual));
 		}
 
 		[Test]
@@ -203,7 +203,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				new BlockSplitData(1, block, "3", 4),
 				new BlockSplitData(2, block, "4", 3)
 			});
-			Assert.AreEqual(expected, actual);
+			Assert.That(expected, Is.EqualTo(actual));
 		}
 
 		[Test]
@@ -225,7 +225,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				new BlockSplitData(1, block, "3", PortionScript.kSplitAtEndOfVerse),
 				new BlockSplitData(2, block, "4", 3)
 			});
-			Assert.AreEqual(expected, actual);
+			Assert.That(expected, Is.EqualTo(actual));
 		}
 
 		[TestCase(0, "", "main text.) ")]
@@ -248,7 +248,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			{
 				new BlockSplitData(1, block, "3", offset)
 			});
-			Assert.AreEqual(expected, actual);
+			Assert.That(expected, Is.EqualTo(actual));
 		}
 	}
 }

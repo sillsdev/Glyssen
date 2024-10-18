@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit.4.2.2\build\NUnit.props" Condition="Exists('..\packages\NUnit.4.2.2\build\NUnit.props')" />
   <Import Project="..\packages\icu.net.2.10.0\build\icu.net.props" Condition="Exists('..\packages\icu.net.2.10.0\build\icu.net.props')" />
-  <Import Project="..\packages\NUnit.3.13.3\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.13.3\build\NUnit.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -101,8 +101,11 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework, Version=3.13.3.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.3.13.3\lib\net45\nunit.framework.dll</HintPath>
+    <Reference Include="nunit.framework, Version=4.2.2.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.4.2.2\lib\net462\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework.legacy, Version=4.2.2.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.4.2.2\lib\net462\nunit.framework.legacy.dll</HintPath>
     </Reference>
     <Reference Include="Paratext.LexicalContracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9a5af29a0e638a7b, processorArchitecture=MSIL">
       <HintPath>..\packages\ParatextData.9.5.0.7\lib\netstandard2.0\Paratext.LexicalContracts.dll</HintPath>
@@ -353,10 +356,10 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets'))" />
     <Error Condition="!Exists('..\packages\Mono.Unix.7.1.0-final.1.21458.1\build\Mono.Unix.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Mono.Unix.7.1.0-final.1.21458.1\build\Mono.Unix.targets'))" />
-    <Error Condition="!Exists('..\packages\NUnit.3.13.3\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.13.3\build\NUnit.props'))" />
     <Error Condition="!Exists('..\packages\icu.net.2.10.0\build\icu.net.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\icu.net.2.10.0\build\icu.net.props'))" />
     <Error Condition="!Exists('..\packages\icu.net.2.10.0\build\icu.net.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\icu.net.2.10.0\build\icu.net.targets'))" />
     <Error Condition="!Exists('..\packages\ParatextData.9.5.0.7\build\ParatextData.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ParatextData.9.5.0.7\build\ParatextData.targets'))" />
+    <Error Condition="!Exists('..\packages\NUnit.4.2.2\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.4.2.2\build\NUnit.props'))" />
   </Target>
   <!-- Do not need/want a nuget package for this project. -->
   <Target Name="Pack" />

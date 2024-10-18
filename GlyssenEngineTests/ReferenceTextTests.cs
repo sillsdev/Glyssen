@@ -21,6 +21,7 @@ using System.Text.RegularExpressions;
 using GlyssenCharacters;
 using SIL.Extensions;
 using static System.String;
+using static GlyssenEngine.ReferenceText;
 
 namespace GlyssenEngineTests
 {
@@ -54,9 +55,9 @@ namespace GlyssenEngineTests
 		//[TestCase(ReferenceTextType.TokPisin)]
 		public void GetStandardReferenceText_AllStandardReferenceTextsAreLoadedCorrectly(ReferenceTextType referenceTextType, int numberOfBooks)
 		{
-			var referenceText = ReferenceText.GetStandardReferenceText(referenceTextType);
-			Assert.AreEqual(numberOfBooks, referenceText.Books.Count);
-			Assert.AreEqual(ScrVers.English, referenceText.Versification);
+			var referenceText = GetStandardReferenceText(referenceTextType);
+			Assert.That(numberOfBooks, Is.EqualTo(referenceText.Books.Count));
+			Assert.That(ScrVers.English, Is.EqualTo(referenceText.Versification));
 		}
 
 		[TestCase(MultiBlockQuote.None, MultiBlockQuote.Start, MultiBlockQuote.Continuation)]
@@ -108,17 +109,17 @@ namespace GlyssenEngineTests
 
 			refText.ApplyTo(vernBook);
 
-			Assert.AreEqual(3, referenceBlocks.Count);
+			Assert.That(referenceBlocks.Count, Is.EqualTo(3));
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(3, result.Count);
-			Assert.IsTrue(result.All(b => b.CharacterId == "Peter/James/John"));
-			Assert.IsTrue(result.All(b => b.CharacterIdInScript == "John"));
-			Assert.IsTrue(result.All(b => b.Delivery == "annoyed beyond belief"));
-			Assert.AreEqual(expectedResultForFirstBlock, result.First().MultiBlockQuote);
-			Assert.IsTrue(result.Skip(1).All(b => b.MultiBlockQuote == expectedResultForSubsequentBlocks));
-			Assert.IsTrue(result.All(b => b.UserConfirmed));
-			Assert.IsTrue(result.All(b => b.SplitId == -1));
-			Assert.IsTrue(result.Select(v => v.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Select(r => r.GetText(true))));
+			Assert.That(result.Count, Is.EqualTo(3));
+			Assert.That(result.All(b => b.CharacterId == "Peter/James/John"), Is.True);
+			Assert.That(result.All(b => b.CharacterIdInScript == "John"), Is.True);
+			Assert.That(result.All(b => b.Delivery == "annoyed beyond belief"), Is.True);
+			Assert.That(expectedResultForFirstBlock, Is.EqualTo(result.First().MultiBlockQuote));
+			Assert.That(result.Skip(1).All(b => b.MultiBlockQuote == expectedResultForSubsequentBlocks), Is.True);
+			Assert.That(result.All(b => b.UserConfirmed), Is.True);
+			Assert.That(result.All(b => b.SplitId == -1), Is.True);
+			Assert.That(result.Select(v => v.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Select(r => r.GetText(true))), Is.True);
 		}
 
 		[TestCase(MultiBlockQuote.None, MultiBlockQuote.Start, MultiBlockQuote.Continuation)]
@@ -171,60 +172,60 @@ namespace GlyssenEngineTests
 
 			refText.ApplyTo(vernBook);
 
-			Assert.AreEqual(3, referenceBlocks.Count);
+			Assert.That(referenceBlocks.Count, Is.EqualTo(3));
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(3, result.Count);
-			Assert.IsTrue(result.All(b => b.CharacterId == "Peter/James/John"));
-			Assert.IsTrue(result.All(b => b.CharacterIdInScript == "John"));
-			Assert.IsTrue(result.All(b => b.Delivery == "annoyed beyond belief"));
-			Assert.AreEqual(expectedResultForFirstBlock, result.First().MultiBlockQuote);
-			Assert.IsTrue(result.Skip(1).All(b => b.MultiBlockQuote == expectedResultForSubsequentBlocks));
-			Assert.IsTrue(result.All(b => b.UserConfirmed));
-			Assert.IsTrue(result.All(b => b.SplitId == -1));
-			Assert.IsTrue(result.Select(v => v.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Select(r => r.GetText(true))));
+			Assert.That(result.Count, Is.EqualTo(3));
+			Assert.That(result.All(b => b.CharacterId == "Peter/James/John"), Is.True);
+			Assert.That(result.All(b => b.CharacterIdInScript == "John"), Is.True);
+			Assert.That(result.All(b => b.Delivery == "annoyed beyond belief"), Is.True);
+			Assert.That(expectedResultForFirstBlock, Is.EqualTo(result.First().MultiBlockQuote));
+			Assert.That(result.Skip(1).All(b => b.MultiBlockQuote == expectedResultForSubsequentBlocks), Is.True);
+			Assert.That(result.All(b => b.UserConfirmed), Is.True);
+			Assert.That(result.All(b => b.SplitId == -1), Is.True);
+			Assert.That(result.Select(v => v.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Select(r => r.GetText(true))), Is.True);
 		}
 
 		[Test]
 		public void ApplyTo_VernacularHasVerseSplitIntoMoreBlocksThanReference_ReferenceTextBrokenByVerse_SubsequentBlocksInVernacularGetBrokenByVerse()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateBlockForVerse("Fred", 1, "Cosas que Fred dice, ", true));
+			var vernacularBlocks = new List<Block> { CreateBlockForVerse("Fred", 1, "Cosas que Fred dice, ", true) };
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Fred. ");
 			var block = CreateNarratorBlockForVerse(2, "Blah blah. ");
 			block.AddVerse(3, "More blah blah. ").AddVerse(4, "The final blah blah.");
 			vernacularBlocks.Add(block);
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "I don't know if Fred told you this or not, but he's crazy. ", true));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(2, "This is your narrator speaking. "));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(3, "I hope you enjoy your flight. "));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(4, "The end. "));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "I don't know if Fred told you this or not, but he's crazy. ", true),
+				CreateNarratorBlockForVerse(2, "This is your narrator speaking. "),
+				CreateNarratorBlockForVerse(3, "I hope you enjoy your flight. "),
+				CreateNarratorBlockForVerse(4, "The end. ")
+			};
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks, ReferenceTextType.English);
 
 			refText.ApplyTo(vernBook);
 
-			Assert.AreEqual(4, referenceBlocks.Count);
+			Assert.That(referenceBlocks.Count, Is.EqualTo(4));
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(5, result.Count);
-			Assert.AreEqual("{1}\u00A0Cosas que Fred dice, ", result[0].GetText(true));
-			Assert.AreEqual(0, result[0].ReferenceBlocks.Count);
+			Assert.That(result.Count, Is.EqualTo(5));
+			Assert.That(result[0].GetText(true), Is.EqualTo("{1}\u00A0Cosas que Fred dice, "));
+			Assert.That(result[0].ReferenceBlocks.Count, Is.EqualTo(0));
 
-			Assert.AreEqual("dijo Fred. ", result[1].GetText(true));
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[1].ReferenceBlocks.Single().GetText(true));
+			Assert.That(result[1].GetText(true), Is.EqualTo("dijo Fred. "));
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[1].ReferenceBlocks.Single().GetText(true)));
 
-			Assert.AreEqual("{2}\u00A0Blah blah. ", result[2].GetText(true));
-			Assert.AreEqual("{3}\u00A0More blah blah. ", result[3].GetText(true));
-			Assert.AreEqual("{4}\u00A0The final blah blah.", result[4].GetText(true));
-			Assert.IsTrue(result.Skip(2).Select(v => v.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Skip(1).Select(r => r.GetText(true))));
+			Assert.That(result[2].GetText(true), Is.EqualTo("{2}\u00A0Blah blah. "));
+			Assert.That(result[3].GetText(true), Is.EqualTo("{3}\u00A0More blah blah. "));
+			Assert.That(result[4].GetText(true), Is.EqualTo("{4}\u00A0The final blah blah."));
+			Assert.That(result.Skip(2).Select(v => v.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Skip(1).Select(r => r.GetText(true))), Is.True);
 		}
 
 		[Test]
 		public void ApplyTo_VernacularAndReferenceTextHaveSectionHeadsInDifferentPlaces_SectionHeadReferenceTextsAreNotMatched()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateBlockForVerse("Fred", 1, "Cosas que Fred dice, ", true));
+			var vernacularBlocks = new List<Block> { CreateBlockForVerse("Fred", 1, "Cosas que Fred dice, ", true) };
 			var block = new Block("s", 1, 1)
 			{
 				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical),
@@ -239,10 +240,12 @@ namespace GlyssenEngineTests
 			vernacularBlocks.Add(block);
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "I don't know if Fred told you this or not, but he's crazy. ", true));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(2, "This is your narrator speaking. "));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(3, "I hope you enjoy your flight. "));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "I don't know if Fred told you this or not, but he's crazy. ", true),
+				CreateNarratorBlockForVerse(2, "This is your narrator speaking. "),
+				CreateNarratorBlockForVerse(3, "I hope you enjoy your flight. ")
+			};
 			block = new Block("s", 1, 3)
 			{
 				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical),
@@ -254,26 +257,25 @@ namespace GlyssenEngineTests
 
 			refText.ApplyTo(vernBook);
 
-			Assert.AreEqual(5, referenceBlocks.Count);
+			Assert.That(referenceBlocks.Count, Is.EqualTo(5));
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(5, result.Count);
-			Assert.AreEqual("{1}\u00A0Cosas que Fred dice, ", result[0].GetText(true));
-			Assert.AreEqual("Section cabeza text", result[1].GetText(true));
-			Assert.AreEqual("{2}\u00A0Blah blah. ", result[2].GetText(true));
-			Assert.AreEqual("{3}\u00A0More blah blah. ", result[3].GetText(true));
-			Assert.AreEqual("{4}\u00A0The final blah blah.", result[4].GetText(true));
-			Assert.AreEqual("{1}\u00A0I don't know if Fred told you this or not, but he's crazy. ", result[0].ReferenceBlocks.Single().GetText(true));
-			Assert.AreEqual(0, result[1].ReferenceBlocks.Count);
-			Assert.AreEqual("{2}\u00A0This is your narrator speaking. ", result[2].ReferenceBlocks.Single().GetText(true));
-			Assert.AreEqual("{3}\u00A0I hope you enjoy your flight. ", result[3].ReferenceBlocks.Single().GetText(true));
-			Assert.AreEqual("{4}\u00A0The end.", result[4].ReferenceBlocks.Single().GetText(true));
+			Assert.That(result.Count, Is.EqualTo(5));
+			Assert.That(result[0].GetText(true), Is.EqualTo("{1}\u00A0Cosas que Fred dice, "));
+			Assert.That(result[1].GetText(true), Is.EqualTo("Section cabeza text"));
+			Assert.That(result[2].GetText(true), Is.EqualTo("{2}\u00A0Blah blah. "));
+			Assert.That(result[3].GetText(true), Is.EqualTo("{3}\u00A0More blah blah. "));
+			Assert.That(result[4].GetText(true), Is.EqualTo("{4}\u00A0The final blah blah."));
+			Assert.That(result[0].ReferenceBlocks.Single().GetText(true), Is.EqualTo("{1}\u00A0I don't know if Fred told you this or not, but he's crazy. "));
+			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(0));
+			Assert.That(result[2].ReferenceBlocks.Single().GetText(true), Is.EqualTo("{2}\u00A0This is your narrator speaking. "));
+			Assert.That(result[3].ReferenceBlocks.Single().GetText(true), Is.EqualTo("{3}\u00A0I hope you enjoy your flight. "));
+			Assert.That(result[4].ReferenceBlocks.Single().GetText(true), Is.EqualTo("{4}\u00A0The end."));
 		}
 
 		[Test]
 		public void ApplyTo_VernacularHasSectionHeadInTheMiddleOfAVerse_ReferenceTextHasNoSectionHead_NotMatchedAndReferenceTextLinkedToFirstVernacularBlock()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(31, "But eagerly desire the greater gifts.", false, 12, "1CO"));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(31, "But eagerly desire the greater gifts.", false, 12, "1CO") };
 			var block = new Block("s", 12, 31)
 			{
 				CharacterId = CharacterVerseData.GetStandardCharacterId("1CO", CharacterVerseData.StandardCharacter.ExtraBiblical),
@@ -283,74 +285,77 @@ namespace GlyssenEngineTests
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "And now I will show you...", "1CO").AddVerse(32, "This isn't here.");
 			var vernBook = new BookScript("1CO", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(31, "In this version, there is no section head.", false, 12, "1CO"));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(32, "The verse that was never supposed to exist.", false, 12, "1CO"));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(31, "In this version, there is no section head.", false, 12, "1CO"),
+				CreateNarratorBlockForVerse(32, "The verse that was never supposed to exist.", false, 12, "1CO")
+			};
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			refText.ApplyTo(vernBook);
 
-			Assert.AreEqual(2, referenceBlocks.Count);
+			Assert.That(referenceBlocks.Count, Is.EqualTo(2));
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(4, result.Count);
-			Assert.AreEqual(referenceBlocks.Count, result.SelectMany(v => v.ReferenceBlocks).Count());
+			Assert.That(result.Count, Is.EqualTo(4));
+			Assert.That(referenceBlocks.Count, Is.EqualTo(result.SelectMany(v => v.ReferenceBlocks).Count()));
 
-			Assert.AreEqual("{31}\u00A0But eagerly desire the greater gifts.", result[0].GetText(true));
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true));
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].GetPrimaryReferenceText());
+			Assert.That(result[0].GetText(true), Is.EqualTo("{31}\u00A0But eagerly desire the greater gifts."));
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[0].ReferenceBlocks.Single().GetText(true)));
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[0].GetPrimaryReferenceText()));
 
-			Assert.AreEqual("Love", result[1].GetText(true));
-			Assert.AreEqual(0, result[1].ReferenceBlocks.Count);
-			Assert.IsFalse(result[1].MatchesReferenceText);
-			Assert.IsNull(result[1].GetPrimaryReferenceText());
+			Assert.That(result[1].GetText(true), Is.EqualTo("Love"));
+			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(0));
+			Assert.That(result[1].MatchesReferenceText, Is.False);
+			Assert.That(result[1].GetPrimaryReferenceText(), Is.Null);
 
-			Assert.AreEqual("And now I will show you...", result[2].GetText(true));
-			Assert.AreEqual(0, result[2].ReferenceBlocks.Count);
-			Assert.IsFalse(result[2].MatchesReferenceText);
-			Assert.IsNull(result[2].GetPrimaryReferenceText());
+			Assert.That(result[2].GetText(true), Is.EqualTo("And now I will show you..."));
+			Assert.That(result[2].ReferenceBlocks.Count, Is.EqualTo(0));
+			Assert.That(result[2].MatchesReferenceText, Is.False);
+			Assert.That(result[2].GetPrimaryReferenceText(), Is.Null);
 
-			Assert.AreEqual("{32}\u00A0This isn't here.", result[3].GetText(true));
-			Assert.AreEqual("{32}\u00A0The verse that was never supposed to exist.", result[3].ReferenceBlocks.Single().GetText(true));
-			Assert.IsTrue(result[3].MatchesReferenceText);
-			Assert.AreEqual("{32}\u00A0The verse that was never supposed to exist.", result[3].GetPrimaryReferenceText());
+			Assert.That(result[3].GetText(true), Is.EqualTo("{32}\u00A0This isn't here."));
+			Assert.That(result[3].ReferenceBlocks.Single().GetText(true), Is.EqualTo("{32}\u00A0The verse that was never supposed to exist."));
+			Assert.That(result[3].MatchesReferenceText);
+			Assert.That(result[3].GetPrimaryReferenceText(), Is.EqualTo("{32}\u00A0The verse that was never supposed to exist."));
 		}
 
 		[Test]
 		public void ApplyTo_VernacularHasMidVerseParagraphBreakFollowedByMoreVerses_ReferenceHasBlocksSplitAtVerseBreaks_AdditionalVerseSplitsHappen()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(31, "But eagerly desire the greater gifts.", false, 12, "1CO"));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(31, "But eagerly desire the greater gifts.", false, 12, "1CO") };
 			var blockForNewParagraph = AddNarratorBlockForVerseInProgress(vernacularBlocks, "And now I will show you...", "1CO").AddVerse(32, "This isn't here.");
 			blockForNewParagraph.IsParagraphStart = true;
 			var vernBook = new BookScript("1CO", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(31, "In this version, there is no paragraph break.", false, 12, "1CO"));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(32, "The verse that was never supposed to exist.", false, 12, "1CO"));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(31, "In this version, there is no paragraph break.", false, 12, "1CO"),
+				CreateNarratorBlockForVerse(32, "The verse that was never supposed to exist.", false, 12, "1CO")
+			};
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			refText.ApplyTo(vernBook);
 
-			Assert.AreEqual(2, referenceBlocks.Count);
+			Assert.That(referenceBlocks.Count, Is.EqualTo(2));
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(3, result.Count);
-			Assert.AreEqual("{31}\u00A0But eagerly desire the greater gifts.", result[0].GetText(true));
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true));
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].GetPrimaryReferenceText());
+			Assert.That(result.Count, Is.EqualTo(3));
+			Assert.That(result[0].GetText(true), Is.EqualTo("{31}\u00A0But eagerly desire the greater gifts."));
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[0].ReferenceBlocks.Single().GetText(true)));
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[0].GetPrimaryReferenceText()));
 
-			Assert.AreEqual("And now I will show you...", result[1].GetText(true));
-			Assert.AreEqual(0, result[1].ReferenceBlocks.Count);
-			Assert.IsFalse(result[1].MatchesReferenceText);
-			Assert.IsNull(result[1].GetPrimaryReferenceText());
+			Assert.That(result[1].GetText(true), Is.EqualTo("And now I will show you..."));
+			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(0));
+			Assert.That(result[1].MatchesReferenceText, Is.False);
+			Assert.That(result[1].GetPrimaryReferenceText(), Is.Null);
 
-			Assert.AreEqual("{32}\u00A0This isn't here.", result[2].GetText(true));
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[2].ReferenceBlocks.Single().GetText(true));
-			Assert.IsTrue(result[2].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[2].GetPrimaryReferenceText());
+			Assert.That(result[2].GetText(true), Is.EqualTo("{32}\u00A0This isn't here."));
+			Assert.That(referenceBlocks[1].GetText(true), Is.EqualTo(result[2].ReferenceBlocks.Single().GetText(true)));
+			Assert.That(result[2].MatchesReferenceText);
+			Assert.That(referenceBlocks[1].GetText(true), Is.EqualTo(result[2].GetPrimaryReferenceText()));
 		}
 
 		[Test]
@@ -398,15 +403,16 @@ namespace GlyssenEngineTests
 
 			refText.ApplyTo(vernBook);
 
-			Assert.AreEqual(2, referenceBlocks.Count);
+			Assert.That(referenceBlocks.Count, Is.EqualTo(2));
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(2, result.Count);
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator), result[0].CharacterId);
-			Assert.AreEqual("Peter/James/John", result[1].CharacterId);
-			Assert.AreEqual("John", result[1].CharacterIdInScript);
-			Assert.IsTrue(result.All(b => !b.UserConfirmed));
-			Assert.IsTrue(result.All(b => b.SplitId == -1));
-			Assert.IsTrue(result.Select(v => v.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Select(r => r.GetText(true))));
+			Assert.That(result.Count, Is.EqualTo(2));
+			Assert.That(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+				Is.EqualTo(result[0].CharacterId));
+			Assert.That(result[1].CharacterId, Is.EqualTo("Peter/James/John"));
+			Assert.That(result[1].CharacterIdInScript, Is.EqualTo("John"));
+			Assert.That(result.All(b => !b.UserConfirmed), Is.True);
+			Assert.That(result.All(b => b.SplitId == -1), Is.True);
+			Assert.That(result.Select(v => v.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Select(r => r.GetText(true))), Is.True);
 		}
 
 		[Test]
@@ -465,40 +471,40 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(referenceBlocks.Count, result.Count);
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter), result[0].CharacterId);
-			Assert.AreEqual("The Gospel According to Saint Thomas", result[0].GetPrimaryReferenceText());
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter), result[1].CharacterId);
-			Assert.AreEqual("The Gospel According to Thomas 1", result[1].GetPrimaryReferenceText());
-			Assert.AreEqual("Paul", result[2].CharacterId);
-			Assert.AreEqual(referenceBlocks[2].GetText(true), result[2].GetPrimaryReferenceText());
-			Assert.AreEqual("Paul", result[3].CharacterId);
-			Assert.AreEqual(referenceBlocks[3].GetText(true), result[3].GetPrimaryReferenceText());
-			Assert.AreEqual("Paul", result[4].CharacterId);
-			Assert.AreEqual(referenceBlocks[4].GetText(true), result[4].GetPrimaryReferenceText());
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator), result[5].CharacterId);
-			Assert.AreEqual(referenceBlocks[5].GetText(true), result[5].GetPrimaryReferenceText());
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter), result[6].CharacterId);
-			Assert.AreEqual("The Gospel According to Thomas 2", result[6].GetPrimaryReferenceText());
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical), result[7].CharacterId);
-			Assert.AreEqual(referenceBlocks[7].GetText(true), result[7].GetPrimaryReferenceText());
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator), result[8].CharacterId);
-			Assert.AreEqual(referenceBlocks[8].GetText(true), result[8].GetPrimaryReferenceText());
+			Assert.That(referenceBlocks.Count, Is.EqualTo(result.Count));
+			Assert.That(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter), Is.EqualTo(result[0].CharacterId));
+			Assert.That(result[0].GetPrimaryReferenceText(), Is.EqualTo("The Gospel According to Saint Thomas"));
+			Assert.That(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter), Is.EqualTo(result[1].CharacterId));
+			Assert.That(result[1].GetPrimaryReferenceText(), Is.EqualTo("The Gospel According to Thomas 1"));
+			Assert.That(result[2].CharacterId, Is.EqualTo("Paul"));
+			Assert.That(referenceBlocks[2].GetText(true), Is.EqualTo(result[2].GetPrimaryReferenceText()));
+			Assert.That(result[3].CharacterId, Is.EqualTo("Paul"));
+			Assert.That(referenceBlocks[3].GetText(true), Is.EqualTo(result[3].GetPrimaryReferenceText()));
+			Assert.That(result[4].CharacterId, Is.EqualTo("Paul"));
+			Assert.That(referenceBlocks[4].GetText(true), Is.EqualTo(result[4].GetPrimaryReferenceText()));
+			Assert.That(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+				Is.EqualTo(result[5].CharacterId));
+			Assert.That(referenceBlocks[5].GetText(true), Is.EqualTo(result[5].GetPrimaryReferenceText()));
+			Assert.That(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter), Is.EqualTo(result[6].CharacterId));
+			Assert.That(result[6].GetPrimaryReferenceText(), Is.EqualTo("The Gospel According to Thomas 2"));
+			Assert.That(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical), Is.EqualTo(result[7].CharacterId));
+			Assert.That(referenceBlocks[7].GetText(true), Is.EqualTo(result[7].GetPrimaryReferenceText()));
+			Assert.That(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+				Is.EqualTo(result[8].CharacterId));
+			Assert.That(referenceBlocks[8].GetText(true), Is.EqualTo(result[8].GetPrimaryReferenceText()));
 		}
 
 		[Test]
 		public void ApplyTo_VernacularHasExtraTrailingNarratorBlock_AllBlocksMatchExceptTrailingNarratorBlock()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Entonces dijo Jesus: ", true));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(1, "Entonces dijo Jesus: ", true) };
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "Este es versiculo uno, ");
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "asi dijo. Pero Paul replico: ");
 			AddBlockForVerseInProgress(vernacularBlocks, "Paul", "Asi pense, ");
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "asi dijo.");
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Then Jesus said, ", true));
+			var referenceBlocks = new List<Block> { CreateNarratorBlockForVerse(1, "Then Jesus said, ", true) };
 			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "“This is verse one.” ");
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "But Paul replied, ");
 			AddBlockForVerseInProgress(referenceBlocks, "Paul", "“That's what I thought.”");
@@ -507,19 +513,22 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(vernacularBlocks.Count, result.Count);
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.Count));
 			for (int i = 0; i < referenceBlocks.Count; i++)
 			{
 				var desc = "Block " + i + ": " + result[i].GetText(true);
-				Assert.AreEqual(vernacularBlocks[i].CharacterId, result[i].CharacterId, desc);
-				Assert.AreEqual(referenceBlocks[i].GetText(true), result[i].ReferenceBlocks.Single().GetText(true), desc);
-				Assert.AreEqual(referenceBlocks[i].GetText(true), result[i].GetPrimaryReferenceText(), desc);
-				Assert.IsTrue(result[i].MatchesReferenceText, desc);
+				Assert.That(vernacularBlocks[i].CharacterId,
+					Is.EqualTo(result[i].CharacterId), desc);
+				Assert.That(referenceBlocks[i].GetText(true),
+					Is.EqualTo(result[i].ReferenceBlocks.Single().GetText(true)), desc);
+				Assert.That(referenceBlocks[i].GetText(true),
+					Is.EqualTo(result[i].GetPrimaryReferenceText()), desc);
+				Assert.That(result[i].MatchesReferenceText, Is.True, desc);
 			}
 
-			Assert.AreEqual(vernacularBlocks.Last().CharacterId, result.Last().CharacterId);
-			Assert.IsFalse(result.Last().ReferenceBlocks.Any());
-			Assert.IsFalse(result.Last().MatchesReferenceText);
+			Assert.That(vernacularBlocks.Last().CharacterId, Is.EqualTo(result.Last().CharacterId));
+			Assert.That(result.Last().ReferenceBlocks.Any(), Is.False);
+			Assert.That(result.Last().MatchesReferenceText, Is.False);
 		}
 
 		[Test]
@@ -579,15 +588,15 @@ namespace GlyssenEngineTests
 			};
 			block.BlockElements.Add(new ScriptText("Who are you? PETA?"));
 			referenceBlocks.Add(block);
-			Assert.AreEqual(referenceBlocks.Count, vernacularBlocks.Count); // Sanity check
+			Assert.That(referenceBlocks.Count, Is.EqualTo(vernacularBlocks.Count)); // Sanity check
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(referenceBlocks.Count, result.Count);
-			Assert.IsTrue(result.Select(v => v.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Select(r => r.GetText(true))));
+			Assert.That(referenceBlocks.Count, Is.EqualTo(result.Count));
+			Assert.That(result.Select(v => v.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Select(r => r.GetText(true))), Is.True);
 		}
 
 		[Test]
@@ -604,20 +613,22 @@ namespace GlyssenEngineTests
 			vernacularBlocks.Add(block);
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Jesus told them where to find a donkey. ", true));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(2, "He said that they should bring it, and it would all work out. "));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(3, "It did."));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "Jesus told them where to find a donkey. ", true),
+				CreateNarratorBlockForVerse(2, "He said that they should bring it, and it would all work out. "),
+				CreateNarratorBlockForVerse(3, "It did.")
+			};
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.IsTrue(result.Single().MatchesReferenceText);
-			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.AreEqual(Join("", referenceBlocks.Select(r => r.GetText(true))), result[0].GetPrimaryReferenceText());
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.Count));
+			Assert.That(result.Single().MatchesReferenceText);
+			Assert.That(result[0].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(Join("", referenceBlocks.Select(r => r.GetText(true))), Is.EqualTo(result[0].GetPrimaryReferenceText()));
 		}
 
 		[Test]
@@ -646,17 +657,17 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true));
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.Count));
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[0].ReferenceBlocks.Single().GetText(true)));
 
 			// We don't especially care how the vern blocks for verses 2 and 3 align to the ref block for 2-3 as long as neither one
 			// is considered a match and exactly one of them is hooked up to it.
-			Assert.IsFalse(result[1].MatchesReferenceText);
-			Assert.IsFalse(result[2].MatchesReferenceText);
-			Assert.IsTrue(result.Skip(1).Take(2).SelectMany(v => v.ReferenceBlocks).Select(r => r.GetText(true))
-				.SequenceEqual(referenceBlocks.Skip(1).Take(1).Select(r => r.GetText(true))));
+			Assert.That(result[1].MatchesReferenceText, Is.False);
+			Assert.That(result[2].MatchesReferenceText, Is.False);
+			Assert.That(result.Skip(1).Take(2).SelectMany(v => v.ReferenceBlocks).Select(r => r.GetText(true))
+				.SequenceEqual(referenceBlocks.Skip(1).Take(1).Select(r => r.GetText(true))), Is.True);
 
-			Assert.AreEqual(referenceBlocks[2].GetText(true), result[3].ReferenceBlocks.Single().GetText(true));
+			Assert.That(referenceBlocks[2].GetText(true), Is.EqualTo(result[3].ReferenceBlocks.Single().GetText(true)));
 		}
 
 		[Test]
@@ -703,13 +714,13 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true));
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].ReferenceBlocks.Single().GetText(true));
-			Assert.IsFalse(result[2].ReferenceBlocks.Any());
-			Assert.IsFalse(result[3].ReferenceBlocks.Any());
-			Assert.AreEqual(referenceBlocks[2].GetText(true), result[4].ReferenceBlocks.Single().GetText(true));
-			Assert.AreEqual(referenceBlocks[3].GetText(true), result[5].ReferenceBlocks.Single().GetText(true));
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.Count));
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[0].ReferenceBlocks.Single().GetText(true)));
+			Assert.That(referenceBlocks[1].GetText(true), Is.EqualTo(result[1].ReferenceBlocks.Single().GetText(true)));
+			Assert.That(result[2].ReferenceBlocks.Any(), Is.False);
+			Assert.That(result[3].ReferenceBlocks.Any(), Is.False);
+			Assert.That(referenceBlocks[2].GetText(true), Is.EqualTo(result[4].ReferenceBlocks.Single().GetText(true)));
+			Assert.That(referenceBlocks[3].GetText(true), Is.EqualTo(result[5].ReferenceBlocks.Single().GetText(true)));
 		}
 
 		[Test]
@@ -727,11 +738,13 @@ namespace GlyssenEngineTests
 			vernacularBlocks.Add(block);
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Jesus told them where to find a donkey. ", true));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(2, "He said that they should bring it, and it would all work out. "));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(3, "It did. "));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(4, "Fourth verse."));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "Jesus told them where to find a donkey. ", true),
+				CreateNarratorBlockForVerse(2, "He said that they should bring it, and it would all work out. "),
+				CreateNarratorBlockForVerse(3, "It did. "),
+				CreateNarratorBlockForVerse(4, "Fourth verse.")
+			};
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
@@ -739,23 +752,22 @@ namespace GlyssenEngineTests
 				refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(3, result.Count);
-			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual("{1}\u00A0Jesus told them where to find a donkey. ", result[0].GetPrimaryReferenceText());
-			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
-			Assert.IsTrue(result[1].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[1].GetText(true) + referenceBlocks[2].GetText(true), result[1].GetPrimaryReferenceText());
-			Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
-			Assert.IsTrue(result[2].MatchesReferenceText);
-			Assert.AreEqual("{4}\u00A0Fourth verse.", result[2].GetPrimaryReferenceText());
+			Assert.That(result.Count, Is.EqualTo(3));
+			Assert.That(result[0].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(result[0].GetPrimaryReferenceText(), Is.EqualTo("{1}\u00A0Jesus told them where to find a donkey. "));
+			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(result[1].MatchesReferenceText);
+			Assert.That(referenceBlocks[1].GetText(true) + referenceBlocks[2].GetText(true), Is.EqualTo(result[1].GetPrimaryReferenceText()));
+			Assert.That(result[2].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(result[2].MatchesReferenceText);
+			Assert.That(result[2].GetPrimaryReferenceText(), Is.EqualTo("{4}\u00A0Fourth verse."));
 		}
 
 		[Test]
 		public void ApplyTo_VernacularHasVerseBridgeAtStartOfBlockFollowedByOtherVerses_ReferenceBrokenAtVerses_VernacularSplitAtEndOfBridgeAndSubsequentVerses()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Jesús les dijo donde encontrar un burro. ", true));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(1, "Jesús les dijo donde encontrar un burro. ", true) };
 			var block = new Block("p", 1, 2, 3)
 			{
 				IsParagraphStart = true,
@@ -766,11 +778,13 @@ namespace GlyssenEngineTests
 			vernacularBlocks.Add(block);
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Jesus told them where to find a donkey. ", true));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(2, "He said that they should bring it, and it would all work out. "));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(3, "It did. "));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(4, "Fourth verse."));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "Jesus told them where to find a donkey. ", true),
+				CreateNarratorBlockForVerse(2, "He said that they should bring it, and it would all work out. "),
+				CreateNarratorBlockForVerse(3, "It did. "),
+				CreateNarratorBlockForVerse(4, "Fourth verse.")
+			};
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
@@ -778,16 +792,16 @@ namespace GlyssenEngineTests
 				refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(3, result.Count);
-			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual("{1}\u00A0Jesus told them where to find a donkey. ", result[0].GetPrimaryReferenceText());
-			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
-			Assert.IsTrue(result[1].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[1].GetText(true) + referenceBlocks[2].GetText(true), result[1].GetPrimaryReferenceText());
-			Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
-			Assert.IsTrue(result[2].MatchesReferenceText);
-			Assert.AreEqual("{4}\u00A0Fourth verse.", result[2].GetPrimaryReferenceText());
+			Assert.That(result.Count, Is.EqualTo(3));
+			Assert.That(result[0].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(result[0].GetPrimaryReferenceText(), Is.EqualTo("{1}\u00A0Jesus told them where to find a donkey. "));
+			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(result[1].MatchesReferenceText);
+			Assert.That(referenceBlocks[1].GetText(true) + referenceBlocks[2].GetText(true), Is.EqualTo(result[1].GetPrimaryReferenceText()));
+			Assert.That(result[2].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(result[2].MatchesReferenceText);
+			Assert.That(result[2].GetPrimaryReferenceText(), Is.EqualTo("{4}\u00A0Fourth verse."));
 		}
 
 		[Test]
@@ -815,17 +829,15 @@ namespace GlyssenEngineTests
 				refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.IsTrue(result.Single().MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[0].GetText(true) + " " + referenceBlocks[1].GetText(true),
-				result[0].ReferenceBlocks.Single().GetText(true));
+			Assert.That(result.Single().MatchesReferenceText);
+			Assert.That(result[0].ReferenceBlocks.Single().GetText(true), Is.EqualTo(referenceBlocks[0].GetText(true) + " " + referenceBlocks[1].GetText(true)));
 		}
 
 		[Test]
 		public void ApplyTo_VerseBridgeInVernacularPreventsSplitToCorrespondToBreakInReferenceText_MatchTheLeadingAndTrailingBlocksAndMismatchMiddleOnes()
 		{
 			// PG-746 Chikunda (Acts 8:26-29)
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(26, "Ngilozi ... Filipi, ", true, 8, "ACT"));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(26, "Ngilozi ... Filipi, ", true, 8, "ACT") };
 			AddBlockForVerseInProgress(vernacularBlocks, "angel", "“Konzekela ... Gaza.” ");
 			var block = AddNarratorBlockForVerseInProgress(vernacularBlocks, "(Njila ... zino.) ", "ACT");
 			block.AddVerse("27-28", "Saka ... Ayizaya. ");
@@ -834,8 +846,7 @@ namespace GlyssenEngineTests
 			var vernBook = new BookScript("ACT", vernacularBlocks, m_vernVersification);
 
 			// Indonesian
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(26, "Kemudian ..., katanya:", true, 8, "ACT"));
+			var referenceBlocks = new List<Block> { CreateNarratorBlockForVerse(26, "Kemudian ..., katanya:", true, 8, "ACT") };
 			AddBlockForVerseInProgress(referenceBlocks, "angel", "<<Bangunlah ... Gaza.>>");
 			block = AddNarratorBlockForVerseInProgress(referenceBlocks, "Jalan ... sunyi. ", "ACT");
 			block.AddVerse(27, "Lalu ... beribadah.");
@@ -849,43 +860,44 @@ namespace GlyssenEngineTests
 				refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.AreEqual(referenceBlocks.Count, result.SelectMany(v => v.ReferenceBlocks).Count());
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.Count));
+			Assert.That(referenceBlocks.Count, Is.EqualTo(result.SelectMany(v => v.ReferenceBlocks).Count()));
 
-			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.True(result[0].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
+			Assert.That(result[0].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[0].ReferenceBlocks[0].GetText(true)));
 
-			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
-			Assert.True(result[1].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
+			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(result[1].MatchesReferenceText);
+			Assert.That(referenceBlocks[1].GetText(true), Is.EqualTo(result[1].ReferenceBlocks[0].GetText(true)));
 
-			Assert.AreEqual(2, result[2].ReferenceBlocks.Count);
-			Assert.False(result[2].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[2].GetText(true), result[2].ReferenceBlocks[0].GetText(true));
-			Assert.AreEqual(referenceBlocks[3].GetText(true), result[2].ReferenceBlocks[1].GetText(true));
+			Assert.That(result[2].ReferenceBlocks.Count, Is.EqualTo(2));
+			Assert.That(result[2].MatchesReferenceText, Is.False);
+			Assert.That(referenceBlocks[2].GetText(true), Is.EqualTo(result[2].ReferenceBlocks[0].GetText(true)));
+			Assert.That(referenceBlocks[3].GetText(true), Is.EqualTo(result[2].ReferenceBlocks[1].GetText(true)));
 
-			Assert.AreEqual(1, result[3].ReferenceBlocks.Count);
-			Assert.True(result[3].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[4].GetText(true), result[3].ReferenceBlocks[0].GetText(true));
+			Assert.That(result[3].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(result[3].MatchesReferenceText);
+			Assert.That(referenceBlocks[4].GetText(true), Is.EqualTo(result[3].ReferenceBlocks[0].GetText(true)));
 		}
 
 		[Test]
 		public void ApplyTo_SingleSpeakerVerseBridgeInVernacularCorrespondsToTwoBlocksInReferenceText_CombineReferenceTextBlocksAndMatchToVernBlock()
 		{
 			// PG-764 Chikunda (I Corinthians 5:3-4)
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.GetStandardCharacterId("1CO", CharacterVerseData.StandardCharacter.Narrator), 3,
-				"Ndiye, kana dzvangu ndilikutali na imwepo pathupi, ndichilikumweko na imwepo pamzimu. Ndiye ngatindilipo, ndatotonga kale mudzina la Mfumu Jesu padzulu pa mamuna ayita dzvimwedzvi. Apo pamunizagumana, ndinizagumana na imwepo pamzimu, na mphamvu ya Mfumu yathu Jesu alipo na ifepo, ",
-				false, 5, "p" , 4));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(5,
-				"munifanila kuyikha mamuna umweyu kwa Satana kuti thupi lake liwonongewe, kuti mzimu wake upulumusiwe pa Nsiku ya Mfumu. ",
-				false, 5, "1CO"));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateBlockForVerse(CharacterVerseData.GetStandardCharacterId("1CO", CharacterVerseData.StandardCharacter.Narrator), 3,
+					"Ndiye, kana dzvangu ndilikutali na imwepo pathupi, ndichilikumweko na imwepo pamzimu. Ndiye ngatindilipo, ndatotonga kale mudzina la Mfumu Jesu padzulu pa mamuna ayita dzvimwedzvi. Apo pamunizagumana, ndinizagumana na imwepo pamzimu, na mphamvu ya Mfumu yathu Jesu alipo na ifepo, ",
+					false, 5, "p" , 4),
+				CreateNarratorBlockForVerse(5,
+					"munifanila kuyikha mamuna umweyu kwa Satana kuti thupi lake liwonongewe, kuti mzimu wake upulumusiwe pa Nsiku ya Mfumu. ",
+					false, 5, "1CO")
+			};
 			var vernBook = new BookScript("1CO", vernacularBlocks, m_vernVersification);
 
 			// Indonesian & English reference blocks
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(3, "Sebab aku, ... itu.", true, 5, "1CO"));
+			var referenceBlocks = new List<Block> { CreateNarratorBlockForVerse(3, "Sebab aku, ... itu.", true, 5, "1CO") };
 			referenceBlocks.Last().SetMatchedReferenceBlock(CreateNarratorBlockForVerse(3, "For ... thing.", true, 5, "1CO"));
 			referenceBlocks.Add(CreateNarratorBlockForVerse(4, "Bilamana ... kita,", true, 5, "1CO"));
 			referenceBlocks.Last().SetMatchedReferenceBlock(CreateNarratorBlockForVerse(4, "In ... Christ.", true, 5, "1CO"));
@@ -898,16 +910,16 @@ namespace GlyssenEngineTests
 				refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.AreEqual(vernacularBlocks.Count, result.SelectMany(v => v.ReferenceBlocks).Count());
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.Count));
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.SelectMany(v => v.ReferenceBlocks).Count()));
 
-			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.True(result[0].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[0].GetText(true) + " " + referenceBlocks[1].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
+			Assert.That(result[0].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(referenceBlocks[0].GetText(true) + " " + referenceBlocks[1].GetText(true), Is.EqualTo(result[0].ReferenceBlocks[0].GetText(true)));
 
-			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
-			Assert.True(result[1].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[2].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
+			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(result[1].MatchesReferenceText);
+			Assert.That(referenceBlocks[2].GetText(true), Is.EqualTo(result[1].ReferenceBlocks[0].GetText(true)));
 		}
 
 		/// <summary>
@@ -916,10 +928,12 @@ namespace GlyssenEngineTests
 		[Test]
 		public void ApplyTo_MissingVerseNumberInVernacular_DoesNotFail()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1,
-				"E mbaŋako iyako, Herod, iye Galili gharambarombaro i loŋweya Jisas le vakatha utuutuniye. ", true, 14)
-				.AddVerse(2, "I dage weŋgiya le rakakaiwo e raberabe iŋa, "));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1,
+						"E mbaŋako iyako, Herod, iye Galili gharambarombaro i loŋweya Jisas le vakatha utuutuniye. ", true, 14)
+					.AddVerse(2, "I dage weŋgiya le rakakaiwo e raberabe iŋa, ")
+			};
 			AddBlockForVerseInProgress(vernacularBlocks, "Herod Antipas (the tetrarch)",
 				"“Loloko iyako mbema emunjoru Jon Rabapɨtaiso, i thuweiru na tembe e yawayawaliyeva. Iya kaiwae valɨkaiwae i vakathaŋgiya vakatha ghamba rotaele ŋgoranjiyako.”");
 			var block = new Block("p", 14, 3);
@@ -936,7 +950,7 @@ namespace GlyssenEngineTests
 					"Herod va nuwaiya iŋa na Jon i mare, ko va i mararuŋgiya Jiu kaiwae va thɨŋa Jon iye Loi ghalɨŋae gharautu.");
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 
 #if DEBUG
 			using (new ErrorReport.NonFatalErrorReportExpected())
@@ -968,33 +982,35 @@ namespace GlyssenEngineTests
 			//   <text>and he touched his ear, and healed him.</text>
 			// </block>
 
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(50,
-				"A particular one of them dudes whacked the slave of the main priest, severing his ear.", true, 22, "LUK"));
-			vernacularBlocks.Add(CreateBlockForVerse("Jesus", 51,
-				"“What in the world was that all about? They're supposed to get away with this,” ", true, 22));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(50,
+					"A particular one of them dudes whacked the slave of the main priest, severing his ear.", true, 22, "LUK"),
+				CreateBlockForVerse("Jesus", 51,
+					"“What in the world was that all about? They're supposed to get away with this,” ", true, 22)
+			};
 			AddNarratorBlockForVerseInProgress(vernacularBlocks,
 				"reprimanded Jesus. Then He put his hand on his ear and fixed him right up.", "LUK");
 			var vernBook = new BookScript("LUK", vernacularBlocks, m_vernVersification);
 
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(3, result.Count);
+			Assert.That(result.Count, Is.EqualTo(3));
 
-			Assert.IsTrue(result[0].ReferenceBlocks[0].BlockElements.OfType<Sound>().Any());
+			Assert.That(result[0].ReferenceBlocks[0].BlockElements.OfType<Sound>().Any(), Is.True);
 			// Even though the verse break in the vernacular forced the reference block for vv. 50-51 to get split,
 			// there is now refined logic that should ensure that the "But Jesus answered, " block that is unaccounted for
 			// in the vernacular will attach to the preceding narrator block. But we still want the user to review it, so
 			// it should not be treated as automatically aligning perfectly, even though in this case it works out.
-			Assert.IsFalse(result[0].MatchesReferenceText);
+			Assert.That(result[0].MatchesReferenceText, Is.False);
 			var referenceBlocks = refText.Books.Single(b => b.BookId == vernBook.BookId).GetBlocksForVerse(22, 50, 51).ToList();
 			// Ensure all reference blocks are accounted for
-			Assert.AreEqual(Join("", referenceBlocks.Select(r => r.GetText(true))),
-				Join("", result.SelectMany(v => v.ReferenceBlocks).Select(r => r.GetText(true))));
-			Assert.IsTrue(result.Skip(1).All(b => b.MatchesReferenceText));
+			Assert.That(Join("", result.SelectMany(v => v.ReferenceBlocks).Select(r => r.GetText(true))),
+				Is.EqualTo(Join("", referenceBlocks.Select(r => r.GetText(true)))));
+			Assert.That(result.Skip(1).All(b => b.MatchesReferenceText), Is.True);
 		}
 
 		/// <summary>
@@ -1003,11 +1019,13 @@ namespace GlyssenEngineTests
 		[Test]
 		public void ApplyTo_VerseBreakInVernThatIsNotInReferenceText_SoundEffectAtEndOfVerseInReferenceText_ReferenceTextAppliedCorrectly()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(50,
-				"A particular one of them dudes whacked the slave of the main priest, severing his ear.", true, 22, "LUK"));
-			vernacularBlocks.Add(CreateBlockForVerse("Jesus", 51,
-				"“What in the world was that all about? They're supposed to get away with this,” ", true, 22));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(50,
+					"A particular one of them dudes whacked the slave of the main priest, severing his ear.", true, 22, "LUK"),
+				CreateBlockForVerse("Jesus", 51,
+					"“What in the world was that all about? They're supposed to get away with this,” ", true, 22)
+			};
 			AddNarratorBlockForVerseInProgress(vernacularBlocks,
 				"reprimanded Jesus. Then He put his hand on his ear and fixed him right up.", "LUK");
 			var vernBook = new BookScript("LUK", vernacularBlocks, m_vernVersification);
@@ -1030,20 +1048,20 @@ namespace GlyssenEngineTests
 				refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(3, result.Count);
+			Assert.That(result.Count, Is.EqualTo(3));
 
-			Assert.IsInstanceOf<Sound>(result[0].ReferenceBlocks[0].BlockElements.Last());
+			Assert.That(result[0].ReferenceBlocks[0].BlockElements.Last(), Is.InstanceOf<Sound>());
 			// Even though the verse break in the vernacular forced the reference block for vv. 50-51 to get split,
 			// there is now refined logic that should ensure that the "But Jesus answered, " block that is unaccounted for
 			// in the vernacular will attach to the preceding narrator block. But we still want the user to review it, so
 			// it should not be treated as automatically aligning perfectly, even though in this case it works out.
-			Assert.IsFalse(result[0].MatchesReferenceText);
-			Assert.AreEqual(origRefBlock0, Join("", result[0].ReferenceBlocks.Select(rb => rb.GetText(true, true))));
+			Assert.That(result[0].MatchesReferenceText, Is.False);
+			Assert.That(origRefBlock0, Is.EqualTo(Join("", result[0].ReferenceBlocks.Select(rb => rb.GetText(true, true)))));
 			// Ensure remaining reference blocks align 1-to-1
-			Assert.AreEqual(referenceBlocks.Count - 1, result.Skip(1).SelectMany(v => v.ReferenceBlocks).Count());
-			Assert.IsTrue(result.Skip(1).SelectMany(v => v.ReferenceBlocks).Select(r => r.GetText(true))
-				.SequenceEqual(referenceBlocks.Skip(1).Select(r => r.GetText(true))));
-			Assert.IsTrue(result.Skip(1).All(b => b.MatchesReferenceText));
+			Assert.That(referenceBlocks.Count - 1, Is.EqualTo(result.Skip(1).SelectMany(v => v.ReferenceBlocks).Count()));
+			Assert.That(result.Skip(1).SelectMany(v => v.ReferenceBlocks).Select(r => r.GetText(true))
+				.SequenceEqual(referenceBlocks.Skip(1).Select(r => r.GetText(true))), Is.True);
+			Assert.That(result.Skip(1).All(b => b.MatchesReferenceText), Is.True);
 		}
 
 		[Test]
@@ -1066,32 +1084,36 @@ namespace GlyssenEngineTests
 			vernacularBlocks.Add(block);
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Jesus told them where to find a donkey. ", true));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(2, "He said that they should bring it, and it would all work out. "));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(3, "It did. "));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(4, "Fourth verse."));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "Jesus told them where to find a donkey. ", true),
+				CreateNarratorBlockForVerse(2, "He said that they should bring it, and it would all work out. "),
+				CreateNarratorBlockForVerse(3, "It did. "),
+				CreateNarratorBlockForVerse(4, "Fourth verse.")
+			};
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(3, result.Count);
-			Assert.AreEqual("{1}\u00A0Entonces Jesús dijo que los reducirían un burro. ", result[0].GetText(true));
-			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual("{1}\u00A0Jesus told them where to find a donkey. ", result[0].GetPrimaryReferenceText());
+			Assert.That(result.Count, Is.EqualTo(3));
+			Assert.That(result[0].GetText(true),
+				Is.EqualTo("{1}\u00A0Entonces Jesús dijo que los reducirían un burro. "));
+			Assert.That(result[0].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(result[0].GetPrimaryReferenceText(),
+				Is.EqualTo("{1}\u00A0Jesus told them where to find a donkey. "));
 
-			Assert.AreEqual("{2-3a}\u00A0El número de ellos dónde encontrarlo. Y todo salió bien. {3f}\u00A0La segunda parte del versiculo. ",
-				result[1].GetText(true));
-			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
-			Assert.IsTrue(result[1].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[1].GetText(true) + referenceBlocks[2].GetText(true), result[1].GetPrimaryReferenceText());
+			Assert.That(result[1].GetText(true), Is.EqualTo(
+				"{2-3a}\u00A0El número de ellos dónde encontrarlo. Y todo salió bien. {3f}\u00A0La segunda parte del versiculo. "));
+			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(result[1].MatchesReferenceText);
+			Assert.That(referenceBlocks[1].GetText(true) + referenceBlocks[2].GetText(true), Is.EqualTo(result[1].GetPrimaryReferenceText()));
 
-			Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
-			Assert.IsTrue(result[2].MatchesReferenceText);
-			Assert.AreEqual("{4}\u00A0Fourth verse.", result[2].GetPrimaryReferenceText());
+			Assert.That(result[2].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(result[2].MatchesReferenceText);
+			Assert.That(result[2].GetPrimaryReferenceText(), Is.EqualTo("{4}\u00A0Fourth verse."));
 		}
 
 		[Test]
@@ -1119,74 +1141,70 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(2, result.Count);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true));
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].GetPrimaryReferenceText());
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual(1, result[0].InitialStartVerseNumber);
-			Assert.AreEqual(0, result[0].InitialEndVerseNumber);
-			Assert.AreEqual(3, result[0].LastVerseNum);
+			Assert.That(result.Count, Is.EqualTo(2));
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[0].ReferenceBlocks.Single().GetText(true)));
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[0].GetPrimaryReferenceText()));
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(result[0].InitialStartVerseNumber, Is.EqualTo(1));
+			Assert.That(result[0].InitialEndVerseNumber, Is.EqualTo(0));
+			Assert.That(result[0].LastVerseNum, Is.EqualTo(3));
 
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].GetPrimaryReferenceText());
-			Assert.IsTrue(result[1].MatchesReferenceText);
-			Assert.AreEqual(4, result[1].InitialStartVerseNumber);
-			Assert.AreEqual(0, result[1].InitialEndVerseNumber);
-			Assert.AreEqual(4, result[1].LastVerseNum);
+			Assert.That(referenceBlocks[1].GetText(true), Is.EqualTo(result[1].GetPrimaryReferenceText()));
+			Assert.That(result[1].MatchesReferenceText);
+			Assert.That(result[1].InitialStartVerseNumber, Is.EqualTo(4));
+			Assert.That(result[1].InitialEndVerseNumber, Is.EqualTo(0));
+			Assert.That(result[1].LastVerseNum, Is.EqualTo(4));
 		}
 
 		[Test]
 		public void ApplyTo_MultipleSpeakersInVerse_SpeakersDoNotCorrespond_UnmatchedReferenceTextCopiedIntoFirstBlockForVerse()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Then Jesus said, ", true));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(1, "Then Jesus said, ", true) };
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Porque pateas al gato?” ");
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Y Pablo respondio diciendo, ");
 			AddBlockForVerseInProgress(vernacularBlocks, "Paul", "“Quien eres Senor? Pedro?”");
 			vernacularBlocks.Add(CreateBlockForVerse("Paul", 2, "“Vamos a Asia!”"));
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateBlockForVerse("Jesus", 1, "Why do you kick the cat? ", true));
+			var referenceBlocks = new List<Block> { CreateBlockForVerse("Jesus", 1, "Why do you kick the cat? ", true) };
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "asked Jesus. ");
 			AddBlockForVerseInProgress(referenceBlocks, "Martha", "“Couldn't you have come sooner?” ");
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "muttered Martha.");
 			referenceBlocks.Add(CreateBlockForVerse("Timothy", 2, "“Let's go to Asia!”"));
 
-			Assert.AreEqual(referenceBlocks.Count, vernacularBlocks.Count); // Sanity check
+			Assert.That(referenceBlocks.Count, Is.EqualTo(vernacularBlocks.Count)); // Sanity check
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.AreEqual(referenceBlocks.Count, result.SelectMany(v => v.ReferenceBlocks).Count());
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.Count));
+			Assert.That(referenceBlocks.Count, Is.EqualTo(result.SelectMany(v => v.ReferenceBlocks).Count()));
 
-			Assert.AreEqual(4, result[0].ReferenceBlocks.Count);
+			Assert.That(result[0].ReferenceBlocks.Count, Is.EqualTo(4));
 			// Verse 1
-			Assert.IsTrue(result[0].ReferenceBlocks.Select(r => r.GetText(true)).SequenceEqual(referenceBlocks.Take(4).Select(r => r.GetText(true))));
-			Assert.AreEqual(0, result[1].ReferenceBlocks.Count);
-			Assert.AreEqual(0, result[2].ReferenceBlocks.Count);
-			Assert.AreEqual(0, result[3].ReferenceBlocks.Count);
-			Assert.IsTrue(result.Take(4).All(b => b.GetPrimaryReferenceText() == null));
+			Assert.That(result[0].ReferenceBlocks.Select(r => r.GetText(true)).SequenceEqual(referenceBlocks.Take(4).Select(r => r.GetText(true))), Is.True);
+			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(0));
+			Assert.That(result[2].ReferenceBlocks.Count, Is.EqualTo(0));
+			Assert.That(result[3].ReferenceBlocks.Count, Is.EqualTo(0));
+			Assert.That(result.Take(4).All(b => b.GetPrimaryReferenceText() == null), Is.True);
 
 			// Verse 2 (different character IDs but we match them anyway because it is the entirety of the verse)
-			Assert.AreEqual(1, result[4].ReferenceBlocks.Count);
-			Assert.IsFalse(result[4].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[4].GetText(true), result[4].ReferenceBlocks[0].GetText(true));
-			Assert.AreEqual(referenceBlocks[4].CharacterId, result[4].ReferenceBlocks[0].CharacterId);
+			Assert.That(result[4].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(result[4].MatchesReferenceText, Is.False);
+			Assert.That(referenceBlocks[4].GetText(true), Is.EqualTo(result[4].ReferenceBlocks[0].GetText(true)));
+			Assert.That(referenceBlocks[4].CharacterId, Is.EqualTo(result[4].ReferenceBlocks[0].CharacterId));
 		}
 
 		[Test]
 		public void ApplyTo_SingleSpeakerInVerse_SpeakersBeginCorrespondingThenDoNotCorrespond_ReferenceTextCopiedIntoBestMatchedVerseBlocks()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(16, "Entonces dijo Jesus, ", true, 9));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(16, "Entonces dijo Jesus, ", true, 9) };
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Porque pateas al gato?” ");
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(16, "Then Jesus said, ", true, 9));
+			var referenceBlocks = new List<Block> { CreateNarratorBlockForVerse(16, "Then Jesus said, ", true, 9) };
 			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "Why do you kick the cat? ");
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "thus he spake. ");
 
@@ -1195,28 +1213,28 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.AreEqual(referenceBlocks.Count, result.SelectMany(v => v.ReferenceBlocks).Count());
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.Count));
+			Assert.That(referenceBlocks.Count, Is.EqualTo(result.SelectMany(v => v.ReferenceBlocks).Count()));
 
-			Assert.AreEqual(referenceBlocks[0], result[0].ReferenceBlocks[0]);
-			Assert.AreEqual(referenceBlocks[2], result[0].ReferenceBlocks[1]);
-			Assert.IsFalse(result[0].MatchesReferenceText);
+			Assert.That(referenceBlocks[0], Is.EqualTo(result[0].ReferenceBlocks[0]));
+			Assert.That(referenceBlocks[2], Is.EqualTo(result[0].ReferenceBlocks[1]));
+			Assert.That(result[0].MatchesReferenceText, Is.False);
 
-			Assert.IsTrue(result[1].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[1], result[1].ReferenceBlocks.Single());
+			Assert.That(result[1].MatchesReferenceText);
+			Assert.That(referenceBlocks[1], Is.EqualTo(result[1].ReferenceBlocks.Single()));
 		}
 
 		[Test]
 		public void ApplyTo_SingleVoice_SingleSpeakerInVerse_SpeakersBeginCorrespondingThenDoNotCorrespond_ReferenceTextOrderNotChanged()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(16, "Entonces dijo Jesus, ", true, 9));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(16, "Entonces dijo Jesus, ", true, 9) };
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Porque pateas al gato?” ");
-			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
-			vernBook.SingleVoice = true;
+			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification)
+			{
+				SingleVoice = true
+			};
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(16, "Then Jesus said, ", true, 9));
+			var referenceBlocks = new List<Block> { CreateNarratorBlockForVerse(16, "Then Jesus said, ", true, 9) };
 			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "Why do you kick the cat? ");
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "thus he spake. ");
 
@@ -1225,27 +1243,25 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(vernacularBlocks.Count, result.Count);
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.Count));
 			Assert.That(result.All(v => v.ReferenceBlocks.Any()));
 			var refBlocksConnectedToVernBlocks = result.SelectMany(v => v.ReferenceBlocks).ToList();
-			Assert.AreEqual(String.Join("", referenceBlocks.Select(r => r.GetText(true))),
-				String.Join("", refBlocksConnectedToVernBlocks.Select(r => r.GetText(true))));
+			Assert.That(String.Join("", refBlocksConnectedToVernBlocks.Select(r => r.GetText(true))),
+				Is.EqualTo(String.Join("", referenceBlocks.Select(r => r.GetText(true)))));
 		}
 
 		// PG-1133 (part 2: preventing re-ordering of ref blocks in a way that would combine texts for two different speakers)
 		[Test]
 		public void ApplyTo_MultipleSpeakersInVerse_IndirectSpeechInVernDoesNotMatchDirectSpeechInRef_ReferenceTextForSecondSpeakerNotAppendedToFirstSpeaker()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(23, "Ndè, Yesu 'ǒ rò. ", true, 9).AddVerse(24, "Fǿrò, ke pòngʉ́e rɨ: "));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(23, "Ndè, Yesu 'ǒ rò. ", true, 9).AddVerse(24, "Fǿrò, ke pòngʉ́e rɨ: ") };
 			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "“'Ánɨ̀tù 'ɨ̀gǎrò, ddidhò, fǿ rɨ, ngbá kpalí.” ");
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Ndrǔ ʉ̀ ke ʉ̌. ")
 				.AddVerse(25, "Bíròbírò kʉ̀ ndrǔ-kpàrì rɨ gòtɨ́, Yesu tsùngʉ́e gì nà, le dángʉ́enɨ̀ rønà théchʉ́. ")
 				.AddVerse(26, "Fǿ lò-yɨ̌ ngø̀ lú gblè.");
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(23, "When Jesus saw the crowd, ", true, 9).AddVerse(24, "he said,"));
+			var referenceBlocks = new List<Block> { CreateNarratorBlockForVerse(23, "When Jesus saw the crowd, ", true, 9).AddVerse(24, "he said,") };
 			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "“Scram. The girl is sleeping.”");
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "They mocked him, saying:");
 			AddBlockForVerseInProgress(referenceBlocks, "people at Jairus' house", "“The girl is dead!”");
@@ -1257,36 +1273,40 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(5, result.Count);
-			Assert.AreEqual(referenceBlocks.Count, result.SelectMany(v => v.ReferenceBlocks).Count());
+			Assert.That(result.Count, Is.EqualTo(5));
+			Assert.That(referenceBlocks.Count, Is.EqualTo(result.SelectMany(v => v.ReferenceBlocks).Count()));
 
-			Assert.AreEqual(referenceBlocks[0], result[0].ReferenceBlocks.Single());
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[1], result[1].ReferenceBlocks.Single());
-			Assert.IsTrue(result[1].MatchesReferenceText);
-			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, result[1].CharacterId);
-			Assert.AreEqual(referenceBlocks[2], result[2].ReferenceBlocks[0]);
-			Assert.AreEqual(referenceBlocks[3], result[2].ReferenceBlocks[1]);
-			Assert.AreEqual(referenceBlocks[4], result[3].ReferenceBlocks.Single());
-			Assert.IsTrue(result[3].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[5], result[4].ReferenceBlocks.Single());
-			Assert.IsTrue(result[4].MatchesReferenceText);
+			Assert.That(referenceBlocks[0], Is.EqualTo(result[0].ReferenceBlocks.Single()));
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(referenceBlocks[1], Is.EqualTo(result[1].ReferenceBlocks.Single()));
+			Assert.That(result[1].MatchesReferenceText);
+			Assert.That(CharacterVerseData.kAmbiguousCharacter, Is.EqualTo(result[1].CharacterId));
+			Assert.That(referenceBlocks[2], Is.EqualTo(result[2].ReferenceBlocks[0]));
+			Assert.That(referenceBlocks[3], Is.EqualTo(result[2].ReferenceBlocks[1]));
+			Assert.That(referenceBlocks[4], Is.EqualTo(result[3].ReferenceBlocks.Single()));
+			Assert.That(result[3].MatchesReferenceText);
+			Assert.That(referenceBlocks[5], Is.EqualTo(result[4].ReferenceBlocks.Single()));
+			Assert.That(result[4].MatchesReferenceText);
 		}
 
 		// PG-1133 (part 3: handling missing lead-in "Saying,")
 		[Test]
 		public void ApplyTo_ReferenceTextHasLeadingNarratorBlockNotPresentInVernacular_AddedAsUnmatchedBlockToReferenceBlocksOfPrecedingBlock()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(41, "Ddichʉ́, Farisayó ndɨ̀mà-tsò rò, Yesu tsó 'ɨ̌: ", true, 22));
-			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 42, "“Nɨ̀ ká ddɨ́ Ndrǔ ná ke djò? Ke ká nǎrò sɨ̀ ná gø̀?” ", false, 22));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(41, "Ddichʉ́, Farisayó ndɨ̀mà-tsò rò, Yesu tsó 'ɨ̌: ", true, 22),
+				CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 42, "“Nɨ̀ ká ddɨ́ Ndrǔ ná ke djò? Ke ká nǎrò sɨ̀ ná gø̀?” ", false, 22)
+			};
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Fǿrò, kpa ngʉ̀ngʉ́e lò-gòtɨ ke dhò: ");
 			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "“Ke kʉ̀ Dawudi nǎrò sɨ̀ ná gø̀.” ");
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(41, "While the Pharisees were together, Jesus asked them, ", true, 22)
-				.AddVerse(42, "saying,"));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(41, "While the Pharisees were together, Jesus asked them, ", true, 22)
+					.AddVerse(42, "saying,")
+			};
 			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "“Whose son is the Christ?”");
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "They said to him,");
 			AddBlockForVerseInProgress(referenceBlocks, "Pharisees", "“Of David.”");
@@ -1298,28 +1318,31 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(4, result.Count);
-			Assert.AreEqual(referenceBlocks.Count + 1, result.SelectMany(v => v.ReferenceBlocks).Count(),
+			Assert.That(result.Count, Is.EqualTo(4));
+			Assert.That(result.SelectMany(v => v.ReferenceBlocks).Count(),
+				Is.EqualTo(referenceBlocks.Count + 1),
 				"There were 4 original reference blocks, but the one that contained the start of v. 42 " +
 				"gets split up because the vernacular has a block break aligned to that verse break.");
-			Assert.AreEqual(orig,
-				Join("", result.SelectMany(v => v.ReferenceBlocks).Select(r => r.GetText(true))));
+			Assert.That(Join("", result.SelectMany(v => v.ReferenceBlocks).Select(r => r.GetText(true))),
+				Is.EqualTo(orig));
 
-			Assert.AreEqual("{41}\u00A0While the Pharisees were together, Jesus asked them, ",
-				result[0].ReferenceBlocks[0].GetText(true));
-			Assert.AreEqual("{42}\u00A0saying,",
-				result[0].ReferenceBlocks[1].GetText(true));
-			Assert.IsTrue(result[1].MatchesReferenceText);
-			Assert.IsTrue(result[2].MatchesReferenceText);
-			Assert.IsTrue(result[3].MatchesReferenceText);
+			Assert.That(result[0].ReferenceBlocks[0].GetText(true),
+				Is.EqualTo("{41}\u00A0While the Pharisees were together, Jesus asked them, "));
+			Assert.That(result[0].ReferenceBlocks[1].GetText(true),
+				Is.EqualTo("{42}\u00A0saying,"));
+			Assert.That(result[1].MatchesReferenceText);
+			Assert.That(result[2].MatchesReferenceText);
+			Assert.That(result[3].MatchesReferenceText);
 		}
 
 		// PG-1133 (part 4: When attempting to align ref block to preceding block, don't assume that it has reference blocks.)
 		[Test] public void ApplyTo_VernacularPoeticBlocksNotBrokenOutInReferenceTextWithFollowingUnmatchedReferenceBlock_DoesNotCrash()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(7, "ଆୟୁମେପେ, ମାସିଦ ରିମିଲ୍‌ତେଃ ହୁଜୁଃତେନେ; ଅଣ୍ଡଃ ହୁଜୁଃତେନେଃକ ନେଲି'ୟେ।",
-				true, 1, "REV", "q1"));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(7, "ଆୟୁମେପେ, ମାସିଦ ରିମିଲ୍‌ତେଃ ହୁଜୁଃତେନେ; ଅଣ୍ଡଃ ହୁଜୁଃତେନେଃକ ନେଲି'ୟେ।",
+					true, 1, "REV", "q1")
+			};
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "ଆଏଃ ସବଃକେନ୍‌କ ଜାକେଡ୍‌ ଆଏଃକ ନେଲ୍‌କିଃତେକ ରାଃ-ଗିରାଙ୍ଗିୟା।")
 				.IsParagraphStart = true;
 			AddBlockForVerseInProgress(vernacularBlocks, vernacularBlocks.Last().CharacterId,
@@ -1329,9 +1352,11 @@ namespace GlyssenEngineTests
 				"“ଆଞ୍‌ଗେ ସବେନାଃଞ୍‌ ଉଙ୍କୁଳୁକିଡା, ହୁଜୁଃତିନିଃଦ, ଅଣ୍ଡଃ ଆଞ୍‌ଗେ ସବେନ୍‌କୟେତେ ପେଃୟାନ୍‌ ଇସର୍‌ଦ।”");
 			var vernBook = new BookScript("REV", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(7, "All eyes will see him come. All will mourn. Amen.", true, 1, "REV"));
-			referenceBlocks.Add(CreateBlockForVerse("God", 8, "“I am Alpha and Omega, beginning and end,”", true, 1, "REV"));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(7, "All eyes will see him come. All will mourn. Amen.", true, 1, "REV"),
+				CreateBlockForVerse("God", 8, "“I am Alpha and Omega, beginning and end,”", true, 1, "REV")
+			};
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "says the Lord God,", "REV");
 			AddBlockForVerseInProgress(referenceBlocks, "God", "“who is and who was and who is to come, the Almighty.”");
 
@@ -1340,20 +1365,20 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.AreEqual(referenceBlocks.Count, result.SelectMany(v => v.ReferenceBlocks).Count());
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.Count));
+			Assert.That(referenceBlocks.Count, Is.EqualTo(result.SelectMany(v => v.ReferenceBlocks).Count()));
 
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].GetPrimaryReferenceText());
-			Assert.IsFalse(result[1].MatchesReferenceText);
-			Assert.AreEqual(0, result[1].ReferenceBlocks.Count);
-			Assert.IsFalse(result[2].MatchesReferenceText);
-			Assert.AreEqual(0, result[2].ReferenceBlocks.Count);
-			Assert.IsTrue(result[3].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[2].GetText(true), result[3].GetPrimaryReferenceText());
-			Assert.AreEqual(2, result[4].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[4].ReferenceBlocks[0].GetText(true));
-			Assert.AreEqual(referenceBlocks[3].GetText(true), result[4].ReferenceBlocks[1].GetText(true));
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[0].GetPrimaryReferenceText()));
+			Assert.That(result[1].MatchesReferenceText, Is.False);
+			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(0));
+			Assert.That(result[2].MatchesReferenceText, Is.False);
+			Assert.That(result[2].ReferenceBlocks.Count, Is.EqualTo(0));
+			Assert.That(result[3].MatchesReferenceText);
+			Assert.That(referenceBlocks[2].GetText(true), Is.EqualTo(result[3].GetPrimaryReferenceText()));
+			Assert.That(result[4].ReferenceBlocks.Count, Is.EqualTo(2));
+			Assert.That(referenceBlocks[1].GetText(true), Is.EqualTo(result[4].ReferenceBlocks[0].GetText(true)));
+			Assert.That(referenceBlocks[3].GetText(true), Is.EqualTo(result[4].ReferenceBlocks[1].GetText(true)));
 		}
 
 		[Test]
@@ -1361,14 +1386,15 @@ namespace GlyssenEngineTests
 		{
 			// The only scenario we can think of at this point is if the versification makes
 			// the Hebrew titles in Psalms vs. 1 but those are not present in the reference text translation.
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Hola!", true));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "Entonces dijo Jesus, "));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "Hola!", true),
+				CreateNarratorBlockForVerse(2, "Entonces dijo Jesus, ")
+			};
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Porque pateas al gato?” ");
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(2, "Then Jesus said, ", true));
+			var referenceBlocks = new List<Block> { CreateNarratorBlockForVerse(2, "Then Jesus said, ", true) };
 			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "Why do you kick the cat? ");
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
@@ -1376,14 +1402,14 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.IsNull(result[0].GetPrimaryReferenceText());
-			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[1].MatchesReferenceText);
-			Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[2].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[2].MatchesReferenceText);
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.Count));
+			Assert.That(result[0].GetPrimaryReferenceText(), Is.Null);
+			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[1].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[1].MatchesReferenceText);
+			Assert.That(result[2].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[1].GetText(true), Is.EqualTo(result[2].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[2].MatchesReferenceText);
 		}
 
 		[Test]
@@ -1391,14 +1417,15 @@ namespace GlyssenEngineTests
 		{
 			// The only scenario we can think of at this point is if the versification makes
 			// the Hebrew titles in Psalms vs. 1 but those are not present in the vernacular translation.
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "Entonces dijo Jesus, "));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(2, "Entonces dijo Jesus, ") };
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Porque pateas al gato?” ");
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Hello!", true));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(2, "Then Jesus said, ", true));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "Hello!", true),
+				CreateNarratorBlockForVerse(2, "Then Jesus said, ", true)
+			};
 			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "Why do you kick the cat? ");
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
@@ -1406,13 +1433,13 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[2].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[1].MatchesReferenceText);
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.Count));
+			Assert.That(result[0].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[1].GetText(true), Is.EqualTo(result[0].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[2].GetText(true), Is.EqualTo(result[1].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[1].MatchesReferenceText);
 		}
 
 		[Test]
@@ -1420,14 +1447,15 @@ namespace GlyssenEngineTests
 		{
 			// The only scenario we can think of at this point is if the versification makes
 			// the Hebrew titles in Psalms vs. 0 but those are not present in the reference text translation.
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(0, "Hola!", true, 1, "PSA", "d"));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Entonces dijo Jesus, ", true, 1, "PSA", "q"));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(0, "Hola!", true, 1, "PSA", "d"),
+				CreateNarratorBlockForVerse(1, "Entonces dijo Jesus, ", true, 1, "PSA", "q")
+			};
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Porque pateas al gato?” ");
 			var vernBook = new BookScript("PSA", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Then Jesus said, ", true, 1, "PSA", "q"));
+			var referenceBlocks = new List<Block> { CreateNarratorBlockForVerse(1, "Then Jesus said, ", true, 1, "PSA", "q") };
 			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "Why do you kick the cat? ");
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
@@ -1435,14 +1463,14 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.IsNull(result[0].GetPrimaryReferenceText());
-			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[1].MatchesReferenceText);
-			Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[2].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[2].MatchesReferenceText);
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.Count));
+			Assert.That(result[0].GetPrimaryReferenceText(), Is.Null);
+			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[1].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[1].MatchesReferenceText);
+			Assert.That(result[2].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[1].GetText(true), Is.EqualTo(result[2].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[2].MatchesReferenceText);
 		}
 
 		[Test]
@@ -1450,14 +1478,15 @@ namespace GlyssenEngineTests
 		{
 			// The only scenario we can think of at this point is if the versification makes
 			// the Hebrew titles in Psalms vs. 0 but those are not present in the vernacular translation.
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Entonces dijo Jesus, ", true, 1, "PSA", "q"));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(1, "Entonces dijo Jesus, ", true, 1, "PSA", "q") };
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Porque pateas al gato?” ");
 			var vernBook = new BookScript("PSA", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(0, "Hello!", true, 1, "PSA", "d"));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Then Jesus said, ", true, 1, "PSA", "q"));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(0, "Hello!", true, 1, "PSA", "d"),
+				CreateNarratorBlockForVerse(1, "Then Jesus said, ", true, 1, "PSA", "q")
+			};
 			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "Why do you kick the cat? ");
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
@@ -1465,28 +1494,32 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[2].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[1].MatchesReferenceText);
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.Count));
+			Assert.That(result[0].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[1].GetText(true), Is.EqualTo(result[0].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[2].GetText(true), Is.EqualTo(result[1].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[1].MatchesReferenceText);
 		}
 
 		[Test]
 		public void ApplyTo_VernHasTwoParagraphsOfHebrewSubtitleButReferenceHasOne_TreatedLikeNormalVerse()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(0, "Hola!", true, 1, "PSA", "d"));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(0, "A psalm of David", true, 1, "PSA", "d"));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Entonces dijo Jesus, ", true, 1, "PSA", "q"));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(0, "Hola!", true, 1, "PSA", "d"),
+				CreateNarratorBlockForVerse(0, "A psalm of David", true, 1, "PSA", "d"),
+				CreateNarratorBlockForVerse(1, "Entonces dijo Jesus, ", true, 1, "PSA", "q")
+			};
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Porque pateas al gato?” ");
 			var vernBook = new BookScript("PSA", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(0, "Hello!", true, 1, "PSA", "d"));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Then Jesus said, ", true, 1, "PSA", "q"));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(0, "Hello!", true, 1, "PSA", "d"),
+				CreateNarratorBlockForVerse(1, "Then Jesus said, ", true, 1, "PSA", "q")
+			};
 			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "Why do you kick the cat? ");
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
@@ -1494,38 +1527,39 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.AreEqual(referenceBlocks.Count, result.SelectMany(v => v.ReferenceBlocks).Count());
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.Count));
+			Assert.That(referenceBlocks.Count, Is.EqualTo(result.SelectMany(v => v.ReferenceBlocks).Count()));
 
-			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].GetPrimaryReferenceText());
+			Assert.That(result[0].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[0].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[0].GetPrimaryReferenceText()));
 
-			Assert.AreEqual(0, result[1].ReferenceBlocks.Count);
-			Assert.IsFalse(result[1].MatchesReferenceText);
-			Assert.IsNull(result[1].GetPrimaryReferenceText());
+			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(0));
+			Assert.That(result[1].MatchesReferenceText, Is.False);
+			Assert.That(result[1].GetPrimaryReferenceText(), Is.Null);
 
-			Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[2].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[2].MatchesReferenceText);
+			Assert.That(result[2].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[1].GetText(true), Is.EqualTo(result[2].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[2].MatchesReferenceText);
 
-			Assert.AreEqual(1, result[3].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[2].GetText(true), result[3].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[3].MatchesReferenceText);
+			Assert.That(result[3].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[2].GetText(true), Is.EqualTo(result[3].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[3].MatchesReferenceText);
 		}
 
 		[Test]
 		public void ApplyTo_ReferenceHasTwoParagraphsOfHebrewSubtitleButVernHasOne_TreatedLikeNormalVerse()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(0, "Hola!", true, 1, "PSA", "d"));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Entonces dijo Jesus, ", true, 1, "PSA", "q"));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(0, "Hola!", true, 1, "PSA", "d"),
+				CreateNarratorBlockForVerse(1, "Entonces dijo Jesus, ", true, 1, "PSA", "q")
+			};
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Porque pateas al gato?” ");
 			var vernBook = new BookScript("PSA", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(0, "Hello!", true, 1, "PSA", "d"));
+			var referenceBlocks = new List<Block> { CreateNarratorBlockForVerse(0, "Hello!", true, 1, "PSA", "d") };
 			var block = new Block("d", 1) {
 				IsParagraphStart = true,
 				CharacterId = CharacterVerseData.GetStandardCharacterId("PSA", CharacterVerseData.StandardCharacter.Narrator),
@@ -1540,122 +1574,124 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(vernacularBlocks.Count, result.Count);
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.Count));
 
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.AreEqual(Join(" ", referenceBlocks.Take(2).Select(b => b.GetText(true))), result[0].GetPrimaryReferenceText());
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(result[0].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(Join(" ", referenceBlocks.Take(2).Select(b => b.GetText(true))), Is.EqualTo(result[0].GetPrimaryReferenceText()));
 
-			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[2].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[1].MatchesReferenceText);
+			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[2].GetText(true), Is.EqualTo(result[1].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[1].MatchesReferenceText);
 
-			Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[3].GetText(true), result[2].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[2].MatchesReferenceText);
+			Assert.That(result[2].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[3].GetText(true), Is.EqualTo(result[2].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[2].MatchesReferenceText);
 		}
 
 		[Test]
 		public void ApplyTo_ReferenceHasMoreVersesThanVernacular_ExtraVersesIgnored()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(8, "Con gran temblor...", true, 16, "MRK"));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(8, "Con gran temblor...", true, 16, "MRK") };
 			var vernBook = new BookScript("MRK", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(8, "Trembling and bewildered...", true, 16, "MRK"));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(9, "Hey, who added these verse to the Bible? ", true, 16, "MRK"));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(10, "remember what God said about that!", false, 16, "MRK"));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(8, "Trembling and bewildered...", true, 16, "MRK"),
+				CreateNarratorBlockForVerse(9, "Hey, who added these verse to the Bible? ", true, 16, "MRK"),
+				CreateNarratorBlockForVerse(10, "remember what God said about that!", false, 16, "MRK")
+			};
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.Count));
+			Assert.That(result[0].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[0].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[0].MatchesReferenceText);
 		}
 
 		[Test]
 		public void ApplyTo_VernacularHasIntroAndReferenceDoesnt_IntroIgnored()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Intro), 0, "Intro uno", true));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Con gran temblor...", true));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateBlockForVerse(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Intro), 0, "Intro uno", true),
+				CreateNarratorBlockForVerse(1, "Con gran temblor...", true)
+			};
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Trembling and bewildered...", true));
+			var referenceBlocks = new List<Block> { CreateNarratorBlockForVerse(1, "Trembling and bewildered...", true) };
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.IsNull(result[0].GetPrimaryReferenceText());
-			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[1].MatchesReferenceText);
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.Count));
+			Assert.That(result[0].GetPrimaryReferenceText(), Is.Null);
+			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[1].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[1].MatchesReferenceText);
 		}
 
 		[Test]
 		public void ApplyTo_VernacularAndReferenceHaveIntros_IntroNotMatched()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Intro), 0, "Intro uno", true));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Con gran temblor...", true));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateBlockForVerse(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Intro), 0, "Intro uno", true),
+				CreateNarratorBlockForVerse(1, "Con gran temblor...", true)
+			};
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateBlockForVerse(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Intro), 0, "Introduction", true));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Trembling and bewildered...", true));
+			var referenceBlocks = new List<Block>
+			{
+				CreateBlockForVerse(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Intro), 0, "Introduction", true),
+				CreateNarratorBlockForVerse(1, "Trembling and bewildered...", true)
+			};
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.IsNull(result[0].GetPrimaryReferenceText());
-			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[1].MatchesReferenceText);
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.Count));
+			Assert.That(result[0].GetPrimaryReferenceText(), Is.Null);
+			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[1].GetText(true), Is.EqualTo(result[1].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[1].MatchesReferenceText);
 		}
 
 		[Test]
 		public void ApplyTo_MultipleVersesInSingleReferenceBlock_VernacularNotSplitAtVerse()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Verse uno.", true).AddVerse(2, "Verse dos."));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(1, "Verse uno.", true).AddVerse(2, "Verse dos.") };
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Verse 1.", true).AddVerse(2, "Verse 2."));
+			var referenceBlocks = new List<Block> { CreateNarratorBlockForVerse(1, "Verse 1.", true).AddVerse(2, "Verse 2.") };
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.Count));
+			Assert.That(result[0].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[0].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[0].MatchesReferenceText);
 		}
 
 		[Test]
 		public void ApplyTo_VernacularNeedsToBeBrokenByReference_FirstReferenceVerseHasTwoBlocks_VernacularBrokenCorrectly()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(7, "Verse seven. ", true).AddVerse(8, "Verse eight. "));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(7, "Verse seven. ", true).AddVerse(8, "Verse eight. ") };
 			AddBlockForVerseInProgress(vernacularBlocks, "Herod", "What Herod says in verse eight.");
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(7, "Verse 7. ", true));
+			var referenceBlocks = new List<Block> { CreateNarratorBlockForVerse(7, "Verse 7. ", true) };
 			AddBlockForVerseInProgress(referenceBlocks, "Herod", "What Herod says in verse 7. ");
 			referenceBlocks.Add(CreateNarratorBlockForVerse(8, "Verse 8. ", true));
 			AddBlockForVerseInProgress(referenceBlocks, "Herod", "What Herod says in verse 8.");
@@ -1665,19 +1701,19 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(3, result.Count);
+			Assert.That(result.Count, Is.EqualTo(3));
 
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[0].GetText(true) + referenceBlocks[1].GetText(true), result[0].GetPrimaryReferenceText());
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(result[0].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[0].GetText(true) + referenceBlocks[1].GetText(true), Is.EqualTo(result[0].GetPrimaryReferenceText()));
 
-			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[2].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[2].MatchesReferenceText);
+			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[2].GetText(true), Is.EqualTo(result[1].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[2].MatchesReferenceText);
 
-			Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[3].GetText(true), result[2].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[2].MatchesReferenceText);
+			Assert.That(result[2].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[3].GetText(true), Is.EqualTo(result[2].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[2].MatchesReferenceText);
 		}
 
 		/// <summary>
@@ -1688,18 +1724,22 @@ namespace GlyssenEngineTests
 		[Test]
 		public void ApplyTo_ReferenceTextNeedsToBeBrokenAtVerseToMatchVernacular_NarratorIntroducesQuoteAtStartOfVerseTwo_ReferenceTextIsBrokenCorrectly()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1,
-				"Ka doŋ ginywalo Yecu i Beterekem ma i Judaya i kare me loc pa kabaka Kerode, nen, luryeko mogo ma gua yo tuŋ wokceŋ " +
-				"gubino i Jerucalem, kun gipenyo ni, ", true, 2));
-			vernacularBlocks.Add(CreateBlockForVerse("magi (wise men from East)", 2,
-				"“En latin ma ginywalo me bedo kabaka pa Lujudaya-ni tye kwene? Pien onoŋo waneno lakalatwene yo tuŋ wokceŋ, " +
-				"ci man wabino ka wore.”", true, 2));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1,
+					"Ka doŋ ginywalo Yecu i Beterekem ma i Judaya i kare me loc pa kabaka Kerode, nen, luryeko mogo ma gua yo tuŋ wokceŋ " +
+					"gubino i Jerucalem, kun gipenyo ni, ", true, 2),
+				CreateBlockForVerse("magi (wise men from East)", 2,
+					"“En latin ma ginywalo me bedo kabaka pa Lujudaya-ni tye kwene? Pien onoŋo waneno lakalatwene yo tuŋ wokceŋ, " +
+					"ci man wabino ka wore.”", true, 2)
+			};
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Now when Jesus was born in Bethlehem of Judea in the days of King Herod, " +
-				"behold, wise men from the east came to Jerusalem, ", true, 2).AddVerse(2, "saying, "));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "Now when Jesus was born in Bethlehem of Judea in the days of King Herod, " +
+					"behold, wise men from the east came to Jerusalem, ", true, 2).AddVerse(2, "saying, ")
+			};
 			AddBlockForVerseInProgress(referenceBlocks, "magi (wise men from East)", "“Where is the one who is born King of the Jews? For we saw his star in the east, " +
 				"and have come to worship him.”");
 
@@ -1708,14 +1748,16 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(2, result.Count);
+			Assert.That(result.Count, Is.EqualTo(2));
 
-			Assert.AreEqual("{1}\u00A0Now when Jesus was born in Bethlehem of Judea in the days of King Herod, " +
-				"behold, wise men from the east came to Jerusalem, ", result[0].ReferenceBlocks.Single().GetText(true));
-			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.That("{1}\u00A0Now when Jesus was born in Bethlehem of Judea in the days of King Herod, " +
+				"behold, wise men from the east came to Jerusalem, ",
+				Is.EqualTo(result[0].ReferenceBlocks.Single().GetText(true)));
+			Assert.That(result[0].MatchesReferenceText);
 
-			Assert.IsTrue(result[1].MatchesReferenceText);
-			Assert.AreEqual("{2}\u00A0saying, " + referenceBlocks[1].GetText(true), result[1].ReferenceBlocks.Single().GetText(true));
+			Assert.That(result[1].MatchesReferenceText);
+			Assert.That("{2}\u00A0saying, " + referenceBlocks[1].GetText(true),
+				Is.EqualTo(result[1].ReferenceBlocks.Single().GetText(true)));
 		}
 
 		/// <summary>
@@ -1728,8 +1770,7 @@ namespace GlyssenEngineTests
 		public void ApplyTo_ReferenceTextNeedsToBeBrokenAtVerseToMatchVernacular_GoodIllustration_ReferenceTextIsBrokenCorrectly(
 			bool useAmbiguousInVern)
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(16, "diciendo: ", true, 18, "REV"));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(16, "diciendo: ", true, 18, "REV") };
 			AddBlockForVerseInProgress(vernacularBlocks, useAmbiguousInVern ?
 					CharacterVerseData.kAmbiguousCharacter : "merchants of the earth",
 				"«¡Ay, ay, la gran ciudad, que estaba vestida de " +
@@ -1743,8 +1784,7 @@ namespace GlyssenEngineTests
 				"«¿Qué ciudad es semejante a la gran ciudad?»");
 			var vernBook = new BookScript("REV", vernacularBlocks, m_vernVersification);
 
-			var frenchReferenceBlocks = new List<Block>();
-			frenchReferenceBlocks.Add(CreateNarratorBlockForVerse(16, "en disant, ", true, 18, "REV"));
+			var frenchReferenceBlocks = new List<Block> { CreateNarratorBlockForVerse(16, "en disant, ", true, 18, "REV") };
 			AddBlockForVerseInProgress(frenchReferenceBlocks, "merchants of the earth", "«Malheur, malheur, la grande ville, elle qui était " +
 				"vêtue de fin lin, de pourpre et d'écarlate, et parée d' or et de pierres précieuses et de perles!");
 			frenchReferenceBlocks.Add(CreateBlockForVerse("merchants of the earth", 17, "Pour en une heure tant de richesses sont en souffrance.»", false, 18));
@@ -1753,8 +1793,7 @@ namespace GlyssenEngineTests
 				.AddVerse(18, "et pleuré comme ils ont regardé la fumée de son embrasement: ");
 			AddBlockForVerseInProgress(frenchReferenceBlocks, "sea captains, seafarers, sailors", "«Qu'est-ce que la grande ville?»");
 
-			var englishReferenceBlocks = new List<Block>();
-			englishReferenceBlocks.Add(CreateNarratorBlockForVerse(16, "saying, ", true, 18, "REV"));
+			var englishReferenceBlocks = new List<Block> { CreateNarratorBlockForVerse(16, "saying, ", true, 18, "REV") };
 			AddBlockForVerseInProgress(englishReferenceBlocks, "merchants of the earth", "“Woe, woe, the great city, she who was dressed in " +
 				"fine linen, purple, and scarlet, and decked with gold and precious stones and pearls!");
 			englishReferenceBlocks.Add(CreateBlockForVerse("merchants of the earth", 17, "For in an hour such great riches are made desolate.”", false, 18));
@@ -1771,32 +1810,32 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(5, result.Count);
+			Assert.That(result.Count, Is.EqualTo(5));
 
-			Assert.AreEqual(frenchReferenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true));
-			Assert.AreEqual("{16}\u00A0saying, ", result[0].ReferenceBlocks.Single().GetPrimaryReferenceText());
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual(englishReferenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetPrimaryReferenceText());
+			Assert.That(frenchReferenceBlocks[0].GetText(true), Is.EqualTo(result[0].ReferenceBlocks.Single().GetText(true)));
+			Assert.That(result[0].ReferenceBlocks.Single().GetPrimaryReferenceText(), Is.EqualTo("{16}\u00A0saying, "));
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(englishReferenceBlocks[0].GetText(true), Is.EqualTo(result[0].ReferenceBlocks.Single().GetPrimaryReferenceText()));
 
-			Assert.AreEqual(frenchReferenceBlocks[1].GetText(true), result[1].ReferenceBlocks.Single().GetText(true));
-			Assert.IsTrue(result[1].MatchesReferenceText);
-			Assert.AreEqual(englishReferenceBlocks[1].GetText(true), result[1].ReferenceBlocks.Single().GetPrimaryReferenceText());
+			Assert.That(frenchReferenceBlocks[1].GetText(true), Is.EqualTo(result[1].ReferenceBlocks.Single().GetText(true)));
+			Assert.That(result[1].MatchesReferenceText);
+			Assert.That(englishReferenceBlocks[1].GetText(true), Is.EqualTo(result[1].ReferenceBlocks.Single().GetPrimaryReferenceText()));
 
 			// REVIEW: We might not care whether this is a match (with the two blocks joined into one) or
 			// a mismatch (with them separate)
-			Assert.IsTrue(result[2].MatchesReferenceText);
-			Assert.AreEqual(Join(" ", frenchReferenceBlocks.Skip(2).Take(2).Select(b => b.GetText(true))),
-				Join(" ", result[2].ReferenceBlocks.Select(b => b.GetText(true))));
-			Assert.AreEqual(Join(" ", englishReferenceBlocks.Skip(2).Take(2).Select(b => b.GetText(true))),
-				Join(" ", result[2].ReferenceBlocks.SelectMany(b => b.ReferenceBlocks).Select(b => b.GetText(true))));
+			Assert.That(result[2].MatchesReferenceText);
+			Assert.That(Join(" ", result[2].ReferenceBlocks.Select(b => b.GetText(true))),
+				Is.EqualTo(Join(" ", frenchReferenceBlocks.Skip(2).Take(2).Select(b => b.GetText(true)))));
+			Assert.That(Join(" ", result[2].ReferenceBlocks.SelectMany(b => b.ReferenceBlocks).Select(b => b.GetText(true))),
+				Is.EqualTo(Join(" ", englishReferenceBlocks.Skip(2).Take(2).Select(b => b.GetText(true)))));
 
-			Assert.AreEqual("{18}\u00A0et pleuré comme ils ont regardé la fumée de son embrasement: ", result[3].ReferenceBlocks.Single().GetText(true));
-			Assert.IsTrue(result[3].MatchesReferenceText);
-			Assert.AreEqual("{18}\u00A0and cried out as they looked at the smoke of her burning, saying, ", result[3].ReferenceBlocks.Single().GetPrimaryReferenceText());
+			Assert.That(result[3].ReferenceBlocks.Single().GetText(true), Is.EqualTo("{18}\u00A0et pleuré comme ils ont regardé la fumée de son embrasement: "));
+			Assert.That(result[3].MatchesReferenceText);
+			Assert.That(result[3].ReferenceBlocks.Single().GetPrimaryReferenceText(), Is.EqualTo("{18}\u00A0and cried out as they looked at the smoke of her burning, saying, "));
 
-			Assert.AreEqual(frenchReferenceBlocks.Last().GetText(true), result[4].ReferenceBlocks.Single().GetText(true));
-			Assert.IsTrue(result[4].MatchesReferenceText);
-			Assert.AreEqual(englishReferenceBlocks.Last().GetText(true), result[4].ReferenceBlocks.Single().GetPrimaryReferenceText());
+			Assert.That(frenchReferenceBlocks.Last().GetText(true), Is.EqualTo(result[4].ReferenceBlocks.Single().GetText(true)));
+			Assert.That(result[4].MatchesReferenceText);
+			Assert.That(englishReferenceBlocks.Last().GetText(true), Is.EqualTo(result[4].ReferenceBlocks.Single().GetPrimaryReferenceText()));
 		}
 
 		/// <summary>
@@ -1805,20 +1844,26 @@ namespace GlyssenEngineTests
 		[Test]
 		public void ApplyTo_ChapterLabelFollowsMatchedBlock_SecondaryReferenceTextIsCorrect()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerse.kScriptureCharacter, 23, "Jadi omátám. Dená’ pun antang diam di kampong Nasaret di da’erah Galilea nyén...", false, 2));
-			vernacularBlocks.Add(NewChapterBlock("MAT", 3));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Vern-This is just needed because it is illegal to end with a chapter number.", true, 3));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateBlockForVerse(CharacterVerse.kScriptureCharacter, 23, "Jadi omátám. Dená’ pun antang diam di kampong Nasaret di da’erah Galilea nyén...", false, 2),
+				NewChapterBlock("MAT", 3),
+				CreateNarratorBlockForVerse(1, "Vern-This is just needed because it is illegal to end with a chapter number.", true, 3)
+			};
 
-			var indonesianReferenceBlocks = new List<Block>();
-			indonesianReferenceBlocks.Add(CreateBlockForVerse(CharacterVerse.kScriptureCharacter, 23, "<<Orang Nazaret.>>", false, 2));
-			indonesianReferenceBlocks.Add(NewChapterBlock("MAT", 3));
-			indonesianReferenceBlocks.Add(CreateNarratorBlockForVerse(1, "Indo-This is just needed because it is illegal to end with a chapter number.", true, 3));
+			var indonesianReferenceBlocks = new List<Block>
+			{
+				CreateBlockForVerse(CharacterVerse.kScriptureCharacter, 23, "<<Orang Nazaret.>>", false, 2),
+				NewChapterBlock("MAT", 3),
+				CreateNarratorBlockForVerse(1, "Indo-This is just needed because it is illegal to end with a chapter number.", true, 3)
+			};
 
-			var englishReferenceBlocks = new List<Block>();
-			englishReferenceBlocks.Add(CreateBlockForVerse(CharacterVerse.kScriptureCharacter, 23, "“He will be called a Nazarene.”", false, 2));
-			englishReferenceBlocks.Add(NewChapterBlock("MAT", 3, "Matthew 3"));
-			englishReferenceBlocks.Add(CreateNarratorBlockForVerse(1, "Eng-This is just needed because it is illegal to end with a chapter number.", true, 3));
+			var englishReferenceBlocks = new List<Block>
+			{
+				CreateBlockForVerse(CharacterVerse.kScriptureCharacter, 23, "“He will be called a Nazarene.”", false, 2),
+				NewChapterBlock("MAT", 3, "Matthew 3"),
+				CreateNarratorBlockForVerse(1, "Eng-This is just needed because it is illegal to end with a chapter number.", true, 3)
+			};
 
 			for (int i = 0; i < englishReferenceBlocks.Count; i++)
 				indonesianReferenceBlocks[i].SetMatchedReferenceBlock(englishReferenceBlocks[i]);
@@ -1832,10 +1877,10 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(3, result.Count);
-			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
+			Assert.That(result.Count, Is.EqualTo(3));
+			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
 
-			Assert.AreEqual("Matthew 3", result[1].ReferenceBlocks.Single().GetPrimaryReferenceText());
+			Assert.That(result[1].ReferenceBlocks.Single().GetPrimaryReferenceText(), Is.EqualTo("Matthew 3"));
 		}
 
 		[TestCase(null)]
@@ -1843,8 +1888,7 @@ namespace GlyssenEngineTests
 		[TestCase("[ ")] // PG-760
 		public void ApplyTo_VernacularHasBlockThatStartsWithVerseNotInReferenceText_ReferenceTextIsBrokenCorrectly(string openingBracket)
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(36, "And as they went on the way, they came unto a certain water; and the eunuch saith, ", true, 8, "ACT"));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(36, "And as they went on the way, they came unto a certain water; and the eunuch saith, ", true, 8, "ACT") };
 			AddBlockForVerseInProgress(vernacularBlocks, "Ethiopian officer of Queen Candace",
 				"«Behold, here is water; what doth hinder me to be baptized?»");
 			var block = CreateNarratorBlockForVerse(37, "And Philip said, ");
@@ -1859,8 +1903,7 @@ namespace GlyssenEngineTests
 				"into the water and Philip baptized him.", false, 8, "ACT"));
 			var vernBook = new BookScript("ACT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(36, "Yendo por el camino, llegaron a un lugar donde había agua; y el eunuco dijo: ", true, 8, "ACT"));
+			var referenceBlocks = new List<Block> { CreateNarratorBlockForVerse(36, "Yendo por el camino, llegaron a un lugar donde había agua; y el eunuco dijo: ", true, 8, "ACT") };
 			AddBlockForVerseInProgress(referenceBlocks, "Ethiopian officer of Queen Candace", "«Mira, agua. ¿Qué impide que yo sea bautizado? ").AddVerse(38, "¡Para el carruaje!» ");
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "Ambos descendieron al agua, Felipe y el eunuco, y lo bautizó.", "ACT");
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
@@ -1868,67 +1911,75 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(vernacularBlocks.Count, result.Count);
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.Count));
 
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true));
-			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[0].ReferenceBlocks.Single().GetText(true)));
+			Assert.That(result[0].MatchesReferenceText);
 
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].ReferenceBlocks.Single().GetText(true));
-			Assert.IsTrue(result[1].MatchesReferenceText);
+			Assert.That(referenceBlocks[1].GetText(true), Is.EqualTo(result[1].ReferenceBlocks.Single().GetText(true)));
+			Assert.That(result[1].MatchesReferenceText);
 
-			Assert.AreEqual(0, result[2].ReferenceBlocks.Count);
-			Assert.AreEqual(0, result[3].ReferenceBlocks.Count);
-			Assert.AreEqual(0, result[4].ReferenceBlocks.Count);
-			Assert.AreEqual(0, result[5].ReferenceBlocks.Count);
+			Assert.That(result[2].ReferenceBlocks.Count, Is.EqualTo(0));
+			Assert.That(result[3].ReferenceBlocks.Count, Is.EqualTo(0));
+			Assert.That(result[4].ReferenceBlocks.Count, Is.EqualTo(0));
+			Assert.That(result[5].ReferenceBlocks.Count, Is.EqualTo(0));
 
-			Assert.IsTrue(result[6].MatchesReferenceText);
-			Assert.AreEqual("{38}\u00A0¡Para el carruaje!» " + referenceBlocks.Last().GetText(true), result[6].ReferenceBlocks.Single().GetText(true));
+			Assert.That(result[6].MatchesReferenceText);
+			Assert.That("{38}\u00A0¡Para el carruaje!» " + referenceBlocks.Last().GetText(true), Is.EqualTo(result[6].ReferenceBlocks.Single().GetText(true)));
 		}
 
 		[Test]
 		public void ApplyTo_StandardReferenceTextSplitToMatchVernacular_ModifiedBooksGetReloadedWhenStandardReferenceTextIsGottenAgain()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1,
-				"Ka doŋ ginywalo Yecu i Beterekem ma i Judaya i kare me loc pa kabaka Kerode, nen, luryeko mogo ma gua yo tuŋ wokceŋ " +
-				"gubino i Jerucalem, kun gipenyo ni, ", true, 2));
-			vernacularBlocks.Add(CreateBlockForVerse("magi (wise men from East)", 2,
-				"“En latin ma ginywalo me bedo kabaka pa Lujudaya-ni tye kwene? Pien onoŋo waneno lakalatwene yo tuŋ wokceŋ, " +
-				"ci man wabino ka wore.”", true, 2));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1,
+					"Ka doŋ ginywalo Yecu i Beterekem ma i Judaya i kare me loc pa kabaka Kerode, nen, luryeko mogo ma gua yo tuŋ wokceŋ " +
+					"gubino i Jerucalem, kun gipenyo ni, ", true, 2),
+				CreateBlockForVerse("magi (wise men from East)", 2,
+					"“En latin ma ginywalo me bedo kabaka pa Lujudaya-ni tye kwene? Pien onoŋo waneno lakalatwene yo tuŋ wokceŋ, " +
+					"ci man wabino ka wore.”", true, 2)
+			};
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 			var origBlockCountForMatthew = refText.Books.Single(b => b.BookId == "MAT").GetScriptBlocks().Count;
 
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(2, result.Count);
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.IsTrue(result[1].MatchesReferenceText);
+			Assert.That(result.Count, Is.EqualTo(2));
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(result[1].MatchesReferenceText);
 
-			Assert.AreNotEqual(origBlockCountForMatthew, refText.Books.Single(b => b.BookId == "MAT").GetScriptBlocks().Count);
+			Assert.That(refText.Books.Single(b => b.BookId == "MAT").GetScriptBlocks().Count,
+				Is.Not.EqualTo(origBlockCountForMatthew));
 
-			Assert.AreEqual(origBlockCountForMatthew,
-				ReferenceText.GetStandardReferenceText(ReferenceTextType.English).Books.Single(b => b.BookId == "MAT").GetScriptBlocks().Count);
+			Assert.That(GetStandardReferenceText(ReferenceTextType.English)
+				.Books.Single(b => b.BookId == "MAT").GetScriptBlocks().Count,
+				Is.EqualTo(origBlockCountForMatthew));
 		}
 
 		[Test]
 		public void ApplyTo_FirstTwoVersesLinkedNtoM_RemainingVersesMatchedCorrectly()
 		{
 			//Acholi MAT 9:23-26
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(23, "Ka Yecu obino i ot pa laloc, oneno lukut nyamulere, kun lwak tye ka koko, ", false, 9)
-				.AddVerse(24, "ci owacci, "));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(23, "Ka Yecu obino i ot pa laloc, oneno lukut nyamulere, kun lwak tye ka koko, ", false, 9)
+					.AddVerse(24, "ci owacci, ")
+			};
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Wua woko; nyakoni pe oto ento onino anina.” ");
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Ci gin gunyere anyera. ")
 				.AddVerse(25, "Ento i kare ma doŋ oryemo lwak gukato woko, ci en odonyo i ot omako latin nyako-nu ki ciŋe, nyako-nu oa malo. ")
 				.AddVerse(26, "Lok meno oywek owinnye oromo lobo meno ducu.");
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(23, "When Jesus came into the ruler’s house and saw the flute players and the noisy crowd, ", false, 9)
-				.AddVerse(24, "he said to them,"));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(23, "When Jesus came into the ruler’s house and saw the flute players and the noisy crowd, ", false, 9)
+					.AddVerse(24, "he said to them,")
+			};
 			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "“Go away. The girl isn’t dead, but sleeping.”");
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "They mocked him, saying:");
 			AddBlockForVerseInProgress(referenceBlocks, "people at Jairus' house", "“The girl is dead!”");
@@ -1940,25 +1991,27 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(5, result.Count);
+			Assert.That(result.Count, Is.EqualTo(5));
 
-			Assert.AreEqual(4, result[0].ReferenceBlocks.Count + result[1].ReferenceBlocks.Count + result[2].ReferenceBlocks.Count);
+			Assert.That(result[0].ReferenceBlocks.Count + result[1].ReferenceBlocks.Count + result[2].ReferenceBlocks.Count, Is.EqualTo(4));
 
-			Assert.AreEqual(1, result[3].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[4].GetText(true), result[3].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[3].MatchesReferenceText);
+			Assert.That(result[3].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[4].GetText(true), Is.EqualTo(result[3].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[3].MatchesReferenceText);
 
-			Assert.AreEqual(1, result[4].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[5].GetText(true), result[4].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[4].MatchesReferenceText);
+			Assert.That(result[4].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[5].GetText(true), Is.EqualTo(result[4].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[4].MatchesReferenceText);
 		}
 
 		[Test]
 		public void ApplyTo_SomeBlocksPrematched_PrematchedVersesUnchangedAndOthersMatchedCorrectly()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Esto es lo que paso.", true));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "Entonces dijo Jesus:", true));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "Esto es lo que paso.", true),
+				CreateNarratorBlockForVerse(2, "Entonces dijo Jesus:", true)
+			};
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "—Nunca os dejare!");
 			AddBlockForVerseInProgress(vernacularBlocks, "John", "—Gracias.");
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "respondio Juan el");
@@ -1966,9 +2019,11 @@ namespace GlyssenEngineTests
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(3, "Eso es todo.", true));
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "This is what happened.", true));
-			referenceBlocks.Add(CreateBlockForVerse("Jesus", 2, "“I will never leave you!” ", true));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "This is what happened.", true),
+				CreateBlockForVerse("Jesus", 2, "“I will never leave you!” ", true)
+			};
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "said Jesus. In response, John spake thusly: ");
 			AddBlockForVerseInProgress(referenceBlocks, "John", "Cool! ");
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "which translated, means “thank you.”");
@@ -1994,43 +2049,47 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(7, result.Count);
-			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
+			Assert.That(result.Count, Is.EqualTo(7));
+			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
 
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].GetPrimaryReferenceText());
-			Assert.AreEqual("{2}\u00A0Then Jesus said:", result[1].GetPrimaryReferenceText());
-			Assert.AreEqual(referenceBlocks[1].GetText(false), result[2].GetPrimaryReferenceText());
-			Assert.AreEqual(referenceBlocks[3].GetText(true), result[3].GetPrimaryReferenceText());
-			Assert.AreEqual("responded John the ", result[4].GetPrimaryReferenceText());
-			Assert.AreEqual("beloved.", result[5].GetPrimaryReferenceText());
-			Assert.AreEqual(referenceBlocks[5].GetText(true), result[6].GetPrimaryReferenceText());
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[0].GetPrimaryReferenceText()));
+			Assert.That(result[1].GetPrimaryReferenceText(), Is.EqualTo("{2}\u00A0Then Jesus said:"));
+			Assert.That(referenceBlocks[1].GetText(false), Is.EqualTo(result[2].GetPrimaryReferenceText()));
+			Assert.That(referenceBlocks[3].GetText(true), Is.EqualTo(result[3].GetPrimaryReferenceText()));
+			Assert.That(result[4].GetPrimaryReferenceText(), Is.EqualTo("responded John the "));
+			Assert.That(result[5].GetPrimaryReferenceText(), Is.EqualTo("beloved."));
+			Assert.That(referenceBlocks[5].GetText(true), Is.EqualTo(result[6].GetPrimaryReferenceText()));
 		}
 
 		[Test]
 		public void ApplyTo_VernacularAndReferenceVersificationsDoNotMatch_SimpleVerseMapping_VersificationDifferencesResolvedBeforeMatching()
 		{
 			//GEN 32:1-32 = GEN 32:2-33
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(7, "Verse siete. ", true, 32, "GEN"));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(8, "Verse ocho.", false, 32, "GEN"));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(7, "Verse siete. ", true, 32, "GEN"),
+				CreateNarratorBlockForVerse(8, "Verse ocho.", false, 32, "GEN")
+			};
 			var vernBook = new BookScript("GEN", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(6, "Verse 6. ", true, 32, "GEN"));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(7, "Verse 7.", false, 32, "GEN"));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(6, "Verse 6. ", true, 32, "GEN"),
+				CreateNarratorBlockForVerse(7, "Verse 7.", false, 32, "GEN")
+			};
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[1].MatchesReferenceText);
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.Count));
+			Assert.That(result[0].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[0].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[1].GetText(true), Is.EqualTo(result[1].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[1].MatchesReferenceText);
 		}
 
 		/// <summary>
@@ -2041,49 +2100,51 @@ namespace GlyssenEngineTests
 		{
 			var chapterAnnouncementCharacter = CharacterVerseData.GetStandardCharacterId("ROM", CharacterVerseData.StandardCharacter.BookOrChapter);
 			//ROM 14:24-26 = ROM 16:25-27
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(23, "Fourteen Twenty-three. ", true, 14, "ROM"));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(24, "Fourteen Twenty-four.", true, 14, "ROM"));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(25, "Fourteen Twenty-five.", false, 14, "ROM"));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(26, "Fourteen Twenty-six.", false, 14, "ROM"));
-			vernacularBlocks.Add(NewChapterBlock("ROM", 15));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Fifteen One.", true, 15, "ROM"));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "Fifteen Two.", false, 15, "ROM"));
-			vernacularBlocks.Add(NewChapterBlock("ROM", 16));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Sixteen One.", true, 16, "ROM"));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(23, "Gaius, whose hospitality...", true, 16, "ROM"));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(23, "Fourteen Twenty-three. ", true, 14, "ROM"),
+				CreateNarratorBlockForVerse(24, "Fourteen Twenty-four.", true, 14, "ROM"),
+				CreateNarratorBlockForVerse(25, "Fourteen Twenty-five.", false, 14, "ROM"),
+				CreateNarratorBlockForVerse(26, "Fourteen Twenty-six.", false, 14, "ROM"),
+				NewChapterBlock("ROM", 15),
+				CreateNarratorBlockForVerse(1, "Fifteen One.", true, 15, "ROM"),
+				CreateNarratorBlockForVerse(2, "Fifteen Two.", false, 15, "ROM"),
+				NewChapterBlock("ROM", 16),
+				CreateNarratorBlockForVerse(1, "Sixteen One.", true, 16, "ROM"),
+				CreateNarratorBlockForVerse(23, "Gaius, whose hospitality...", true, 16, "ROM")
+			};
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Erastus sayas hi.", "ROM");
 			var vernBook = new BookScript("ROM", vernacularBlocks, m_vernVersification);
 
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.IsTrue(vernacularBlocks.Take(9).All(b => b.MatchesReferenceText)); // This could be 10, but that's not the point of this test
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.Count));
+			Assert.That(vernacularBlocks.Take(9).All(b => b.MatchesReferenceText), Is.True); // This could be 10, but that's not the point of this test
 
-			Assert.IsTrue(result[0].GetPrimaryReferenceText().StartsWith("{23}\u00A0"));
-			Assert.AreEqual(14, result[0].ReferenceBlocks.Single().ChapterNumber);
-			Assert.IsTrue(result[1].GetPrimaryReferenceText().StartsWith("{25}\u00A0"));
-			Assert.AreEqual(16, result[1].ReferenceBlocks.Single().ChapterNumber);
-			Assert.IsTrue(result[2].GetPrimaryReferenceText().StartsWith("{26}\u00A0"));
-			Assert.AreEqual(16, result[2].ReferenceBlocks.Single().ChapterNumber);
-			Assert.IsTrue(result[3].GetPrimaryReferenceText().StartsWith("{27}\u00A0"));
-			Assert.AreEqual(16, result[3].ReferenceBlocks.Single().ChapterNumber);
-			Assert.IsTrue(result[4].ReferenceBlocks.Single().IsChapterAnnouncement);
-			Assert.AreEqual(15, result[4].ReferenceBlocks.Single().ChapterNumber);
-			Assert.IsTrue(result[5].GetPrimaryReferenceText().StartsWith("{1}\u00A0"));
-			Assert.AreEqual(15, result[5].ReferenceBlocks.Single().ChapterNumber);
-			Assert.IsTrue(result[6].GetPrimaryReferenceText().StartsWith("{2}\u00A0"));
-			Assert.AreEqual(15, result[6].ReferenceBlocks.Single().ChapterNumber);
-			Assert.IsTrue(result[7].ReferenceBlocks.Single().IsChapterAnnouncement);
-			Assert.AreEqual(16, result[7].ReferenceBlocks.Single().ChapterNumber);
-			Assert.IsTrue(result[8].GetPrimaryReferenceText().StartsWith("{1}\u00A0"));
-			Assert.AreEqual(16, result[8].ReferenceBlocks.Single().ChapterNumber);
-			Assert.AreEqual(16, result[9].ReferenceBlocks.Single().ChapterNumber);
-			Assert.IsTrue(result[9].GetPrimaryReferenceText().StartsWith("{23}\u00A0"));
-			Assert.IsFalse(result[10].ReferenceBlocks.Any());
+			Assert.That(result[0].GetPrimaryReferenceText(), Does.StartWith("{23}\u00A0"));
+			Assert.That(result[0].ReferenceBlocks.Single().ChapterNumber, Is.EqualTo(14));
+			Assert.That(result[1].GetPrimaryReferenceText(), Does.StartWith("{25}\u00A0"));
+			Assert.That(result[1].ReferenceBlocks.Single().ChapterNumber, Is.EqualTo(16));
+			Assert.That(result[2].GetPrimaryReferenceText(), Does.StartWith("{26}\u00A0"));
+			Assert.That(result[2].ReferenceBlocks.Single().ChapterNumber, Is.EqualTo(16));
+			Assert.That(result[3].GetPrimaryReferenceText(), Does.StartWith("{27}\u00A0"));
+			Assert.That(result[3].ReferenceBlocks.Single().ChapterNumber, Is.EqualTo(16));
+			Assert.That(result[4].ReferenceBlocks.Single().IsChapterAnnouncement, Is.True);
+			Assert.That(result[4].ReferenceBlocks.Single().ChapterNumber, Is.EqualTo(15));
+			Assert.That(result[5].GetPrimaryReferenceText(), Does.StartWith("{1}\u00A0"));
+			Assert.That(result[5].ReferenceBlocks.Single().ChapterNumber, Is.EqualTo(15));
+			Assert.That(result[6].GetPrimaryReferenceText(), Does.StartWith("{2}\u00A0"));
+			Assert.That(result[6].ReferenceBlocks.Single().ChapterNumber, Is.EqualTo(15));
+			Assert.That(result[7].ReferenceBlocks.Single().IsChapterAnnouncement, Is.True);
+			Assert.That(result[7].ReferenceBlocks.Single().ChapterNumber, Is.EqualTo(16));
+			Assert.That(result[8].GetPrimaryReferenceText(), Does.StartWith("{1}\u00A0"));
+			Assert.That(result[8].ReferenceBlocks.Single().ChapterNumber, Is.EqualTo(16));
+			Assert.That(result[9].ReferenceBlocks.Single().ChapterNumber, Is.EqualTo(16));
+			Assert.That(result[9].GetPrimaryReferenceText(), Does.StartWith("{23}\u00A0"));
+			Assert.That(result[10].ReferenceBlocks.Any(), Is.False);
 		}
 
 		[Test]
@@ -2091,68 +2152,73 @@ namespace GlyssenEngineTests
 		{
 			//EXO 8:1-4 = EXO 7:26-29
 			//EXO 8:5-32 = EXO 8:1-28
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(29, "Versículo 29. ", true, 7, "EXO"));
-			vernacularBlocks.Add(NewChapterBlock("EXO", 8, "Chapter 8"));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Versículo 1.", false, 8, "EXO"));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(29, "Versículo 29. ", true, 7, "EXO"),
+				NewChapterBlock("EXO", 8, "Chapter 8"),
+				CreateNarratorBlockForVerse(1, "Versículo 1.", false, 8, "EXO")
+			};
 			var vernBook = new BookScript("EXO", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(NewChapterBlock("EXO", 8, "Chapter 8"));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(4, "Verse 4. ", true, 8, "EXO"));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(5, "Verse 5.", false, 8, "EXO"));
+			var referenceBlocks = new List<Block>
+			{
+				NewChapterBlock("EXO", 8, "Chapter 8"),
+				CreateNarratorBlockForVerse(4, "Verse 4. ", true, 8, "EXO"),
+				CreateNarratorBlockForVerse(5, "Verse 5.", false, 8, "EXO")
+			};
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual("The Gospel According to Thomas 8", result[1].GetPrimaryReferenceText());
-			Assert.IsTrue(result[1].MatchesReferenceText);
-			Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[2].GetText(true), result[2].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[2].MatchesReferenceText);
+			Assert.That(vernacularBlocks.Count, Is.EqualTo(result.Count));
+			Assert.That(result[0].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[1].GetText(true), Is.EqualTo(result[0].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(result[1].GetPrimaryReferenceText(), Is.EqualTo("The Gospel According to Thomas 8"));
+			Assert.That(result[1].MatchesReferenceText);
+			Assert.That(result[2].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[2].GetText(true), Is.EqualTo(result[2].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[2].MatchesReferenceText);
 		}
 
 		[Test]
 		public void ApplyTo_VernacularAndReferenceVersificationsDoNotMatch_SplitVernacularBasedOnReference()
 		{
 			//EXO 8:5-32 = EXO 8:1-28
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateBlockForVerse("Fred", 1, "Cosas que Fred dice, ", true, 8));
+			var vernacularBlocks = new List<Block> { CreateBlockForVerse("Fred", 1, "Cosas que Fred dice, ", true, 8) };
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Fred. ", "EXO");
 			var block = CreateNarratorBlockForVerse(2, "Blah blah. ", false, 8, "EXO");
 			block.AddVerse(3, "More blah blah. ").AddVerse(4, "The final blah blah.");
 			vernacularBlocks.Add(block);
 			var vernBook = new BookScript("EXO", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(5, "I don't know if Fred told you this or not, but he's crazy. ", true, 8, "EXO"));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(6, "This is your narrator speaking. ", false, 8, "EXO"));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(7, "I hope you enjoy your flight. ", false, 8, "EXO"));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(8, "The end. ", false, 8, "EXO"));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(5, "I don't know if Fred told you this or not, but he's crazy. ", true, 8, "EXO"),
+				CreateNarratorBlockForVerse(6, "This is your narrator speaking. ", false, 8, "EXO"),
+				CreateNarratorBlockForVerse(7, "I hope you enjoy your flight. ", false, 8, "EXO"),
+				CreateNarratorBlockForVerse(8, "The end. ", false, 8, "EXO")
+			};
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks, ReferenceTextType.English);
 
 			refText.ApplyTo(vernBook);
 
-			Assert.AreEqual(4, referenceBlocks.Count);
+			Assert.That(referenceBlocks.Count, Is.EqualTo(4));
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(5, result.Count);
-			Assert.AreEqual("{1}\u00A0Cosas que Fred dice, ", result[0].GetText(true));
-			Assert.AreEqual(0, result[0].ReferenceBlocks.Count);
+			Assert.That(result.Count, Is.EqualTo(5));
+			Assert.That(result[0].GetText(true), Is.EqualTo("{1}\u00A0Cosas que Fred dice, "));
+			Assert.That(result[0].ReferenceBlocks.Count, Is.EqualTo(0));
 
-			Assert.AreEqual("dijo Fred. ", result[1].GetText(true));
-			Assert.AreEqual("{5}\u00A0I don't know if Fred told you this or not, but he's crazy. ", result[1].ReferenceBlocks.Single().GetText(true));
+			Assert.That(result[1].GetText(true), Is.EqualTo("dijo Fred. "));
+			Assert.That(result[1].ReferenceBlocks.Single().GetText(true), Is.EqualTo("{5}\u00A0I don't know if Fred told you this or not, but he's crazy. "));
 
-			Assert.AreEqual("{2}\u00A0Blah blah. ", result[2].GetText(true));
-			Assert.AreEqual("{3}\u00A0More blah blah. ", result[3].GetText(true));
-			Assert.AreEqual("{4}\u00A0The final blah blah.", result[4].GetText(true));
-			Assert.IsTrue(result.Skip(2).Select(v => v.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Skip(1).Select(r => r.GetText(true))));
+			Assert.That(result[2].GetText(true), Is.EqualTo("{2}\u00A0Blah blah. "));
+			Assert.That(result[3].GetText(true), Is.EqualTo("{3}\u00A0More blah blah. "));
+			Assert.That(result[4].GetText(true), Is.EqualTo("{4}\u00A0The final blah blah."));
+			Assert.That(result.Skip(2).Select(v => v.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Skip(1).Select(r => r.GetText(true))), Is.True);
 		}
 
 		// PG-1085
@@ -2160,26 +2226,26 @@ namespace GlyssenEngineTests
 		public void ApplyTo_SingleVoice_HasSectionHeadingMidVerse_AppliesCorrectly()
 		{
 			// Acts 10:23
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(23, "Narrator before SH", true, 10, "ACT"));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(23, "Narrator before SH", true, 10, "ACT") };
 			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.ExtraBiblical), "SH", "s");
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Narrator after SH", "ACT");
-			var vernBook = new BookScript("ACT", vernacularBlocks, m_vernVersification);
-			vernBook.SingleVoice = true;
+			var vernBook = new BookScript("ACT", vernacularBlocks, m_vernVersification)
+			{
+				SingleVoice = true
+			};
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(23, "verse 23a in reftext - has no SH", true, 10, "ACT"));
+			var referenceBlocks = new List<Block> { CreateNarratorBlockForVerse(23, "verse 23a in reftext - has no SH", true, 10, "ACT") };
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "verse 23b in reftext - has no SH", "ACT");
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(3, result.Count);
+			Assert.That(result.Count, Is.EqualTo(3));
 
-			Assert.AreEqual("verse 23a in reftext - has no SH", result[0].GetPrimaryReferenceText(true));
-			Assert.Null(result[1].GetPrimaryReferenceText(true));
-			Assert.AreEqual("verse 23b in reftext - has no SH", result[2].GetPrimaryReferenceText(true));
+			Assert.That(result[0].GetPrimaryReferenceText(true), Is.EqualTo("verse 23a in reftext - has no SH"));
+			Assert.That(result[1].GetPrimaryReferenceText(true), Is.Null);
+			Assert.That(result[2].GetPrimaryReferenceText(true), Is.EqualTo("verse 23b in reftext - has no SH"));
 		}
 
 		// PG-1327
@@ -2187,27 +2253,29 @@ namespace GlyssenEngineTests
 		public void ApplyTo_SingleVoice_MoreBlocksInVernacularThanInReferenceText_AppliesCorrectly()
 		{
 			// Mark 6:24
-			var vernacularBlocks = new List<Block>();
-			// This first block simulates the joining of a narrator block and the subsequent (ambiguous) block, which is
-			// what happens in GetBooksWithBlocksConnectedToReferenceText when called from Project Exporter. The second
-			// block is not joined (per current logic) because of the sentence-ending punctuation (?).
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(24, "Sara wɨdake' walyuna yaka ganaangevɨ wɨdɨna “Nɨmɨ berɨ'na wɨdɨjɨwana?”", true, 6, "MRK"));
+			var vernacularBlocks = new List<Block> {
+				// This first block simulates the joining of a narrator block and the subsequent (ambiguous) block, which is
+				// what happens in GetBooksWithBlocksConnectedToReferenceText when called from Project Exporter. The second
+				// block is not joined (per current logic) because of the sentence-ending punctuation (?).
+				CreateNarratorBlockForVerse(24, "Sara wɨdake' walyuna yaka ganaangevɨ wɨdɨna “Nɨmɨ berɨ'na wɨdɨjɨwana?”", true, 6, "MRK") };
 			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "“ ‘Jonɨ Bavɨtaazɨa mɨnyagɨnya' dyaama!’ sara duthana!”");
-			var vernBook = new BookScript("MRK", vernacularBlocks, m_vernVersification);
-			vernBook.SingleVoice = true;
+			var vernBook = new BookScript("MRK", vernacularBlocks, m_vernVersification)
+			{
+				SingleVoice = true
+			};
 
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Russian);
+			var refText = GetStandardReferenceText(ReferenceTextType.Russian);
 
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(2, result.Count);
+			Assert.That(result.Count, Is.EqualTo(2));
 
-			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
+			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
 			var russianRefTextBlock = result[0].ReferenceBlocks.Single();
-			Assert.AreEqual(24, ((Verse)russianRefTextBlock.BlockElements.First()).StartVerse);
+			Assert.That(((Verse)russianRefTextBlock.BlockElements.First()).StartVerse, Is.EqualTo(24));
 			var englishRefTextBlock = russianRefTextBlock.ReferenceBlocks.Single();
-			Assert.AreEqual(24, ((Verse)englishRefTextBlock.BlockElements.First()).StartVerse);
+			Assert.That(((Verse)englishRefTextBlock.BlockElements.First()).StartVerse, Is.EqualTo(24));
 			russianRefTextBlock = result[1].ReferenceBlocks.Single();
 			englishRefTextBlock = russianRefTextBlock.ReferenceBlocks.Single();
 			// Not entirely sure this is the best way, but rather than creating a dummy reference text or hard-coding the exact text as it is today,
@@ -2218,8 +2286,8 @@ namespace GlyssenEngineTests
 			var combinedQuoteNarratorQuoteRefTextMatcher = new Regex($"^{kOpenQuote}.+\\?{kCloseQuote} .+(:|,) {kOpenQuote}.+\\.{kCloseQuote}$", RegexOptions.Compiled);
 			var russianRefTextPart2 = ((ScriptText)russianRefTextBlock.BlockElements.Single()).Content;
 			var englishRefTextPart2 = ((ScriptText)englishRefTextBlock.BlockElements.Single()).Content;
-			Assert.IsTrue(combinedQuoteNarratorQuoteRefTextMatcher.IsMatch(russianRefTextPart2));
-			Assert.IsTrue(combinedQuoteNarratorQuoteRefTextMatcher.IsMatch(englishRefTextPart2));
+			Assert.That(combinedQuoteNarratorQuoteRefTextMatcher.IsMatch(russianRefTextPart2), Is.True);
+			Assert.That(combinedQuoteNarratorQuoteRefTextMatcher.IsMatch(englishRefTextPart2), Is.True);
 		}
 
 		// PG-1086
@@ -2234,12 +2302,16 @@ namespace GlyssenEngineTests
 			vernacularBlocks.Add(block);
 			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.GetStandardCharacterId("LUK", CharacterVerseData.StandardCharacter.ExtraBiblical), "Jesus te ghoi bosaa na mateana", "s");
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Tana bona na vure tara", "LUK");
-			var vernBook = new BookScript("LUK", vernacularBlocks, m_vernVersification);
-			vernBook.SingleVoice = singleVoice;
+			var vernBook = new BookScript("LUK", vernacularBlocks, m_vernVersification)
+			{
+				SingleVoice = singleVoice
+			};
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(42, "While he was still coming,", true, 9, "LUK"));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(43, "They were all astonished and said:", true, 9, "LUK"));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(42, "While he was still coming,", true, 9, "LUK"),
+				CreateNarratorBlockForVerse(43, "They were all astonished and said:", true, 9, "LUK")
+			};
 			AddBlockForVerseInProgress(referenceBlocks, "everyone who witnessed healing of boy", "“Behold the majesty of God!”", "LUK");
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "But while all were marveling", "LUK");
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
@@ -2247,37 +2319,37 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(4, result.Count);
+			Assert.That(result.Count, Is.EqualTo(4));
 
-			Assert.True(result[0].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].GetPrimaryReferenceText());
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[0].ReferenceBlocks[0].GetText(true)));
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[0].GetPrimaryReferenceText()));
 
-			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
-			Assert.True(result[1].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].GetPrimaryReferenceText());
+			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(result[1].MatchesReferenceText);
+			Assert.That(referenceBlocks[1].GetText(true), Is.EqualTo(result[1].ReferenceBlocks[0].GetText(true)));
+			Assert.That(referenceBlocks[1].GetText(true), Is.EqualTo(result[1].GetPrimaryReferenceText()));
 
-			Assert.AreEqual("Jesus te ghoi bosaa na mateana", result[2].GetText(true));
-			Assert.AreEqual(0, result[2].ReferenceBlocks.Count);
-			Assert.False(result[2].MatchesReferenceText);
-			Assert.Null(result[2].GetPrimaryReferenceText());
+			Assert.That(result[2].GetText(true), Is.EqualTo("Jesus te ghoi bosaa na mateana"));
+			Assert.That(result[2].ReferenceBlocks.Count, Is.EqualTo(0));
+			Assert.That(result[2].MatchesReferenceText, Is.False);
+			Assert.That(result[2].GetPrimaryReferenceText(), Is.Null);
 
 			if (!singleVoice)
 			{
-				Assert.AreEqual(2, result[3].ReferenceBlocks.Count);
-				Assert.False(result[3].MatchesReferenceText);
-				Assert.AreEqual(referenceBlocks[2].GetText(true), result[3].ReferenceBlocks[0].GetText(true));
-				Assert.AreEqual(referenceBlocks[3].GetText(true), result[3].ReferenceBlocks[1].GetText(true));
-				Assert.Null(result[3].GetPrimaryReferenceText());
+				Assert.That(result[3].ReferenceBlocks.Count, Is.EqualTo(2));
+				Assert.That(result[3].MatchesReferenceText, Is.False);
+				Assert.That(referenceBlocks[2].GetText(true), Is.EqualTo(result[3].ReferenceBlocks[0].GetText(true)));
+				Assert.That(referenceBlocks[3].GetText(true), Is.EqualTo(result[3].ReferenceBlocks[1].GetText(true)));
+				Assert.That(result[3].GetPrimaryReferenceText(), Is.Null);
 			}
 			else
 			{
-				Assert.AreEqual(1, result[3].ReferenceBlocks.Count);
-				Assert.True(result[3].MatchesReferenceText);
+				Assert.That(result[3].ReferenceBlocks.Count, Is.EqualTo(1));
+				Assert.That(result[3].MatchesReferenceText);
 				var expected = referenceBlocks[2].GetText(true) + " " + referenceBlocks[3].GetText(true);
-				Assert.AreEqual(expected, result[3].ReferenceBlocks[0].GetText(true));
-				Assert.AreEqual(expected, result[3].GetPrimaryReferenceText());
+				Assert.That(expected, Is.EqualTo(result[3].ReferenceBlocks[0].GetText(true)));
+				Assert.That(expected, Is.EqualTo(result[3].GetPrimaryReferenceText()));
 			}
 		}
 
@@ -2296,12 +2368,16 @@ namespace GlyssenEngineTests
 			vernacularBlocks.Add(block);
 			//AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.GetStandardCharacterId("LUK", CharacterVerseData.StandardCharacter.ExtraBiblical), "Jesus te ghoi bosaa na mateana", "s");
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Tana bona na vure tara", "LUK");
-			var vernBook = new BookScript("LUK", vernacularBlocks, m_vernVersification);
-			vernBook.SingleVoice = singleVoice;
+			var vernBook = new BookScript("LUK", vernacularBlocks, m_vernVersification)
+			{
+				SingleVoice = singleVoice
+			};
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(42, "While he was still coming,", true, 9, "LUK"));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(43, "They were all astonished and said:", true, 9, "LUK"));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(42, "While he was still coming,", true, 9, "LUK"),
+				CreateNarratorBlockForVerse(43, "They were all astonished and said:", true, 9, "LUK")
+			};
 			AddBlockForVerseInProgress(referenceBlocks, "everyone who witnessed healing of boy", "“Behold the majesty of God!”",
 				"LUK");
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "But while all were marveling", "LUK");
@@ -2310,31 +2386,31 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(3, result.Count);
+			Assert.That(result.Count, Is.EqualTo(3));
 
-			Assert.True(result[0].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].GetPrimaryReferenceText());
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[0].ReferenceBlocks[0].GetText(true)));
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[0].GetPrimaryReferenceText()));
 
-			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
-			Assert.True(result[1].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].GetPrimaryReferenceText());
+			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(result[1].MatchesReferenceText);
+			Assert.That(referenceBlocks[1].GetText(true), Is.EqualTo(result[1].ReferenceBlocks[0].GetText(true)));
+			Assert.That(referenceBlocks[1].GetText(true), Is.EqualTo(result[1].GetPrimaryReferenceText()));
 
 			if (!singleVoice)
 			{
-				Assert.AreEqual(2, result[2].ReferenceBlocks.Count);
-				Assert.False(result[2].MatchesReferenceText);
-				Assert.AreEqual(referenceBlocks[2].GetText(true), result[2].ReferenceBlocks[0].GetText(true));
-				Assert.AreEqual(referenceBlocks[3].GetText(true), result[2].ReferenceBlocks[1].GetText(true));
-				Assert.Null(result[2].GetPrimaryReferenceText());
+				Assert.That(result[2].ReferenceBlocks.Count, Is.EqualTo(2));
+				Assert.That(result[2].MatchesReferenceText, Is.False);
+				Assert.That(referenceBlocks[2].GetText(true), Is.EqualTo(result[2].ReferenceBlocks[0].GetText(true)));
+				Assert.That(referenceBlocks[3].GetText(true), Is.EqualTo(result[2].ReferenceBlocks[1].GetText(true)));
+				Assert.That(result[2].GetPrimaryReferenceText(), Is.Null);
 			}
 			else
 			{
-				Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
-				Assert.True(result[2].MatchesReferenceText);
-				Assert.AreEqual("“Behold the majesty of God!” But while all were marveling", result[2].ReferenceBlocks[0].GetText(true));
-				Assert.AreEqual("“Behold the majesty of God!” But while all were marveling", result[2].GetPrimaryReferenceText());
+				Assert.That(result[2].ReferenceBlocks.Count, Is.EqualTo(1));
+				Assert.That(result[2].MatchesReferenceText);
+				Assert.That(result[2].ReferenceBlocks[0].GetText(true), Is.EqualTo("“Behold the majesty of God!” But while all were marveling"));
+				Assert.That(result[2].GetPrimaryReferenceText(), Is.EqualTo("“Behold the majesty of God!” But while all were marveling"));
 			}
 		}
 
@@ -2356,11 +2432,13 @@ namespace GlyssenEngineTests
 					"JOB 39:1-3 = JOB 38:39-41"),
 				"IndonesianExample", "Custom");
 
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateBlockForVerse("God", 36, "Siapagah yang hikmat di batin? Atau, siapagah pangertian pepada pikiren? ", true, 38)
-				.AddVerse(37, "Siapekah yang menghitung awan hikmat? Siepaka fapat isi kirbot langit, ")
-				.AddVerse(38, "ketika tarcedak jodi keras gumpalan tanah berhekatan?"));
-			vernacularBlocks.Add(NewChapterBlock("JOB", 39));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateBlockForVerse("God", 36, "Siapagah yang hikmat di batin? Atau, siapagah pangertian pepada pikiren? ", true, 38)
+					.AddVerse(37, "Siapekah yang menghitung awan hikmat? Siepaka fapat isi kirbot langit, ")
+					.AddVerse(38, "ketika tarcedak jodi keras gumpalan tanah berhekatan?"),
+				NewChapterBlock("JOB", 39)
+			};
 			if (includeSectionHead)
 			{ 
 				vernacularBlocks.Add(new Block("s", 39)
@@ -2376,7 +2454,7 @@ namespace GlyssenEngineTests
 			vernacularBlocks.Add(CreateBlockForVerse("God", 3, "Siarakah yong menyediakan, ketika anoknya barteriak kepada Allah tidak aza makanan? ", false, 39));
 
 			var vernBook = new BookScript("JOB", vernacularBlocks, customVersification);
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 
 			refText.ApplyTo(vernBook);
 
@@ -2399,11 +2477,13 @@ namespace GlyssenEngineTests
 					"PSA 11:0-9 = PSA 12:0-9"),
 				"IndonesianExample", "Custom");
 
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(22, "Salmo 9-22 (10:1 in English). ", true, 9, "PSA")
-				.AddVerse(23, "Salmo 9-23 (10:2 in English), ")
-				.AddVerse(24, "Salmo 9-24 (10:3 in English), ")
-				.AddVerse(25, "Salmo 9-25 (10:4 in English), "));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(22, "Salmo 9-22 (10:1 in English). ", true, 9, "PSA")
+					.AddVerse(23, "Salmo 9-23 (10:2 in English), ")
+					.AddVerse(24, "Salmo 9-24 (10:3 in English), ")
+					.AddVerse(25, "Salmo 9-25 (10:4 in English), ")
+			};
 			AddBlockForVerseInProgress(vernacularBlocks, "man, wicked", "“God is not even on my radar.”", "q1");
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(26, "Salmo 9-26 (10:5 in English), ", true, 9, "PSA")
 				.AddVerse(27, "Salmo 9-27 (10:6 in English), "));
@@ -2430,7 +2510,7 @@ namespace GlyssenEngineTests
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "Salmo 10-2 (11:2 in Original, 11:2 in English)", true, 10, "PSA"));
 
 			var vernBook = new BookScript("PSA", vernacularBlocks, customVersification);
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 
 			refText.ApplyTo(vernBook);
 
@@ -2465,8 +2545,7 @@ namespace GlyssenEngineTests
 					"ISA 64:2-12 = ISA 64:1-11"),
 				"pg1386", "Custom");
 
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(NewChapterBlock("ISA", 63));
+			var vernacularBlocks = new List<Block> { NewChapterBlock("ISA", 63) };
 			for (var i = 1; i <= 19; i++)
 				vernacularBlocks.Add(CreateNarratorBlockForVerse(i, $"Isaiah 39:{i}. ", true, 63, "ISA"));
 			vernacularBlocks.Add(NewChapterBlock("ISA", 64));
@@ -2475,14 +2554,14 @@ namespace GlyssenEngineTests
 				.AddVerse(3, "Ketika elakukan hal yong dasyat, yang sangka, Engkau tirun, dax gungunung leluh hadapan-Mu."));
 
 			var vernBook = new BookScript("ISA", vernacularBlocks, customVersification);
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 
 			refText.ApplyTo(vernBook);
 
 			var firstScrBlockInCh64 = vernBook.GetScriptBlocks().Single(b => b.ChapterNumber == 64 && b.InitialStartVerseNumber == 1);
-			Assert.IsFalse(firstScrBlockInCh64.MatchesReferenceText);
-			Assert.AreEqual(1, firstScrBlockInCh64.ReferenceBlocks.First().InitialStartVerseNumber);
-			Assert.AreEqual(2, firstScrBlockInCh64.ReferenceBlocks.Last().LastVerseNum);
+			Assert.That(firstScrBlockInCh64.MatchesReferenceText, Is.False);
+			Assert.That(firstScrBlockInCh64.ReferenceBlocks.First().InitialStartVerseNumber, Is.EqualTo(1));
+			Assert.That(firstScrBlockInCh64.ReferenceBlocks.Last().LastVerseNum, Is.EqualTo(2));
 		}
 
 		[Test]
@@ -2510,8 +2589,7 @@ namespace GlyssenEngineTests
 					"ISA 64:2-12 = ISA 64:1-11"),
 				"pg1386", "Custom");
 
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(NewChapterBlock("ISA", 63));
+			var vernacularBlocks = new List<Block> { NewChapterBlock("ISA", 63) };
 			for (var i = 1; i <= 19; i++)
 				vernacularBlocks.Add(CreateNarratorBlockForVerse(i, $"Isaiah 39:{i}. ", true, 63, "ISA"));
 			vernacularBlocks.Add(NewChapterBlock("ISA", 64));
@@ -2519,24 +2597,26 @@ namespace GlyssenEngineTests
 				.AddVerse(2, "seperti agi menpalatan semakapi didihkan wir. Bwatlah dikenal dole lawan-Mu, sehinga bangso gametir hadapan-Mu. ")
 				.AddVerse(3, "Ketika elakukan hal yong dasyat, yang sangka, Engkau tirun, dax gungunung leluh hadapan-Mu."));
 
-			var vernBook = new BookScript("ISA", vernacularBlocks, customVersification);
-			vernBook.SingleVoice = true;
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var vernBook = new BookScript("ISA", vernacularBlocks, customVersification)
+			{
+				SingleVoice = true
+			};
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 			var refBookIsa = refText.Books[BCVRef.BookToNumber("ISA") - 1];
 
 			refText.ApplyTo(vernBook);
 
 			var firstScrBlockInCh64 = vernBook.GetScriptBlocks().Single(b => b.ChapterNumber == 64 && b.InitialStartVerseNumber == 1);
-			Assert.IsTrue(firstScrBlockInCh64.MatchesReferenceText);
+			Assert.That(firstScrBlockInCh64.MatchesReferenceText);
 			var matchedRefBlock = firstScrBlockInCh64.ReferenceBlocks.Single();
-			Assert.AreEqual(1, matchedRefBlock.InitialStartVerseNumber);
-			Assert.AreEqual(2, matchedRefBlock.LastVerseNum);
+			Assert.That(matchedRefBlock.InitialStartVerseNumber, Is.EqualTo(1));
+			Assert.That(matchedRefBlock.LastVerseNum, Is.EqualTo(2));
 			// The following not only ensures we got the correct content, it also ensures that the matched
 			// block was cloned so that the reference text was not modified.
-			Assert.AreEqual(refBookIsa.GetBlocksForVerse(64, 1).Single().BlockElements.OfType<ScriptText>().Single().Content + " ",
-				((ScriptText)matchedRefBlock.BlockElements[1]).Content);
-			Assert.AreEqual(refBookIsa.GetBlocksForVerse(64, 2).Single().BlockElements.OfType<ScriptText>().Single().Content,
-				((ScriptText)matchedRefBlock.BlockElements[3]).Content);
+			Assert.That(((ScriptText)matchedRefBlock.BlockElements[1]).Content,
+				Is.EqualTo(refBookIsa.GetBlocksForVerse(64, 1).Single().BlockElements.OfType<ScriptText>().Single().Content + " "));
+			Assert.That(((ScriptText)matchedRefBlock.BlockElements[3]).Content,
+				Is.EqualTo(refBookIsa.GetBlocksForVerse(64, 2).Single().BlockElements.OfType<ScriptText>().Single().Content));
 		}
 
 
@@ -2670,47 +2750,50 @@ namespace GlyssenEngineTests
 			var blocksBeforeCall = testProject.IncludedBooks[0].GetScriptBlocks();
 			var result = refTextForJude.GetBooksWithBlocksConnectedToReferenceText(testProject, applyNarratorOverrides);
 			var resultBlocks = result.Single().GetScriptBlocks();
-			Assert.IsTrue(blocksBeforeCall.Select(b => b.GetText(true)).SequenceEqual(resultBlocks.Select(b => b.GetText(true))));
-			Assert.IsTrue(resultBlocks.All(b => (b.ReferenceBlocks == null || !b.ReferenceBlocks.Any()) && !b.MatchesReferenceText));
+			Assert.That(blocksBeforeCall.Select(b => b.GetText(true)).SequenceEqual(resultBlocks.Select(b => b.GetText(true))), Is.True);
+			Assert.That(resultBlocks.All(b => (b.ReferenceBlocks == null || !b.ReferenceBlocks.Any()) && !b.MatchesReferenceText), Is.True);
 		}
 
 		[Test]
 		public void GetBooksWithBlocksConnectedToReferenceText_VernacularHasSubsequentBlocksWithSameCharacter_BlocksAreJoinedThenSplitBasedOnReference()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "El cual significa, ", true));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(1, "El cual significa, ", true) };
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "“Dios con nosotros.” ").AddVerse(2, "Blah blah. ");
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.JUD);
 			testProject.Books[0].Blocks = vernacularBlocks;
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Which means, God with us.", true));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(2, "This is your narrator speaking. "));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "Which means, God with us.", true),
+				CreateNarratorBlockForVerse(2, "This is your narrator speaking. ")
+			};
 			var primaryReferenceText = TestReferenceText.CreateTestReferenceText("JUD", referenceBlocks);
 
 			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject, false).Single().GetScriptBlocks();
 
-			Assert.AreEqual(2, result.Count);
+			Assert.That(result.Count, Is.EqualTo(2));
 
-			Assert.AreEqual("{1}\u00A0El cual significa, “Dios con nosotros.” ", result[0].GetText(true));
-			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].GetPrimaryReferenceText());
+			Assert.That(result[0].GetText(true), Is.EqualTo("{1}\u00A0El cual significa, “Dios con nosotros.” "));
+			Assert.That(result[0].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[0].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[0].GetPrimaryReferenceText()));
 
-			Assert.AreEqual("{2}\u00A0Blah blah. ", result[1].GetText(true));
-			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
-			Assert.IsTrue(result[1].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].GetPrimaryReferenceText());
+			Assert.That(result[1].GetText(true), Is.EqualTo("{2}\u00A0Blah blah. "));
+			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(referenceBlocks[1].GetText(true), Is.EqualTo(result[1].ReferenceBlocks[0].GetText(true)));
+			Assert.That(result[1].MatchesReferenceText);
+			Assert.That(referenceBlocks[1].GetText(true), Is.EqualTo(result[1].GetPrimaryReferenceText()));
 		}
 
 		[Test]
 		public void GetBooksWithBlocksConnectedToReferenceText_SomeBlocksPrematched_PrematchedVersesUnchangedAndOthersMatchedCorrectly()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Esto es lo que paso.", true));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "Entonces dijo Jesus:", true));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "Esto es lo que paso.", true),
+				CreateNarratorBlockForVerse(2, "Entonces dijo Jesus:", true)
+			};
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "—Nunca os dejare!");
 			AddBlockForVerseInProgress(vernacularBlocks, "John", "—Gracias.");
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "respondio Juan el");
@@ -2719,9 +2802,11 @@ namespace GlyssenEngineTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.JUD);
 			testProject.Books[0].Blocks = vernacularBlocks;
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "This is what happened.", true));
-			referenceBlocks.Add(CreateBlockForVerse("Jesus", 2, "“I will never leave you!” ", true));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "This is what happened.", true),
+				CreateBlockForVerse("Jesus", 2, "“I will never leave you!” ", true)
+			};
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "said Jesus. In response, John spake thusly: ");
 			AddBlockForVerseInProgress(referenceBlocks, "John", "Cool! ");
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "which translated, means “thank you.”");
@@ -2752,34 +2837,36 @@ namespace GlyssenEngineTests
 			using (var writer = persistenceImpl.GetTextWriter(customDoubleSpeakReferenceTextId, ProjectResource.Metadata))
 			{
 				XmlSerializationHelper.Serialize(writer, metadata, out var e);
-				Assert.IsNull(e);
+				Assert.That(e, Is.Null);
 			}
-			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, "Doublespeak"));
+			var primaryReferenceText = GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, "Doublespeak"));
 			var books = (List<BookScript>)primaryReferenceText.Books;
 			var refBook = new BookScript(testProject.Books[0].BookId, referenceBlocks, primaryReferenceText.Versification);
 			books.Add(refBook);
 
 			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject, false).Single().GetScriptBlocks();
 
-			Assert.AreEqual(6, result.Count);
-			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
+			Assert.That(result.Count, Is.EqualTo(6));
+			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
 
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].GetPrimaryReferenceText());
-			Assert.AreEqual("{2}\u00A0Then Jesus said:", result[1].GetPrimaryReferenceText());
-			Assert.AreEqual(referenceBlocks[1].GetText(false), result[2].GetPrimaryReferenceText());
-			Assert.AreEqual(referenceBlocks[3].GetText(true), result[3].GetPrimaryReferenceText());
-			Assert.AreEqual("responded John the beloved.", result[4].GetPrimaryReferenceText());
-			Assert.AreEqual(referenceBlocks[5].GetText(true), result[5].GetPrimaryReferenceText());
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result[0].GetPrimaryReferenceText()));
+			Assert.That(result[1].GetPrimaryReferenceText(), Is.EqualTo("{2}\u00A0Then Jesus said:"));
+			Assert.That(referenceBlocks[1].GetText(false), Is.EqualTo(result[2].GetPrimaryReferenceText()));
+			Assert.That(referenceBlocks[3].GetText(true), Is.EqualTo(result[3].GetPrimaryReferenceText()));
+			Assert.That(result[4].GetPrimaryReferenceText(), Is.EqualTo("responded John the beloved."));
+			Assert.That(referenceBlocks[5].GetText(true), Is.EqualTo(result[5].GetPrimaryReferenceText()));
 		}
 
 		[TestCase(true)]
 		[TestCase(false)]
 		public void GetBooksWithBlocksConnectedToReferenceText_SomeBlocksPrematchedAndJoined_PrematchedVersesDoNotGetResplit(bool applyNarratorOverrides)
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(NewChapterBlock("MAT", 3));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Een dat time, John wa Bactize come ta de wildaness een Judea, an e staat fa preach dey. ", true, 3));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "E tell um say, ", chapter:3));
+			var vernacularBlocks = new List<Block>
+			{
+				NewChapterBlock("MAT", 3),
+				CreateNarratorBlockForVerse(1, "Een dat time, John wa Bactize come ta de wildaness een Judea, an e staat fa preach dey. ", true, 3),
+				CreateNarratorBlockForVerse(2, "E tell um say, ", chapter:3)
+			};
 			AddBlockForVerseInProgress(vernacularBlocks, "John the Baptist", "“Oona mus change oona sinful way an dohn do um no mo. Cause de time mos yah wen God gwine rule oba we!” ");
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(3, "John been de man wa de prophet Isaiah beena taak bout wen e say,", chapter: 3));
 			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerse.kScriptureCharacter, "“Somebody da holla een de wildaness say, ‘Oona mus cleah de road weh de Lawd gwine come shru.", "q1");
@@ -2793,27 +2880,26 @@ namespace GlyssenEngineTests
 			vernacularBlocks[2].SetMatchedReferenceBlock("...{2} saying,");
 			vernacularBlocks[3].SetMatchedReferenceBlock("“Repent, for the Kingdom of Heaven is at hand!”");
 
-			var result = ReferenceText.GetStandardReferenceText(ReferenceTextType.English)
+			var result = GetStandardReferenceText(ReferenceTextType.English)
 				.GetBooksWithBlocksConnectedToReferenceText(testProject, applyNarratorOverrides).Single().GetScriptBlocks();
 
-			Assert.AreEqual(6, result.Count);
-			Assert.IsTrue(result[0].MatchesReferenceText && result[0].ReferenceBlocks.Single().IsChapterAnnouncement);
-			Assert.IsTrue(result[1].MatchesReferenceText);
-			Assert.IsTrue(result[2].MatchesReferenceText);
+			Assert.That(result.Count, Is.EqualTo(6));
+			Assert.That(result[0].MatchesReferenceText && result[0].ReferenceBlocks.Single().IsChapterAnnouncement, Is.True);
+			Assert.That(result[1].MatchesReferenceText);
+			Assert.That(result[2].MatchesReferenceText);
 			// These final three blocks aren't of major importance in this test, but here's how they shake out:
-			Assert.IsTrue(result[3].MatchesReferenceText);
-			Assert.IsTrue(result[4].MatchesReferenceText);
-			Assert.IsFalse(result[5].MatchesReferenceText);
+			Assert.That(result[3].MatchesReferenceText);
+			Assert.That(result[4].MatchesReferenceText);
+			Assert.That(result[5].MatchesReferenceText, Is.False);
 
-			Assert.AreEqual("In those days, John the Baptizer came, preaching in the wilderness of Judea, {2}\u00A0saying,", result[1].GetPrimaryReferenceText());
-			Assert.AreEqual("“Repent, for the Kingdom of Heaven is at hand!”", result[2].GetPrimaryReferenceText());
+			Assert.That(result[1].GetPrimaryReferenceText(), Is.EqualTo("In those days, John the Baptizer came, preaching in the wilderness of Judea, {2}\u00A0saying,"));
+			Assert.That(result[2].GetPrimaryReferenceText(), Is.EqualTo("“Repent, for the Kingdom of Heaven is at hand!”"));
 		}
 
 		[Test]
 		public void GetBooksWithBlocksConnectedToReferenceText_VernacularContainsQBlocks_ReferenceTextSingleBlock_VernacularBlocksCombined()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateBlockForVerse("Peter", 1, "Juan dijo, ", true));
+			var vernacularBlocks = new List<Block> { CreateBlockForVerse("Peter", 1, "Juan dijo, ", true) };
 			AddBlockForVerseInProgress(vernacularBlocks, "Peter", "'This es estrofa 1, ", "q1");
 			AddBlockForVerseInProgress(vernacularBlocks, "Peter", "This es estrofa 2, ", "q2");
 			AddBlockForVerseInProgress(vernacularBlocks, "Peter", "This es estrofa 3, ", "q1");
@@ -2821,12 +2907,13 @@ namespace GlyssenEngineTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.ACT);
 			testProject.Books[0].Blocks = vernacularBlocks;
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateBlockForVerse("Peter", 1, "John said, 'This is line 1, This is line 2, This is line 3, This is line 4.'", true));
+			var referenceBlocks = new List<Block> { CreateBlockForVerse("Peter", 1, "John said, 'This is line 1, This is line 2, This is line 3, This is line 4.'", true) };
 
 			const string kPoetian = "Poetian";
-			var metadata = new GlyssenDblTextMetadata();
-			metadata.Language = new GlyssenDblMetadataLanguage { Name = kPoetian };
+			var metadata = new GlyssenDblTextMetadata
+			{
+				Language = new GlyssenDblMetadataLanguage { Name = kPoetian }
+			};
 			TestReferenceText.ForgetCustomReferenceTexts();
 			var persistenceImpl = (IProjectPersistenceWriter)ReferenceTextProxy.Reader;
 			var customPoetianReferenceTextId = new ReferenceTextId(ReferenceTextType.Custom, kPoetian);
@@ -2834,9 +2921,9 @@ namespace GlyssenEngineTests
 			using (var writer = persistenceImpl.GetTextWriter(customPoetianReferenceTextId, ProjectResource.Metadata))
 			{
 				XmlSerializationHelper.Serialize(writer, metadata, out var e);
-				Assert.IsNull(e);
+				Assert.That(e, Is.Null);
 			}
-			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, kPoetian));
+			var primaryReferenceText = GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, kPoetian));
 
 			var books = (List<BookScript>)primaryReferenceText.Books;
 			var refBook = new BookScript(testProject.Books[0].BookId, referenceBlocks, primaryReferenceText.Versification);
@@ -2844,9 +2931,9 @@ namespace GlyssenEngineTests
 
 			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject, false).Single().GetScriptBlocks().Single();
 
-			Assert.AreEqual("{1}\u00A0Juan dijo, 'This es estrofa 1, This es estrofa 2, This es estrofa 3, This es estrofa 4.'",
-				result.GetText(true));
-			Assert.AreEqual(referenceBlocks.Single().GetText(true), result.ReferenceBlocks.Single().GetText(true));
+			Assert.That(result.GetText(true), Is.EqualTo(
+				"{1}\u00A0Juan dijo, 'This es estrofa 1, This es estrofa 2, This es estrofa 3, This es estrofa 4.'"));
+			Assert.That(referenceBlocks.Single().GetText(true), Is.EqualTo(result.ReferenceBlocks.Single().GetText(true)));
 		}
 
 		[TestCase(true)]
@@ -2933,21 +3020,21 @@ namespace GlyssenEngineTests
 
 			// SUT
 			// ===
-			var primaryReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var primaryReferenceText = GetStandardReferenceText(ReferenceTextType.English);
 			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject, applyNarratorOverrides).Single().GetScriptBlocks();
 
 			// VERIFY BLOCKS WITH EXPLICITLY SET OVERRIDES
 			// ===========================================
 			var theBlockSpokenByMike = result.Single(b => b.CharacterIdInScript == "Mike");
 			var theBlockSpokenByFred = result.Single(b => b.CharacterIdInScript == "Fred");
-			Assert.AreEqual(theBlockSpokenByMike.CharacterId, theBlockSpokenByFred.CharacterId);
-			Assert.AreEqual(theBlockSpokenByMike.InitialStartVerseNumber, theBlockSpokenByFred.InitialStartVerseNumber);
+			Assert.That(theBlockSpokenByMike.CharacterId, Is.EqualTo(theBlockSpokenByFred.CharacterId));
+			Assert.That(theBlockSpokenByMike.InitialStartVerseNumber, Is.EqualTo(theBlockSpokenByFred.InitialStartVerseNumber));
 
 			// VERIFY OVERRIDES (OR NOT) FOR NARRATOR BLOCKS
 			// =============================================
 			var resultBlocksExcludingDirectSpeech = result.Where(b => b != theBlockSpokenByMike && b != theBlockSpokenByFred).ToList();
 
-			Assert.IsTrue(resultBlocksExcludingDirectSpeech.All(b => b.IsChapterAnnouncement ^ (b.CharacterId == psalms.NarratorCharacterId || b.CharacterId == "Mike/Fred")));
+			Assert.That(resultBlocksExcludingDirectSpeech.All(b => b.IsChapterAnnouncement ^ (b.CharacterId == psalms.NarratorCharacterId || b.CharacterId == "Mike/Fred")), Is.True);
 
 			var narratorBlocks = resultBlocksExcludingDirectSpeech.Where(b => !b.IsChapterAnnouncement);
 
@@ -2958,30 +3045,30 @@ namespace GlyssenEngineTests
 				{
 					if (b.InitialStartVerseNumber == 0)
 					{
-						Assert.AreEqual(psalms.NarratorCharacterId, b.CharacterIdInScript);
-						Assert.AreEqual("d", b.StyleTag);
+						Assert.That(psalms.NarratorCharacterId, Is.EqualTo(b.CharacterIdInScript));
+						Assert.That(b.StyleTag, Is.EqualTo("d"));
 						continue;
 					}
 					switch (b.ChapterNumber)
 					{
 						case 71:
-							Assert.AreEqual("psalmist", b.CharacterIdInScript);
+							Assert.That(b.CharacterIdInScript, Is.EqualTo("psalmist"));
 							break;
 						case 72:
-							Assert.AreEqual("Solomon, king", b.CharacterIdInScript);
+							Assert.That(b.CharacterIdInScript, Is.EqualTo("Solomon, king"));
 							break;
 						case 73:
 						case 74:
-							Assert.AreEqual("Asaph", b.CharacterIdInScript);
+							Assert.That(b.CharacterIdInScript, Is.EqualTo("Asaph"));
 							break;
 						case 82:
 							if (b.LastVerseNum < 2 || b.InitialStartVerseNumber > 7)
-								Assert.AreEqual("Asaph", b.CharacterIdInScript);
+								Assert.That(b.CharacterIdInScript, Is.EqualTo("Asaph"));
 							else
-								Assert.AreEqual("God", b.CharacterIdInScript);
+								Assert.That(b.CharacterIdInScript, Is.EqualTo("God"));
 							break;
 						case 84:
-							Assert.AreEqual("sons of Korah", b.CharacterIdInScript);
+							Assert.That(b.CharacterIdInScript, Is.EqualTo("sons of Korah"));
 							break;
 						default:
 							Assert.Fail("Unexpected chapter number in result blocks");
@@ -2991,7 +3078,7 @@ namespace GlyssenEngineTests
 			}
 			else
 			{
-				Assert.IsTrue(narratorBlocks.All(b => b.CharacterIdInScript == psalms.NarratorCharacterId));
+				Assert.That(narratorBlocks.All(b => b.CharacterIdInScript == psalms.NarratorCharacterId), Is.True);
 			}
 
 			// VERIFY BLOCK DETAILS (CH 71)
@@ -3000,170 +3087,171 @@ namespace GlyssenEngineTests
 			var block = resultBlocksExcludingDirectSpeech[i++];
 
 			chapter = 71;
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.IsTrue(block.IsChapterAnnouncement);
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.IsChapterAnnouncement, Is.True);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{1}\u00A0Боже, дай твоето правосъдие на царя, И правдата си на царския син,", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{1}\u00A0Боже, дай твоето правосъдие на царя, И правдата си на царския син,"));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие."));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{24}\u00A0Езикът ми, тъй също, ще приказва за правдата Ти всеки ден, Защото се посрамиха - защото се смутиха - ония, които искат зло за мене.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{24}\u00A0Езикът ми, тъй също, ще приказва за правдата Ти всеки ден, Защото се посрамиха - защото се смутиха - ония, които искат зло за мене."));
 
 			// VERIFY BLOCK DETAILS (CH 72)
 			// ============================
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 72;
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.IsTrue(block.IsChapterAnnouncement);
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.IsChapterAnnouncement, Is.True);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("d", block.StyleTag);
-			Assert.AreEqual("Псалом за Соломона", block.GetText(false));
-			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("d"));
+			Assert.That(block.GetText(false), Is.EqualTo("Псалом за Соломона"));
+			Assert.That(block.MatchesReferenceText);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{1}\u00A0Боже, дай твоето правосъдие на царя, И правдата си на царския син,", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{1}\u00A0Боже, дай твоето правосъдие на царя, И правдата си на царския син,"));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие."));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{20}\u00A0Свършиха се молитвите на Иесевия син Давида.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{20}\u00A0Свършиха се молитвите на Иесевия син Давида."));
 
 			// VERIFY BLOCK DETAILS (CH 73)
 			// ============================
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 73;
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.IsTrue(block.IsChapterAnnouncement);
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.IsChapterAnnouncement, Is.True);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("d", block.StyleTag);
-			Assert.AreEqual("Асафов псалом.", block.GetText(false));
-			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("d"));
+			Assert.That(block.GetText(false), Is.EqualTo("Асафов псалом."));
+			Assert.That(block.MatchesReferenceText);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{1}\u00A0Боже, дай твоето правосъдие на царя, И правдата си на царския син,", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{1}\u00A0Боже, дай твоето правосъдие на царя, И правдата си на царския син,"));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие."));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{28}\u00A0Но за мене е добре да се приближа при Бога; Тебе, Господи Иеова, направих прибежището си, За да възгласявам всичките Твои дела.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{28}\u00A0Но за мене е добре да се приближа при Бога; Тебе, Господи Иеова, направих прибежището си, За да възгласявам всичките Твои дела."));
 
 			// VERIFY BLOCK DETAILS (CH 74)
 			// ============================
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 74;
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.IsTrue(block.IsChapterAnnouncement);
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.IsChapterAnnouncement, Is.True);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("d", block.StyleTag);
-			Assert.AreEqual("Асафов псалом.", block.GetText(false));
-			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("d"));
+			Assert.That(block.GetText(false), Is.EqualTo("Асафов псалом."));
+			Assert.That(block.MatchesReferenceText);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{1}\u00A0Боже, дай твоето правосъдие на царя, И правдата си на царския син,", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{1}\u00A0Боже, дай твоето правосъдие на царя, И правдата си на царския син,"));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие."));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{23}\u00A0Не забравяй гласа на противниците Си; Размирството на ония, които се повдигат против Тебе, постоянно се умножава.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{23}\u00A0Не забравяй гласа на противниците Си; Размирството на ония, които се повдигат против Тебе, постоянно се умножава."));
 
 			// VERIFY BLOCK DETAILS (CH 82)
 			// ============================
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 82;
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.IsTrue(block.IsChapterAnnouncement);
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.IsChapterAnnouncement, Is.True);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("d", block.StyleTag);
-			Assert.AreEqual("Асафов псалом.", block.GetText(false));
-			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("d"));
+			Assert.That(block.GetText(false), Is.EqualTo("Асафов псалом."));
+			Assert.That(block.MatchesReferenceText);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{1}\u00A0Бог стои в Божия събор, Седи всред боговете.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{1}\u00A0Бог стои в Божия събор, Седи всред боговете."));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие."));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{7}\u00A0А при все това вие ще умрете като човеци, И ще паднете като един от князете.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{7}\u00A0А при все това вие ще умрете като човеци, И ще паднете като един от князете."));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{8}\u00A0Стани, Боже, съди земята; Защото Ти имаш наследство всред всичките народи.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{8}\u00A0Стани, Боже, съди земята; Защото Ти имаш наследство всред всичките народи."));
 
 			// VERIFY BLOCK DETAILS (CH 84)
 			// ============================
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 84;
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.IsTrue(block.IsChapterAnnouncement);
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.IsChapterAnnouncement, Is.True);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("d", block.StyleTag);
-			Assert.AreEqual("За първия певец, на гетския инструмент, псалом на Кореевите потомци.", block.GetText(false));
-			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("d"));
+			Assert.That(block.GetText(false), Is.EqualTo("За първия певец, на гетския инструмент, псалом на Кореевите потомци."));
+			Assert.That(block.MatchesReferenceText);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{1}\u00A0Колко са мили Твоите обиталища Господи на силите!", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{1}\u00A0Колко са мили Твоите обиталища Господи на силите!"));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{2}\u00A0Копнее и даже примира душата ми за дворовете Господни; Сърцето ми и плътта ми викат към живия Бог.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{2}\u00A0Копнее и даже примира душата ми за дворовете Господни; Сърцето ми и плътта ми викат към живия Бог."));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{12}\u00A0Господи на Силите, Блажен оня човек, който уповава на Тебе.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{12}\u00A0Господи на Силите, Блажен оня човек, който уповава на Тебе."));
 
-			Assert.AreEqual(i, resultBlocksExcludingDirectSpeech.Count, "Oops. we got more blocks than expected.");
+			Assert.That(i, Is.EqualTo(resultBlocksExcludingDirectSpeech.Count),
+				"Oops. we got more blocks than expected.");
 		}
 
 		[TestCase(true)]
@@ -3252,21 +3340,22 @@ namespace GlyssenEngineTests
 
 			// SUT
 			// ===
-			var primaryReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var primaryReferenceText = GetStandardReferenceText(ReferenceTextType.English);
 			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject, applyNarratorOverrides).Single().GetScriptBlocks();
 
 			// VERIFY BLOCKS WITH EXPLICITLY SET OVERRIDES
 			// ===========================================
 			var theBlockSpokenByMike = result.Single(b => b.CharacterIdInScript == "Mike");
 			var theBlockSpokenByFred = result.Single(b => b.CharacterIdInScript == "Fred");
-			Assert.AreEqual(theBlockSpokenByMike.CharacterId, theBlockSpokenByFred.CharacterId);
-			Assert.AreEqual(theBlockSpokenByMike.InitialStartVerseNumber, theBlockSpokenByFred.InitialStartVerseNumber);
+			Assert.That(theBlockSpokenByMike.CharacterId, Is.EqualTo(theBlockSpokenByFred.CharacterId));
+			Assert.That(theBlockSpokenByMike.InitialStartVerseNumber, Is.EqualTo(theBlockSpokenByFred.InitialStartVerseNumber));
 
 			// VERIFY OVERRIDES (OR NOT) FOR NARRATOR BLOCKS
 			// =============================================
 			var resultBlocksExcludingDirectSpeech = result.Where(b => b != theBlockSpokenByMike && b != theBlockSpokenByFred).ToList();
 
-			Assert.IsTrue(resultBlocksExcludingDirectSpeech.All(b => b.IsChapterAnnouncement ^ (b.CharacterId == psalms.NarratorCharacterId || b.CharacterId == "Mike/Fred")));
+			Assert.That(resultBlocksExcludingDirectSpeech.All(b => b.IsChapterAnnouncement ^
+				(b.CharacterId == psalms.NarratorCharacterId || b.CharacterId == "Mike/Fred")));
 
 			var narratorBlocks = resultBlocksExcludingDirectSpeech.Where(b => !b.IsChapterAnnouncement);
 
@@ -3278,26 +3367,26 @@ namespace GlyssenEngineTests
 					switch (b.ChapterNumber)
 					{
 						case 70:
-							Assert.AreEqual("psalmist", b.CharacterIdInScript);
+							Assert.That(b.CharacterIdInScript, Is.EqualTo("psalmist"));
 							break;
 						case 71:
-							Assert.AreEqual("Solomon, king", b.CharacterIdInScript);
+							Assert.That(b.CharacterIdInScript, Is.EqualTo("Solomon, king"));
 							break;
 						case 72:
 						case 73:
-							Assert.AreEqual("Asaph", b.CharacterIdInScript);
+							Assert.That(b.CharacterIdInScript, Is.EqualTo("Asaph"));
 							break;
 						case 81:
 							if (b.LastVerseNum < 2 || b.InitialStartVerseNumber > 7)
-								Assert.AreEqual("Asaph", b.CharacterIdInScript);
+								Assert.That(b.CharacterIdInScript, Is.EqualTo("Asaph"));
 							else
-								Assert.AreEqual("God", b.CharacterIdInScript);
+								Assert.That(b.CharacterIdInScript, Is.EqualTo("God"));
 							break;
 						case 83:
 							if (b.InitialStartVerseNumber == 1)
-								Assert.AreEqual(psalms.NarratorCharacterId, b.CharacterIdInScript);
+								Assert.That(psalms.NarratorCharacterId, Is.EqualTo(b.CharacterIdInScript));
 							else
-								Assert.AreEqual("sons of Korah", b.CharacterIdInScript);
+								Assert.That(b.CharacterIdInScript, Is.EqualTo("sons of Korah"));
 							break;
 						default:
 							Assert.Fail("Unexpected chapter number in result blocks");
@@ -3307,7 +3396,7 @@ namespace GlyssenEngineTests
 			}
 			else
 			{
-				Assert.IsTrue(narratorBlocks.All(b => b.CharacterIdInScript == psalms.NarratorCharacterId));
+				Assert.That(narratorBlocks.All(b => b.CharacterIdInScript == psalms.NarratorCharacterId), Is.True);
 			}
 
 			// VERIFY BLOCK DETAILS (CH 71)
@@ -3316,180 +3405,201 @@ namespace GlyssenEngineTests
 			var block = resultBlocksExcludingDirectSpeech[i++];
 
 			chapter = 71 + chapterNumAdjustment;
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.IsTrue(block.IsChapterAnnouncement);
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.IsChapterAnnouncement, Is.True);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{1}\u00A0Боже, дай твоето правосъдие на царя, И правдата си на царския син,", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{1}\u00A0Боже, дай твоето " +
+				"правосъдие на царя, И правдата си на царския син,"));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{2}\u00A0За да съди Твоите люде " +
+				"с правда, И угнетените Ти с правосъдие."));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{24}\u00A0Езикът ми, тъй също, ще приказва за правдата Ти всеки ден, Защото се посрамиха - защото се смутиха - ония, които искат зло за мене.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{24}\u00A0Езикът ми, тъй също, ще " +
+				"приказва за правдата Ти всеки ден, Защото се посрамиха - защото се смутиха - " +
+				"ония, които искат зло за мене."));
 
 			// VERIFY BLOCK DETAILS (CH 72)
 			// ============================
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 72 + chapterNumAdjustment;
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.IsTrue(block.IsChapterAnnouncement);
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.IsChapterAnnouncement, Is.True);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{1}\u00A0Псалом за Соломона: Боже, дай твоето правосъдие на царя, И правдата си на царския син,", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{1}\u00A0Псалом за Соломона: Боже, " +
+				"дай твоето правосъдие на царя, И правдата си на царския син,"));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{2}\u00A0За да съди Твоите люде с " +
+				"правда, И угнетените Ти с правосъдие."));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{20}\u00A0Свършиха се молитвите на Иесевия син Давида.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo(
+				"{20}\u00A0Свършиха се молитвите на Иесевия син Давида."));
 
 			// VERIFY BLOCK DETAILS (CH 73)
 			// ============================
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 73 + chapterNumAdjustment;
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.IsTrue(block.IsChapterAnnouncement);
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.IsChapterAnnouncement, Is.True);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{1}\u00A0Асафов псалом. Боже, дай твоето правосъдие на царя, И правдата си на царския син,", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo(
+				"{1}\u00A0Асафов псалом. Боже, дай твоето правосъдие на царя, И правдата си на царския син,"));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo(
+				"{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие."));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{28}\u00A0Но за мене е добре да се приближа при Бога; Тебе, Господи Иеова, направих прибежището си, За да възгласявам всичките Твои дела.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo(
+				"{28}\u00A0Но за мене е добре да се приближа при Бога; Тебе, Господи Иеова, " +
+				"направих прибежището си, За да възгласявам всичките Твои дела."));
 
 			// VERIFY BLOCK DETAILS (CH 74)
 			// ============================
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 74 + chapterNumAdjustment;
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.IsTrue(block.IsChapterAnnouncement);
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.IsChapterAnnouncement, Is.True);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{1}\u00A0Асафов псалом. Боже, дай твоето правосъдие на царя, И правдата си на царския син,", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo(
+				"{1}\u00A0Асафов псалом. Боже, дай твоето правосъдие на царя, И правдата си на царския син,"));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo(
+				"{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие."));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{23}\u00A0Не забравяй гласа на противниците Си; Размирството на ония, които се повдигат против Тебе, постоянно се умножава.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo(
+				"{23}\u00A0Не забравяй гласа на противниците Си; Размирството на ония, които се повдигат против Тебе, постоянно се умножава."));
 
 			// VERIFY BLOCK DETAILS (CH 82)
 			// ============================
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 82 + chapterNumAdjustment;
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.IsTrue(block.IsChapterAnnouncement);
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.IsChapterAnnouncement, Is.True);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{1}\u00A0Асафов псалом. Бог стои в Божия събор, Седи всред боговете.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo(
+				"{1}\u00A0Асафов псалом. Бог стои в Божия събор, Седи всред боговете."));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo(
+				"{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие."));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{7}\u00A0А при все това вие ще умрете като човеци, И ще паднете като един от князете.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo(
+				"{7}\u00A0А при все това вие ще умрете като човеци, И ще паднете като един от князете."));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{8}\u00A0Стани, Боже, съди земята; Защото Ти имаш наследство всред всичките народи.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo(
+				"{8}\u00A0Стани, Боже, съди земята; Защото Ти имаш наследство всред всичките народи."));
 
 			// VERIFY BLOCK DETAILS (CH 84)
 			// ============================
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 84 + chapterNumAdjustment;
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.IsTrue(block.IsChapterAnnouncement);
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.IsChapterAnnouncement, Is.True);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("p", block.StyleTag);
-			Assert.AreEqual("{1}\u00A0За първия певец, на гетския инструмент, псалом на Кореевите потомци.", block.GetText(true));
-			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("p"));
+			Assert.That(block.GetText(true), Is.EqualTo("{1}\u00A0За първия певец, на гетския инструмент, псалом на Кореевите потомци."));
+			Assert.That(block.MatchesReferenceText);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{2}\u00A0Колко са мили Твоите обиталища Господи на силите!", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{2}\u00A0Колко са мили Твоите обиталища Господи на силите!"));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{3}\u00A0Копнее и даже примира душата ми за дворовете Господни; Сърцето ми и плътта ми викат към живия Бог.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{3}\u00A0Копнее и даже примира душата ми за дворовете Господни; Сърцето ми и плътта ми викат към живия Бог."));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{13}\u00A0Господи на Силите, Блажен оня човек, който уповава на Тебе.", block.GetText(true));
+			Assert.That(chapter, Is.EqualTo(block.ChapterNumber));
+			Assert.That(block.StyleTag, Is.EqualTo("q1"));
+			Assert.That(block.GetText(true), Is.EqualTo("{13}\u00A0Господи на Силите, Блажен оня човек, който уповава на Тебе."));
 
-			Assert.AreEqual(i, resultBlocksExcludingDirectSpeech.Count, "Oops. we got more blocks than expected.");
+			Assert.That(i, Is.EqualTo(resultBlocksExcludingDirectSpeech.Count),
+				"Oops. we got more blocks than expected.");
 		}
 
 		[Test]
 		public void GetBooksWithBlocksConnectedToReferenceText_AlternateEndings_AllBlocksInBothEndingsAreAligned()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(8, "Hanən dyamdyamb.", true, 16, "MRK"));
-			vernacularBlocks.Add(new Block("ms", 16, 8)
+			var vernacularBlocks = new List<Block>
 			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
-				BlockElements = new List<BlockElement> { new ScriptText("Nyaa pɔ́g echě Kálag e Makɔsɛ ésógé") }
-			});
-			vernacularBlocks.Add(new Block("mr", 16, 8)
-			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
-				BlockElements = new List<BlockElement> { new ScriptText("16.9-20") }
-			});
-			vernacularBlocks.Add(new Block("s", 16, 8)
-			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
-				BlockElements = new List<BlockElement> { new ScriptText("Yesuɛ alúmté Maria Magdalɛnɛ yə̌l") }
-			});
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(9, "Áde Yesuɛ bé mbéb saámbé áte. ", true, 16, "MRK")
-				.AddVerse(10, "Hɛ́ɛ ane mmwaád ákíí boŋ álāŋgē bad ábe bɔ́ɔbɛ Yesuɛ bébágéʼáá. Antán nɛ́ɛ béchyɛʼɛ́ kwééd eche Yesuɛ. ")
-				.AddVerse(11, "Boŋ áde béwógé bán Yesuɛ adé á aloŋgé, bán ane mmwaád anyíné-ʼɛ mɔ́, bénkêndúbɛ́ɛ́."));
-			vernacularBlocks.Add(new Block("s", 16, 11)
-			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
-				BlockElements = new List<BlockElement> { new ScriptText("Yesuɛ alúmté ábɛ̄ bad bébɛ yə̌l") }
-			});
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(12, "Ámbīd e póndé Yesuɛ anlúméd. Boŋ enɛ́n ngen anlúméd yə̌l nyaa émpēe. ", true, 16, "MRK")
-				.AddVerse(13, "Hɛ́ɛ bad bétímé ámbīd, békɛ béláá baáb ábíníí."));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(14, "Ámbīd e póndé Yesuɛ anlúméd yə̌l wɛ́ɛ ábē bembapɛɛ dyôm-ne-nhɔ́g áde bédyágkē ndyééd. ", true, 16, "MRK")
-				.AddVerse(15, "Anláá bɔ́ aá, "));
+				CreateNarratorBlockForVerse(8, "Hanən dyamdyamb.", true, 16, "MRK"),
+				new Block("ms", 16, 8)
+				{
+					CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
+					BlockElements = new List<BlockElement> { new ScriptText("Nyaa pɔ́g echě Kálag e Makɔsɛ ésógé") }
+				},
+				new Block("mr", 16, 8)
+				{
+					CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
+					BlockElements = new List<BlockElement> { new ScriptText("16.9-20") }
+				},
+				new Block("s", 16, 8)
+				{
+					CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
+					BlockElements = new List<BlockElement> { new ScriptText("Yesuɛ alúmté Maria Magdalɛnɛ yə̌l") }
+				},
+				CreateNarratorBlockForVerse(9, "Áde Yesuɛ bé mbéb saámbé áte. ", true, 16, "MRK")
+					.AddVerse(10, "Hɛ́ɛ ane mmwaád ákíí boŋ álāŋgē bad ábe bɔ́ɔbɛ Yesuɛ bébágéʼáá. Antán nɛ́ɛ béchyɛʼɛ́ kwééd eche Yesuɛ. ")
+					.AddVerse(11, "Boŋ áde béwógé bán Yesuɛ adé á aloŋgé, bán ane mmwaád anyíné-ʼɛ mɔ́, bénkêndúbɛ́ɛ́."),
+				new Block("s", 16, 11)
+				{
+					CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
+					BlockElements = new List<BlockElement> { new ScriptText("Yesuɛ alúmté ábɛ̄ bad bébɛ yə̌l") }
+				},
+				CreateNarratorBlockForVerse(12, "Ámbīd e póndé Yesuɛ anlúméd. Boŋ enɛ́n ngen anlúméd yə̌l nyaa émpēe. ", true, 16, "MRK")
+					.AddVerse(13, "Hɛ́ɛ bad bétímé ámbīd, békɛ béláá baáb ábíníí."),
+				CreateNarratorBlockForVerse(14, "Ámbīd e póndé Yesuɛ anlúméd yə̌l wɛ́ɛ ábē bembapɛɛ dyôm-ne-nhɔ́g áde bédyágkē ndyééd. ", true, 16, "MRK")
+					.AddVerse(15, "Anláá bɔ́ aá, ")
+			};
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Nyékag nkǒŋsé áte ńsyə̄ə̄l, nyékanle bad bésyə̄ə̄l nkalaŋ ḿ bwâm. ")
 				.AddVerse(16, "Kénzɛ́ɛ́ awě adúbpé boŋ bédusɛ́n-nɛ mɔ́ ǎkǔd eʼchoóchoŋ, boŋ kénzɛ́ɛ́ awě eedúbpe ǎkūd nkɔ́gsɛn. ")
 				.AddVerse(17, "Bad ábe bédúbpé bɛ́wōŋ ngíne âbɛl mam mé menyáké: bɛ́bīdtē bad eʼdəə́dəŋ bé mbéb áte á dǐn ádêm; bɛ́hɔ̄bē-ʼɛ mehɔ́b mékɔ̄ɔ̄lē. ")
@@ -3519,30 +3629,32 @@ namespace GlyssenEngineTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
 			testProject.Books[0].Blocks = vernacularBlocks;
 
-			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.English));
+			var primaryReferenceText = GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.English));
 
 			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject, false).Single().GetScriptBlocks();
 
-			Assert.IsTrue(result.Where(b => b.IsScripture).All(b => b.MatchesReferenceText));
+			Assert.That(result.Where(b => b.IsScripture).All(b => b.MatchesReferenceText), Is.True);
 		}
 
 		[Test]
 		public void GetBooksWithBlocksConnectedToReferenceText_ExtraBlockAtEndOfBook_ExtraBlocksNotAlignedToReferenceText()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateBlockForVerse("Jesus", 19,
-				"“Tell everybody everywhere about me and get them to follow me,” ", true, 28, "p", 21));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateBlockForVerse("Jesus", 19,
+					"“Tell everybody everywhere about me and get them to follow me,” ", true, 28, "p", 21)
+			};
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "said Jesus.");
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MAT);
 			testProject.Books[0].Blocks = vernacularBlocks;
 
-			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.English));
+			var primaryReferenceText = GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.English));
 
 			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject, false).Single().GetScriptBlocks();
 
-			Assert.AreEqual(3, result[0].ReferenceBlocks.Count);
-			Assert.IsFalse(result[1].MatchesReferenceText);
-			Assert.IsFalse(result[1].ReferenceBlocks.Any());
+			Assert.That(result[0].ReferenceBlocks.Count, Is.EqualTo(3));
+			Assert.That(result[1].MatchesReferenceText, Is.False);
+			Assert.That(result[1].ReferenceBlocks.Any(), Is.False);
 		}
 
 		/// <summary>
@@ -3555,7 +3667,7 @@ namespace GlyssenEngineTests
 		public void GetBooksWithBlocksConnectedToReferenceText_MissingVerseInVernIsInRefBlockAlongWithStartOfFollowingVerse_VernVerseFollowingHoleAlignsToPartOfRefBlockWithVerse()
 		{
 			const string kBookId = "LUK";
-			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.English));
+			var primaryReferenceText = GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.English));
 
 			Action cleanup = null;
 			try
@@ -3564,8 +3676,7 @@ namespace GlyssenEngineTests
 				var expectedRefTextForVerse18Part1 = "{18}\u00A0" + ((ScriptText)v17And18Block.BlockElements[3]).Content;
 				var expectedRefTextForVerse18Part2 = lastBlockForV18.GetText(true);
 
-				var vernacularBlocks = new List<Block>();
-				vernacularBlocks.Add(CreateNarratorBlockForVerse(14, "Pilate said, ", true, 23, kBookId));
+				var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(14, "Pilate said, ", true, 23, kBookId) };
 				AddBlockForVerseInProgress(vernacularBlocks, "Pilate", "“You say this man was inciting rebellion, but I have found no basis for your charges. ")
 					.AddVerse(15, "Herod came up empty, too, so he sent him back. How could we kill him? ")
 					.AddVerse(16, "I'll just rough him up a bit and let him go.”");
@@ -3577,10 +3688,10 @@ namespace GlyssenEngineTests
 
 				var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject, false).Single().GetScriptBlocks();
 
-				Assert.AreEqual(6, result.Count);
-				Assert.IsTrue(result.All(b => b.MatchesReferenceText));
-				Assert.AreEqual(expectedRefTextForVerse18Part1, result[4].ReferenceBlocks.Single().GetText(true));
-				Assert.AreEqual(expectedRefTextForVerse18Part2, result[5].ReferenceBlocks.Single().GetText(true));
+				Assert.That(result.Count, Is.EqualTo(6));
+				Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
+				Assert.That(expectedRefTextForVerse18Part1, Is.EqualTo(result[4].ReferenceBlocks.Single().GetText(true)));
+				Assert.That(expectedRefTextForVerse18Part2, Is.EqualTo(result[5].ReferenceBlocks.Single().GetText(true)));
 			}
 			finally
 			{
@@ -3593,8 +3704,7 @@ namespace GlyssenEngineTests
 		{
 			const string kBookId = "LUK";
 
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(14, "Pilate said, ", true, 23, kBookId));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(14, "Pilate said, ", true, 23, kBookId) };
 			AddBlockForVerseInProgress(vernacularBlocks, "Pilate", "“You say this man was inciting rebellion, but I have found no basis for your charges. ")
 				.AddVerse(15, "Herod came up empty, too, so he sent him back. How could we kill him? ")
 				.AddVerse(16, "I'll just rough him up a bit and let him go.”");
@@ -3603,7 +3713,7 @@ namespace GlyssenEngineTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
 			testProject.Books[0].Blocks = vernacularBlocks;
 
-			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.English));
+			var primaryReferenceText = GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.English));
 			Action cleanup = null;
 			try
 			{
@@ -3613,12 +3723,12 @@ namespace GlyssenEngineTests
 
 				var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject, false).Single().GetScriptBlocks();
 
-				Assert.AreEqual(5, result.Count);
-				Assert.IsTrue(result.Take(3).All(b => b.MatchesReferenceText));
-				Assert.IsFalse(result[4].MatchesReferenceText);
-				Assert.AreEqual(2, result[4].ReferenceBlocks.Count);
-				Assert.AreEqual(expectedRefTextForVerse18Part1, result[4].ReferenceBlocks[0].GetText(true));
-				Assert.AreEqual(expectedRefTextForVerse18Part2, result[4].ReferenceBlocks[1].GetText(true));
+				Assert.That(result.Count, Is.EqualTo(5));
+				Assert.That(result.Take(3).All(b => b.MatchesReferenceText), Is.True);
+				Assert.That(result[4].MatchesReferenceText, Is.False);
+				Assert.That(result[4].ReferenceBlocks.Count, Is.EqualTo(2));
+				Assert.That(expectedRefTextForVerse18Part1, Is.EqualTo(result[4].ReferenceBlocks[0].GetText(true)));
+				Assert.That(expectedRefTextForVerse18Part2, Is.EqualTo(result[4].ReferenceBlocks[1].GetText(true)));
 			}
 			finally
 			{
@@ -3630,7 +3740,7 @@ namespace GlyssenEngineTests
 		public void ApplyTo_MissingVerseInSingleVoiceVernIsInRefBlockAlongWithStartOfFollowingVerse_WholeVerseVernBlockFollowingHoleAlignsToPartOfRefBlockWithVerse()
 		{
 			const string kBookId = "LUK";
-			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.English));
+			var primaryReferenceText = GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.English));
 			Action cleanup = null;
 			try
 			{
@@ -3638,11 +3748,13 @@ namespace GlyssenEngineTests
 				var expectedRefTextForVerse18Part1 = "{18}\u00A0" + ((ScriptText)v17And18Block.BlockElements[3]).Content;
 				var expectedRefTextForVerse18Part2 = lastBlockForV18.GetText(true);
 
-				var vernacularBlocks = new List<Block>();
-				vernacularBlocks.Add(CreateNarratorBlockForVerse(14, "Pilate said, “You say this man was inciting rebellion, but I have found no basis for your charges. ", true, 23, kBookId)
-					.AddVerse(15, "Herod came up empty, too, so he sent him back. How could we kill him? ")
-					.AddVerse(16, "I'll just rough him up a bit and let him go.”")
-					.AddVerse(18, "But the whole crowd screamed at Pilate: “Eliminate this man! Give us Barabbas!”"));
+				var vernacularBlocks = new List<Block>
+				{
+					CreateNarratorBlockForVerse(14, "Pilate said, “You say this man was inciting rebellion, but I have found no basis for your charges. ", true, 23, kBookId)
+						.AddVerse(15, "Herod came up empty, too, so he sent him back. How could we kill him? ")
+						.AddVerse(16, "I'll just rough him up a bit and let him go.”")
+						.AddVerse(18, "But the whole crowd screamed at Pilate: “Eliminate this man! Give us Barabbas!”")
+				};
 
 				var testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
 				testProject.Books[0].Blocks = vernacularBlocks;
@@ -3651,9 +3763,9 @@ namespace GlyssenEngineTests
 				primaryReferenceText.ApplyTo(testProject.Books[0]);
 				var result = testProject.Books[0].Blocks;
 
-				Assert.AreEqual(4, result.Count);
-				Assert.IsTrue(result.All(b => b.MatchesReferenceText));
-				Assert.AreEqual(expectedRefTextForVerse18Part1 + " " + expectedRefTextForVerse18Part2, result[3].ReferenceBlocks.Single().GetText(true));
+				Assert.That(result.Count, Is.EqualTo(4));
+				Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
+				Assert.That(expectedRefTextForVerse18Part1 + " " + expectedRefTextForVerse18Part2, Is.EqualTo(result[3].ReferenceBlocks.Single().GetText(true)));
 			}
 			finally
 			{
@@ -3674,12 +3786,11 @@ namespace GlyssenEngineTests
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_NoCorrespondingBookInReferenceText_ReturnsNull()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Entonces dijo Jesus: ", true));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(1, "Entonces dijo Jesus: ", true) };
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 			var refText = TestReferenceText.CreateTestReferenceText("LUK", new List<Block>(0));
 
-			Assert.IsNull(refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0));
+			Assert.That(refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0), Is.Null);
 		}
 
 		[TestCase(0)]
@@ -3688,15 +3799,13 @@ namespace GlyssenEngineTests
 		[TestCase(3)]
 		public void GetBlocksForVerseMatchedToReferenceText_VernBlocksAreForSingleVerse_ReturnedBlocksAreMatchedClonesOfOriginals(int iBlock)
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Entonces dijo Jesus: ", true));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(1, "Entonces dijo Jesus: ", true) };
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "Este es versiculo uno, ");
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "asi dijo. Pero Paul replico: ");
 			AddBlockForVerseInProgress(vernacularBlocks, "Paul", "Asi pense, ");
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Then Jesus said, ", true));
+			var referenceBlocks = new List<Block> { CreateNarratorBlockForVerse(1, "Then Jesus said, ", true) };
 			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "“This is verse one.” ");
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "But Paul replied, ");
 			AddBlockForVerseInProgress(referenceBlocks, "Paul", "“That's what I thought.”");
@@ -3704,11 +3813,11 @@ namespace GlyssenEngineTests
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, iBlock);
-			Assert.AreEqual(vernacularBlocks[iBlock].GetText(true), matchup.CorrelatedAnchorBlock.GetText(true));
+			Assert.That(vernacularBlocks[iBlock].GetText(true), Is.EqualTo(matchup.CorrelatedAnchorBlock.GetText(true)));
 			var result = matchup.CorrelatedBlocks;
-			Assert.IsTrue(result.Select(b => b.ToString()).SequenceEqual(vernacularBlocks.Select(b => b.ToString())));
-			Assert.AreEqual(0, vernacularBlocks.Intersect(result).Count());
-			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
+			Assert.That(result.Select(b => b.ToString()).SequenceEqual(vernacularBlocks.Select(b => b.ToString())), Is.True);
+			Assert.That(vernacularBlocks.Intersect(result).Count(), Is.EqualTo(0));
+			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
 		}
 
 		[TestCase(0)]
@@ -3717,27 +3826,31 @@ namespace GlyssenEngineTests
 		[TestCase(3)]
 		public void GetBlocksForVerseMatchedToReferenceText_VernAndRefHaveMultipleSingleBlockVerses_ReturnsSingleClonedAndMatchedBlock(int iBlock)
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Entonces dijo Jesus: ", true));
-			vernacularBlocks.Add(CreateBlockForVerse("Jesus", 2, "Nunca os dejare! ", true));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(3, "Entonces fue con sus discipulos al jardin, donde Pedro dijo: ", true));
-			vernacularBlocks.Add(CreateBlockForVerse("Peter", 4, "Me gusta este lugar.", true));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "Entonces dijo Jesus: ", true),
+				CreateBlockForVerse("Jesus", 2, "Nunca os dejare! ", true),
+				CreateNarratorBlockForVerse(3, "Entonces fue con sus discipulos al jardin, donde Pedro dijo: ", true),
+				CreateBlockForVerse("Peter", 4, "Me gusta este lugar.", true)
+			};
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Then Jesus said, ", true));
-			referenceBlocks.Add(CreateBlockForVerse("Jesus", 2, "“I will never leave you!” ", true));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(3, "Then he went with his disciples to the garden, whereupon Peter said: ", true));
-			referenceBlocks.Add(CreateBlockForVerse("Peter", 4, "“I like this place.”", true));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "Then Jesus said, ", true),
+				CreateBlockForVerse("Jesus", 2, "“I will never leave you!” ", true),
+				CreateNarratorBlockForVerse(3, "Then he went with his disciples to the garden, whereupon Peter said: ", true),
+				CreateBlockForVerse("Peter", 4, "“I like this place.”", true)
+			};
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, iBlock);
-			Assert.AreEqual(vernacularBlocks[iBlock].GetText(true), matchup.CorrelatedAnchorBlock.GetText(true));
+			Assert.That(vernacularBlocks[iBlock].GetText(true), Is.EqualTo(matchup.CorrelatedAnchorBlock.GetText(true)));
 			var result = matchup.CorrelatedBlocks;
-			Assert.AreEqual(vernacularBlocks[iBlock].ToString(), result.Single().ToString());
-			Assert.AreEqual(0, vernacularBlocks.Intersect(result).Count());
-			Assert.IsTrue(result.Single().MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[iBlock].GetText(true), result.Single().GetPrimaryReferenceText());
+			Assert.That(vernacularBlocks[iBlock].ToString(), Is.EqualTo(result.Single().ToString()));
+			Assert.That(vernacularBlocks.Intersect(result).Count(), Is.EqualTo(0));
+			Assert.That(result.Single().MatchesReferenceText);
+			Assert.That(referenceBlocks[iBlock].GetText(true), Is.EqualTo(result.Single().GetPrimaryReferenceText()));
 		}
 
 		[TestCase(1)]
@@ -3746,18 +3859,22 @@ namespace GlyssenEngineTests
 		[TestCase(4)]
 		public void GetBlocksForVerseMatchedToReferenceText_VerseHasMultipleBlocks_ReturnsMultipleClonedAndMatchedBlocks(int iBlock)
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Entonces dijo Jesus: ", true));
-			vernacularBlocks.Add(CreateBlockForVerse("Jesus", 2, "Nunca os dejare! ", true));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "Entonces dijo Jesus: ", true),
+				CreateBlockForVerse("Jesus", 2, "Nunca os dejare! ", true)
+			};
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "En ese momento, Pedro entro exclamando: ");
 			AddBlockForVerseInProgress(vernacularBlocks, "Peter", "Nos quieren hundir con los impuestos exagerados! ");
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Claro que estaba exagerando.");
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(3, "Eso es todo.", true));
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Then Jesus said, ", true));
-			referenceBlocks.Add(CreateBlockForVerse("Jesus", 2, "“I will never leave you!” ", true));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "Then Jesus said, ", true),
+				CreateBlockForVerse("Jesus", 2, "“I will never leave you!” ", true)
+			};
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "But just then, Peter burst in and exclaimed: ");
 			AddBlockForVerseInProgress(referenceBlocks, "Peter", "They want to tax us to death! ");
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "Of course, he was exagerating.");
@@ -3765,12 +3882,12 @@ namespace GlyssenEngineTests
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, iBlock);
-			Assert.AreEqual(vernacularBlocks[iBlock].GetText(true), matchup.CorrelatedAnchorBlock.GetText(true));
+			Assert.That(vernacularBlocks[iBlock].GetText(true), Is.EqualTo(matchup.CorrelatedAnchorBlock.GetText(true)));
 			var result = matchup.CorrelatedBlocks;
-			Assert.IsTrue(result.Select(b => b.ToString()).SequenceEqual(vernacularBlocks.Skip(1).Take(4).Select(b => b.ToString())));
-			Assert.AreEqual(0, vernacularBlocks.Intersect(result).Count());
-			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
-			Assert.IsTrue(referenceBlocks.Skip(1).Take(4).Select(r => r.GetText(true)).SequenceEqual(result.Select(v => v.GetPrimaryReferenceText())));
+			Assert.That(result.Select(b => b.ToString()).SequenceEqual(vernacularBlocks.Skip(1).Take(4).Select(b => b.ToString())), Is.True);
+			Assert.That(vernacularBlocks.Intersect(result).Count(), Is.EqualTo(0));
+			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(referenceBlocks.Skip(1).Take(4).Select(r => r.GetText(true)).SequenceEqual(result.Select(v => v.GetPrimaryReferenceText())), Is.True);
 		}
 
 		/// <summary>
@@ -3780,23 +3897,25 @@ namespace GlyssenEngineTests
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_MultipleVersesInVernBlockNextBlockStartsWith_ReturnsMatchupCoveringInitialBlockOnly()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateBlockForVerse("Jesus", 31, "«Dœ olonœ asœmœ, uzu á nœ ye sœ ɓa sœnda, tshe ye ga mangba ye nene. ", false, 17)
-				.AddVerse(32, "'E gbetshelœ 'e tœ upu nœ awo Lota kane. ")
-				.AddVerse(33, "Uzu neke á tshe para awa ndœ kœgbɔndœ soro tshu; kashe tsheneke nœ nene dá she. ")
-				.AddVerse(34, "Mœ sœ 'e, lœ butshɔnœ asœmœ, ayakoshe: endje za anga bale, yé anga œ sœpe. ")
-				.AddVerse(35, "Ayashe bisha œ sœ kœtɔ œrœ tœ œsœnœ bale: endje za anga bale, yé anga œ sœpe. "));
-			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.kUnexpectedCharacter, 37, "[ ", false, 17)
-				.AddVerse(37, "Ayambarœ nœ Yisu yu she adœke:"));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateBlockForVerse("Jesus", 31, "«Dœ olonœ asœmœ, uzu á nœ ye sœ ɓa sœnda, tshe ye ga mangba ye nene. ", false, 17)
+					.AddVerse(32, "'E gbetshelœ 'e tœ upu nœ awo Lota kane. ")
+					.AddVerse(33, "Uzu neke á tshe para awa ndœ kœgbɔndœ soro tshu; kashe tsheneke nœ nene dá she. ")
+					.AddVerse(34, "Mœ sœ 'e, lœ butshɔnœ asœmœ, ayakoshe: endje za anga bale, yé anga œ sœpe. ")
+					.AddVerse(35, "Ayashe bisha œ sœ kœtɔ œrœ tœ œsœnœ bale: endje za anga bale, yé anga œ sœpe. "),
+				CreateBlockForVerse(CharacterVerseData.kUnexpectedCharacter, 37, "[ ", false, 17)
+					.AddVerse(37, "Ayambarœ nœ Yisu yu she adœke:")
+			};
 			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kUnexpectedCharacter, " «Œrœnœ atamœ œ mbœrœtœ endje kpœta Gbozu?» ", "p");
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "é tshe kœgi fœ endje adœke: ", "LUK");
 			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "«Osho á oko sœ tœnœ, œ kœngbɔtœ endje ɓa zœ.»", "p");
 			var vernBook = new BookScript("LUK", vernacularBlocks, m_vernVersification);
 
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
-			Assert.AreEqual(1, matchup.OriginalBlockCount);
+			Assert.That(matchup.OriginalBlockCount, Is.EqualTo(1));
 		}
 
 		[TestCase(1)]
@@ -3805,17 +3924,21 @@ namespace GlyssenEngineTests
 		[TestCase(4)]
 		public void GetBlocksForVerseMatchedToReferenceText_VerseHasMultipleBlocksWithCharactersAssignedThatDoNotMatchReference_ReturnsMultipleClonedAndMismatchedBlocks(int iBlock)
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Esto es lo que paso.", true));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "Entonces dijo Jesus:", true));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "Esto es lo que paso.", true),
+				CreateNarratorBlockForVerse(2, "Entonces dijo Jesus:", true)
+			};
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "—Nunca os dejare!");
 			AddBlockForVerseInProgress(vernacularBlocks, "Peter", "—Gracias.");
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "respondio Pedro.");
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Then Jesus said, ", true));
-			referenceBlocks.Add(CreateBlockForVerse("Jesus", 2, "“I will never leave you!” ", true));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "Then Jesus said, ", true),
+				CreateBlockForVerse("Jesus", 2, "“I will never leave you!” ", true)
+			};
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "But just then, John burst in and exclaimed: ");
 			AddBlockForVerseInProgress(referenceBlocks, "John", "They want to tax us to death! ");
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "Of course, he was exagerating.");
@@ -3823,13 +3946,13 @@ namespace GlyssenEngineTests
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, iBlock);
-			Assert.AreEqual(vernacularBlocks[iBlock].GetText(true), matchup.CorrelatedAnchorBlock.GetText(true));
+			Assert.That(vernacularBlocks[iBlock].GetText(true), Is.EqualTo(matchup.CorrelatedAnchorBlock.GetText(true)));
 			var result = matchup.CorrelatedBlocks;
-			Assert.IsTrue(result.Select(b => b.ToString()).SequenceEqual(vernacularBlocks.Skip(1).Take(4).Select(b => b.ToString())));
-			Assert.AreEqual(0, vernacularBlocks.Intersect(result).Count());
-			Assert.IsFalse(result.Take(3).All(b => b.MatchesReferenceText));
-			Assert.IsTrue(referenceBlocks.Skip(1).Take(3).Select(r => r.GetText(true)).SequenceEqual(result[0].ReferenceBlocks.Select(b => b.GetText(true))));
-			Assert.IsTrue(result[3].MatchesReferenceText);
+			Assert.That(result.Select(b => b.ToString()).SequenceEqual(vernacularBlocks.Skip(1).Take(4).Select(b => b.ToString())), Is.True);
+			Assert.That(vernacularBlocks.Intersect(result).Count(), Is.EqualTo(0));
+			Assert.That(result.Take(3).All(b => b.MatchesReferenceText), Is.False);
+			Assert.That(referenceBlocks.Skip(1).Take(3).Select(r => r.GetText(true)).SequenceEqual(result[0].ReferenceBlocks.Select(b => b.GetText(true))), Is.True);
+			Assert.That(result[3].MatchesReferenceText);
 		}
 
 		[TestCase(1)]
@@ -3838,18 +3961,22 @@ namespace GlyssenEngineTests
 		[TestCase(4)]
 		public void GetBlocksForVerseMatchedToReferenceText_VerseHasMultipleBlocksWithoutCharactersAssignedThatCouldMatchReference_ReturnsMultipleClonedAndMatchedBlocks(int iBlock)
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Entonces dijo Jesus: ", true));
-			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 2, "Nunca os dejare! ", true));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "Entonces dijo Jesus: ", true),
+				CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 2, "Nunca os dejare! ", true)
+			};
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "En ese momento, Pedro entro exclamando: ");
 			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "Nos quieren hundir con los impuestos exagerados! ");
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Claro que estaba exagerando.");
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(3, "Eso es todo.", true));
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Then Jesus said, ", true));
-			referenceBlocks.Add(CreateBlockForVerse("Jesus", 2, "“I will never leave you!” ", true));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "Then Jesus said, ", true),
+				CreateBlockForVerse("Jesus", 2, "“I will never leave you!” ", true)
+			};
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "But just then, Peter burst in and exclaimed: ");
 			AddBlockForVerseInProgress(referenceBlocks, "Peter", "They want to tax us to death! ");
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "Of course, he was exagerating.");
@@ -3857,74 +3984,76 @@ namespace GlyssenEngineTests
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, iBlock);
-			Assert.AreEqual(vernacularBlocks[iBlock].GetText(true), matchup.CorrelatedAnchorBlock.GetText(true));
+			Assert.That(vernacularBlocks[iBlock].GetText(true), Is.EqualTo(matchup.CorrelatedAnchorBlock.GetText(true)));
 			var result = matchup.CorrelatedBlocks;
-			Assert.IsTrue(result.Select(b => b.ToString()).SequenceEqual(vernacularBlocks.Skip(1).Take(4).Select(b => b.ToString())));
-			Assert.AreEqual(0, vernacularBlocks.Intersect(result).Count());
-			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
-			Assert.IsTrue(referenceBlocks.Skip(1).Take(4).Select(r => r.GetText(true)).SequenceEqual(result.Select(v => v.GetPrimaryReferenceText())));
+			Assert.That(result.Select(b => b.ToString()).SequenceEqual(vernacularBlocks.Skip(1).Take(4).Select(b => b.ToString())), Is.True);
+			Assert.That(vernacularBlocks.Intersect(result).Count(), Is.EqualTo(0));
+			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(referenceBlocks.Skip(1).Take(4).Select(r => r.GetText(true)).SequenceEqual(result.Select(v => v.GetPrimaryReferenceText())), Is.True);
 		}
 
 		[TestCase(0)]
 		[TestCase(1)]
 		public void GetBlocksForVerseMatchedToReferenceText_VernVerseStartsMidBlock_ReturnedBlocksAreMatchedClonesOfOriginals(int iBlock)
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Partieron de alli para Jerico. ", true).AddVerse(2, "Entonces dijo Jesus: "));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(1, "Partieron de alli para Jerico. ", true).AddVerse(2, "Entonces dijo Jesus: ") };
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "Come to me you who are weary.");
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(3, "Another verse."));
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "They journeyed on from there to Jericho.", true));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(2, "Then Jesus said,"));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "They journeyed on from there to Jericho.", true),
+				CreateNarratorBlockForVerse(2, "Then Jesus said,")
+			};
 			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "Come to me you who are weary.");
 			referenceBlocks.Add(CreateNarratorBlockForVerse(3, "Extra stuff that is not used. ", true));
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, iBlock);
-			Assert.AreEqual(vernacularBlocks[iBlock].BlockElements.OfType<ScriptText>().First().Content,
-				matchup.CorrelatedAnchorBlock.BlockElements.OfType<ScriptText>().First().Content);
+			Assert.That(matchup.CorrelatedAnchorBlock.BlockElements.OfType<ScriptText>().First().Content,
+				Is.EqualTo(vernacularBlocks[iBlock].BlockElements.OfType<ScriptText>().First().Content));
 			var result = matchup.CorrelatedBlocks;
-			Assert.AreEqual(3, result.Count);
-			Assert.AreEqual(0, vernacularBlocks.Intersect(result).Count());
-			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
+			Assert.That(result.Count, Is.EqualTo(3));
+			Assert.That(vernacularBlocks.Intersect(result).Count(), Is.EqualTo(0));
+			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
 
-			Assert.AreEqual("{1}\u00A0Partieron de alli para Jerico. ", result[0].GetText(true));
-			Assert.AreEqual("{2}\u00A0Entonces dijo Jesus: ", result[1].GetText(true));
-			Assert.AreEqual("Come to me you who are weary.", result[2].GetText(true));
+			Assert.That(result[0].GetText(true), Is.EqualTo("{1}\u00A0Partieron de alli para Jerico. "));
+			Assert.That(result[1].GetText(true), Is.EqualTo("{2}\u00A0Entonces dijo Jesus: "));
+			Assert.That(result[2].GetText(true), Is.EqualTo("Come to me you who are weary."));
 
-			Assert.IsTrue(result.Select(b => b.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Take(3).Select(b => b.GetText(true))));
+			Assert.That(result.Select(b => b.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Take(3).Select(b => b.GetText(true))), Is.True);
 		}
 
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_EnglishRefVerseStartsMidBlock_MatchupIncludesPrecedingVerse()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Maria i karim Jisas long taun Betlehem long distrik Judia long taim Herot i stap king. Em i karim Jisas pinis, na bihain sampela saveman bilong hap sankamap i kam long Jerusalem na ol i askim nabaut olsem, ", true, 2));
-			vernacularBlocks.Add(CreateBlockForVerse("magi", 2, "\"Nupela pikinini em king bilong ol Juda, em i stap we ? Mipela i lukim sta bilong en long hap sankamap, na mipela i kam bilong lotu long em.\"", false, 2));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(3, "King Herot i... ", true, 2));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "Maria i karim Jisas long taun Betlehem long distrik Judia long taim Herot i stap king. Em i karim Jisas pinis, na bihain sampela saveman bilong hap sankamap i kam long Jerusalem na ol i askim nabaut olsem, ", true, 2),
+				CreateBlockForVerse("magi", 2, "\"Nupela pikinini em king bilong ol Juda, em i stap we ? Mipela i lukim sta bilong en long hap sankamap, na mipela i kam bilong lotu long em.\"", false, 2),
+				CreateNarratorBlockForVerse(3, "King Herot i... ", true, 2)
+			};
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Now when Jesus was born in Bethlehem of Judea in the days of King Herod, behold, wise men from the east came to Jerusalem,", true, 2).AddVerse(2, "saying, "));
+			var referenceBlocks = new List<Block> { CreateNarratorBlockForVerse(1, "Now when Jesus was born in Bethlehem of Judea in the days of King Herod, behold, wise men from the east came to Jerusalem,", true, 2).AddVerse(2, "saying, ") };
 			AddBlockForVerseInProgress(referenceBlocks, "magi", " “Where is the one who is born King of the Jews? For we saw his star in the east, and have come to worship him.”");
 			referenceBlocks.Add(CreateNarratorBlockForVerse(3, "When King Herod... ", true, 2));
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 1);
-			Assert.AreEqual(vernacularBlocks[1].GetText(true), matchup.CorrelatedAnchorBlock.GetText(true));
+			Assert.That(vernacularBlocks[1].GetText(true), Is.EqualTo(matchup.CorrelatedAnchorBlock.GetText(true)));
 			var result = matchup.CorrelatedBlocks;
-			Assert.AreEqual(2, result.Count);
-			Assert.AreEqual(0, vernacularBlocks.Intersect(result).Count());
-			Assert.IsFalse(result[0].MatchesReferenceText);
-			Assert.IsTrue(result[1].MatchesReferenceText);
+			Assert.That(result.Count, Is.EqualTo(2));
+			Assert.That(vernacularBlocks.Intersect(result).Count(), Is.EqualTo(0));
+			Assert.That(result[0].MatchesReferenceText, Is.False);
+			Assert.That(result[1].MatchesReferenceText);
 
-			Assert.AreEqual("{1}\u00A0Maria i karim Jisas long taun Betlehem long distrik Judia long taim Herot i stap king. Em i karim Jisas pinis, na bihain sampela saveman bilong hap sankamap i kam long Jerusalem na ol i askim nabaut olsem, ", result[0].GetText(true));
-			Assert.AreEqual("{2}\u00A0\"Nupela pikinini em king bilong ol Juda, em i stap we ? Mipela i lukim sta bilong en long hap sankamap, na mipela i kam bilong lotu long em.\"", result[1].GetText(true));
+			Assert.That(result[0].GetText(true), Is.EqualTo("{1}\u00A0Maria i karim Jisas long taun Betlehem long distrik Judia long taim Herot i stap king. Em i karim Jisas pinis, na bihain sampela saveman bilong hap sankamap i kam long Jerusalem na ol i askim nabaut olsem, "));
+			Assert.That("{2}\u00A0\"Nupela pikinini em king bilong ol Juda, em i stap we ? Mipela i lukim sta bilong en long hap sankamap, na mipela i kam bilong lotu long em.\"", Is.EqualTo(result[1].GetText(true)));
 
-			Assert.IsTrue(result.Select(b => b.ReferenceBlocks.Single().GetText(true)).SequenceEqual(referenceBlocks.Take(2).Select(b => b.GetText(true))));
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].GetPrimaryReferenceText());
+			Assert.That(result.Select(b => b.ReferenceBlocks.Single().GetText(true)).SequenceEqual(referenceBlocks.Take(2).Select(b => b.GetText(true))), Is.True);
+			Assert.That(referenceBlocks[1].GetText(true), Is.EqualTo(result[1].GetPrimaryReferenceText()));
 		}
 
 		[TestCase(0)]
@@ -3934,17 +4063,21 @@ namespace GlyssenEngineTests
 		[TestCase(4)]
 		public void GetBlocksForVerseMatchedToReferenceText_Prematched_SavedMatchesAreNotOverwritten(int iBlock)
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Esto es lo que paso.", true));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "Entonces dijo Jesus:", true));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "Esto es lo que paso.", true),
+				CreateNarratorBlockForVerse(2, "Entonces dijo Jesus:", true)
+			};
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "—Nunca os dejare!");
 			AddBlockForVerseInProgress(vernacularBlocks, "Peter", "—Gracias.");
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "respondio Pedro.");
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Then Jesus said, ", true));
-			referenceBlocks.Add(CreateBlockForVerse("Jesus", 2, "“I will never leave you!” ", true));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "Then Jesus said, ", true),
+				CreateBlockForVerse("Jesus", 2, "“I will never leave you!” ", true)
+			};
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "But just then, John burst in and exclaimed: ");
 			AddBlockForVerseInProgress(referenceBlocks, "John", "They want to tax us to death! ");
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "Of course, he was exagerating.");
@@ -3968,8 +4101,8 @@ namespace GlyssenEngineTests
 			});
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, iBlock);
-			Assert.AreEqual(vernacularBlocks[iBlock].GetText(true), matchup.CorrelatedAnchorBlock.GetText(true));
-			Assert.IsFalse(matchup.HasOutstandingChangesToApply);
+			Assert.That(vernacularBlocks[iBlock].GetText(true), Is.EqualTo(matchup.CorrelatedAnchorBlock.GetText(true)));
+			Assert.That(matchup.HasOutstandingChangesToApply, Is.False);
 		}
 
 		[Test]
@@ -3977,20 +4110,22 @@ namespace GlyssenEngineTests
 		{
 			// The last block of the standard reference text for Hebrews combines verse 24 and 25.
 			const string kBookId = "HEB";
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 			var v25RefTextBlock = refText.Books.Single(b => b.BookId == kBookId).GetBlocksForVerse(13, 25).Single();
-			Assert.AreEqual(24, v25RefTextBlock.InitialStartVerseNumber, "Test setup conditions not met");
-			Assert.AreEqual("25", ((Verse)v25RefTextBlock.BlockElements[2]).Number, "Test setup conditions not met");
+			Assert.That(v25RefTextBlock.InitialStartVerseNumber, Is.EqualTo(24),
+				"Test setup conditions not met");
+			Assert.That("25", Is.EqualTo(((Verse)v25RefTextBlock.BlockElements[2]).Number),
+				"Test setup conditions not met");
 			var expectedRefTextForVerse25 = "{25}\u00A0" + ((ScriptText)v25RefTextBlock.BlockElements[3]).Content;
 
 			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(25, "Grace be unto you all.", true, 13, kBookId) };
 			var vernBook = new BookScript(kBookId, vernacularBlocks, m_vernVersification);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
-			Assert.AreEqual(vernacularBlocks[0].GetText(true), matchup.CorrelatedAnchorBlock.GetText(true));
-			Assert.AreEqual(1, matchup.CorrelatedBlocks.Count);
-			Assert.IsTrue(matchup.CorrelatedBlocks[0].MatchesReferenceText);
-			Assert.AreEqual(expectedRefTextForVerse25, matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
+			Assert.That(vernacularBlocks[0].GetText(true), Is.EqualTo(matchup.CorrelatedAnchorBlock.GetText(true)));
+			Assert.That(matchup.CorrelatedBlocks.Count, Is.EqualTo(1));
+			Assert.That(matchup.CorrelatedBlocks[0].MatchesReferenceText);
+			Assert.That(expectedRefTextForVerse25, Is.EqualTo(matchup.CorrelatedBlocks[0].GetPrimaryReferenceText()));
 		}
 
 		[Test]
@@ -4003,17 +4138,17 @@ namespace GlyssenEngineTests
 			var vernBook = new BookScript("HEB", vernacularBlocks, m_vernVersification);
 
 			// The last block of the standard reference text for Hebrews combines verse 24 and 25.
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0); // allowing splitting is the default
-			Assert.AreEqual(vernacularBlocks[0].GetText(true), matchup.CorrelatedAnchorBlock.GetText(true));
-			Assert.AreEqual(2, matchup.CorrelatedBlocks.Count);
-			Assert.IsFalse(matchup.CorrelatedBlocks[0].MatchesReferenceText);
-			Assert.AreEqual(24, matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().InitialStartVerseNumber);
-			Assert.AreEqual(24, matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().LastVerseNum);
-			Assert.IsTrue(matchup.CorrelatedBlocks[1].MatchesReferenceText);
-			Assert.AreEqual(25, matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().InitialStartVerseNumber);
-			Assert.AreEqual(25, matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().LastVerseNum);
+			Assert.That(vernacularBlocks[0].GetText(true), Is.EqualTo(matchup.CorrelatedAnchorBlock.GetText(true)));
+			Assert.That(matchup.CorrelatedBlocks.Count, Is.EqualTo(2));
+			Assert.That(matchup.CorrelatedBlocks[0].MatchesReferenceText, Is.False);
+			Assert.That(matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().InitialStartVerseNumber, Is.EqualTo(24));
+			Assert.That(matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().LastVerseNum, Is.EqualTo(24));
+			Assert.That(matchup.CorrelatedBlocks[1].MatchesReferenceText);
+			Assert.That(matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().InitialStartVerseNumber, Is.EqualTo(25));
+			Assert.That(matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().LastVerseNum, Is.EqualTo(25));
 		}
 
 		[Test]
@@ -4026,16 +4161,16 @@ namespace GlyssenEngineTests
 			var vernBook = new BookScript("HEB", vernacularBlocks, m_vernVersification);
 
 			// The last block of the standard reference text for Hebrews combines verse 24 and 25.
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, allowSplitting: false);
-			Assert.AreEqual(vernacularBlocks[0].GetText(true), matchup.CorrelatedAnchorBlock.GetText(true));
-			Assert.AreEqual(2, matchup.CorrelatedBlocks.Count);
-			Assert.IsFalse(matchup.CorrelatedBlocks[0].MatchesReferenceText);
-			Assert.AreEqual(1, matchup.CorrelatedBlocks[0].ReferenceBlocks.Count);
-			Assert.IsFalse(matchup.CorrelatedBlocks[1].MatchesReferenceText);
-			Assert.AreEqual(1, matchup.CorrelatedBlocks[1].ReferenceBlocks.Count);
-			Assert.AreEqual(matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().GetText(true), matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().GetText(true),
+			Assert.That(vernacularBlocks[0].GetText(true), Is.EqualTo(matchup.CorrelatedAnchorBlock.GetText(true)));
+			Assert.That(matchup.CorrelatedBlocks.Count, Is.EqualTo(2));
+			Assert.That(matchup.CorrelatedBlocks[0].MatchesReferenceText, Is.False);
+			Assert.That(matchup.CorrelatedBlocks[0].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(matchup.CorrelatedBlocks[1].MatchesReferenceText, Is.False);
+			Assert.That(matchup.CorrelatedBlocks[1].ReferenceBlocks.Count, Is.EqualTo(1));
+			Assert.That(matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().GetText(true), Is.EqualTo(matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().GetText(true)),
 				"Since we're not allowing the reference block to be split, we should match the block with v. 24 and v. 25 to both vern blocks.");
 		}
 
@@ -4051,12 +4186,12 @@ namespace GlyssenEngineTests
 			};
 			var vernBook = new BookScript("HEB", vernacularBlocks, m_vernVersification);
 
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 2);
-			Assert.IsFalse(matchup.CorrelatedBlocks.Last().MatchesReferenceText);
+			Assert.That(matchup.CorrelatedBlocks.Last().MatchesReferenceText, Is.False);
 			matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 3);
-			Assert.IsFalse(matchup.CorrelatedBlocks.Last().MatchesReferenceText);
+			Assert.That(matchup.CorrelatedBlocks.Last().MatchesReferenceText, Is.False);
 		}
 
 		[Test]
@@ -4070,15 +4205,15 @@ namespace GlyssenEngineTests
 			vernacularBlocks.Last().BlockElements.Insert(0, new ScriptText("["));
 			var vernBook = new BookScript("MRK", vernacularBlocks, m_vernVersification);
 
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 1);
-			Assert.AreEqual(3, matchup.CorrelatedBlocks.Count);
+			Assert.That(matchup.CorrelatedBlocks.Count, Is.EqualTo(3));
 			var firstCorrelatedBlock = matchup.CorrelatedBlocks.First();
-			Assert.AreEqual(3, firstCorrelatedBlock.BlockElements.Count);
-			Assert.AreEqual("[", ((ScriptText)firstCorrelatedBlock.BlockElements[0]).Content);
-			Assert.AreEqual("9", ((Verse)firstCorrelatedBlock.BlockElements[1]).Number);
-			Assert.IsTrue(((ScriptText)firstCorrelatedBlock.BlockElements[2]).Content.StartsWith("Ka en doŋ"));
+			Assert.That(firstCorrelatedBlock.BlockElements.Count, Is.EqualTo(3));
+			Assert.That(((ScriptText)firstCorrelatedBlock.BlockElements[0]).Content, Is.EqualTo("["));
+			Assert.That(((Verse)firstCorrelatedBlock.BlockElements[1]).Number, Is.EqualTo("9"));
+			Assert.That(((ScriptText)firstCorrelatedBlock.BlockElements[2]).Content, Does.StartWith("Ka en doŋ"));
 		}
 
 		#region PG-794 (misalignment between vern and ref)
@@ -4088,7 +4223,7 @@ namespace GlyssenEngineTests
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_VernBlockHasPreAnnouncedQuoteAsSingleBlockThatIsSplitInRefText_AllTextFromRefTextIsIncluded()
 		{
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 			var refTextRev = refText.GetBook("REV");
 			var refBlockRev14V12 = refTextRev.GetBlocksForVerse(14, 12).Single();
 			var refBlocksRev14V13 = refTextRev.GetBlocksForVerse(14, 13).ToList();
@@ -4111,16 +4246,19 @@ namespace GlyssenEngineTests
 			var vernBook = new BookScript(refTextRev.BookId, vernacularBlocks, m_vernVersification);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 1);
-			Assert.AreEqual(5, matchup.CorrelatedBlocks.Count);
-			Assert.AreEqual(refBlockRev14V12.GetText(true), matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().GetText(true));
-			Assert.AreEqual(refBlocksRev14V13[0].GetText(true), matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().GetText(true),
+			Assert.That(matchup.CorrelatedBlocks.Count, Is.EqualTo(5));
+			Assert.That(refBlockRev14V12.GetText(true), Is.EqualTo(matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().GetText(true)));
+			Assert.That(matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().GetText(true),
+				Is.EqualTo(refBlocksRev14V13[0].GetText(true)),
 				$"Vern: {matchup.CorrelatedBlocks[1].GetText(true)}");
-			Assert.AreEqual(refBlocksRev14V13[1].GetText(true), matchup.CorrelatedBlocks[2].ReferenceBlocks.Single().GetText(true),
+			Assert.That(matchup.CorrelatedBlocks[2].ReferenceBlocks.Single().GetText(true),
+				Is.EqualTo(refBlocksRev14V13[1].GetText(true)),
 				$"Vern: {matchup.CorrelatedBlocks[2].GetText(true)}");
-			Assert.AreEqual(refBlocksRev14V13[3].GetText(true), matchup.CorrelatedBlocks[3].ReferenceBlocks.Single().GetText(true),
+			Assert.That(matchup.CorrelatedBlocks[3].ReferenceBlocks.Single().GetText(true),
+				Is.EqualTo(refBlocksRev14V13[3].GetText(true)),
 				$"Vern: {matchup.CorrelatedBlocks[3].GetText(true)}");
-			Assert.AreEqual(refBlocksRev14V13[2].GetText(true) + refBlocksRev14V13[4].GetText(true),
-				String.Join("", matchup.CorrelatedBlocks[4].ReferenceBlocks.Select(r => r.GetText(true))),
+			Assert.That(Join("", matchup.CorrelatedBlocks[4].ReferenceBlocks.Select(r => r.GetText(true))),
+				Is.EqualTo(refBlocksRev14V13[2].GetText(true) + refBlocksRev14V13[4].GetText(true)),
 				$"Vern: {matchup.CorrelatedBlocks[4].GetText(true)}");
 		}
 
@@ -4130,7 +4268,7 @@ namespace GlyssenEngineTests
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_VernBlockHasPostAnnouncedQuoteAsSingleBlockThatIsSplitInRefText_AllTextFromRefTextMatchesBlockForCorrectSpeaker()
 		{
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 			var refTextRev = refText.GetBook("REV");
 			var refBlockRev14V12 = refTextRev.GetBlocksForVerse(14, 12).Single();
 			var refBlocksRev14V13 = refTextRev.GetBlocksForVerse(14, 13).ToList();
@@ -4153,16 +4291,19 @@ namespace GlyssenEngineTests
 			var vernBook = new BookScript(refTextRev.BookId, vernacularBlocks, m_vernVersification);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 1);
-			Assert.AreEqual(5, matchup.CorrelatedBlocks.Count);
-			Assert.AreEqual(refBlockRev14V12.GetText(true), matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().GetText(true));
-			Assert.AreEqual(refBlocksRev14V13[0].GetText(true), matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().GetText(true),
+			Assert.That(matchup.CorrelatedBlocks.Count, Is.EqualTo(5));
+			Assert.That(refBlockRev14V12.GetText(true), Is.EqualTo(matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().GetText(true)));
+			Assert.That(matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().GetText(true),
+				Is.EqualTo(refBlocksRev14V13[0].GetText(true)),
 				$"Vern: {matchup.CorrelatedBlocks[1].GetText(true)}");
-			Assert.AreEqual(refBlocksRev14V13[1].GetText(true), matchup.CorrelatedBlocks[2].ReferenceBlocks.Single().GetText(true),
+			Assert.That(matchup.CorrelatedBlocks[2].ReferenceBlocks.Single().GetText(true),
+				Is.EqualTo(refBlocksRev14V13[1].GetText(true)),
 				$"Vern: {matchup.CorrelatedBlocks[2].GetText(true)}");
-			Assert.AreEqual(refBlocksRev14V13[2].GetText(true) + refBlocksRev14V13[4].GetText(true),
-				String.Join("", matchup.CorrelatedBlocks[3].ReferenceBlocks.Select(r => r.GetText(true))),
+			Assert.That(Join("", matchup.CorrelatedBlocks[3].ReferenceBlocks.Select(r => r.GetText(true))),
+				Is.EqualTo(refBlocksRev14V13[2].GetText(true) + refBlocksRev14V13[4].GetText(true)),
 				$"Vern: {matchup.CorrelatedBlocks[3].GetText(true)}");
-			Assert.AreEqual(refBlocksRev14V13[3].GetText(true), matchup.CorrelatedBlocks[4].ReferenceBlocks.Single().GetText(true),
+			Assert.That(matchup.CorrelatedBlocks[4].ReferenceBlocks.Single().GetText(true),
+				Is.EqualTo(refBlocksRev14V13[3].GetText(true)),
 				$"Vern: {matchup.CorrelatedBlocks[4].GetText(true)}");
 		}
 
@@ -4174,7 +4315,7 @@ namespace GlyssenEngineTests
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_VernBlockHasPreAndPostAnnouncedQuoteAsSingleBlockThatIsSplitInRefText_AllTextFromRefTextIncluded()
 		{
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 			var refTextRev = refText.GetBook("REV");
 			var refBlockRev14V12 = refTextRev.GetBlocksForVerse(14, 12).Single();
 			var refBlocksRev14V13 = refTextRev.GetBlocksForVerse(14, 13).ToList();
@@ -4198,10 +4339,10 @@ namespace GlyssenEngineTests
 			var vernBook = new BookScript(refTextRev.BookId, vernacularBlocks, m_vernVersification);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 1);
-			Assert.AreEqual(6, matchup.CorrelatedBlocks.Count);
-			Assert.AreEqual(refBlockRev14V12.GetText(true), matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().GetText(true));
-			Assert.IsTrue(refBlocksRev14V13.Select(r => r.GetText(true)).SequenceEqual(matchup.CorrelatedBlocks.Skip(1).SelectMany(c =>
-				c.ReferenceBlocks).Select(rb => rb.GetText(true))));
+			Assert.That(matchup.CorrelatedBlocks.Count, Is.EqualTo(6));
+			Assert.That(refBlockRev14V12.GetText(true), Is.EqualTo(matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().GetText(true)));
+			Assert.That(refBlocksRev14V13.Select(r => r.GetText(true)).SequenceEqual(matchup.CorrelatedBlocks.Skip(1).SelectMany(c =>
+				c.ReferenceBlocks).Select(rb => rb.GetText(true))), Is.True);
 		}
 
 		/// <summary>
@@ -4210,7 +4351,7 @@ namespace GlyssenEngineTests
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_VernBlockHasPostAnnouncedQuote_AllTextFromRefTextMatchesWithExtraVernLineUnmatched()
 		{
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 			var refTextRev = refText.GetBook("REV");
 			var refBlockRev14V12 = refTextRev.GetBlocksForVerse(14, 12).Single();
 			var refBlocksRev14V13 = refTextRev.GetBlocksForVerse(14, 13).ToList();
@@ -4235,32 +4376,37 @@ namespace GlyssenEngineTests
 			var vernBook = new BookScript(refTextRev.BookId, vernacularBlocks, m_vernVersification);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 1);
-			Assert.AreEqual(7, matchup.CorrelatedBlocks.Count);
-			Assert.AreEqual(refBlockRev14V12.GetText(true), matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().GetText(true));
+			Assert.That(matchup.CorrelatedBlocks.Count, Is.EqualTo(7));
+			Assert.That(refBlockRev14V12.GetText(true), Is.EqualTo(matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().GetText(true)));
 			for (int i = 1; i < matchup.CorrelatedBlocks.Count - 1; i++)
 			{
-				Assert.AreEqual(refBlocksRev14V13[i - 1].GetText(true), matchup.CorrelatedBlocks[i].ReferenceBlocks.Single().GetText(true),
+				Assert.That(matchup.CorrelatedBlocks[i].ReferenceBlocks.Single().GetText(true),
+					Is.EqualTo(refBlocksRev14V13[i - 1].GetText(true)),
 					$"Vern: {matchup.CorrelatedBlocks[i].GetText(true)}");
 			}
-			Assert.IsFalse(matchup.CorrelatedBlocks[6].MatchesReferenceText, $"Vern: {matchup.CorrelatedBlocks[6].GetText(true)}");
+			Assert.That(matchup.CorrelatedBlocks[6].MatchesReferenceText, Is.False,
+				$"Vern: {matchup.CorrelatedBlocks[6].GetText(true)}");
 		}
 
 		private static void VerifyCharacterVerseEntriesForRev4V12To13(Block refBlockRev14V12, List<Block> refBlocksRev14V13)
 		{
 			var narrator = CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator);
-			Assert.AreEqual("angel flying directly overhead, third", refBlockRev14V12.CharacterId,
+			Assert.That(refBlockRev14V12.CharacterId,
+				Is.EqualTo("angel flying directly overhead, third"),
 				"Expected pre-condition for test not met. Reference text for REV 14:12 should be a single blockspoken by \"angel flying directly overhead, third\".");
-			Assert.AreEqual(5, refBlocksRev14V13.Count,
+			Assert.That(refBlocksRev14V13.Count, Is.EqualTo(5),
 				"Expected pre-condition for test not met. Reference text for REV 14:13 should be 5 blocks.");
-			Assert.AreEqual(narrator, refBlocksRev14V13[0].CharacterId,
+			Assert.That(refBlocksRev14V13[0].CharacterId,
+				Is.EqualTo(narrator), 
 				$"Expected pre-condition for test not met. Reference text block 0 for REV 14:13 should be spoken by \"{narrator}\".");
-			Assert.AreEqual("voice from heaven (God?)", refBlocksRev14V13[1].CharacterId,
+			Assert.That(refBlocksRev14V13[1].CharacterId, Is.EqualTo("voice from heaven (God?)"),
 				"Expected pre-condition for test not met. Reference text block 1 for REV 14:13 should be spoken by \"voice from heaven (God?)\".");
-			Assert.AreEqual("Holy Spirit, the", refBlocksRev14V13[2].CharacterId,
+			Assert.That(refBlocksRev14V13[2].CharacterId, Is.EqualTo("Holy Spirit, the"),
 				"Expected pre-condition for test not met. Reference text block 2 for REV 14:13 should be spoken by \"Holy Spirit, the\".");
-			Assert.AreEqual(narrator, refBlocksRev14V13[3].CharacterId,
+			Assert.That(refBlocksRev14V13[3].CharacterId, Is.EqualTo(narrator),
 				$"Expected pre-condition for test not met. Reference text block 3 for REV 14:13 should be spoken by \"{narrator}\".");
-			Assert.AreEqual("Holy Spirit, the", refBlocksRev14V13[4].CharacterId,
+			Assert.That(refBlocksRev14V13[4].CharacterId,
+				Is.EqualTo("Holy Spirit, the"),
 				"Expected pre-condition for test not met. Reference text block 4 for REV 14:13 should be spoken by \"Holy Spirit, the\".");
 		}
 		#endregion
@@ -4272,19 +4418,19 @@ namespace GlyssenEngineTests
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_VernBlockHasQuoteRenderedAsIndirectSpeech_AllTextFromRefTextIsIncluded()
 		{
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 			var refTextMrk = refText.GetBook("MRK");
 			var refBlocksMrk14V70 = refTextMrk.GetBlocksForVerse(14, 70).ToList();
 			var narrator = CharacterVerseData.GetStandardCharacterId(refTextMrk.BookId, CharacterVerseData.StandardCharacter.Narrator);
-			Assert.AreEqual(4, refBlocksMrk14V70.Count,
+			Assert.That(refBlocksMrk14V70.Count, Is.EqualTo(4),
 				"Expected pre-condition for test not met. Reference text for MRK 14:70 should be 4 blocks.");
-			Assert.AreEqual(narrator, refBlocksMrk14V70[0].CharacterId,
+			Assert.That(refBlocksMrk14V70[0].CharacterId, Is.EqualTo(narrator),
 				$"Expected pre-condition for test not met. Reference text block 0 for MRK 14:70 should be spoken by \"{narrator}\".");
-			Assert.AreEqual("Peter (Simon)", refBlocksMrk14V70[1].CharacterId,
+			Assert.That("Peter (Simon)", Is.EqualTo(refBlocksMrk14V70[1].CharacterId),
 				"Expected pre-condition for test not met. Reference text block 1 for MRK 14:70 should be spoken by \"Peter (Simon)\".");
-			Assert.AreEqual(narrator, refBlocksMrk14V70[2].CharacterId,
+			Assert.That(refBlocksMrk14V70[2].CharacterId, Is.EqualTo(narrator),
 				$"Expected pre-condition for test not met. Reference text block 2 for MRK 14:70 should be spoken by \"{narrator}\".");
-			Assert.AreEqual("high priest's servant (relative of the man whose ear Peter cut off)/those standing near", refBlocksMrk14V70[3].CharacterId,
+			Assert.That("high priest's servant (relative of the man whose ear Peter cut off)/those standing near", Is.EqualTo(refBlocksMrk14V70[3].CharacterId),
 				"Expected pre-condition for test not met. Reference text block 3 for MRK 14:70 should be spoken by \"high priest's servant (relative of the man whose ear Peter cut off)/those standing near\".");
 
 			var vernacularBlocks = new List<Block>
@@ -4302,13 +4448,15 @@ namespace GlyssenEngineTests
 			var vernBook = new BookScript(refTextMrk.BookId, vernacularBlocks, m_vernVersification);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 1);
-			Assert.AreEqual(3, matchup.CorrelatedBlocks.Count);
-			Assert.AreEqual(refBlocksMrk14V70[0].GetText(true) + refBlocksMrk14V70[1].GetText(true),
-				String.Join("", matchup.CorrelatedBlocks[0].ReferenceBlocks.Select(r => r.GetText(true))),
+			Assert.That(matchup.CorrelatedBlocks.Count, Is.EqualTo(3));
+			Assert.That(Join("", matchup.CorrelatedBlocks[0].ReferenceBlocks.Select(r => r.GetText(true))),
+				Is.EqualTo(refBlocksMrk14V70[0].GetText(true) + refBlocksMrk14V70[1].GetText(true)),
 				$"Vern: {matchup.CorrelatedBlocks[0].GetText(true)}");
-			Assert.AreEqual(refBlocksMrk14V70[2].GetText(true), matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().GetText(true),
+			Assert.That(matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().GetText(true),
+				Is.EqualTo(refBlocksMrk14V70[2].GetText(true)),
 				$"Vern: {matchup.CorrelatedBlocks[1].GetText(true)}");
-			Assert.AreEqual(refBlocksMrk14V70[3].GetText(true), matchup.CorrelatedBlocks[2].ReferenceBlocks.Single().GetText(true),
+			Assert.That(matchup.CorrelatedBlocks[2].ReferenceBlocks.Single().GetText(true),
+				Is.EqualTo(refBlocksMrk14V70[3].GetText(true)),
 				$"Vern: {matchup.CorrelatedBlocks[2].GetText(true)}");
 		}
 		#endregion
@@ -4319,18 +4467,22 @@ namespace GlyssenEngineTests
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_RefTextVerseStartsWithDirectSpeechButIsIndirectInVern_MatchedByAligningVerseNumbers()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Sarvia-machi-Joab, Rey-David Absalónʼgi-nue-binsaed magar daksad. ", true, 14, "2SA")
-				.AddVerse(2, "Degisoggu, Joab ome-emar-binsaed-gaed imaksad. We-ome, Tecoa-neggweburginedid. Joab a-omega sogded:"));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "Sarvia-machi-Joab, Rey-David Absalónʼgi-nue-binsaed magar daksad. ", true, 14, "2SA")
+					.AddVerse(2, "Degisoggu, Joab ome-emar-binsaed-gaed imaksad. We-ome, Tecoa-neggweburginedid. Joab a-omega sogded:")
+			};
 			AddBlockForVerseInProgress(vernacularBlocks, "Joab", "—An bega, dule-mor-yoleged yoo. Dikasursur dule, be san-sao.");
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(3, "Agi, geb Joab, Rey-Davidʼse barmisad. A-iduale sunmaknai, Rey-Davidʼga sunmakdapoe. ", true, 14, "2SA")
 				.AddVerse(4, "Ome-Tecoa-neggweburgined Rey-David-asabin gwisgunonigua, dulluu-napase imaksad. Davidʼga sogded:"));
 			AddBlockForVerseInProgress(vernacularBlocks, "woman from Tekoa", "—¡Rey, be an-bendake!");
 			var vernBook = new BookScript("2SA", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Now Joab perceived that the king's heart was toward Absalom.", true, 14, "2SA"));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(2, "Joab sent to Tekoa, fetched a woman, and said,", false, 14, "2SA"));
+			var referenceBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(1, "Now Joab perceived that the king's heart was toward Absalom.", true, 14, "2SA"),
+				CreateNarratorBlockForVerse(2, "Joab sent to Tekoa, fetched a woman, and said,", false, 14, "2SA")
+			};
 			AddBlockForVerseInProgress(referenceBlocks, "Joab", "«Put on mourning clothes, and be as a woman who has mourned a long time.");
 			referenceBlocks.Add(CreateBlockForVerse("Joab", 3, "Go in to the king, and speak thus.»", false, 14));
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "So Joab put the words in her mouth. ", "2SA")
@@ -4344,12 +4496,12 @@ namespace GlyssenEngineTests
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 2);
 
-			Assert.AreEqual(2, matchup.CorrelatedBlocks.Count);
-			Assert.IsFalse(matchup.CorrelatedBlocks[0].MatchesReferenceText);
-			Assert.IsTrue(matchup.CorrelatedBlocks[1].MatchesReferenceText);
-			Assert.AreEqual(expected,
-				Join("", matchup.CorrelatedBlocks[0].ReferenceBlocks.Select(r => r.GetText(true))));
-			Assert.AreEqual(referenceBlocks.Last().GetText(true), matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().GetText(true));
+			Assert.That(matchup.CorrelatedBlocks.Count, Is.EqualTo(2));
+			Assert.That(matchup.CorrelatedBlocks[0].MatchesReferenceText, Is.False);
+			Assert.That(matchup.CorrelatedBlocks[1].MatchesReferenceText);
+			Assert.That(Join("", matchup.CorrelatedBlocks[0].ReferenceBlocks.Select(r => r.GetText(true))),
+				Is.EqualTo(expected));
+			Assert.That(referenceBlocks.Last().GetText(true), Is.EqualTo(matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().GetText(true)));
 		}
 
 		/// <summary>
@@ -4358,24 +4510,26 @@ namespace GlyssenEngineTests
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_VernacularHasTextBeforeVerse1InChapter_MatchupDoesNotCrossChapterBoundary()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(25, "He had no relations with her until she had her firstborn son: and he called him Jesus.", true));
-			vernacularBlocks.Add(NewChapterBlock("MAT", 2));
-			vernacularBlocks.Add(new Block("s", 2) {CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical)}
-				.AddText("The next thing"));
-			vernacularBlocks.Add(new Block("p", 2) { CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator) }.AddText("The text before verse one:"));
-			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 1, "“Who am I?”", false, 2));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(25, "He had no relations with her until she had her firstborn son: and he called him Jesus.", true),
+				NewChapterBlock("MAT", 2),
+				new Block("s", 2) {CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical)}
+					.AddText("The next thing"),
+				new Block("p", 2) { CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator) }.AddText("The text before verse one:"),
+				CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 1, "“Who am I?”", false, 2)
+			};
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MAT);
 			testProject.Books[0].Blocks = vernacularBlocks;
 
-			var primaryReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var primaryReferenceText = GetStandardReferenceText(ReferenceTextType.English);
 			for (var i = 0; i < vernacularBlocks.Count; i++)
 			{
 				var block = vernacularBlocks[i];
 				if (!block.IsScripture)
 					continue;
 				var matchup = primaryReferenceText.GetBlocksForVerseMatchedToReferenceText(testProject.Books.First(), i);
-				Assert.AreEqual(matchup.OriginalBlocks.First().ChapterNumber, matchup.OriginalBlocks.Last().ChapterNumber);
+				Assert.That(matchup.OriginalBlocks.First().ChapterNumber, Is.EqualTo(matchup.OriginalBlocks.Last().ChapterNumber));
 			}
 		}
 
@@ -4391,8 +4545,8 @@ namespace GlyssenEngineTests
 			var numbersVern = testProject.GetBook("NUM");
 			var iNum16V35VernBlock = numbersVern.GetIndexOfFirstBlockForVerse(16, 35);
 			var iNum17V1VernBlock = numbersVern.GetIndexOfFirstBlockForVerse(17, 1);
-			Assert.IsTrue(iNum16V35VernBlock < iNum17V1VernBlock);
-			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			Assert.That(iNum16V35VernBlock < iNum17V1VernBlock, Is.True);
+			var englishRefText = GetStandardReferenceText(ReferenceTextType.English);
 			var numbersEng = englishRefText.GetBook("NUM");
 			var num16V36Block = numbersEng.GetBlocksForVerse(16, 36).Single();
 			if (num16V36Block.InitialStartVerseNumber != 35)
@@ -4409,7 +4563,7 @@ namespace GlyssenEngineTests
 			}
 			var matchup16V35 = englishRefText.GetBlocksForVerseMatchedToReferenceText(numbersVern, iNum16V35VernBlock);
 			var matchup17V1 = englishRefText.GetBlocksForVerseMatchedToReferenceText(numbersVern, iNum17V1VernBlock);
-			Assert.IsTrue(matchup16V35.OriginalBlocks.Select(b => b.GetText(true)).SequenceEqual(matchup17V1.OriginalBlocks.Select(b => b.GetText(true))));
+			Assert.That(matchup16V35.OriginalBlocks.Select(b => b.GetText(true)).SequenceEqual(matchup17V1.OriginalBlocks.Select(b => b.GetText(true))), Is.True);
 		}
 
 		/// <summary>
@@ -4418,47 +4572,47 @@ namespace GlyssenEngineTests
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_VernBridgeWithSingleQuoteThatMatchesQuoteInRefText_RefBlocksCombineToMatch()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(20, "Haxuya ba, ", true, 17, initialEndVerseNumber:21));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(20, "Haxuya ba, ", true, 17, initialEndVerseNumber:21) };
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Hatumingaim haringindi sanga te. Ahatumia: Mastat. Bila balau, ahatum ba longgalo! Bila na bimbia ila.”");
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(20, "He said to them, ", true, 17));
+			var referenceBlocks = new List<Block> { CreateNarratorBlockForVerse(20, "He said to them, ", true, 17) };
 			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "“Because of your unbelief. If you have faith, nothing will be impossible. ");
 			referenceBlocks.Add(CreateBlockForVerse("Jesus", 21, "But this kind leaves only by prayer and fasting.”", chapter:17));
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
 			var result = matchup.CorrelatedBlocks;
-			Assert.AreEqual(2, result.Count);
-			Assert.IsTrue(vernacularBlocks.Select(b => b.GetText(true)).SequenceEqual(result.Select(b => b.GetText(true))));
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result.First().ReferenceBlocks.Single().GetText(true));
-			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
-			Assert.AreEqual(referenceBlocks[1].GetText(true) + referenceBlocks[2].GetText(true), result.Last().ReferenceBlocks.Single().GetText(true));
+			Assert.That(result.Count, Is.EqualTo(2));
+			Assert.That(vernacularBlocks.Select(b => b.GetText(true)).SequenceEqual(result.Select(b => b.GetText(true))), Is.True);
+			Assert.That(referenceBlocks[0].GetText(true), Is.EqualTo(result.First().ReferenceBlocks.Single().GetText(true)));
+			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(referenceBlocks[1].GetText(true) + referenceBlocks[2].GetText(true), Is.EqualTo(result.Last().ReferenceBlocks.Single().GetText(true)));
 		}
 		
 		#region PG-1393
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_VerseBridgeAtEndOfChapterWithTwoNarratorBlocks_OnlyOneVernBlockAlignsToCombinedRefBlocks()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(20, "Timoteo, cuida bien de no escuchar palabrerías, falsamente llamado " +
-				"“conocimiento de la verdad”; pues algunos se han desviado de la que se te ha confiado fe por creer esa clase de " +
-				"“conocimiento”.", true, 6, "1TI", "p", 21));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(20, "Timoteo, cuida bien de no escuchar palabrerías, falsamente llamado " +
+					"“conocimiento de la verdad”; pues algunos se han desviado de la que se te ha confiado fe por creer esa clase de " +
+					"“conocimiento”.", true, 6, "1TI", "p", 21)
+			};
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Que el Señor derrame su gracia sobre ustedes.", "1TI");
 			var vernBook = new BookScript("1TI", vernacularBlocks, m_vernVersification);
 
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
 			var result = matchup.CorrelatedBlocks;
-			Assert.AreEqual(2, result.Count);
-			Assert.IsFalse(result.All(b => b.MatchesReferenceText));
+			Assert.That(result.Count, Is.EqualTo(2));
+			Assert.That(result.All(b => b.MatchesReferenceText), Is.False);
 			var refTextVerses = result.SelectMany(b => b.ReferenceBlocks).SelectMany(r => r.BlockElements.OfType<Verse>()).ToList();
-			Assert.AreEqual(2, refTextVerses.Count);
-			Assert.AreEqual(20, refTextVerses[0].StartVerse);
-			Assert.AreEqual(21, refTextVerses[1].StartVerse);
+			Assert.That(refTextVerses.Count, Is.EqualTo(2));
+			Assert.That(refTextVerses[0].StartVerse, Is.EqualTo(20));
+			Assert.That(refTextVerses[1].StartVerse, Is.EqualTo(21));
 		}
 		#endregion
 
@@ -4467,52 +4621,51 @@ namespace GlyssenEngineTests
 		public void GetBlocksForVerseMatchedToReferenceText_HeSaidMatchAtStartOfVerse_AlignedAutomaticallyWithVerseNumberPrepended()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.MAT);
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 			var mat = project.GetBook("MAT");
 
 			var iMat21v33 = mat.GetIndexOfFirstBlockForVerse(21, 33);
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(mat, iMat21v33, new[] {"Jesús Judío-dummaganga sogdebalid:"});
 
 			// VERIFY
-			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
+			Assert.That(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText), Is.True);
 			var v33 = ((Verse)matchup.CorrelatedBlocks.First().BlockElements.First()).Number;
-			Assert.AreEqual(v33,
-				((Verse)matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().BlockElements.First()).Number);
-			Assert.IsFalse(matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().BlockElements.OfType<Verse>().Any(v => v.Number == v33));
+			Assert.That(((Verse)matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().BlockElements.First()).Number,
+				Is.EqualTo(v33));
+			Assert.That(matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().BlockElements.OfType<Verse>().Any(v => v.Number == v33), Is.False);
 		}
 
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_HeSaidMatchAtStartOfVerseWithDifferentVersification_AlignedAutomaticallyWithCorrespondingVerseNumberPrepended()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(6, "Continuó: ", false, 32, "GEN"));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(6, "Continuó: ", false, 32, "GEN") };
 			AddBlockForVerseInProgress(vernacularBlocks, "Jacob (Israel)", "“Tengo animales y gente para tirar para arriba. Vengo en paz.””");
 			var vernBook = new BookScript("GEN", vernacularBlocks, ScrVers.Original);
 
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, new[] {"Continuó:"});
 
 			// VERIFY
-			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
-			Assert.AreEqual("5",
-				((Verse)matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().BlockElements.First()).Number);
-			Assert.IsFalse(matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().BlockElements.OfType<Verse>().Any());
+			Assert.That(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(((Verse)matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().BlockElements.First()).Number,
+				Is.EqualTo("5"));
+			Assert.That(matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().BlockElements.OfType<Verse>().Any(), Is.False);
 		}
 
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_HeSaidMatchAtEndOfVerse_AlignedAutomatically()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.MAT);
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 			var mat = project.GetBook("MAT");
 
 			var iMat8v7 = mat.GetIndexOfFirstBlockForVerse(8, 7);
 			var blocks = mat.GetScriptBlocks();
-			Assert.AreEqual(blocks[iMat8v7].InitialStartVerseNumber, blocks[iMat8v7 + 1].InitialStartVerseNumber,
+			Assert.That(blocks[iMat8v7].InitialStartVerseNumber, Is.EqualTo(blocks[iMat8v7 + 1].InitialStartVerseNumber),
 				"SETUP check - test data not as expected");
-			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(blocks[iMat8v7].CharacterId, CharacterVerseData.StandardCharacter.Narrator),
+			Assert.That(CharacterVerseData.IsCharacterOfType(blocks[iMat8v7].CharacterId, CharacterVerseData.StandardCharacter.Narrator), Is.True,
 				"SETUP check - test data not as expected");
-			Assert.IsTrue(blocks[iMat8v7].InitialStartVerseNumber < blocks[iMat8v7 + 2].InitialStartVerseNumber,
+			Assert.That(blocks[iMat8v7].InitialStartVerseNumber < blocks[iMat8v7 + 2].InitialStartVerseNumber, Is.True,
 				"SETUP check - test data not as expected");
 			var prevBlock = blocks[iMat8v7 + 1];
 			var heSaidBlock = new Block(prevBlock.StyleTag, prevBlock.ChapterNumber,
@@ -4520,17 +4673,16 @@ namespace GlyssenEngineTests
 			{
 				CharacterId = blocks[iMat8v7].CharacterId,
 				IsParagraphStart = false,
-				BlockElements = new List<BlockElement>(1)
+				BlockElements = new List<BlockElement>(1) { new ScriptText(", pregunto-sogde.") }
 			};
-			heSaidBlock.BlockElements.Add(new ScriptText(", pregunto-sogde."));
 			mat.Blocks.Insert(iMat8v7 + 2, heSaidBlock);
 			ReflectionHelper.SetField(mat, "m_blockCount", 0); // It's illegal to change block collection, so we have to do this cheat to tell it it's okay.
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(mat, iMat8v7, new[] {", pregunto-sogde."});
 
 			// VERIFY
-			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
-			Assert.AreEqual(refText.HeSaidText,
-				matchup.CorrelatedBlocks.Last().ReferenceBlocks.Single().GetText(true));
+			Assert.That(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(matchup.CorrelatedBlocks.Last().ReferenceBlocks.Single().GetText(true),
+				Is.EqualTo(refText.HeSaidText));
 		}
 
 		[Test]
@@ -4538,28 +4690,30 @@ namespace GlyssenEngineTests
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.MAT);
 			project.AddNewReportingClauses(new[] {"Jesús Judío-dummaganga sogdebalid:"});
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 
 			var matchedUpMat = refText.GetBooksWithBlocksConnectedToReferenceText(project).Single();
 			var iMat21v33 = matchedUpMat.GetIndexOfFirstBlockForVerse(21, 33);
 			var blocks = matchedUpMat.GetScriptBlocks();
 
 			// VERIFY
-			Assert.IsTrue(blocks[iMat21v33].MatchesReferenceText);
-			Assert.IsTrue(blocks[iMat21v33 + 1].MatchesReferenceText);
-			Assert.AreEqual(((Verse)blocks[iMat21v33].BlockElements.First()).Number,
-				((Verse)blocks[iMat21v33].ReferenceBlocks.Single().BlockElements.First()).Number);
-			Assert.IsFalse(blocks[iMat21v33 + 1].ReferenceBlocks.Single().ContainsVerseNumber);
+			Assert.That(blocks[iMat21v33].MatchesReferenceText);
+			Assert.That(blocks[iMat21v33 + 1].MatchesReferenceText);
+			Assert.That(((Verse)blocks[iMat21v33].ReferenceBlocks.Single().BlockElements.First()).Number,
+				Is.EqualTo(((Verse)blocks[iMat21v33].BlockElements.First()).Number));
+			Assert.That(blocks[iMat21v33 + 1].ReferenceBlocks.Single().ContainsVerseNumber, Is.False);
 		}
 		#endregion
 
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_VernBlockSplitAtVerseWhichIsNotSplitInRefText_RefTextSplitToMatchVern()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(7, "Dadi, pigupokatan nog glupaꞌ nog konaꞌ Hudyu. ", false, 27)
-				.AddVerse(8, "Saꞌan ituꞌ nog Piktolongan nog Duguꞌ. ")
-				.AddVerse(9, "Sog bianbian koni, mituman og inulat ni Dyerimaya nog,"));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(7, "Dadi, pigupokatan nog glupaꞌ nog konaꞌ Hudyu. ", false, 27)
+					.AddVerse(8, "Saꞌan ituꞌ nog Piktolongan nog Duguꞌ. ")
+					.AddVerse(9, "Sog bianbian koni, mituman og inulat ni Dyerimaya nog,")
+			};
 			AddBlockForVerseInProgress(vernacularBlocks, "scripture", "“Inalap nilan og puluꞌ buk solapiꞌ gotow Israꞌel.", "q1");
 			vernacularBlocks.Add(CreateBlockForVerse("scripture", 10, "Bu piksaluy nilan og dondagan nog Mikpongon.”", false, 27, "q1"));
 			vernacularBlocks.Add(new Block("s", 27, 10)
@@ -4574,18 +4728,18 @@ namespace GlyssenEngineTests
 
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 			var refTextBlocks = refText.GetBook("MAT").GetBlocksForVerse(27, 9).ToList();
-			Assert.AreEqual(10, refTextBlocks.Last().LastVerseNum,
+			Assert.That(10, Is.EqualTo(refTextBlocks.Last().LastVerseNum),
 				"SETUP check - expected English reference text to have verse 10 included with the last block for MAT 27:9.");
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
 			var result = matchup.CorrelatedBlocks;
 
 			var scriptureBlocks = result.Where(b => b.CharacterId == "scripture").ToList();
-			Assert.IsTrue(scriptureBlocks.All(b => b.MatchesReferenceText &&
-				b.InitialStartVerseNumber == b.ReferenceBlocks.Single().InitialStartVerseNumber));
-			Assert.AreEqual("10", ((Verse)scriptureBlocks.Last().ReferenceBlocks.Single().BlockElements.First()).Number);
+			Assert.That(scriptureBlocks.All(b => b.MatchesReferenceText &&
+				b.InitialStartVerseNumber == b.ReferenceBlocks.Single().InitialStartVerseNumber), Is.True);
+			Assert.That(((Verse)scriptureBlocks.Last().ReferenceBlocks.Single().BlockElements.First()).Number, Is.EqualTo("10"));
 		}
 
 		#region PG-1395 (modified for PG-1396 and PG-1403)
@@ -4594,8 +4748,7 @@ namespace GlyssenEngineTests
 		public void GetBlocksForVerseMatchedToReferenceText_ReportingClausesComeAfterSpeechLinesInVerseWithMultipleSpeakers_AllBlocksMatchedWithReportingClausesMatchedToModifiedReportingClauses(
 			bool blockIsNeedsReview)
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateBlockForVerse("Jesus", 31, "Кьве хцикай бубадин тӀалабун ни кьилиз акъудна?» ", false, 21));
+			var vernacularBlocks = new List<Block> { CreateBlockForVerse("Jesus", 31, "Кьве хцикай бубадин тӀалабун ни кьилиз акъудна?» ", false, 21) };
 			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "«Сад лагьайда», ");
 			var heSaidBlock = AddNarratorBlockForVerseInProgress(vernacularBlocks, "– жаваб гана абуру. ");
 			var narrator = heSaidBlock.CharacterId;
@@ -4607,32 +4760,35 @@ namespace GlyssenEngineTests
 				heSaidBlock.CharacterId = CharacterVerseData.kNeedsReview;
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 			var refTextBlocks = refText.GetBook("MAT").GetBlocksForVerse(21, 31).ToList();
-			Assert.AreEqual(5, refTextBlocks.Count, "SETUP check - expected English reference text to have five blocks for Matthew 21:31.");
-			Assert.AreEqual("Jesus", refTextBlocks[0].CharacterId,
+			Assert.That(refTextBlocks.Count, Is.EqualTo(5),
+				"SETUP check - expected English reference text to have five blocks for Matthew 21:31.");
+			Assert.That("Jesus", Is.EqualTo(refTextBlocks[0].CharacterId),
 				"SETUP check - expected English reference text to have Jesus speak in first block for Luke 7:40.");
-			Assert.IsTrue(refTextBlocks[1].GetText(false).Contains("They said"),
+			Assert.That(refTextBlocks[1].GetText(false), Does.Contain("They said"),
 				"SETUP check - expected English reference text to have reporting clause introducing chief priests/elders");
-			Assert.AreEqual("chief priests/elders", refTextBlocks[2].CharacterId,
+			Assert.That("chief priests/elders", Is.EqualTo(refTextBlocks[2].CharacterId),
 				"SETUP check - expected English reference text to have chief priests/elders speak in response to Jesus' question in Matthew 21:31.");
-			Assert.IsTrue(refTextBlocks[3].GetText(false).Contains("Jesus said"),
+			Assert.That(refTextBlocks[3].GetText(false), Does.Contain("Jesus said"),
 				"SETUP check - expected English reference text to have reporting clause introducing Jesus");
-			Assert.AreEqual("Jesus", refTextBlocks.Last().CharacterId,
+			Assert.That("Jesus", Is.EqualTo(refTextBlocks.Last().CharacterId),
 				"SETUP check - expected English reference text to have Jesus speak in final block for Matthew 21:31.");
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, new []{"– лагьана ада.", "– лагьана Исади. –", "– минетдалди лагьана ада. –", "– жаваб гана абуру."});
 			var result = matchup.CorrelatedBlocks;
-			Assert.AreEqual(5, result.Count);
-			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
+			Assert.That(result.Count, Is.EqualTo(5));
+			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
 			var textOfMatchedRefTextBlocks = result.SelectMany(b => b.ReferenceBlocks).Select(r => r.GetText(true)).ToList();
-			Assert.AreEqual(refTextBlocks[0].GetText(true), textOfMatchedRefTextBlocks[0]);
-			Assert.AreEqual(refTextBlocks[2].GetText(true), textOfMatchedRefTextBlocks[1]);
-			Assert.AreEqual(refTextBlocks[1].GetText(true).ToLower().Replace(",", "."), textOfMatchedRefTextBlocks[2].ToLower());
-			Assert.AreEqual(narrator, result[2].CharacterId);
-			Assert.AreEqual(refTextBlocks[4].GetText(true), textOfMatchedRefTextBlocks[3]);
-			Assert.AreEqual(refTextBlocks[3].GetText(true).ToLower().Replace(",", "."), textOfMatchedRefTextBlocks[4].ToLower());
-			Assert.AreEqual(narrator, result[4].CharacterId);
+			Assert.That(refTextBlocks[0].GetText(true), Is.EqualTo(textOfMatchedRefTextBlocks[0]));
+			Assert.That(refTextBlocks[2].GetText(true), Is.EqualTo(textOfMatchedRefTextBlocks[1]));
+			Assert.That(textOfMatchedRefTextBlocks[2].ToLower(), Is.EqualTo(
+				refTextBlocks[1].GetText(true).ToLower().Replace(",", ".")));
+			Assert.That(result[2].CharacterId, Is.EqualTo(narrator));
+			Assert.That(refTextBlocks[4].GetText(true), Is.EqualTo(textOfMatchedRefTextBlocks[3]));
+			Assert.That(textOfMatchedRefTextBlocks[4].ToLower(), Is.EqualTo(
+				refTextBlocks[3].GetText(true).ToLower().Replace(",", ".")));
+			Assert.That(result[4].CharacterId, Is.EqualTo(narrator));
 		}
 		#endregion
 
@@ -4640,119 +4796,125 @@ namespace GlyssenEngineTests
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_SimpleReportingClauseComesAfterDialogueInsteadOfBetweenSpeakers_InterveningReportingClauseOmitted()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(40, "Амма Исади, адахъ элкъвена, лагьана: ", false, 7, "LUK"));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(40, "Амма Исади, адахъ элкъвена, лагьана: ", false, 7, "LUK") };
 			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "«Симун! Захъ ваз лугьудай са гаф ава». ");
 			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "«Лагь, Муаллим», ");
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "– лагьана ада. ");
 			var vernBook = new BookScript("LUK", vernacularBlocks, m_vernVersification);
 
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 			var refTextBlocks = refText.GetBook("LUK").GetBlocksForVerse(7, 40).ToList();
-			Assert.AreEqual(4, refTextBlocks.Count, "SETUP check - expected English reference text to have four blocks for Luke 7:40.");
-			Assert.AreEqual("Jesus", refTextBlocks[1].CharacterId,
+			Assert.That(refTextBlocks.Count, Is.EqualTo(4), "SETUP check - expected English reference text to have four blocks for Luke 7:40.");
+			Assert.That("Jesus", Is.EqualTo(refTextBlocks[1].CharacterId),
 				"SETUP check - expected English reference text to have Jesus speak in second block for Luke 7:40.");
-			Assert.IsTrue(((ScriptText)refTextBlocks[1].BlockElements.Single()).Content.TrimEnd().EndsWith("»"),
+			Assert.That(((ScriptText)refTextBlocks[1].BlockElements.Single()).Content.TrimEnd(), Does.EndWith("»"),
 				"SETUP check - expected English reference text to have Jesus' words in quotes for Luke 7:40.");
-			Assert.AreEqual(refText.HeSaidText,
-				refTextBlocks[2].GetText(false).ToLower().Replace(",", "."),
+			Assert.That(refTextBlocks[2].GetText(false).ToLower().Replace(",", "."),
+				Is.EqualTo(refText.HeSaidText),
 				"SETUP check - expected English reference text to have leading reporting clause between two speakers");
-			Assert.AreEqual("Pharisee (Simon)", refTextBlocks.Last().CharacterId,
+			Assert.That("Pharisee (Simon)", Is.EqualTo(refTextBlocks.Last().CharacterId),
 				"SETUP check - expected English reference text to have Pharisee (Simon) speak in final block for Luke 7:40.");
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, new []{"– лагьана ада.", "– лагьана Исади. –", "– жаваб гана абуру."});
 			var result = matchup.CorrelatedBlocks;
-			Assert.AreEqual(4, result.Count);
-			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
-			Assert.AreEqual(refTextBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true),
+			Assert.That(result.Count, Is.EqualTo(4));
+			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(refTextBlocks[0].GetText(true), Is.EqualTo(result[0].ReferenceBlocks.Single().GetText(true)),
 				"Expected the first narrator block in the English reference text to be matched to the first block of matchup for Luke 7:40.");
-			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, result[1].CharacterId,
+			Assert.That(CharacterVerseData.kAmbiguousCharacter, Is.EqualTo(result[1].CharacterId),
 				"Speaker not expected to be automatically assigned in Jesus' block of matchup for Luke 7:40.");
-			Assert.AreEqual(refTextBlocks[1].GetText(true), result[1].ReferenceBlocks.Single().GetText(true),
+			Assert.That(refTextBlocks[1].GetText(true), Is.EqualTo(result[1].ReferenceBlocks.Single().GetText(true)),
 				"Expected the block with Jesus speaking in the English reference text to be matched to the second block of matchup for Luke 7:40.");
-			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, result[2].CharacterId,
+			Assert.That(CharacterVerseData.kAmbiguousCharacter, Is.EqualTo(result[2].CharacterId),
 				"Speaker not expected to be automatically assigned in Pharisee (Simon)'s block of matchup for Luke 7:40.");
-			Assert.AreEqual(refTextBlocks.Last().GetText(true), result[2].ReferenceBlocks.Single().GetText(true),
+			Assert.That(refTextBlocks.Last().GetText(true), Is.EqualTo(result[2].ReferenceBlocks.Single().GetText(true)),
 				"Expected the block with Pharisee (Simon) speaking in the English reference text to be matched to the third block of matchup for Luke 7:40.");
-			Assert.AreEqual(refText.HeSaidText, result.Last().ReferenceBlocks.Single().GetText(true),
+			Assert.That(refText.HeSaidText, Is.EqualTo(result.Last().ReferenceBlocks.Single().GetText(true)),
 				"Expected last block of matchup for Luke 7:40 to match up to a generated \"he said\" block.");
 		}
 
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_ReportingClauseContainingHeSaidComesAfterSpeechInsteadOfAtStartOfVerse_InterveningReportingClauseOmitted()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateBlockForVerse("Jesus", 18, "«Заз цӀайлапан хьиз цаварай аватай иблис акуна», ", false, 10));
+			var vernacularBlocks = new List<Block> { CreateBlockForVerse("Jesus", 18, "«Заз цӀайлапан хьиз цаварай аватай иблис акуна», ", false, 10) };
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "– лагьана Исади. – ", "LUK");
 			vernacularBlocks.Add(CreateBlockForVerse("Jesus", 19, "«Ингье, За квез гъуьлягърални... ", false, 10));
 			var vernBook = new BookScript("LUK", vernacularBlocks, m_vernVersification);
 
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 			var refTextBlocks = refText.GetBook("LUK").GetBlocksForVerse(10, 18).ToList();
-			Assert.AreEqual(2, refTextBlocks.Count, "SETUP check - expected English reference text to have two blocks for Luke 10:18.");
-			Assert.AreNotEqual(refTextBlocks[0].StartsAtVerseStart,
+			Assert.That(refTextBlocks.Count, Is.EqualTo(2), "SETUP check - expected English reference text to have two blocks for Luke 10:18.");
+			Assert.That(refTextBlocks[0].StartsAtVerseStart, Is.True,
 				"SETUP check - expected the first English reference text for Luke 10:18 to start at the beginning of v 18.");
 			var refTextHeSaidLowercase = refText.HeSaidText.ToLower().Trim('.');
 			var refTextActualReportingClauseLowercase = refTextBlocks[0].GetText(false).ToLower();
-			Assert.AreNotEqual(refTextHeSaidLowercase,
-				refTextActualReportingClauseLowercase,
+			Assert.That(refTextHeSaidLowercase, Is.Not.EqualTo(refTextActualReportingClauseLowercase),
 				"SETUP check - expected the initial reporting clause in the English reference text to have additional words besides \"he said\".");
-			Assert.IsTrue(refTextActualReportingClauseLowercase.Contains(refTextHeSaidLowercase),
+			Assert.That(refTextActualReportingClauseLowercase, Does.Contain(refTextHeSaidLowercase),
 				"SETUP check - expected the initial reporting clause in the English reference text to contain \"he said\".");
-			Assert.AreEqual("Jesus", refTextBlocks[1].CharacterId,
+			Assert.That("Jesus", Is.EqualTo(refTextBlocks[1].CharacterId),
 				"SETUP check - expected English reference text to have Jesus speak in second block for Luke 10:18.");
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, new []{"– лагьана ада.", "– лагьана Исади. –", "– жаваб гана абуру."});
 			var result = matchup.CorrelatedBlocks;
-			Assert.AreEqual(2, result.Count);
-			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
+			Assert.That(result.Count, Is.EqualTo(2));
+			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
 			var firstMatchedRefBlock = result[0].ReferenceBlocks.Single();
-			Assert.IsTrue(firstMatchedRefBlock.StartsAtVerseStart && firstMatchedRefBlock.InitialStartVerseNumber == 18,
+			Assert.That(firstMatchedRefBlock.StartsAtVerseStart, Is.True,
 				"Expected the matched reference text of the first block to start with v 18.");
-			Assert.AreEqual("Jesus", result[0].CharacterId);
-			Assert.AreEqual("Jesus", firstMatchedRefBlock.CharacterId);
-			Assert.AreEqual(refTextBlocks[1].GetText(false), firstMatchedRefBlock.GetText(false),
+			Assert.That(firstMatchedRefBlock.InitialStartVerseNumber, Is.EqualTo(18),
+				"Expected the matched reference text of the first block to start with v 18.");
+			Assert.That(result[0].CharacterId, Is.EqualTo("Jesus"));
+			Assert.That(firstMatchedRefBlock.CharacterId, Is.EqualTo("Jesus"));
+			Assert.That(firstMatchedRefBlock.GetText(false),
+				Is.EqualTo(refTextBlocks[1].GetText(false)),
 				"Expected the block with Jesus speaking in the English reference text to be matched to the first block of matchup for Luke 10:18.");
 			var lastMatchedRefBlock = result.Last().ReferenceBlocks.Single();
-			Assert.AreEqual(refTextBlocks[0].CharacterId, lastMatchedRefBlock.CharacterId,
+			Assert.That(lastMatchedRefBlock.CharacterId, Is.EqualTo(refTextBlocks[0].CharacterId),
 				"Expected last block of matchup for Luke 10:18 to be spoken by the narrator.");
-			Assert.AreEqual(refTextActualReportingClauseLowercase.Replace(",", "."), lastMatchedRefBlock.GetText(true),
+			Assert.That(lastMatchedRefBlock.GetText(true),
+				Is.EqualTo(refTextActualReportingClauseLowercase.Replace(",", ".")),
 				"Expected last block of matchup for Luke 10:18 to match up to the modified omitted \"he said\" block.");
 		}
 
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_ComplexReportingClauseComesAfterSpeechInsteadOfAtStartOfVerse_InterveningReportingClauseOmitted()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateBlockForVerse("Jesus", 19, "«Чам чпихъ галамай кьван гагьда мехъерин мугьманривай сив хвена акъвазиз жедани?» ", false, 2));
+			var vernacularBlocks = new List<Block> { CreateBlockForVerse("Jesus", 19, "«Чам чпихъ галамай кьван гагьда мехъерин мугьманривай сив хвена акъвазиз жедани?» ", false, 2) };
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "– лагьана Исади. – ", "MRK");
 			var vernBook = new BookScript("MRK", vernacularBlocks, m_vernVersification);
 
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 			var refTextBlocks = refText.GetBook("MRK").GetBlocksForVerse(2, 19).ToList();
-			Assert.AreEqual(2, refTextBlocks.Count, "SETUP check - expected English reference text to have two blocks for Mark 2:19.");
-			Assert.AreNotEqual(refTextBlocks[0].StartsAtVerseStart,
+			Assert.That(refTextBlocks.Count, Is.EqualTo(2), "SETUP check - expected English reference text to have two blocks for Mark 2:19.");
+			Assert.That(refTextBlocks[0].StartsAtVerseStart, Is.True,
 				"SETUP check - expected the first English reference text for Mark 2:19 to start at the beginning of v 19.");
-			Assert.AreEqual("Jesus said to them,", refTextBlocks[0].GetText(false).Trim(),
+			Assert.That(refTextBlocks[0].GetText(false).Trim(),
+				Is.EqualTo("Jesus said to them,"),
 				"SETUP check - unexpected initial reporting clause in the English reference text.");
-			Assert.AreEqual("Jesus", refTextBlocks[1].CharacterId,
+			Assert.That(refTextBlocks[1].CharacterId, Is.EqualTo("Jesus"),
 				"SETUP check - expected English reference text to have Jesus speak in second block for Mark 2:19.");
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, new []{"– лагьана ада.", "– лагьана Исади. –", "– жаваб гана абуру."});
 			var result = matchup.CorrelatedBlocks;
-			Assert.AreEqual(2, result.Count);
-			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
+			Assert.That(result.Count, Is.EqualTo(2));
+			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
 			var firstMatchedRefBlock = result[0].ReferenceBlocks.Single();
-			Assert.IsTrue(firstMatchedRefBlock.StartsAtVerseStart && firstMatchedRefBlock.InitialStartVerseNumber == 19,
+			Assert.That(firstMatchedRefBlock.StartsAtVerseStart, Is.True,
 				"Expected the matched reference text of the first block to start with v 19.");
-			Assert.AreEqual("Jesus", result[0].CharacterId);
-			Assert.AreEqual("Jesus", firstMatchedRefBlock.CharacterId);
-			Assert.AreEqual(refTextBlocks[1].GetText(false), firstMatchedRefBlock.GetText(false),
+			Assert.That(firstMatchedRefBlock.InitialStartVerseNumber, Is.EqualTo(19),
+				"Expected the matched reference text of the first block to start with v 19.");
+			Assert.That(result[0].CharacterId, Is.EqualTo("Jesus"));
+			Assert.That(firstMatchedRefBlock.CharacterId, Is.EqualTo("Jesus"));
+			Assert.That(firstMatchedRefBlock.GetText(false),
+				Is.EqualTo(refTextBlocks[1].GetText(false)),
 				"Expected the block with Jesus speaking in the English reference text to be matched to the first block of matchup for Mark 2:19.");
 			var lastMatchedRefBlock = result.Last().ReferenceBlocks.Single();
-			Assert.AreEqual(refTextBlocks[0].CharacterId, lastMatchedRefBlock.CharacterId,
+			Assert.That(lastMatchedRefBlock.CharacterId,
+				Is.EqualTo(refTextBlocks[0].CharacterId),
 				"Expected last block of matchup for Mark 2:19 to be spoken by the narrator.");
-			Assert.AreEqual("Jesus said to them.", lastMatchedRefBlock.GetText(true),
+			Assert.That(lastMatchedRefBlock.GetText(true),
+				Is.EqualTo("Jesus said to them."),
 				"Expected last block of matchup for Mark 2:19 to match up to a generated \"he said\" block.");
 		}
 		#endregion
@@ -4765,20 +4927,22 @@ namespace GlyssenEngineTests
 		[Test]
 		public void IsOkayToSplitBeforeBlock_CalledAfterGetBlocksForVerseMatchedToReferenceTextThatAutoMatchesHeSaidAtStartOfVerse_ReturnsTrue()
 		{
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Russian);
+			var refText = GetStandardReferenceText(ReferenceTextType.Russian);
 			var firstRussianBlockForMat6v5 = refText.Books.Single(b => b.BookId == "MAT").GetFirstBlockForVerse(6, 5);
 			var russianTextOfFirstBlockForMat6v5 = firstRussianBlockForMat6v5.GetText(true);
 			var englishTextOfFirstBlockForMat6v5 = firstRussianBlockForMat6v5.ReferenceBlocks.Single().GetText(true);
 
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(NewChapterBlock("MAT", 6));
-			vernacularBlocks.Add(CreateBlockForVerse("Jesus", 4, "“Thus your beneficial acts will be executed privately and God, who sees all that is hidden, will give you your trophy.”", true, 6));
-			vernacularBlocks.Add(new Block("s", 6, 4)
+			var vernacularBlocks = new List<Block>
 			{
-				CharacterId = "extra-MAT",
-				BlockElements = new List<BlockElement> (new BlockElement[] {new ScriptText("What next?") }),
-			});
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(5, "Jesus continued: ", true, 6));
+				NewChapterBlock("MAT", 6),
+				CreateBlockForVerse("Jesus", 4, "“Thus your beneficial acts will be executed privately and God, who sees all that is hidden, will give you your trophy.”", true, 6),
+				new Block("s", 6, 4)
+				{
+					CharacterId = "extra-MAT",
+					BlockElements = new List<BlockElement> (new BlockElement[] {new ScriptText("What next?") }),
+				},
+				CreateNarratorBlockForVerse(5, "Jesus continued: ", true, 6)
+			};
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus",
 					"“When you pray, don't babble like a pagan, thinking that you can overwhelm God by sheer volume of words.”")
 				.AddVerse(6, "Instead try praying along these lines: ")
@@ -4786,19 +4950,19 @@ namespace GlyssenEngineTests
 			var mat = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
 			var iMat6v5 = mat.GetIndexOfFirstBlockForVerse(6, 5);
-			Assert.IsTrue(refText.IsOkayToSplitBeforeBlock(mat,
-				mat.GetScriptBlocks()[iMat6v5], refText.GetVerseSplitLocations("MAT")));
+			Assert.That(refText.IsOkayToSplitBeforeBlock(mat,
+				mat.GetScriptBlocks()[iMat6v5], refText.GetVerseSplitLocations("MAT")), Is.True);
 
 			refText.GetBlocksForVerseMatchedToReferenceText(mat, iMat6v5, new[] {"Jesus continued:"});
 
 			// VERIFY
-			Assert.IsTrue(refText.IsOkayToSplitBeforeBlock(mat,
-				mat.GetScriptBlocks()[iMat6v5], refText.GetVerseSplitLocations("MAT")));
+			Assert.That(refText.IsOkayToSplitBeforeBlock(mat,
+				mat.GetScriptBlocks()[iMat6v5], refText.GetVerseSplitLocations("MAT")), Is.True);
 			// Further verify that text of blocks in reference text have not changed:
 			firstRussianBlockForMat6v5 = refText.Books.Single(b => b.BookId == "MAT").GetFirstBlockForVerse(6, 5);
-			Assert.AreEqual(russianTextOfFirstBlockForMat6v5, firstRussianBlockForMat6v5.GetText(true));
+			Assert.That(russianTextOfFirstBlockForMat6v5, Is.EqualTo(firstRussianBlockForMat6v5.GetText(true)));
 			// This proves that the clone was a deep clone:
-			Assert.AreEqual(englishTextOfFirstBlockForMat6v5, firstRussianBlockForMat6v5.ReferenceBlocks.Single().GetText(true));
+			Assert.That(englishTextOfFirstBlockForMat6v5, Is.EqualTo(firstRussianBlockForMat6v5.ReferenceBlocks.Single().GetText(true)));
 		}
 		#endregion
 
@@ -4806,44 +4970,45 @@ namespace GlyssenEngineTests
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_ClosingDashAtStartOfLongHeSaidParagraphNotIdentifiedAsDialogueCloser_NoPartOfReferenceTextDuplicatedNorOmitted()
 		{
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 			var refTextJhn = refText.GetBook("JHN");
 			var refTextBlocksForJhn12V35 = refTextJhn.GetBlocksForVerse(12, 35).ToList();
-			Assert.AreEqual(2, refTextBlocksForJhn12V35.Count, "SETUP check - expected English reference text to have two blocks for John 12:35.");
-			Assert.AreEqual("Jesus", refTextBlocksForJhn12V35[1].CharacterId,
+			Assert.That(refTextBlocksForJhn12V35.Count, Is.EqualTo(2),
+				"SETUP check - expected English reference text to have two blocks for John 12:35.");
+			Assert.That("Jesus", Is.EqualTo(refTextBlocksForJhn12V35[1].CharacterId),
 				"SETUP check - expected English reference text to have Jesus speak in second block for John 12:35.");
-			Assert.AreEqual(35, refTextBlocksForJhn12V35[1].LastVerseNum,
+			Assert.That(refTextBlocksForJhn12V35[1].LastVerseNum, Is.EqualTo(35),
 				"SETUP check - expected English reference text to have have a block break between John 12:35 and v. 36.");
 			var refTextBlocksForJhn12V36 = refTextJhn.GetBlocksForVerse(12, 36).ToList();
-			Assert.AreEqual(2, refTextBlocksForJhn12V36.Count, "SETUP check - expected English reference text to have two blocks for John 12:36.");
-			Assert.AreEqual("Jesus", refTextBlocksForJhn12V36[0].CharacterId,
+			Assert.That(refTextBlocksForJhn12V36.Count, Is.EqualTo(2),
+				"SETUP check - expected English reference text to have two blocks for John 12:36.");
+			Assert.That("Jesus", Is.EqualTo(refTextBlocksForJhn12V36[0].CharacterId),
 				"SETUP check - expected English reference text to have Jesus speak in the first block for John 12:36.");
-			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(refTextBlocksForJhn12V36[1].CharacterId,
-				CharacterVerseData.StandardCharacter.Narrator),
+			Assert.That(CharacterVerseData.IsCharacterOfType(refTextBlocksForJhn12V36[1].CharacterId,
+				CharacterVerseData.StandardCharacter.Narrator), Is.True,
 				"SETUP check - expected English reference text to have the narrator speak in the second block for John 12:36.");
 
 			var matchup = GetBlockMatchupForJohn12V35And36ForPg1408();
 			var result = matchup.CorrelatedBlocks;
-			Assert.AreEqual(4, result.Count);
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.IsTrue(result[1].MatchesReferenceText);
-			Assert.IsTrue(result[2].MatchesReferenceText);
-			Assert.IsFalse(result[3].MatchesReferenceText);
-			Assert.AreEqual(refTextBlocksForJhn12V35[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true),
+			Assert.That(result.Count, Is.EqualTo(4));
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(result[1].MatchesReferenceText);
+			Assert.That(result[2].MatchesReferenceText);
+			Assert.That(result[3].MatchesReferenceText, Is.False);
+			Assert.That(refTextBlocksForJhn12V35[0].GetText(true), Is.EqualTo(result[0].ReferenceBlocks.Single().GetText(true)),
 				"Expected the first narrator block in the English reference text for John 12:35 to be matched to the first block of matchup.");
-			Assert.AreEqual(refTextBlocksForJhn12V35[1].GetText(true), result[1].ReferenceBlocks.Single().GetText(true),
+			Assert.That(refTextBlocksForJhn12V35[1].GetText(true), Is.EqualTo(result[1].ReferenceBlocks.Single().GetText(true)),
 				"Expected the second block (Jesus) in the English reference text for John 12:35 to be matched to the second block of matchup.");
-			Assert.AreEqual(refTextBlocksForJhn12V36[0].GetText(true), result[2].ReferenceBlocks.Single().GetText(true),
+			Assert.That(refTextBlocksForJhn12V36[0].GetText(true), Is.EqualTo(result[2].ReferenceBlocks.Single().GetText(true)),
 				"Expected the first block (Jesus) in the English reference text for John 12:36 to be matched to the third block of matchup.");
-			Assert.AreEqual(refTextBlocksForJhn12V36[1].GetText(true), result[3].ReferenceBlocks.Single().GetText(true),
+			Assert.That(refTextBlocksForJhn12V36[1].GetText(true), Is.EqualTo(result[3].ReferenceBlocks.Single().GetText(true)),
 				"Expected the second block (narrator) in the English reference text for John 12:36 to be correlated (but not matched) to the last block of matchup.");
 		}
 
 		internal static BlockMatchup GetBlockMatchupForJohn12V35And36ForPg1408()
 		{
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(35, "ꞌBa Jesús kitsure:", true, 12, "JHN"));
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(35, "ꞌBa Jesús kitsure:", true, 12, "JHN") };
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "—Tu ngichuba nixtjin kꞌuejñajin ngisanu ndiꞌu. Ngatꞌa xi ña jñu tsuꞌba bi be ñá fi. ")
 				.AddVerse(36, "Ngatjamakjainnu ngatꞌare ndiꞌu yejerañu tjin ngisanu, tuxi tseꞌe ndiꞌu ku̱anñu");
 			// The following is supposed to be spoken by the narrator, but the "closing" dash at the start of the
@@ -4862,24 +5027,26 @@ namespace GlyssenEngineTests
 			ReferenceTextType type)
 		{
 			var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
-			var refText = ReferenceText.GetStandardReferenceText(type);
+			var refText = GetStandardReferenceText(type);
 			var refTextMrk = refText.GetBook("MRK");
 			var refTextBlocksForMrk15V14 = refTextMrk.GetBlocksForVerse(15, 14).ToList();
-			Assert.AreEqual(4, refTextBlocksForMrk15V14.Count, "SETUP check - expected reference text to have four blocks for Mark 15:14.");
-			Assert.AreEqual(narrator, refTextBlocksForMrk15V14[0].CharacterId,
+			Assert.That(refTextBlocksForMrk15V14.Count, Is.EqualTo(4), "SETUP check - expected reference text to have four blocks for Mark 15:14.");
+			Assert.That(refTextBlocksForMrk15V14[0].CharacterId, Is.EqualTo(narrator),
 				"SETUP check - expected reference text to have narrator speak in first block for Mark 15:14.");
-			Assert.AreEqual("Pilate", refTextBlocksForMrk15V14[1].CharacterId,
+			Assert.That("Pilate", Is.EqualTo(refTextBlocksForMrk15V14[1].CharacterId),
 				"SETUP check - expected reference text to have Pilate speak in second block for Mark 15:14.");
-			Assert.AreEqual(narrator, refTextBlocksForMrk15V14[2].CharacterId,
+			Assert.That(refTextBlocksForMrk15V14[2].CharacterId, Is.EqualTo(narrator),
 				"SETUP check - expected reference text to have narrator speak in third block for Mark 15:14.");
-			Assert.AreEqual("crowd before Pilate", refTextBlocksForMrk15V14[3].CharacterId,
+			Assert.That("crowd before Pilate", Is.EqualTo(refTextBlocksForMrk15V14[3].CharacterId),
 				"SETUP check - expected reference text to have the crowd before Pilate speak in last block for Mark 15:14.");
-			Assert.AreEqual(14, refTextBlocksForMrk15V14.Last().LastVerseNum,
+			Assert.That(14, Is.EqualTo(refTextBlocksForMrk15V14.Last().LastVerseNum),
 				"SETUP check - expected reference text to have have a block break between Mark 15:14 and v. 15.");
 
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 14,
-				"—Tunga ¿mé= kjua xi chꞌotjin xi kitsaꞌen kui?", true, 15));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 14,
+					"—Tunga ¿mé= kjua xi chꞌotjin xi kitsaꞌen kui?", true, 15)
+			};
 			// The following is supposed to be spoken by the narrator, but the "closing" dash at the start of the
 			// paragraph is treated as an opener.
 			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter,
@@ -4892,37 +5059,37 @@ namespace GlyssenEngineTests
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
 			var result = matchup.CorrelatedBlocks;
 
-			Assert.AreEqual(4, result.Count);
-			Assert.AreEqual("14", ((Verse)result[0].BlockElements[0]).Number);
-			Assert.IsFalse(result.Take(2).All(b => b.MatchesReferenceText),
+			Assert.That(result.Count, Is.EqualTo(4));
+			Assert.That(((Verse)result[0].BlockElements[0]).Number, Is.EqualTo("14"));
+			Assert.That(result.Take(2).All(b => b.MatchesReferenceText), Is.False,
 				"One or both of the first two blocks should not match the reference text.");
-			Assert.IsTrue(result[2].MatchesReferenceText);
-			Assert.IsTrue(result[3].MatchesReferenceText);
+			Assert.That(result[2].MatchesReferenceText);
+			Assert.That(result[3].MatchesReferenceText);
 
 			var allReferenceBlocks = result.SelectMany(b => b.ReferenceBlocks).ToList();
-			Assert.AreEqual(4, allReferenceBlocks.Count,
+			Assert.That(allReferenceBlocks.Count, Is.EqualTo(4),
 				"There should be no extra or missing reference blocks");
 
-			Assert.IsTrue(refTextBlocksForMrk15V14.Select(b => b.CharacterId)
-				.SetEquals(allReferenceBlocks.Select(b => b.CharacterId)),
+			Assert.That(refTextBlocksForMrk15V14.Select(b => b.CharacterId),
+				Is.EquivalentTo(allReferenceBlocks.Select(b => b.CharacterId)),
 				"The resulting reference blocks should have the same characters as the original reference blocks");
 
 			var blockComparer = new BlockComparer();
 
-			Assert.AreEqual(4, allReferenceBlocks.Distinct(blockComparer).Count(),
+			Assert.That(4, Is.EqualTo(allReferenceBlocks.Distinct(blockComparer).Count()),
 				"There should be no duplicate reference blocks");
 
-			Assert.AreEqual(14, allReferenceBlocks.Single(b => b.StartsAtVerseStart).BlockElements.OfType<Verse>().Single().AllVerseNumbers.Single());
+			Assert.That(allReferenceBlocks.Single(b => b.StartsAtVerseStart).BlockElements.OfType<Verse>().Single().AllVerseNumbers.Single(), Is.EqualTo(14));
 
 			var indexOfPrevRefBlockInOriginalList = -1;
 			foreach (var nonPilateSaidRefBlock in refTextBlocksForMrk15V14.Skip(1))
 			{
 				var indexOfThisRefBlockInResult = allReferenceBlocks.FindIndex(b => blockComparer.Equals(b, nonPilateSaidRefBlock));
-				Assert.IsTrue(indexOfThisRefBlockInResult >= 0,
+				Assert.That(indexOfThisRefBlockInResult >= 0, Is.True,
 					$"Reference block {nonPilateSaidRefBlock} missing. With the possible exception of" +
 					$" the \"he said\" block for Pilate, all reference blocks should be in the" +
 					$" list of blocks corresponding to a vernacular block.");
-				Assert.IsTrue(indexOfThisRefBlockInResult >= indexOfPrevRefBlockInOriginalList,
+				Assert.That(indexOfThisRefBlockInResult >= indexOfPrevRefBlockInOriginalList, Is.True,
 					$"Reference block {nonPilateSaidRefBlock} out of order. With the possible exception" +
 					$" of the \"he said\" block for Pilate, all reference blocks should be in the" +
 					$" same relative order as their occur in the reference text.");
@@ -4932,22 +5099,26 @@ namespace GlyssenEngineTests
 				{
 					var refBlockInOrigList = allReferenceBlocks[indexOfThisRefBlockInResult].ReferenceBlocks.Single();
 					var refBlockInResults = nonPilateSaidRefBlock.ReferenceBlocks.Single();
-					Assert.IsTrue(blockComparer.Equals(refBlockInOrigList, refBlockInResults),
+					Assert.That(blockComparer.Equals(refBlockInOrigList, refBlockInResults), Is.True,
 						"Secondary (English) reference text got hooked up differently from the primary!");
 				}
 			}
 
 			if (refText.HasSecondaryReferenceText)
 			{
-				Assert.AreEqual(14, allReferenceBlocks.Select(b => b.ReferenceBlocks.Single()).Single(b => b.StartsAtVerseStart)
-					.BlockElements.OfType<Verse>().Single().AllVerseNumbers.Single());
+				Assert.That(allReferenceBlocks.Select(b => b.ReferenceBlocks.Single()).Single(b => b.StartsAtVerseStart)
+					.BlockElements.OfType<Verse>().Single().AllVerseNumbers.Single(),
+					Is.EqualTo(14));
 
 				var firstRefBlock = allReferenceBlocks[0];
-				Assert.IsTrue(firstRefBlock.MatchesReferenceText);
+				Assert.That(firstRefBlock.MatchesReferenceText);
 				var secondaryRefBlock = firstRefBlock.ReferenceBlocks.Single();
-				Assert.AreEqual(firstRefBlock.StartsAtVerseStart, secondaryRefBlock.StartsAtVerseStart);
-				Assert.AreEqual(firstRefBlock.InitialStartVerseNumber, secondaryRefBlock.InitialStartVerseNumber);
-				Assert.AreEqual(firstRefBlock.LastVerseNum, secondaryRefBlock.LastVerseNum);
+				Assert.That(firstRefBlock.StartsAtVerseStart,
+					Is.EqualTo(secondaryRefBlock.StartsAtVerseStart));
+				Assert.That(firstRefBlock.InitialStartVerseNumber,
+					Is.EqualTo(secondaryRefBlock.InitialStartVerseNumber));
+				Assert.That(firstRefBlock.LastVerseNum,
+					Is.EqualTo(secondaryRefBlock.LastVerseNum));
 			}
 		}
 
@@ -4957,30 +5128,34 @@ namespace GlyssenEngineTests
 			ReferenceTextType type)
 		{
 			var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
-			var refText = ReferenceText.GetStandardReferenceText(type);
+			var refText = GetStandardReferenceText(type);
 			var refTextMrk = refText.GetBook("MRK");
 			var refTextBlocksForMrk10V39And40 = refTextMrk.GetBlocksForVerse(10, 39).ToList();
-			Assert.AreEqual(4, refTextBlocksForMrk10V39And40.Count, "SETUP check - expected reference text to have four blocks for Mark 10:39.");
-			Assert.AreEqual(narrator, refTextBlocksForMrk10V39And40[0].CharacterId,
+			Assert.That(refTextBlocksForMrk10V39And40.Count, Is.EqualTo(4),
+				"SETUP check - expected reference text to have four blocks for Mark 10:39.");
+			Assert.That(refTextBlocksForMrk10V39And40[0].CharacterId, Is.EqualTo(narrator),
 				"SETUP check - expected reference text to have narrator speak in first block for Mark 10:39.");
-			Assert.AreEqual("James, the disciple/John", refTextBlocksForMrk10V39And40[1].CharacterId,
+			Assert.That(refTextBlocksForMrk10V39And40[1].CharacterId,
+				Is.EqualTo("James, the disciple/John"),
 				"SETUP check - expected reference text to have James and John speak in second block for Mark 10:39.");
-			Assert.AreEqual(narrator, refTextBlocksForMrk10V39And40[2].CharacterId,
+			Assert.That(refTextBlocksForMrk10V39And40[2].CharacterId, Is.EqualTo(narrator),
 				"SETUP check - expected reference text to have narrator speak in third block for Mark 10:39.");
-			Assert.AreEqual("Jesus", refTextBlocksForMrk10V39And40[3].CharacterId,
+			Assert.That("Jesus", Is.EqualTo(refTextBlocksForMrk10V39And40[3].CharacterId),
 				"SETUP check - expected reference text to have Jesus speak in last block for Mark 10:39.");
-			Assert.AreEqual(39, refTextBlocksForMrk10V39And40.Last().LastVerseNum,
+			Assert.That(39, Is.EqualTo(refTextBlocksForMrk10V39And40.Last().LastVerseNum),
 				"SETUP check - expected reference text to have have a block break between Mark 10:39 and v. 40.");
 			var refTextBlocksForMrk10V40 = refTextMrk.GetBlocksForVerse(10, 40).Single();
-			Assert.AreEqual("Jesus", refTextBlocksForMrk10V40.CharacterId,
+			Assert.That("Jesus", Is.EqualTo(refTextBlocksForMrk10V40.CharacterId),
 				"SETUP check - expected reference text to have Jesus speak in block for Mark 10:40.");
-			Assert.AreEqual("40", refTextBlocksForMrk10V40.BlockElements.OfType<Verse>().Single().Number,
+			Assert.That("40", Is.EqualTo(refTextBlocksForMrk10V40.BlockElements.OfType<Verse>().Single().Number),
 				"SETUP check - expected reference text to have have a block break between Mark 10:40 and v. 41.");
 			refTextBlocksForMrk10V39And40.Add(refTextBlocksForMrk10V40);
 
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 39,
-				"—Ku̱an=ni", true, 10));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 39,
+					"—Ku̱an=ni", true, 10)
+			};
 			// The following is supposed to be spoken by the narrator, but the "closing" dash at the start of the
 			// paragraph is treated as an opener.
 			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter,
@@ -4994,44 +5169,44 @@ namespace GlyssenEngineTests
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
 			var result = matchup.CorrelatedBlocks;
 
-			Assert.AreEqual(5, result.Count);
-			Assert.AreEqual("39", ((Verse)result[0].BlockElements[0]).Number);
-			Assert.IsFalse(result.Take(2).All(b => b.MatchesReferenceText),
+			Assert.That(result.Count, Is.EqualTo(5));
+			Assert.That(((Verse)result[0].BlockElements[0]).Number, Is.EqualTo("39"));
+			Assert.That(result.Take(2).All(b => b.MatchesReferenceText), Is.False,
 				"One or both of the first two blocks should not match the reference text.");
-			Assert.IsTrue(result[2].MatchesReferenceText);
-			Assert.IsTrue(result[3].MatchesReferenceText);
-			Assert.IsTrue(result[4].MatchesReferenceText);
+			Assert.That(result[2].MatchesReferenceText);
+			Assert.That(result[3].MatchesReferenceText);
+			Assert.That(result[4].MatchesReferenceText);
 
 			var allReferenceBlocks = result.SelectMany(b => b.ReferenceBlocks).ToList();
-			Assert.AreEqual(5, allReferenceBlocks.Count,
+			Assert.That(allReferenceBlocks.Count, Is.EqualTo(5),
 				"There should be no extra or missing reference blocks");
 
-			Assert.IsTrue(refTextBlocksForMrk10V39And40.Select(b => b.CharacterId)
-				.SetEquals(allReferenceBlocks.Select(b => b.CharacterId)),
+			Assert.That(refTextBlocksForMrk10V39And40.Select(b => b.CharacterId),
+				Is.EquivalentTo(allReferenceBlocks.Select(b => b.CharacterId)),
 				"The resulting reference blocks should have the same characters as the original reference blocks");
 
 			var blockComparer = new BlockComparer();
 
-			Assert.AreEqual(5, allReferenceBlocks.Distinct(blockComparer).Count(),
+			Assert.That(5, Is.EqualTo(allReferenceBlocks.Distinct(blockComparer).Count()),
 				"There should be no duplicate reference blocks");
 
-			Assert.IsTrue(allReferenceBlocks.SelectMany(b => b.BlockElements).OfType<Verse>().Select(v => v.Number)
-				.SetEquals(new [] {"39", "40"}));
+			Assert.That(allReferenceBlocks.SelectMany(b => b.BlockElements).OfType<Verse>().Select(v => v.Number)
+				.SetEquals(new [] {"39", "40"}), Is.True);
 
-			Assert.IsTrue(allReferenceBlocks.SequenceEqual(refTextBlocksForMrk10V39And40, blockComparer));
+			Assert.That(allReferenceBlocks.SequenceEqual(refTextBlocksForMrk10V39And40, blockComparer), Is.True);
 
 			if (refText.HasSecondaryReferenceText)
 			{
-				Assert.IsTrue(allReferenceBlocks.All(b => b.MatchesReferenceText));
+				Assert.That(allReferenceBlocks.All(b => b.MatchesReferenceText), Is.True);
 				var englishRefBlocks = allReferenceBlocks.Select(b => b.ReferenceBlocks.Single()).ToList();
 
-				Assert.AreEqual(5, englishRefBlocks.Distinct(blockComparer).Count(),
+				Assert.That(5, Is.EqualTo(englishRefBlocks.Distinct(blockComparer).Count()),
 					"There should be no duplicate English reference blocks");
 
-				Assert.IsTrue(englishRefBlocks.SelectMany(b => b.BlockElements).OfType<Verse>().Select(v => v.Number)
-					.SetEquals(new [] {"39", "40"}));
+				Assert.That(englishRefBlocks.SelectMany(b => b.BlockElements).OfType<Verse>().Select(v => v.Number)
+					.SetEquals(new [] {"39", "40"}), Is.True);
 
-				Assert.IsTrue(englishRefBlocks.SequenceEqual(refTextBlocksForMrk10V39And40.Select(b => b.ReferenceBlocks.Single()), blockComparer));
+				Assert.That(englishRefBlocks.SequenceEqual(refTextBlocksForMrk10V39And40.Select(b => b.ReferenceBlocks.Single()), blockComparer), Is.True);
 			}
 		}
 
@@ -5041,20 +5216,22 @@ namespace GlyssenEngineTests
 			ReferenceTextType type)
 		{
 			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
-			var refText = ReferenceText.GetStandardReferenceText(type);
+			var refText = GetStandardReferenceText(type);
 			var refTextMat = refText.GetBook("MAT");
 			var refTextBlocksForMat19V20 = refTextMat.GetBlocksForVerse(19, 20).ToList();
-			Assert.AreEqual(2, refTextBlocksForMat19V20.Count, "SETUP check - expected reference text to have two blocks for Matthew 19:20.");
-			Assert.AreEqual(narrator, refTextBlocksForMat19V20[0].CharacterId,
+			Assert.That(refTextBlocksForMat19V20.Count, Is.EqualTo(2), "SETUP check - expected reference text to have two blocks for Matthew 19:20.");
+			Assert.That(refTextBlocksForMat19V20[0].CharacterId, Is.EqualTo(narrator),
 				"SETUP check - expected reference text to have narrator speak in first block for Matthew 19:20.");
-			Assert.AreEqual("rich young ruler", refTextBlocksForMat19V20[1].CharacterId,
+			Assert.That("rich young ruler", Is.EqualTo(refTextBlocksForMat19V20[1].CharacterId),
 				"SETUP check - expected reference text to have the rich young ruler speak in second block for Matthew 19:20.");
-			Assert.AreEqual(20, refTextBlocksForMat19V20.Last().LastVerseNum,
+			Assert.That(20, Is.EqualTo(refTextBlocksForMat19V20.Last().LastVerseNum),
 				"SETUP check - expected reference text to have have a block break between Matthew 19:20 and v. 21.");
 
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateBlockForVerse(refTextBlocksForMat19V20[1].CharacterId, 20,
-				"—Ngayéjebiu je kitsikꞌetjusaa̱n", true, 19));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateBlockForVerse(refTextBlocksForMat19V20[1].CharacterId, 20,
+					"—Ngayéjebiu je kitsikꞌetjusaa̱n", true, 19)
+			};
 			// The following is supposed to be spoken by the narrator, but the "closing" (interrupting) dash at the
 			// start of the paragraph is treated as an opener.
 			AddBlockForVerseInProgress(vernacularBlocks, refTextBlocksForMat19V20[1].CharacterId,
@@ -5066,27 +5243,27 @@ namespace GlyssenEngineTests
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
 			var result = matchup.CorrelatedBlocks;
 
-			Assert.AreEqual(3, result.Count);
-			Assert.AreEqual("20", ((Verse)result[0].BlockElements[0]).Number);
-			Assert.IsFalse(result.All(b => b.MatchesReferenceText),
+			Assert.That(result.Count, Is.EqualTo(3));
+			Assert.That(((Verse)result[0].BlockElements[0]).Number, Is.EqualTo("20"));
+			Assert.That(result.All(b => b.MatchesReferenceText), Is.False,
 				"At least one of the blocks should not match the reference text.");
 
 			var allReferenceBlocks = result.SelectMany(b => b.ReferenceBlocks).ToList();
 
-			Assert.IsTrue(allReferenceBlocks.Any(b => b.CharacterId == narrator),
+			Assert.That(allReferenceBlocks.Any(b => b.CharacterId == narrator), Is.True,
 				"The narrator block with the reporting clause should not be omitted.");
 
 			var blockComparer = new BlockComparer();
 
-			Assert.IsTrue(allReferenceBlocks.Contains(refTextBlocksForMat19V20[1], blockComparer),
+			Assert.That(allReferenceBlocks.Contains(refTextBlocksForMat19V20[1], blockComparer), Is.True,
 				"The reference block spoken by the rich young ruler should not be omitted.");
 
-			Assert.AreEqual("20", ((Verse)allReferenceBlocks[0].BlockElements.First()).Number);
+			Assert.That(((Verse)allReferenceBlocks[0].BlockElements.First()).Number, Is.EqualTo("20"));
 
 			if (refText.HasSecondaryReferenceText)
 			{
 				Assert.That(allReferenceBlocks.All(b => b.MatchesReferenceText));
-				Assert.AreEqual("20", ((Verse)allReferenceBlocks.Select(b => b.ReferenceBlocks.Single()).First().BlockElements.First()).Number);
+				Assert.That(((Verse)allReferenceBlocks.Select(b => b.ReferenceBlocks.Single()).First().BlockElements.First()).Number, Is.EqualTo("20"));
 			}
 		}
 		#endregion
@@ -5097,40 +5274,42 @@ namespace GlyssenEngineTests
 		public void GetBlocksForVerseMatchedToReferenceText_OpeningAndClosingReportingClausesInVerseThatIsAllQuotationInEnglishReferenceText_EntireReferenceTextAssociatedWithQuoteBlock(
 			bool includeClosingHeSaidInReportingClauses)
 		{
-			ReferenceText refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			ReferenceText refText = GetStandardReferenceText(ReferenceTextType.English);
 			var refTextMat = refText.GetBook("MAT");
 			var refTextBlockForMat2V19 = refTextMat.GetBlocksForVerse(2, 19).Single();
-			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(refTextBlockForMat2V19.CharacterId, CharacterVerseData.StandardCharacter.Narrator),
+			Assert.That(CharacterVerseData.IsCharacterOfType(refTextBlockForMat2V19.CharacterId, CharacterVerseData.StandardCharacter.Narrator), Is.True,
 				"SETUP check - expected English reference text to have narrator speak in block for Mat 2:19.");
-			Assert.AreEqual(19, refTextBlockForMat2V19.LastVerseNum,
+			Assert.That(refTextBlockForMat2V19.LastVerseNum, Is.EqualTo(19),
 				"SETUP check - expected English reference text to have have a block break between Mat 2:19 and v. 20.");
 
 			var refTextBlockForMat2V20 = refTextMat.GetBlocksForVerse(2, 20).Last();
-			Assert.AreEqual("angel", refTextBlockForMat2V20.CharacterId,
+			Assert.That("angel", Is.EqualTo(refTextBlockForMat2V20.CharacterId),
 				"SETUP check - expected English reference text to have angel speak in block for Mat 2:20.");
-			Assert.AreEqual(20, refTextBlockForMat2V20.LastVerseNum,
+			Assert.That(refTextBlockForMat2V20.LastVerseNum, Is.EqualTo(20),
 				"SETUP check - expected English reference text to have have a block break between Mat 2:20 and v. 21.");
 
 			var matchup = GetBlockMatchupForMat2V20(includeClosingHeSaidInReportingClauses, refTextBlockForMat2V20, refText);
 			var result = matchup.CorrelatedBlocks;
 
-			Assert.AreEqual(4, result.Count);
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.IsFalse(result[1].MatchesReferenceText);
-			Assert.IsTrue(result[2].MatchesReferenceText);
-			Assert.AreEqual(includeClosingHeSaidInReportingClauses, result[3].MatchesReferenceText);
-			Assert.AreEqual(refTextBlockForMat2V19.GetText(true), result[0].ReferenceBlocks.Single().GetText(true),
+			Assert.That(result.Count, Is.EqualTo(4));
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(result[1].MatchesReferenceText, Is.False);
+			Assert.That(result[2].MatchesReferenceText);
+			Assert.That(includeClosingHeSaidInReportingClauses, Is.EqualTo(result[3].MatchesReferenceText));
+			Assert.That(refTextBlockForMat2V19.GetText(true), Is.EqualTo(result[0].ReferenceBlocks.Single().GetText(true)),
 				"Expected the narrator block in the English reference text for Mat 2:19 to be matched to the first block of matchup.");
-			Assert.AreEqual(refTextBlockForMat2V20.GetText(true), result[2].ReferenceBlocks.Single().GetText(true),
+			Assert.That(refTextBlockForMat2V20.GetText(true), Is.EqualTo(result[2].ReferenceBlocks.Single().GetText(true)),
 				"Expected the block (angel) in the English reference text for Mat 2:20 to be matched to the third block of matchup.");
 		}
 
 		private static BlockMatchup GetBlockMatchupForMat2V20(bool includeClosingHeSaidInReportingClauses, Block refTextBlockForMat2V20, ReferenceText refText)
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(19,
-					"Apnengkek mokhom Jose m'a iokhalhma Egipto, apveske Herodes. Neksa apteianma lhnak Jose m'a,mokhom angel apkapaskama Apveske,", true, 2)
-				.AddVerse(20, "lhna aptemak:"));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(19,
+						"Apnengkek mokhom Jose m'a iokhalhma Egipto, apveske Herodes. Neksa apteianma lhnak Jose m'a,mokhom angel apkapaskama Apveske,", true, 2)
+					.AddVerse(20, "lhna aptemak:")
+			};
 			// The following is supposed to be spoken by the narrator, but the "closing" (interrupting) dash at the
 			// start of the paragraph is treated as an opener.
 			AddBlockForVerseInProgress(vernacularBlocks, refTextBlockForMat2V20.CharacterId,
@@ -5152,30 +5331,30 @@ namespace GlyssenEngineTests
 		public void GetBlocksForVerseMatchedToReferenceText_OpeningAndClosingReportingClausesInVerseThatIsAllQuotationInReferenceText_EntireReferenceTextAssociatedWithQuoteBlock(
 			bool includeClosingHeSaidInReportingClauses)
 		{
-			ReferenceText refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Russian);
+			ReferenceText refText = GetStandardReferenceText(ReferenceTextType.Russian);
 			var refTextMat = refText.GetBook("MAT");
 			var refTextBlockForMat2V19 = refTextMat.GetBlocksForVerse(2, 19).Single();
-			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(refTextBlockForMat2V19.CharacterId, CharacterVerseData.StandardCharacter.Narrator),
+			Assert.That(CharacterVerseData.IsCharacterOfType(refTextBlockForMat2V19.CharacterId, CharacterVerseData.StandardCharacter.Narrator), Is.True,
 				"SETUP check - expected Russian reference text to have narrator speak in block for Mat 2:19.");
-			Assert.AreEqual(20, refTextBlockForMat2V19.LastVerseNum,
+			Assert.That(refTextBlockForMat2V19.LastVerseNum, Is.EqualTo(20),
 				"SETUP check - expected Russian reference text to have have the start of Mat 2:20 included in block for v. 19.");
 
 			var refTextBlockForMat2V20 = refTextMat.GetBlocksForVerse(2, 20).Last();
-			Assert.AreEqual("angel", refTextBlockForMat2V20.CharacterId,
+			Assert.That("angel", Is.EqualTo(refTextBlockForMat2V20.CharacterId),
 				"SETUP check - expected Russian reference text to have angel speak in block for Mat 2:20.");
-			Assert.AreEqual(20, refTextBlockForMat2V20.LastVerseNum,
+			Assert.That(refTextBlockForMat2V20.LastVerseNum, Is.EqualTo(20),
 				"SETUP check - expected Russian reference text to have have a block break between Mat 2:20 and v. 21.");
 
 			var matchup = GetBlockMatchupForMat2V20(includeClosingHeSaidInReportingClauses, refTextBlockForMat2V20, refText);
 			var result = matchup.CorrelatedBlocks;
 
-			Assert.AreEqual(3, result.Count);
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.IsTrue(result[1].MatchesReferenceText);
-			Assert.AreEqual(includeClosingHeSaidInReportingClauses, result[2].MatchesReferenceText);
-			Assert.AreEqual(refTextBlockForMat2V19.GetText(true), result[0].ReferenceBlocks.Single().GetText(true),
+			Assert.That(result.Count, Is.EqualTo(3));
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(result[1].MatchesReferenceText);
+			Assert.That(includeClosingHeSaidInReportingClauses, Is.EqualTo(result[2].MatchesReferenceText));
+			Assert.That(refTextBlockForMat2V19.GetText(true), Is.EqualTo(result[0].ReferenceBlocks.Single().GetText(true)),
 				"Expected the narrator block in the reference text for Mat 2:19 to be matched to the first block of matchup.");
-			Assert.AreEqual(refTextBlockForMat2V20.GetText(true), result[1].ReferenceBlocks.Single().GetText(true),
+			Assert.That(refTextBlockForMat2V20.GetText(true), Is.EqualTo(result[1].ReferenceBlocks.Single().GetText(true)),
 				"Expected the block (angel) in the reference text for Mat 2:20 to be matched to the third block of matchup.");
 		}
 		#endregion
@@ -5186,18 +5365,19 @@ namespace GlyssenEngineTests
 		public void GetBlocksForVerseMatchedToReferenceText_ReportingClausesInRefTextAppearBetweenSpeakingPartsInVern_RefTextReportingClausesCombinedToMatchOnlyNarratorBlock(
 			ReferenceTextType refTextType)
 		{
-			var refText = ReferenceText.GetStandardReferenceText(refTextType);
+			const string adulteress = "woman, caught in adultery";
+			var refText = GetStandardReferenceText(refTextType);
 			var refTextJhn = refText.GetBook("JHN");
 			var refTextBlocksJhn8V11 = refTextJhn.GetBlocksForVerse(8, 11).ToList();
-			Assert.AreEqual(4, refTextBlocksJhn8V11.Count,
+			Assert.That(refTextBlocksJhn8V11.Count, Is.EqualTo(4),
 				"SETUP check - unexpected number of reference blocks for John 8:11.");
-			Assert.AreEqual("woman, caught in adultery", refTextBlocksJhn8V11[1].CharacterId,
+			Assert.That(refTextBlocksJhn8V11[1].CharacterId,
+				Is.EqualTo(adulteress),
 				$"SETUP check - expected {refTextType} reference text to have woman speak in second block for John 8:11.");
-			Assert.AreEqual("Jesus", refTextBlocksJhn8V11[3].CharacterId,
+			Assert.That(refTextBlocksJhn8V11[3].CharacterId, Is.EqualTo("Jesus"),
 				$"SETUP check - expected {refTextType} reference text to have Jesus speak in last block for John 8:11.");
 
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 11, "“Ondaꞌidun, Polopanad,” ", true, 8));
+			var vernacularBlocks = new List<Block> { CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 11, "“Ondaꞌidun, Polopanad,” ", true, 8) };
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "tinumabal og glibun koyon. Miktaluꞌ si Isus, ", "JHN");
 			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "“Akon siꞌoy ondiꞌu ika ukumon. Uliꞌa na bu naꞌa na mokpuliꞌ moginang nog dusa.”");
 			var vernBook = new BookScript("JHN", vernacularBlocks, refText.Versification);
@@ -5205,41 +5385,38 @@ namespace GlyssenEngineTests
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
 
 			var result = matchup.CorrelatedBlocks;
-			Assert.AreEqual(3, result.Count);
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.IsFalse(result[1].MatchesReferenceText);
-			Assert.IsTrue(result[2].MatchesReferenceText);
+			Assert.That(result.Count, Is.EqualTo(3));
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(result[1].MatchesReferenceText, Is.False);
+			Assert.That(result[2].MatchesReferenceText);
 			var womanRefBlock = result[0].ReferenceBlocks.Single();
-			Assert.IsTrue(womanRefBlock.StartsAtVerseStart);
-			Assert.AreEqual(result[0].InitialStartVerseNumber, womanRefBlock.InitialStartVerseNumber);
-			Assert.AreEqual(
-				refTextBlocksJhn8V11.Single(b => b.CharacterId == "woman, caught in adultery").GetText(false),
-				womanRefBlock.GetText(false),
+			Assert.That(womanRefBlock.StartsAtVerseStart, Is.True);
+			Assert.That(result[0].InitialStartVerseNumber, Is.EqualTo(womanRefBlock.InitialStartVerseNumber));
+			Assert.That(womanRefBlock.GetText(false), Is.EqualTo(
+				refTextBlocksJhn8V11.Single(b => b.CharacterId == adulteress).GetText(false)),
 				$"Expected the second block (woman in adultery) in the {refTextType} reference text for" +
 				" John 8:11 to be matched to the first block of matchup.");
 			if (refText.HasSecondaryReferenceText)
 			{
 				womanRefBlock = womanRefBlock.ReferenceBlocks.Single();
-				Assert.IsTrue(womanRefBlock.StartsAtVerseStart);
-				Assert.AreEqual(result[0].InitialStartVerseNumber, womanRefBlock.InitialStartVerseNumber);
-				Assert.AreEqual(
-					refTextBlocksJhn8V11.Single(b => b.CharacterId == "woman, caught in adultery").GetPrimaryReferenceText(true),
-					womanRefBlock.GetText(false),
+				Assert.That(womanRefBlock.StartsAtVerseStart, Is.True);
+				Assert.That(result[0].InitialStartVerseNumber, Is.EqualTo(womanRefBlock.InitialStartVerseNumber));
+				Assert.That(womanRefBlock.GetText(false), Is.EqualTo(
+					refTextBlocksJhn8V11.Single(b => b.CharacterId == adulteress).GetPrimaryReferenceText(true)),
 					$"Expected the second block (woman in adultery) in the {refTextType} reference text for" +
 					" John 8:11 to be matched to the first block of matchup.");
 			}
-			Assert.AreEqual(2, result[1].ReferenceBlocks.Count);
-			Assert.AreEqual(refTextBlocksJhn8V11.First(b => !b.IsQuote).GetText(false),
-				result[1].ReferenceBlocks[0].GetText(true),
+			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(2));
+			Assert.That(result[1].ReferenceBlocks[0].GetText(true),
+				Is.EqualTo(refTextBlocksJhn8V11.First(b => !b.IsQuote).GetText(false)),
 				"Expected the first reporting clause in the reference text for John 8:11 to be the " +
 				"first reference block for the combined reporting clause block in the vernacular.");
-			Assert.AreEqual(refTextBlocksJhn8V11.Last(b => !b.IsQuote).GetText(false),
-				result[1].ReferenceBlocks[1].GetText(true),
+			Assert.That(result[1].ReferenceBlocks[1].GetText(true),
+				Is.EqualTo(refTextBlocksJhn8V11.Last(b => !b.IsQuote).GetText(false)),
 				"Expected the last reporting clause in the reference text for John 8:11 to be the " +
 				"last reference block for the combined reporting clause block in the vernacular.");
-			Assert.AreEqual(
-				refTextBlocksJhn8V11.Single(b => b.CharacterId == "Jesus").GetText(true),
-				result[2].ReferenceBlocks.Single().GetText(false),
+			Assert.That(result[2].ReferenceBlocks.Single().GetText(false),
+				Is.EqualTo(refTextBlocksJhn8V11.Single(b => b.CharacterId == "Jesus").GetText(true)),
 				$"Expected the \"Jesus\" block in the {refTextType} reference text for" +
 				" John 8:11 to be matched to the last block of matchup.");
 		}
@@ -5251,32 +5428,34 @@ namespace GlyssenEngineTests
 		public void GetBlocksForVerseMatchedToReferenceText_MultipleReportingClausesInOppositeOrder_NoReferenceTextIsLost(
 			params string[] knownHeSaids)
 		{
-			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refText = GetStandardReferenceText(ReferenceTextType.English);
 			var refTextMat = refText.GetBook("MAT");
 			var refTextBlocksMat15V34 = refTextMat.GetBlocksForVerse(15, 34).ToList();
-			Assert.AreEqual(4, refTextBlocksMat15V34.Count,
+			Assert.That(refTextBlocksMat15V34.Count, Is.EqualTo(4),
 				"SETUP check - unexpected number of reference blocks for Matthew 15:34.");
-			Assert.AreEqual("Jesus", refTextBlocksMat15V34[1].CharacterId,
+			Assert.That("Jesus", Is.EqualTo(refTextBlocksMat15V34[1].CharacterId),
 				"SETUP check - expected English reference text to have Jesus speak in second block for Matthew 15:34.");
-			Assert.AreEqual("disciples", refTextBlocksMat15V34[3].CharacterId,
+			Assert.That("disciples", Is.EqualTo(refTextBlocksMat15V34[3].CharacterId),
 				"SETUP check - expected English reference text to have disciples speak in last block for Matthew 15:34.");
 			
 			var refTextBlocksMat15V35 = refTextMat.GetBlocksForVerse(15, 35).ToList();
-			Assert.AreEqual(2, refTextBlocksMat15V35.Count,
+			Assert.That(refTextBlocksMat15V35.Count, Is.EqualTo(2),
 				"SETUP check - unexpected number of reference blocks for Matthew 15:35.");
-			Assert.AreEqual("Jesus", refTextBlocksMat15V35[1].CharacterId,
+			Assert.That("Jesus", Is.EqualTo(refTextBlocksMat15V35[1].CharacterId),
 				"SETUP check - expected English reference text to have Jesus speak in second block for Matthew 15:35.");
 
 			for (int v = 36; v <= 39; v++)
 			{
-				Assert.IsTrue(refTextMat.GetBlocksForVerse(15, v).Single()
-						.CharacterIs("MAT", CharacterVerseData.StandardCharacter.Narrator),
+				Assert.That(refTextMat.GetBlocksForVerse(15, v).Single()
+						.CharacterIs("MAT", CharacterVerseData.StandardCharacter.Narrator), Is.True,
 					$"SETUP check - expected single narrator block in English reference text for Matthew 15:{v}");
 			}
 
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 34,
-				"«Эһиги төһө килиэптээххитий?»", true, 15));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 34,
+					"«Эһиги төһө килиэптээххитий?»", true, 15)
+			};
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "– Иисус ыйыппыта.");
 			vernacularBlocks.Last().IsParagraphStart = true;
 			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter,
@@ -5294,7 +5473,7 @@ namespace GlyssenEngineTests
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, knownHeSaids);
 
 			var result = matchup.CorrelatedBlocks;
-			Assert.AreEqual(9, result.Count);
+			Assert.That(result.Count, Is.EqualTo(9));
 
 			var refBlocksAttachedToVern = result.SelectMany(vb => vb.ReferenceBlocks)
 				.Select(rb => rb.GetText(false)).ToList();
@@ -5304,7 +5483,7 @@ namespace GlyssenEngineTests
 				foreach (var rb in refTextMat.GetBlocksForVerse(15, v))
 				{
 					var text = rb.GetText(false);
-					Assert.IsTrue(refBlocksAttachedToVern.Any(t => t.Contains(text)),
+					Assert.That(refBlocksAttachedToVern.Any(t => t.Contains(text)), Is.True,
 						$"Reference text from verse {v} is missing: {text}");
 				}
 			}
@@ -5323,9 +5502,11 @@ namespace GlyssenEngineTests
 			// for ISP vs. hooking up everything for export. So we need to ensure that in this scenario the
 			// link to the reference block is not actually considered a "match" so the scripter will have a chance
 			// to look at it and figure out what to do.
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(29, "De o ngo Maria duru mataoko itiai ma malaekata ai gea. ", book:"LUK")
-				.AddVerse(30, "Masara o Gabiriele wotemoli munangika wato, "));
+			var vernacularBlocks = new List<Block>
+			{
+				CreateNarratorBlockForVerse(29, "De o ngo Maria duru mataoko itiai ma malaekata ai gea. ", book:"LUK")
+					.AddVerse(30, "Masara o Gabiriele wotemoli munangika wato, ")
+			};
 			AddBlockForVerseInProgress(vernacularBlocks, "Gabriel", "“Maria, ngaro ufa nohawana ngonaika hiadono ngona. ")
 				.AddVerse(31, "Abeika ahi demo tonihingahu ngonaika! Abe ani ngofaka o nauru de Una nihiromanga o Yesusu. ")
 				.AddVerse("32-33", "De ani ngofaka gea Una ai Ngofaka. De nanga Baluhu Ma Jou wihidadi nia koano" +
@@ -5363,14 +5544,14 @@ namespace GlyssenEngineTests
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
 			var result = matchup.CorrelatedBlocks;
 
-			Assert.AreEqual(6, result.Count);
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.IsTrue(result[1].MatchesReferenceText);
-			Assert.IsTrue(result[2].MatchesReferenceText);
-			Assert.IsFalse(result[3].MatchesReferenceText);
-			Assert.IsTrue(result[4].MatchesReferenceText);
-			Assert.IsTrue(result[5].MatchesReferenceText);
-			Assert.IsTrue(result.All(b => b.ReferenceBlocks.All(ind => ind.MatchesReferenceText)));
+			Assert.That(result.Count, Is.EqualTo(6));
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(result[1].MatchesReferenceText);
+			Assert.That(result[2].MatchesReferenceText);
+			Assert.That(result[3].MatchesReferenceText, Is.False);
+			Assert.That(result[4].MatchesReferenceText);
+			Assert.That(result[5].MatchesReferenceText);
+			Assert.That(result.All(b => b.ReferenceBlocks.All(ind => ind.MatchesReferenceText)), Is.True);
 		}
 		#endregion
 
@@ -5381,8 +5562,7 @@ namespace GlyssenEngineTests
 			// This is a test for a scenario where a reference text (not English) has an outdated biblical character
 			// no longer in the control file. Because Glyssen has no control over custom reference texts, this
 			// should not result in lost text.
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(8, "Zach stands and declares: ", false, 19, "LUK"));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(8, "Zach stands and declares: ", false, 19, "LUK") };
 			AddBlockForVerseInProgress(vernacularBlocks, "Zacchaeus", "“Lord Jesus, I am done with my life of crime!”");
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "he said.");
 
@@ -5403,11 +5583,11 @@ namespace GlyssenEngineTests
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
 			var result = matchup.CorrelatedBlocks;
 
-			Assert.AreEqual(3, result.Count);
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.IsTrue(!result[1].MatchesReferenceText || !result[2].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks.Last().GetText(true), result.Skip(1).SelectMany(s => s.ReferenceBlocks).Single().GetText(true));
-			Assert.IsTrue(result.All(b => b.ReferenceBlocks.All(ind => ind.MatchesReferenceText)));
+			Assert.That(result.Count, Is.EqualTo(3));
+			Assert.That(result[0].MatchesReferenceText);
+			Assert.That(!result[1].MatchesReferenceText || !result[2].MatchesReferenceText);
+			Assert.That(referenceBlocks.Last().GetText(true), Is.EqualTo(result.Skip(1).SelectMany(s => s.ReferenceBlocks).Single().GetText(true)));
+			Assert.That(result.All(b => b.ReferenceBlocks.All(ind => ind.MatchesReferenceText)));
 		}
 
 		[TestCase()]
@@ -5423,8 +5603,7 @@ namespace GlyssenEngineTests
 			// scenario, two of the four test cases failed.
 			// However, also note that the fix for this also fixed several other real-life
 			// scenarios that were not caused by problems in the reference text.
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(5, "Itsamatacabi, Jesús pija-apóstolewi jumaitsi Jesús-jawabelia:", false, 17, "LUK"));
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(5, "Itsamatacabi, Jesús pija-apóstolewi jumaitsi Jesús-jawabelia:", false, 17, "LUK") };
 			AddBlockForVerseInProgress(vernacularBlocks, "disciples", "—¡Patajatuxanenë, paneyawenonare patajamatabëcuenewitsabinexa pata-itaxutuajamatejemajawa Diosojawabelia! ");
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "—jai.");
 
@@ -5445,7 +5624,7 @@ namespace GlyssenEngineTests
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, knownHeSaids);
 			var result = matchup.CorrelatedBlocks;
 
-			Assert.AreEqual(3, result.Count);
+			Assert.That(result.Count, Is.EqualTo(3));
 			var attachedRefTexts = result.SelectMany(r => r.ReferenceBlocks).Select(b => b.GetText(false)).ToList();
 			Assert.That(referenceBlocks.Select(b => b.GetText(false)).All(t => attachedRefTexts.Contains(t)));
 		}
@@ -5533,7 +5712,7 @@ namespace GlyssenEngineTests
 			var v17And18Block = luk[iLuk23v17];
 			var v18RefTextBlocks = luk.GetBlocksForVerse(23, 18).ToList();
 			lastBlockForV18 = v18RefTextBlocks.Last();
-			Assert.AreEqual(2, v18RefTextBlocks.Count, "Test setup conditions not met");
+			Assert.That(v18RefTextBlocks.Count, Is.EqualTo(2), "Test setup conditions not met");
 			if (v17And18Block != v18RefTextBlocks.First())
 			{
 				// This is a semi-dangerous hack. Since we can't get the lock, this isn't thread-safe.
@@ -5554,8 +5733,10 @@ namespace GlyssenEngineTests
 				cleanup = null;
 			}
 
-			Assert.AreEqual(17, v17And18Block.InitialStartVerseNumber, "Test setup conditions not met");
-			Assert.AreEqual("18", ((Verse)v17And18Block.BlockElements[2]).Number, "Test setup conditions not met");
+			Assert.That(v17And18Block.InitialStartVerseNumber, Is.EqualTo(17),
+				"Test setup conditions not met");
+			Assert.That(((Verse)v17And18Block.BlockElements[2]).Number, Is.EqualTo("18"),
+				"Test setup conditions not met");
 
 			return v17And18Block;
 		}
@@ -5585,8 +5766,10 @@ namespace GlyssenEngineTests
 		{
 			get
 			{
-				var metadata = new GlyssenDblTextMetadata();
-				metadata.Language = new GlyssenDblMetadataLanguage { Iso = "~tst~", Name = "Test Language" };
+				var metadata = new GlyssenDblTextMetadata
+				{
+					Language = new GlyssenDblMetadataLanguage { Iso = "~tst~", Name = "Test Language" }
+				};
 				return metadata;
 			}
 		}

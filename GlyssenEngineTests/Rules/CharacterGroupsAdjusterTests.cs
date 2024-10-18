@@ -83,13 +83,13 @@ namespace GlyssenEngineTests.Rules
 			SetVoiceActors(9, 2, 1);
 			GenerateGroups();
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
-			Assert.IsFalse(adjuster.CharactersNotCoveredByAnyGroup.Any());
-			Assert.IsFalse(adjuster.CharactersNoLongerInUse.Any());
-			Assert.IsFalse(adjuster.CharacterGroupsToRemove.Any());
-			Assert.IsFalse(adjuster.NewBooksHaveBeenIncluded);
-			Assert.IsFalse(adjuster.BooksHaveBeenExcluded);
-			Assert.IsFalse(adjuster.FullRegenerateRecommended);
-			Assert.IsFalse(adjuster.GroupsAreNotInSynchWithData);
+			Assert.That(adjuster.CharactersNotCoveredByAnyGroup, Is.Empty);
+			Assert.That(adjuster.CharactersNoLongerInUse, Is.Empty);
+			Assert.That(adjuster.CharacterGroupsToRemove, Is.Empty);
+			Assert.That(adjuster.NewBooksHaveBeenIncluded, Is.False);
+			Assert.That(adjuster.BooksHaveBeenExcluded, Is.False);
+			Assert.That(adjuster.FullRegenerateRecommended, Is.False);
+			Assert.That(adjuster.GroupsAreNotInSynchWithData, Is.False);
 		}
 
 		/// <summary>
@@ -102,7 +102,7 @@ namespace GlyssenEngineTests.Rules
 			SetVoiceActors(9, 2, 1);
 			GenerateGroups();
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
-			Assert.IsFalse(adjuster.CharactersNotCoveredByAnyGroup.Any());
+			Assert.That(adjuster.CharactersNotCoveredByAnyGroup, Is.Empty);
 		}
 
 		[Test]
@@ -115,13 +115,13 @@ namespace GlyssenEngineTests.Rules
 				m_testProject.CharacterGroupList.CharacterGroups[1].CharacterIds.Add(character);
 			m_testProject.CharacterGroupList.CharacterGroups[0].CharacterIds.Clear();
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
-			Assert.IsFalse(adjuster.CharactersNotCoveredByAnyGroup.Any());
-			Assert.IsFalse(adjuster.CharactersNoLongerInUse.Any());
-			Assert.IsFalse(adjuster.CharacterGroupsToRemove.Any());
-			Assert.IsFalse(adjuster.NewBooksHaveBeenIncluded);
-			Assert.IsFalse(adjuster.BooksHaveBeenExcluded);
-			Assert.IsFalse(adjuster.FullRegenerateRecommended);
-			Assert.IsFalse(adjuster.GroupsAreNotInSynchWithData);
+			Assert.That(adjuster.CharactersNotCoveredByAnyGroup, Is.Empty);
+			Assert.That(adjuster.CharactersNoLongerInUse, Is.Empty);
+			Assert.That(adjuster.CharacterGroupsToRemove, Is.Empty);
+			Assert.That(adjuster.NewBooksHaveBeenIncluded, Is.False);
+			Assert.That(adjuster.BooksHaveBeenExcluded, Is.False);
+			Assert.That(adjuster.FullRegenerateRecommended, Is.False);
+			Assert.That(adjuster.GroupsAreNotInSynchWithData, Is.False);
 		}
 
 		[Test]
@@ -132,18 +132,24 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.AvailableBooks.Single(b => b.Code == "ACT").IncludeInScript = true;
 			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
-			Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.Narrator)));
-			Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.ExtraBiblical)));
-			Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.BookOrChapter)));
-			Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains("Gamaliel"));
-			Assert.IsFalse(adjuster.CharactersNotCoveredByAnyGroup.Contains("Jesus"));
-			Assert.IsFalse(adjuster.CharactersNotCoveredByAnyGroup.Contains("Peter (Simon)"));
-			Assert.AreEqual(0, adjuster.CharactersNoLongerInUse.Count());
-			Assert.AreEqual(0, adjuster.CharacterGroupsToRemove.Count());
-			Assert.IsTrue(adjuster.NewBooksHaveBeenIncluded);
-			Assert.IsFalse(adjuster.BooksHaveBeenExcluded);
-			Assert.IsTrue(adjuster.FullRegenerateRecommended);
-			Assert.IsTrue(adjuster.GroupsAreNotInSynchWithData);
+			Assert.That(adjuster.CharactersNotCoveredByAnyGroup,
+				Does.Contain(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.That(adjuster.CharactersNotCoveredByAnyGroup,
+				Does.Contain(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.ExtraBiblical)));
+			Assert.That(adjuster.CharactersNotCoveredByAnyGroup,
+				Does.Contain(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.BookOrChapter)));
+			Assert.That(adjuster.CharactersNotCoveredByAnyGroup,
+				Does.Contain("Gamaliel"));
+			Assert.That(adjuster.CharactersNotCoveredByAnyGroup,
+				Does.Not.Contain("Jesus"));
+			Assert.That(adjuster.CharactersNotCoveredByAnyGroup,
+				Does.Not.Contain("Peter (Simon)"));
+			Assert.That(adjuster.CharactersNoLongerInUse.Count(), Is.EqualTo(0));
+			Assert.That(adjuster.CharacterGroupsToRemove.Count(), Is.EqualTo(0));
+			Assert.That(adjuster.NewBooksHaveBeenIncluded, Is.True);
+			Assert.That(adjuster.BooksHaveBeenExcluded, Is.False);
+			Assert.That(adjuster.FullRegenerateRecommended, Is.True);
+			Assert.That(adjuster.GroupsAreNotInSynchWithData, Is.True);
 		}
 
 		[Test]
@@ -157,15 +163,18 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.AvailableBooks.Single(b => b.Code == "MRK").IncludeInScript = false;
 			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
-			Assert.AreEqual(0, adjuster.CharactersNotCoveredByAnyGroup.Count());
-			Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator)));
-			Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical)));
-			Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter)));
-			Assert.AreEqual(0, adjuster.CharacterGroupsToRemove.Count());
-			Assert.IsFalse(adjuster.NewBooksHaveBeenIncluded);
-			Assert.IsTrue(adjuster.BooksHaveBeenExcluded);
-			Assert.IsTrue(adjuster.FullRegenerateRecommended);
-			Assert.IsTrue(adjuster.GroupsAreNotInSynchWithData);
+			Assert.That(adjuster.CharactersNotCoveredByAnyGroup.Count(), Is.EqualTo(0));
+			Assert.That(adjuster.CharactersNoLongerInUse,
+				Does.Contain(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.That(adjuster.CharactersNoLongerInUse,
+				Does.Contain(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical)));
+			Assert.That(adjuster.CharactersNoLongerInUse,
+				Does.Contain(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter)));
+			Assert.That(adjuster.CharacterGroupsToRemove.Count(), Is.EqualTo(0));
+			Assert.That(adjuster.NewBooksHaveBeenIncluded, Is.False);
+			Assert.That(adjuster.BooksHaveBeenExcluded, Is.True);
+			Assert.That(adjuster.FullRegenerateRecommended, Is.True);
+			Assert.That(adjuster.GroupsAreNotInSynchWithData, Is.True);
 		}
 
 		[Test]
@@ -182,17 +191,21 @@ namespace GlyssenEngineTests.Rules
 				RenameCharacter(41, 2, 12, "everyone who saw healing of paralytic", "witnesses of paralytic's healing");
 
 				var adjuster = new CharacterGroupsAdjuster(m_testProject);
-				Assert.AreEqual(2, adjuster.CharactersNotCoveredByAnyGroup.Count());
-				Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains("dudes in the Capernaum teaching center"));
-				Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains("witnesses of paralytic's healing"));
-				Assert.AreEqual(2, adjuster.CharactersNoLongerInUse.Count());
-				Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains("men in Capernaum synagogue"));
-				Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains("everyone who saw healing of paralytic"));
-				Assert.AreEqual(0, adjuster.CharacterGroupsToRemove.Count());
-				Assert.IsFalse(adjuster.NewBooksHaveBeenIncluded);
-				Assert.IsFalse(adjuster.BooksHaveBeenExcluded);
-				Assert.IsFalse(adjuster.FullRegenerateRecommended);
-				Assert.IsTrue(adjuster.GroupsAreNotInSynchWithData);
+				Assert.That(adjuster.CharactersNotCoveredByAnyGroup.Count(), Is.EqualTo(2));
+				Assert.That(adjuster.CharactersNotCoveredByAnyGroup,
+					Does.Contain("dudes in the Capernaum teaching center"));
+				Assert.That(adjuster.CharactersNotCoveredByAnyGroup,
+					Does.Contain("witnesses of paralytic's healing"));
+				Assert.That(adjuster.CharactersNoLongerInUse.Count(), Is.EqualTo(2));
+				Assert.That(adjuster.CharactersNoLongerInUse,
+					Does.Contain("men in Capernaum synagogue"));
+				Assert.That(adjuster.CharactersNoLongerInUse,
+					Does.Contain("everyone who saw healing of paralytic"));
+				Assert.That(adjuster.CharacterGroupsToRemove.Count(), Is.EqualTo(0));
+				Assert.That(adjuster.NewBooksHaveBeenIncluded, Is.False);
+				Assert.That(adjuster.BooksHaveBeenExcluded, Is.False);
+				Assert.That(adjuster.FullRegenerateRecommended, Is.False);
+				Assert.That(adjuster.GroupsAreNotInSynchWithData, Is.True);
 			}
 			finally
 			{
@@ -219,20 +232,27 @@ namespace GlyssenEngineTests.Rules
 					"Mephibosheth");
 
 				var adjuster = new CharacterGroupsAdjuster(m_testProject);
-				Assert.AreEqual(3, adjuster.CharactersNotCoveredByAnyGroup.Count());
-				Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains("dudes in the Capernaum teaching center"));
-				Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains("witnesses of paralytic's healing"));
-				Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains("Mephibosheth"));
-				Assert.AreEqual(4, adjuster.CharactersNoLongerInUse.Count());
-				Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains("men in Capernaum synagogue"));
-				Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains("everyone who saw healing of paralytic"));
-				Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains("many in crowd"));
-				Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains("men from Jairus' house"));
-				Assert.AreEqual(0, adjuster.CharacterGroupsToRemove.Count());
-				Assert.IsFalse(adjuster.NewBooksHaveBeenIncluded);
-				Assert.IsFalse(adjuster.BooksHaveBeenExcluded);
-				Assert.IsTrue(adjuster.FullRegenerateRecommended);
-				Assert.IsTrue(adjuster.GroupsAreNotInSynchWithData);
+				Assert.That(adjuster.CharactersNotCoveredByAnyGroup.Count(), Is.EqualTo(3));
+				Assert.That(adjuster.CharactersNotCoveredByAnyGroup,
+					Does.Contain("dudes in the Capernaum teaching center"));
+				Assert.That(adjuster.CharactersNotCoveredByAnyGroup,
+					Does.Contain("witnesses of paralytic's healing"));
+				Assert.That(adjuster.CharactersNotCoveredByAnyGroup,
+					Does.Contain("Mephibosheth"));
+				Assert.That(adjuster.CharactersNoLongerInUse.Count(), Is.EqualTo(4));
+				Assert.That(adjuster.CharactersNoLongerInUse,
+					Does.Contain("men in Capernaum synagogue"));
+				Assert.That(adjuster.CharactersNoLongerInUse,
+					Does.Contain("everyone who saw healing of paralytic"));
+				Assert.That(adjuster.CharactersNoLongerInUse,
+					Does.Contain("many in crowd"));
+				Assert.That(adjuster.CharactersNoLongerInUse,
+					Does.Contain("men from Jairus' house"));
+				Assert.That(adjuster.CharacterGroupsToRemove.Count(), Is.EqualTo(0));
+				Assert.That(adjuster.NewBooksHaveBeenIncluded, Is.False);
+				Assert.That(adjuster.BooksHaveBeenExcluded, Is.False);
+				Assert.That(adjuster.FullRegenerateRecommended, Is.True);
+				Assert.That(adjuster.GroupsAreNotInSynchWithData, Is.True);
 			}
 			finally
 			{
@@ -251,12 +271,15 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.AvailableBooks.Single(b => b.Code == "MRK").IncludeInScript = false;
 			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
-			Assert.AreEqual(0, adjuster.CharactersNotCoveredByAnyGroup.Count());
-			Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator)));
-			Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical)));
-			Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter)));
-			Assert.IsTrue(adjuster.CharacterGroupsToRemove.Any());
-			Assert.IsTrue(adjuster.GroupsAreNotInSynchWithData);
+			Assert.That(adjuster.CharactersNotCoveredByAnyGroup.Count(), Is.EqualTo(0));
+			Assert.That(adjuster.CharactersNoLongerInUse,
+				Does.Contain(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.That(adjuster.CharactersNoLongerInUse,
+				Does.Contain(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical)));
+			Assert.That(adjuster.CharactersNoLongerInUse,
+				Does.Contain(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter)));
+			Assert.That(adjuster.CharacterGroupsToRemove.Any(), Is.True);
+			Assert.That(adjuster.GroupsAreNotInSynchWithData, Is.True);
 		}
 
 		[Test]
@@ -267,23 +290,28 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.AvailableBooks.Single(b => b.Code == "JUD").IncludeInScript = true;
 			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
-			Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator)));
-			Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical)));
-			Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.BookOrChapter)));
+			Assert.That(adjuster.CharactersNotCoveredByAnyGroup,
+				Does.Contain(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.That(adjuster.CharactersNotCoveredByAnyGroup,
+				Does.Contain(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical)));
+			Assert.That(adjuster.CharactersNotCoveredByAnyGroup,
+				Does.Contain(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.BookOrChapter)));
 			var countOfCharactersNotCovered = adjuster.CharactersNotCoveredByAnyGroup.Count();
-			Assert.AreEqual(0, adjuster.CharactersNoLongerInUse.Count());
+			Assert.That(adjuster.CharactersNoLongerInUse.Count(), Is.EqualTo(0));
 			var originalCountOfGroups = m_testProject.CharacterGroupList.CharacterGroups.Count;
 			
 			adjuster.MakeMinimalAdjustments();
-			Assert.IsFalse(adjuster.GroupsAreNotInSynchWithData);
-			Assert.AreEqual(0, adjuster.CharactersNotCoveredByAnyGroup.Count());
-			Assert.AreEqual(0, adjuster.CharactersNoLongerInUse.Count());
-			Assert.AreEqual(originalCountOfGroups + 1, m_testProject.CharacterGroupList.CharacterGroups.Count);
+			Assert.That(adjuster.GroupsAreNotInSynchWithData, Is.False);
+			Assert.That(adjuster.CharactersNotCoveredByAnyGroup.Count(), Is.EqualTo(0));
+			Assert.That(adjuster.CharactersNoLongerInUse.Count(), Is.EqualTo(0));
+			Assert.That(originalCountOfGroups + 1, Is.EqualTo(m_testProject.CharacterGroupList.CharacterGroups.Count));
 			var newGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator));
-			Assert.IsFalse(m_testProject.CharacterGroupList.CharacterGroups.Any(g => g.GroupId == newGroup.GroupId && g != newGroup));
-			Assert.IsTrue(newGroup.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical)));
-			Assert.IsTrue(newGroup.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.BookOrChapter)));
-			Assert.AreEqual(countOfCharactersNotCovered, newGroup.CharacterIds.Count);
+			Assert.That(m_testProject.CharacterGroupList.CharacterGroups.Any(g => g.GroupId == newGroup.GroupId && g != newGroup), Is.False);
+			Assert.That(newGroup.CharacterIds,
+				Does.Contain(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical)));
+			Assert.That(newGroup.CharacterIds,
+				Does.Contain(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.BookOrChapter)));
+			Assert.That(countOfCharactersNotCovered, Is.EqualTo(newGroup.CharacterIds.Count));
 		}
 
 		[Test]
@@ -297,18 +325,18 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
 			var charactersNotInUse = adjuster.CharactersNoLongerInUse.ToList();
-			Assert.IsTrue(charactersNotInUse.Count > 0);
-			Assert.IsTrue(charactersNotInUse.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator)));
-			Assert.IsTrue(charactersNotInUse.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical)));
-			Assert.IsTrue(charactersNotInUse.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.BookOrChapter)));
+			Assert.That(charactersNotInUse.Count, Is.GreaterThan(0));
+			Assert.That(charactersNotInUse, Does.Contain(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.That(charactersNotInUse, Does.Contain(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical)));
+			Assert.That(charactersNotInUse, Does.Contain(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.BookOrChapter)));
 			var originalCountOfGroups = m_testProject.CharacterGroupList.CharacterGroups.Count;
 
 			adjuster.MakeMinimalAdjustments();
-			Assert.IsFalse(adjuster.GroupsAreNotInSynchWithData);
-			Assert.AreEqual(0, adjuster.CharactersNoLongerInUse.Count());
-			Assert.AreEqual(0, adjuster.CharactersNotCoveredByAnyGroup.Count());
-			Assert.AreEqual(originalCountOfGroups, m_testProject.CharacterGroupList.CharacterGroups.Count);
-			Assert.IsFalse(m_testProject.CharacterGroupList.CharacterGroups.Any(g => g.CharacterIds.Any(c => charactersNotInUse.Contains(c))));
+			Assert.That(adjuster.GroupsAreNotInSynchWithData, Is.False);
+			Assert.That(adjuster.CharactersNoLongerInUse.Count(), Is.EqualTo(0));
+			Assert.That(adjuster.CharactersNotCoveredByAnyGroup.Count(), Is.EqualTo(0));
+			Assert.That(originalCountOfGroups, Is.EqualTo(m_testProject.CharacterGroupList.CharacterGroups.Count));
+			Assert.That(m_testProject.CharacterGroupList.CharacterGroups.Any(g => g.CharacterIds.Any(c => charactersNotInUse.Contains(c))), Is.False);
 		}
 
 		[Test]
@@ -322,22 +350,28 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
 			var charactersNotInUse = adjuster.CharactersNoLongerInUse.ToList();
-			Assert.IsTrue(charactersNotInUse.Count > 0);
-			Assert.IsTrue(charactersNotInUse.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator)));
-			Assert.IsTrue(charactersNotInUse.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical)));
-			Assert.IsTrue(charactersNotInUse.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.BookOrChapter)));
+			Assert.That(charactersNotInUse.Count, Is.GreaterThan(0));
+			Assert.That(charactersNotInUse,
+				Does.Contain(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.That(charactersNotInUse,
+				Does.Contain(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical)));
+			Assert.That(charactersNotInUse,
+				Does.Contain(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.BookOrChapter)));
 			var originalCountOfGroups = m_testProject.CharacterGroupList.CharacterGroups.Count;
 			var groupsToRemove = adjuster.CharacterGroupsToRemove.ToList();
-			Assert.IsTrue(groupsToRemove.Any());
+			Assert.That(groupsToRemove.Any(), Is.True);
 
 			adjuster.MakeMinimalAdjustments();
-			Assert.IsFalse(adjuster.GroupsAreNotInSynchWithData);
-			Assert.IsFalse(adjuster.CharactersNoLongerInUse.Any());
-			Assert.IsFalse(adjuster.CharactersNotCoveredByAnyGroup.Any());
-			Assert.IsFalse(adjuster.CharacterGroupsToRemove.Any());
-			Assert.AreEqual(originalCountOfGroups - groupsToRemove.Count, m_testProject.CharacterGroupList.CharacterGroups.Count);
-			Assert.IsFalse(m_testProject.CharacterGroupList.CharacterGroups.Any(g => !g.CharacterIds.Any() || g.CharacterIds.Any(c => charactersNotInUse.Contains(c))));
-			Assert.IsFalse(m_testProject.CharacterGroupList.CharacterGroups.Any(g => groupsToRemove.Contains(g)));
+			Assert.That(adjuster.GroupsAreNotInSynchWithData, Is.False);
+			Assert.That(adjuster.CharactersNoLongerInUse, Is.Empty);
+			Assert.That(adjuster.CharactersNotCoveredByAnyGroup, Is.Empty);
+			Assert.That(adjuster.CharacterGroupsToRemove, Is.Empty);
+			Assert.That(originalCountOfGroups - groupsToRemove.Count,
+				Is.EqualTo(m_testProject.CharacterGroupList.CharacterGroups.Count));
+			Assert.That(m_testProject.CharacterGroupList.CharacterGroups.Any(g => !g.CharacterIds.Any() ||
+				g.CharacterIds.Any(c => charactersNotInUse.Contains(c))), Is.False);
+			Assert.That(m_testProject.CharacterGroupList.CharacterGroups
+				.Where(g => groupsToRemove.Contains(g)), Is.Empty);
 		}
 
 		[Test]
@@ -356,23 +390,26 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
 			var charactersNotInUse = adjuster.CharactersNoLongerInUse.ToList();
-			Assert.IsTrue(charactersNotInUse.Contains("Michael, archangel"));
+			Assert.That(charactersNotInUse, Does.Contain("Michael, archangel"));
 			var originalCountOfGroups = m_testProject.CharacterGroupList.CharacterGroups.Count;
 			var groupsToRemove = adjuster.CharacterGroupsToRemove.ToList();
-			Assert.AreEqual(1, groupsToRemove.Count);
-			Assert.IsFalse(groupsToRemove.Contains(michaelTheArchAngelGroup));
+			Assert.That(groupsToRemove.Count, Is.EqualTo(1));
+			Assert.That(groupsToRemove.Contains(michaelTheArchAngelGroup), Is.False);
 
 			adjuster.MakeMinimalAdjustments();
-			Assert.IsFalse(adjuster.GroupsAreNotInSynchWithData);
-			Assert.IsFalse(adjuster.CharactersNoLongerInUse.Any());
-			Assert.IsFalse(adjuster.CharactersNotCoveredByAnyGroup.Any());
-			Assert.IsFalse(adjuster.CharacterGroupsToRemove.Any());
-			Assert.AreEqual(originalCountOfGroups - groupsToRemove.Count, m_testProject.CharacterGroupList.CharacterGroups.Count);
-			Assert.AreEqual(michaelTheArchAngelGroup,
-				m_testProject.CharacterGroupList.CharacterGroups.Single(g => !g.CharacterIds.Any() || g.CharacterIds.Any(c => charactersNotInUse.Contains(c))));
-			Assert.IsFalse(m_testProject.CharacterGroupList.CharacterGroups.Any(g => groupsToRemove.Contains(g)));
-			Assert.IsFalse(michaelTheArchAngelGroup.CharacterIds.Any());
-			Assert.AreEqual(frankie.Id, michaelTheArchAngelGroup.VoiceActorId);
+			Assert.That(adjuster.GroupsAreNotInSynchWithData, Is.False);
+			Assert.That(adjuster.CharactersNoLongerInUse, Is.Empty);
+			Assert.That(adjuster.CharactersNotCoveredByAnyGroup, Is.Empty);
+			Assert.That(adjuster.CharacterGroupsToRemove, Is.Empty);
+			Assert.That(originalCountOfGroups - groupsToRemove.Count,
+				Is.EqualTo(m_testProject.CharacterGroupList.CharacterGroups.Count));
+			Assert.That(m_testProject.CharacterGroupList.CharacterGroups.Single(
+					g => !g.CharacterIds.Any() || g.CharacterIds.Any(c => charactersNotInUse.Contains(c))),
+				Is.EqualTo(michaelTheArchAngelGroup));
+			Assert.That(m_testProject.CharacterGroupList.CharacterGroups
+				.Where(g => groupsToRemove.Contains(g)), Is.Empty);
+			Assert.That(michaelTheArchAngelGroup.CharacterIds, Is.Empty);
+			Assert.That(frankie.Id, Is.EqualTo(michaelTheArchAngelGroup.VoiceActorId));
 		}
 	}
 }

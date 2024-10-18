@@ -38,31 +38,31 @@ namespace GlyssenEngineTests.Casting
 
 			// Reads XML correctly
 			var listFromDeserialization = VoiceActorList.LoadVoiceActorList(new StringReader(results));
-			Assert.AreEqual(list.ActiveActors, listFromDeserialization.ActiveActors);
+			Assert.That(list.ActiveActors, Is.EqualTo(listFromDeserialization.ActiveActors));
 		}
 
 		[Test]
 		public void MigrateDeprecatedGenderAndAgeStrings()
 		{
 			var actor = new VoiceActor { Id = 0, Name = "A", GenderDeprecatedString = "M - Male", AgeDeprecatedString = "O - Old" };
-			Assert.AreEqual(ActorAge.Elder, actor.Age);
-			Assert.AreEqual(ActorGender.Male, actor.Gender);
+			Assert.That(ActorAge.Elder, Is.EqualTo(actor.Age));
+			Assert.That(ActorGender.Male, Is.EqualTo(actor.Gender));
 
 			actor = new VoiceActor { Id = 0, Name = "B", GenderDeprecatedString = "F - Female", AgeDeprecatedString = "E - Elder" };
-			Assert.AreEqual(ActorAge.Elder, actor.Age);
-			Assert.AreEqual(ActorGender.Female, actor.Gender);
+			Assert.That(ActorAge.Elder, Is.EqualTo(actor.Age));
+			Assert.That(ActorGender.Female, Is.EqualTo(actor.Gender));
 
 			actor = new VoiceActor { Id = 0, Name = "C", AgeDeprecatedString = "C - Child" };
-			Assert.AreEqual(ActorAge.Child, actor.Age);
+			Assert.That(ActorAge.Child, Is.EqualTo(actor.Age));
 
 			actor = new VoiceActor { Id = 0, Name = "D", AgeDeprecatedString = "M - Middle Adult" };
-			Assert.AreEqual(ActorAge.Adult, actor.Age);
+			Assert.That(ActorAge.Adult, Is.EqualTo(actor.Age));
 
 			actor = new VoiceActor { Id = 0, Name = "E", AgeDeprecatedString = "Y - Young" };
-			Assert.AreEqual(ActorAge.YoungAdult, actor.Age);
+			Assert.That(ActorAge.YoungAdult, Is.EqualTo(actor.Age));
 
 			actor = new VoiceActor { Id = 0, Name = "E", AgeDeprecatedString = "Y - Young Adult" };
-			Assert.AreEqual(ActorAge.YoungAdult, actor.Age);
+			Assert.That(ActorAge.YoungAdult, Is.EqualTo(actor.Age));
 		}
 	}
 }

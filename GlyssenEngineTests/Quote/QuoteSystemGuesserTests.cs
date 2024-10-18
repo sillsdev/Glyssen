@@ -22,8 +22,8 @@ namespace GlyssenEngineTests.Quote
 		public void Guess_NoBooks_ReturnsDefaultQuoteSystem()
 		{
 			bool certain;
-			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, new List<IScrBook>(), ScrVers.English, out certain));
-			Assert.IsFalse(certain);
+			Assert.That(QuoteSystem.Default, Is.EqualTo(QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, new List<IScrBook>(), ScrVers.English, out certain)));
+			Assert.That(certain, Is.False);
 		}
 
 		[Test]
@@ -40,8 +40,8 @@ namespace GlyssenEngineTests.Quote
 			}
 
 			bool certain;
-			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, mockedBooks, ScrVers.English, out certain));
-			Assert.IsFalse(certain);
+			Assert.That(QuoteSystem.Default, Is.EqualTo(QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, mockedBooks, ScrVers.English, out certain)));
+			Assert.That(certain, Is.False);
 		}
 
 		/// <summary>
@@ -157,12 +157,15 @@ namespace GlyssenEngineTests.Quote
 			Console.WriteLine("   took " + sw.ElapsedMilliseconds + " milliseconds.");
 			if (expectedCertain)
 			{
-				Assert.AreEqual(quoteSystem, guessedQuoteSystem, "Expected " + quoteSystem.FirstLevel + ", but was " + guessedQuoteSystem.FirstLevel);
-				Assert.IsTrue(certain, "Quote system was not guessed with sufficient certainty: " + quoteSystem.Name + "(" + quoteSystem + ")");
+				Assert.That(quoteSystem, Is.EqualTo(guessedQuoteSystem),
+					"Expected " + quoteSystem.FirstLevel + ", but was " + guessedQuoteSystem.FirstLevel);
+				Assert.That(certain, Is.True,
+					"Quote system was not guessed with sufficient certainty: " + quoteSystem.Name + "(" + quoteSystem + ")");
 			}
 			else
 			{
-				Assert.AreEqual(quoteSystem, guessedQuoteSystem, "Expected " + quoteSystem + ", but was " + guessedQuoteSystem);
+				Assert.That(quoteSystem, Is.EqualTo(guessedQuoteSystem),
+					"Expected " + quoteSystem + ", Is.EqualTo(but was " + guessedQuoteSystem);
 			}
 		}
 
@@ -173,10 +176,10 @@ namespace GlyssenEngineTests.Quote
 			var sw = new Stopwatch();
 			sw.Start();
 			bool certain;
-			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, MockedBookForQuoteSystem.GetMockedBooks(null), ScrVers.English, out certain));
+			Assert.That(QuoteSystem.Default, Is.EqualTo(QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, MockedBookForQuoteSystem.GetMockedBooks(null), ScrVers.English, out certain)));
 			sw.Stop();
-			Assert.IsTrue(sw.ElapsedMilliseconds < 5200, "Actual time (ms): " + sw.ElapsedMilliseconds);
-			Assert.IsFalse(certain);
+			Assert.That(sw.ElapsedMilliseconds, Is.LessThan(5200), "Actual time (ms): " + sw.ElapsedMilliseconds);
+			Assert.That(certain, Is.False);
 		}
 	}
 

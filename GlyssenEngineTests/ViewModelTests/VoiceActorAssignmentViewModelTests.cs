@@ -53,10 +53,10 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_testProject.VoiceActorList.AllActors = new List<VoiceActor> { actor1 };
 			var group = m_model.CharacterGroups[0];
 			m_model.AssignActorToGroup(actor1.Id, group);
-			Assert.AreEqual(actor1.Id, group.VoiceActorId);
+			Assert.That(actor1.Id, Is.EqualTo(group.VoiceActorId));
 			var undoDescriptions = m_model.UndoActions;
-			Assert.AreEqual(1, undoDescriptions.Count);
-			Assert.AreEqual("Assign voice actor Puni Upalari", undoDescriptions[0]);
+			Assert.That(undoDescriptions.Count, Is.EqualTo(1));
+			Assert.That(undoDescriptions[0], Is.EqualTo("Assign voice actor Puni Upalari"));
 		}
 
 		[Test]
@@ -67,8 +67,8 @@ namespace GlyssenEngineTests.ViewModelTests
 			var group = m_model.CharacterGroups[0];
 			group.VoiceActorId = actor1.Id;
 			m_model.AssignActorToGroup(actor1.Id, group);
-			Assert.AreEqual(actor1.Id, group.VoiceActorId);
-			Assert.AreEqual(0, m_model.UndoActions.Count);
+			Assert.That(actor1.Id, Is.EqualTo(group.VoiceActorId));
+			Assert.That(m_model.UndoActions.Count, Is.EqualTo(0));
 		}
 
 		[Test]
@@ -81,10 +81,10 @@ namespace GlyssenEngineTests.ViewModelTests
 			var newGroup = AddNewGroup();
 //			newGroup.Name = "New group";
 			m_model.AssignActorToGroup(1, newGroup);
-			Assert.AreEqual(1, newGroup.VoiceActorId);
-			Assert.AreEqual(1, m_model.UndoActions.Count);
-			Assert.AreEqual("Assign voice actor Eduardo Lopez", m_model.UndoActions[0]);
-			Assert.False(existingGroup.IsVoiceActorAssigned);
+			Assert.That(newGroup.VoiceActorId, Is.EqualTo(1));
+			Assert.That(m_model.UndoActions.Count, Is.EqualTo(1));
+			Assert.That(m_model.UndoActions[0], Is.EqualTo("Assign voice actor Eduardo Lopez"));
+			Assert.That(existingGroup.IsVoiceActorAssigned, Is.False);
 		}
 
 		[Test]
@@ -98,14 +98,14 @@ namespace GlyssenEngineTests.ViewModelTests
 //			newGroup.Name = "New group";
 			m_model.AssignActorToGroup(1, newGroup);
 			List<CharacterGroup> affectedGroups = null;
-			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.IsFalse(f);};
-			Assert.IsTrue(m_model.Undo());
-			Assert.AreEqual(0, m_model.UndoActions.Count);
-			Assert.AreEqual(1, m_model.RedoActions.Count);
-			Assert.AreEqual("Assign voice actor Eduardo Lopez", m_model.RedoActions[0]);
-			Assert.False(newGroup.IsVoiceActorAssigned);
-			Assert.AreEqual(1, existingGroup.VoiceActorId);
-			Assert.IsTrue(affectedGroups.SequenceEqual(new [] {existingGroup, newGroup }));
+			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.That(f, Is.False);};
+			Assert.That(m_model.Undo(), Is.True);
+			Assert.That(m_model.UndoActions.Count, Is.EqualTo(0));
+			Assert.That(m_model.RedoActions.Count, Is.EqualTo(1));
+			Assert.That(m_model.RedoActions[0], Is.EqualTo("Assign voice actor Eduardo Lopez"));
+			Assert.That(newGroup.IsVoiceActorAssigned, Is.False);
+			Assert.That(existingGroup.VoiceActorId, Is.EqualTo(1));
+			Assert.That(affectedGroups.SequenceEqual(new [] {existingGroup, newGroup }), Is.True);
 		}
 
 		[Test]
@@ -118,16 +118,16 @@ namespace GlyssenEngineTests.ViewModelTests
 			var group1 = m_model.CharacterGroups[0];
 			group1.SetGroupIdLabel();
 			m_model.AssignActorToGroup(actor2.Id, group1);
-			Assert.True(group1.IsVoiceActorAssigned);
+			Assert.That(group1.IsVoiceActorAssigned, Is.True);
 			var group2 = AddNewGroup("Nicodemus");
 			m_model.AssignActorToGroup(actor1.Id, group2);
-			Assert.True(group2.IsVoiceActorAssigned);
-			Assert.AreEqual(2, m_model.UndoActions.Count);
+			Assert.That(group2.IsVoiceActorAssigned, Is.True);
+			Assert.That(m_model.UndoActions.Count, Is.EqualTo(2));
 
 			m_model.UnAssignActorFromGroups(new List<CharacterGroup> { group1, group2 });
-			Assert.False(group1.IsVoiceActorAssigned);
-			Assert.False(group2.IsVoiceActorAssigned);
-			Assert.AreEqual(3, m_model.UndoActions.Count);
+			Assert.That(group1.IsVoiceActorAssigned, Is.False);
+			Assert.That(group2.IsVoiceActorAssigned, Is.False);
+			Assert.That(m_model.UndoActions.Count, Is.EqualTo(3));
 		}
 
 		[Test]
@@ -139,22 +139,22 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_testProject.VoiceActorList.AllActors.Add(actor2);
 			var group1 = m_model.CharacterGroups[0];
 			m_model.AssignActorToGroup(actor2.Id, group1);
-			Assert.True(group1.IsVoiceActorAssigned);
+			Assert.That(group1.IsVoiceActorAssigned, Is.True);
 			var cameoGroup = AddNewGroup(); // No characters => cameo
 			m_model.AssignActorToGroup(actor1.Id, cameoGroup);
-			Assert.True(cameoGroup.IsVoiceActorAssigned);
-			Assert.AreEqual(2, m_model.UndoActions.Count);
+			Assert.That(cameoGroup.IsVoiceActorAssigned, Is.True);
+			Assert.That(m_model.UndoActions.Count, Is.EqualTo(2));
 
 			m_model.UnAssignActorFromGroups(new List<CharacterGroup> { group1, cameoGroup });
-			Assert.False(group1.IsVoiceActorAssigned);
-			Assert.True(cameoGroup.IsVoiceActorAssigned);
-			Assert.AreEqual(3, m_model.UndoActions.Count);
+			Assert.That(group1.IsVoiceActorAssigned, Is.False);
+			Assert.That(cameoGroup.IsVoiceActorAssigned, Is.True);
+			Assert.That(m_model.UndoActions.Count, Is.EqualTo(3));
 		}
 
 		[Test]
 		public void CanMoveCharactersToGroup_UnexpectedCharacterId_ReturnsFalse()
 		{
-			Assert.IsFalse(m_model.CanMoveCharactersToGroup(new[] { "Hairy Man of Hinkley" }, null));
+			Assert.That(m_model.CanMoveCharactersToGroup(new[] { "Hairy Man of Hinkley" }, null), Is.False);
 		}
 
 		[Test]
@@ -163,7 +163,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var sourceGroup = m_model.CharacterGroups[0];
 			sourceGroup.CharacterIds = new CharacterIdHashSet(new[] { "John", "Andrew", "Moses" });
 
-			Assert.IsTrue(m_model.CanMoveCharactersToGroup(new List<string> { "John", "Moses" }, null));
+			Assert.That(m_model.CanMoveCharactersToGroup(new List<string> { "John", "Moses" }, null), Is.True);
 		}
 
 		[Test]
@@ -172,7 +172,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var sourceGroup = m_model.CharacterGroups[0];
 			sourceGroup.CharacterIds = new CharacterIdHashSet(new[] { "John", "Andrew", "Moses" });
 
-			Assert.IsFalse(m_model.CanMoveCharactersToGroup(new List<string> { "Andrew", "John", "Moses" }, null));
+			Assert.That(m_model.CanMoveCharactersToGroup(new List<string> { "Andrew", "John", "Moses" }, null), Is.False);
 		}
 
 		[Test]
@@ -182,7 +182,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			sourceGroup.CharacterIds = new CharacterIdHashSet(new[] { "John", "Andrew", "Moses" });
 			sourceGroup.VoiceActorId = 56;
 
-			Assert.IsTrue(m_model.CanMoveCharactersToGroup(new List<string> { "Andrew", "John", "Moses" }, null));
+			Assert.That(m_model.CanMoveCharactersToGroup(new List<string> { "Andrew", "John", "Moses" }, null), Is.True);
 		}
 
 		[Test]
@@ -191,7 +191,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var sourceGroup = m_model.CharacterGroups[0];
 			sourceGroup.CharacterIds = new CharacterIdHashSet(new[] { "John", "Andrew", "Moses" });
 
-			Assert.IsFalse(m_model.CanMoveCharactersToGroup(new List<string> { "Andrew", "John", "Moses" }, null));
+			Assert.That(m_model.CanMoveCharactersToGroup(new List<string> { "Andrew", "John", "Moses" }, null), Is.False);
 		}
 
 		[Test]
@@ -204,8 +204,8 @@ namespace GlyssenEngineTests.ViewModelTests
 		[Test]
 		public void MoveCharactersToGroup_UnexpectedCharacterId_ReturnsFalse()
 		{
-			Assert.IsFalse(m_model.MoveCharactersToGroup(new[] { "Hairy Man of Hinkley" }, null));
-			Assert.AreEqual(0, m_model.UndoActions.Count);
+			Assert.That(m_model.MoveCharactersToGroup(new[] { "Hairy Man of Hinkley" }, null), Is.False);
+			Assert.That(m_model.UndoActions.Count, Is.EqualTo(0));
 		}
 
 		[Test]
@@ -215,17 +215,17 @@ namespace GlyssenEngineTests.ViewModelTests
 			sourceGroup.CharacterIds = new CharacterIdHashSet(new[] { "John", "Andrew", "Moses" });
 
 			List<CharacterGroup> affectedGroups = null;
-			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.IsFalse(f);};
-			Assert.IsTrue(m_model.MoveCharactersToGroup(new List<string> { "John", "Moses" }, null));
+			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.That(f, Is.False);};
+			Assert.That(m_model.MoveCharactersToGroup(new List<string> { "John", "Moses" }, null), Is.True);
 			var newGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("Moses");
-			Assert.IsNotNull(newGroup);
-			Assert.IsTrue(affectedGroups.SequenceEqual(new[] { newGroup, sourceGroup }));
+			Assert.That(newGroup, Is.Not.Null);
+			Assert.That(affectedGroups.SequenceEqual(new[] { newGroup, sourceGroup }), Is.True);
 
-			Assert.AreEqual(2, newGroup.CharacterIds.Count);
-			Assert.True(newGroup.CharacterIds.Contains("John"));
-			Assert.AreEqual(1, sourceGroup.CharacterIds.Count);
-			Assert.True(sourceGroup.CharacterIds.Contains("Andrew"));
-			Assert.AreEqual("Create new group", m_model.UndoActions.Single());
+			Assert.That(newGroup.CharacterIds.Count, Is.EqualTo(2));
+			Assert.That(newGroup.CharacterIds, Does.Contain("John"));
+			Assert.That(sourceGroup.CharacterIds.Count, Is.EqualTo(1));
+			Assert.That(sourceGroup.CharacterIds, Does.Contain("Andrew"));
+			Assert.That(m_model.UndoActions.Single(), Is.EqualTo("Create new group"));
 		}
 
 		[Test]
@@ -237,16 +237,16 @@ namespace GlyssenEngineTests.ViewModelTests
 			sourceGroup.VoiceActorId = 5;
 
 			List<CharacterGroup> affectedGroups = null;
-			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.IsFalse(f);};
-			Assert.IsTrue(m_model.MoveCharactersToGroup(allThreeCharacters, null));
+			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.That(f, Is.False);};
+			Assert.That(m_model.MoveCharactersToGroup(allThreeCharacters, null), Is.True);
 
 			var newGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("Moses");
-			Assert.IsNotNull(newGroup);
-			Assert.AreNotEqual(sourceGroup, newGroup);
-			Assert.IsTrue(affectedGroups.SequenceEqual(new[] { newGroup, sourceGroup }));
-			Assert.IsTrue(newGroup.CharacterIds.SetEquals(allThreeCharacters));
-			Assert.AreEqual(0, sourceGroup.CharacterIds.Count);
-			Assert.AreEqual("Create new group", m_model.UndoActions.Single());
+			Assert.That(newGroup, Is.Not.Null);
+			Assert.That(sourceGroup, Is.Not.EqualTo(newGroup));
+			Assert.That(affectedGroups.SequenceEqual(new[] { newGroup, sourceGroup }), Is.True);
+			Assert.That(newGroup.CharacterIds.SetEquals(allThreeCharacters), Is.True);
+			Assert.That(sourceGroup.CharacterIds.Count, Is.EqualTo(0));
+			Assert.That(m_model.UndoActions.Single(), Is.EqualTo("Create new group"));
 		}
 
 		[Test]
@@ -261,15 +261,15 @@ namespace GlyssenEngineTests.ViewModelTests
 			var destGroup = AddNewGroup("foot", "ear");
 
 			List<CharacterGroup> affectedGroups = null;
-			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.IsFalse(f);};
-			Assert.True(m_model.MoveCharactersToGroup(characterIds, destGroup));
+			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.That(f, Is.False);};
+			Assert.That(m_model.MoveCharactersToGroup(characterIds, destGroup), Is.True);
 
-			Assert.IsTrue(affectedGroups.SequenceEqual(new[] { destGroup, sourceGroup }));
+			Assert.That(affectedGroups.SequenceEqual(new[] { destGroup, sourceGroup }), Is.True);
 			var destGroupCharacterIds = destGroup.CharacterIds;
-			Assert.AreEqual(4, destGroup.CharacterIds.Count);
-			Assert.True(destGroupCharacterIds.Contains("John"));
-			Assert.True(destGroupCharacterIds.Contains("Andrew"));
-			Assert.AreEqual("Move characters to Man 2 group", m_model.UndoActions.Single());
+			Assert.That(destGroup.CharacterIds.Count, Is.EqualTo(4));
+			Assert.That(destGroupCharacterIds, Does.Contain("John"));
+			Assert.That(destGroupCharacterIds, Does.Contain("Andrew"));
+			Assert.That(m_model.UndoActions.Single(), Is.EqualTo("Move characters to Man 2 group"));
 		}
 
 		[Test]
@@ -280,10 +280,10 @@ namespace GlyssenEngineTests.ViewModelTests
 			sourceGroup.CharacterIds = new CharacterIdHashSet(characterIds);
 
 			List<CharacterGroup> affectedGroups = null;
-			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.IsFalse(f);};
-			Assert.False(m_model.MoveCharactersToGroup(characterIds, sourceGroup));
-			Assert.IsNull(affectedGroups);
-			Assert.AreEqual(0, m_model.UndoActions.Count);
+			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.That(f, Is.False);};
+			Assert.That(m_model.MoveCharactersToGroup(characterIds, sourceGroup), Is.False);
+			Assert.That(affectedGroups, Is.Null);
+			Assert.That(m_model.UndoActions.Count, Is.EqualTo(0));
 		}
 
 		[Test]
@@ -294,15 +294,15 @@ namespace GlyssenEngineTests.ViewModelTests
 			sourceGroup.CharacterIds = new CharacterIdHashSet(characterIds);
 			sourceGroup.SetGroupIdLabel();
 			var destGroup = AddNewGroup("ear", "foot");
-			Assert.AreEqual(2, m_testProject.CharacterGroupList.CharacterGroups.Count);
+			Assert.That(m_testProject.CharacterGroupList.CharacterGroups.Count, Is.EqualTo(2));
 
 			List<CharacterGroup> affectedGroups = null;
-			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.IsFalse(f);};
-			Assert.True(m_model.MoveCharactersToGroup(characterIds, destGroup));
-			Assert.AreEqual(destGroup, affectedGroups.Single());
-			Assert.AreEqual(1, m_testProject.CharacterGroupList.CharacterGroups.Count);
-			Assert.IsTrue(destGroup.CharacterIds.SetEquals(new[] { "John", "Andrew", "ear", "foot" }));
-			Assert.AreEqual("Move characters to Man 2 group", m_model.UndoActions.Single());
+			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.That(f, Is.False);};
+			Assert.That(m_model.MoveCharactersToGroup(characterIds, destGroup), Is.True);
+			Assert.That(destGroup, Is.EqualTo(affectedGroups.Single()));
+			Assert.That(m_testProject.CharacterGroupList.CharacterGroups.Count, Is.EqualTo(1));
+			Assert.That(destGroup.CharacterIds.SetEquals(new[] { "John", "Andrew", "ear", "foot" }), Is.True);
+			Assert.That(m_model.UndoActions.Single(), Is.EqualTo("Move characters to Man 2 group"));
 		}
 
 		[Test]
@@ -314,7 +314,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var actor3 = new VoiceActor { Id = 3 };
 			m_testProject.VoiceActorList.AllActors = new List<VoiceActor> { actor1, actor2, actor3 };
 			List<CharacterGroup> affectedGroups = null;
-			m_model.Saved += (sender, affected, f) => { if (affected != null) affectedGroups = affected.ToList(); Assert.IsFalse(f);};
+			m_model.Saved += (sender, affected, f) => { if (affected != null) affectedGroups = affected.ToList(); Assert.That(f, Is.False);};
 			m_model.RegenerateGroups(() =>
 			{
 				// This test is just testing the behavior of "RegenerateGroups" which just runs the action given to it.
@@ -326,10 +326,10 @@ namespace GlyssenEngineTests.ViewModelTests
 				m_testProject.CharacterGroupList.CharacterGroups.AddRange(new[] { group1, group2, group3 });
 				m_model.AssignActorToGroup(2, group1);
 			});
-			Assert.AreEqual(3, m_testProject.CharacterGroupList.CharacterGroups.Count);
+			Assert.That(m_testProject.CharacterGroupList.CharacterGroups.Count, Is.EqualTo(3));
 			// TODO (PG-437): Check that correct groups are included in affectedGroups.
 			// For now, just check based on the undo item that "AssignActorToGroup" should put there.
-			Assert.IsTrue(affectedGroups.SetEquals(m_testProject.CharacterGroupList.GetGroupsAssignedToActor(2)));
+			Assert.That(affectedGroups.SetEquals(m_testProject.CharacterGroupList.GetGroupsAssignedToActor(2)), Is.True);
 		}
 
 		[Test]
@@ -339,17 +339,17 @@ namespace GlyssenEngineTests.ViewModelTests
 			var existingGroup = m_model.CharacterGroups[0];
 			existingGroup.CharacterIds = new CharacterIdHashSet(characterIds);
 
-			Assert.AreEqual(1, m_testProject.CharacterGroupList.CharacterGroups.Count);
+			Assert.That(m_testProject.CharacterGroupList.CharacterGroups.Count, Is.EqualTo(1));
 			var newGroup = m_model.SplitGroup(new List<string> {"John"});
-			Assert.IsNotNull(newGroup);
+			Assert.That(newGroup, Is.Not.Null);
 
-			Assert.AreEqual(2, m_testProject.CharacterGroupList.CharacterGroups.Count);
+			Assert.That(m_testProject.CharacterGroupList.CharacterGroups.Count, Is.EqualTo(2));
 
-			Assert.False(existingGroup == newGroup);
-			Assert.True(existingGroup.CharacterIds.Contains("Andrew"));
-			Assert.False(existingGroup.CharacterIds.Contains("John"));
-			Assert.True(newGroup.CharacterIds.Contains("John"));
-			Assert.AreEqual("Split group", m_model.UndoActions.Single());
+			Assert.That(existingGroup == newGroup, Is.False);
+			Assert.That(existingGroup.CharacterIds, Does.Contain("Andrew"));
+			Assert.That(existingGroup.CharacterIds, Does.Not.Contain("John"));
+			Assert.That(newGroup.CharacterIds, Does.Contain("John"));
+			Assert.That(m_model.UndoActions.Single(), Is.EqualTo("Split group"));
 		}
 
 		[Test]
@@ -359,20 +359,20 @@ namespace GlyssenEngineTests.ViewModelTests
 			var existingGroup = m_model.CharacterGroups[0];
 			existingGroup.CharacterIds = new CharacterIdHashSet(characterIds);
 
-			Assert.AreEqual(1, m_testProject.CharacterGroupList.CharacterGroups.Count);
+			Assert.That(m_testProject.CharacterGroupList.CharacterGroups.Count, Is.EqualTo(1));
 
 			var newGroup = m_model.SplitGroup(new List<string> {"John", "Peter"});
-			Assert.IsNotNull(newGroup);
+			Assert.That(newGroup, Is.Not.Null);
 
-			Assert.AreEqual(2, m_testProject.CharacterGroupList.CharacterGroups.Count);
+			Assert.That(m_testProject.CharacterGroupList.CharacterGroups.Count, Is.EqualTo(2));
 
-			Assert.False(existingGroup == newGroup);
-			Assert.True(existingGroup.CharacterIds.Contains("Andrew"));
-			Assert.False(existingGroup.CharacterIds.Contains("John"));
-			Assert.False(existingGroup.CharacterIds.Contains("Peter"));
-			Assert.True(newGroup.CharacterIds.Contains("John"));
-			Assert.True(newGroup.CharacterIds.Contains("Peter"));
-			Assert.AreEqual("Split group", m_model.UndoActions.Single());
+			Assert.That(existingGroup == newGroup, Is.False);
+			Assert.That(existingGroup.CharacterIds, Does.Contain("Andrew"));
+			Assert.That(existingGroup.CharacterIds, Does.Not.Contain("John"));
+			Assert.That(existingGroup.CharacterIds, Does.Not.Contain("Peter"));
+			Assert.That(newGroup.CharacterIds, Does.Contain("John"));
+			Assert.That(newGroup.CharacterIds, Does.Contain("Peter"));
+			Assert.That(m_model.UndoActions.Single(), Is.EqualTo("Split group"));
 		}
 
 		[Test]
@@ -387,10 +387,10 @@ namespace GlyssenEngineTests.ViewModelTests
 			generator.ApplyGeneratedGroupsToProject(false);
 
 			var actorList = m_model.GetActorsSortedByAvailabilityAndName(m_model.CharacterGroups[0]).ToList();
-			Assert.AreEqual(actorA, actorList[0].Item1);
-			Assert.AreEqual(actorB, actorList[1].Item1);
-			Assert.AreEqual(actorC, actorList[2].Item1);
-			Assert.IsTrue(actorList.Select(a => a.Item2).All(available => available));
+			Assert.That(actorA, Is.EqualTo(actorList[0].Item1));
+			Assert.That(actorB, Is.EqualTo(actorList[1].Item1));
+			Assert.That(actorC, Is.EqualTo(actorList[2].Item1));
+			Assert.That(actorList.Select(a => a.Item2).All(available => available), Is.True);
 		}
 
 		[Test]
@@ -407,23 +407,23 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.AssignActorToGroup(actorA.Id, group);
 
 			var actorList = m_model.GetActorsSortedByAvailabilityAndName(m_model.CharacterGroups[0]).ToList();
-			Assert.AreEqual(actorB, actorList[0].Item1);
-			Assert.IsTrue(actorList[0].Item2);
-			Assert.AreEqual(actorC, actorList[1].Item1);
-			Assert.IsTrue(actorList[1].Item2);
-			Assert.AreEqual(actorA, actorList[2].Item1);
-			Assert.IsFalse(actorList[2].Item2);
+			Assert.That(actorB, Is.EqualTo(actorList[0].Item1));
+			Assert.That(actorList[0].Item2, Is.True);
+			Assert.That(actorC, Is.EqualTo(actorList[1].Item1));
+			Assert.That(actorList[1].Item2, Is.True);
+			Assert.That(actorA, Is.EqualTo(actorList[2].Item1));
+			Assert.That(actorList[2].Item2, Is.False);
 		}
 
 		[Test]
 		public void NoteActorChanges_NoChanges_DoNothing()
 		{
-			Assert.AreEqual(0, m_model.UndoActions.Count);
+			Assert.That(m_model.UndoActions.Count, Is.EqualTo(0));
 			List<CharacterGroup> affectedGroups = null;
-			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.IsFalse(f);};
+			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.That(f, Is.False);};
 			m_model.NoteActorChanges(new IVoiceActorUndoAction[0]);
-			Assert.AreEqual(0, m_model.UndoActions.Count);
-			Assert.IsNull(affectedGroups);
+			Assert.That(m_model.UndoActions.Count, Is.EqualTo(0));
+			Assert.That(affectedGroups, Is.Null);
 		}
 
 		[Test]
@@ -432,12 +432,12 @@ namespace GlyssenEngineTests.ViewModelTests
 			var affectedActor = new VoiceActor { Id = 1, Name = "B", Age = ActorAge.Adult };
 			var replacedActor = new VoiceActor { Id = 1, Name = "B", Age = ActorAge.YoungAdult };
 			m_testProject.VoiceActorList.AllActors = new List<VoiceActor> { affectedActor };
-			Assert.AreEqual(0, m_model.UndoActions.Count);
+			Assert.That(m_model.UndoActions.Count, Is.EqualTo(0));
 			List<CharacterGroup> affectedGroups = null;
-			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.IsTrue(f); };
+			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.That(f, Is.True); };
 			m_model.NoteActorChanges(new IVoiceActorUndoAction[] { new VoiceActorEditUndoAction(m_testProject, replacedActor) });
-			Assert.AreEqual("Edit voice actor B", m_model.UndoActions.Single());
-			Assert.AreEqual(0, affectedGroups.Count);
+			Assert.That(m_model.UndoActions.Single(), Is.EqualTo("Edit voice actor B"));
+			Assert.That(affectedGroups.Count, Is.EqualTo(0));
 		}
 
 		[Test]
@@ -451,16 +451,16 @@ namespace GlyssenEngineTests.ViewModelTests
 			var affectedActor = new VoiceActor { Id = 1, Name = "B", Age = ActorAge.Adult };
 			var deletedActor = new VoiceActor { Id = 2, Name = "C" };
 			m_testProject.VoiceActorList.AllActors = new List<VoiceActor> { affectedActor };
-			Assert.AreEqual(0, m_model.UndoActions.Count);
+			Assert.That(m_model.UndoActions.Count, Is.EqualTo(0));
 			List<CharacterGroup> affectedGroups = null;
-			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.IsTrue(f);};
+			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.That(f, Is.True);};
 			m_model.NoteActorChanges(new IVoiceActorUndoAction[]
 			{
 				new VoiceActorEditUndoAction(m_testProject, replacedActor),
 				new VoiceActorDeletedUndoAction(m_testProject, deletedActor)
 			});
-			Assert.AreEqual("Edit voice actors", m_model.UndoActions.Single());
-			Assert.AreEqual(characterGroup, affectedGroups.Single());
+			Assert.That(m_model.UndoActions.Single(), Is.EqualTo("Edit voice actors"));
+			Assert.That(characterGroup, Is.EqualTo(affectedGroups.Single()));
 		}
 
 		// Started writing this test because I thought group assignments were not being cleared at all. When I realized that
@@ -497,7 +497,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			//	var unchangedActor = new GlyssenEngine.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.Adult };
 			//	var deletedActor = new GlyssenEngine.VoiceActor.VoiceActor { Id = 2, Name = "C" };
 			//	m_testProject.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor> { unchangedActor, modifiedActor };
-			//	Assert.AreEqual(0, m_model.UndoActions.Count);
+			//	Assert.That(m_model.UndoActions.Count, Is.EqualTo(0));
 			//	List<CharacterGroup> affectedGroups = null;
 			//	m_model.Saved += (sender, args) => { affectedGroups = args.ToList(); };
 			//	m_model.NoteActorChanges(new IVoiceActorUndoAction[]
@@ -505,8 +505,8 @@ namespace GlyssenEngineTests.ViewModelTests
 			//		new VoiceActorEditUndoAction(m_testProject, replacedActor),
 			//		new VoiceActorDeletedUndoAction(m_testProject, deletedActor)
 			//	});
-			//	Assert.AreEqual("Edit voice actors", m_model.UndoActions.Single());
-			//	Assert.AreEqual(characterGroup, affectedGroups.Single());
+			//	Assert.That(m_model.UndoActions.Single(), Is.EqualTo("Edit voice actors"));
+			//	Assert.That(characterGroup, Is.EqualTo(affectedGroups.Single()));
 		}
 
 		[Test]
@@ -521,32 +521,32 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void FindNextMatchingCharacter_NoMatches_ReturnsNegativeOneNegativeOne()
 		{
 			var result = m_model.FindNextMatchingCharacter("boogey-man", 0, 0);
-			Assert.AreEqual(-1, result.Item1);
-			Assert.AreEqual(-1, result.Item2);
+			Assert.That(-1, Is.EqualTo(result.Item1));
+			Assert.That(-1, Is.EqualTo(result.Item2));
 		}
 
 		[Test]
 		public void FindNextMatchingCharacter_ExactMatchWithOnlyCharacterInFirstGroup_ReturnsZeroZero()
 		{
 			var result = m_model.FindNextMatchingCharacter("John", 0, 0);
-			Assert.AreEqual(0, result.Item1);
-			Assert.AreEqual(0, result.Item2);
+			Assert.That(result.Item1, Is.EqualTo(0));
+			Assert.That(result.Item2, Is.EqualTo(0));
 		}
 
 		[Test]
 		public void FindNextMatchingCharacter_NegativeIndex_SearchStartsAtBeginning()
 		{
 			var result = m_model.FindNextMatchingCharacter("John", -1, -1);
-			Assert.AreEqual(0, result.Item1);
-			Assert.AreEqual(0, result.Item2);
+			Assert.That(result.Item1, Is.EqualTo(0));
+			Assert.That(result.Item2, Is.EqualTo(0));
 		}
 
 		[Test]
 		public void FindNextMatchingCharacter_IndexOutOfRange_SearchStartsAtBeginning()
 		{
 			var result = m_model.FindNextMatchingCharacter("John", 40, 40);
-			Assert.AreEqual(0, result.Item1);
-			Assert.AreEqual(0, result.Item2);
+			Assert.That(result.Item1, Is.EqualTo(0));
+			Assert.That(result.Item2, Is.EqualTo(0));
 		}
 
 		[Test]
@@ -556,8 +556,8 @@ namespace GlyssenEngineTests.ViewModelTests
 			AddNewGroup("Aaron", "John the Baptist", "Joshua");
 			AddNewGroup("Martha", "Rhoda");
 			var result = m_model.FindNextMatchingCharacter("John", 0, 0);
-			Assert.AreEqual(2, result.Item1);
-			Assert.AreEqual(1, result.Item2);
+			Assert.That(result.Item1, Is.EqualTo(2));
+			Assert.That(result.Item2, Is.EqualTo(1));
 		}
 
 		[Test]
@@ -567,19 +567,19 @@ namespace GlyssenEngineTests.ViewModelTests
 			AddNewGroup("Aaron", "John the Baptist", "Joshua");
 			AddNewGroup("Martha", "Miriam", "Rhoda");
 			var result = m_model.FindNextMatchingCharacter("am", 3, 1);
-			Assert.AreEqual(1, result.Item1);
-			Assert.AreEqual(0, result.Item2);
+			Assert.That(result.Item1, Is.EqualTo(1));
+			Assert.That(result.Item2, Is.EqualTo(0));
 			result = m_model.FindNextMatchingCharacter("am", result.Item1, result.Item2);
-			Assert.AreEqual(3, result.Item1);
-			Assert.AreEqual(1, result.Item2);
+			Assert.That(result.Item1, Is.EqualTo(3));
+			Assert.That(result.Item2, Is.EqualTo(1));
 		}
 
 		[Test]
 		public void FindNextMatchingCharacter_PartialMatchWithOnlyCharacterInFirstGroup_ReturnsZeroZero()
 		{
 			var result = m_model.FindNextMatchingCharacter("Joh", 0, 0);
-			Assert.AreEqual(0, result.Item1);
-			Assert.AreEqual(0, result.Item2);
+			Assert.That(result.Item1, Is.EqualTo(0));
+			Assert.That(result.Item2, Is.EqualTo(0));
 		}
 
 		[Test]
@@ -587,12 +587,12 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			var group = AddNewGroup("Amnon, son of David", "man delivered from Legion of demons", "Judas");
 			var newActor = m_model.AddNewActorToGroup("Friedrich", group);
-			Assert.AreEqual("Friedrich", newActor.Name);
-			Assert.AreEqual(0, newActor.Id);
+			Assert.That(newActor.Name, Is.EqualTo("Friedrich"));
+			Assert.That(newActor.Id, Is.EqualTo(0));
 			Assert.That(m_testProject.VoiceActorList.ActiveActors.Contains(newActor));
-			Assert.AreEqual(newActor, group.VoiceActor);
-			Assert.AreEqual(ActorGender.Male, newActor.Gender);
-			Assert.AreEqual(ActorAge.Adult, newActor.Age);
+			Assert.That(newActor, Is.EqualTo(group.VoiceActor));
+			Assert.That(ActorGender.Male, Is.EqualTo(newActor.Gender));
+			Assert.That(ActorAge.Adult, Is.EqualTo(newActor.Age));
 		}
 
 		[Test]
@@ -604,24 +604,24 @@ namespace GlyssenEngineTests.ViewModelTests
 			var newActor1 = m_model.AddNewActorToGroup("Friedrich", group1);
 			var newActor2 = m_model.AddNewActorToGroup("Wallace", group2);
 			var newActor3 = m_model.AddNewActorToGroup("Grommit", group3);
-			Assert.AreEqual("Friedrich", newActor1.Name);
-			Assert.AreEqual(0, newActor1.Id);
+			Assert.That(newActor1.Name, Is.EqualTo("Friedrich"));
+			Assert.That(newActor1.Id, Is.EqualTo(0));
 			Assert.That(m_testProject.VoiceActorList.ActiveActors.Contains(newActor1));
-			Assert.AreEqual(newActor1, group1.VoiceActor);
-			Assert.AreEqual(ActorGender.Male, newActor1.Gender);
-			Assert.AreEqual(ActorAge.Adult, newActor1.Age);
-			Assert.AreEqual("Wallace", newActor2.Name);
-			Assert.AreEqual(1, newActor2.Id);
+			Assert.That(newActor1, Is.EqualTo(group1.VoiceActor));
+			Assert.That(ActorGender.Male, Is.EqualTo(newActor1.Gender));
+			Assert.That(ActorAge.Adult, Is.EqualTo(newActor1.Age));
+			Assert.That(newActor2.Name, Is.EqualTo("Wallace"));
+			Assert.That(newActor2.Id, Is.EqualTo(1));
 			Assert.That(m_testProject.VoiceActorList.ActiveActors.Contains(newActor2));
-			Assert.AreEqual(newActor2, group2.VoiceActor);
-			Assert.AreEqual(ActorGender.Female, newActor2.Gender);
-			Assert.AreEqual(ActorAge.Adult, newActor2.Age);
-			Assert.AreEqual("Grommit", newActor3.Name);
-			Assert.AreEqual(2, newActor3.Id);
+			Assert.That(newActor2, Is.EqualTo(group2.VoiceActor));
+			Assert.That(ActorGender.Female, Is.EqualTo(newActor2.Gender));
+			Assert.That(ActorAge.Adult, Is.EqualTo(newActor2.Age));
+			Assert.That(newActor3.Name, Is.EqualTo("Grommit"));
+			Assert.That(newActor3.Id, Is.EqualTo(2));
 			Assert.That(m_testProject.VoiceActorList.ActiveActors.Contains(newActor3));
-			Assert.AreEqual(newActor3, group3.VoiceActor);
-			Assert.AreEqual(ActorGender.Male, newActor3.Gender);
-			Assert.AreEqual(ActorAge.Child, newActor3.Age);
+			Assert.That(newActor3, Is.EqualTo(group3.VoiceActor));
+			Assert.That(ActorGender.Male, Is.EqualTo(newActor3.Gender));
+			Assert.That(ActorAge.Child, Is.EqualTo(newActor3.Age));
 		}
 
 		private CharacterGroup AddNewGroup(params string[] characterIds)

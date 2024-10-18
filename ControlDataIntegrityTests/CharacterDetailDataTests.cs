@@ -35,13 +35,13 @@ namespace ControlDataIntegrityTests
 					continue;
 
 				var match = regex.Match(line);
-				Assert.IsTrue(match.Success, "Failed to match line: " + line);
+				Assert.That(match.Success, Is.True, "Failed to match line: " + line);
 
 				var matchResult = match.Result("$&");
-				Assert.IsTrue(set.Add(matchResult), "Duplicate line: " + matchResult);
+				Assert.That(set.Add(matchResult), Is.True, "Duplicate line: " + matchResult);
 
 				var extraSpacesMatch = extraSpacesRegex.Match(line);
-				Assert.IsFalse(extraSpacesMatch.Success, "Line with extra space(s): " + line);
+				Assert.That(extraSpacesMatch.Success, Is.False, "Line with extra space(s): " + line);
 			}
 		}
 
@@ -61,17 +61,17 @@ namespace ControlDataIntegrityTests
 					missingCharacters.Add(character);
 				}
 			}
-			Assert.False(missingCharacters.Any(c => !NarratorOverrides.Singleton.Books.SelectMany(b => b.Overrides.Select(o => o.Character)).Contains(c)),
+			Assert.That(missingCharacters.Where(c => !NarratorOverrides.Singleton.Books.SelectMany(b => b.Overrides.Select(o => o.Character)).Contains(c)),
+				Is.Empty,
 				"Characters in Character-Detail data but not in Character-Verse data or NarratorOverrides:" +
-				Environment.NewLine +
-				missingCharacters.OnePerLineWithIndent());
+				Environment.NewLine + missingCharacters.OnePerLineWithIndent());
 		}
 
 		[Test]
 		public void DataIntegrity_NoDuplicateCharacterIds()
 		{
 			var duplicateCharacterIds = CharacterDetailData.Singleton.GetAll().Select(d => d.CharacterId).FindDuplicates();
-			Assert.IsFalse(duplicateCharacterIds.Any(),
+			Assert.That(duplicateCharacterIds, Is.Empty,
 				"Duplicate character IDs in Character-Detail data:" +
 				Environment.NewLine +
 				duplicateCharacterIds.OnePerLineWithIndent());
@@ -82,7 +82,7 @@ namespace ControlDataIntegrityTests
 		public void DataIntegrity_FCBHCharacterIdNotEqualtoGlyssenCharacterId()
 		{
 			var unnecessary = CharacterDetailData.Singleton.GetAll().Where(d => d.CharacterId == d.DefaultFCBHCharacter).ToList();
-			Assert.IsFalse(unnecessary.Any(),
+			Assert.That(unnecessary, Is.Empty,
 				"No need to specify FCBH character ID in Character-Detail data if it matches Glyssen character ID:" +
 				Environment.NewLine +
 				unnecessary.Select(d => d.CharacterId).OnePerLineWithIndent());
@@ -97,7 +97,7 @@ namespace ControlDataIntegrityTests
 					(d.Age == CharacterAge.Adult || d.Age == CharacterAge.Elder) &&
 					d.DefaultFCBHCharacter != null &&
 					!d.DefaultFCBHCharacter.EndsWith(" (female)")).ToList();
-			Assert.IsFalse(missingFemaleSuffix.Any(),
+			Assert.That(missingFemaleSuffix, Is.Empty,
 				"Missing \" (female)\" suffix on FCBH character ID in Character-Detail data:" +
 				Environment.NewLine +
 				missingFemaleSuffix.Select(d => $"{d.CharacterId} => {d.DefaultFCBHCharacter}").OnePerLineWithIndent());
@@ -112,7 +112,7 @@ namespace ControlDataIntegrityTests
 					d.DefaultFCBHCharacter != null &&
 					(!d.DefaultFCBHCharacter.EndsWith(" (girl)") &&
 						!d.DefaultFCBHCharacter.EndsWith(" (female)"))).ToList();
-			Assert.IsFalse(missingGirlSuffix.Any(),
+			Assert.That(missingGirlSuffix, Is.Empty,
 				"Missing \" (girl)\" suffix on FCBH character ID in Character-Detail data:" +
 				Environment.NewLine +
 				missingGirlSuffix.Select(d => $"{d.CharacterId} => {d.DefaultFCBHCharacter}").OnePerLineWithIndent());
@@ -127,7 +127,7 @@ namespace ControlDataIntegrityTests
 					d.DefaultFCBHCharacter != null &&
 					(!d.DefaultFCBHCharacter.EndsWith(" (young girl)") &&
 					!d.DefaultFCBHCharacter.EndsWith(" Girl (female)"))).ToList();
-			Assert.IsFalse(missingGirlSuffix.Any(),
+			Assert.That(missingGirlSuffix, Is.Empty,
 				"Missing \" (young girl)\" suffix on FCBH character ID in Character-Detail data:" +
 				Environment.NewLine +
 				missingGirlSuffix.Select(d => $"{d.CharacterId} => {d.DefaultFCBHCharacter}").OnePerLineWithIndent());
@@ -138,7 +138,7 @@ namespace ControlDataIntegrityTests
 		{
 			var bogusReferenceComment = CharacterDetailData.Singleton.GetAll()
 				.Where(d => d.FirstReference?.BBCCCVVV > d.LastReference?.BBCCCVVV).ToList();
-			Assert.IsFalse(bogusReferenceComment.Any(),
+			Assert.That(bogusReferenceComment, Is.Empty,
 				"ReferenceComment in Character-Detail data has references out of canonical order:" +
 				Environment.NewLine +
 				bogusReferenceComment.Select(d => $"{d.CharacterId}: {d.ReferenceComment}").OnePerLineWithIndent());

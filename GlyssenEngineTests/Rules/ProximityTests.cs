@@ -48,11 +48,11 @@ namespace GlyssenEngineTests.Rules
 
 			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.AreEqual(MaxValue, minProximity.NumberOfBlocks);
-			Assert.AreEqual("Jesus", minProximity.FirstCharacterId);
-			Assert.AreEqual("Jesus", minProximity.SecondCharacterId);
-			Assert.AreEqual("MRK 1:17", minProximity.FirstReference);
-			Assert.AreEqual("MRK 1:17", minProximity.SecondReference);
+			Assert.That(MaxValue, Is.EqualTo(minProximity.NumberOfBlocks));
+			Assert.That(minProximity.FirstCharacterId, Is.EqualTo("Jesus"));
+			Assert.That(minProximity.SecondCharacterId, Is.EqualTo("Jesus"));
+			Assert.That(minProximity.FirstReference, Is.EqualTo("MRK 1:17"));
+			Assert.That(minProximity.SecondReference, Is.EqualTo("MRK 1:17"));
 
 		}
 
@@ -67,11 +67,11 @@ namespace GlyssenEngineTests.Rules
 
 			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.AreEqual(0, minProximity.NumberOfBlocks);
-			Assert.AreEqual("narrator-MRK", minProximity.FirstCharacterId);
-			Assert.AreEqual("Jesus", minProximity.SecondCharacterId);
-			Assert.AreEqual("MRK 1:16", minProximity.FirstReference);
-			Assert.AreEqual("MRK 1:17", minProximity.SecondReference);
+			Assert.That(minProximity.NumberOfBlocks, Is.EqualTo(0));
+			Assert.That(minProximity.FirstCharacterId, Is.EqualTo("narrator-MRK"));
+			Assert.That(minProximity.SecondCharacterId, Is.EqualTo("Jesus"));
+			Assert.That(minProximity.FirstReference, Is.EqualTo("MRK 1:16"));
+			Assert.That(minProximity.SecondReference, Is.EqualTo("MRK 1:17"));
 		}
 
 		[Test]
@@ -86,11 +86,11 @@ namespace GlyssenEngineTests.Rules
 
 			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.Greater(minProximity.NumberOfBlocks, 0);
-			Assert.AreEqual("demons (Legion)", minProximity.FirstCharacterId);
-			Assert.AreEqual("woman, bleeding for twelve years", minProximity.SecondCharacterId);
-			Assert.AreEqual("MRK 5:12", minProximity.FirstReference);
-			Assert.AreEqual("MRK 5:28", minProximity.SecondReference);
+			Assert.That(minProximity.NumberOfBlocks, Is.GreaterThan(0));
+			Assert.That(minProximity.FirstCharacterId, Is.EqualTo("demons (Legion)"));
+			Assert.That(minProximity.SecondCharacterId, Is.EqualTo("woman, bleeding for twelve years"));
+			Assert.That(minProximity.FirstReference, Is.EqualTo("MRK 5:12"));
+			Assert.That(minProximity.SecondReference, Is.EqualTo("MRK 5:28"));
 		}
 
 		[Test]
@@ -104,12 +104,12 @@ namespace GlyssenEngineTests.Rules
 
 			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.AreEqual(1, minProximity.NumberOfBlocks);
-			//Assert.AreEqual("Ka lupwony-cik mogo, ma onoŋo gibedo kunnu, gubedo ka pyem kekengi wa i cwinygi ni, ".Length, minProximity.NumberOfKeystrokes);
-			Assert.AreEqual("Jesus", minProximity.FirstCharacterId);
-			Assert.AreEqual("teachers of religious law", minProximity.SecondCharacterId);
-			Assert.AreEqual("MRK 2:5", minProximity.FirstReference);
-			Assert.AreEqual("MRK 2:7", minProximity.SecondReference);
+			Assert.That(minProximity.NumberOfBlocks, Is.EqualTo(1));
+			//Assert.That("Ka lupwony-cik mogo, Is.EqualTo(ma onoŋo gibedo kunnu, gubedo ka pyem kekengi wa i cwinygi ni, ".Length, minProximity.NumberOfKeystrokes));
+			Assert.That(minProximity.FirstCharacterId, Is.EqualTo("Jesus"));
+			Assert.That(minProximity.SecondCharacterId, Is.EqualTo("teachers of religious law"));
+			Assert.That(minProximity.FirstReference, Is.EqualTo("MRK 2:5"));
+			Assert.That(minProximity.SecondReference, Is.EqualTo("MRK 2:7"));
 		}
 
 		[Test]
@@ -123,13 +123,13 @@ namespace GlyssenEngineTests.Rules
 
 			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.AreEqual(3, minProximity.NumberOfBlocks);
+			Assert.That(minProximity.NumberOfBlocks, Is.EqualTo(3));
 			//Assert.AreEqual("Ka Yecu oneno lwak giriŋo gibino bote, ogerre i wi cen marac, kun wacce ni, “In cen ma pe loko-ni, ma iti odiŋ-ŋi, aciki ni, a woko ki i kom awobi-nu, pe dok idwog i kome matwal.” En okok, ci ocako ryene aryeya ki tek, ka oa woko i kome. Awobi-nu koŋ obedo macalo dano muto, omiyo jo mapol doggi ocer ni, "
 			//	.Length, minProximity.NumberOfKeystrokes);
-			Assert.AreEqual("father of demon-possessed boy", minProximity.FirstCharacterId);
-			Assert.AreEqual("many in crowd", minProximity.SecondCharacterId);
-			Assert.AreEqual("MRK 9:24", minProximity.FirstReference);
-			Assert.AreEqual("MRK 9:26", minProximity.SecondReference);
+			Assert.That(minProximity.FirstCharacterId, Is.EqualTo("father of demon-possessed boy"));
+			Assert.That(minProximity.SecondCharacterId, Is.EqualTo("many in crowd"));
+			Assert.That(minProximity.FirstReference, Is.EqualTo("MRK 9:24"));
+			Assert.That(minProximity.SecondReference, Is.EqualTo("MRK 9:26"));
 		}
 
 		[Test]
@@ -143,11 +143,11 @@ namespace GlyssenEngineTests.Rules
 
 			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.AreEqual(MaxValue, minProximity.NumberOfBlocks);
-			Assert.AreEqual("Caiaphas, the high priest", minProximity.FirstCharacterId);
-			Assert.AreEqual("Caiaphas, the high priest", minProximity.SecondCharacterId);
-			Assert.AreEqual("MRK 14:60", minProximity.FirstReference);
-			Assert.AreEqual("MRK 14:60", minProximity.SecondReference);
+			Assert.That(MaxValue, Is.EqualTo(minProximity.NumberOfBlocks));
+			Assert.That(minProximity.FirstCharacterId, Is.EqualTo("Caiaphas, the high priest"));
+			Assert.That(minProximity.SecondCharacterId, Is.EqualTo("Caiaphas, the high priest"));
+			Assert.That(minProximity.FirstReference, Is.EqualTo("MRK 14:60"));
+			Assert.That(minProximity.SecondReference, Is.EqualTo("MRK 14:60"));
 		}
 
 		[Test]
@@ -161,13 +161,13 @@ namespace GlyssenEngineTests.Rules
 
 			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.AreEqual(2, minProximity.NumberOfBlocks);
+			Assert.That(minProximity.NumberOfBlocks, Is.EqualTo(2));
 			//Assert.AreEqual("Gin ducu guŋolo lokke ni, balle romme to. Jo mukene gucako ŋulo laa i kome, kun giumo waŋe woko, ka gidoŋe kwede, ma kun giwacci, "
 			//	.Length, minProximity.NumberOfKeystrokes);
-			Assert.AreEqual("Caiaphas, the high priest (old)", minProximity.FirstCharacterId);
-			Assert.AreEqual("chief priests", minProximity.SecondCharacterId);
-			Assert.AreEqual("MRK 14:63", minProximity.FirstReference);
-			Assert.AreEqual("MRK 14:65", minProximity.SecondReference);
+			Assert.That(minProximity.FirstCharacterId, Is.EqualTo("Caiaphas, the high priest (old)"));
+			Assert.That(minProximity.SecondCharacterId, Is.EqualTo("chief priests"));
+			Assert.That(minProximity.FirstReference, Is.EqualTo("MRK 14:63"));
+			Assert.That(minProximity.SecondReference, Is.EqualTo("MRK 14:65"));
 		}
 
 		[Test]
@@ -192,11 +192,11 @@ namespace GlyssenEngineTests.Rules
 
 			MinimumProximity minProximity = proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.AreEqual(0, minProximity.NumberOfBlocks);
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter), minProximity.FirstCharacterId);
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical), minProximity.SecondCharacterId);
-			Assert.AreEqual("MRK 1:0", minProximity.FirstReference);
-			Assert.AreEqual("MRK 1:0", minProximity.SecondReference);
+			Assert.That(minProximity.NumberOfBlocks, Is.EqualTo(0));
+			Assert.That(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter), Is.EqualTo(minProximity.FirstCharacterId));
+			Assert.That(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical), Is.EqualTo(minProximity.SecondCharacterId));
+			Assert.That(minProximity.FirstReference, Is.EqualTo("MRK 1:0"));
+			Assert.That(minProximity.SecondReference, Is.EqualTo("MRK 1:0"));
 		}
 
 		[Test]
@@ -211,11 +211,11 @@ namespace GlyssenEngineTests.Rules
 
 			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.AreEqual(MaxValue, minProximity.NumberOfBlocks);
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter), minProximity.FirstCharacterId);
-			Assert.AreEqual(minProximity.FirstCharacterId, minProximity.SecondCharacterId);
-			Assert.AreEqual("MRK 0:0", minProximity.FirstReference);
-			Assert.AreEqual(minProximity.FirstReference, minProximity.SecondReference);
+			Assert.That(MaxValue, Is.EqualTo(minProximity.NumberOfBlocks));
+			Assert.That(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter), Is.EqualTo(minProximity.FirstCharacterId));
+			Assert.That(minProximity.FirstCharacterId, Is.EqualTo(minProximity.SecondCharacterId));
+			Assert.That(minProximity.FirstReference, Is.EqualTo("MRK 0:0"));
+			Assert.That(minProximity.FirstReference, Is.EqualTo(minProximity.SecondReference));
 		}
 
 		[Test]
@@ -244,7 +244,7 @@ namespace GlyssenEngineTests.Rules
 
 			MinimumProximity minProximity = proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.AreEqual(MaxValue, minProximity.NumberOfBlocks);
+			Assert.That(MaxValue, Is.EqualTo(minProximity.NumberOfBlocks));
 		}
 
 		[Test]
@@ -273,7 +273,7 @@ namespace GlyssenEngineTests.Rules
 
 			MinimumProximity minProximity = proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.AreEqual(MaxValue, minProximity.NumberOfBlocks);
+			Assert.That(MaxValue, Is.EqualTo(minProximity.NumberOfBlocks));
 		}
 
 		[Test]
@@ -307,7 +307,7 @@ namespace GlyssenEngineTests.Rules
 
 			MinimumProximity minProximity = proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.AreEqual(MaxValue, minProximity.NumberOfBlocks);
+			Assert.That(MaxValue, Is.EqualTo(minProximity.NumberOfBlocks));
 		}
 	}
 }

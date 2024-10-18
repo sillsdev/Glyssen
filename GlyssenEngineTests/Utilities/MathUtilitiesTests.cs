@@ -9,82 +9,82 @@ namespace GlyssenEngineTests.Utilities
 		[Test]
 		public void Percent_ResultCalculatesCorrectly()
 		{
-			Assert.AreEqual(50, MathUtilities.Percent(1, 2));
+			Assert.That(MathUtilities.Percent(1, 2), Is.EqualTo(50));
 		}
 
 		[Test]
 		public void PercentAsDouble_ResultCalculatesCorrectly()
 		{
-			Assert.AreEqual(50d, MathUtilities.PercentAsDouble(1, 2));
+			Assert.That(50d, Is.EqualTo(MathUtilities.PercentAsDouble(1, 2)));
 		}
 
 		[Test]
 		public void PercentAsDouble_ResultNotMoreThanMax()
 		{
 			int max = 99;
-			Assert.AreEqual((double)max, MathUtilities.PercentAsDouble(1, 1, max));
+			Assert.That((double)max, Is.EqualTo(MathUtilities.PercentAsDouble(1, 1, max)));
 		}
 
 		[Test]
 		public void PercentAsDouble_AllowsResultGreaterThan100()
 		{
-			Assert.AreEqual(200d, MathUtilities.PercentAsDouble(2, 1, 0));
+			Assert.That(200d, Is.EqualTo(MathUtilities.PercentAsDouble(2, 1, 0)));
 		}
 
 		[Test]
 		public void PercentAsDouble_DenominatorIs0_InsteadOfDivideBy0ReturnsMaxOr100()
 		{
-			Assert.AreEqual(99d, MathUtilities.PercentAsDouble(1, 0, 99));
-			Assert.AreEqual(100d, MathUtilities.PercentAsDouble(1, 0, 0));
-			Assert.AreEqual(100d, MathUtilities.PercentAsDouble(1, 0));
+			Assert.That(99d, Is.EqualTo(MathUtilities.PercentAsDouble(1, 0, 99)));
+			Assert.That(100d, Is.EqualTo(MathUtilities.PercentAsDouble(1, 0, 0)));
+			Assert.That(100d, Is.EqualTo(MathUtilities.PercentAsDouble(1, 0)));
 		}
 
 		[Test]
 		public void PercentAsDouble_NumeratorAndDenominatorBoth0_Returns0()
 		{
-			Assert.AreEqual(0d, MathUtilities.PercentAsDouble(0, 0, 99));
-			Assert.AreEqual(0d, MathUtilities.PercentAsDouble(0, 0, 0));
-			Assert.AreEqual(0d, MathUtilities.PercentAsDouble(0, 0));
+			Assert.That(0d, Is.EqualTo(MathUtilities.PercentAsDouble(0, 0, 99)));
+			Assert.That(0d, Is.EqualTo(MathUtilities.PercentAsDouble(0, 0, 0)));
+			Assert.That(0d, Is.EqualTo(MathUtilities.PercentAsDouble(0, 0)));
 		}
 
 		[Test]
 		public void FormattedPercent_IntegralPercent_MinimumDecimalPlaces()
 		{
-			Assert.AreEqual("99%", MathUtilities.FormattedPercent(99, 0, 13));
-			Assert.AreEqual("99.00%", MathUtilities.FormattedPercent(99, 2, 13));
-			Assert.AreEqual("100%", MathUtilities.FormattedPercent(100, 0, 1));
-			Assert.AreEqual("100.0%", MathUtilities.FormattedPercent(100, 1, 5, false));
-			Assert.AreEqual("100%", MathUtilities.FormattedPercent(100, 1, 5));
+			Assert.That(MathUtilities.FormattedPercent(99, 0, 13), Is.EqualTo("99%"));
+			Assert.That(MathUtilities.FormattedPercent(99, 2, 13), Is.EqualTo("99.00%"));
+			Assert.That(MathUtilities.FormattedPercent(100, 0, 1), Is.EqualTo("100%"));
+			Assert.That(MathUtilities.FormattedPercent(100, 1, 5, false), Is.EqualTo("100.0%"));
+			Assert.That(MathUtilities.FormattedPercent(100, 1, 5), Is.EqualTo("100%"));
 		}
 
 		[Test]
 		public void FormattedPercent_NumbersThatDoNotRoundTo100Percent_NormalRounding()
 		{
-			Assert.AreEqual("99.9%", MathUtilities.FormattedPercent(99.9, 1, 3));
-			Assert.AreEqual("99.9%", MathUtilities.FormattedPercent(99.949, 1, 3));
-			Assert.AreEqual("98.00%", MathUtilities.FormattedPercent(97.999, 2, 13));
-			Assert.AreEqual("97.999%", MathUtilities.FormattedPercent(97.999, 3, 6));
-			Assert.AreEqual("99.999%", MathUtilities.FormattedPercent(99.9994, 3, 5));
+			Assert.That(MathUtilities.FormattedPercent(99.9, 1, 3), Is.EqualTo("99.9%"));
+			Assert.That(MathUtilities.FormattedPercent(99.949, 1, 3), Is.EqualTo("99.9%"));
+			Assert.That(MathUtilities.FormattedPercent(97.999, 2, 13), Is.EqualTo("98.00%"));
+			Assert.That(MathUtilities.FormattedPercent(97.999, 3, 6), Is.EqualTo("97.999%"));
+			Assert.That(MathUtilities.FormattedPercent(99.9994, 3, 5), Is.EqualTo("99.999%"));
 		}
 
 		[Test]
 		public void FormattedPercent_NumbersThatRequireAdditionalPrecisionToNotRoundTo100Percent_ExtraPrecisionUsed()
 		{
-			Assert.AreEqual("99.9%", MathUtilities.FormattedPercent(99.9, 0, 3));
-			Assert.AreEqual("99.9%", MathUtilities.FormattedPercent(99.949, 0, 3));
-			Assert.AreEqual("99.999%", MathUtilities.FormattedPercent(99.999, 1, 13));
-			Assert.AreEqual("99.999%", MathUtilities.FormattedPercent(99.9994, 1, 13));
-			Assert.AreEqual("99.999999%", MathUtilities.FormattedPercent(99.9999994, 1, 6));
+			Assert.That(MathUtilities.FormattedPercent(99.9, 0, 3), Is.EqualTo("99.9%"));
+			Assert.That(MathUtilities.FormattedPercent(99.949, 0, 3), Is.EqualTo("99.9%"));
+			Assert.That(MathUtilities.FormattedPercent(99.999, 1, 13), Is.EqualTo("99.999%"));
+			Assert.That(MathUtilities.FormattedPercent(99.9994, 1, 13), Is.EqualTo("99.999%"));
+			Assert.That(MathUtilities.FormattedPercent(99.9999994, 1, 6), Is.EqualTo("99.999999%"));
 		}
 
 		[Test]
 		public void FormattedPercent_NumbersThatRoundTo100Percent_Truncate()
 		{
-			Assert.AreEqual("99%", MathUtilities.FormattedPercent(99.9, 0, 0));
-			Assert.AreEqual("99.9%", MathUtilities.FormattedPercent(99.95, 0, 1));
-			Assert.AreEqual("99.99%", MathUtilities.FormattedPercent(99.999, 1, 2));
-			Assert.AreEqual("99.9999%", MathUtilities.FormattedPercent(99.99999, 1, 4));
-			Assert.AreEqual("99.999999%", MathUtilities.FormattedPercent(99.9999995, 1, 6));
+			Assert.That(MathUtilities.FormattedPercent(99.9, 0, 0), Is.EqualTo("99%"));
+			Assert.That(MathUtilities.FormattedPercent(99.95, 0, 1), Is.EqualTo("99.9%"));
+			Assert.That(MathUtilities.FormattedPercent(99.999, 1, 2), Is.EqualTo("99.99%"));
+			Assert.That(MathUtilities.FormattedPercent(99.99999, 1, 4), Is.EqualTo("99.9999%"));
+			Assert.That(MathUtilities.FormattedPercent(99.9999995, 1, 6), Is.EqualTo("99.999999%"));
 		}
 	}
 }

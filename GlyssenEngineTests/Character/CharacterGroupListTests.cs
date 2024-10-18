@@ -29,7 +29,7 @@ namespace GlyssenEngineTests.Character
 			var group = new CharacterGroup(m_project);
 			list.CharacterGroups.Add(group);
 
-			Assert.IsFalse(list.AnyVoiceActorAssigned());
+			Assert.That(list.AnyVoiceActorAssigned(), Is.False);
 		}
 
 		[Test]
@@ -40,7 +40,7 @@ namespace GlyssenEngineTests.Character
 			group.AssignVoiceActor(0);
 			list.CharacterGroups.Add(group);
 
-			Assert.IsTrue(list.AnyVoiceActorAssigned());
+			Assert.That(list.AnyVoiceActorAssigned(), Is.True);
 		}
 		[Test]
 		public void HasVoiceActorAssigned_NoneAssigned_ReturnsFalse()
@@ -49,7 +49,7 @@ namespace GlyssenEngineTests.Character
 			var group = new CharacterGroup(m_project);
 			list.CharacterGroups.Add(group);
 
-			Assert.IsFalse(list.HasVoiceActorAssigned(1));
+			Assert.That(list.HasVoiceActorAssigned(1), Is.False);
 		}
 
 		[Test]
@@ -60,7 +60,7 @@ namespace GlyssenEngineTests.Character
 			group.AssignVoiceActor(0);
 			list.CharacterGroups.Add(group);
 
-			Assert.IsFalse(list.HasVoiceActorAssigned(1));
+			Assert.That(list.HasVoiceActorAssigned(1), Is.False);
 		}
 
 		[Test]
@@ -71,7 +71,7 @@ namespace GlyssenEngineTests.Character
 			group.AssignVoiceActor(1);
 			list.CharacterGroups.Add(group);
 
-			Assert.IsTrue(list.HasVoiceActorAssigned(1));
+			Assert.That(list.HasVoiceActorAssigned(1), Is.True);
 		}
 
 		[Test]
@@ -93,8 +93,8 @@ namespace GlyssenEngineTests.Character
 
 			list.RemoveVoiceActor(1);
 
-			Assert.IsFalse(list.HasVoiceActorAssigned(1));
-			Assert.IsTrue(list.HasVoiceActorAssigned(2));
+			Assert.That(list.HasVoiceActorAssigned(1), Is.False);
+			Assert.That(list.HasVoiceActorAssigned(2), Is.True);
 		}
 	}
 }

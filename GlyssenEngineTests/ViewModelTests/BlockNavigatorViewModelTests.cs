@@ -48,24 +48,24 @@ namespace GlyssenEngineTests.ViewModelTests
 		[Test]
 		public void Constructor_FirstQuoteIsUnexpected_FirstUnexpectedBlockLoaded()
 		{
-			Assert.AreEqual("MRK", m_model.CurrentBookId);
-			Assert.AreEqual(1, m_model.CurrentBlock.ChapterNumber);
-			Assert.AreEqual(2, m_model.CurrentBlock.InitialStartVerseNumber);
+			Assert.That(m_model.CurrentBookId, Is.EqualTo("MRK"));
+			Assert.That(m_model.CurrentBlock.ChapterNumber, Is.EqualTo(1));
+			Assert.That(m_model.CurrentBlock.InitialStartVerseNumber, Is.EqualTo(2));
 		}
 
 		[Test]
 		public void LoadNextRelevantBlock_DataHasSomeContinuationBlocksNeedingAssignment_ContinuationBlocksNeverGetLoaded()
 		{
-			Assert.IsTrue(m_testProject.IncludedBooks.SelectMany(b => b.Blocks).Any(b => b.CharacterIsUnclear && b.MultiBlockQuote == MultiBlockQuote.Continuation),
+			Assert.That(m_testProject.IncludedBooks.SelectMany(b => b.Blocks).Any(b => b.CharacterIsUnclear && b.MultiBlockQuote == MultiBlockQuote.Continuation), Is.True,
 				"Test data does not have the required characteristics. Need at least one unassigned block that is a continuation of a quote from earlier paragraph.");
 
 			do
 			{
-				Assert.IsFalse(m_model.CurrentBlock.MultiBlockQuote == MultiBlockQuote.Continuation);
+				Assert.That(m_model.CurrentBlock.MultiBlockQuote == MultiBlockQuote.Continuation, Is.False);
 				m_model.LoadNextRelevantBlock();
 			} while (!m_model.CanNavigateToNextRelevantBlock);
 
-			Assert.IsFalse(m_model.CurrentBlock.MultiBlockQuote == MultiBlockQuote.Continuation);
+			Assert.That(m_model.CurrentBlock.MultiBlockQuote == MultiBlockQuote.Continuation, Is.False);
 		}
 
 		[Test]
@@ -78,7 +78,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				if (m_model.CurrentReferenceTextMatchup != null)
 				{
 					if (blocksInPreviousRainbowGroup != null)
-						Assert.IsFalse(blocksInPreviousRainbowGroup.Intersect(m_model.CurrentReferenceTextMatchup.OriginalBlocks).Any());
+						Assert.That(blocksInPreviousRainbowGroup.Intersect(m_model.CurrentReferenceTextMatchup.OriginalBlocks).Any(), Is.False);
 					blocksInPreviousRainbowGroup = new HashSet<Block>(m_model.CurrentReferenceTextMatchup.OriginalBlocks);
 				}
 				else
@@ -92,15 +92,15 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void LoadNextRelevantBlockInSubsequentBook_HasFurtherBooks_HasNoFurtherRelevantBlocks_CallingMethodDoesNothing()
 		{
 			// Validate our setup
-			Assert.AreEqual(2, m_testProject.IncludedBooks.Count);
+			Assert.That(m_testProject.IncludedBooks.Count, Is.EqualTo(2));
 			while (m_model.CanNavigateToNextRelevantBlock)
 				m_model.LoadNextRelevantBlock();
-			Assert.AreEqual(m_testProject.IncludedBooks[0].BookId, m_model.CurrentBookId);
+			Assert.That(m_testProject.IncludedBooks[0].BookId, Is.EqualTo(m_model.CurrentBookId));
 
 			// Run test
 			var currentBlockBeforeCall = m_model.CurrentBlock;
 			m_model.LoadNextRelevantBlockInSubsequentBook();
-			Assert.AreEqual(currentBlockBeforeCall, m_model.CurrentBlock);
+			Assert.That(currentBlockBeforeCall, Is.EqualTo(m_model.CurrentBlock));
 		}
 
 		[Test]
@@ -115,7 +115,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				if (m_model.CurrentReferenceTextMatchup != null)
 				{
 					if (blocksInFollowingRainbowGroup != null)
-						Assert.IsFalse(blocksInFollowingRainbowGroup.Intersect(m_model.CurrentReferenceTextMatchup.OriginalBlocks).Any());
+						Assert.That(blocksInFollowingRainbowGroup.Intersect(m_model.CurrentReferenceTextMatchup.OriginalBlocks).Any(), Is.False);
 					blocksInFollowingRainbowGroup = new HashSet<Block>(m_model.CurrentReferenceTextMatchup.OriginalBlocks);
 				}
 				else
@@ -133,10 +133,10 @@ namespace GlyssenEngineTests.ViewModelTests
 			var block = m_model.CurrentBlock;
 
 			m_model.SetMode(BlocksToDisplay.NotAssignedAutomatically);
-			Assert.AreEqual(block, m_model.CurrentBlock);
+			Assert.That(block, Is.EqualTo(m_model.CurrentBlock));
 
 			m_model.SetMode(BlocksToDisplay.NotYetAssigned);
-			Assert.AreEqual(block, m_model.CurrentBlock);
+			Assert.That(block, Is.EqualTo(m_model.CurrentBlock));
 		}
 
 		[Test]
@@ -145,34 +145,34 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.SetMode(BlocksToDisplay.MissingExpectedQuote);
 
 			// Missing quote is for verse 20
-			Assert.AreEqual("MRK", m_model.CurrentBookId);
-			Assert.AreEqual(1, m_model.CurrentBlock.ChapterNumber);
-			Assert.AreEqual(18, m_model.CurrentBlock.InitialStartVerseNumber);
-			Assert.AreEqual(20, m_model.CurrentBlock.LastVerseNum);
+			Assert.That(m_model.CurrentBookId, Is.EqualTo("MRK"));
+			Assert.That(m_model.CurrentBlock.ChapterNumber, Is.EqualTo(1));
+			Assert.That(m_model.CurrentBlock.InitialStartVerseNumber, Is.EqualTo(18));
+			Assert.That(m_model.CurrentBlock.LastVerseNum, Is.EqualTo(20));
 
 			m_model.LoadNextRelevantBlock();
 
 			// Missing quote is for verse 30
-			Assert.AreEqual("MRK", m_model.CurrentBookId);
-			Assert.AreEqual(1, m_model.CurrentBlock.ChapterNumber);
-			Assert.AreEqual(29, m_model.CurrentBlock.InitialStartVerseNumber);
-			Assert.AreEqual(31, m_model.CurrentBlock.LastVerseNum);
+			Assert.That(m_model.CurrentBookId, Is.EqualTo("MRK"));
+			Assert.That(m_model.CurrentBlock.ChapterNumber, Is.EqualTo(1));
+			Assert.That(m_model.CurrentBlock.InitialStartVerseNumber, Is.EqualTo(29));
+			Assert.That(m_model.CurrentBlock.LastVerseNum, Is.EqualTo(31));
 
 			m_model.LoadNextRelevantBlock();
 
 			// Missing quote is for verse 15
-			Assert.AreEqual("MRK", m_model.CurrentBookId);
-			Assert.AreEqual(2, m_model.CurrentBlock.ChapterNumber);
-			Assert.AreEqual(15, m_model.CurrentBlock.InitialStartVerseNumber);
-			Assert.AreEqual(16, m_model.CurrentBlock.LastVerseNum);
+			Assert.That(m_model.CurrentBookId, Is.EqualTo("MRK"));
+			Assert.That(m_model.CurrentBlock.ChapterNumber, Is.EqualTo(2));
+			Assert.That(m_model.CurrentBlock.InitialStartVerseNumber, Is.EqualTo(15));
+			Assert.That(m_model.CurrentBlock.LastVerseNum, Is.EqualTo(16));
 
 			m_model.LoadNextRelevantBlock();
 
 			// Missing quote is for verse 9
-			Assert.AreEqual("MRK", m_model.CurrentBookId);
-			Assert.AreEqual(3, m_model.CurrentBlock.ChapterNumber);
-			Assert.AreEqual(7, m_model.CurrentBlock.InitialStartVerseNumber);
-			Assert.AreEqual(11, m_model.CurrentBlock.LastVerseNum);
+			Assert.That(m_model.CurrentBookId, Is.EqualTo("MRK"));
+			Assert.That(m_model.CurrentBlock.ChapterNumber, Is.EqualTo(3));
+			Assert.That(m_model.CurrentBlock.InitialStartVerseNumber, Is.EqualTo(7));
+			Assert.That(m_model.CurrentBlock.LastVerseNum, Is.EqualTo(11));
 		}
 
 		[Test]
@@ -180,9 +180,9 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			m_model.SetMode(BlocksToDisplay.MoreQuotesThanExpectedSpeakers);
 
-			Assert.AreEqual("MRK", m_model.CurrentBookId);
-			Assert.AreEqual(1, m_model.CurrentBlock.ChapterNumber);
-			Assert.AreEqual(2, m_model.CurrentBlock.InitialStartVerseNumber);
+			Assert.That(m_model.CurrentBookId, Is.EqualTo("MRK"));
+			Assert.That(m_model.CurrentBlock.ChapterNumber, Is.EqualTo(1));
+			Assert.That(m_model.CurrentBlock.InitialStartVerseNumber, Is.EqualTo(2));
 			FindRefInMark(2, 5);
 		}
 
@@ -199,7 +199,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			m_model.SetMode(m_model.Mode | BlocksToDisplay.ExcludeUserConfirmed);
 
-			Assert.AreEqual(block2, m_model.CurrentBlock);
+			Assert.That(block2, Is.EqualTo(m_model.CurrentBlock));
 		}
 
 		[Test]
@@ -215,7 +215,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			//Validate setup
 			m_model.SetMode(BlocksToDisplay.AllQuotes);
 			FindRefInMark(6, 2);
-			Assert.AreEqual("MRK 6:2-3", m_model.GetBlockReferenceString());
+			Assert.That(m_model.GetBlockReferenceString(), Is.EqualTo("MRK 6:2-3"));
 			m_model.CurrentBlockIndexInBook = 0;
 
 			m_model.SetMode(BlocksToDisplay.AllExpectedQuotes);
@@ -223,17 +223,17 @@ namespace GlyssenEngineTests.ViewModelTests
 			// The above line gets us to the first block for Mark 5:41. This verse has four blocks in it, so we advance 3 times to get to the
 			// end of the verse.
 			m_model.LoadNextRelevantBlock();
-			Assert.AreEqual("MRK 5:41", m_model.GetBlockReferenceString());
+			Assert.That(m_model.GetBlockReferenceString(), Is.EqualTo("MRK 5:41"));
 			m_model.LoadNextRelevantBlock();
-			Assert.AreEqual("MRK 5:41", m_model.GetBlockReferenceString());
+			Assert.That(m_model.GetBlockReferenceString(), Is.EqualTo("MRK 5:41"));
 			m_model.LoadNextRelevantBlock();
-			Assert.AreEqual("MRK 5:41", m_model.GetBlockReferenceString());
+			Assert.That(m_model.GetBlockReferenceString(), Is.EqualTo("MRK 5:41"));
 			//End validate setup
 
 			m_model.LoadNextRelevantBlock();
 			// The expected quote is actually in verse 4, but unfortunately, the filter is
 			// actually "verses with expected quotes" so we stop on this block
-			Assert.AreEqual("MRK 6:3-4", m_model.GetBlockReferenceString());
+			Assert.That(m_model.GetBlockReferenceString(), Is.EqualTo("MRK 6:3-4"));
 		}
 
 		[Test]
@@ -242,12 +242,12 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.SetMode(BlocksToDisplay.AllQuotes);
 			FindRefInMark(1, 17);
 			var block1 = m_model.CurrentBlock;
-			Assert.AreEqual("Jesus", block1.CharacterId);
+			Assert.That(block1.CharacterId, Is.EqualTo("Jesus"));
 			m_model.LoadNextRelevantBlock();
 
-			Assert.AreEqual("MRK 1:24", m_model.GetBlockReferenceString());
+			Assert.That(m_model.GetBlockReferenceString(), Is.EqualTo("MRK 1:24"));
 			m_model.LoadPreviousRelevantBlock();
-			Assert.AreEqual(block1, m_model.CurrentBlock);
+			Assert.That(block1, Is.EqualTo(m_model.CurrentBlock));
 		}
 
 		/// <summary>
@@ -258,12 +258,12 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			m_model.SetMode(BlocksToDisplay.NotAssignedAutomatically, true);
 			FindRefInMark(8, 5);
-			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
+			Assert.That(m_model.IsCurrentLocationRelevant, Is.True);
 			var origMatchup = m_model.CurrentReferenceTextMatchup;
 			m_model.SetMode(BlocksToDisplay.NotAlignedToReferenceText, true);
-			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
-			Assert.AreEqual(origMatchup.IndexOfStartBlockInBook, m_model.CurrentReferenceTextMatchup.IndexOfStartBlockInBook);
-			Assert.AreEqual(origMatchup.OriginalBlockCount, m_model.CurrentReferenceTextMatchup.OriginalBlockCount);
+			Assert.That(m_model.IsCurrentLocationRelevant, Is.True);
+			Assert.That(origMatchup.IndexOfStartBlockInBook, Is.EqualTo(m_model.CurrentReferenceTextMatchup.IndexOfStartBlockInBook));
+			Assert.That(origMatchup.OriginalBlockCount, Is.EqualTo(m_model.CurrentReferenceTextMatchup.OriginalBlockCount));
 		}
 
 		[Test]
@@ -275,24 +275,25 @@ namespace GlyssenEngineTests.ViewModelTests
 			var origMatchup = m_model.CurrentReferenceTextMatchup;
 			m_model.SetMode(BlocksToDisplay.NotAssignedAutomatically, true);
 			var newMatchup = m_model.CurrentReferenceTextMatchup;
-			Assert.AreEqual(origBlock.GetText(true), m_model.CurrentBlock.GetText(true));
-			Assert.AreEqual(origMatchup.IndexOfStartBlockInBook, newMatchup.IndexOfStartBlockInBook);
-			Assert.AreEqual(origMatchup.OriginalBlockCount, newMatchup.OriginalBlockCount);
-			Assert.AreEqual(origMatchup.CorrelatedAnchorBlock.GetText(true), newMatchup.CorrelatedAnchorBlock.GetText(true));
+			Assert.That(origBlock.GetText(true), Is.EqualTo(m_model.CurrentBlock.GetText(true)));
+			Assert.That(origMatchup.IndexOfStartBlockInBook, Is.EqualTo(newMatchup.IndexOfStartBlockInBook));
+			Assert.That(origMatchup.OriginalBlockCount, Is.EqualTo(newMatchup.OriginalBlockCount));
+			Assert.That(origMatchup.CorrelatedAnchorBlock.GetText(true), Is.EqualTo(newMatchup.CorrelatedAnchorBlock.GetText(true)));
 		}
 
 		[Test]
 		public void BlockCountForCurrentBook_TestMrk_ReturnsTrue()
 		{
 			int expectedCount = m_testProject.IncludedBooks[0].Blocks.Count;
-			Assert.AreEqual(expectedCount, m_model.BlockCountForCurrentBook, "Test data may have been changed");
+			Assert.That(expectedCount, Is.EqualTo(m_model.BlockCountForCurrentBook), "Test data may have been changed");
 		}
 
 		[Test]
 		public void GetIndexOfClosestRelevantBlock_MinGreaterThanMax_ReturnsNegative1()
 		{
-			Assert.AreEqual(-1, BlockNavigatorViewModel.GetIndexOfClosestRelevantBlock(
-				new List<BookBlockIndices>(), new BookBlockIndices(1, 2), true, 1, 0));
+			Assert.That(BlockNavigatorViewModel.GetIndexOfClosestRelevantBlock(
+				new List<BookBlockIndices>(), new BookBlockIndices(1, 2), true, 1, 0),
+				Is.EqualTo(-1));
 		}
 
 		[Test]
@@ -308,8 +309,9 @@ namespace GlyssenEngineTests.ViewModelTests
 				new BookBlockIndices(2, 14),
 				new BookBlockIndices(3, 2)
 			};
-			Assert.AreEqual(4, BlockNavigatorViewModel.GetIndexOfClosestRelevantBlock(
-				relevantBlocks, new BookBlockIndices(2, 10), true, 0, relevantBlocks.Count - 1));
+			Assert.That(BlockNavigatorViewModel.GetIndexOfClosestRelevantBlock(
+				relevantBlocks, new BookBlockIndices(2, 10), true, 0, relevantBlocks.Count - 1),
+				Is.EqualTo(4));
 		}
 
 		[Test]
@@ -320,8 +322,9 @@ namespace GlyssenEngineTests.ViewModelTests
 				new BookBlockIndices(2, 14),
 				new BookBlockIndices(3, 2)
 			};
-			Assert.AreEqual(-1, BlockNavigatorViewModel.GetIndexOfClosestRelevantBlock(
-				relevantBlocks, new BookBlockIndices(1, 3), true, 0, relevantBlocks.Count - 1));
+			Assert.That(BlockNavigatorViewModel.GetIndexOfClosestRelevantBlock(
+				relevantBlocks, new BookBlockIndices(1, 3), true, 0, relevantBlocks.Count - 1),
+				Is.EqualTo(-1));
 		}
 
 		[Test]
@@ -337,8 +340,9 @@ namespace GlyssenEngineTests.ViewModelTests
 				new BookBlockIndices(2, 14),
 				new BookBlockIndices(3, 2)
 			};
-			Assert.AreEqual(2, BlockNavigatorViewModel.GetIndexOfClosestRelevantBlock(
-				relevantBlocks, new BookBlockIndices(1, 21), false, 0, relevantBlocks.Count - 1));
+			Assert.That(BlockNavigatorViewModel.GetIndexOfClosestRelevantBlock(
+				relevantBlocks, new BookBlockIndices(1, 21), false, 0, relevantBlocks.Count - 1),
+				Is.EqualTo(2));
 		}
 
 		[Test]
@@ -354,27 +358,28 @@ namespace GlyssenEngineTests.ViewModelTests
 				new BookBlockIndices(2, 14),
 				new BookBlockIndices(3, 2)
 			};
-			Assert.AreEqual(-1, BlockNavigatorViewModel.GetIndexOfClosestRelevantBlock(
-				relevantBlocks, new BookBlockIndices(3, 3), false, 0, relevantBlocks.Count - 1));
+			Assert.That(BlockNavigatorViewModel.GetIndexOfClosestRelevantBlock(
+				relevantBlocks, new BookBlockIndices(3, 3), false, 0, relevantBlocks.Count - 1),
+				Is.EqualTo(-1));
 		}
 
 		[Test]
 		public void CanNavigateToPreviousRelevantBlock_CurrentBlockIsFirstRelevantBlock_ReturnsFalse()
 		{
-			Assert.IsFalse(m_model.CanNavigateToPreviousRelevantBlock);
+			Assert.That(m_model.CanNavigateToPreviousRelevantBlock, Is.False);
 		}
 
 		[Test]
 		public void CanNavigateToNextRelevantBlock_CurrentBlockIsFirstRelevantBlock_ReturnsTrue()
 		{
-			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock);
+			Assert.That(m_model.CanNavigateToNextRelevantBlock, Is.True);
 		}
 
 		[Test]
 		public void CanNavigateToPreviousRelevantBlock_CurrentBlockIsSecondRelevantBlock_ReturnsTrue()
 		{
 			m_model.LoadNextRelevantBlock();
-			Assert.IsTrue(m_model.CanNavigateToPreviousRelevantBlock);
+			Assert.That(m_model.CanNavigateToPreviousRelevantBlock, Is.True);
 		}
 
 		[Test]
@@ -382,37 +387,37 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			m_model.CurrentBlockIndexInBook = m_testProject.IncludedBooks[0].GetScriptBlocks().Count - 1;
 			m_model.LoadPreviousRelevantBlock();
-			Assert.IsFalse(m_model.CanNavigateToNextRelevantBlock);
+			Assert.That(m_model.CanNavigateToNextRelevantBlock, Is.False);
 		}
 
 		[Test]
 		public void CanNavigateToPreviousRelevantBlock_CurrentBlockIsVeryFirstBlock_ReturnsFalse()
 		{
 			m_model.CurrentBlockIndexInBook = 0;
-			Assert.IsFalse(m_model.CanNavigateToPreviousRelevantBlock);
+			Assert.That(m_model.CanNavigateToPreviousRelevantBlock, Is.False);
 		}
 
 		[Test]
 		public void CanNavigateToNextRelevantBlock_CurrentBlockIsVeryLastBlockInBook_ReturnsFalse()
 		{
 			m_model.CurrentBlockIndexInBook = m_testProject.IncludedBooks[0].GetScriptBlocks().Count - 1;
-			Assert.IsFalse(m_model.CanNavigateToNextRelevantBlock);
+			Assert.That(m_model.CanNavigateToNextRelevantBlock, Is.False);
 		}
 
 		[Test]
 		public void CanNavigateToPreviousRelevantBlock_CurrentBlockIsAdHocLocationInMiddleOfBook_ReturnsTrue()
 		{
 			m_model.CurrentBlockIndexInBook = 400;
-			Assert.IsFalse(m_model.IsCurrentLocationRelevant, "If this fails, we chose a relevant block index by accident.");
-			Assert.IsTrue(m_model.CanNavigateToPreviousRelevantBlock);
+			Assert.That(m_model.IsCurrentLocationRelevant, Is.False, "If this fails, we chose a relevant block index by accident.");
+			Assert.That(m_model.CanNavigateToPreviousRelevantBlock, Is.True);
 		}
 
 		[Test]
 		public void CanNavigateToNextRelevantBlock_CurrentBlockIsAdHocLocationInMiddleOfBook_ReturnsTrue()
 		{
 			m_model.CurrentBlockIndexInBook = 400;
-			Assert.IsFalse(m_model.IsCurrentLocationRelevant, "If this fails, we chose a relevant block index by accident.");
-			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock);
+			Assert.That(m_model.IsCurrentLocationRelevant, Is.False, "If this fails, we chose a relevant block index by accident.");
+			Assert.That(m_model.CanNavigateToNextRelevantBlock, Is.True);
 		}
 
 		[Test]
@@ -422,13 +427,13 @@ namespace GlyssenEngineTests.ViewModelTests
 			while (m_model.CanNavigateToNextRelevantBlock)
 				m_model.LoadNextRelevantBlock();
 			m_model.LoadPreviousRelevantBlock();
-			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock);
-			Assert.AreEqual(m_model.RelevantBlockCount - 1, m_model.CurrentDisplayIndex);
+			Assert.That(m_model.CanNavigateToNextRelevantBlock, Is.True);
+			Assert.That(m_model.RelevantBlockCount - 1, Is.EqualTo(m_model.CurrentDisplayIndex));
 
 			m_model.SetMode(m_model.Mode, true);
 
-			Assert.IsFalse(m_model.CanNavigateToNextRelevantBlock);
-			Assert.AreEqual(m_model.RelevantBlockCount, m_model.CurrentDisplayIndex);
+			Assert.That(m_model.CanNavigateToNextRelevantBlock, Is.False);
+			Assert.That(m_model.RelevantBlockCount, Is.EqualTo(m_model.CurrentDisplayIndex));
 		}
 
 		[Test]
@@ -448,12 +453,12 @@ namespace GlyssenEngineTests.ViewModelTests
 				}
 			}
 
-			Assert.True(quoteStart >= 0, "Couldn't find data suitable to test");
+			Assert.That(quoteStart, Is.GreaterThanOrEqualTo(0), "Couldn't find data suitable to test");
 
 			var startBlock = m_model.FindStartOfQuote(ref i);
-			Assert.AreEqual(MultiBlockQuote.Start, startBlock.MultiBlockQuote);
-			Assert.AreEqual(blocks[quoteStart], startBlock);
-			Assert.AreEqual(quoteStart, i);
+			Assert.That(MultiBlockQuote.Start, Is.EqualTo(startBlock.MultiBlockQuote));
+			Assert.That(blocks[quoteStart], Is.EqualTo(startBlock));
+			Assert.That(quoteStart, Is.EqualTo(i));
 		}
 
 		[Test]
@@ -461,25 +466,25 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			m_model.LoadNextRelevantBlock();
 			var index = m_model.CurrentBlockIndexInBook;
-			Assert.AreEqual(MultiBlockQuote.None, m_model.CurrentBlock.MultiBlockQuote, "If this fails, choose a different block.");
+			Assert.That(MultiBlockQuote.None, Is.EqualTo(m_model.CurrentBlock.MultiBlockQuote), "If this fails, choose a different block.");
 			m_model.LoadNextRelevantBlock();
 			m_model.LoadNextRelevantBlock();
 			m_model.CurrentBlockIndexInBook = index;
-			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
-			Assert.IsTrue(m_model.CanNavigateToPreviousRelevantBlock);
-			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock);
-			Assert.AreEqual(2, m_model.CurrentDisplayIndex);
+			Assert.That(m_model.IsCurrentLocationRelevant, Is.True);
+			Assert.That(m_model.CanNavigateToPreviousRelevantBlock, Is.True);
+			Assert.That(m_model.CanNavigateToNextRelevantBlock, Is.True);
+			Assert.That(m_model.CurrentDisplayIndex, Is.EqualTo(2));
 		}
 
 		[Test]
 		public void SetCurrentBlockIndexInBook_BlockIsNotRelevantSingleBlockQuote_StateReflectsRelevantBlock()
 		{
 			m_model.CurrentBlockIndexInBook = 400;
-			Assert.AreEqual(MultiBlockQuote.None, m_model.CurrentBlock.MultiBlockQuote, "If this fails, choose a different block.");
-			Assert.IsFalse(m_model.IsCurrentLocationRelevant);
-			Assert.IsTrue(m_model.CanNavigateToPreviousRelevantBlock);
-			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock);
-			Assert.AreEqual(0, m_model.CurrentDisplayIndex);
+			Assert.That(MultiBlockQuote.None, Is.EqualTo(m_model.CurrentBlock.MultiBlockQuote), "If this fails, choose a different block.");
+			Assert.That(m_model.IsCurrentLocationRelevant, Is.False);
+			Assert.That(m_model.CanNavigateToPreviousRelevantBlock, Is.True);
+			Assert.That(m_model.CanNavigateToNextRelevantBlock, Is.True);
+			Assert.That(m_model.CurrentDisplayIndex, Is.EqualTo(0));
 		}
 
 		[Test]
@@ -502,10 +507,10 @@ namespace GlyssenEngineTests.ViewModelTests
 			}
 
 			m_model.CurrentBlockIndexInBook = i;
-			Assert.AreEqual(MultiBlockQuote.Start, m_model.CurrentBlock.MultiBlockQuote);
-			Assert.IsTrue(m_model.GetIndicesOfQuoteContinuationBlocks(m_model.CurrentBlock).Any());
-			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
-			Assert.IsTrue(m_model.CurrentDisplayIndex > 0);
+			Assert.That(MultiBlockQuote.Start, Is.EqualTo(m_model.CurrentBlock.MultiBlockQuote));
+			Assert.That(m_model.GetIndicesOfQuoteContinuationBlocks(m_model.CurrentBlock).Any(), Is.True);
+			Assert.That(m_model.IsCurrentLocationRelevant, Is.True);
+			Assert.That(m_model.CurrentDisplayIndex > 0, Is.True);
 		}
 
 		[Test]
@@ -528,10 +533,10 @@ namespace GlyssenEngineTests.ViewModelTests
 			}
 
 			m_model.CurrentBlockIndexInBook = i;
-			Assert.AreEqual(MultiBlockQuote.Start, m_model.CurrentBlock.MultiBlockQuote);
-			Assert.IsTrue(m_model.GetIndicesOfQuoteContinuationBlocks(m_model.CurrentBlock).Any());
-			Assert.IsFalse(m_model.IsCurrentLocationRelevant);
-			Assert.AreEqual(0, m_model.CurrentDisplayIndex);
+			Assert.That(MultiBlockQuote.Start, Is.EqualTo(m_model.CurrentBlock.MultiBlockQuote));
+			Assert.That(m_model.GetIndicesOfQuoteContinuationBlocks(m_model.CurrentBlock).Any(), Is.True);
+			Assert.That(m_model.IsCurrentLocationRelevant, Is.False);
+			Assert.That(m_model.CurrentDisplayIndex, Is.EqualTo(0));
 		}
 
 		[Test]
@@ -545,9 +550,9 @@ namespace GlyssenEngineTests.ViewModelTests
 			var expectedBlock = m_testProject.IncludedBooks.Single(b => b.BookId == "MRK").GetScriptBlocks()[indexOfBlockToSelect];
 
 			m_model.CurrentBlockIndexInBook = indexOfBlockToSelect;
-			Assert.IsTrue(m_model.CurrentBlockIndexInBook >= m_model.CurrentReferenceTextMatchup.IndexOfStartBlockInBook);
-			Assert.IsTrue(m_model.CurrentBlockIndexInBook < origIndexAfterFindingMark9_21);
-			Assert.AreEqual(expectedBlock.GetText(true), m_model.CurrentBlock.GetText(true));
+			Assert.That(m_model.CurrentBlockIndexInBook >= m_model.CurrentReferenceTextMatchup.IndexOfStartBlockInBook, Is.True);
+			Assert.That(m_model.CurrentBlockIndexInBook < origIndexAfterFindingMark9_21, Is.True);
+			Assert.That(expectedBlock.GetText(true), Is.EqualTo(m_model.CurrentBlock.GetText(true)));
 		}
 
 
@@ -560,21 +565,21 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.SetMode(BlocksToDisplay.NotAlignedToReferenceText, true);
 			m_model.LoadNextRelevantBlock();
 			var followingMatchup = m_model.CurrentReferenceTextMatchup;
-			Assert.IsNotNull(followingMatchup);
-			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
+			Assert.That(followingMatchup, Is.Not.Null);
+			Assert.That(m_model.IsCurrentLocationRelevant, Is.True);
 			var origDisplayIndex = m_model.CurrentDisplayIndex;
 			m_model.CurrentBlockIndexInBook = followingMatchup.IndexOfStartBlockInBook + followingMatchup.OriginalBlockCount + followingMatchup.CountOfBlocksAddedBySplitting;
-			Assert.AreNotEqual(followingMatchup, m_model.CurrentReferenceTextMatchup);
+			Assert.That(followingMatchup, Is.Not.EqualTo(m_model.CurrentReferenceTextMatchup));
 
 			var precedingMatchup = m_model.CurrentReferenceTextMatchup;
-			Assert.IsNotNull(precedingMatchup);
+			Assert.That(precedingMatchup, Is.Not.Null);
 
 			m_model.CurrentBlockIndexInBook = m_model.CurrentReferenceTextMatchup.IndexOfStartBlockInBook - 1;
 
-			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
-			Assert.AreEqual(origDisplayIndex, m_model.CurrentDisplayIndex);
+			Assert.That(m_model.IsCurrentLocationRelevant, Is.True);
+			Assert.That(origDisplayIndex, Is.EqualTo(m_model.CurrentDisplayIndex));
 			m_model.LoadNextRelevantBlock();
-			Assert.AreEqual(origDisplayIndex + 1, m_model.CurrentDisplayIndex);
+			Assert.That(origDisplayIndex + 1, Is.EqualTo(m_model.CurrentDisplayIndex));
 		}
 
 		[Test]
@@ -588,7 +593,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				.GetScriptBlocks()[indexOfBlockToSelect - m_model.CurrentReferenceTextMatchup.CountOfBlocksAddedBySplitting];
 
 			m_model.CurrentBlockIndexInBook = indexOfBlockToSelect;
-			Assert.AreEqual(expectedBlock.GetText(true), m_model.CurrentBlock.GetText(true));
+			Assert.That(expectedBlock.GetText(true), Is.EqualTo(m_model.CurrentBlock.GetText(true)));
 		}
 
 		/// <summary>
@@ -604,10 +609,10 @@ namespace GlyssenEngineTests.ViewModelTests
 			var indexOfBlockToSelect = m_model.CurrentReferenceTextMatchup.IndexOfStartBlockInBook + iSectionHeadBlock;
 
 			m_model.CurrentBlockIndexInBook = indexOfBlockToSelect;
-			Assert.AreNotEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
-				m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock.CharacterId);
-			Assert.AreEqual(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[iSectionHeadBlock + 1],
-				m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock);
+			Assert.That(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				Is.Not.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock.CharacterId));
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[iSectionHeadBlock + 1],
+				Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock));
 		}
 
 		[Test]
@@ -615,15 +620,15 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			m_model.SetMode(BlocksToDisplay.AllScripture);
 			FindRefInMark(1, 12);
-			Assert.IsTrue(m_model.CurrentBlock.IsScripture);
-			Assert.IsTrue(m_model.GetIsBlockScripture(m_model.CurrentBlockIndexInBook));
+			Assert.That(m_model.CurrentBlock.IsScripture, Is.True);
+			Assert.That(m_model.GetIsBlockScripture(m_model.CurrentBlockIndexInBook), Is.True);
 		}
 
 		[Test]
 		public void GetIsBlockScripture_TitleBlock_ReturnsFalse()
 		{
-			Assert.IsFalse(m_testProject.IncludedBooks[0].Blocks[0].IsScripture);
-			Assert.IsFalse(m_model.GetIsBlockScripture(0));
+			Assert.That(m_testProject.IncludedBooks[0].Blocks[0].IsScripture, Is.False);
+			Assert.That(m_model.GetIsBlockScripture(0), Is.False);
 		}
 
 		[Test]
@@ -632,15 +637,15 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.SetMode(BlocksToDisplay.AllScripture);
 			while (m_model.CurrentBlock.MultiBlockQuote != MultiBlockQuote.Start)
 				m_model.LoadNextRelevantBlock();
-			Assert.AreEqual(MultiBlockQuote.Start, m_model.CurrentBlock.MultiBlockQuote);
+			Assert.That(MultiBlockQuote.Start, Is.EqualTo(m_model.CurrentBlock.MultiBlockQuote));
 
 			var lastBlock = m_model.GetLastBlockInCurrentQuote();
-			Assert.AreNotEqual(lastBlock, m_model.CurrentBlock);
-			Assert.AreEqual(MultiBlockQuote.Continuation, lastBlock.MultiBlockQuote);
+			Assert.That(lastBlock, Is.Not.EqualTo(m_model.CurrentBlock));
+			Assert.That(MultiBlockQuote.Continuation, Is.EqualTo(lastBlock.MultiBlockQuote));
 
 			m_model.LoadNextRelevantBlock(); // Goes to next block not in this multi-block quote
 
-			Assert.AreEqual(m_model.CurrentBlockIndexInBook - 1, m_model.GetBlockIndices(lastBlock).BlockIndex);
+			Assert.That(m_model.CurrentBlockIndexInBook - 1, Is.EqualTo(m_model.GetBlockIndices(lastBlock).BlockIndex));
 		}
 
 		[Test]
@@ -649,11 +654,11 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.SetMode(BlocksToDisplay.AllScripture);
 			while (m_model.CurrentBlock.MultiBlockQuote != MultiBlockQuote.None)
 				m_model.LoadNextRelevantBlock();
-			Assert.AreEqual(MultiBlockQuote.None, m_model.CurrentBlock.MultiBlockQuote);
+			Assert.That(MultiBlockQuote.None, Is.EqualTo(m_model.CurrentBlock.MultiBlockQuote));
 
 			var lastBlock = m_model.GetLastBlockInCurrentQuote();
-			Assert.AreEqual(m_model.CurrentBlock, lastBlock);
-			Assert.AreEqual(MultiBlockQuote.None, lastBlock.MultiBlockQuote);
+			Assert.That(m_model.CurrentBlock, Is.EqualTo(lastBlock));
+			Assert.That(MultiBlockQuote.None, Is.EqualTo(lastBlock.MultiBlockQuote));
 		}
 
 		[TestCase(MultiBlockQuote.None)]
@@ -663,7 +668,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.SetMode(BlocksToDisplay.AllScripture);
 			while (m_model.CurrentBlock.MultiBlockQuote != MultiBlockQuote.Start)
 				m_model.LoadNextRelevantBlock();
-			Assert.AreEqual(MultiBlockQuote.Start, m_model.CurrentBlock.MultiBlockQuote);
+			Assert.That(MultiBlockQuote.Start, Is.EqualTo(m_model.CurrentBlock.MultiBlockQuote));
 
 			//Create bad data
 			BlockNavigator navigator = (BlockNavigator)ReflectionHelper.GetField(m_model, "m_navigator");
@@ -671,10 +676,10 @@ namespace GlyssenEngineTests.ViewModelTests
 			var originalStatus = nextBlock.MultiBlockQuote;
 			nextBlock.MultiBlockQuote = followingStatus;
 
-			Assert.AreEqual(MultiBlockQuote.Start, m_model.CurrentBlock.MultiBlockQuote);
+			Assert.That(MultiBlockQuote.Start, Is.EqualTo(m_model.CurrentBlock.MultiBlockQuote));
 
 			var lastBlock = m_model.GetLastBlockInCurrentQuote();
-			Assert.AreEqual(m_model.CurrentBlock, lastBlock);
+			Assert.That(m_model.CurrentBlock, Is.EqualTo(lastBlock));
 
 			//Reset data for other tests
 			nextBlock = navigator.GoToNextBlock();
@@ -710,7 +715,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			var found = model.BlockHasMissingExpectedQuote(navigator.CurrentBlock, false, versesWithPotentialMissingQuote);
 
-			Assert.False(found);
+			Assert.That(found, Is.False);
 		}
 
 		[TestCase(true)]
@@ -735,11 +740,11 @@ namespace GlyssenEngineTests.ViewModelTests
 			navigator.GoToNextBlock();
 
 			var found = model.BlockHasMissingExpectedQuote(navigator.CurrentBlock, searchForwardOnlyFromFirstVerse, versesWithPotentialMissingQuote);
-			Assert.False(found);
+			Assert.That(found, Is.False);
 
 			navigator.GoToNextBlock();
 			found = model.BlockHasMissingExpectedQuote(navigator.CurrentBlock, false, versesWithPotentialMissingQuote);
-			Assert.False(found);
+			Assert.That(found, Is.False);
 		}
 
 		[Test]
@@ -748,7 +753,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.SetMode(m_model.Mode, false);
 			FindRefInMark(8, 5);
 			m_model.SetMode(m_model.Mode, true);
-			Assert.IsNotNull(m_model.CurrentReferenceTextMatchup);
+			Assert.That(m_model.CurrentReferenceTextMatchup, Is.Not.Null);
 		}
 
 		[Test]
@@ -766,10 +771,10 @@ namespace GlyssenEngineTests.ViewModelTests
 					break;
 				}
 			}
-			Assert.IsNotNull(expectedBlock);
+			Assert.That(expectedBlock, Is.Not.Null);
 			m_model.SetMode(m_model.Mode, false);
-			Assert.IsNull(m_model.CurrentReferenceTextMatchup);
-			Assert.AreEqual(expectedBlock, m_model.CurrentBlock);
+			Assert.That(m_model.CurrentReferenceTextMatchup, Is.Null);
+			Assert.That(expectedBlock, Is.EqualTo(m_model.CurrentBlock));
 		}
 
 		[Test]
@@ -783,8 +788,8 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			var expectedBlock = m_model.IndexOfFirstBlockInCurrentGroup;
 			m_model.SetMode(BlocksToDisplay.AllScripture, false);
-			Assert.IsNull(m_model.CurrentReferenceTextMatchup);
-			Assert.AreEqual(expectedBlock, m_model.CurrentBlockIndexInBook);
+			Assert.That(m_model.CurrentReferenceTextMatchup, Is.Null);
+			Assert.That(expectedBlock, Is.EqualTo(m_model.CurrentBlockIndexInBook));
 		}
 
 		[Test]
@@ -793,7 +798,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.SetMode(m_model.Mode, false);
 			FindRefInMark(8, 5);
 			m_model.SetBlockMatchupForCurrentLocation();
-			Assert.IsNull(m_model.CurrentReferenceTextMatchup);
+			Assert.That(m_model.CurrentReferenceTextMatchup, Is.Null);
 		}
 
 		[Test]
@@ -806,7 +811,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				m_model.LoadNextRelevantBlock();
 			}
 
-			Assert.True(m_model.CanNavigateToNextRelevantBlock);
+			Assert.That(m_model.CanNavigateToNextRelevantBlock, Is.True);
 
 			var origBlockCount = m_model.BlockCountForCurrentBook;
 			var origRelevantBlock = m_model.RelevantBlockCount;
@@ -818,8 +823,8 @@ namespace GlyssenEngineTests.ViewModelTests
 					continue;
 
 				// Verify
-				Assert.AreEqual(origBlockCount, m_model.BlockCountForCurrentBook);
-				Assert.AreEqual(origRelevantBlock, m_model.RelevantBlockCount);
+				Assert.That(origBlockCount, Is.EqualTo(m_model.BlockCountForCurrentBook));
+				Assert.That(origRelevantBlock, Is.EqualTo(m_model.RelevantBlockCount));
 			} while (m_model.CanNavigateToNextRelevantBlock);
 		}
 
@@ -838,10 +843,10 @@ namespace GlyssenEngineTests.ViewModelTests
 			var origBlockCount = m_model.BlockCountForCurrentBook;
 			FindRefInMark(m_model, 1, 12);
 
-			Assert.IsNotNull(m_model.CurrentReferenceTextMatchup);
-			Assert.AreEqual(2, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count);
-			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.OriginalBlocks.Single().GetText(true).StartsWith(m_model.CurrentBlock.GetText(true)));
-			Assert.AreEqual(origBlockCount + 1, m_model.BlockCountForCurrentBook);
+			Assert.That(m_model.CurrentReferenceTextMatchup, Is.Not.Null);
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count, Is.EqualTo(2));
+			Assert.That(m_model.CurrentReferenceTextMatchup.OriginalBlocks.Single().GetText(true), Does.StartWith(m_model.CurrentBlock.GetText(true)));
+			Assert.That(origBlockCount + 1, Is.EqualTo(m_model.BlockCountForCurrentBook));
 		}
 
 		[Test]
@@ -864,9 +869,9 @@ namespace GlyssenEngineTests.ViewModelTests
 			}
 
 			// If either of these calls to Single() fails, then we didn't find a suitable block to test (in the second while loop above).
-			Assert.AreEqual(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Single().GetText(true), m_model.CurrentBlock.GetText(true));
-			Assert.AreEqual(m_model.CurrentReferenceTextMatchup.OriginalBlocks.Single().GetText(true), m_model.CurrentBlock.GetText(true));
-			Assert.AreEqual(origBlockCount, m_model.BlockCountForCurrentBook);
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Single().GetText(true), Is.EqualTo(m_model.CurrentBlock.GetText(true)));
+			Assert.That(m_model.CurrentReferenceTextMatchup.OriginalBlocks.Single().GetText(true), Is.EqualTo(m_model.CurrentBlock.GetText(true)));
+			Assert.That(origBlockCount, Is.EqualTo(m_model.BlockCountForCurrentBook));
 		}
 
 		#endregion
@@ -881,25 +886,25 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.TryLoadBlock(new VerseRef(041009021, m_testProject.Versification));
 
 			// Verify the matchup caused the block to be split as expected
-			Assert.IsNotNull(m_model.CurrentReferenceTextMatchup);
-			Assert.AreEqual(5, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count,
+			Assert.That(m_model.CurrentReferenceTextMatchup, Is.Not.Null);
+			Assert.That(5, Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count),
 				"Original first block (narrator) should have been split at start of verse 21.");
-			Assert.AreEqual(20, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[0].LastVerseNum,
+			Assert.That(20, Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[0].LastVerseNum),
 				"Narrator text at start of verse 21 begins in verse 20.");
-			Assert.AreEqual(21, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[1].InitialStartVerseNumber,
+			Assert.That(21, Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[1].InitialStartVerseNumber),
 				"Original first block (narrator) should have been split at start of verse 21.");
-			Assert.AreEqual(22, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum,
+			Assert.That(22, Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum),
 				"Final quote in vernacular spills over into verse 22");
-			Assert.AreEqual(22, m_model.GetLastVerseInCurrentQuote());
-			Assert.AreEqual(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last(), m_model.GetLastBlockInCurrentQuote());
+			Assert.That(m_model.GetLastVerseInCurrentQuote(), Is.EqualTo(22));
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last(), Is.EqualTo(m_model.GetLastBlockInCurrentQuote()));
 
 			// Verify other state information
-			Assert.AreEqual(m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock, m_model.CurrentBlock);
-			Assert.IsFalse(m_testProject.Books[0].Blocks.Contains(m_model.CurrentBlock));
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock, Is.EqualTo(m_model.CurrentBlock));
+			Assert.That(m_testProject.Books[0].Blocks.Contains(m_model.CurrentBlock), Is.False);
 
 			// Verify block count and relevant block count
-			Assert.AreEqual(origBlockCount + 1, m_model.BlockCountForCurrentBook);
-			Assert.AreEqual(origRelevantBlock, m_model.RelevantBlockCount,
+			Assert.That(origBlockCount + 1, Is.EqualTo(m_model.BlockCountForCurrentBook));
+			Assert.That(origRelevantBlock, Is.EqualTo(m_model.RelevantBlockCount),
 				"The relevant block count should not go up unless/until the existing blocks are replaced by the Correlated Blocks.");
 		}
 
@@ -912,21 +917,21 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.TryLoadBlock(new VerseRef(41, 9, verseNum, m_testProject.Versification));
 
 			// Verify the matchup caused the block to be split as expected
-			Assert.IsNotNull(m_model.CurrentReferenceTextMatchup);
-			Assert.AreEqual(5, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count,
+			Assert.That(m_model.CurrentReferenceTextMatchup, Is.Not.Null);
+			Assert.That(5, Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count),
 				"Original first block (narrator) should have been split at start of verse 21.");
-			Assert.AreEqual(20, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[0].LastVerseNum,
+			Assert.That(20, Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[0].LastVerseNum),
 				"Narrator text at start of verse 21 begins in verse 20.");
-			Assert.AreEqual(21, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[1].InitialStartVerseNumber,
+			Assert.That(21, Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[1].InitialStartVerseNumber),
 				"Original first block (narrator) should have been split at start of verse 21.");
-			Assert.AreEqual(22, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum,
+			Assert.That(22, Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum),
 				"Final quote in vernacular spills over into verse 22");
-			Assert.AreEqual(22, m_model.GetLastVerseInCurrentQuote());
-			Assert.AreEqual(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last(), m_model.GetLastBlockInCurrentQuote());
+			Assert.That(m_model.GetLastVerseInCurrentQuote(), Is.EqualTo(22));
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last(), Is.EqualTo(m_model.GetLastBlockInCurrentQuote()));
 
 			// Verify Anchor block and current block
-			Assert.AreEqual(m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock, m_model.CurrentBlock);
-			Assert.IsTrue(m_model.CurrentBlock.AllVerses.Any(v => v.StartVerse <= verseNum && v.EndVerse >= verseNum));
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock, Is.EqualTo(m_model.CurrentBlock));
+			Assert.That(m_model.CurrentBlock.AllVerses.Any(v => v.StartVerse <= verseNum && v.EndVerse >= verseNum), Is.True);
 		}
 
 		[Test]
@@ -936,29 +941,29 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.TryLoadBlock(new VerseRef(41, 9, 20, m_testProject.Versification));
 
 			// Verify the matchup caused the block to be split as expected
-			Assert.IsNotNull(m_model.CurrentReferenceTextMatchup);
-			Assert.AreEqual(5, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count,
+			Assert.That(m_model.CurrentReferenceTextMatchup, Is.Not.Null);
+			Assert.That(5, Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count),
 				"Original first block (narrator) should have been split at start of verse 21.");
-			Assert.AreEqual(20, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[0].LastVerseNum,
+			Assert.That(20, Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[0].LastVerseNum),
 				"Narrator text at start of verse 21 begins in verse 20.");
-			Assert.AreEqual(21, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[1].InitialStartVerseNumber,
+			Assert.That(21, Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[1].InitialStartVerseNumber),
 				"Original first block (narrator) should have been split at start of verse 21.");
-			Assert.AreEqual(22, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum,
+			Assert.That(22, Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum),
 				"Final quote in vernacular spills over into verse 22");
-			Assert.AreEqual(22, m_model.GetLastVerseInCurrentQuote());
-			Assert.AreEqual(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last(), m_model.GetLastBlockInCurrentQuote());
+			Assert.That(m_model.GetLastVerseInCurrentQuote(), Is.EqualTo(22));
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last(), Is.EqualTo(m_model.GetLastBlockInCurrentQuote()));
 
-			Assert.IsTrue(m_model.CurrentBlock.AllVerses.Any(v => v.StartVerse <= 20 && v.EndVerse >= 20),
+			Assert.That(m_model.CurrentBlock.AllVerses.Any(v => v.StartVerse <= 20 && v.EndVerse >= 20), Is.True,
 				"Current (anchor) block should contain start of verse we tried to load.");
 
 			m_model.TryLoadBlock(new VerseRef(41, 9, 22, m_testProject.Versification));
 
-			Assert.IsTrue(m_model.CurrentBlock.AllVerses.Any(v => v.StartVerse <= 22 && v.EndVerse >= 22),
+			Assert.That(m_model.CurrentBlock.AllVerses.Any(v => v.StartVerse <= 22 && v.EndVerse >= 22), Is.True,
 				"Current (anchor) block should contain start of verse we tried to load.");
 
 			m_model.TryLoadBlock(new VerseRef(41, 9, 21, m_testProject.Versification));
 
-			Assert.IsTrue(m_model.CurrentBlock.AllVerses.Any(v => v.StartVerse <= 21 && v.EndVerse >= 21),
+			Assert.That(m_model.CurrentBlock.AllVerses.Any(v => v.StartVerse <= 21 && v.EndVerse >= 21), Is.True,
 				"Current (anchor) block should contain start of verse we tried to load.");
 		}
 
@@ -968,7 +973,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.SetMode(m_model.Mode, false);
 			FindRefInMark(9, 21);
 			var e = Assert.Throws<InvalidOperationException>(() => m_model.ApplyCurrentReferenceTextMatchup());
-			Assert.AreEqual("No current reference text block matchup!", e.Message);
+			Assert.That(e.Message, Is.EqualTo("No current reference text block matchup!"));
 		}
 
 		[Test]
@@ -987,15 +992,15 @@ namespace GlyssenEngineTests.ViewModelTests
 			var origFollowingBlock = m_model.GetNthBlockInCurrentBook(origIndexOfFollowingBlock);
 
 			m_model.SetMode(m_model.Mode, true);
-			Assert.AreEqual(origPrecedingBlock, m_model.GetNthBlockInCurrentBook(indexOfPrecedingBlock));
+			Assert.That(origPrecedingBlock, Is.EqualTo(m_model.GetNthBlockInCurrentBook(indexOfPrecedingBlock)));
 			int c = 0;
 			foreach (var correlatedBlock in m_model.CurrentReferenceTextMatchup.CorrelatedBlocks)
 			{
-				Assert.AreEqual(correlatedBlock, m_model.GetNthBlockInCurrentBook(m_model.IndexOfFirstBlockInCurrentGroup + c), c.ToString());
+				Assert.That(correlatedBlock, Is.EqualTo(m_model.GetNthBlockInCurrentBook(m_model.IndexOfFirstBlockInCurrentGroup + c)), c.ToString());
 				c++;
 			}
 
-			Assert.AreEqual(origFollowingBlock, m_model.GetNthBlockInCurrentBook(origIndexOfFollowingBlock + m_model.CurrentReferenceTextMatchup.CountOfBlocksAddedBySplitting));
+			Assert.That(origFollowingBlock, Is.EqualTo(m_model.GetNthBlockInCurrentBook(origIndexOfFollowingBlock + m_model.CurrentReferenceTextMatchup.CountOfBlocksAddedBySplitting)));
 		}
 
 		private void FindRefInMark(int chapter, int verse)
@@ -1012,9 +1017,9 @@ namespace GlyssenEngineTests.ViewModelTests
 				model.LoadNextRelevantBlock();
 			}
 
-			Assert.AreEqual("MRK", model.CurrentBookId);
-			Assert.AreEqual(chapter, model.CurrentBlock.ChapterNumber);
-			Assert.IsTrue(verse >= model.CurrentBlock.InitialStartVerseNumber && verse <= model.CurrentEndBlock.LastVerseNum);
+			Assert.That(model.CurrentBookId, Is.EqualTo("MRK"));
+			Assert.That(chapter, Is.EqualTo(model.CurrentBlock.ChapterNumber));
+			Assert.That(verse >= model.CurrentBlock.InitialStartVerseNumber && verse <= model.CurrentEndBlock.LastVerseNum, Is.True);
 		}
 	}
 
@@ -1054,10 +1059,10 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			m_model.SetMode(BlocksToDisplay.NotAlignedToReferenceText, true);
 			m_model.LoadNextRelevantBlock();
-			Assert.AreEqual(2, m_model.CurrentDisplayIndex);
+			Assert.That(m_model.CurrentDisplayIndex, Is.EqualTo(2));
 
 			m_model.TryLoadBlock(m_model.GetBlockVerseRef());
-			Assert.AreEqual(2, m_model.CurrentDisplayIndex);
+			Assert.That(m_model.CurrentDisplayIndex, Is.EqualTo(2));
 		}
 
 		[Test]
@@ -1074,7 +1079,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			}
 
 			m_model.TryLoadBlock(targetRef);
-			Assert.IsTrue(m_model.CurrentDisplayIndex > 0);
+			Assert.That(m_model.CurrentDisplayIndex > 0, Is.True);
 		}
 
 		[TestCase(41001000)] // MRK 1:0
@@ -1083,10 +1088,10 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			m_model.SetMode(BlocksToDisplay.NotAlignedToReferenceText, true);
 			m_model.LoadNextRelevantBlock();
-			Assert.AreEqual(2, m_model.CurrentDisplayIndex);
+			Assert.That(m_model.CurrentDisplayIndex, Is.EqualTo(2));
 
-			Assert.IsFalse(m_model.TryLoadBlock(new VerseRef(bbbcccvvv, ScrVers.English)));
-			Assert.AreEqual(2, m_model.CurrentDisplayIndex);
+			Assert.That(m_model.TryLoadBlock(new VerseRef(bbbcccvvv, ScrVers.English)), Is.False);
+			Assert.That(m_model.CurrentDisplayIndex, Is.EqualTo(2));
 		}
 
 		[Test]
@@ -1095,21 +1100,21 @@ namespace GlyssenEngineTests.ViewModelTests
 			BlockNavigatorViewModelTests.FindRefInMark(m_model, 9, 21);
 			//int displayIndex = m_model.CurrentBlockDisplayIndex;
 			m_model.SetMode(m_model.Mode, true);
-			//Assert.AreEqual(displayIndex, m_model.CurrentBlockDisplayIndex);
+			//Assert.That(displayIndex, Is.EqualTo(m_model.CurrentBlockDisplayIndex));
 			int displayIndex = m_model.CurrentDisplayIndex;
-			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
+			Assert.That(m_model.IsCurrentLocationRelevant, Is.True);
 			m_model.ApplyCurrentReferenceTextMatchup();
-			Assert.AreEqual(displayIndex, m_model.CurrentDisplayIndex);
-			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
+			Assert.That(displayIndex, Is.EqualTo(m_model.CurrentDisplayIndex));
+			Assert.That(m_model.IsCurrentLocationRelevant, Is.True);
 			do
 			{
 				m_model.LoadNextRelevantBlock();
-				Assert.AreEqual(++displayIndex, m_model.CurrentDisplayIndex);
-				Assert.IsTrue(m_model.IsCurrentLocationRelevant);
+				Assert.That(++displayIndex, Is.EqualTo(m_model.CurrentDisplayIndex));
+				Assert.That(m_model.IsCurrentLocationRelevant, Is.True);
 			} while (m_model.CurrentBookId == "MRK");
 
-			Assert.AreEqual("ACT", m_model.CurrentBookId);
-			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
+			Assert.That(m_model.CurrentBookId, Is.EqualTo("ACT"));
+			Assert.That(m_model.IsCurrentLocationRelevant, Is.True);
 		}
 
 		[TestCase(BlocksToDisplay.NotAssignedAutomatically)]
@@ -1124,20 +1129,20 @@ namespace GlyssenEngineTests.ViewModelTests
 			var origRelevantBlock = m_model.RelevantBlockCount;
 			var origBlockDisplayIndex = m_model.CurrentDisplayIndex;
 			var matchupForMark85 = m_model.CurrentReferenceTextMatchup;
-			Assert.IsNotNull(matchupForMark85);
-			Assert.AreEqual(0, matchupForMark85.CountOfBlocksAddedBySplitting);
+			Assert.That(matchupForMark85, Is.Not.Null);
+			Assert.That(matchupForMark85.CountOfBlocksAddedBySplitting, Is.EqualTo(0));
 			matchupForMark85.SetReferenceText(0, "Some random text: " + Guid.NewGuid());
 
 			m_model.ApplyCurrentReferenceTextMatchup();
 
-			Assert.AreEqual(matchupForMark85, m_model.CurrentReferenceTextMatchup);
-			Assert.AreEqual(origCurrentBlock, m_model.CurrentBlock);
-			Assert.AreEqual(0, matchupForMark85.CountOfBlocksAddedBySplitting);
-			Assert.IsFalse(matchupForMark85.HasOutstandingChangesToApply);
-			Assert.AreEqual(origBlockDisplayIndex, m_model.CurrentDisplayIndex);
-			Assert.AreEqual(origRelevantBlock, m_model.RelevantBlockCount);
-			Assert.AreEqual(origBlockCount, m_model.BlockCountForCurrentBook);
-			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock);
+			Assert.That(matchupForMark85, Is.EqualTo(m_model.CurrentReferenceTextMatchup));
+			Assert.That(origCurrentBlock, Is.EqualTo(m_model.CurrentBlock));
+			Assert.That(matchupForMark85.CountOfBlocksAddedBySplitting, Is.EqualTo(0));
+			Assert.That(matchupForMark85.HasOutstandingChangesToApply, Is.False);
+			Assert.That(origBlockDisplayIndex, Is.EqualTo(m_model.CurrentDisplayIndex));
+			Assert.That(origRelevantBlock, Is.EqualTo(m_model.RelevantBlockCount));
+			Assert.That(origBlockCount, Is.EqualTo(m_model.BlockCountForCurrentBook));
+			Assert.That(m_model.CanNavigateToNextRelevantBlock, Is.True);
 		}
 
 		[TestCase(BlocksToDisplay.NotAssignedAutomatically)]
@@ -1150,26 +1155,26 @@ namespace GlyssenEngineTests.ViewModelTests
 			var origRelevantBlock = m_model.RelevantBlockCount;
 			var origBlockDisplayIndex = m_model.CurrentDisplayIndex;
 			var matchupForMark921 = m_model.CurrentReferenceTextMatchup;
-			Assert.IsNotNull(matchupForMark921);
-			Assert.AreEqual(5, matchupForMark921.CorrelatedBlocks.Count,
+			Assert.That(matchupForMark921, Is.Not.Null);
+			Assert.That(5, Is.EqualTo(matchupForMark921.CorrelatedBlocks.Count),
 				"Original first block (narrator) should have been split at start of verse 21.");
-			Assert.AreEqual(origBlockDisplayIndex, m_model.CurrentDisplayIndex);
+			Assert.That(origBlockDisplayIndex, Is.EqualTo(m_model.CurrentDisplayIndex));
 			var origTextOfFirstBlockInVerse = m_model.GetNthBlockInCurrentBook(m_model.IndexOfFirstBlockInCurrentGroup).GetText(true);
 			var origCurrentBlockText = m_model.CurrentBlock.GetText(true);
-			Assert.IsFalse(m_testProject.Books[0].Blocks.Contains(m_model.CurrentBlock));
+			Assert.That(m_testProject.Books[0].Blocks.Contains(m_model.CurrentBlock), Is.False);
 
 			m_model.ApplyCurrentReferenceTextMatchup();
 
-			Assert.AreEqual(matchupForMark921, m_model.CurrentReferenceTextMatchup);
-			Assert.AreEqual(0, matchupForMark921.CountOfBlocksAddedBySplitting);
-			Assert.IsFalse(matchupForMark921.HasOutstandingChangesToApply);
-			Assert.AreEqual(origBlockDisplayIndex, m_model.CurrentDisplayIndex);
-			Assert.AreEqual(origRelevantBlock, m_model.RelevantBlockCount,
+			Assert.That(matchupForMark921, Is.EqualTo(m_model.CurrentReferenceTextMatchup));
+			Assert.That(matchupForMark921.CountOfBlocksAddedBySplitting, Is.EqualTo(0));
+			Assert.That(matchupForMark921.HasOutstandingChangesToApply, Is.False);
+			Assert.That(origBlockDisplayIndex, Is.EqualTo(m_model.CurrentDisplayIndex));
+			Assert.That(origRelevantBlock, Is.EqualTo(m_model.RelevantBlockCount),
 				"Since the block that was split did not match the filter (i.e., was not relevant), the relevant block count should not change.");
-			Assert.AreEqual(origBlockCount + 1, m_model.BlockCountForCurrentBook);
-			Assert.AreEqual(origCurrentBlockText, m_model.CurrentBlock.GetText(true));
-			Assert.IsTrue(origTextOfFirstBlockInVerse.StartsWith(m_model.GetNthBlockInCurrentBook(m_model.IndexOfFirstBlockInCurrentGroup).GetText(true)));
-			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock);
+			Assert.That(origBlockCount + 1, Is.EqualTo(m_model.BlockCountForCurrentBook));
+			Assert.That(origCurrentBlockText, Is.EqualTo(m_model.CurrentBlock.GetText(true)));
+			Assert.That(origTextOfFirstBlockInVerse, Does.StartWith(m_model.GetNthBlockInCurrentBook(m_model.IndexOfFirstBlockInCurrentGroup).GetText(true)));
+			Assert.That(m_model.CanNavigateToNextRelevantBlock, Is.True);
 		}
 
 		[Test]
@@ -1186,54 +1191,55 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.SetMode(BlocksToDisplay.NotYetAssigned, true);
 
 			m_model.TryLoadBlock(new VerseRef(41, 9, 21, m_testProject.Versification));
-			Assert.IsFalse(m_model.IsCurrentLocationRelevant);
+			Assert.That(m_model.IsCurrentLocationRelevant, Is.False);
 
 			var matchupForMark921 = m_model.CurrentReferenceTextMatchup;
-			Assert.IsNotNull(matchupForMark921);
-			Assert.AreEqual(5, matchupForMark921.CorrelatedBlocks.Count,
+			Assert.That(matchupForMark921, Is.Not.Null);
+			Assert.That(5, Is.EqualTo(matchupForMark921.CorrelatedBlocks.Count),
 				"Original first block (narrator) should have been split at start of verse 21.");
-			Assert.IsFalse(m_testProject.Books[0].Blocks.Contains(m_model.CurrentBlock));
+			Assert.That(m_testProject.Books[0].Blocks.Contains(m_model.CurrentBlock), Is.False);
 			matchupForMark921.SetReferenceText(2, "Blah");
 
 			m_model.ApplyCurrentReferenceTextMatchup();
 
-			Assert.IsTrue(m_model.CanNavigateToPreviousRelevantBlock);
-			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock);
+			Assert.That(m_model.CanNavigateToPreviousRelevantBlock, Is.True);
+			Assert.That(m_model.CanNavigateToNextRelevantBlock, Is.True);
 
 			m_model.LoadNextRelevantBlock();
-			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.OriginalBlocks.Contains(origNextRelevantBlock));
+			Assert.That(m_model.CurrentReferenceTextMatchup.OriginalBlocks.Contains(origNextRelevantBlock), Is.True);
 		}
 
 		[Test]
 		public void ApplyCurrentReferenceTextMatchup_CurrentBlockIsPastLastBlockThatMatchesFilter_ChangesAppliedAndSubsequentIndicesIncremented()
 		{
 			m_model.SetMode(BlocksToDisplay.NotAssignedAutomatically, true);
-			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(BCVRef.BookToNumber("ACT"), 28, 23, m_testProject.Versification)));
-			Assert.AreEqual(23, m_model.CurrentBlock.InitialStartVerseNumber);
-			Assert.AreEqual(0, m_model.CurrentDisplayIndex);
+			Assert.That(m_model.TryLoadBlock(new VerseRef(BCVRef.BookToNumber("ACT"), 28, 23, m_testProject.Versification)), Is.True);
+			Assert.That(m_model.CurrentBlock.InitialStartVerseNumber, Is.EqualTo(23));
+			Assert.That(m_model.CurrentDisplayIndex, Is.EqualTo(0));
 			m_model.LoadNextRelevantBlock();
-			Assert.AreEqual(1, m_model.CurrentDisplayIndex, "Trying to go to the \"next\" block from a position beyond the end of the list should take us back to the beginning.");
+			Assert.That(1, Is.EqualTo(m_model.CurrentDisplayIndex),
+				"Trying to go to the \"next\" block from a position beyond the end of the list should take us back to the beginning.");
 			var origNextRelevantBlockText = m_model.CurrentBlock.GetText(true);
 			var origNextRelevantBlockIndexInBook = m_model.CurrentBlockIndexInBook;
-			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("ACT"), 28, 23), m_testProject.Versification)));
+			Assert.That(m_model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("ACT"), 28, 23), m_testProject.Versification)), Is.True);
 			var origRelevantBlockCount = m_model.RelevantBlockCount;
 
-			Assert.IsFalse(m_model.IsCurrentLocationRelevant);
+			Assert.That(m_model.IsCurrentLocationRelevant, Is.False);
 
 			var matchup = m_model.CurrentReferenceTextMatchup;
-			Assert.IsNotNull(matchup);
+			Assert.That(matchup, Is.Not.Null);
 			matchup.MatchAllBlocks();
 
 			m_model.ApplyCurrentReferenceTextMatchup();
 
-			Assert.AreEqual(origRelevantBlockCount, m_model.RelevantBlockCount);
-			Assert.IsTrue(m_model.CanNavigateToPreviousRelevantBlock);
-			Assert.IsFalse(m_model.CanNavigateToNextRelevantBlock);
+			Assert.That(origRelevantBlockCount, Is.EqualTo(m_model.RelevantBlockCount));
+			Assert.That(m_model.CanNavigateToPreviousRelevantBlock, Is.True);
+			Assert.That(m_model.CanNavigateToNextRelevantBlock, Is.False);
 
 			m_model.LoadNextRelevantBlock();
-			Assert.AreEqual(origNextRelevantBlockText, m_model.CurrentBlock.GetText(true));
-			Assert.AreEqual(origNextRelevantBlockIndexInBook, m_model.CurrentBlockIndexInBook);
-			Assert.AreEqual(1, m_model.CurrentDisplayIndex);
+			Assert.That(origNextRelevantBlockText, Is.EqualTo(m_model.CurrentBlock.GetText(true)));
+			Assert.That(origNextRelevantBlockIndexInBook, Is.EqualTo(m_model.CurrentBlockIndexInBook));
+			Assert.That(m_model.CurrentDisplayIndex, Is.EqualTo(1));
 		}
 
 		[Test]
@@ -1251,12 +1257,12 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void CanNavigateToNextRelevantBlock_CurrentBlockIsInLastBlockMatchup_ReturnsFalse()
 		{
 			m_model.SetMode(BlocksToDisplay.NotAssignedAutomatically, true);
-			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("ACT"), 28, 27), m_testProject.Versification)));
+			Assert.That(m_model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("ACT"), 28, 27), m_testProject.Versification)), Is.True);
 			m_model.LoadPreviousRelevantBlock();
 			var startIndex = m_model.CurrentReferenceTextMatchup.IndexOfStartBlockInBook;
 			do
 			{
-				Assert.IsFalse(m_model.CanNavigateToNextRelevantBlock);
+				Assert.That(m_model.CanNavigateToNextRelevantBlock, Is.False);
 				m_model.CurrentBlockIndexInBook++;
 			} while (startIndex == m_model.CurrentReferenceTextMatchup.IndexOfStartBlockInBook);
 		}
@@ -1295,16 +1301,16 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			var matchup = m_model.CurrentReferenceTextMatchup;
 
-			Assert.IsTrue(m_model.CurrentDisplayIndex >= m_model.RelevantBlockCount);
+			Assert.That(m_model.CurrentDisplayIndex >= m_model.RelevantBlockCount, Is.True);
 			matchup.MatchAllBlocks();
 			foreach (var block in matchup.CorrelatedBlocks.Where(b => b.CharacterIsUnclear))
 				block.SetCharacterIdAndCharacterIdInScript("Paul", m_model.CurrentBookNumber, m_testProject.Versification);
-			Assert.IsTrue(matchup.HasOutstandingChangesToApply);
+			Assert.That(matchup.HasOutstandingChangesToApply, Is.True);
 			m_model.ApplyCurrentReferenceTextMatchup();
 
-			Assert.IsFalse(m_model.CanNavigateToNextRelevantBlock);
-			Assert.AreEqual(matchup, m_model.CurrentReferenceTextMatchup);
-			Assert.IsFalse(matchup.HasOutstandingChangesToApply);
+			Assert.That(m_model.CanNavigateToNextRelevantBlock, Is.False);
+			Assert.That(matchup, Is.EqualTo(m_model.CurrentReferenceTextMatchup));
+			Assert.That(matchup.HasOutstandingChangesToApply, Is.False);
 		}
 	}
 
@@ -1353,20 +1359,20 @@ namespace GlyssenEngineTests.ViewModelTests
 			var model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NotYetAssigned);
 
 			// Get into correct state for this test and ensure initial conditions
-			Assert.AreEqual(1, model.RelevantBlockCount);
+			Assert.That(model.RelevantBlockCount, Is.EqualTo(1));
 			model.SetMode(model.Mode, true);
-			Assert.IsTrue(model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("JHN"), 12, 27), m_testProject.Versification)));
-			Assert.AreEqual(27, model.CurrentBlock.InitialStartVerseNumber);
-			Assert.IsFalse(model.IsCurrentLocationRelevant);
+			Assert.That(model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("JHN"), 12, 27), m_testProject.Versification)), Is.True);
+			Assert.That(model.CurrentBlock.InitialStartVerseNumber, Is.EqualTo(27));
+			Assert.That(model.IsCurrentLocationRelevant, Is.False);
 			var matchup = model.CurrentReferenceTextMatchup;
-			Assert.IsNotNull(matchup);
+			Assert.That(matchup, Is.Not.Null);
 			matchup.MatchAllBlocks();
 
 			model.ApplyCurrentReferenceTextMatchup();
 
-			Assert.AreEqual(1, model.RelevantBlockCount);
-			Assert.IsTrue(model.CanNavigateToPreviousRelevantBlock);
-			Assert.IsFalse(model.CanNavigateToNextRelevantBlock);
+			Assert.That(model.RelevantBlockCount, Is.EqualTo(1));
+			Assert.That(model.CanNavigateToPreviousRelevantBlock, Is.True);
+			Assert.That(model.CanNavigateToNextRelevantBlock, Is.False);
 		}
 
 		[Test]
@@ -1394,7 +1400,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			while (model.CurrentBlock.ChapterNumber <= 3 && model.CanNavigateToNextRelevantBlock)
 			{
-				Assert.IsTrue(model.CurrentBlock.ChapterNumber != 3 || model.CurrentBlock.InitialStartVerseNumber != 14);
+				Assert.That(model.CurrentBlock.ChapterNumber != 3 || model.CurrentBlock.InitialStartVerseNumber != 14, Is.True);
 				model.LoadNextRelevantBlock();
 			}
 		}
@@ -1433,15 +1439,16 @@ namespace GlyssenEngineTests.ViewModelTests
 			while (m_model.CanNavigateToPreviousRelevantBlock)
 				m_model.LoadPreviousRelevantBlock();
 			m_model.LoadNextRelevantBlock();
-			Assert.IsTrue(m_model.CanNavigateToPreviousRelevantBlock);
-			Assert.AreEqual(2, m_model.CurrentDisplayIndex);
+			Assert.That(m_model.CanNavigateToPreviousRelevantBlock, Is.True);
+			Assert.That(m_model.CurrentDisplayIndex, Is.EqualTo(2));
 			var origCurrentBlock = m_model.CurrentBlock;
 
 			m_model.SetMode(m_model.Mode, true);
 
-			Assert.IsFalse(m_model.CanNavigateToPreviousRelevantBlock, m_model.CurrentBlock.ToString());
-			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.OriginalBlocks.Contains(origCurrentBlock));
-			Assert.AreEqual(1, m_model.CurrentDisplayIndex, "Note: Setting AttemptRefBlockMatchup = true should cause the filter to be" +
+			Assert.That(m_model.CanNavigateToPreviousRelevantBlock, Is.False, m_model.CurrentBlock.ToString());
+			Assert.That(m_model.CurrentReferenceTextMatchup.OriginalBlocks.Contains(origCurrentBlock), Is.True);
+			Assert.That(1, Is.EqualTo(m_model.CurrentDisplayIndex),
+				"Note: Setting AttemptRefBlockMatchup = true should cause the filter to be " +
 				"reset and the \"block\" display index");
 		}
 
@@ -1461,38 +1468,38 @@ namespace GlyssenEngineTests.ViewModelTests
 				m_model.LoadPreviousRelevantBlock();
 
 			BlockNavigatorViewModelTests.FindRefInMark(m_model, 1, 8);
-			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
+			Assert.That(m_model.IsCurrentLocationRelevant, Is.True);
 			m_model.LoadNextRelevantBlock();
-			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.First().InitialStartVerseNumber <= 11);
-			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum == 11);
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.First().InitialStartVerseNumber <= 11, Is.True);
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum == 11, Is.True);
 			const string separator = "***";
 			var Mark1V11MatchupBlocks = Join(separator, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Select(b => b.GetText(true)));
 			m_model.LoadNextRelevantBlock();
-			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.First().InitialStartVerseNumber <= 15);
-			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum == 15);
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.First().InitialStartVerseNumber <= 15, Is.True);
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum == 15, Is.True);
 			m_model.LoadNextRelevantBlock();
-			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.First().InitialStartVerseNumber <= 17);
-			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum == 17);
-			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock, "Setup condition not met");
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.First().InitialStartVerseNumber <= 17, Is.True);
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum == 17, Is.True);
+			Assert.That(m_model.CanNavigateToNextRelevantBlock, Is.True, "Setup condition not met");
 			m_model.LoadNextRelevantBlock();
 			var firstRelevantMatchupPastMark1V17Blocks = Join(separator, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Select(b => b.GetText(true)));
 			m_model.LoadPreviousRelevantBlock();
 			m_model.LoadPreviousRelevantBlock();
 			m_model.LoadPreviousRelevantBlock();
 			var matchup = m_model.CurrentReferenceTextMatchup;
-			Assert.AreEqual(Mark1V11MatchupBlocks, Join(separator, matchup.CorrelatedBlocks.Select(b => b.GetText(true))));
-			Assert.AreEqual(addedHeSaidBlockToMatchExplicitly, matchup.OriginalBlocks.Last());
+			Assert.That(Mark1V11MatchupBlocks, Is.EqualTo(Join(separator, matchup.CorrelatedBlocks.Select(b => b.GetText(true)))));
+			Assert.That(addedHeSaidBlockToMatchExplicitly, Is.EqualTo(matchup.OriginalBlocks.Last()));
 			bool callbackCalled = false;
 			var iHeSaidRow = matchup.CorrelatedBlocks.Count - 1;
 			matchup.InsertHeSaidText(iHeSaidRow, (iRow, level, text) =>
 			{
-				Assert.AreEqual(iHeSaidRow, iRow);
-				Assert.AreEqual(0, level);
-				Assert.AreEqual("he said.", text);
-				Assert.IsFalse(callbackCalled);
+				Assert.That(iHeSaidRow, Is.EqualTo(iRow));
+				Assert.That(level, Is.EqualTo(0));
+				Assert.That(text, Is.EqualTo("he said."));
+				Assert.That(callbackCalled, Is.False);
 				callbackCalled = true;
 			});
-			Assert.IsTrue(callbackCalled);
+			Assert.That(callbackCalled, Is.True);
 
 			var origRelevantBlock = m_model.RelevantBlockCount;
 			var origBlockDisplayIndex = m_model.CurrentDisplayIndex;
@@ -1501,18 +1508,18 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.ApplyCurrentReferenceTextMatchup();
 
 			// VERIFY
-			Assert.AreEqual(matchup, m_model.CurrentReferenceTextMatchup);
-			Assert.IsTrue(m_model.IsCurrentLocationRelevant,
+			Assert.That(matchup, Is.EqualTo(m_model.CurrentReferenceTextMatchup));
+			Assert.That(m_model.IsCurrentLocationRelevant, Is.True,
 				"We leave the matchup that was explicitly applied in the collection so the user can use \"Prev\" to get back to it");
 
-			Assert.AreEqual(origBlockDisplayIndex - 1, m_model.CurrentDisplayIndex,
+			Assert.That(origBlockDisplayIndex - 1, Is.EqualTo(m_model.CurrentDisplayIndex),
 				"One of the previous matchups (for Mark 1:8) is no longer relevant.");
-			Assert.AreEqual(origRelevantBlock - 3, m_model.RelevantBlockCount,
+			Assert.That(origRelevantBlock - 3, Is.EqualTo(m_model.RelevantBlockCount),
 				"The three other matchups with the \"he said\" text should no longer be considered relevant.");
-			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock);
+			Assert.That(m_model.CanNavigateToNextRelevantBlock, Is.True);
 			m_model.LoadNextRelevantBlock();
-			Assert.AreEqual(firstRelevantMatchupPastMark1V17Blocks,
-				Join(separator, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Select(b => b.GetText(true))));
+			Assert.That(Join(separator, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Select(b => b.GetText(true))),
+				Is.EqualTo(firstRelevantMatchupPastMark1V17Blocks));
 		}
 
 		private Block AddHeSaidAfterQuoteAtEndOfVerseInMark(int chapterNum, int verseNum, string markNarrator)
@@ -1521,7 +1528,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var markBlocks = mark.GetScriptBlocks();
 			var iBlock = markBlocks.TakeWhile(b => b.ChapterNumber <= chapterNum)
 				.IndexOf(b => b.LastVerseNum == verseNum);
-			Assert.IsTrue(iBlock > 0, "Setup condition not met.");
+			Assert.That(iBlock, Is.GreaterThan(0), "Setup condition not met.");
 			while (iBlock + 1 < markBlocks.Count && markBlocks[iBlock + 1].IsScripture && markBlocks[iBlock + 1].LastVerseNum == verseNum)
 				iBlock++;
 			var block = markBlocks[iBlock];
@@ -1529,7 +1536,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var lastTextContent = lastScriptText.Content;
 			if (lastTextContent.Last() != ' ')
 				lastTextContent = lastScriptText.Content += " ";
-			Assert.IsTrue(lastTextContent.EndsWith("” "), "Setup condition not met.");
+			Assert.That(lastTextContent, Does.EndWith("” "), "Setup condition not met.");
 
 			var characterToReapply = block.CharacterId;
 			lastScriptText.Content += "wacci kum.";
@@ -1574,8 +1581,8 @@ namespace GlyssenEngineTests.ViewModelTests
 				lastBlockInChapter.CharacterId);
 			m_targetReference = new VerseRef(bookNum, lastBlockInChapter.ChapterNumber, lastBlockInChapter.InitialStartVerseNumber);
 			var tempModel = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NotAlignedToReferenceText);
-			Assert.IsTrue(tempModel.TryLoadBlock(m_targetReference));
-			Assert.IsFalse(tempModel.IsCurrentLocationRelevant, "Before adding the extra verse, this block should not be relevant.");
+			Assert.That(tempModel.TryLoadBlock(m_targetReference), Is.True);
+			Assert.That(tempModel.IsCurrentLocationRelevant, Is.False, "Before adding the extra verse, this block should not be relevant.");
 
 			// Finally, we add the extra verse (not in the reference text)
 			var extraVerseNum = lastBlockInChapter.LastVerseNum + 1;
@@ -1602,8 +1609,8 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void IsRelevant_VernBlockHasUnexpectedVerseNotInReferenceText_ReturnsFalse()
 		{
 			m_model.SetMode(m_model.Mode, true);
-			Assert.IsTrue(m_model.TryLoadBlock(m_targetReference));
-			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
+			Assert.That(m_model.TryLoadBlock(m_targetReference), Is.True);
+			Assert.That(m_model.IsCurrentLocationRelevant, Is.True);
 		}
 	}
 
@@ -1631,12 +1638,12 @@ namespace GlyssenEngineTests.ViewModelTests
 			model.SetMode(model.Mode, true);
 
 			model.TryLoadBlock(new VerseRef(40, 3, 14));
-			Assert.AreEqual(14, model.CurrentReferenceTextMatchup.OriginalBlocks.Last().LastVerseNum);
+			Assert.That(model.CurrentReferenceTextMatchup.OriginalBlocks.Last().LastVerseNum, Is.EqualTo(14));
 			model.LoadNextRelevantBlock();
 
 			// MAT 3:15-17 should not be relevant
-			Assert.AreEqual("MAT", model.CurrentBookId);
-			Assert.IsFalse(model.CurrentBlock.ChapterNumber == 3 && model.CurrentBlock.InitialStartVerseNumber <= 17);
+			Assert.That(model.CurrentBookId, Is.EqualTo("MAT"));
+			Assert.That(model.CurrentBlock.ChapterNumber == 3 && model.CurrentBlock.InitialStartVerseNumber <= 17, Is.False);
 		}
 	}
 }

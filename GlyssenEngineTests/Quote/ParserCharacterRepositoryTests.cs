@@ -25,7 +25,7 @@ namespace GlyssenEngineTests.Quote
 
 			var characters = cvRepo.GetCharacters(book, chapter, new Verse(verse));
 
-			Assert.AreEqual(expectedCharacter, characters.Single().ToString());
+			Assert.That(expectedCharacter, Is.EqualTo(characters.Single().ToString()));
 		}
 
 		[Test]
@@ -35,7 +35,7 @@ namespace GlyssenEngineTests.Quote
 
 			var characters = cvRepo.GetCharacters(44, 8, new Verse("37"));
 
-			Assert.True(characters.Count == 2);
+			Assert.That(characters.Count == 2, Is.True);
 			Assert.That(characters.Any(i => i.Character == "Ethiopian officer of Queen Candace"));
 			Assert.That(characters.Any(i => i.Character == "Philip the evangelist"));
 		}

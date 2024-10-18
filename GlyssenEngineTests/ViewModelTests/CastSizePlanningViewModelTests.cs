@@ -67,8 +67,8 @@ namespace GlyssenEngineTests.ViewModelTests
 
 		private void VerifyThatModelAndDlgAreInSync(CastSizePlanningViewModel model, MockCastSizePlanningDialog dlg)
 		{
-			Assert.AreEqual(model.MaleNarrators, dlg.MaleNarratorsValue);
-			Assert.AreEqual(model.FemaleNarrators, dlg.FemaleNarratorsValue);
+			Assert.That(model.MaleNarrators, Is.EqualTo(dlg.MaleNarratorsValue));
+			Assert.That(model.FemaleNarrators, Is.EqualTo(dlg.FemaleNarratorsValue));
 		}
 
 		[Test]
@@ -81,7 +81,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			// Test
 			model.NarratorOption = NarratorsOption.NarrationByAuthor;
 			// Verify results
-			Assert.AreEqual(1, dlg.MaleNarratorsValue);
+			Assert.That(dlg.MaleNarratorsValue, Is.EqualTo(1));
 			Assert.That(dlg.FemaleNarratorsValueChangedEventNeverFired);
 		}
 
@@ -95,8 +95,8 @@ namespace GlyssenEngineTests.ViewModelTests
 			// Test
 			model.NarratorOption = NarratorsOption.NarrationByAuthor;
 			// Verify results
-			Assert.AreEqual(1, dlg.MaleNarratorsValue);
-			Assert.AreEqual(0, dlg.FemaleNarratorsValue);
+			Assert.That(dlg.MaleNarratorsValue, Is.EqualTo(1));
+			Assert.That(dlg.FemaleNarratorsValue, Is.EqualTo(0));
 			VerifyThatModelAndDlgAreInSync(model, dlg);
 		}
 
@@ -110,8 +110,8 @@ namespace GlyssenEngineTests.ViewModelTests
 			// Test
 			model.NarratorOption = NarratorsOption.NarrationByAuthor;
 			// Verify results
-			Assert.AreEqual(2, dlg.MaleNarratorsValue);
-			Assert.AreEqual(0, dlg.FemaleNarratorsValue);
+			Assert.That(dlg.MaleNarratorsValue, Is.EqualTo(2));
+			Assert.That(dlg.FemaleNarratorsValue, Is.EqualTo(0));
 			VerifyThatModelAndDlgAreInSync(model, dlg);
 		}
 
@@ -126,22 +126,22 @@ namespace GlyssenEngineTests.ViewModelTests
 			// Test - Part 1
 			model.NarratorOption = NarratorsOption.NarrationByAuthor;
 			// Verify results
-			Assert.AreEqual(2, dlg.MaleNarratorsValue);
-			Assert.AreEqual(0, dlg.FemaleNarratorsValue);
+			Assert.That(dlg.MaleNarratorsValue, Is.EqualTo(2));
+			Assert.That(dlg.FemaleNarratorsValue, Is.EqualTo(0));
 			VerifyThatModelAndDlgAreInSync(model, dlg);
 
 			// Test - Part 2
 			model.NarratorOption = NarratorsOption.SingleNarrator;
 			// Verify results
-			Assert.AreEqual(1, dlg.MaleNarratorsValue);
-			Assert.AreEqual(0, dlg.FemaleNarratorsValue);
+			Assert.That(dlg.MaleNarratorsValue, Is.EqualTo(1));
+			Assert.That(dlg.FemaleNarratorsValue, Is.EqualTo(0));
 			VerifyThatModelAndDlgAreInSync(model, dlg);
 
 			// Test - Part 3
 			model.NarratorOption = NarratorsOption.Custom;
 			// Verify results
-			Assert.AreEqual(2, dlg.MaleNarratorsValue);
-			Assert.AreEqual(1, dlg.FemaleNarratorsValue);
+			Assert.That(dlg.MaleNarratorsValue, Is.EqualTo(2));
+			Assert.That(dlg.FemaleNarratorsValue, Is.EqualTo(1));
 			VerifyThatModelAndDlgAreInSync(model, dlg);
 		}
 
@@ -152,22 +152,22 @@ namespace GlyssenEngineTests.ViewModelTests
 			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject);
 
 			var smallCast = model.GetCastSizeRowValues(CastSizeOption.Small);
-			Assert.AreEqual(2, smallCast.Male);
-			Assert.AreEqual(0, smallCast.Female);
-			Assert.AreEqual(0, smallCast.Child);
-			Assert.AreEqual(2, smallCast.Total);
+			Assert.That(smallCast.Male, Is.EqualTo(2));
+			Assert.That(smallCast.Female, Is.EqualTo(0));
+			Assert.That(smallCast.Child, Is.EqualTo(0));
+			Assert.That(smallCast.Total, Is.EqualTo(2));
 
 			var recommendedCast = model.GetCastSizeRowValues(CastSizeOption.Recommended);
-			Assert.AreEqual(2, recommendedCast.Male);
-			Assert.AreEqual(0, recommendedCast.Female);
-			Assert.AreEqual(0, recommendedCast.Child);
-			Assert.AreEqual(2, recommendedCast.Total);
+			Assert.That(recommendedCast.Male, Is.EqualTo(2));
+			Assert.That(recommendedCast.Female, Is.EqualTo(0));
+			Assert.That(recommendedCast.Child, Is.EqualTo(0));
+			Assert.That(recommendedCast.Total, Is.EqualTo(2));
 
 			var largeCast = model.GetCastSizeRowValues(CastSizeOption.Large);
-			Assert.AreEqual(2, largeCast.Male);
-			Assert.AreEqual(0, largeCast.Female);
-			Assert.AreEqual(0, largeCast.Child);
-			Assert.AreEqual(2, largeCast.Total);
+			Assert.That(largeCast.Male, Is.EqualTo(2));
+			Assert.That(largeCast.Female, Is.EqualTo(0));
+			Assert.That(largeCast.Child, Is.EqualTo(0));
+			Assert.That(largeCast.Total, Is.EqualTo(2));
 		}
 
 		[Test]
@@ -182,22 +182,22 @@ namespace GlyssenEngineTests.ViewModelTests
 			testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.MaleActor;
 
 			var smallCast = model.GetCastSizeRowValues(CastSizeOption.Small);
-			Assert.AreEqual(3, smallCast.Male);
-			Assert.AreEqual(0, smallCast.Female);
-			Assert.AreEqual(0, smallCast.Child);
-			Assert.AreEqual(3, smallCast.Total);
+			Assert.That(smallCast.Male, Is.EqualTo(3));
+			Assert.That(smallCast.Female, Is.EqualTo(0));
+			Assert.That(smallCast.Child, Is.EqualTo(0));
+			Assert.That(smallCast.Total, Is.EqualTo(3));
 
 			var recommendedCast = model.GetCastSizeRowValues(CastSizeOption.Recommended);
-			Assert.AreEqual(3, recommendedCast.Male);
-			Assert.AreEqual(0, recommendedCast.Female);
-			Assert.AreEqual(0, recommendedCast.Child);
-			Assert.AreEqual(3, recommendedCast.Total);
+			Assert.That(recommendedCast.Male, Is.EqualTo(3));
+			Assert.That(recommendedCast.Female, Is.EqualTo(0));
+			Assert.That(recommendedCast.Child, Is.EqualTo(0));
+			Assert.That(recommendedCast.Total, Is.EqualTo(3));
 
 			var largeCast = model.GetCastSizeRowValues(CastSizeOption.Large);
-			Assert.AreEqual(3, largeCast.Male);
-			Assert.AreEqual(0, largeCast.Female);
-			Assert.AreEqual(0, largeCast.Child);
-			Assert.AreEqual(3, largeCast.Total);
+			Assert.That(largeCast.Male, Is.EqualTo(3));
+			Assert.That(largeCast.Female, Is.EqualTo(0));
+			Assert.That(largeCast.Child, Is.EqualTo(0));
+			Assert.That(largeCast.Total, Is.EqualTo(3));
 		}
 
 		[Test]
@@ -210,22 +210,22 @@ namespace GlyssenEngineTests.ViewModelTests
 			};
 
 			var smallCast = model.GetCastSizeRowValues(CastSizeOption.Small);
-			Assert.AreEqual(2, smallCast.Male);
-			Assert.AreEqual(0, smallCast.Female);
-			Assert.AreEqual(0, smallCast.Child);
-			Assert.AreEqual(2, smallCast.Total);
+			Assert.That(smallCast.Male, Is.EqualTo(2));
+			Assert.That(smallCast.Female, Is.EqualTo(0));
+			Assert.That(smallCast.Child, Is.EqualTo(0));
+			Assert.That(smallCast.Total, Is.EqualTo(2));
 
 			var recommendedCast = model.GetCastSizeRowValues(CastSizeOption.Recommended);
-			Assert.AreEqual(2, recommendedCast.Male);
-			Assert.AreEqual(0, recommendedCast.Female);
-			Assert.AreEqual(0, recommendedCast.Child);
-			Assert.AreEqual(2, recommendedCast.Total);
+			Assert.That(recommendedCast.Male, Is.EqualTo(2));
+			Assert.That(recommendedCast.Female, Is.EqualTo(0));
+			Assert.That(recommendedCast.Child, Is.EqualTo(0));
+			Assert.That(recommendedCast.Total, Is.EqualTo(2));
 
 			var largeCast = model.GetCastSizeRowValues(CastSizeOption.Large);
-			Assert.AreEqual(2, largeCast.Male);
-			Assert.AreEqual(0, largeCast.Female);
-			Assert.AreEqual(0, largeCast.Child);
-			Assert.AreEqual(2, largeCast.Total);
+			Assert.That(largeCast.Male, Is.EqualTo(2));
+			Assert.That(largeCast.Female, Is.EqualTo(0));
+			Assert.That(largeCast.Child, Is.EqualTo(0));
+			Assert.That(largeCast.Total, Is.EqualTo(2));
 		}
 
 		[Test]
@@ -240,22 +240,22 @@ namespace GlyssenEngineTests.ViewModelTests
 			};
 
 			var smallCast = model.GetCastSizeRowValues(CastSizeOption.Small);
-			Assert.AreEqual(2, smallCast.Male);
-			Assert.AreEqual(1, smallCast.Female);
-			Assert.AreEqual(0, smallCast.Child);
-			Assert.AreEqual(3, smallCast.Total);
+			Assert.That(smallCast.Male, Is.EqualTo(2));
+			Assert.That(smallCast.Female, Is.EqualTo(1));
+			Assert.That(smallCast.Child, Is.EqualTo(0));
+			Assert.That(smallCast.Total, Is.EqualTo(3));
 
 			var recommendedCast = model.GetCastSizeRowValues(CastSizeOption.Recommended);
-			Assert.AreEqual(2, recommendedCast.Male);
-			Assert.AreEqual(1, recommendedCast.Female);
-			Assert.AreEqual(0, recommendedCast.Child);
-			Assert.AreEqual(3, recommendedCast.Total);
+			Assert.That(recommendedCast.Male, Is.EqualTo(2));
+			Assert.That(recommendedCast.Female, Is.EqualTo(1));
+			Assert.That(recommendedCast.Child, Is.EqualTo(0));
+			Assert.That(recommendedCast.Total, Is.EqualTo(3));
 
 			var largeCast = model.GetCastSizeRowValues(CastSizeOption.Large);
-			Assert.AreEqual(2, largeCast.Male);
-			Assert.AreEqual(1, largeCast.Female);
-			Assert.AreEqual(0, largeCast.Child);
-			Assert.AreEqual(3, largeCast.Total);
+			Assert.That(largeCast.Male, Is.EqualTo(2));
+			Assert.That(largeCast.Female, Is.EqualTo(1));
+			Assert.That(largeCast.Child, Is.EqualTo(0));
+			Assert.That(largeCast.Total, Is.EqualTo(3));
 		}
 
 		[Test]
@@ -266,22 +266,22 @@ namespace GlyssenEngineTests.ViewModelTests
 			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject);
 
 			var smallCast = model.GetCastSizeRowValues(CastSizeOption.Small);
-			Assert.AreEqual(4, smallCast.Male);
-			Assert.AreEqual(0, smallCast.Female);
-			Assert.AreEqual(0, smallCast.Child);
-			Assert.AreEqual(4, smallCast.Total);
+			Assert.That(smallCast.Male, Is.EqualTo(4));
+			Assert.That(smallCast.Female, Is.EqualTo(0));
+			Assert.That(smallCast.Child, Is.EqualTo(0));
+			Assert.That(smallCast.Total, Is.EqualTo(4));
 
 			var recommendedCast = model.GetCastSizeRowValues(CastSizeOption.Recommended);
-			Assert.AreEqual(5, recommendedCast.Male);
-			Assert.AreEqual(0, recommendedCast.Female);
-			Assert.AreEqual(0, recommendedCast.Child);
-			Assert.AreEqual(5, recommendedCast.Total);
+			Assert.That(recommendedCast.Male, Is.EqualTo(5));
+			Assert.That(recommendedCast.Female, Is.EqualTo(0));
+			Assert.That(recommendedCast.Child, Is.EqualTo(0));
+			Assert.That(recommendedCast.Total, Is.EqualTo(5));
 
 			var largeCast = model.GetCastSizeRowValues(CastSizeOption.Large);
-			Assert.AreEqual(5, largeCast.Male);
-			Assert.AreEqual(0, largeCast.Female);
-			Assert.AreEqual(0, largeCast.Child);
-			Assert.AreEqual(5, largeCast.Total);
+			Assert.That(largeCast.Male, Is.EqualTo(5));
+			Assert.That(largeCast.Female, Is.EqualTo(0));
+			Assert.That(largeCast.Child, Is.EqualTo(0));
+			Assert.That(largeCast.Total, Is.EqualTo(5));
 		}
 
 		[Test]
@@ -292,22 +292,22 @@ namespace GlyssenEngineTests.ViewModelTests
 			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject);
 
 			var smallCast = model.GetCastSizeRowValues(CastSizeOption.Small);
-			Assert.AreEqual(9, smallCast.Male);
-			Assert.AreEqual(2, smallCast.Female);
-			Assert.AreEqual(0, smallCast.Child);
-			Assert.AreEqual(11, smallCast.Total);
+			Assert.That(smallCast.Male, Is.EqualTo(9));
+			Assert.That(smallCast.Female, Is.EqualTo(2));
+			Assert.That(smallCast.Child, Is.EqualTo(0));
+			Assert.That(smallCast.Total, Is.EqualTo(11));
 
 			var recommendedCast = model.GetCastSizeRowValues(CastSizeOption.Recommended);
-			Assert.AreEqual(13, recommendedCast.Male);
-			Assert.AreEqual(3, recommendedCast.Female);
-			Assert.AreEqual(0, recommendedCast.Child);
-			Assert.AreEqual(16, recommendedCast.Total);
+			Assert.That(recommendedCast.Male, Is.EqualTo(13));
+			Assert.That(recommendedCast.Female, Is.EqualTo(3));
+			Assert.That(recommendedCast.Child, Is.EqualTo(0));
+			Assert.That(recommendedCast.Total, Is.EqualTo(16));
 
 			var largeCast = model.GetCastSizeRowValues(CastSizeOption.Large);
-			Assert.AreEqual(17, largeCast.Male); // TODO: Talk to Duane about logic for this
-			Assert.AreEqual(4, largeCast.Female);
-			Assert.AreEqual(0, largeCast.Child);
-			Assert.AreEqual(21, largeCast.Total);
+			Assert.That(largeCast.Male, Is.EqualTo(17)); // TODO: Talk to Duane about logic for this
+			Assert.That(largeCast.Female, Is.EqualTo(4));
+			Assert.That(largeCast.Child, Is.EqualTo(0));
+			Assert.That(largeCast.Total, Is.EqualTo(21));
 		}
 
 		[TestCase(DramatizationOption.DedicatedCharacter, 2)]
@@ -319,7 +319,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			//testProject.IncludedBooks.Single().GetBlocksForVerse()
 			testProject.DramatizationPreferences.ScriptureQuotationsShouldBeSpokenBy = scriptureQuotationsSpokenBy;
 			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject);
-			Assert.AreEqual(expectedBaseNNumberOfMaleActors + 2, model.GetCastSizeRowValues(CastSizeOption.Small).Male);
+			Assert.That(expectedBaseNNumberOfMaleActors + 2, Is.EqualTo(model.GetCastSizeRowValues(CastSizeOption.Small).Male));
 		}
 
 		// ENHANCE: For now, the Orpah/Ruth character automatically resolves to Ruth. Later, when we give the user a way to determine this --
@@ -340,22 +340,22 @@ namespace GlyssenEngineTests.ViewModelTests
 			};
 
 			var smallCast = model.GetCastSizeRowValues(CastSizeOption.Small);
-			Assert.AreEqual(3, smallCast.Male);
-			Assert.AreEqual(5, smallCast.Female);
-			Assert.AreEqual(0, smallCast.Child);
-			Assert.AreEqual(8, smallCast.Total);
+			Assert.That(smallCast.Male, Is.EqualTo(3));
+			Assert.That(smallCast.Female, Is.EqualTo(5));
+			Assert.That(smallCast.Child, Is.EqualTo(0));
+			Assert.That(smallCast.Total, Is.EqualTo(8));
 
 			var recommendedCast = model.GetCastSizeRowValues(CastSizeOption.Recommended);
-			Assert.AreEqual(5, recommendedCast.Male);
-			Assert.AreEqual(5, recommendedCast.Female);
-			Assert.AreEqual(0, recommendedCast.Child);
-			Assert.AreEqual(10, recommendedCast.Total);
+			Assert.That(recommendedCast.Male, Is.EqualTo(5));
+			Assert.That(recommendedCast.Female, Is.EqualTo(5));
+			Assert.That(recommendedCast.Child, Is.EqualTo(0));
+			Assert.That(recommendedCast.Total, Is.EqualTo(10));
 
 			var largeCast = model.GetCastSizeRowValues(CastSizeOption.Large);
-			Assert.AreEqual(6, largeCast.Male);
-			Assert.AreEqual(5, largeCast.Female);
-			Assert.AreEqual(0, largeCast.Child);
-			Assert.AreEqual(11, largeCast.Total);
+			Assert.That(largeCast.Male, Is.EqualTo(6));
+			Assert.That(largeCast.Female, Is.EqualTo(5));
+			Assert.That(largeCast.Child, Is.EqualTo(0));
+			Assert.That(largeCast.Total, Is.EqualTo(11));
 		}
 
 		[Test]
@@ -372,22 +372,22 @@ namespace GlyssenEngineTests.ViewModelTests
 			};
 
 			var smallCast = model.GetCastSizeRowValues(CastSizeOption.Small);
-			Assert.AreEqual(9, smallCast.Male);
-			Assert.AreEqual(5, smallCast.Female);
-			Assert.AreEqual(1, smallCast.Child);
-			Assert.AreEqual(15, smallCast.Total);
+			Assert.That(smallCast.Male, Is.EqualTo(9));
+			Assert.That(smallCast.Female, Is.EqualTo(5));
+			Assert.That(smallCast.Child, Is.EqualTo(1));
+			Assert.That(smallCast.Total, Is.EqualTo(15));
 
 			var recommendedCast = model.GetCastSizeRowValues(CastSizeOption.Recommended);
-			Assert.AreEqual(13, recommendedCast.Male);
-			Assert.AreEqual(7, recommendedCast.Female);
-			Assert.AreEqual(1, recommendedCast.Child);
-			Assert.AreEqual(21, recommendedCast.Total);
+			Assert.That(recommendedCast.Male, Is.EqualTo(13));
+			Assert.That(recommendedCast.Female, Is.EqualTo(7));
+			Assert.That(recommendedCast.Child, Is.EqualTo(1));
+			Assert.That(recommendedCast.Total, Is.EqualTo(21));
 
 			var largeCast = model.GetCastSizeRowValues(CastSizeOption.Large);
-			Assert.AreEqual(17, largeCast.Male); // TODO: Talk to Duane about logic for this
-			Assert.AreEqual(9, largeCast.Female);
-			Assert.AreEqual(1, largeCast.Child);
-			Assert.AreEqual(27, largeCast.Total);
+			Assert.That(largeCast.Male, Is.EqualTo(17)); // TODO: Talk to Duane about logic for this
+			Assert.That(largeCast.Female, Is.EqualTo(9));
+			Assert.That(largeCast.Child, Is.EqualTo(1));
+			Assert.That(largeCast.Total, Is.EqualTo(27));
 		}
 	}
 }

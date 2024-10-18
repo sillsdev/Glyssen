@@ -40,17 +40,17 @@ namespace GlyssenEngineTests.ViewModelTests
 			xmlDoc.LoadXml(html.Replace("&nbsp;", "&#160;"));
 			var body = xmlDoc.ChildNodes[0].SelectSingleNode("body");
 			var bookDiv = body.FirstChild;
-			Assert.AreEqual("div", bookDiv.Name);
-			Assert.AreEqual("MRK", bookDiv.Attributes.GetNamedItem("id").Value);
+			Assert.That(bookDiv.Name, Is.EqualTo("div"));
+			Assert.That(bookDiv.Attributes.GetNamedItem("id").Value, Is.EqualTo("MRK"));
 			var splitsDiv = bookDiv.ChildNodes[0];
-			Assert.AreEqual("splits", splitsDiv.Attributes.GetNamedItem("class").Value);
-			Assert.AreEqual("MRK 8:25-26", splitsDiv.ChildNodes[0].Value);
+			Assert.That(splitsDiv.Attributes.GetNamedItem("class").Value, Is.EqualTo("splits"));
+			Assert.That(splitsDiv.ChildNodes[0].Value, Is.EqualTo("MRK 8:25-26"));
 			var preSplitBlockDiv = splitsDiv.ChildNodes[1];
 			VerifyBlockHtml(preSplitBlockDiv, blockToSplit, false);
-			Assert.AreEqual(" //SPLIT// ", splitsDiv.ChildNodes[2].Value);
+			Assert.That(splitsDiv.ChildNodes[2].Value, Is.EqualTo(" //SPLIT// "));
 			var postSplitBlockDiv = splitsDiv.ChildNodes[3];
 			VerifyBlockHtml(postSplitBlockDiv, newBlock, false);
-			Assert.AreEqual("\u00A0", bookDiv.ChildNodes[1].InnerText);
+			Assert.That(bookDiv.ChildNodes[1].InnerText, Is.EqualTo("\u00A0"));
 		}
 
 		[Test]
@@ -97,30 +97,30 @@ namespace GlyssenEngineTests.ViewModelTests
 			xmlDoc.LoadXml(html.Replace("&nbsp;", "&#160;"));
 			var body = xmlDoc.ChildNodes[0].SelectSingleNode("body");
 			var bookDiv = body.ChildNodes[0];
-			Assert.AreEqual("div", bookDiv.Name);
-			Assert.AreEqual("MRK", bookDiv.Attributes.GetNamedItem("id").Value);
+			Assert.That(bookDiv.Name, Is.EqualTo("div"));
+			Assert.That(bookDiv.Attributes.GetNamedItem("id").Value, Is.EqualTo("MRK"));
 			var splitsDiv = bookDiv.ChildNodes[0];
-			Assert.AreEqual("splits", splitsDiv.Attributes.GetNamedItem("class").Value);
-			Assert.AreEqual("MRK 8:25-26", splitsDiv.ChildNodes[0].Value);
+			Assert.That(splitsDiv.Attributes.GetNamedItem("class").Value, Is.EqualTo("splits"));
+			Assert.That(splitsDiv.ChildNodes[0].Value, Is.EqualTo("MRK 8:25-26"));
 			var preSplitBlockDiv = splitsDiv.ChildNodes[1];
 			VerifyBlockHtml(preSplitBlockDiv, blockToSplitMark, false);
-			Assert.AreEqual(" //SPLIT// ", splitsDiv.ChildNodes[2].Value);
+			Assert.That(splitsDiv.ChildNodes[2].Value, Is.EqualTo(" //SPLIT// "));
 			var postSplitBlockDiv = splitsDiv.ChildNodes[3];
 			VerifyBlockHtml(postSplitBlockDiv, newBlockMark, false);
-			Assert.AreEqual("\u00A0", bookDiv.ChildNodes[1].InnerText);
+			Assert.That(bookDiv.ChildNodes[1].InnerText, Is.EqualTo("\u00A0"));
 
 			bookDiv = body.ChildNodes[1];
-			Assert.AreEqual("div", bookDiv.Name);
-			Assert.AreEqual("ACT", bookDiv.Attributes.GetNamedItem("id").Value);
+			Assert.That(bookDiv.Name, Is.EqualTo("div"));
+			Assert.That(bookDiv.Attributes.GetNamedItem("id").Value, Is.EqualTo("ACT"));
 			splitsDiv = bookDiv.ChildNodes[0];
-			Assert.AreEqual("splits", splitsDiv.Attributes.GetNamedItem("class").Value);
-			Assert.AreEqual("ACT 10:5-7", splitsDiv.ChildNodes[0].Value);
+			Assert.That(splitsDiv.Attributes.GetNamedItem("class").Value, Is.EqualTo("splits"));
+			Assert.That(splitsDiv.ChildNodes[0].Value, Is.EqualTo("ACT 10:5-7"));
 			preSplitBlockDiv = splitsDiv.ChildNodes[1];
 			VerifyBlockHtml(preSplitBlockDiv, blockToSplitActs, false);
-			Assert.AreEqual(" //SPLIT// ", splitsDiv.ChildNodes[2].Value);
+			Assert.That(splitsDiv.ChildNodes[2].Value, Is.EqualTo(" //SPLIT// "));
 			postSplitBlockDiv = splitsDiv.ChildNodes[3];
 			VerifyBlockHtml(postSplitBlockDiv, newBlockActs, false);
-			Assert.AreEqual("\u00A0", bookDiv.ChildNodes[1].InnerText);
+			Assert.That(bookDiv.ChildNodes[1].InnerText, Is.EqualTo("\u00A0"));
 		}
 
 		[Test]
@@ -161,26 +161,26 @@ namespace GlyssenEngineTests.ViewModelTests
 			xmlDoc.LoadXml(html.Replace("&nbsp;", "&#160;"));
 			var body = xmlDoc.ChildNodes[0].SelectSingleNode("body");
 			var bookDiv = body.FirstChild;
-			Assert.AreEqual("div", bookDiv.Name);
-			Assert.AreEqual("MRK", bookDiv.Attributes.GetNamedItem("id").Value);
+			Assert.That(bookDiv.Name, Is.EqualTo("div"));
+			Assert.That(bookDiv.Attributes.GetNamedItem("id").Value, Is.EqualTo("MRK"));
 			var splitsDiv = bookDiv.ChildNodes[0];
-			Assert.AreEqual("splits", splitsDiv.Attributes.GetNamedItem("class").Value);
-			Assert.AreEqual("MRK 8:25-26", splitsDiv.ChildNodes[0].Value);
+			Assert.That(splitsDiv.Attributes.GetNamedItem("class").Value, Is.EqualTo("splits"));
+			Assert.That(splitsDiv.ChildNodes[0].Value, Is.EqualTo("MRK 8:25-26"));
 			var preSplitBlock1Div = splitsDiv.ChildNodes[1];
 			VerifyBlockHtml(preSplitBlock1Div, blockToSplit1, false);
-			Assert.AreEqual(" //SPLIT// ", splitsDiv.ChildNodes[2].Value);
+			Assert.That(splitsDiv.ChildNodes[2].Value, Is.EqualTo(" //SPLIT// "));
 			var postSplitBlock1Div = splitsDiv.ChildNodes[3];
 			VerifyBlockHtml(postSplitBlock1Div, newBlock1, false);
-			Assert.AreEqual("MRK 10:5-6", splitsDiv.ChildNodes[4].Value);
+			Assert.That(splitsDiv.ChildNodes[4].Value, Is.EqualTo("MRK 10:5-6"));
 			var preSplitBlock2Div = splitsDiv.ChildNodes[5];
 			VerifyBlockHtml(preSplitBlock2Div, blockToSplit2, false);
-			Assert.AreEqual(" //SPLIT// ", splitsDiv.ChildNodes[6].Value);
+			Assert.That(splitsDiv.ChildNodes[6].Value, Is.EqualTo(" //SPLIT// "));
 			var postSplitBlock2Div = splitsDiv.ChildNodes[7];
 			VerifyBlockHtml(postSplitBlock2Div, newBlock2, false);
-			Assert.AreEqual(" //SPLIT// ", splitsDiv.ChildNodes[8].Value);
+			Assert.That(splitsDiv.ChildNodes[8].Value, Is.EqualTo(" //SPLIT// "));
 			var lastSplitBlockDiv = splitsDiv.ChildNodes[9];
 			VerifyBlockHtml(lastSplitBlockDiv, newBlock3, false);
-			Assert.AreEqual("\u00A0", bookDiv.ChildNodes[1].InnerText);
+			Assert.That(bookDiv.ChildNodes[1].InnerText, Is.EqualTo("\u00A0"));
 		}
 
 		private Block Split(BookScript book, Block blockToSplit, string verse, int pos)
@@ -189,7 +189,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			newBlock.Delivery = "giving orders";
 			newBlock.UserConfirmed = true;
 			blockToSplit.UserConfirmed = true;
-			Assert.AreEqual(newBlock.SplitId, blockToSplit.SplitId);
+			Assert.That(newBlock.SplitId, Is.EqualTo(blockToSplit.SplitId));
 			return newBlock;
 		}
 
@@ -197,13 +197,14 @@ namespace GlyssenEngineTests.ViewModelTests
 
 		private void VerifyBlockHtml(XmlNode blockHtml, Block block, bool rightToLeft)
 		{
-			Assert.AreEqual("strong", blockHtml.ChildNodes[0].Name);
-			Assert.AreEqual($"{block.CharacterId}: ", blockHtml.ChildNodes[0].FirstChild.Value);
+			Assert.That(blockHtml.ChildNodes[0].Name, Is.EqualTo("strong"));
+			Assert.That(blockHtml.ChildNodes[0].FirstChild.Value,
+				Is.EqualTo($"{block.CharacterId}: "));
 			var bldr = new StringBuilder();
 			for (int i = 1; i < blockHtml.ChildNodes.Count; i++)
 				bldr.Append(blockHtml.ChildNodes[i].OuterXml);
-			Assert.AreEqual(block.GetTextAsHtml(true, rightToLeft).Replace("&#160;", "\u00A0"),
-				bldr.ToString());
+			Assert.That(bldr.ToString(), Is.EqualTo(
+				block.GetTextAsHtml(true, rightToLeft).Replace("&#160;", "\u00A0")));
 		}
 
 		private Block NewChapterBlock(int chapterNum, string bookCode)

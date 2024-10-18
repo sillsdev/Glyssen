@@ -26,16 +26,16 @@ namespace GlyssenEngineTests
 </BiblicalAuthors>";
 
 			var deserializedBiblicalAuthors = XmlSerializationHelper.DeserializeFromString<BiblicalAuthors>(startingAndExpectedXml);
-			Assert.AreEqual(2, deserializedBiblicalAuthors.Count);
+			Assert.That(deserializedBiblicalAuthors.Count, Is.EqualTo(2));
 			var peter = deserializedBiblicalAuthors[0];
-			Assert.AreEqual("Peter", peter.Name);
-			Assert.AreEqual(2, peter.Books.Count);
-			Assert.AreEqual("1PE", peter.Books[0]);
-			Assert.AreEqual("2PE", peter.Books[1]);
+			Assert.That(peter.Name, Is.EqualTo("Peter"));
+			Assert.That(peter.Books.Count, Is.EqualTo(2));
+			Assert.That(peter.Books[0], Is.EqualTo("1PE"));
+			Assert.That(peter.Books[1], Is.EqualTo("2PE"));
 			var obadiah = deserializedBiblicalAuthors[1];
-			Assert.AreEqual("Obadiah", obadiah.Name);
-			Assert.AreEqual(1, obadiah.Books.Count);
-			Assert.AreEqual("OBA", obadiah.Books[0]);
+			Assert.That(obadiah.Name, Is.EqualTo("Obadiah"));
+			Assert.That(obadiah.Books.Count, Is.EqualTo(1));
+			Assert.That(obadiah.Books[0], Is.EqualTo("OBA"));
 
 			AssertThatXmlIn.String(startingAndExpectedXml).EqualsIgnoreWhitespace(deserializedBiblicalAuthors.GetAsXml());
 		}
@@ -43,13 +43,13 @@ namespace GlyssenEngineTests
 		[Test]
 		public void GetAuthorCount_OldTestament_Returns29()
 		{
-			Assert.AreEqual(29, BiblicalAuthors.GetAuthorCount(BookSetUtils.OldTestament.SelectedBookIds));
+			Assert.That(BiblicalAuthors.GetAuthorCount(BookSetUtils.OldTestament.SelectedBookIds), Is.EqualTo(29));
 		}
 
 		[Test]
 		public void GetAuthorCount_NewTestament_Returns9()
 		{
-			Assert.AreEqual(9, BiblicalAuthors.GetAuthorCount(BookSetUtils.NewTestament.SelectedBookIds));
+			Assert.That(BiblicalAuthors.GetAuthorCount(BookSetUtils.NewTestament.SelectedBookIds), Is.EqualTo(9));
 		}
 	}
 }

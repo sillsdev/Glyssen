@@ -163,8 +163,8 @@ namespace GlyssenEngineTests
 
 			WaitForProjectInitializationToFinish(project, ProjectState.FullyInitialized);
 
-			Assert.AreEqual(bogusQuoteSystem, project.QuoteSystem);
-			Assert.AreEqual(QuoteSystemStatus.Obtained, project.Status.QuoteSystemStatus);
+			Assert.That(bogusQuoteSystem, Is.EqualTo(project.QuoteSystem));
+			Assert.That(QuoteSystemStatus.Obtained, Is.EqualTo(project.Status.QuoteSystemStatus));
 		}
 
 		[Test]
@@ -175,8 +175,8 @@ namespace GlyssenEngineTests
 
 			WaitForProjectInitializationToFinish(project, ProjectState.NeedsQuoteSystemConfirmation);
 
-			Assert.IsTrue(project.QuoteSystem.AllLevels.Any());
-			Assert.AreEqual(QuoteSystemStatus.Guessed, project.Status.QuoteSystemStatus);
+			Assert.That(project.QuoteSystem.AllLevels.Any(), Is.True);
+			Assert.That(QuoteSystemStatus.Guessed, Is.EqualTo(project.Status.QuoteSystemStatus));
 		}
 
 		[Test]
@@ -190,21 +190,21 @@ namespace GlyssenEngineTests
 
 			WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
 
-			Assert.AreEqual(10, project.FontSizeInPoints);
+			Assert.That(project.FontSizeInPoints, Is.EqualTo(10));
 
 			var newBundle = BundleWithLdml;
 
 			// Technically, this is overkill. Since newBundle's metadata has a font size of 14, we could just leave it as 10
 			// and check that it stays as 10.
-			Assert.AreNotEqual(12, newBundle.Metadata.FontSizeInPoints);
+			Assert.That(12, Is.Not.EqualTo(newBundle.Metadata.FontSizeInPoints));
 			project.UpdateSettings(new GlyssenEngine.ViewModels.ProjectSettingsViewModel(project), "Polaris Basic Frog", 12, false);
 
 			var updatedProject = project.UpdateProjectFromBundleData(newBundle);
 
 			WaitForProjectInitializationToFinish(updatedProject, ProjectState.ReadyForUserInteraction);
 
-			Assert.AreEqual(12, updatedProject.FontSizeInPoints);
-			Assert.AreEqual("Polaris Basic Frog", updatedProject.FontFamily);
+			Assert.That(updatedProject.FontSizeInPoints, Is.EqualTo(12));
+			Assert.That(updatedProject.FontFamily, Is.EqualTo("Polaris Basic Frog"));
 		}
 
 		[Test]
@@ -216,13 +216,13 @@ namespace GlyssenEngineTests
 
 			WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
 
-			Assert.AreEqual("open", project.QuoteSystem.FirstLevel.Open);
+			Assert.That(project.QuoteSystem.FirstLevel.Open, Is.EqualTo("open"));
 
 			var newBundle = GetBundleWithoutLdmlAndWithModifiedLanguage(null);
-			Assert.IsNull(newBundle.WritingSystemDefinition);
+			Assert.That(newBundle.WritingSystemDefinition, Is.Null);
 			var updatedProject = project.UpdateProjectFromBundleData(newBundle);
 
-			Assert.AreEqual("open", updatedProject.QuoteSystem.FirstLevel.Open);
+			Assert.That(updatedProject.QuoteSystem.FirstLevel.Open, Is.EqualTo("open"));
 		}
 
 		[Test]
@@ -245,7 +245,7 @@ namespace GlyssenEngineTests
 
 			WaitForProjectInitializationToFinish(updatedProject, ProjectState.FullyInitialized);
 
-			Assert.AreEqual(verseRef.Verse, updatedProject.Books[0].GetScriptBlocks().First(b => b.CharacterId == "Wilma").InitialStartVerseNumber);
+			Assert.That(verseRef.Verse, Is.EqualTo(updatedProject.Books[0].GetScriptBlocks().First(b => b.CharacterId == "Wilma").InitialStartVerseNumber));
 		}
 
 		[Test]
@@ -254,12 +254,12 @@ namespace GlyssenEngineTests
 			var project = new Project(BundleWithLdml);
 			project.Status.QuoteSystemStatus = QuoteSystemStatus.UserSet;
 
-			WritingSystemDefinition targetWs = new WritingSystemDefinition();
-			GlyssenDblTextMetadata targetMetadata = new GlyssenDblTextMetadata();
+			var targetWs = new WritingSystemDefinition();
+			var targetMetadata = new GlyssenDblTextMetadata();
 			project.CopyQuoteMarksIfAppropriate(targetWs, targetMetadata);
 
-			Assert.AreEqual(project.QuoteSystem.AllLevels, targetWs.QuotationMarks);
-			Assert.AreEqual(QuoteSystemStatus.UserSet, project.Status.QuoteSystemStatus);
+			Assert.That(project.QuoteSystem.AllLevels, Is.EqualTo(targetWs.QuotationMarks));
+			Assert.That(QuoteSystemStatus.UserSet, Is.EqualTo(project.Status.QuoteSystemStatus));
 		}
 
 		[Test]
@@ -268,17 +268,17 @@ namespace GlyssenEngineTests
 			var project = new Project(BundleWithLdml);
 			project.Status.QuoteSystemStatus = QuoteSystemStatus.Obtained;
 
-			WritingSystemDefinition targetWs = new WritingSystemDefinition();
+			var targetWs = new WritingSystemDefinition();
 			var bogusQuoteSystem = new QuoteSystem(
 				new QuotationMark("^", "^^", "^^^", 1, QuotationMarkingSystemType.Normal)
 			);
 			targetWs.QuotationMarks.AddRange(bogusQuoteSystem.AllLevels);
-			GlyssenDblTextMetadata targetMetadata = new GlyssenDblTextMetadata();
+			var targetMetadata = new GlyssenDblTextMetadata();
 			targetMetadata.ProjectStatus.QuoteSystemStatus = QuoteSystemStatus.Obtained;
 			project.CopyQuoteMarksIfAppropriate(targetWs, targetMetadata);
 
-			Assert.AreEqual(bogusQuoteSystem.AllLevels, targetWs.QuotationMarks);
-			Assert.AreEqual(QuoteSystemStatus.Obtained, project.Status.QuoteSystemStatus);
+			Assert.That(bogusQuoteSystem.AllLevels, Is.EqualTo(targetWs.QuotationMarks));
+			Assert.That(QuoteSystemStatus.Obtained, Is.EqualTo(project.Status.QuoteSystemStatus));
 		}
 
 		[Test]
@@ -298,17 +298,17 @@ namespace GlyssenEngineTests
 			var project = new Project(bundle);
 			project.Status.QuoteSystemStatus = QuoteSystemStatus.UserSet;
 
-			WritingSystemDefinition targetWs = new WritingSystemDefinition();
+			var targetWs = new WritingSystemDefinition();
 			var bogusQuoteSystem2 = new QuoteSystem(
 				new QuotationMark("^", "^^", "^^^", 1, QuotationMarkingSystemType.Normal)
 			);
 			targetWs.QuotationMarks.AddRange(bogusQuoteSystem2.AllLevels);
 
-			GlyssenDblTextMetadata targetMetadata = new GlyssenDblTextMetadata();
+			var targetMetadata = new GlyssenDblTextMetadata();
 			project.CopyQuoteMarksIfAppropriate(targetWs, targetMetadata);
 
-			Assert.AreEqual(bogusQuoteSystem.AllLevels, targetWs.QuotationMarks);
-			Assert.AreEqual(QuoteSystemStatus.UserSet, project.Status.QuoteSystemStatus);
+			Assert.That(bogusQuoteSystem.AllLevels, Is.EqualTo(targetWs.QuotationMarks));
+			Assert.That(QuoteSystemStatus.UserSet, Is.EqualTo(project.Status.QuoteSystemStatus));
 		}
 
 		[Test]
@@ -328,17 +328,17 @@ namespace GlyssenEngineTests
 			var project = new Project(bundle);
 			project.Status.QuoteSystemStatus = QuoteSystemStatus.UserSet;
 
-			WritingSystemDefinition targetWs = new WritingSystemDefinition();
+			var targetWs = new WritingSystemDefinition();
 			var bogusQuoteSystem2 = new QuoteSystem(
 				new QuotationMark("$", "$$", "$$$", 1, QuotationMarkingSystemType.Normal)
 			);
 			targetWs.QuotationMarks.AddRange(bogusQuoteSystem2.AllLevels);
 
-			GlyssenDblTextMetadata targetMetadata = new GlyssenDblTextMetadata();
+			var targetMetadata = new GlyssenDblTextMetadata();
 			project.CopyQuoteMarksIfAppropriate(targetWs, targetMetadata);
 
-			Assert.AreEqual(bogusQuoteSystem2.AllLevels, targetWs.QuotationMarks);
-			Assert.AreEqual(QuoteSystemStatus.UserSet, project.Status.QuoteSystemStatus);
+			Assert.That(bogusQuoteSystem2.AllLevels, Is.EqualTo(targetWs.QuotationMarks));
+			Assert.That(QuoteSystemStatus.UserSet, Is.EqualTo(project.Status.QuoteSystemStatus));
 		}
 
 		[Test]
@@ -352,7 +352,7 @@ namespace GlyssenEngineTests
 
 			WaitForProjectInitializationToFinish(project, ProjectState.FullyInitialized);
 
-			Assert.AreNotEqual(QuoteSystem.Default, project.QuoteSystem);
+			Assert.That(QuoteSystem.Default, Is.Not.EqualTo(project.QuoteSystem));
 			project.SetQuoteSystem(QuoteSystemStatus.UserSet, QuoteSystem.Default);
 
 			do
@@ -360,8 +360,8 @@ namespace GlyssenEngineTests
 				Thread.Sleep(100);
 			} while (quoteSystemAfterQuoteParserCompletes == null);
 
-			Assert.AreEqual(QuoteSystem.Default, quoteSystemAfterQuoteParserCompletes);
-			Assert.AreEqual(project.QuoteSystem, quoteSystemAfterQuoteParserCompletes);
+			Assert.That(QuoteSystem.Default, Is.EqualTo(quoteSystemAfterQuoteParserCompletes));
+			Assert.That(project.QuoteSystem, Is.EqualTo(quoteSystemAfterQuoteParserCompletes));
 		}
 
 		[TestCase("Boaz")]
@@ -378,7 +378,7 @@ namespace GlyssenEngineTests
 
 			SetAndConfirmCharacterAndDeliveryForAllCorrelatedBlocks(matchup, book.BookNumber, testProject, character);
 
-			Assert.IsTrue(testProject.ProjectCharacterVerseData.Any());
+			Assert.That(testProject.ProjectCharacterVerseData.Any(), Is.True);
 			if (!CharacterDetailData.Singleton.GetDictionary().ContainsKey(character))
 				testProject.AddProjectCharacterDetail(new CharacterDetail {CharacterId = character, Age = CharacterAge.Elder, Gender = CharacterGender.Male});
 
@@ -387,7 +387,7 @@ namespace GlyssenEngineTests
 			var newQuoteSystem = new QuoteSystem(testProject.QuoteSystem);
 			newQuoteSystem.AllLevels.Add(new QuotationMark("=+", "#$", "^&", newQuoteSystem.FirstLevel.Level, QuotationMarkingSystemType.Narrative));
 
-			bool complete = false;
+			var complete = false;
 
 			testProject.QuoteParseCompleted += delegate { complete = true; };
 
@@ -395,7 +395,7 @@ namespace GlyssenEngineTests
 
 			var prevQuoteSystemDate = testProject.QuoteSystemDate;
 			testProject.SetQuoteSystem(QuoteSystemStatus.UserSet, newQuoteSystem);
-			Assert.IsTrue(prevQuoteSystemDate < testProject.QuoteSystemDate);
+			Assert.That(prevQuoteSystemDate < testProject.QuoteSystemDate, Is.True);
 
 			do
 			{
@@ -403,15 +403,15 @@ namespace GlyssenEngineTests
 			} while (!complete);
 
 			var userConfirmedBlocksAfterReapplying = testProject.IncludedBooks.First().GetScriptBlocks().Where(b => b.UserConfirmed).ToList();
-			Assert.AreEqual(origCountOfUserConfirmedBlocks, userConfirmedBlocksAfterReapplying.Count);
+			Assert.That(origCountOfUserConfirmedBlocks, Is.EqualTo(userConfirmedBlocksAfterReapplying.Count));
 			foreach (var blockWithReappliedUserDecision in userConfirmedBlocksAfterReapplying)
 			{
-				Assert.AreEqual(character, blockWithReappliedUserDecision.CharacterId);
-				Assert.AreEqual("foamy", blockWithReappliedUserDecision.Delivery);
+				Assert.That(character, Is.EqualTo(blockWithReappliedUserDecision.CharacterId));
+				Assert.That(blockWithReappliedUserDecision.Delivery, Is.EqualTo("foamy"));
 			}
 
-			Assert.IsTrue(((PersistenceImplementation)Project.Writer).WasExpectedBackupCreated(
-				testProject, "Backup before quote system change", true));
+			Assert.That(((PersistenceImplementation)Project.Writer).WasExpectedBackupCreated(
+				testProject, "Backup before quote system change", true), Is.True);
 		}
 
 		[Test]
@@ -424,7 +424,7 @@ namespace GlyssenEngineTests
 			var newQuoteSystem = new QuoteSystem(testProject.QuoteSystem);
 			newQuoteSystem.AllLevels.Add(new QuotationMark("=+", "#$", "^&", newQuoteSystem.FirstLevel.Level, QuotationMarkingSystemType.Narrative));
 
-			bool complete = false;
+			var complete = false;
 
 			testProject.QuoteParseCompleted += (sender, args) => complete = true;
 
@@ -446,14 +446,14 @@ namespace GlyssenEngineTests
 			var prevProjectState = testProject.ProjectState;
 			// First, demonstrate that setting it to the same value does nothing.
 			testProject.SetQuoteSystem(QuoteSystemStatus.UserSet, newQuoteSystem);
-			Assert.AreEqual(prevQuoteSystemDate, testProject.QuoteSystemDate);
-			Assert.AreEqual(prevProjectState, testProject.ProjectState);
+			Assert.That(prevQuoteSystemDate, Is.EqualTo(testProject.QuoteSystemDate));
+			Assert.That(prevProjectState, Is.EqualTo(testProject.ProjectState));
 
 			// Next, demonstrate that setting it to a different value updates the date.
 			newQuoteSystem = new QuoteSystem(testProject.QuoteSystem);
 			newQuoteSystem.AllLevels.Add(new QuotationMark("*+", "@!", "~`", newQuoteSystem.FirstLevel.Level, QuotationMarkingSystemType.Normal));
 			testProject.SetQuoteSystem(QuoteSystemStatus.UserSet, newQuoteSystem);
-			Assert.IsTrue(prevQuoteSystemDate < testProject.QuoteSystemDate);
+			Assert.That(prevQuoteSystemDate < testProject.QuoteSystemDate, Is.True);
 
 			WaitForParsingToComplete();
 		}
@@ -463,8 +463,8 @@ namespace GlyssenEngineTests
 		{
 			var project = TestProject.CreateBasicTestProject();
 			project.Metadata.Language.ReportingClauses.Add("dijo");
-			Assert.IsFalse(project.AddNewReportingClauses(new String[0]));
-			Assert.AreEqual("dijo", project.ReportingClauses.Single());
+			Assert.That(project.AddNewReportingClauses(new String[0]), Is.False);
+			Assert.That(project.ReportingClauses.Single(), Is.EqualTo("dijo"));
 		}
 
 		[Test]
@@ -472,17 +472,17 @@ namespace GlyssenEngineTests
 		{
 			var project = TestProject.CreateBasicTestProject();
 			project.Metadata.Language.ReportingClauses.Add("dijo");
-			Assert.IsFalse(project.AddNewReportingClauses(new []{"dijo"}));
-			Assert.AreEqual("dijo", project.ReportingClauses.Single());
+			Assert.That(project.AddNewReportingClauses(new []{"dijo"}), Is.False);
+			Assert.That(project.ReportingClauses.Single(), Is.EqualTo("dijo"));
 		}
 
 		[Test]
 		public void AddNewReportingClauses_NewOnes_AddedAndDataUpdated()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.MRK);
-			Assert.IsTrue(project.AddNewReportingClauses(new [] { "monkey", "soup" }));
-			Assert.IsTrue(project.ReportingClauses.Contains("monkey"));
-			Assert.IsTrue(project.ReportingClauses.Contains("soup"));
+			Assert.That(project.AddNewReportingClauses(new [] { "monkey", "soup" }), Is.True);
+			Assert.That(project.ReportingClauses, Does.Contain("monkey"));
+			Assert.That(project.ReportingClauses, Does.Contain("soup"));
 		}
 
 		[TestCase("Boaz")]
@@ -499,13 +499,13 @@ namespace GlyssenEngineTests
 
 			SetAndConfirmCharacterAndDeliveryForAllCorrelatedBlocks(matchup, book.BookNumber, testProject, character);
 
-			Assert.IsTrue(testProject.ProjectCharacterVerseData.Any());
+			Assert.That(testProject.ProjectCharacterVerseData.Any(), Is.True);
 			if (!CharacterDetailData.Singleton.GetDictionary().ContainsKey(character))
 				testProject.AddProjectCharacterDetail(new CharacterDetail {CharacterId = character, Age = CharacterAge.Elder, Gender = CharacterGender.Male});
 
 			matchup.Apply();
 
-			bool complete = false;
+			var complete = false;
 
 			var origCountOfUserConfirmedBlocks = book.GetScriptBlocks().Count(b => b.UserConfirmed);
 
@@ -519,15 +519,15 @@ namespace GlyssenEngineTests
 			} while (!complete);
 
 			var userConfirmedBlocksAfterReapplying = updatedProject.IncludedBooks.First().GetScriptBlocks().Where(b => b.UserConfirmed).ToList();
-			Assert.AreEqual(origCountOfUserConfirmedBlocks, userConfirmedBlocksAfterReapplying.Count);
+			Assert.That(origCountOfUserConfirmedBlocks, Is.EqualTo(userConfirmedBlocksAfterReapplying.Count));
 			foreach (var blockWithReappliedUserDecision in userConfirmedBlocksAfterReapplying)
 			{
-				Assert.AreEqual(character, blockWithReappliedUserDecision.CharacterId);
-				Assert.AreEqual("foamy", blockWithReappliedUserDecision.Delivery);
+				Assert.That(character, Is.EqualTo(blockWithReappliedUserDecision.CharacterId));
+				Assert.That(blockWithReappliedUserDecision.Delivery, Is.EqualTo("foamy"));
 			}
 
-			Assert.IsTrue(((PersistenceImplementation)Project.Writer).WasExpectedBackupCreated(
-				testProject, "Backup before updating from new bundle", true));
+			Assert.That(((PersistenceImplementation)Project.Writer).WasExpectedBackupCreated(
+				testProject, "Backup before updating from new bundle", true), Is.True);
 		}
 
 		[TestCase("Boaz")]
@@ -545,13 +545,13 @@ namespace GlyssenEngineTests
 
 			SetAndConfirmCharacterAndDeliveryForAllCorrelatedBlocks(matchup, book.BookNumber, testProject, character);
 
-			Assert.IsTrue(testProject.ProjectCharacterVerseData.Any());
+			Assert.That(testProject.ProjectCharacterVerseData.Any(), Is.True);
 			if (!CharacterDetailData.Singleton.GetDictionary().ContainsKey(character))
 				testProject.AddProjectCharacterDetail(new CharacterDetail {CharacterId = character, Age = CharacterAge.Elder, Gender = CharacterGender.Male});
 
 			matchup.Apply();
 
-			bool complete = false;
+			var complete = false;
 
 			var origCountOfUserConfirmedBlocks = book.GetScriptBlocks().Count(b => b.UserConfirmed);
 
@@ -573,11 +573,11 @@ namespace GlyssenEngineTests
 			} while (!complete);
 
 			var userConfirmedBlocksAfterReapplying = updatedProject.IncludedBooks.First().GetScriptBlocks().Where(b => b.UserConfirmed).ToList();
-			Assert.AreEqual(origCountOfUserConfirmedBlocks, userConfirmedBlocksAfterReapplying.Count);
+			Assert.That(origCountOfUserConfirmedBlocks, Is.EqualTo(userConfirmedBlocksAfterReapplying.Count));
 			foreach (var blockWithReappliedUserDecision in userConfirmedBlocksAfterReapplying)
 			{
-				Assert.AreEqual(character, blockWithReappliedUserDecision.CharacterId);
-				Assert.AreEqual("foamy", blockWithReappliedUserDecision.Delivery);
+				Assert.That(character, Is.EqualTo(blockWithReappliedUserDecision.CharacterId));
+				Assert.That(blockWithReappliedUserDecision.Delivery, Is.EqualTo("foamy"));
 			}
 		}
 
@@ -592,7 +592,7 @@ namespace GlyssenEngineTests
 			group.AssignVoiceActor(actor.Id);
 			project.CharacterGroupList.CharacterGroups.Add(group);
 
-			Assert.True(project.IsVoiceActorAssignmentsComplete);
+			Assert.That(project.IsVoiceActorAssignmentsComplete, Is.True);
 		}
 
 		[Test]
@@ -605,7 +605,7 @@ namespace GlyssenEngineTests
 			var group = new CharacterGroup(project);
 			project.CharacterGroupList.CharacterGroups.Add(group);
 
-			Assert.False(project.IsVoiceActorAssignmentsComplete);
+			Assert.That(project.IsVoiceActorAssignmentsComplete, Is.False);
 		}
 
 		[Test]
@@ -620,8 +620,8 @@ namespace GlyssenEngineTests
 			group.AssignVoiceActor(actor.Id);
 			project.CharacterGroupList.CharacterGroups.Add(group);
 
-			Assert.True(project.CharacterGroupList.AnyVoiceActorAssigned());
-			Assert.True(project.EveryAssignedGroupHasACharacter);
+			Assert.That(project.CharacterGroupList.AnyVoiceActorAssigned(), Is.True);
+			Assert.That(project.EveryAssignedGroupHasACharacter, Is.True);
 		}
 
 		[Test]
@@ -635,8 +635,8 @@ namespace GlyssenEngineTests
 			group.AssignVoiceActor(actor.Id);
 			project.CharacterGroupList.CharacterGroups.Add(group);
 
-			Assert.True(project.CharacterGroupList.AnyVoiceActorAssigned());
-			Assert.False(project.EveryAssignedGroupHasACharacter);
+			Assert.That(project.CharacterGroupList.AnyVoiceActorAssigned(), Is.True);
+			Assert.That(project.EveryAssignedGroupHasACharacter, Is.False);
 		}
 
 		[Test]
@@ -650,8 +650,8 @@ namespace GlyssenEngineTests
 			group.AssignVoiceActor(actor1.Id);
 			project.CharacterGroupList.CharacterGroups.Add(group);
 
-			Assert.True(project.CharacterGroupList.AnyVoiceActorAssigned());
-			Assert.False(project.UnusedActors.Any());
+			Assert.That(project.CharacterGroupList.AnyVoiceActorAssigned(), Is.True);
+			Assert.That(project.UnusedActors, Is.Empty);
 		}
 
 		[Test]
@@ -667,8 +667,8 @@ namespace GlyssenEngineTests
 			group.AssignVoiceActor(actor1.Id);
 			project.CharacterGroupList.CharacterGroups.Add(group);
 
-			Assert.True(project.CharacterGroupList.AnyVoiceActorAssigned());
-			Assert.AreEqual(actor2, project.UnusedActors.Single());
+			Assert.That(project.CharacterGroupList.AnyVoiceActorAssigned(), Is.True);
+			Assert.That(actor2, Is.EqualTo(project.UnusedActors.Single()));
 		}
 
 		[Test]
@@ -684,8 +684,8 @@ namespace GlyssenEngineTests
 			group.AssignVoiceActor(actor1.Id);
 			project.CharacterGroupList.CharacterGroups.Add(group);
 
-			Assert.True(project.CharacterGroupList.AnyVoiceActorAssigned());
-			Assert.False(project.UnusedActors.Any());
+			Assert.That(project.CharacterGroupList.AnyVoiceActorAssigned(), Is.True);
+			Assert.That(project.UnusedActors, Is.Empty);
 		}
 
 		[Test]
@@ -702,7 +702,7 @@ namespace GlyssenEngineTests
 
 			project.SetWsQuotationMarksUsingFullySpecifiedContinuers(project.WritingSystem.QuotationMarks);
 
-			Assert.True(quotationMarks.SequenceEqual(project.WritingSystem.QuotationMarks));
+			Assert.That(quotationMarks.SequenceEqual(project.WritingSystem.QuotationMarks), Is.True);
 		}
 
 		[Test]
@@ -720,7 +720,7 @@ namespace GlyssenEngineTests
 
 			project.SetWsQuotationMarksUsingFullySpecifiedContinuers(project.WritingSystem.QuotationMarks);
 
-			Assert.True(quotationMarks.SequenceEqual(project.WritingSystem.QuotationMarks));
+			Assert.That(quotationMarks.SequenceEqual(project.WritingSystem.QuotationMarks), Is.True);
 		}
 
 		[Test]
@@ -744,7 +744,7 @@ namespace GlyssenEngineTests
 				new QuotationMark("<", ">", "<< <", 2, QuotationMarkingSystemType.Normal)
 			};
 
-			Assert.True(expected.SequenceEqual(project.WritingSystem.QuotationMarks));
+			Assert.That(expected.SequenceEqual(project.WritingSystem.QuotationMarks), Is.True);
 		}
 
 		[Test]
@@ -770,7 +770,7 @@ namespace GlyssenEngineTests
 				new QuotationMark("<<", ">>", "<< < <<", 3, QuotationMarkingSystemType.Normal)
 			};
 
-			Assert.True(expected.SequenceEqual(project.WritingSystem.QuotationMarks));
+			Assert.That(expected.SequenceEqual(project.WritingSystem.QuotationMarks), Is.True);
 		}
 
 		[Test]
@@ -789,7 +789,7 @@ namespace GlyssenEngineTests
 
 			project.SetWsQuotationMarksUsingFullySpecifiedContinuers(project.WritingSystem.QuotationMarks);
 
-			Assert.True(quotationMarks.SequenceEqual(project.WritingSystem.QuotationMarks));
+			Assert.That(quotationMarks.SequenceEqual(project.WritingSystem.QuotationMarks), Is.True);
 		}
 
 		[TestCase(QuotationParagraphContinueType.Innermost, "<", "<<")]
@@ -811,7 +811,7 @@ namespace GlyssenEngineTests
 
 			project.SetWsQuotationMarksUsingFullySpecifiedContinuers(project.WritingSystem.QuotationMarks);
 
-			Assert.True(quotationMarks.SequenceEqual(project.WritingSystem.QuotationMarks));
+			Assert.That(quotationMarks.SequenceEqual(project.WritingSystem.QuotationMarks), Is.True);
 		}
 
 		[Test]
@@ -837,7 +837,7 @@ namespace GlyssenEngineTests
 				new QuotationMark("<<", ">>", "<< << <<", 3, QuotationMarkingSystemType.Normal)
 			};
 
-			Assert.True(expected.SequenceEqual(project.WritingSystem.QuotationMarks));
+			Assert.That(expected.SequenceEqual(project.WritingSystem.QuotationMarks), Is.True);
 		}
 
 		[Test]
@@ -855,7 +855,7 @@ namespace GlyssenEngineTests
 
 			project.SetWsQuotationMarksUsingFullySpecifiedContinuers(project.WritingSystem.QuotationMarks);
 
-			Assert.True(quotationMarks.SequenceEqual(project.WritingSystem.QuotationMarks));
+			Assert.That(quotationMarks.SequenceEqual(project.WritingSystem.QuotationMarks), Is.True);
 		}
 
 		[TestCase(true)]
@@ -891,7 +891,7 @@ namespace GlyssenEngineTests
 				new QuotationMark("--", null, null, 1, QuotationMarkingSystemType.Narrative)
 			};
 
-			Assert.True(expected.SequenceEqual(project.WritingSystem.QuotationMarks));
+			Assert.That(expected.SequenceEqual(project.WritingSystem.QuotationMarks), Is.True);
 		}
 
 		[Test]
@@ -906,7 +906,7 @@ namespace GlyssenEngineTests
 
 			project = TestProject.LoadExistingTestProject(project.MetadataId);
 
-			Assert.AreEqual("JUD", project.AvailableBooks.Single().Code);
+			Assert.That(project.AvailableBooks.Single().Code, Is.EqualTo("JUD"));
 		}
 
 		[Test]
@@ -920,15 +920,15 @@ namespace GlyssenEngineTests
 			});
 			var project = new Project(bundle);
 			WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
-			Assert.IsNotNull(project);
-			Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
-			Assert.AreEqual("ach", project.WritingSystem.Id);
-			Assert.AreEqual("Acoli", project.WritingSystem.Language.Name,
+			Assert.That(project, Is.Not.Null);
+			Assert.That(project.QuoteSystem.AllLevels, Is.Not.Empty);
+			Assert.That(project.WritingSystem.Id, Is.EqualTo("ach"));
+			Assert.That(project.WritingSystem.Language.Name, Is.EqualTo("Acoli"),
 				"This name should be coming from the \"global\" cache, not from the metadata above - note spelling difference.");
-			Assert.AreEqual("ach", project.WritingSystem.Language.Iso3Code,
+			Assert.That(project.WritingSystem.Language.Iso3Code, Is.EqualTo("ach"),
 				"If \"ach\" is not found in the global cache, the language subtag will be considered \"private-use\" and the " +
 				"ISO code will be null");
-			Assert.AreEqual("ach", project.WritingSystem.Language.Code);
+			Assert.That(project.WritingSystem.Language.Code, Is.EqualTo("ach"));
 		}
 
 		[Test]
@@ -937,9 +937,9 @@ namespace GlyssenEngineTests
 			var bundle = GetBundleWithoutLdmlAndWithModifiedLanguage(l => l.Ldml = "ach");
 			var project = new Project(bundle);
 			WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
-			Assert.IsNotNull(project);
-			Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
-			Assert.AreEqual("ach", project.WritingSystem.Id);
+			Assert.That(project, Is.Not.Null);
+			Assert.That(project.QuoteSystem.AllLevels, Is.Not.Empty);
+			Assert.That(project.WritingSystem.Id, Is.EqualTo("ach"));
 		}
 
 		[Test]
@@ -952,9 +952,9 @@ namespace GlyssenEngineTests
 			});
 			var project = new Project(bundle);
 			WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
-			Assert.IsNotNull(project);
-			Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
-			Assert.AreEqual("ach", project.WritingSystem.Id);
+			Assert.That(project, Is.Not.Null);
+			Assert.That(project.QuoteSystem.AllLevels, Is.Not.Empty);
+			Assert.That(project.WritingSystem.Id, Is.EqualTo("ach"));
 		}
 
 		[Test]
@@ -967,9 +967,9 @@ namespace GlyssenEngineTests
 			});
 			var project = new Project(bundle);
 			WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
-			Assert.IsNotNull(project);
-			Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
-			Assert.AreEqual("ach", project.WritingSystem.Id);
+			Assert.That(project, Is.Not.Null);
+			Assert.That(project.QuoteSystem.AllLevels, Is.Not.Empty);
+			Assert.That(project.WritingSystem.Id, Is.EqualTo("ach"));
 		}
 
 		[Test]
@@ -982,9 +982,9 @@ namespace GlyssenEngineTests
 			});
 			var project = new Project(bundle);
 			WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
-			Assert.IsNotNull(project);
-			Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
-			Assert.AreEqual("ach", project.WritingSystem.Id);
+			Assert.That(project, Is.Not.Null);
+			Assert.That(project.QuoteSystem.AllLevels, Is.Not.Empty);
+			Assert.That(project.WritingSystem.Id, Is.EqualTo("ach"));
 		}
 
 		[Test]
@@ -997,9 +997,9 @@ namespace GlyssenEngineTests
 			});
 			var project = new Project(bundle);
 			WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
-			Assert.IsNotNull(project);
-			Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
-			Assert.AreEqual("ach", project.WritingSystem.Id);
+			Assert.That(project, Is.Not.Null);
+			Assert.That(project.QuoteSystem.AllLevels, Is.Not.Empty);
+			Assert.That(project.WritingSystem.Id, Is.EqualTo("ach"));
 		}
 
 		[Test]
@@ -1012,10 +1012,10 @@ namespace GlyssenEngineTests
 			});
 			var project = new Project(bundle);
 			WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
-			Assert.IsNotNull(project);
-			Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
-			Assert.AreEqual("zyt", project.WritingSystem.Id);
-			Assert.IsTrue(project.WritingSystem.Language.IsPrivateUse);
+			Assert.That(project, Is.Not.Null);
+			Assert.That(project.QuoteSystem.AllLevels, Is.Not.Empty);
+			Assert.That(project.WritingSystem.Id, Is.EqualTo("zyt"));
+			Assert.That(project.WritingSystem.Language.IsPrivateUse, Is.True);
 		}
 
 		[Test]
@@ -1040,7 +1040,7 @@ namespace GlyssenEngineTests
 
 			var project = new Project(sampleMetadata, new List<UsxDocument>(), SfmLoader.GetUsfmStylesheet(), sampleWs);
 			WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
-			Assert.False(project.AvailableBooks.Any());
+			Assert.That(project.AvailableBooks, Is.Empty);
 		}
 
 		[TestCase(2, 1, 1, 0)]
@@ -1057,8 +1057,8 @@ namespace GlyssenEngineTests
 			testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numFemaleNarrators;
 
 			testProject.SetCharacterGroupGenerationPreferencesToValidValues();
-			Assert.AreEqual(resultMale, testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators);
-			Assert.AreEqual(resultFemale, testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators);
+			Assert.That(resultMale, Is.EqualTo(testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators));
+			Assert.That(resultFemale, Is.EqualTo(testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators));
 		}
 
 		[TestCase(1, 1, 1, 1)]
@@ -1075,8 +1075,8 @@ namespace GlyssenEngineTests
 			testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numFemaleNarrators;
 
 			testProject.SetCharacterGroupGenerationPreferencesToValidValues();
-			Assert.AreEqual(resultMale, testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators);
-			Assert.AreEqual(resultFemale, testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators);
+			Assert.That(resultMale, Is.EqualTo(testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators));
+			Assert.That(resultFemale, Is.EqualTo(testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators));
 		}
 
 		[Test]
@@ -1088,8 +1088,8 @@ namespace GlyssenEngineTests
 			testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 
 			testProject.SetCharacterGroupGenerationPreferencesToValidValues();
-			Assert.AreEqual(1, testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators);
-			Assert.AreEqual(0, testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators);
+			Assert.That(testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators, Is.EqualTo(1));
+			Assert.That(testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators, Is.EqualTo(0));
 		}
 
 		[TestCase(1, 1)]
@@ -1103,8 +1103,8 @@ namespace GlyssenEngineTests
 			testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 
 			testProject.SetCharacterGroupGenerationPreferencesToValidValues();
-			Assert.AreEqual(expected, testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators);
-			Assert.AreEqual(0, testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators);
+			Assert.That(expected, Is.EqualTo(testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators));
+			Assert.That(testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators, Is.EqualTo(0));
 		}
 
 		[Test]
@@ -1118,59 +1118,59 @@ namespace GlyssenEngineTests
 			// Case where the vern blocks match 1-for-1 to the English reference text
 			var mark8V5 = blocks.IndexOf(b => b.ChapterNumber == 8 && b.InitialStartVerseNumber == 5);
 			var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(mark, mark8V5);
-			Assert.AreEqual(4, matchup.CorrelatedBlocks.Count);
-			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.ReferenceBlocks.Count == 1));
+			Assert.That(matchup.CorrelatedBlocks.Count, Is.EqualTo(4));
+			Assert.That(matchup.CorrelatedBlocks.All(b => b.ReferenceBlocks.Count == 1), Is.True);
 			matchup.MatchAllBlocks();
 			matchup.Apply();
 			var matchedVernBlocks = blocks.Skip(mark8V5).Take(4).ToList();
-			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
-			Assert.IsTrue(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 0));
-			Assert.IsFalse(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.GetPrimaryReferenceText())));
+			Assert.That(matchedVernBlocks.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 0), Is.True);
+			Assert.That(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.GetPrimaryReferenceText())), Is.False);
 
 			// Case where two of the English reference text blocks get combined to match a vern block
 			var mark9V9 = blocks.IndexOf(b => b.ChapterNumber == 9 && b.InitialStartVerseNumber == 9);
 			var englishRefBlocks = testProject.ReferenceText.Books.Single(b => b.BookId == "MRK").GetScriptBlocks();
 			var mark9V9EnglishRefText = englishRefBlocks.IndexOf(b => b.ChapterNumber == 9 && b.InitialStartVerseNumber == 9);
-			Assert.AreEqual(9, englishRefBlocks[mark9V9EnglishRefText + 1].InitialStartVerseNumber);
+			Assert.That(englishRefBlocks[mark9V9EnglishRefText + 1].InitialStartVerseNumber, Is.EqualTo(9));
 			matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(mark, mark9V9);
-			Assert.AreEqual(3, matchup.CorrelatedBlocks.Count);
-			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.ReferenceBlocks.Count == 1));
+			Assert.That(matchup.CorrelatedBlocks.Count, Is.EqualTo(3));
+			Assert.That(matchup.CorrelatedBlocks.All(b => b.ReferenceBlocks.Count == 1), Is.True);
 			var expectedEnglishRefTextForMark9V9 = englishRefBlocks[mark9V9EnglishRefText].GetText(true) + " " +
 				englishRefBlocks[mark9V9EnglishRefText + 1].GetText(true);
-			Assert.AreEqual(expectedEnglishRefTextForMark9V9, matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
+			Assert.That(expectedEnglishRefTextForMark9V9, Is.EqualTo(matchup.CorrelatedBlocks[0].GetPrimaryReferenceText()));
 			matchup.MatchAllBlocks();
 			matchup.Apply();
 			matchedVernBlocks = blocks.Skip(mark9V9).Take(3).ToList();
-			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
-			Assert.IsTrue(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 0));
-			Assert.IsFalse(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.GetPrimaryReferenceText())));
+			Assert.That(matchedVernBlocks.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 0), Is.True);
+			Assert.That(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.GetPrimaryReferenceText())), Is.False);
 
-			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
+			var rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			testProject.ReferenceText = rtFrench;
 
 			var frenchRefBlocks = rtFrench.Books.Single(b => b.BookId == "MRK").GetScriptBlocks();
 
 			// Verify results for case where the vern blocks match 1-for-1 to the English reference text
 			matchedVernBlocks = blocks.Skip(mark8V5).Take(4).ToList();
-			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
-			Assert.IsFalse(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.GetPrimaryReferenceText())));
-			Assert.IsTrue(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 1));
-			Assert.IsFalse(matchedVernBlocks.All(b => string.IsNullOrEmpty(b.ReferenceBlocks.Single().GetPrimaryReferenceText())));
-			Assert.IsTrue(matchedVernBlocks.All(b => frenchRefBlocks.Any(fb => fb.GetText(true) == b.GetPrimaryReferenceText() &&
+			Assert.That(matchedVernBlocks.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.GetPrimaryReferenceText())), Is.False);
+			Assert.That(matchedVernBlocks.Select(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count), Is.All.EqualTo(1));
+			Assert.That(matchedVernBlocks.All(b => string.IsNullOrEmpty(b.ReferenceBlocks.Single().GetPrimaryReferenceText())), Is.False);
+			Assert.That(matchedVernBlocks.All(b => frenchRefBlocks.Any(fb => fb.GetText(true) == b.GetPrimaryReferenceText() &&
 			fb.ChapterNumber == b.ChapterNumber && fb.InitialVerseNumberOrBridge == b.InitialVerseNumberOrBridge &&
 			b.ReferenceBlocks.Single().GetPrimaryReferenceText() == fb.GetPrimaryReferenceText())));
 
 			// Verify results for case where two of the English reference text blocks get combined to match a vern block
 			matchedVernBlocks = blocks.Skip(mark9V9).Take(3).ToList();
-			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
-			Assert.IsFalse(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.GetPrimaryReferenceText())));
-			Assert.IsTrue(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 1));
-			Assert.IsFalse(matchedVernBlocks.All(b => string.IsNullOrEmpty(b.ReferenceBlocks.Single().GetPrimaryReferenceText())));
+			Assert.That(matchedVernBlocks.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.GetPrimaryReferenceText())), Is.False);
+			Assert.That(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 1), Is.True);
+			Assert.That(matchedVernBlocks.All(b => string.IsNullOrEmpty(b.ReferenceBlocks.Single().GetPrimaryReferenceText())), Is.False);
 			var mark9V9FrenchRefText = frenchRefBlocks.IndexOf(b => b.ChapterNumber == 9 && b.InitialStartVerseNumber == 9);
-			Assert.AreEqual(frenchRefBlocks[mark9V9FrenchRefText].GetText(true) + " " + frenchRefBlocks[mark9V9FrenchRefText + 1].GetText(true),
-				matchedVernBlocks[0].GetPrimaryReferenceText());
-			Assert.AreEqual(expectedEnglishRefTextForMark9V9, matchedVernBlocks[0].ReferenceBlocks.Single().GetPrimaryReferenceText());
-			Assert.IsTrue(matchedVernBlocks.Skip(1).All(b => frenchRefBlocks.Any(fb => fb.GetText(true) == b.GetPrimaryReferenceText() &&
+			Assert.That(frenchRefBlocks[mark9V9FrenchRefText].GetText(true) + " " + frenchRefBlocks[mark9V9FrenchRefText + 1].GetText(true),
+				Is.EqualTo(matchedVernBlocks[0].GetPrimaryReferenceText()));
+			Assert.That(expectedEnglishRefTextForMark9V9, Is.EqualTo(matchedVernBlocks[0].ReferenceBlocks.Single().GetPrimaryReferenceText()));
+			Assert.That(matchedVernBlocks.Skip(1).All(b => frenchRefBlocks.Any(fb => fb.GetText(true) == b.GetPrimaryReferenceText() &&
 			fb.ChapterNumber == b.ChapterNumber && fb.InitialVerseNumberOrBridge == b.InitialVerseNumberOrBridge &&
 			b.ReferenceBlocks.Single().GetPrimaryReferenceText() == fb.GetPrimaryReferenceText())));
 		}
@@ -1187,13 +1187,13 @@ namespace GlyssenEngineTests
 
 			var mark5V41 = blocks.IndexOf(b => b.ChapterNumber == 5 && b.InitialStartVerseNumber == 41);
 			var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(mark, mark5V41);
-			Assert.AreEqual(5, matchup.CorrelatedBlocks.Count, "Setup problem");
-			Assert.AreEqual(40, matchup.CorrelatedBlocks[0].InitialStartVerseNumber, "Setup problem");
-			Assert.AreEqual(41, matchup.CorrelatedBlocks[1].InitialStartVerseNumber, "Setup problem");
-			Assert.IsTrue(matchup.CorrelatedBlocks.Take(4).All(b => b.MatchesReferenceText),
+			Assert.That(5, Is.EqualTo(matchup.CorrelatedBlocks.Count), "Setup problem");
+			Assert.That(40, Is.EqualTo(matchup.CorrelatedBlocks[0].InitialStartVerseNumber), "Setup problem");
+			Assert.That(41, Is.EqualTo(matchup.CorrelatedBlocks[1].InitialStartVerseNumber), "Setup problem");
+			Assert.That(matchup.CorrelatedBlocks.Take(4).All(b => b.MatchesReferenceText), Is.True,
 				"Setup problem: GetBlocksForVerseMatchedToReferenceText expected to match all except the last " +
 				"vern block to exactly one ref block.");
-			Assert.IsFalse(matchup.CorrelatedBlocks.Last().MatchesReferenceText);
+			Assert.That(matchup.CorrelatedBlocks.Last().MatchesReferenceText, Is.False);
 			var englishTextOfLastNarratorBlock = ((ScriptText)matchup.CorrelatedBlocks[3].ReferenceBlocks.Single().BlockElements.Single()).Content;
 			var iQuoteMark = englishTextOfLastNarratorBlock.IndexOf(ReferenceText.kOpenFirstLevelQuote, StringComparison.Ordinal);
 			matchup.SetReferenceText(3, "This is not going to match the corresponding English text in the French test reference text.");
@@ -1202,19 +1202,19 @@ namespace GlyssenEngineTests
 			matchup.MatchAllBlocks();
 			matchup.Apply();
 			var matchedVernBlocks = blocks.Skip(mark5V41).Take(4).ToList();
-			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
-			Assert.IsTrue(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 0));
-			Assert.IsFalse(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.GetPrimaryReferenceText())));
+			Assert.That(matchedVernBlocks.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 0), Is.True);
+			Assert.That(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.GetPrimaryReferenceText())), Is.False);
 
 			// SUT
-			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
+			var rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			testProject.ReferenceText = rtFrench;
 
 			// Verification
-			Assert.IsTrue(blocks.Single(b => b.ChapterNumber == 5 && b.InitialStartVerseNumber == 40).MatchesReferenceText);
+			Assert.That(blocks.Single(b => b.ChapterNumber == 5 && b.InitialStartVerseNumber == 40).MatchesReferenceText, Is.True);
 			mark5V41 = blocks.IndexOf(b => b.ChapterNumber == 5 && b.InitialStartVerseNumber == 41);
 			var vernBlocksForMark5V41 = blocks.Skip(mark5V41).Take(4).ToList();
-			Assert.IsFalse(vernBlocksForMark5V41.Any(b => b.MatchesReferenceText));
+			Assert.That(vernBlocksForMark5V41.Any(b => b.MatchesReferenceText), Is.False);
 		}
 
 		[Test]
@@ -1225,7 +1225,7 @@ namespace GlyssenEngineTests
 			testProject.SetBlockGetChapterAnnouncement(ChapterAnnouncement.ChapterLabel);
 			// In reality, we wouldn't expect GetFormattedChapterAnnouncement to get called at all in this
 			// case, but safer to just have it return null.
-			Assert.IsNull(testProject.GetFormattedChapterAnnouncement("1JN", 4));
+			Assert.That(testProject.GetFormattedChapterAnnouncement("1JN", 4), Is.Null);
 		}
 
 		[Test]
@@ -1234,7 +1234,7 @@ namespace GlyssenEngineTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IJN);
 
 			testProject.SetBlockGetChapterAnnouncement(ChapterAnnouncement.PageHeader);
-			Assert.AreEqual("1 JON 4", testProject.GetFormattedChapterAnnouncement("1JN", 4));
+			Assert.That(testProject.GetFormattedChapterAnnouncement("1JN", 4), Is.EqualTo("1 JON 4"));
 		}
 
 		[Test]
@@ -1243,7 +1243,7 @@ namespace GlyssenEngineTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IJN);
 
 			testProject.SetBlockGetChapterAnnouncement(ChapterAnnouncement.MainTitle1);
-			Assert.AreEqual("JON 4", testProject.GetFormattedChapterAnnouncement("1JN", 4));
+			Assert.That(testProject.GetFormattedChapterAnnouncement("1JN", 4), Is.EqualTo("JON 4"));
 		}
 
 		[Test]
@@ -1252,7 +1252,7 @@ namespace GlyssenEngineTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IJN);
 
 			testProject.SetBlockGetChapterAnnouncement(ChapterAnnouncement.LongNameFromMetadata);
-			Assert.AreEqual("The First Epistle of John 4", testProject.GetFormattedChapterAnnouncement("1JN", 4));
+			Assert.That(testProject.GetFormattedChapterAnnouncement("1JN", 4), Is.EqualTo("The First Epistle of John 4"));
 		}
 
 		[Test]
@@ -1261,7 +1261,7 @@ namespace GlyssenEngineTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IJN);
 
 			testProject.SetBlockGetChapterAnnouncement(ChapterAnnouncement.ShortNameFromMetadata);
-			Assert.AreEqual("1 John 4", testProject.GetFormattedChapterAnnouncement("1JN", 4));
+			Assert.That(testProject.GetFormattedChapterAnnouncement("1JN", 4), Is.EqualTo("1 John 4"));
 		}
 
 		[Test]
@@ -1271,10 +1271,10 @@ namespace GlyssenEngineTests
 			testProject.SetBlockGetChapterAnnouncement(ChapterAnnouncement.ShortNameFromMetadata);
 			var metadata = (GlyssenDblTextMetadata)ReflectionHelper.GetField(testProject, "m_metadata");
 			metadata.AvailableBooks[0].ShortName = "   ";
-			Assert.IsNull(testProject.GetFormattedChapterAnnouncement("1JN", 4));
+			Assert.That(testProject.GetFormattedChapterAnnouncement("1JN", 4), Is.Null);
 
 			metadata.AvailableBooks[0].ShortName = null;
-			Assert.IsNull(testProject.GetFormattedChapterAnnouncement("1JN", 4));
+			Assert.That(testProject.GetFormattedChapterAnnouncement("1JN", 4), Is.Null);
 		}
 
 		[Test]
@@ -1287,29 +1287,29 @@ namespace GlyssenEngineTests
 
 			project = TestProject.LoadExistingTestProject(project.MetadataId);
 
-			Assert.AreEqual(BookSelectionStatus.Reviewed, project.BookSelectionStatus);
+			Assert.That(BookSelectionStatus.Reviewed, Is.EqualTo(project.BookSelectionStatus));
 		}
 
 		[Test]
 		public void Name_GetDefaultRecordingProjectName_SetCorrectly()
 		{
 			var project = TestProject.CreateBasicTestProject();
-			Assert.AreEqual(project.Metadata.Identification.Name + " Audio", project.Name);
+			Assert.That(project.Metadata.Identification.Name + " Audio", Is.EqualTo(project.Name));
 		}
 
 		[Test]
 		public void CalculateSpeechDistributionScore_CharacterWhoDoesNotSpeak_ReturnsZero()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.JUD);
-			Assert.IsFalse(testProject.SpeechDistributionScoreByCharacterId.ContainsKey("Jesus"));
+			Assert.That(testProject.SpeechDistributionScoreByCharacterId.ContainsKey("Jesus"), Is.False);
 		}
 
 		[Test]
 		public void CalculateSpeechDistributionScore_CharacterWhoSpeaksOnlyOnce_ReturnsOne()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.JUD);
-			Assert.AreEqual(1, testProject.SpeechDistributionScoreByCharacterId["apostles"]);
-			Assert.AreEqual(1, testProject.SpeechDistributionScoreByCharacterId["Enoch"]);
+			Assert.That(testProject.SpeechDistributionScoreByCharacterId["apostles"], Is.EqualTo(1));
+			Assert.That(testProject.SpeechDistributionScoreByCharacterId["Enoch"], Is.EqualTo(1));
 		}
 
 		[Test]
@@ -1317,7 +1317,7 @@ namespace GlyssenEngineTests
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.ACT);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
-			Assert.AreEqual(4, testProject.SpeechDistributionScoreByCharacterId["Stephen"]);
+			Assert.That(testProject.SpeechDistributionScoreByCharacterId["Stephen"], Is.EqualTo(4));
 		}
 
 		[Test]
@@ -1325,7 +1325,7 @@ namespace GlyssenEngineTests
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.ACT);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
-			Assert.AreEqual(39, testProject.SpeechDistributionScoreByCharacterId["angel of the LORD, an"]);
+			Assert.That(testProject.SpeechDistributionScoreByCharacterId["angel of the LORD, an"], Is.EqualTo(39));
 		}
 
 		[Test]
@@ -1337,7 +1337,7 @@ namespace GlyssenEngineTests
 
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.REV);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
-			Assert.AreEqual(resultFromRev, testProject.SpeechDistributionScoreByCharacterId["God"]);
+			Assert.That(resultFromRev, Is.EqualTo(testProject.SpeechDistributionScoreByCharacterId["God"]));
 		}
 
 		[Test]
@@ -1366,7 +1366,7 @@ namespace GlyssenEngineTests
 
 		private static int s_initialSleepTime = 1500;
 
-		private void WaitForProjectInitializationToFinish(Project project, ProjectState projectState)
+		private static void WaitForProjectInitializationToFinish(Project project, ProjectState projectState)
 		{
 			const int maxCyclesAllowed = 100000;
 			var iCycle = 1;
