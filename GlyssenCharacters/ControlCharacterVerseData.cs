@@ -86,10 +86,11 @@ namespace GlyssenCharacters
 		}
 
 		/// <summary>
-		/// Gets all characters completely covered by the given range of verses. If there are multiple verses, only
-		/// characters known to speak in ALL the verses will be included in the returned set, with the exception of
-		/// Interruptions, which will be included if they occur in any verse. Returned items will include the accompanying
-		/// deliveries if the deliveries are consistent across all verses.
+		/// Gets all characters completely covered by the given range of verses. If there are
+		/// multiple verses, only characters known to speak in ALL the verses will be included in
+		/// the returned set, except Interruptions, which will be included if they occur in any
+		/// verse. Returned items will include the accompanying deliveries if the deliveries are
+		/// consistent across all verses.
 		/// </summary>
 		public override HashSet<CharacterSpeakingMode> GetCharacters(int bookId, int chapter, IReadOnlyCollection<IVerse> verses,
 			ScrVers versification = null, bool includeAlternatesAndRareQuotes = false, bool includeNarratorOverrides = false)

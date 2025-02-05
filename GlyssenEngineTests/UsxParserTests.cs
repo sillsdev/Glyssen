@@ -44,18 +44,18 @@ namespace GlyssenEngineTests
 										@"kit ma gicoyo kwede i buk pa lanebi Icaya ni,</para>");
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
-			Assert.AreEqual(2, blocks.Count);
-			Assert.IsTrue(blocks[0].CharacterIs("MRK", StandardCharacter.BookOrChapter));
-			Assert.IsTrue(blocks[1].CharacterId == Block.kNotSet);
-			Assert.AreEqual(1, blocks[1].ChapterNumber);
-			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
-			Assert.AreEqual(@"Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, kit " +
-				@"ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(false));
-			Assert.AreEqual(
-				"{1}\u00A0" +
-				@"Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, " +
-				"{2}\u00A0" +
-				@"kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
+			Assert.That(blocks.Count, Is.EqualTo(2));
+			Assert.That(blocks[0].CharacterIs("MRK", StandardCharacter.BookOrChapter), Is.True);
+			Assert.That(blocks[1].CharacterId == Block.kNotSet, Is.True);
+			Assert.That(blocks[1].ChapterNumber, Is.EqualTo(1));
+			Assert.That(blocks[1].InitialStartVerseNumber, Is.EqualTo(1));
+			Assert.That(@"Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, kit " +
+				@"ma gicoyo kwede i buk pa lanebi Icaya ni,",
+				Is.EqualTo(blocks[1].GetText(false)));
+			Assert.That(
+				"{1}\u00A0Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, " +
+				"{2}\u00A0kit ma gicoyo kwede i buk pa lanebi Icaya ni,",
+				Is.EqualTo(blocks[1].GetText(true)));
 		}
 
 		[Test]
@@ -3237,7 +3237,7 @@ namespace GlyssenEngineTests
 				@"\v 25 Ɓwa mana kat kǝ sǝni nǝ̀ amsǝ yilǝmi ka nǝ̀ ngga ɗwanyi banì.\f + \fr 16:25 \ft Ɓalli gbal aɓa: \xt Mat 10:39; Luk 17:33; Yoh 12:25\xt*.\f*";
 
 			// This uses the "real" stylesheet (now USFM v. 3)
-			var doc = UsfmToUsx.ConvertToXmlDocument(SfmLoader.GetUsfmScrStylesheet(), usfmData);
+			var doc = UsfmToUsx.ConvertToXmlDocument(null, SfmLoader.GetUsfmScrStylesheet(), usfmData);
 			var parser = new UsxParser("MAT", SfmLoader.GetUsfmStylesheet(), null, new UsxDocument(doc).GetChaptersAndParas());
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
@@ -3260,7 +3260,7 @@ namespace GlyssenEngineTests
 				$@"\v 25 \wj Ɓwa mana kat kǝ sǝni nǝ̀ amsǝ yilǝmi ka nǝ̀ ngga ɗwanyi banì.\wj*\f + \fr 16:25 \ft Ɓalli gbal aɓa: \xt Mat 10:39; Luk 17:33; Yoh 12:25\xt*.\f*";
 
 			// This uses the "real" stylesheet (now USFM v. 3)
-			var doc = UsfmToUsx.ConvertToXmlDocument(SfmLoader.GetUsfmScrStylesheet(), usfmData);
+			var doc = UsfmToUsx.ConvertToXmlDocument(null, SfmLoader.GetUsfmScrStylesheet(), usfmData);
 			var parser = new UsxParser("MAT", SfmLoader.GetUsfmStylesheet(), null, new UsxDocument(doc).GetChaptersAndParas());
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(3, blocks.Count);

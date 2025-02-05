@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("FCBH-SIL")]
 [assembly: AssemblyProduct("Glyssen")]
-[assembly: AssemblyCopyright("Copyright © 2014-2024 Faith Comes By Hearing and SIL International")]
+[assembly: AssemblyCopyright("Copyright © 2014-2025 Faith Comes By Hearing and SIL Global")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
