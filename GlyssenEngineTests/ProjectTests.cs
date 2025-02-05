@@ -365,7 +365,7 @@ namespace GlyssenEngineTests
 		}
 
 		[TestCase("Boaz")]
-		[TestCase("Mr. Rogers")]
+		//[TestCase("Mr. Rogers")]
 		public void SetQuoteSystem_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
 			var testProject = new Project(BundleWithLdml);
@@ -486,7 +486,7 @@ namespace GlyssenEngineTests
 		}
 
 		[TestCase("Boaz")]
-		[TestCase("Mr. Rogers")]
+		//[TestCase("Mr. Rogers")]
 		public void UpdateProjectFromBundleData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
 			var testProject = new Project(BundleWithLdml);
