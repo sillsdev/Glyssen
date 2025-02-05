@@ -31,7 +31,7 @@
 		<Exec Command='$(NuGetCommand) restore ../$(Solution)' />
 		<Exec Command='$(NuGetCommand) install SIL.BuildTasks -excludeVersion -PreRelease -source "$(PackageSources)" -solutionDirectory "$(RootDir)"' />
 		<Exec Command='$(NuGetCommand) install SIL.ReleaseTasks -excludeVersion -PreRelease -source "$(PackageSources)" -solutionDirectory "$(RootDir)"' />
-		<Exec Command='$(NuGetCommand) install SIL.libpalaso.l10ns -excludeVersion -Version 9.0.1-beta0011 -source "$(PackageSources)" -solutionDirectory "$(SolutionDir)."' />
+		<Exec Command='$(NuGetCommand) install SIL.libpalaso.l10ns -excludeVersion -Version 15.0.0 -source "$(PackageSources)" -solutionDirectory "$(SolutionDir)."' />
 		<Message Text="RestartBuild=$(RestartBuild)"/>
 		<MSBuild Projects="$(MSBuildProjectFullPath)" Targets="BuildInternal" Properties="Configuration=$(Configuration)" Condition="$(RestartBuild)" />
 	</Target>
@@ -70,7 +70,7 @@
 		<NUnit3
 			TeamCity="$(TeamCity)"
 			Verbose="true"
-			ToolPath="$(RootDir)/packages/NUnit.ConsoleRunner.3.18.3/tools"
+			ToolPath="$(RootDir)/packages/NUnit.ConsoleRunner.3.19.0/tools"
 			WorkingDirectory="$(RootDir)/output/$(Configuration)"
 			Assemblies="@(TestAssemblies)"
 			ExcludeCategory="$(ExtraExcludeCategories)$(excludedCategories)" 
