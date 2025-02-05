@@ -10,7 +10,7 @@ namespace Glyssen.Controls
 {
 	/// <summary>
 	/// Represents a column of <see cref="T:Glyssen.Controls.DataGridViewMultiColumnComboBoxColumn"/> objects.
-	/// http://www.intertech.com/Blog/winforms-multi-column-combo-box-in-a-datagridview/
+	/// https://www.intertech.com/Blog/winforms-multi-column-combo-box-in-a-datagridview/
 	/// </summary>
 	/// <filterpriority>2</filterpriority>
 	[ToolboxBitmap(typeof(DataGridViewComboBoxColumn), "DataGridViewComboBoxColumn.bmp")]

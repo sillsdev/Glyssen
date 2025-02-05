@@ -3,7 +3,7 @@
 // <copyright from='2018' to='2018' company='SIL International'>
 //		Copyright (c) 2013, SIL International.   
 //    
-//		Distributable under the terms of the MIT License (http://sil.mit-license.org/)
+//		Distributable under the terms of the MIT License (https://sil.mit-license.org/)
 // </copyright> 
 #endregion
 // 
