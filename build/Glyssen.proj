@@ -10,21 +10,14 @@
 		<ExtraExcludeCategories Condition="'$(teamcity_version)' != ''">SkipOnTeamCity,$(ExtraExcludeCategories)</ExtraExcludeCategories>
 		<TeamCity Condition="'$(teamcity_version)' != ''">true</TeamCity>
 		<TeamCity Condition="'$(teamcity_version)' == ''">false</TeamCity>
-		<SILBuildTasksDLL>$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll</SILBuildTasksDLL>
+		<SILBuildTasksProps>$(RootDir)/packages/SIL.BuildTasks/build/SIL.BuildTasks.props</SILBuildTasksProps>
 		<SILReleaseTasksProps>$(RootDir)/packages/SIL.ReleaseTasks/build/SIL.ReleaseTasks.props</SILReleaseTasksProps>
-		<RestartBuild Condition="!Exists('$(SILBuildTasksDLL)') Or !Exists('$(SILReleaseTasksProps)')">true</RestartBuild>
-		<RestartBuild Condition="Exists('$(SILBuildTasksDLL)') And Exists('$(SILReleaseTasksProps)')">false</RestartBuild>
+		<RestartBuild Condition="!Exists('$(SILBuildTasksProps)') Or !Exists('$(SILReleaseTasksProps)')">true</RestartBuild>
+		<RestartBuild Condition="Exists('$(SILBuildTasksProps)') And Exists('$(SILReleaseTasksProps)')">false</RestartBuild>
 		<Platform>x64</Platform>
 	</PropertyGroup>
 
-	<UsingTask TaskName="MakeWixForDirTree" AssemblyFile="$(SILBuildTasksDLL)"
-		Condition="Exists('$(SILBuildTasksDLL)')" />
-	<UsingTask TaskName="FileUpdate" AssemblyFile="$(SILBuildTasksDLL)"
-		Condition="Exists('$(SILBuildTasksDLL)')" />
-	<UsingTask TaskName="NUnit3" AssemblyFile="$(SILBuildTasksDLL)" />
-
 	<Import Project="../.nuget/NuGet.targets" />
-	<Import Project="$(SILReleaseTasksProps)" Condition="Exists('$(SILReleaseTasksProps)')" />
 
 	<Target Name="RestoreLocalPackages" DependsOnTargets="CheckPrerequisites">
 		<Message Text="Calling $(NuGetCommand) restore ../$(Solution)" />
@@ -35,6 +28,9 @@
 		<Message Text="RestartBuild=$(RestartBuild)"/>
 		<MSBuild Projects="$(MSBuildProjectFullPath)" Targets="BuildInternal" Properties="Configuration=$(Configuration)" Condition="$(RestartBuild)" />
 	</Target>
+	
+	<Import Project="$(SILReleaseTasksProps)" Condition="Exists('$(SILReleaseTasksProps)')" />
+	<Import Project="$(SILBuildTasksProps)" Condition="Exists('$(SILBuildTasksProps)')" />
 
 	<Target Name="SetInstallerVersionNumber" DependsOnTargets="Build">
 		<!-- Now using semantic versioning 2.0.0, so version number comes from GitVersion. -->

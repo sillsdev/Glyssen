@@ -76,7 +76,6 @@ See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.
     <PackageReference Include="ParatextData" Version="9.5.0.9" />
     <PackageReference Include="SIL.Core" Version="15.0.0" />
     <PackageReference Include="SIL.DblBundle" Version="15.0.0" />
-    <PackageReference Include="SIL.ReleaseTasks" Version="3.0.0" PrivateAssets="true" />
     <PackageReference Include="SIL.Scripture" Version="15.0.0" />
     <PackageReference Include="SIL.WritingSystems" Version="15.0.0" />
     <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />

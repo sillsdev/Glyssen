@@ -38,7 +38,6 @@ See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="SIL.ReleaseTasks" Version="3.0.0" PrivateAssets="true" />
   </ItemGroup>
 
 </Project>

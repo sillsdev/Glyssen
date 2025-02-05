@@ -5,7 +5,6 @@
   <Import Project="..\packages\Microsoft.CodeCoverage.17.12.0\build\netstandard2.0\Microsoft.CodeCoverage.props" Condition="Exists('..\packages\Microsoft.CodeCoverage.17.12.0\build\netstandard2.0\Microsoft.CodeCoverage.props')" />
   <Import Project="..\packages\SIL.Windows.Forms.Keyboarding.15.0.0\build\SIL.Windows.Forms.Keyboarding.props" Condition="Exists('..\packages\SIL.Windows.Forms.Keyboarding.15.0.0\build\SIL.Windows.Forms.Keyboarding.props')" />
   <Import Project="..\packages\icu.net.3.0.0\build\icu.net.props" Condition="Exists('..\packages\icu.net.3.0.0\build\icu.net.props')" />
-  <Import Project="..\packages\SIL.ReleaseTasks.3.0.0\build\SIL.ReleaseTasks.props" Condition="Exists('..\packages\SIL.ReleaseTasks.3.0.0\build\SIL.ReleaseTasks.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -512,8 +511,6 @@
     <Error Condition="!Exists('..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets'))" />
     <Error Condition="!Exists('..\packages\Mono.Unix.7.1.0-final.1.21458.1\build\Mono.Unix.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Mono.Unix.7.1.0-final.1.21458.1\build\Mono.Unix.targets'))" />
     <Error Condition="!Exists('..\packages\Geckofx60.64.60.0.56\build\Geckofx60.64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Geckofx60.64.60.0.56\build\Geckofx60.64.targets'))" />
-    <Error Condition="!Exists('..\packages\SIL.ReleaseTasks.3.0.0\build\SIL.ReleaseTasks.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SIL.ReleaseTasks.3.0.0\build\SIL.ReleaseTasks.props'))" />
-    <Error Condition="!Exists('..\packages\SIL.ReleaseTasks.3.0.0\build\SIL.ReleaseTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SIL.ReleaseTasks.3.0.0\build\SIL.ReleaseTasks.targets'))" />
     <Error Condition="!Exists('..\packages\icu.net.3.0.0\build\icu.net.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\icu.net.3.0.0\build\icu.net.props'))" />
     <Error Condition="!Exists('..\packages\icu.net.3.0.0\build\icu.net.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\icu.net.3.0.0\build\icu.net.targets'))" />
     <Error Condition="!Exists('..\packages\SIL.Windows.Forms.Keyboarding.15.0.0\build\SIL.Windows.Forms.Keyboarding.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SIL.Windows.Forms.Keyboarding.15.0.0\build\SIL.Windows.Forms.Keyboarding.props'))" />
@@ -533,7 +530,6 @@
   <Import Project="..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets" Condition="Exists('..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets')" />
   <Import Project="..\packages\Mono.Unix.7.1.0-final.1.21458.1\build\Mono.Unix.targets" Condition="Exists('..\packages\Mono.Unix.7.1.0-final.1.21458.1\build\Mono.Unix.targets')" />
   <Import Project="..\packages\Geckofx60.64.60.0.56\build\Geckofx60.64.targets" Condition="Exists('..\packages\Geckofx60.64.60.0.56\build\Geckofx60.64.targets')" />
-  <Import Project="..\packages\SIL.ReleaseTasks.3.0.0\build\SIL.ReleaseTasks.targets" Condition="Exists('..\packages\SIL.ReleaseTasks.3.0.0\build\SIL.ReleaseTasks.targets')" />
   <Import Project="..\packages\icu.net.3.0.0\build\icu.net.targets" Condition="Exists('..\packages\icu.net.3.0.0\build\icu.net.targets')" />
   <Import Project="..\packages\SIL.Windows.Forms.Keyboarding.15.0.0\build\SIL.Windows.Forms.Keyboarding.targets" Condition="Exists('..\packages\SIL.Windows.Forms.Keyboarding.15.0.0\build\SIL.Windows.Forms.Keyboarding.targets')" />
   <Import Project="..\packages\ParatextData.9.5.0.9\build\ParatextData.targets" Condition="Exists('..\packages\ParatextData.9.5.0.9\build\ParatextData.targets')" />
