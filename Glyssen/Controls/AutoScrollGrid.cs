@@ -7,7 +7,7 @@ namespace Glyssen.Controls
 {
 	/// <summary>
 	/// AutoScrollGrid will auto-scroll when dragging at the top or bottom.
-	/// Partly taken from http://stackoverflow.com/questions/2567809/how-to-autoscroll-a-datagridview-during-drag-and-drop
+	/// Partly taken from https://stackoverflow.com/questions/2567809/how-to-autoscroll-a-datagridview-during-drag-and-drop
 	/// </summary>
 	public class AutoScrollGrid : BetterGrid
 	{
