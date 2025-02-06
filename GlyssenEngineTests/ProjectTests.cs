@@ -35,6 +35,8 @@ namespace GlyssenEngineTests
 	[OfflineSldr]
 	class ProjectTests
 	{
+		private readonly object m_lock = new object();
+
 		private GlyssenBundle m_bundleWithLdml;
 		
 		private GlyssenBundle m_bundleWithoutLdml; // This one typically has the Language modified
@@ -48,22 +50,31 @@ namespace GlyssenEngineTests
 
 		public const string kTestBundleIdPrefix = "test~~ProjectTests";
 
-		private GlyssenBundle BundleWithLdml =>
-			m_bundleWithLdml ?? (m_bundleWithLdml = GetNewGlyssenBundleAndFile(true));
+		private GlyssenBundle BundleWithLdml
+		{
+			get
+			{
+				lock (m_lock)
+					return m_bundleWithLdml ?? (m_bundleWithLdml = GetNewGlyssenBundleAndFile(true));
+			}
+		}
 
 		private GlyssenBundle GetBundleWithoutLdmlAndWithModifiedLanguage(Action<GlyssenDblMetadataLanguage> modify)
 		{
 			GlyssenBundle bundle;
-			if (m_bundleWithoutLdml == null)
+			lock (m_lock)
 			{
-				m_bundleWithoutLdml = GetNewGlyssenBundleAndFile(false);
-				bundle = m_bundleWithoutLdml;
-				m_restoreLanguage = bundle.Metadata.Language.Clone();
-			}
-			else
-			{
-				bundle = m_bundleWithoutLdml;
-				bundle.Metadata.Language = m_restoreLanguage.Clone();
+				if (m_bundleWithoutLdml == null)
+				{
+					m_bundleWithoutLdml = GetNewGlyssenBundleAndFile(false);
+					bundle = m_bundleWithoutLdml;
+					m_restoreLanguage = bundle.Metadata.Language.Clone();
+				}
+				else
+				{
+					bundle = m_bundleWithoutLdml;
+					bundle.Metadata.Language = m_restoreLanguage.Clone();
+				}
 			}
 
 			modify?.Invoke(bundle.Metadata.Language);
@@ -73,20 +84,23 @@ namespace GlyssenEngineTests
 		private GlyssenBundle GetBundleWithModifiedQuotationMarks(Action<BulkObservableList<QuotationMark>> modify)
 		{
 			GlyssenBundle bundle;
-			if (m_bundleWithModifiedQuotationMarks == null)
+			lock (m_lock)
 			{
-				m_bundleWithModifiedQuotationMarks = GetNewGlyssenBundleAndFile(true);
-				bundle = m_bundleWithModifiedQuotationMarks;
-				m_restoreQuotationMarks = new BulkObservableList<QuotationMark>(
-					bundle.WritingSystemDefinition.QuotationMarks
-					.Select(q => new QuotationMark(q.Open, q.Close, q.Continue, q.Level, q.Type)));
-			}
-			else
-			{
-				bundle = m_bundleWithModifiedQuotationMarks;
-				bundle.WritingSystemDefinition.QuotationMarks.Clear();
-				bundle.WritingSystemDefinition.QuotationMarks.AddRange(m_restoreQuotationMarks
-					.Select(q => new QuotationMark(q.Open, q.Close, q.Continue, q.Level, q.Type)));
+				if (m_bundleWithModifiedQuotationMarks == null)
+				{
+					m_bundleWithModifiedQuotationMarks = GetNewGlyssenBundleAndFile(true);
+					bundle = m_bundleWithModifiedQuotationMarks;
+					m_restoreQuotationMarks = new BulkObservableList<QuotationMark>(
+						bundle.WritingSystemDefinition.QuotationMarks
+							.Select(q => new QuotationMark(q.Open, q.Close, q.Continue, q.Level, q.Type)));
+				}
+				else
+				{
+					bundle = m_bundleWithModifiedQuotationMarks;
+					bundle.WritingSystemDefinition.QuotationMarks.Clear();
+					bundle.WritingSystemDefinition.QuotationMarks.AddRange(m_restoreQuotationMarks
+						.Select(q => new QuotationMark(q.Open, q.Close, q.Continue, q.Level, q.Type)));
+				}
 			}
 
 			modify(bundle.WritingSystemDefinition.QuotationMarks);
@@ -96,19 +110,22 @@ namespace GlyssenEngineTests
 		private GlyssenBundle GetNewGlyssenBundleAndFile(bool includeLdml)
 		{
 			TempFile bundleFile;
-			if (includeLdml)
+			lock (m_lock)
 			{
-				if (m_tempBundleFileWithLdml == null)
-					m_tempBundleFileWithLdml = TextBundleTests.CreateZippedTextBundleFromResources(true);
-				bundleFile = m_tempBundleFileWithLdml;
+				if (includeLdml)
+				{
+					if (m_tempBundleFileWithLdml == null)
+						m_tempBundleFileWithLdml = TextBundleTests.CreateZippedTextBundleFromResources(true);
+					bundleFile = m_tempBundleFileWithLdml;
+				}
+				else
+				{
+					if (m_tempBundleFileWithoutLdml == null)
+						m_tempBundleFileWithoutLdml = TextBundleTests.CreateZippedTextBundleFromResources(false);
+					bundleFile = m_tempBundleFileWithoutLdml;
+				}
 			}
-			else
-			{
-				if (m_tempBundleFileWithoutLdml == null)
-					m_tempBundleFileWithoutLdml = TextBundleTests.CreateZippedTextBundleFromResources(false);
-				bundleFile = m_tempBundleFileWithoutLdml;
-			}
-			
+
 			var bundle = new GlyssenBundle(bundleFile.Path);
 			var uniqueBundleId = kTestBundleIdPrefix + Path.GetFileNameWithoutExtension(bundleFile.Path);
 			bundle.Metadata.Language.Iso = bundle.Metadata.Id = uniqueBundleId;
@@ -130,16 +147,19 @@ namespace GlyssenEngineTests
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
-			if (m_tempBundleFileWithLdml != null)
+			lock (m_lock)
 			{
-				m_tempBundleFileWithLdml.Dispose();
-				m_tempBundleFileWithLdml = null;
-			}
+				if (m_tempBundleFileWithLdml != null)
+				{
+					m_tempBundleFileWithLdml.Dispose();
+					m_tempBundleFileWithLdml = null;
+				}
 
-			if (m_tempBundleFileWithoutLdml != null)
-			{
-				m_tempBundleFileWithoutLdml.Dispose();
-				m_tempBundleFileWithoutLdml = null;
+				if (m_tempBundleFileWithoutLdml != null)
+				{
+					m_tempBundleFileWithoutLdml.Dispose();
+					m_tempBundleFileWithoutLdml = null;
+				}
 			}
 		}
 
