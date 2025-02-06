@@ -199,6 +199,7 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(QuoteSystemStatus.Guessed, project.Status.QuoteSystemStatus);
 		}
 
+		[NonParallelizable]
 		[Test]
 		public void UpdateProjectFromBundleData_IndirectTestOfCopyGlyssenModifiableSettings_FontInfoDoesNotGetChanged()
 		{
@@ -245,6 +246,7 @@ namespace GlyssenEngineTests
 			Assert.AreEqual("open", updatedProject.QuoteSystem.FirstLevel.Open);
 		}
 
+		[NonParallelizable]
 		[Test]
 		public void UpdateProjectFromBundleData_ExistingProjectHasUserDecisions_UserDecisionsApplied()
 		{
@@ -268,6 +270,7 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(verseRef.Verse, updatedProject.Books[0].GetScriptBlocks().First(b => b.CharacterId == "Wilma").InitialStartVerseNumber);
 		}
 
+		[NonParallelizable]
 		[Test]
 		public void CopyQuoteMarksIfAppropriate_TargetWsHasNoQuotes_TargetReceivesQuotes()
 		{
@@ -282,6 +285,7 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(QuoteSystemStatus.UserSet, project.Status.QuoteSystemStatus);
 		}
 
+		[NonParallelizable]
 		[Test]
 		public void CopyQuoteMarksIfAppropriate_TargetWsHasQuotes_TargetQuotesObtained_TargetDoesNotReceiveQuotes()
 		{
@@ -361,6 +365,7 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(QuoteSystemStatus.UserSet, project.Status.QuoteSystemStatus);
 		}
 
+		[NonParallelizable]
 		[Test]
 		public void SetQuoteSystem_QuoteParseCompletedCalledWithNewQuoteSystem()
 		{
@@ -384,6 +389,7 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(project.QuoteSystem, quoteSystemAfterQuoteParserCompletes);
 		}
 
+		[NonParallelizable]
 		[TestCase("Joel")]
 		[TestCase("Enoch")]
 		public void SetQuoteSystem_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
@@ -438,6 +444,7 @@ namespace GlyssenEngineTests
 				testProject, "Backup before quote system change", true));
 		}
 
+		[NonParallelizable]
 		[Test]
 		public void SetQuoteSystem_ProjectQuoteSystemChanged_QuoteSystemDateUpdated()
 		{
@@ -509,6 +516,7 @@ namespace GlyssenEngineTests
 			Assert.IsTrue(project.ReportingClauses.Contains("soup"));
 		}
 
+		[NonParallelizable]
 		[TestCase("Zebedee")]
 		[TestCase("Roger")]
 		public void UpdateProjectFromBundleData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
@@ -571,6 +579,7 @@ namespace GlyssenEngineTests
 				testProject, "Backup before updating from new bundle", true));
 		}
 
+		[NonParallelizable]
 		[TestCase("Mark")]
 		[TestCase("Andrew")]
 		public void UpdateFromParatextData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
