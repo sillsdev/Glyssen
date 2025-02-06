@@ -489,11 +489,11 @@ namespace GlyssenEngineTests
 		[TestCase("Roger")]
 		public void UpdateProjectFromBundleData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
-			TestContext.WriteLine($"Actually starting this test for {character}");
+			Console.WriteLine($"Actually starting this test for {character}");
 
 			var testProject = new Project(BundleWithLdml);
 
-			TestContext.WriteLine($"Returned from Project constructor for {character}");
+			Console.WriteLine($"Returned from Project constructor for {character}");
 
 			WaitForProjectInitializationToFinish(testProject, ProjectState.FullyInitialized);
 
@@ -1393,7 +1393,7 @@ namespace GlyssenEngineTests
 			{
 				if (iCycle++ < maxCyclesAllowed)
 				{
-					TestContext.WriteLine(sleepTime);
+					Console.WriteLine(sleepTime);
 					Thread.Sleep(sleepTime);
 					if (sleepTime > 200)
 						sleepTime /= 2;
