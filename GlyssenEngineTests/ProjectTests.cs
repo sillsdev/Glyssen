@@ -367,6 +367,7 @@ namespace GlyssenEngineTests
 
 		[NonParallelizable]
 		[Test]
+		[Timeout(4000)]
 		public void SetQuoteSystem_QuoteParseCompletedCalledWithNewQuoteSystem()
 		{
 			var project = new Project(BundleWithLdml);
@@ -390,6 +391,7 @@ namespace GlyssenEngineTests
 		}
 
 		[NonParallelizable]
+		[Timeout(4000)]
 		[TestCase("Joel")]
 		[TestCase("Enoch")]
 		public void SetQuoteSystem_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
@@ -445,6 +447,7 @@ namespace GlyssenEngineTests
 		}
 
 		[NonParallelizable]
+		[Timeout(4000)]
 		[Test]
 		public void SetQuoteSystem_ProjectQuoteSystemChanged_QuoteSystemDateUpdated()
 		{
@@ -517,6 +520,7 @@ namespace GlyssenEngineTests
 		}
 
 		[NonParallelizable]
+		[Timeout(4000)]
 		[TestCase("Zebedee")]
 		[TestCase("Roger")]
 		public void UpdateProjectFromBundleData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
@@ -549,7 +553,6 @@ namespace GlyssenEngineTests
 
 			updatedProject.QuoteParseCompleted += delegate { complete = true; };
 
-			var timeoutCount = 0;
 			do
 			{
 				if (updatedProject.ProjectState == ProjectState.FullyInitialized)
@@ -559,13 +562,7 @@ namespace GlyssenEngineTests
 					break;
 				}
 				Thread.Sleep(100);
-				timeoutCount++;
-				if (timeoutCount > 100)
-					break;
 			} while (!complete);
-
-			if (!complete)
-				Assert.Fail("Update took too long. Maybe this is why it hangs frequently on TeamCity.");
 
 			var userConfirmedBlocksAfterReapplying = updatedProject.IncludedBooks.First().GetScriptBlocks().Where(b => b.UserConfirmed).ToList();
 			Assert.AreEqual(origCountOfUserConfirmedBlocks, userConfirmedBlocksAfterReapplying.Count);
@@ -580,6 +577,7 @@ namespace GlyssenEngineTests
 		}
 
 		[NonParallelizable]
+		[Timeout(4000)]
 		[TestCase("Mark")]
 		[TestCase("Andrew")]
 		public void UpdateFromParatextData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
