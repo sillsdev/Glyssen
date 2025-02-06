@@ -364,11 +364,15 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(project.QuoteSystem, quoteSystemAfterQuoteParserCompletes);
 		}
 
-		[TestCase("Boaz")]
-		//[TestCase("Mr. Rogers")]
+		[TestCase("Joel")]
+		[TestCase("Enoch")]
 		public void SetQuoteSystem_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
+			Console.WriteLine($"Starting SetQuoteSystem_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied for {character}");
+
 			var testProject = new Project(BundleWithLdml);
+
+			Console.WriteLine($"Returned from Project constructor in SetQuoteSystem_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied for {character}");
 
 			WaitForProjectInitializationToFinish(testProject, ProjectState.FullyInitialized);
 
@@ -489,11 +493,11 @@ namespace GlyssenEngineTests
 		[TestCase("Roger")]
 		public void UpdateProjectFromBundleData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
-			Console.WriteLine($"Actually starting this test for {character}");
+			Console.WriteLine($"Starting UpdateProjectFromBundleData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied for {character}");
 
 			var testProject = new Project(BundleWithLdml);
 
-			Console.WriteLine($"Returned from Project constructor for {character}");
+			Console.WriteLine($"Returned from Project constructor in UpdateProjectFromBundleData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied for {character}");
 
 			WaitForProjectInitializationToFinish(testProject, ProjectState.FullyInitialized);
 
@@ -547,12 +551,19 @@ namespace GlyssenEngineTests
 				testProject, "Backup before updating from new bundle", true));
 		}
 
-		[TestCase("Boaz")]
-		[TestCase("Mr. Rogers")]
+		[TestCase("Mark")]
+		[TestCase("Andrew")]
 		public void UpdateFromParatextData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
+			Console.WriteLine($"Starting UpdateFromParatextData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied for {character}");
+
 			var bundle = BundleWithLdml;
+
+			Console.WriteLine($"Set bundle = BundleWithLdml in UpdateFromParatextData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied for {character}");
+
 			var testProject = new Project(bundle);
+
+			Console.WriteLine($"Returned from Project constructor in UpdateFromParatextData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied for {character}");
 
 			WaitForProjectInitializationToFinish(testProject, ProjectState.FullyInitialized);
 
