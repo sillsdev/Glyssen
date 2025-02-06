@@ -93,6 +93,8 @@ namespace GlyssenEngine
 			WritingSystemDefinition ws = null, bool loadVersification = true)
 			: base(metadata, recordingProjectName ?? GetDefaultRecordingProjectName(metadata.Identification.Name, metadata.Language.Iso))
 		{
+			Console.WriteLine($"In Project constructor 1 for {recordingProjectName}");
+
 			m_projectMetadata = metadata;
 			SetBlockGetChapterAnnouncement(ChapterAnnouncementStyle);
 			m_wsDefinition = ws;
@@ -174,7 +176,7 @@ namespace GlyssenEngine
 		public Project(GlyssenBundle bundle, string recordingProjectName = null, Project projectBeingUpdated = null) :
 			this(bundle.Metadata, recordingProjectName, false, bundle.WritingSystemDefinition ?? projectBeingUpdated?.WritingSystem)
 		{
-			Console.WriteLine($"In Project constructor for {recordingProjectName}");
+			Console.WriteLine($"In Project constructor 2 for {recordingProjectName}");
 
 			Writer.SetUpProjectPersistence(this, bundle);
 
