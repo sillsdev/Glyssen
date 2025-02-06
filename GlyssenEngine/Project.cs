@@ -1514,6 +1514,8 @@ namespace GlyssenEngine
 
 		private void ParseAndIncludeBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet, Action<BookScript> postParseAction = null)
 		{
+			Console.WriteLine($"In ParseAndIncludeBooks for {Name}");
+
 			if (Versification == null)
 				throw new NullReferenceException("What!!!");
 			ProjectState = ProjectState.Initial | (ProjectState & ProjectState.WritingSystemRecoveryInProcess);
@@ -1528,6 +1530,7 @@ namespace GlyssenEngine
 
 		private void UsxWorker_DoWork(object sender, DoWorkEventArgs e)
 		{
+			Console.WriteLine($"In UsxWorker_DoWork for {Name}");
 			var parameters = (object[])e.Argument;
 			var books = (IEnumerable<UsxDocument>)parameters[0];
 			var stylesheet = (IStylesheet)parameters[1];
@@ -1550,8 +1553,13 @@ namespace GlyssenEngine
 
 		private void UsxWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
+			Console.WriteLine($"In UsxWorker_RunWorkerCompleted for {Name}");
+
 			if (e.Error != null)
+			{
+				Console.WriteLine(e.Error);
 				throw e.Error;
+			}
 
 			var bookScripts = (List<BookScript>)e.Result;
 
