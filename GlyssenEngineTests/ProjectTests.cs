@@ -364,8 +364,9 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(project.QuoteSystem, quoteSystemAfterQuoteParserCompletes);
 		}
 
+		[NonParallelizable]
 		[TestCase("Boaz")]
-		//[TestCase("Mr. Rogers")]
+		[TestCase("Mr. Rogers")]
 		public void SetQuoteSystem_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
 			var testProject = new Project(BundleWithLdml);
@@ -485,8 +486,9 @@ namespace GlyssenEngineTests
 			Assert.IsTrue(project.ReportingClauses.Contains("soup"));
 		}
 
+		[NonParallelizable]
 		[TestCase("Boaz")]
-		//[TestCase("Mr. Rogers")]
+		[TestCase("Mr. Rogers")]
 		public void UpdateProjectFromBundleData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
 			var testProject = new Project(BundleWithLdml);
