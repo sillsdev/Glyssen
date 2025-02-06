@@ -485,8 +485,8 @@ namespace GlyssenEngineTests
 			Assert.IsTrue(project.ReportingClauses.Contains("soup"));
 		}
 
-		[TestCase("Boaz")]
-		[TestCase("Mr. Rogers")]
+		[TestCase("Zebedee")]
+		[TestCase("Roger")]
 		public void UpdateProjectFromBundleData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
 			TestContext.WriteLine($"Actually starting this test for {character}");

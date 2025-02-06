@@ -2144,6 +2144,8 @@ namespace GlyssenEngine
 
 		public static string GetDefaultRecordingProjectName(string publicationName, string languageIsoCode)
 		{
+			Console.WriteLine($"In GetDefaultRecordingProjectName for {publicationName}:{languageIsoCode}");
+
 			var defaultProjectNameSuffix = DefaultRecordingProjectNameSuffix;
 			publicationName = FileSystemUtils.RemoveDangerousCharacters(publicationName,
 				Writer.GetMaxProjectNameLength(languageIsoCode) - defaultProjectNameSuffix.Length);
