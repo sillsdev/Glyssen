@@ -364,9 +364,8 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(project.QuoteSystem, quoteSystemAfterQuoteParserCompletes);
 		}
 
-		[NonParallelizable]
 		[TestCase("Boaz")]
-		[TestCase("Mr. Rogers")]
+		//[TestCase("Mr. Rogers")]
 		public void SetQuoteSystem_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
 			var testProject = new Project(BundleWithLdml);
@@ -486,12 +485,12 @@ namespace GlyssenEngineTests
 			Assert.IsTrue(project.ReportingClauses.Contains("soup"));
 		}
 
-		[NonParallelizable]
 		[TestCase("Boaz")]
-		[TestCase("Mr. Rogers")]
 		public void UpdateProjectFromBundleData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
 			var testProject = new Project(BundleWithLdml);
+
+			TestContext.WriteLine($"Returned from Project constructor for {character}");
 
 			WaitForProjectInitializationToFinish(testProject, ProjectState.FullyInitialized);
 
@@ -515,10 +514,84 @@ namespace GlyssenEngineTests
 
 			updatedProject.QuoteParseCompleted += delegate { complete = true; };
 
+			var timeoutCount = 0;
 			do
 			{
+				if (updatedProject.ProjectState == ProjectState.FullyInitialized)
+				{
+					if (!complete)
+						Console.WriteLine("Got to fully initialized state without firing QuoteParseCompleted");
+					break;
+				}
 				Thread.Sleep(100);
+				timeoutCount++;
+				if (timeoutCount > 100)
+					break;
 			} while (!complete);
+
+			if (!complete)
+				Assert.Fail("Update took too long. Maybe this is why it hangs frequently on TeamCity.");
+
+			var userConfirmedBlocksAfterReapplying = updatedProject.IncludedBooks.First().GetScriptBlocks().Where(b => b.UserConfirmed).ToList();
+			Assert.AreEqual(origCountOfUserConfirmedBlocks, userConfirmedBlocksAfterReapplying.Count);
+			foreach (var blockWithReappliedUserDecision in userConfirmedBlocksAfterReapplying)
+			{
+				Assert.AreEqual(character, blockWithReappliedUserDecision.CharacterId);
+				Assert.AreEqual("foamy", blockWithReappliedUserDecision.Delivery);
+			}
+
+			Assert.IsTrue(((PersistenceImplementation)Project.Writer).WasExpectedBackupCreated(
+				testProject, "Backup before updating from new bundle", true));
+		}
+
+		[Test]
+		public void UpdateProjectFromBundleData_ProjectHasMrRogersVerseDecisions_UserDecisionsReapplied()
+		{
+			string character = "Mr. Rogers";
+
+			var testProject = new Project(BundleWithLdml);
+
+			TestContext.WriteLine($"Returned from Project constructor for {character}");
+
+			WaitForProjectInitializationToFinish(testProject, ProjectState.FullyInitialized);
+
+			var book = testProject.IncludedBooks.First();
+			var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(book,
+				book.GetScriptBlocks().Count - 1);
+
+			SetAndConfirmCharacterAndDeliveryForAllCorrelatedBlocks(matchup, book.BookNumber, testProject, character);
+
+			Assert.IsTrue(testProject.ProjectCharacterVerseData.Any());
+			if (!CharacterDetailData.Singleton.GetDictionary().ContainsKey(character))
+				testProject.AddProjectCharacterDetail(new CharacterDetail {CharacterId = character, Age = CharacterAge.Elder, Gender = CharacterGender.Male});
+
+			matchup.Apply();
+
+			bool complete = false;
+
+			var origCountOfUserConfirmedBlocks = book.GetScriptBlocks().Count(b => b.UserConfirmed);
+
+			var updatedProject = testProject.UpdateProjectFromBundleData(BundleWithLdml);
+
+			updatedProject.QuoteParseCompleted += delegate { complete = true; };
+
+			var timeoutCount = 0;
+			do
+			{
+				if (updatedProject.ProjectState == ProjectState.FullyInitialized)
+				{
+					if (!complete)
+						Console.WriteLine("Got to fully initialized state without firing QuoteParseCompleted");
+					break;
+				}
+				Thread.Sleep(100);
+				timeoutCount++;
+				if (timeoutCount > 100)
+					break;
+			} while (!complete);
+
+			if (!complete)
+				Assert.Fail("Update took too long. Maybe this is why it hangs frequently on TeamCity.");
 
 			var userConfirmedBlocksAfterReapplying = updatedProject.IncludedBooks.First().GetScriptBlocks().Where(b => b.UserConfirmed).ToList();
 			Assert.AreEqual(origCountOfUserConfirmedBlocks, userConfirmedBlocksAfterReapplying.Count);

@@ -174,8 +174,15 @@ namespace GlyssenEngine
 		public Project(GlyssenBundle bundle, string recordingProjectName = null, Project projectBeingUpdated = null) :
 			this(bundle.Metadata, recordingProjectName, false, bundle.WritingSystemDefinition ?? projectBeingUpdated?.WritingSystem)
 		{
+			Console.WriteLine($"In Project constructor for {recordingProjectName}");
+
 			Writer.SetUpProjectPersistence(this, bundle);
+
+			Console.WriteLine($"Finished SetUpProjectPersistence for {recordingProjectName}");
+
 			InstallFontsIfNecessary();
+
+			Console.WriteLine($"Finished InstallFontsIfNecessary for {recordingProjectName}");
 
 			try
 			{
@@ -188,10 +195,14 @@ namespace GlyssenEngine
 				throw;
 			}
 
+			Console.WriteLine($"Finished SetVersification for {recordingProjectName}");
+
 			if (bundle.WritingSystemDefinition?.QuotationMarks != null && bundle.WritingSystemDefinition.QuotationMarks.Any())
 			{
 				QuoteSystemStatus = QuoteSystemStatus.Obtained;
 				SetWsQuotationMarksUsingFullySpecifiedContinuers(bundle.WritingSystemDefinition.QuotationMarks);
+
+				Console.WriteLine($"Finished quote system setup for {recordingProjectName}");
 			}
 
 			UserDecisionsProject = projectBeingUpdated;
@@ -1528,6 +1539,7 @@ namespace GlyssenEngine
 
 		private void UsxWorker_DoWork(object sender, DoWorkEventArgs e)
 		{
+			Console.WriteLine($"In UsxWorker_DoWork for {Name}");
 			var parameters = (object[])e.Argument;
 			var books = (IEnumerable<UsxDocument>)parameters[0];
 			var stylesheet = (IStylesheet)parameters[1];
@@ -1550,8 +1562,13 @@ namespace GlyssenEngine
 
 		private void UsxWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
+			Console.WriteLine($"In UsxWorker_RunWorkerCompleted for {Name}");
+
 			if (e.Error != null)
+			{
+				Console.WriteLine(e.Error);
 				throw e.Error;
+			}
 
 			var bookScripts = (List<BookScript>)e.Result;
 
