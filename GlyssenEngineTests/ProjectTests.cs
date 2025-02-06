@@ -486,7 +486,6 @@ namespace GlyssenEngineTests
 			Assert.IsTrue(project.ReportingClauses.Contains("soup"));
 		}
 
-		[NonParallelizable]
 		[TestCase("Boaz")]
 		[TestCase("Mr. Rogers")]
 		public void UpdateProjectFromBundleData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
@@ -515,10 +514,24 @@ namespace GlyssenEngineTests
 
 			updatedProject.QuoteParseCompleted += delegate { complete = true; };
 
+			var timeoutCount = 0;
 			do
 			{
+				if (updatedProject.ProjectState == ProjectState.FullyInitialized)
+				{
+					if (!complete)
+						Console.WriteLine("Got to fully initialized state without firing QuoteParseCompleted");
+					break;
+				}
 				Thread.Sleep(100);
+				timeoutCount++;
+				if (timeoutCount > 100)
+					break;
 			} while (!complete);
+
+			if (!complete)
+				Assert.Fail("Update took too long. Maybe this is why it hangs frequently on TeamCity.");
+
 
 			var userConfirmedBlocksAfterReapplying = updatedProject.IncludedBooks.First().GetScriptBlocks().Where(b => b.UserConfirmed).ToList();
 			Assert.AreEqual(origCountOfUserConfirmedBlocks, userConfirmedBlocksAfterReapplying.Count);
