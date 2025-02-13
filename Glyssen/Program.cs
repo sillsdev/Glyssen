@@ -76,7 +76,7 @@ namespace Glyssen
 			//bring in settings from any previous version
 			if (Settings.Default.NeedUpgrade)
 			{
-				//see http://stackoverflow.com/questions/3498561/net-applicationsettingsbase-should-i-call-upgrade-every-time-i-load
+				//see https://stackoverflow.com/questions/3498561/net-applicationsettingsbase-should-i-call-upgrade-every-time-i-load
 				Settings.Default.Upgrade();
 				Settings.Default.Reload();
 				Settings.Default.NeedUpgrade = false;
