@@ -5,6 +5,7 @@ using GlyssenEngine;
 using GlyssenFileBasedPersistence;
 using ICSharpCode.SharpZipLib.Zip;
 using SIL.IO;
+using static System.StringSplitOptions;
 
 namespace Glyssen.Utilities
 {
@@ -36,17 +37,35 @@ namespace Glyssen.Utilities
 
 			m_glyssenShareFilePath = glyssenShareFilePath;
 
-			ZipEntry path = null;
+			string path = null;
 
 			using (var zipFile = new ZipFile(glyssenShareFilePath))
 			{
-				// Find the first directory entry
+				// Find the first (full) directory entry
 				foreach (ZipEntry entry in zipFile)
 				{
 					if (entry.IsDirectory)
 					{
-						path = entry;
-						break;
+						// For a truly well-formed glyssenshare file, there should be only one
+						// Directory entry, and it should have exactly 3 levels, but for the sake
+						// of robustness, I'm allowing for a manually created glyssenshare that
+						// might have entries for each successive level.
+						path = entry.Name;
+						var levels = path.Split(new[] { '\\', '/' }, RemoveEmptyEntries).Length;
+						switch (levels)
+						{
+							case 1:
+							case 2:
+								path = null;
+								break;
+							case 3:
+								break;
+							default:
+								throw new ArgumentException("Not a valid glyssenshare file.",
+									nameof(glyssenShareFilePath));
+						}
+						if (path != null)
+							break;
 					}
 				}
 			}
@@ -54,9 +73,9 @@ namespace Glyssen.Utilities
 			if (path == null)
 				return;
 
-			var targetDir = Path.Combine(ProjectRepository.ProjectsBaseFolder, path.Name);
+			var targetDir = Path.Combine(ProjectRepository.ProjectsBaseFolder, path);
 
-			var projectFileName = path.Name.Split('/').First() + ProjectRepository.kProjectFileExtension;
+			var projectFileName = path.Split('/').First() + ProjectRepository.kProjectFileExtension;
 			ProjectFilePath = Path.Combine(targetDir, projectFileName);
 		}
 

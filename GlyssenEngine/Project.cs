@@ -33,6 +33,7 @@ using GlyssenCharacters;
 using GlyssenEngine.Character;
 using SIL.Xml;
 using static System.String;
+using static SIL.WritingSystems.WellKnownSubtags;
 using CharacterGroup = GlyssenEngine.Character.CharacterGroup;
 using CharacterGroupList = GlyssenEngine.Character.CharacterGroupList;
 
@@ -864,7 +865,7 @@ namespace GlyssenEngine
 				if (existingProject.ProjectState != ProjectState.FullyInitialized)
 				{
 					// We need to acknowledge that the quote parse has already happened (albeit with
-					// some older version of the parser). This not only might (hypothetically) tell
+					// some older version of the parser). Not only might this (hypothetically) tell
 					// us not to do it again (although there's currently no logic that would attempt
 					// that), but more importantly, it tells the data migration code that this project
 					// can be migrated. And that's important because when we go to apply existing user
@@ -1724,7 +1725,7 @@ namespace GlyssenEngine
 		}
 
 		public override string ValidLanguageIsoCode => IetfLanguageTag.IsValid(LanguageIsoCode) ?
-			LanguageIsoCode : WellKnownSubtags.UnlistedLanguage;
+			LanguageIsoCode : UnlistedLanguage;
 
 		public void Analyze()
 		{
@@ -1926,8 +1927,10 @@ namespace GlyssenEngine
 					{
 						return LoadWritingSystemFromLdml(m_wsDefinition);
 					}
-					catch (XmlException e)
+					catch (Exception e)
 					{
+						Logger.WriteError(e);
+
 						switch (GetBadLdmlRecoveryAction?.Invoke(this, e.Message, attemptToUseBackup))
 						{
 							case BadLdmlRecoveryAction.Retry:
