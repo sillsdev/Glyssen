@@ -33,6 +33,7 @@ using GlyssenCharacters;
 using GlyssenEngine.Character;
 using SIL.Xml;
 using static System.String;
+using static SIL.WritingSystems.WellKnownSubtags;
 using CharacterGroup = GlyssenEngine.Character.CharacterGroup;
 using CharacterGroupList = GlyssenEngine.Character.CharacterGroupList;
 
@@ -93,6 +94,8 @@ namespace GlyssenEngine
 			WritingSystemDefinition ws = null, bool loadVersification = true)
 			: base(metadata, recordingProjectName ?? GetDefaultRecordingProjectName(metadata.Identification.Name, metadata.Language.Iso))
 		{
+			Console.WriteLine($"In Project constructor 1 for {recordingProjectName}");
+
 			m_projectMetadata = metadata;
 			SetBlockGetChapterAnnouncement(ChapterAnnouncementStyle);
 			m_wsDefinition = ws;
@@ -174,8 +177,15 @@ namespace GlyssenEngine
 		public Project(GlyssenBundle bundle, string recordingProjectName = null, Project projectBeingUpdated = null) :
 			this(bundle.Metadata, recordingProjectName, false, bundle.WritingSystemDefinition ?? projectBeingUpdated?.WritingSystem)
 		{
+			Console.WriteLine($"In Project constructor 2 for {recordingProjectName}");
+
 			Writer.SetUpProjectPersistence(this, bundle);
+
+			Console.WriteLine($"Finished SetUpProjectPersistence for {recordingProjectName}");
+
 			InstallFontsIfNecessary();
+
+			Console.WriteLine($"Finished InstallFontsIfNecessary for {recordingProjectName}");
 
 			try
 			{
@@ -188,10 +198,14 @@ namespace GlyssenEngine
 				throw;
 			}
 
+			Console.WriteLine($"Finished SetVersification for {recordingProjectName}");
+
 			if (bundle.WritingSystemDefinition?.QuotationMarks != null && bundle.WritingSystemDefinition.QuotationMarks.Any())
 			{
 				QuoteSystemStatus = QuoteSystemStatus.Obtained;
 				SetWsQuotationMarksUsingFullySpecifiedContinuers(bundle.WritingSystemDefinition.QuotationMarks);
+
+				Console.WriteLine($"Finished quote system setup for {recordingProjectName}");
 			}
 
 			UserDecisionsProject = projectBeingUpdated;
@@ -851,7 +865,7 @@ namespace GlyssenEngine
 				if (existingProject.ProjectState != ProjectState.FullyInitialized)
 				{
 					// We need to acknowledge that the quote parse has already happened (albeit with
-					// some older version of the parser). This not only might (hypothetically) tell
+					// some older version of the parser). Not only might this (hypothetically) tell
 					// us not to do it again (although there's currently no logic that would attempt
 					// that), but more importantly, it tells the data migration code that this project
 					// can be migrated. And that's important because when we go to apply existing user
@@ -1528,6 +1542,7 @@ namespace GlyssenEngine
 
 		private void UsxWorker_DoWork(object sender, DoWorkEventArgs e)
 		{
+			Console.WriteLine($"In UsxWorker_DoWork for {Name}");
 			var parameters = (object[])e.Argument;
 			var books = (IEnumerable<UsxDocument>)parameters[0];
 			var stylesheet = (IStylesheet)parameters[1];
@@ -1550,8 +1565,13 @@ namespace GlyssenEngine
 
 		private void UsxWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
+			Console.WriteLine($"In UsxWorker_RunWorkerCompleted for {Name}");
+
 			if (e.Error != null)
+			{
+				Console.WriteLine(e.Error);
 				throw e.Error;
+			}
 
 			var bookScripts = (List<BookScript>)e.Result;
 
@@ -1705,7 +1725,7 @@ namespace GlyssenEngine
 		}
 
 		public override string ValidLanguageIsoCode => IetfLanguageTag.IsValid(LanguageIsoCode) ?
-			LanguageIsoCode : WellKnownSubtags.UnlistedLanguage;
+			LanguageIsoCode : UnlistedLanguage;
 
 		public void Analyze()
 		{
@@ -1907,8 +1927,10 @@ namespace GlyssenEngine
 					{
 						return LoadWritingSystemFromLdml(m_wsDefinition);
 					}
-					catch (XmlException e)
+					catch (Exception e)
 					{
+						Logger.WriteError(e);
+
 						switch (GetBadLdmlRecoveryAction?.Invoke(this, e.Message, attemptToUseBackup))
 						{
 							case BadLdmlRecoveryAction.Retry:
@@ -2125,6 +2147,8 @@ namespace GlyssenEngine
 
 		public static string GetDefaultRecordingProjectName(string publicationName, string languageIsoCode)
 		{
+			Console.WriteLine($"In GetDefaultRecordingProjectName for {publicationName}:{languageIsoCode}");
+
 			var defaultProjectNameSuffix = DefaultRecordingProjectNameSuffix;
 			publicationName = FileSystemUtils.RemoveDangerousCharacters(publicationName,
 				Writer.GetMaxProjectNameLength(languageIsoCode) - defaultProjectNameSuffix.Length);

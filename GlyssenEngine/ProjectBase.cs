@@ -17,6 +17,7 @@ namespace GlyssenEngine
 
 		static ProjectBase()
 		{
+			Console.WriteLine($"In ProjectBase static constructor");
 			GlyssenVersificationTable.Initialize();
 		}
 		
@@ -45,6 +46,8 @@ namespace GlyssenEngine
 
 		protected ProjectBase(GlyssenDblTextMetadataBase metadata, string recordingProjectName)
 		{
+			Console.WriteLine($"In ProjectBase constructor for {recordingProjectName}");
+
 			m_metadata = metadata;
 			m_recordingProjectName = recordingProjectName;
 		}

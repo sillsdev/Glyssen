@@ -93,10 +93,7 @@ namespace GlyssenEngine.Quote
 			get { return s_systems.SingleOrDefault(s => s.Name == "Guillemets"); }
 		}
 
-		public static IEnumerable<QuoteSystem> UniquelyGuessableSystems
-		{
-			get { return s_systems; }
-		}
+		public static IEnumerable<QuoteSystem> UniquelyGuessableSystems => s_systems;
 
 		public static QuoteSystem GetOrCreateQuoteSystem(QuotationMark firstLevel, string quotationDashMarker, string quotationDashEndMarker)
 		{

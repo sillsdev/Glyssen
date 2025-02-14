@@ -23,6 +23,7 @@ using GlyssenEngine.Rules;
 using GlyssenEngine.Utilities;
 using GlyssenEngine.ViewModels;
 using GlyssenFileBasedPersistence;
+using ICSharpCode.SharpZipLib.Zip;
 using L10NSharp;
 using SIL.DblBundle;
 using SIL.IO;
@@ -30,7 +31,6 @@ using SIL.Progress;
 using SIL.Reporting;
 using SIL.Windows.Forms;
 using SIL.Windows.Forms.Miscellaneous;
-using Ionic.Zip;
 using NetSparkle;
 using Paratext.Data;
 using SIL.Scripture;
@@ -46,8 +46,6 @@ namespace Glyssen
 {
 	public partial class MainForm : FormWithPersistedSettings, ILocalizable
 	{
-		private const string kShareFileExtension = ".glyssenshare";
-
 		private static Sparkle UpdateChecker { get; set; }
 		private readonly PersistenceImplementation m_persistenceImpl;
 		private Project m_project;
@@ -81,7 +79,7 @@ namespace Glyssen
 			m_lastExportLocationLink.Text = Empty;
 
 			// Did the user start Glyssen by double-clicking a share file?
-			if (args.Count == 1 && args[0].ToLowerInvariant().EndsWith(kShareFileExtension))
+			if (args.Count == 1 && GlyssenShare.IsGlyssenShare(args[0]))
 			{
 				ImportShare(args[0]);
 			}
@@ -427,7 +425,7 @@ namespace Glyssen
 					throw;
 				}
 			}
-			UpdateChecker = new Sparkle(@"http://build.palaso.org/guestAuth/repository/download/Glyssen_GlyssenMasterPublish/.lastSuccessful/appcast.xml",
+			UpdateChecker = new Sparkle(@"https://build.palaso.org/guestAuth/repository/download/Glyssen_GlyssenMasterPublish/.lastSuccessful/appcast.xml",
 				Icon);
 			UpdateChecker.DoLaunchAfterUpdate = false; // The installer already takes care of launching.
 			// We don't want to do this until the main window is loaded because a) it's very easy for the user to overlook, and b)
@@ -1409,10 +1407,6 @@ namespace Glyssen
 		{
 			var sourceDir = Path.GetDirectoryName(m_persistenceImpl.GetProjectFilePath(m_project));
 			Debug.Assert(sourceDir != null);
-			var nameInZip = sourceDir.Substring(ProjectRepository.ProjectsBaseFolder.Length);
-
-			var shareFolder = ProjectRepository.DefaultShareFolder;
-			Directory.CreateDirectory(shareFolder);
 
 			string fallbackVersificationFilePath = null;
 
@@ -1431,13 +1425,8 @@ namespace Glyssen
 
 			try
 			{
-				var saveAsName = Path.Combine(shareFolder, m_project.LanguageIsoCode + "_" + m_project.Name) + kShareFileExtension;
-				using (var zip = new ZipFile())
-				{
-					zip.UseZip64WhenSaving = Zip64Option.AsNecessary;
-					zip.AddDirectory(sourceDir, nameInZip);
-					zip.Save(saveAsName);
-				}
+				var glyssenShare = new GlyssenShare(sourceDir, m_project);
+				var saveAsName = glyssenShare.Create();
 
 				if (m_project.ReferenceTextProxy.Type == ReferenceTextType.Custom)
 				{
@@ -1469,7 +1458,7 @@ namespace Glyssen
 				ofd.Filter = Format("{0} ({1})|{1}|{2} ({3})|{3}",
 					LocalizationManager.GetString("DialogBoxes.ImportDlg.GlyssenSharesFileTypeLabel",
 						"Glyssen shares", "Label used in Import file dialog for \"*.glyssenshare\" files"),
-					"*" + kShareFileExtension,
+					GlyssenShare.WildcardFileMatch,
 					L10N.AllFilesLabel, "*.*");
 				ofd.RestoreDirectory = true;
 
@@ -1496,58 +1485,47 @@ namespace Glyssen
 		{
 			Logger.WriteEvent($"Importing {importFile}.");
 
-			// open the zip file
-			using (var zip = new ZipFile(importFile))
+			var glyssenShare = new GlyssenShare(importFile);
+			if (glyssenShare.ProjectFilePath == null)
+				return;
+
+			// Warn the user if data will be overwritten
+			if (RobustFile.Exists(glyssenShare.ProjectFilePath))
 			{
-				var path = zip.Entries.FirstOrDefault(ze => ze.IsDirectory);
+				var msg = LocalizationManager.GetString("MainForm.ImportWarning",
+					"Warning: You are about to import a project that already exists. " +
+					"If you continue, the existing project files will be replaced by the " +
+					"files being imported, which might result in loss of data. Do you " +
+					"want to continue and overwrite the existing files?");
+				Logger.WriteEvent(msg + " " + glyssenShare.ProjectFilePath);
 
-				if (path == null)
+				if (MessageBox.Show(msg, GlyssenInfo.Product, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK)
 					return;
+			}
 
-				var targetDir = Path.Combine(ProjectRepository.ProjectsBaseFolder, path.FileName);
+			// Close the current project
+			SetProject(null);
 
-				var projectFileName = path.FileName.Split('/').First() + ProjectRepository.kProjectFileExtension;
-				var projectFilePath = Path.Combine(targetDir, projectFileName);
-
-				// warn the user if data will be overwritten
-				if (RobustFile.Exists(projectFilePath))
+			if (glyssenShare.Extract())
+			{
+				void AdditionalActionAfterSettingProject()
 				{
-					var msg = LocalizationManager.GetString("MainForm.ImportWarning",
-							"Warning: You are about to import a project that already exists. If you continue, the existing project files will be replaced by the files being imported, which " +
-							"might result in loss of data. Do you want to continue and overwrite the existing files?");
-					Logger.WriteEvent(msg + " " + projectFilePath);
-
-					if (MessageBox.Show(msg, GlyssenInfo.Product, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK)
-						return;
-				}
-
-				// close the current project
-				SetProject(null);
-
-				zip.ExtractAll(ProjectRepository.ProjectsBaseFolder, ExtractExistingFileAction.OverwriteSilently);
-
-				// open the imported project
-				if (RobustFile.Exists(projectFilePath))
-				{
-					void AdditionalActionAfterSettingProject()
+					SaveCurrentProject();
+					if (m_project.ReferenceTextProxy.Missing)
 					{
-						SaveCurrentProject();
-						if (m_project.ReferenceTextProxy.Missing)
-						{
-							var msg = LocalizationManager.GetString("MainForm.ImportedProjectUsesMissingReferenceText",
-								"The imported project uses a custom reference text ({0}) that is not available on this computer.\nFor best results, " +
-								"close {1} and install the reference text here:" +
-								"\n    {2}\n" +
-								"\nThen restart {1} to continue working with this project.",
-								"Param 0: name of missing reference text; Param 1: \"Glyssen\"; Param 2: Path to Local Reference Texts folder");
-							FlexibleMessageBox.Show(this, Format(msg, m_project.ReferenceTextProxy.CustomIdentifier, ProductName,
+						var msg = LocalizationManager.GetString("MainForm.ImportedProjectUsesMissingReferenceText",
+							"The imported project uses a custom reference text ({0}) that is not available on this computer.\nFor best results, " +
+							"close {1} and install the reference text here:" +
+							"\n    {2}\n" +
+							"\nThen restart {1} to continue working with this project.",
+							"Param 0: name of missing reference text; Param 1: \"Glyssen\"; Param 2: Path to Local Reference Texts folder");
+						FlexibleMessageBox.Show(this, Format(msg, m_project.ReferenceTextProxy.CustomIdentifier, ProductName,
 								"file://" + m_persistenceImpl.GetProjectFolderPath(m_project.ReferenceTextProxy)),
-								ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning, (sender, e) => { SafeCreateAndOpenFolder(e.LinkText); });
-						}
+							ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning, (sender, e) => { SafeCreateAndOpenFolder(e.LinkText); });
 					}
-
-					LoadProject(projectFilePath, AdditionalActionAfterSettingProject);
 				}
+
+				LoadProject(glyssenShare.ProjectFilePath, AdditionalActionAfterSettingProject);
 			}
 		}
 
