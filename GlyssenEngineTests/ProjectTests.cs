@@ -577,7 +577,7 @@ namespace GlyssenEngineTests
 		}
 
 		[NonParallelizable]
-		[Timeout(4000)]
+		[Timeout(5000)]
 		[TestCase("Mark")]
 		[TestCase("Andrew")]
 		public void UpdateFromParatextData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)

@@ -23,7 +23,6 @@ using GlyssenEngine.Rules;
 using GlyssenEngine.Utilities;
 using GlyssenEngine.ViewModels;
 using GlyssenFileBasedPersistence;
-using ICSharpCode.SharpZipLib.Zip;
 using L10NSharp;
 using SIL.DblBundle;
 using SIL.IO;
