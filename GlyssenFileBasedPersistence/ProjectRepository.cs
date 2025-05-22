@@ -17,6 +17,7 @@ namespace GlyssenFileBasedPersistence
 	{
 		public const string kBookScriptFileExtension = ".xml";
 		public const string kProjectFileExtension = ".glyssen";
+		public const string kShareFolderName = "share";
 		private const string kDistFilesReferenceTextDirectoryName = "reference_texts";
 
 		public static IEnumerable<string> AllPublicationFolders => Directory.GetDirectories(ProjectsBaseFolder).SelectMany(Directory.GetDirectories);
@@ -42,19 +43,19 @@ namespace GlyssenFileBasedPersistence
 			Combine(GetProjectFolderPath(languageIsoCode, metadataId, recordingProjectName),
 				languageIsoCode + kProjectFileExtension);
 
-		public static string ProjectsBaseFolder => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
+		public static string ProjectsBaseFolder => Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
 			GlyssenInfo.Company, GlyssenInfo.Product);
 
 		public static string GetRecordingProjectNameFromProjectFilePath(string path) => path.GetContainingFolderName();
 
-		public static string DefaultShareFolder => Combine(ProjectsBaseFolder, "share");
+		public static string DefaultShareFolder => Combine(ProjectsBaseFolder, kShareFolderName);
 
 		internal static string GetProjectFolderForStandardReferenceText(ReferenceTextType referenceTextType)
 		{
 			if (!referenceTextType.IsStandard())
 				throw new InvalidOperationException("Attempt to get standard reference project folder for a non-standard type.");
 
-			return Path.GetDirectoryName(GetStandardReferenceTextProjectFileLocation(referenceTextType));
+			return GetDirectoryName(GetStandardReferenceTextProjectFileLocation(referenceTextType));
 		}
 
 		private static string GetStandardReferenceTextProjectFileLocation(ReferenceTextType referenceTextType)

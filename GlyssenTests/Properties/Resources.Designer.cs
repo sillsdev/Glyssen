@@ -63,6 +63,46 @@ namespace GlyssenTests.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] manual {
+            get {
+                object obj = ResourceManager.GetObject("manual", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] nodirentries {
+            get {
+                object obj = ResourceManager.GetObject("nodirentries", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] novaliddir {
+            get {
+                object obj = ResourceManager.GetObject("novaliddir", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] qaa_Bogus {
+            get {
+                object obj = ResourceManager.GetObject("qaa_Bogus", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] qaa_Elbonian {
             get {
                 object obj = ResourceManager.GetObject("qaa_Elbonian", resourceCulture);

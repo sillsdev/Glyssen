@@ -1405,9 +1405,6 @@ namespace Glyssen
 
 		private void ExportShare()
 		{
-			var sourceDir = Path.GetDirectoryName(m_persistenceImpl.GetProjectFilePath(m_project));
-			Debug.Assert(sourceDir != null);
-
 			string fallbackVersificationFilePath = null;
 
 			if (!m_persistenceImpl.ResourceExists(m_project, ProjectResource.Versification))
@@ -1425,7 +1422,7 @@ namespace Glyssen
 
 			try
 			{
-				var glyssenShare = new GlyssenShare(sourceDir, m_project);
+				var glyssenShare = new GlyssenShare(m_project);
 				var saveAsName = glyssenShare.Create();
 
 				if (m_project.ReferenceTextProxy.Type == ReferenceTextType.Custom)
@@ -1439,6 +1436,17 @@ namespace Glyssen
 
 				PathUtilities.SelectFileInExplorer(saveAsName);
 				Logger.WriteEvent($"Project exported to {saveAsName}");
+			}
+			catch (Exception e)
+			{
+				Logger.WriteError("Failed to export project", e);
+				if (e is IOException)
+				{
+					ErrorReport.ReportNonFatalExceptionWithMessage(e,
+						LocalizationManager.GetString("MainForm.ExportFailed", "Export failed."));
+				}
+				else
+					throw;
 			}
 			finally
 			{
