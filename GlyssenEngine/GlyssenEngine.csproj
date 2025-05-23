@@ -73,7 +73,7 @@ See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.
     </PackageReference>
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="8.0.16" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="ParatextData" Version="9.5.0.12" />
+    <PackageReference Include="ParatextData" Version="9.5.0.13" />
     <PackageReference Include="SIL.Core" Version="16.0.0" />
     <PackageReference Include="SIL.DblBundle" Version="16.0.0" />
     <PackageReference Include="SIL.Scripture" Version="16.0.0" />
