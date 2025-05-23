@@ -1,13 +1,11 @@
 ﻿// ---------------------------------------------------------------------------------------------
-#region // Copyright (c) 2018, SIL International.
-// <copyright from='2018' to='2018' company='SIL International'>
-//		Copyright (c) 2013, SIL International.   
+#region // Copyright (c) 2025, SIL Global.
+// <copyright from='2018' to='2025' company='SIL Global'>
+//		Copyright (c) 2025, SIL Global.   
 //    
-//		Distributable under the terms of the MIT License (http://sil.mit-license.org/)
+//		Distributable under the terms of the MIT License (https://sil.mit-license.org/)
 // </copyright> 
 #endregion
-// 
-// File: YesNoApplyToAllDlg.cs
 // ---------------------------------------------------------------------------------------------
 using System;
 using System.Windows.Forms;
@@ -32,7 +30,7 @@ namespace Glyssen.Dialogs
 
 		public DialogResult DefaultResult
 		{
-			get => (AcceptButton == m_btnNo) ? m_btnNo.DialogResult : m_btnYes.DialogResult;
+			get => AcceptButton == m_btnNo ? m_btnNo.DialogResult : m_btnYes.DialogResult;
 			set
 			{
 				switch (value)

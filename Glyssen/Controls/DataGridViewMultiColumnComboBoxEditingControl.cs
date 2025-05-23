@@ -11,7 +11,7 @@ namespace Glyssen.Controls
 {
 	/// <summary>
 	/// Represents the hosted Multi-Column Combo Box control in a <see cref="T:Glyssen.Controls.DataGridViewMultiColumnComboBoxCell"/>.
-	/// http://www.intertech.com/Blog/winforms-multi-column-combo-box-in-a-datagridview/
+	/// https://www.intertech.com/Blog/winforms-multi-column-combo-box-in-a-datagridview/
 	/// </summary>
 	public class DataGridViewMultiColumnComboBoxEditingControl : DataGridViewComboBoxEditingControl
 	{
@@ -665,7 +665,7 @@ namespace Glyssen.Controls
 
 		#endregion
 
-		#region http://stackoverflow.com/questions/1245530/unable-to-set-the-dropdownheight-of-combobox
+		#region https://stackoverflow.com/questions/1245530/unable-to-set-the-dropdownheight-of-combobox
 		[DllImport("user32.dll")]
 		[return: MarshalAs(UnmanagedType.Bool)]
 		public static extern bool GetWindowRect(IntPtr hwnd, out RECT lpRect);
