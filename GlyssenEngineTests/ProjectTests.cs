@@ -35,6 +35,8 @@ namespace GlyssenEngineTests
 	[OfflineSldr]
 	class ProjectTests
 	{
+		private readonly object m_lock = new object();
+
 		private GlyssenBundle m_bundleWithLdml;
 		
 		private GlyssenBundle m_bundleWithoutLdml; // This one typically has the Language modified
@@ -48,22 +50,31 @@ namespace GlyssenEngineTests
 
 		public const string kTestBundleIdPrefix = "test~~ProjectTests";
 
-		private GlyssenBundle BundleWithLdml =>
-			m_bundleWithLdml ?? (m_bundleWithLdml = GetNewGlyssenBundleAndFile(true));
+		private GlyssenBundle BundleWithLdml
+		{
+			get
+			{
+				lock (m_lock)
+					return m_bundleWithLdml ?? (m_bundleWithLdml = GetNewGlyssenBundleAndFile(true));
+			}
+		}
 
 		private GlyssenBundle GetBundleWithoutLdmlAndWithModifiedLanguage(Action<GlyssenDblMetadataLanguage> modify)
 		{
 			GlyssenBundle bundle;
-			if (m_bundleWithoutLdml == null)
+			lock (m_lock)
 			{
-				m_bundleWithoutLdml = GetNewGlyssenBundleAndFile(false);
-				bundle = m_bundleWithoutLdml;
-				m_restoreLanguage = bundle.Metadata.Language.Clone();
-			}
-			else
-			{
-				bundle = m_bundleWithoutLdml;
-				bundle.Metadata.Language = m_restoreLanguage.Clone();
+				if (m_bundleWithoutLdml == null)
+				{
+					m_bundleWithoutLdml = GetNewGlyssenBundleAndFile(false);
+					bundle = m_bundleWithoutLdml;
+					m_restoreLanguage = bundle.Metadata.Language.Clone();
+				}
+				else
+				{
+					bundle = m_bundleWithoutLdml;
+					bundle.Metadata.Language = m_restoreLanguage.Clone();
+				}
 			}
 
 			modify?.Invoke(bundle.Metadata.Language);
@@ -73,20 +84,23 @@ namespace GlyssenEngineTests
 		private GlyssenBundle GetBundleWithModifiedQuotationMarks(Action<BulkObservableList<QuotationMark>> modify)
 		{
 			GlyssenBundle bundle;
-			if (m_bundleWithModifiedQuotationMarks == null)
+			lock (m_lock)
 			{
-				m_bundleWithModifiedQuotationMarks = GetNewGlyssenBundleAndFile(true);
-				bundle = m_bundleWithModifiedQuotationMarks;
-				m_restoreQuotationMarks = new BulkObservableList<QuotationMark>(
-					bundle.WritingSystemDefinition.QuotationMarks
-					.Select(q => new QuotationMark(q.Open, q.Close, q.Continue, q.Level, q.Type)));
-			}
-			else
-			{
-				bundle = m_bundleWithModifiedQuotationMarks;
-				bundle.WritingSystemDefinition.QuotationMarks.Clear();
-				bundle.WritingSystemDefinition.QuotationMarks.AddRange(m_restoreQuotationMarks
-					.Select(q => new QuotationMark(q.Open, q.Close, q.Continue, q.Level, q.Type)));
+				if (m_bundleWithModifiedQuotationMarks == null)
+				{
+					m_bundleWithModifiedQuotationMarks = GetNewGlyssenBundleAndFile(true);
+					bundle = m_bundleWithModifiedQuotationMarks;
+					m_restoreQuotationMarks = new BulkObservableList<QuotationMark>(
+						bundle.WritingSystemDefinition.QuotationMarks
+							.Select(q => new QuotationMark(q.Open, q.Close, q.Continue, q.Level, q.Type)));
+				}
+				else
+				{
+					bundle = m_bundleWithModifiedQuotationMarks;
+					bundle.WritingSystemDefinition.QuotationMarks.Clear();
+					bundle.WritingSystemDefinition.QuotationMarks.AddRange(m_restoreQuotationMarks
+						.Select(q => new QuotationMark(q.Open, q.Close, q.Continue, q.Level, q.Type)));
+				}
 			}
 
 			modify(bundle.WritingSystemDefinition.QuotationMarks);
@@ -96,19 +110,22 @@ namespace GlyssenEngineTests
 		private GlyssenBundle GetNewGlyssenBundleAndFile(bool includeLdml)
 		{
 			TempFile bundleFile;
-			if (includeLdml)
+			lock (m_lock)
 			{
-				if (m_tempBundleFileWithLdml == null)
-					m_tempBundleFileWithLdml = TextBundleTests.CreateZippedTextBundleFromResources(true);
-				bundleFile = m_tempBundleFileWithLdml;
+				if (includeLdml)
+				{
+					if (m_tempBundleFileWithLdml == null)
+						m_tempBundleFileWithLdml = TextBundleTests.CreateZippedTextBundleFromResources(true);
+					bundleFile = m_tempBundleFileWithLdml;
+				}
+				else
+				{
+					if (m_tempBundleFileWithoutLdml == null)
+						m_tempBundleFileWithoutLdml = TextBundleTests.CreateZippedTextBundleFromResources(false);
+					bundleFile = m_tempBundleFileWithoutLdml;
+				}
 			}
-			else
-			{
-				if (m_tempBundleFileWithoutLdml == null)
-					m_tempBundleFileWithoutLdml = TextBundleTests.CreateZippedTextBundleFromResources(false);
-				bundleFile = m_tempBundleFileWithoutLdml;
-			}
-			
+
 			var bundle = new GlyssenBundle(bundleFile.Path);
 			var uniqueBundleId = kTestBundleIdPrefix + Path.GetFileNameWithoutExtension(bundleFile.Path);
 			bundle.Metadata.Language.Iso = bundle.Metadata.Id = uniqueBundleId;
@@ -130,16 +147,19 @@ namespace GlyssenEngineTests
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
-			if (m_tempBundleFileWithLdml != null)
+			lock (m_lock)
 			{
-				m_tempBundleFileWithLdml.Dispose();
-				m_tempBundleFileWithLdml = null;
-			}
+				if (m_tempBundleFileWithLdml != null)
+				{
+					m_tempBundleFileWithLdml.Dispose();
+					m_tempBundleFileWithLdml = null;
+				}
 
-			if (m_tempBundleFileWithoutLdml != null)
-			{
-				m_tempBundleFileWithoutLdml.Dispose();
-				m_tempBundleFileWithoutLdml = null;
+				if (m_tempBundleFileWithoutLdml != null)
+				{
+					m_tempBundleFileWithoutLdml.Dispose();
+					m_tempBundleFileWithoutLdml = null;
+				}
 			}
 		}
 
@@ -179,6 +199,7 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(QuoteSystemStatus.Guessed, project.Status.QuoteSystemStatus);
 		}
 
+		[NonParallelizable]
 		[Test]
 		public void UpdateProjectFromBundleData_IndirectTestOfCopyGlyssenModifiableSettings_FontInfoDoesNotGetChanged()
 		{
@@ -225,6 +246,7 @@ namespace GlyssenEngineTests
 			Assert.AreEqual("open", updatedProject.QuoteSystem.FirstLevel.Open);
 		}
 
+		[NonParallelizable]
 		[Test]
 		public void UpdateProjectFromBundleData_ExistingProjectHasUserDecisions_UserDecisionsApplied()
 		{
@@ -248,6 +270,7 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(verseRef.Verse, updatedProject.Books[0].GetScriptBlocks().First(b => b.CharacterId == "Wilma").InitialStartVerseNumber);
 		}
 
+		[NonParallelizable]
 		[Test]
 		public void CopyQuoteMarksIfAppropriate_TargetWsHasNoQuotes_TargetReceivesQuotes()
 		{
@@ -262,6 +285,7 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(QuoteSystemStatus.UserSet, project.Status.QuoteSystemStatus);
 		}
 
+		[NonParallelizable]
 		[Test]
 		public void CopyQuoteMarksIfAppropriate_TargetWsHasQuotes_TargetQuotesObtained_TargetDoesNotReceiveQuotes()
 		{
@@ -341,7 +365,9 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(QuoteSystemStatus.UserSet, project.Status.QuoteSystemStatus);
 		}
 
+		[NonParallelizable]
 		[Test]
+		[Timeout(4000)]
 		public void SetQuoteSystem_QuoteParseCompletedCalledWithNewQuoteSystem()
 		{
 			var project = new Project(BundleWithLdml);
@@ -364,11 +390,17 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(project.QuoteSystem, quoteSystemAfterQuoteParserCompletes);
 		}
 
-		[TestCase("Boaz")]
-		[TestCase("Mr. Rogers")]
+		[NonParallelizable]
+		[Timeout(4000)]
+		[TestCase("Joel")]
+		[TestCase("Enoch")]
 		public void SetQuoteSystem_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
+			Console.WriteLine($"Starting SetQuoteSystem_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied for {character}");
+
 			var testProject = new Project(BundleWithLdml);
+
+			Console.WriteLine($"Returned from Project constructor in SetQuoteSystem_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied for {character}");
 
 			WaitForProjectInitializationToFinish(testProject, ProjectState.FullyInitialized);
 
@@ -414,6 +446,8 @@ namespace GlyssenEngineTests
 				testProject, "Backup before quote system change", true));
 		}
 
+		[NonParallelizable]
+		[Timeout(4000)]
 		[Test]
 		public void SetQuoteSystem_ProjectQuoteSystemChanged_QuoteSystemDateUpdated()
 		{
@@ -485,11 +519,17 @@ namespace GlyssenEngineTests
 			Assert.IsTrue(project.ReportingClauses.Contains("soup"));
 		}
 
-		[TestCase("Boaz")]
-		[TestCase("Mr. Rogers")]
+		[NonParallelizable]
+		[Timeout(4000)]
+		[TestCase("Zebedee")]
+		[TestCase("Roger")]
 		public void UpdateProjectFromBundleData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
+			Console.WriteLine($"Starting UpdateProjectFromBundleData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied for {character}");
+
 			var testProject = new Project(BundleWithLdml);
+
+			Console.WriteLine($"Returned from Project constructor in UpdateProjectFromBundleData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied for {character}");
 
 			WaitForProjectInitializationToFinish(testProject, ProjectState.FullyInitialized);
 
@@ -515,6 +555,12 @@ namespace GlyssenEngineTests
 
 			do
 			{
+				if (updatedProject.ProjectState == ProjectState.FullyInitialized)
+				{
+					if (!complete)
+						Console.WriteLine("Got to fully initialized state without firing QuoteParseCompleted");
+					break;
+				}
 				Thread.Sleep(100);
 			} while (!complete);
 
@@ -530,12 +576,21 @@ namespace GlyssenEngineTests
 				testProject, "Backup before updating from new bundle", true));
 		}
 
-		[TestCase("Boaz")]
-		[TestCase("Mr. Rogers")]
+		[NonParallelizable]
+		[Timeout(5000)]
+		[TestCase("Mark")]
+		[TestCase("Andrew")]
 		public void UpdateFromParatextData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
+			Console.WriteLine($"Starting UpdateFromParatextData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied for {character}");
+
 			var bundle = BundleWithLdml;
+
+			Console.WriteLine($"Set bundle = BundleWithLdml in UpdateFromParatextData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied for {character}");
+
 			var testProject = new Project(bundle);
+
+			Console.WriteLine($"Returned from Project constructor in UpdateFromParatextData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied for {character}");
 
 			WaitForProjectInitializationToFinish(testProject, ProjectState.FullyInitialized);
 
@@ -1376,7 +1431,7 @@ namespace GlyssenEngineTests
 			{
 				if (iCycle++ < maxCyclesAllowed)
 				{
-					TestContext.WriteLine(sleepTime);
+					Console.WriteLine(sleepTime);
 					Thread.Sleep(sleepTime);
 					if (sleepTime > 200)
 						sleepTime /= 2;
