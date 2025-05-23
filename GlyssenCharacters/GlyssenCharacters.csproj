@@ -59,7 +59,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="SIL.Scripture" Version="14.1.1" />
+    <PackageReference Include="icu.net" Version="3.0.1" />
+    <PackageReference Include="SIL.Scripture" Version="16.0.0" />
   </ItemGroup>
 
   <ItemGroup>
