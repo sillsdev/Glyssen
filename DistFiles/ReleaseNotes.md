@@ -44,6 +44,9 @@ back-up plan.)
 
 # Release Notes
 
+## _DATE_ Glyssen _VERSION_
+- 
+
 ## January 24 2023 Glyssen 6.0.0
 Improvements to the data files that help Glyssen determine who is speaking where.
 Detects places where \pi marker is used for discourse blocks that appear to be quotes (in the absence of quotation marks).
