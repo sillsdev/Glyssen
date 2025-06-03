@@ -45,12 +45,14 @@ back-up plan.)
 # Release Notes
 
 ## _DATE_ Glyssen _VERSION_
-- 
+- Fixed a potential security vulnerability (low risk) related to opening files that claim to be glyssenshare files but were actually created to contain malicious content.
+- Upgraded to the latest ParatextData DLL and some other thrird-party dependencies. This is not known to fix any specific bugs in Glyssen, but it might.
+- Restored lost Analytics reporting functioanlity.
 
 ## January 24 2023 Glyssen 6.0.0
-Improvements to the data files that help Glyssen determine who is speaking where.
-Detects places where \pi marker is used for discourse blocks that appear to be quotes (in the absence of quotation marks).
-Fixed logic mistake to properly handle successive paragraphs with dialogue dashes.
+- Improvements to the data files that help Glyssen determine who is speaking where.
+- Detects places where \pi marker is used for discourse blocks that appear to be quotes (in the absence of quotation marks).
+- Fixed logic mistake to properly handle successive paragraphs with dialogue dashes.
 
 ## November 11 2022 Glyssen 5.0.0
 Added an option when exporting to Excel to break out chapters into separate sheets.
@@ -71,8 +73,8 @@ Enhanced parser to identify "poetry" paragraphs as Scripture quotes when no othe
 Changed English and Russian reference texts to use chevrons instead of curly quotes for improved visibility when scripting.
 
 ## August 17 2020 Glyssen 1.5.0
-Improved reference text logic when matching to reporting clauses ("he said" blocks) to prevent duplication.
-English and Russian reference texts updated to match v. 101 of the FCBH New Testament Director's Guide.
+- Improved reference text logic when matching to reporting clauses ("he said" blocks) to prevent duplication.
+- English and Russian reference texts updated to match v. 101 of the FCBH New Testament Director's Guide.
 
 ## June 16 2020 Glyssen 1.3.13
 Switched localization to use XLIFF format instead of TMX. More (albeit minimal) UI languages available. Translations can be done via crowdin.com.
@@ -99,6 +101,4 @@ Added reference texts for much of the Old Testament
 Glyssen can now export a script for recording using [HearThis](https://software.sil.org/hearthis/).
 
 ## March 2017
-Added context menus useful when identifying speaking parts and aligning vernacular
-blocks to the reference text. (This also gives a way to add project-specific characters
-or deliveries without having to leave "rainbow mode".)
+Added context menus useful when identifying speaking parts and aligning vernacular blocks to the reference text. (This also gives a way to add project-specific characters or deliveries without having to leave "rainbow mode".)
