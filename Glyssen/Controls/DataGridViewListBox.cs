@@ -79,7 +79,7 @@ namespace Glyssen.Controls
 			SelectionMode = SelectionMode.MultiExtended;
 
 			//Necessary in order to enforce ItemHeight
-			//See http://stackoverflow.com/questions/15298701/how-to-add-padding-between-items-in-a-listbox
+			//See https://stackoverflow.com/questions/15298701/how-to-add-padding-between-items-in-a-listbox
 			DrawMode = DrawMode.OwnerDrawFixed;
 
 			IntegralHeight = false;
@@ -178,7 +178,7 @@ namespace Glyssen.Controls
 		//}
 
 		//Necessary if using DrawMode = DrawMode.OwnerDrawFixed
-		//Taken from http://stackoverflow.com/questions/15298701/how-to-add-padding-between-items-in-a-listbox
+		//Taken from https://stackoverflow.com/questions/15298701/how-to-add-padding-between-items-in-a-listbox
 		//There is currently an issue with an extra row showing, and scrolling down by default
 		protected override void OnDrawItem(DrawItemEventArgs e)
 		{

@@ -12,11 +12,11 @@ using NUnit.Framework;
 using Rhino.Mocks;
 using SIL.IO;
 using SIL.Scripture;
-using SIL.TestUtilities;
 using SIL.WritingSystems;
 using SIL.Xml;
 using static System.String;
 using static GlyssenCharacters.CharacterVerseData;
+using static GlyssenEngineTests.XmlComparisonTestUtils;
 using Resources = GlyssenCharactersTests.Properties.Resources;
 
 namespace GlyssenEngineTests.Script
@@ -413,7 +413,7 @@ namespace GlyssenEngineTests.Script
 		[TestCase(true, false)]
 		[TestCase(false, true)]
 		[TestCase(false, false)]
-		public void CombineWith_BothBlocksAreNotkUserConfirmed_CombinedBlockIsNotUserConfirmed(bool thisBlockUserConfirmed, bool otherBlockUserConfirmed)
+		public void CombineWith_BothBlocksAreNotUserConfirmed_CombinedBlockIsNotUserConfirmed(bool thisBlockUserConfirmed, bool otherBlockUserConfirmed)
 		{
 			var thisBlock = new Block("p", 1, 4) { UserConfirmed = thisBlockUserConfirmed }.AddVerse(4);
 			var otherBlock = new Block("q", 1, 4) { UserConfirmed = otherBlockUserConfirmed };
@@ -689,13 +689,16 @@ namespace GlyssenEngineTests.Script
 			block.BlockElements.Add(new Verse("2"));
 			block.BlockElements.Add(new ScriptText("Text of verse two."));
 
-			AssertThatXmlIn.String("<?xml version=\"1.0\" encoding=\"utf-16\"?><block style=\"p\" chapter=\"4\" initialStartVerse=\"1\" characterId=\"narrator-MRK\">" +
-				"<verse num=\"1\"/>" +
-				"<text>Text of verse one. </text>" +
-				"<verse num=\"2\"/>" +
-				"<text>Text of verse two.</text>" +
-				"</block>")
-				.EqualsIgnoreWhitespace(block.GetAsXml());
+			const string expectedXml =
+				@"<?xml version=""1.0"" encoding=""utf-16""?>
+<block style=""p"" chapter=""4"" initialStartVerse=""1"" characterId=""narrator-MRK"">
+    <verse num=""1""/>
+    <text>Text of verse one. </text>
+    <verse num=""2""/>
+    <text>Text of verse two.</text>
+</block>";
+
+			AssertXmlEqual(expectedXml, block.GetAsXml());
 		}
 
 		[Test]
@@ -711,14 +714,17 @@ namespace GlyssenEngineTests.Script
 			block.BlockElements.Add(new Verse("5"));
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
 
-			AssertThatXmlIn.String("<?xml version=\"1.0\" encoding=\"utf-16\"?><block style=\"p\" paragraphStart=\"true\" chapter=\"4\" initialStartVerse=\"3\">" +
-				"<text>Text of verse three, part two. </text>" +
-				"<verse num=\"4\"/>" +
-				"<text>Text of verse four. </text>" +
-				"<verse num=\"5\"/>" +
-				"<text>Text of verse five.</text>" +
-				"</block>")
-				.EqualsIgnoreWhitespace(block.GetAsXml());
+			const string expectedXml =
+				@"<?xml version=""1.0"" encoding=""utf-16""?>
+<block style=""p"" paragraphStart=""true"" chapter=""4"" initialStartVerse=""3"">
+    <text>Text of verse three, part two. </text>
+    <verse num=""4""/>
+    <text>Text of verse four. </text>
+    <verse num=""5""/>
+    <text>Text of verse five.</text>
+</block>";
+
+			AssertXmlEqual(expectedXml, block.GetAsXml());
 		}
 
 		[Test]
@@ -732,12 +738,15 @@ namespace GlyssenEngineTests.Script
 			block.BlockElements.Add(new Verse("4-5"));
 			block.BlockElements.Add(new ScriptText("Text of verse four and five."));
 
-			AssertThatXmlIn.String("<?xml version=\"1.0\" encoding=\"utf-16\"?><block style=\"p\" paragraphStart=\"true\" chapter=\"4\" initialStartVerse=\"3\" initialEndVerse=\"5\">" +
-				"<text>Text of verse three, part two. </text>" +
-				"<verse num=\"4-5\"/>" +
-				"<text>Text of verse four and five.</text>" +
-				"</block>")
-				.EqualsIgnoreWhitespace(block.GetAsXml());
+			const string expectedXml =
+				@"<?xml version=""1.0"" encoding=""utf-16""?>
+<block style=""p"" paragraphStart=""true"" chapter=""4"" initialStartVerse=""3"" initialEndVerse=""5"">
+    <text>Text of verse three, part two. </text>
+    <verse num=""4-5""/>
+    <text>Text of verse four and five.</text>
+</block>";
+
+			AssertXmlEqual(expectedXml, block.GetAsXml());
 		}
 
 		[Test]
@@ -1112,7 +1121,7 @@ namespace GlyssenEngineTests.Script
 
 			var blockBefore = block.Clone();
 			var xmlString = XmlSerializationHelper.SerializeToString(block);
-			AssertThatXmlIn.String(xmlString).HasSpecifiedNumberOfMatchesForXpath("/block/sound", 1);
+			xmlString.AssertHasXPathMatchCount("/block/sound", 1);
 			var blockAfter = XmlSerializationHelper.DeserializeFromString<Block>(xmlString);
 			Assert.That(blockBefore.GetText(true, true), Is.EqualTo(blockAfter.GetText(true, true)));
 		}
@@ -1132,7 +1141,7 @@ namespace GlyssenEngineTests.Script
 
 			var blockBefore = block.Clone();
 			var xmlString = XmlSerializationHelper.SerializeToString(block);
-			AssertThatXmlIn.String(xmlString).HasSpecifiedNumberOfMatchesForXpath("/block/ReferenceBlocks/text[text()='primary reference text']", 1);
+			xmlString.AssertHasXPathMatchCount("/block/ReferenceBlocks/text[text()='primary reference text']", 1);
 			var blockAfter = XmlSerializationHelper.DeserializeFromString<Block>(xmlString);
 			Assert.That(blockBefore.GetText(true, true), Is.EqualTo(blockAfter.GetText(true, true)));
 		}
@@ -1340,7 +1349,7 @@ namespace GlyssenEngineTests.Script
 		[TestCase("", " ")]
 		[TestCase(" ", " ")]
 		[TestCase("", "")]
-		public void SetMatchedReferenceBlock_TwoContiguousVerseNmbers_OnlyRetainLastVerseNumber(string separatorBetweenVerses, string separatorAfterSecondVerse)
+		public void SetMatchedReferenceBlock_TwoContiguousVerseNumbers_OnlyRetainLastVerseNumber(string separatorBetweenVerses, string separatorAfterSecondVerse)
 		{
 			var block = new Block("p", 3, 2, 3).AddVerse("2-3", "This is verses two and three. ");
 			var refBlock = block.SetMatchedReferenceBlock("{2}" + separatorBetweenVerses + "{3}" + separatorAfterSecondVerse + "Text of verse three.");

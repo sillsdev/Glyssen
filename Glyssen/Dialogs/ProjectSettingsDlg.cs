@@ -652,6 +652,12 @@ namespace Glyssen.Dialogs
 			m_linkRefTextAttribution.Text = Join(Environment.NewLine, copyrightInternalNodes.Select(n => n.InnerText));
 			const string kHttpPrefix = "http://";
 			var linkStart = m_linkRefTextAttribution.Text.IndexOf(kHttpPrefix, StringComparison.Ordinal);
+			if (linkStart < 0)
+			{
+				const string kHttpsPrefix = "https://";
+				linkStart = m_linkRefTextAttribution.Text.IndexOf(kHttpsPrefix, StringComparison.Ordinal);
+			}
+
 			if (linkStart >= 0)
 			{
 				var linkExtent = m_linkRefTextAttribution.Text.LastIndexOf("/", StringComparison.Ordinal) - linkStart;

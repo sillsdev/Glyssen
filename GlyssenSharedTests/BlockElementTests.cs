@@ -1,6 +1,5 @@
 ﻿using Glyssen.Shared;
 using NUnit.Framework;
-using SIL.TestUtilities;
 using SIL.Xml;
 
 namespace GlyssenSharedTests
@@ -15,7 +14,9 @@ namespace GlyssenSharedTests
 
 			var before = sound.Clone();
 			var xmlString = XmlSerializationHelper.SerializeToString(sound);
-			AssertThatXmlIn.String(xmlString).HasSpecifiedNumberOfMatchesForXpath("/Sound", 1);
+
+			xmlString.AssertHasXPathMatchCount("/Sound", 1);
+
 			var after = XmlSerializationHelper.DeserializeFromString<Sound>(xmlString);
 			Assert.That(after, Is.EqualTo(before));
 		}

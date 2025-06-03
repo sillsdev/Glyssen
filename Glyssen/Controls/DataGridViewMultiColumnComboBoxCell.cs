@@ -10,7 +10,7 @@ namespace Glyssen.Controls
 {
 	/// <summary>
 	/// Displays a DataGridViewMultiColumnComboBoxEditingControl in a <see cref="T:System.Windows.Forms.DataGridView"/> control.
-	/// http://www.intertech.com/Blog/winforms-multi-column-combo-box-in-a-datagridview/
+	/// https://www.intertech.com/Blog/winforms-multi-column-combo-box-in-a-datagridview/
 	/// </summary>
 	public class DataGridViewMultiColumnComboBoxCell : DataGridViewComboBoxCell
 	{

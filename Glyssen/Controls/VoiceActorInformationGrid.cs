@@ -21,7 +21,7 @@ namespace Glyssen.Controls
 		private bool m_inEndEdit;
 		private int m_selectedActorsRemainingToDelete;
 
-		// See http://stackoverflow.com/questions/937919/datagridviewimagecolumn-red-x
+		// See https://stackoverflow.com/questions/937919/datagridviewimagecolumn-red-x
 		private class DataGridViewEmptyImageCell : DataGridViewImageCell
 		{
 			private static readonly Image s_emptyBitmap = new Bitmap(1, 1);

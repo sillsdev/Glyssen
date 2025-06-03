@@ -2,8 +2,8 @@
 using System.IO;
 using System.Text;
 using GlyssenEngine.Casting;
+using GlyssenSharedTests;
 using NUnit.Framework;
-using SIL.TestUtilities;
 
 namespace GlyssenEngineTests.Casting
 {
@@ -29,12 +29,9 @@ namespace GlyssenEngineTests.Casting
 			}
 
 			var results = sb.ToString();
-			AssertThatXmlIn.String(results)
-				.HasSpecifiedNumberOfMatchesForXpath("/VoiceActors/VoiceActor", 2);
-			AssertThatXmlIn.String(results)
-				.HasSpecifiedNumberOfMatchesForXpath("/VoiceActors/VoiceActor[@Id='0' and @Gender='Female' and @Age='Elder' and text()='A']", 1);
-			AssertThatXmlIn.String(results)
-				.HasSpecifiedNumberOfMatchesForXpath("/VoiceActors/VoiceActor[@Id='1' and @Gender='Male' and @Age='Adult' and text()='B']", 1);
+			results.AssertHasXPathMatchCount("/VoiceActors/VoiceActor", 2);
+			results.AssertHasXPathMatchCount("/VoiceActors/VoiceActor[@Id='0' and @Gender='Female' and @Age='Elder' and text()='A']", 1);
+			results.AssertHasXPathMatchCount("/VoiceActors/VoiceActor[@Id='1' and @Gender='Male' and @Age='Adult' and text()='B']", 1);
 
 			// Reads XML correctly
 			var listFromDeserialization = VoiceActorList.LoadVoiceActorList(new StringReader(results));

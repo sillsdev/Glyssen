@@ -1,8 +1,8 @@
 ﻿using GlyssenEngine;
 using GlyssenEngine.Script;
 using NUnit.Framework;
-using SIL.TestUtilities;
 using SIL.Xml;
+using static GlyssenEngineTests.XmlComparisonTestUtils;
 
 namespace GlyssenEngineTests
 {
@@ -37,7 +37,7 @@ namespace GlyssenEngineTests
 			Assert.That(obadiah.Books.Count, Is.EqualTo(1));
 			Assert.That(obadiah.Books[0], Is.EqualTo("OBA"));
 
-			AssertThatXmlIn.String(startingAndExpectedXml).EqualsIgnoreWhitespace(deserializedBiblicalAuthors.GetAsXml());
+			AssertXmlEqual(startingAndExpectedXml, deserializedBiblicalAuthors.GetAsXml());
 		}
 
 		[Test]
