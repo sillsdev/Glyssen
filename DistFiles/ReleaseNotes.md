@@ -1,7 +1,7 @@
 # Scroll down for Release Notes
 
 # Getting Started
-Glyssen assists with the process of preparing an audio recording script for
+Glyssen™ assists with the process of preparing an audio recording script for
 dramatizing Scripture. It is intended for producing publishable-quality recordings.
 To start a new project in  Glyssen, you will need either a Digital Bible Library "text
 release bundle" with at least one book of Scripture that has been approved for
@@ -43,6 +43,9 @@ back-up plan.)
 -----------------------------
 
 # Release Notes
+
+## _DATE_ Glyssen _VERSION_
+- 
 
 ## January 24 2023 Glyssen 6.0.0
 Improvements to the data files that help Glyssen determine who is speaking where.
