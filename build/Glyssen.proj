@@ -73,11 +73,20 @@
 			Force32Bit="false" />
 	</Target>
 		
-	<Target Name="ConvertReleaseNotesToHtml">
+	<Target Name="ConvertReleaseNotesToHtml" DependsOnTargets="UpdateReleaseNotes">
 		<CreateReleaseNotesHtml ChangelogFile="$(RootDir)/DistFiles/ReleaseNotes.md"
 			HtmlFile="$(RootDir)/output/ReleaseNotes.htm" />
 	</Target>
-	
+
+  <Target Name="UpdateReleaseNotes" DependsOnTargets="SetInstallerVersionNumber">
+    <FileUpdate
+      File="$(RootDir)/DistFiles/ReleaseNotes.md"
+      DatePlaceHolder='_DATE_'
+      DateFormat='MMMM d yyyy'
+      Regex='_VERSION_'
+      ReplacementText="$(GitVersion_MajorMinorPatch)" />
+  </Target>
+  
 	<Target Name="Installer" DependsOnTargets="SetInstallerVersionNumber; MakeWixForDistFiles; MakeWixForXulRunner; Build ">
 	
 		<Message Text="Making Installer Version: $(GitVersion_MajorMinorPatch)" Importance="high" />
