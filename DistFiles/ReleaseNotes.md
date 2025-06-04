@@ -16,10 +16,10 @@ recording project:
 4. Post-production. This is key to getting a great-sounding final product. Glyssen doesn't really help with this part of the process, other than to include annotations in the scripts it produces that can help the post-production team.
 
 It is strongly recommended that field teams work with an experienced ministry partner
-to ensure a successful recording project. In most cases, Faith Comes By Hearing is able
+to ensure a successful recording project. In most cases, [Faith Comes By Hearing](https://www.faithcomesbyhearing.com/) is able
 to assist teams with all phases of a project. (They can even do step 1 for you, but you
 might find it beneficial to do it yourself or at least get involved in that.) If you are
-working with IMS, FCBH, or another partner, you will want to discuss the overall project
+working with [IMS](https://www.internationalmediaservices.org/), FCBH, or another partner, you will want to discuss the overall project
 plan with them before starting to use Glyssen. That will help you avoid unnecessary work.
 
 If you have a question, suggestion, or encouragement for us or our backers, please visit our [web forum](https://community.scripture.software.sil.org/c/glyssen). If you have a bug report, you can get that into our "to do" list directly by emailing <glyssen-support_lsdev@sil.org>.
@@ -33,7 +33,7 @@ recording projects, versions, and languages, there will be three levels of subfo
 under that folder. Back up the whole thing. If you are using Glyssen to generate empty
 clip files for the recording phase, the software lets you choose where to create those.
 Back those up also. If your project is based on a text release bundle that is in the
-Digital Bible Library and you have access to that, you don't need to back it up, but
+[Digital Bible Library](https://thedigitalbiblelibrary.org/) and you have access to that, you don't need to back it up, but
 for the sake of convenience, you may want to. You might also want to back up any glyssenshare
 files (usually found in <a href="file:///C:/ProgramData/FCBH-SIL/Glyssen/share">
 C:\ProgramData\FCBH-SIL\Glyssen\share</a>) or exported Excel or glyssenscript files.
@@ -47,7 +47,7 @@ back-up plan.)
 ## _DATE_ Glyssen _VERSION_
 - Fixed a potential security vulnerability (low risk) related to opening files that claim to be glyssenshare files but were actually created to contain malicious content.
 - Upgraded to the latest ParatextData DLL and some other thrird-party dependencies. This is not known to fix any specific bugs in Glyssen, but it might.
-- Restored lost Analytics reporting functioanlity.
+- Restored lost Analytics reporting functionality.
 
 ## January 24 2023 Glyssen 6.0.0
 - Improvements to the data files that help Glyssen determine who is speaking where.
