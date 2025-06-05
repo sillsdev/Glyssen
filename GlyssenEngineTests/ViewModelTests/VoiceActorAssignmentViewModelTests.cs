@@ -591,8 +591,8 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(newActor.Id, Is.EqualTo(0));
 			Assert.That(m_testProject.VoiceActorList.ActiveActors.Contains(newActor));
 			Assert.That(newActor, Is.EqualTo(group.VoiceActor));
-			Assert.That(ActorGender.Male, Is.EqualTo(newActor.Gender));
-			Assert.That(ActorAge.Adult, Is.EqualTo(newActor.Age));
+			Assert.That(newActor.Gender, Is.EqualTo(ActorGender.Male));
+			Assert.That(newActor.Age, Is.EqualTo(ActorAge.Adult));
 		}
 
 		[Test]
@@ -608,20 +608,20 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(newActor1.Id, Is.EqualTo(0));
 			Assert.That(m_testProject.VoiceActorList.ActiveActors.Contains(newActor1));
 			Assert.That(newActor1, Is.EqualTo(group1.VoiceActor));
-			Assert.That(ActorGender.Male, Is.EqualTo(newActor1.Gender));
-			Assert.That(ActorAge.Adult, Is.EqualTo(newActor1.Age));
+			Assert.That(newActor1.Gender, Is.EqualTo(ActorGender.Male));
+			Assert.That(newActor1.Age, Is.EqualTo(ActorAge.Adult));
 			Assert.That(newActor2.Name, Is.EqualTo("Wallace"));
 			Assert.That(newActor2.Id, Is.EqualTo(1));
 			Assert.That(m_testProject.VoiceActorList.ActiveActors.Contains(newActor2));
 			Assert.That(newActor2, Is.EqualTo(group2.VoiceActor));
-			Assert.That(ActorGender.Female, Is.EqualTo(newActor2.Gender));
-			Assert.That(ActorAge.Adult, Is.EqualTo(newActor2.Age));
+			Assert.That(newActor2.Gender, Is.EqualTo(ActorGender.Female));
+			Assert.That(newActor2.Age, Is.EqualTo(ActorAge.Adult));
 			Assert.That(newActor3.Name, Is.EqualTo("Grommit"));
 			Assert.That(newActor3.Id, Is.EqualTo(2));
 			Assert.That(m_testProject.VoiceActorList.ActiveActors.Contains(newActor3));
 			Assert.That(newActor3, Is.EqualTo(group3.VoiceActor));
-			Assert.That(ActorGender.Male, Is.EqualTo(newActor3.Gender));
-			Assert.That(ActorAge.Child, Is.EqualTo(newActor3.Age));
+			Assert.That(newActor3.Gender, Is.EqualTo(ActorGender.Male));
+			Assert.That(newActor3.Age, Is.EqualTo(ActorAge.Child));
 		}
 
 		private CharacterGroup AddNewGroup(params string[] characterIds)

@@ -63,7 +63,7 @@ namespace GlyssenEngineTests
 			Assert.That(book.Blocks.Count, Is.EqualTo(2));
 			Assert.That(block1Original.GetText(true), Is.EqualTo(block1.GetText(true)));
 			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
-			Assert.That(MultiBlockQuote.Start, Is.EqualTo(block1.MultiBlockQuote));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
 			Assert.That(lastBlockMultiBlockQuote, Is.EqualTo(block2.MultiBlockQuote));
 		}
 
@@ -113,9 +113,9 @@ namespace GlyssenEngineTests
 			Assert.That(block1Original.GetText(true), Is.EqualTo(block1.GetText(true)));
 			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
 			Assert.That(block3Original.GetText(true), Is.EqualTo(block3.GetText(true)));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block1.MultiBlockQuote));
-			Assert.That(MultiBlockQuote.Start, Is.EqualTo(block2.MultiBlockQuote));
-			Assert.That(MultiBlockQuote.Continuation, Is.EqualTo(block3.MultiBlockQuote));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
+			Assert.That(block3.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Continuation));
 		}
 
 		[Test]
@@ -152,8 +152,8 @@ namespace GlyssenEngineTests
 			Assert.That(book.Blocks.Count, Is.EqualTo(2));
 			Assert.That(block1Original.GetText(true), Is.EqualTo(block1.GetText(true)));
 			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block1.MultiBlockQuote));
-			Assert.That(MultiBlockQuote.Start, Is.EqualTo(block2.MultiBlockQuote));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
 		}
 
 		[TestCase(MultiBlockQuote.Continuation)]
@@ -202,8 +202,8 @@ namespace GlyssenEngineTests
 			Assert.That(block1Original.GetText(true), Is.EqualTo(block1.GetText(true)));
 			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
 			Assert.That(block3Original.GetText(true), Is.EqualTo(block3.GetText(true)));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block1.MultiBlockQuote));
-			Assert.That(MultiBlockQuote.Start, Is.EqualTo(block2.MultiBlockQuote));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
 			Assert.That(lastBlockMultiBlockQuote, Is.EqualTo(block3.MultiBlockQuote));
 		}
 
@@ -266,9 +266,9 @@ namespace GlyssenEngineTests
 			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
 			Assert.That(block3Original.GetText(true), Is.EqualTo(block3.GetText(true)));
 			Assert.That(block4Original.GetText(true), Is.EqualTo(block4.GetText(true)));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block1.MultiBlockQuote));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block2.MultiBlockQuote));
-			Assert.That(MultiBlockQuote.Start, Is.EqualTo(block3.MultiBlockQuote));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block3.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
 			Assert.That(lastBlockMultiBlockQuote, Is.EqualTo(block4.MultiBlockQuote));
 		}
 
@@ -339,11 +339,11 @@ namespace GlyssenEngineTests
 			Assert.That(block3Original.GetText(true), Is.EqualTo(block3.GetText(true)));
 			Assert.That(block4Original.GetText(true), Is.EqualTo(block4.GetText(true)));
 			Assert.That(block5Original.GetText(true), Is.EqualTo(block5.GetText(true)));
-			Assert.That(MultiBlockQuote.Start, Is.EqualTo(block1.MultiBlockQuote));
-			Assert.That(MultiBlockQuote.ChangeOfDelivery, Is.EqualTo(block2.MultiBlockQuote));
-			Assert.That(MultiBlockQuote.Start, Is.EqualTo(block3.MultiBlockQuote));
-			Assert.That(MultiBlockQuote.ChangeOfDelivery, Is.EqualTo(block4.MultiBlockQuote));
-			Assert.That(MultiBlockQuote.Continuation, Is.EqualTo(block5.MultiBlockQuote));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.ChangeOfDelivery));
+			Assert.That(block3.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
+			Assert.That(block4.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.ChangeOfDelivery));
+			Assert.That(block5.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Continuation));
 		}
 
 		[TestCase(MultiBlockQuote.Continuation)]
@@ -369,10 +369,10 @@ namespace GlyssenEngineTests
 			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
 			Assert.That(block3Original.GetText(true), Is.EqualTo(block3.GetText(true)));
 			Assert.That(block4Original.GetText(true), Is.EqualTo(block4.GetText(true)));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block1.MultiBlockQuote));
-			Assert.That(MultiBlockQuote.Start, Is.EqualTo(block2.MultiBlockQuote));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
 			Assert.That(continuingStatus, Is.EqualTo(block3.MultiBlockQuote));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block4.MultiBlockQuote));
+			Assert.That(block4.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 		}
 
 		[TestCase(MultiBlockQuote.Continuation)]
@@ -392,8 +392,8 @@ namespace GlyssenEngineTests
 			Assert.That(book.Blocks.Count, Is.EqualTo(2));
 			Assert.That(block1Original.GetText(true), Is.EqualTo(block1.GetText(true)));
 			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block1.MultiBlockQuote));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block2.MultiBlockQuote));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 		}
 
 		[Test]
@@ -415,9 +415,9 @@ namespace GlyssenEngineTests
 			Assert.That(block1Original.GetText(true), Is.EqualTo(block1.GetText(true)));
 			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
 			Assert.That(block3Original.GetText(true), Is.EqualTo(block3.GetText(true)));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block1.MultiBlockQuote));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block2.MultiBlockQuote));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block3.MultiBlockQuote));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block3.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 		}
 
 		[TestCase(MultiBlockQuote.Continuation)]
@@ -443,9 +443,9 @@ namespace GlyssenEngineTests
 			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
 			Assert.That(block3Original.GetText(true), Is.EqualTo(block3.GetText(true)));
 			Assert.That(block4Original.GetText(true), Is.EqualTo(block4.GetText(true)));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block1.MultiBlockQuote));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block2.MultiBlockQuote));
-			Assert.That(MultiBlockQuote.Start, Is.EqualTo(block3.MultiBlockQuote));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block3.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
 			Assert.That(continuingStatus, Is.EqualTo(block4.MultiBlockQuote));
 		}
 
@@ -471,10 +471,10 @@ namespace GlyssenEngineTests
 			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
 			Assert.That(block3Original.GetText(true), Is.EqualTo(block3.GetText(true)));
 			Assert.That(block4Original.GetText(true), Is.EqualTo(block4.GetText(true)));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block1.MultiBlockQuote));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block2.MultiBlockQuote));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block3.MultiBlockQuote));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block4.MultiBlockQuote));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block3.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block4.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 		}
 
 		[Test]
@@ -493,8 +493,8 @@ namespace GlyssenEngineTests
 			Assert.That(book.Blocks.Count, Is.EqualTo(2));
 			Assert.That(block1Original.GetText(true), Is.EqualTo(block1.GetText(true)));
 			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block1.MultiBlockQuote));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block2.MultiBlockQuote));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 		}
 
 		[Test]
@@ -513,8 +513,8 @@ namespace GlyssenEngineTests
 			Assert.That(book.Blocks.Count, Is.EqualTo(2));
 			Assert.That(block1Original.GetText(true), Is.EqualTo(block1.GetText(true)));
 			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block1.MultiBlockQuote));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block2.MultiBlockQuote));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 		}
 
 		[Test]
@@ -536,9 +536,9 @@ namespace GlyssenEngineTests
 			Assert.That(block1Original.GetText(true), Is.EqualTo(block1.GetText(true)));
 			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
 			Assert.That(block3Original.GetText(true), Is.EqualTo(block3.GetText(true)));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block1.MultiBlockQuote));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block2.MultiBlockQuote));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(block3.MultiBlockQuote));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block3.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 		}
 
 		[Test]
@@ -568,9 +568,9 @@ namespace GlyssenEngineTests
 
 			Assert.That(blocks.SequenceEqual(book.Blocks, new SplitBlockComparer()), Is.True,
 				"Block content should not have changed!");
-			Assert.That(2, Is.EqualTo(book.Blocks.Count(b => b.MultiBlockQuote != MultiBlockQuote.None && b.CharacterId == "Jesus")),
+			Assert.That(book.Blocks.Count(b => b.MultiBlockQuote != MultiBlockQuote.None && b.CharacterId == "Jesus"), Is.EqualTo(2),
 				"Multi-block quote chain for Jesus should not have been affected.");
-			Assert.That(5, Is.EqualTo(book.Blocks.Count(b => b.CharacterId == narrator)),
+			Assert.That(book.Blocks.Count(b => b.CharacterId == narrator), Is.EqualTo(5),
 				"Narrator should still be assigned to the 5 blocks not assigned to Jesus.");
 			Assert.That(book.Blocks.Where(b => b.CharacterId == narrator).Select(b => b.MultiBlockQuote),
 				Is.All.EqualTo(MultiBlockQuote.None),
@@ -761,8 +761,8 @@ namespace GlyssenEngineTests
 
 			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(1));
 
-			Assert.That(CharacterVerseData.kAmbiguousCharacter, Is.EqualTo(johnSpeakingInRev714.CharacterId));
-			Assert.That(CharacterVerseData.kAmbiguousCharacter, Is.EqualTo(johnSpeakingInRev714.CharacterIdInScript));
+			Assert.That(johnSpeakingInRev714.CharacterId, Is.EqualTo(CharacterVerseData.kAmbiguousCharacter));
+			Assert.That(johnSpeakingInRev714.CharacterIdInScript, Is.EqualTo(CharacterVerseData.kAmbiguousCharacter));
 			Assert.That(johnSpeakingInRev714.UserConfirmed, Is.False);
 			Assert.That(elderSpeakingInRev714.CharacterId, Is.EqualTo("elders, one of the"));
 			Assert.That(elderSpeakingInRev714.CharacterIdInScript, Is.EqualTo("elders, one of the"));
@@ -811,7 +811,7 @@ namespace GlyssenEngineTests
 			block.Delivery = initialDelivery;
 
 			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(1));
-			Assert.That(expectedDelivery, Is.EqualTo(block.Delivery));
+			Assert.That(block.Delivery, Is.EqualTo(expectedDelivery));
 		}
 
 		[Test]
@@ -847,7 +847,7 @@ namespace GlyssenEngineTests
 			block.UserConfirmed = true;
 
 			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(1));
-			Assert.That(false, Is.EqualTo(block.UserConfirmed));
+			Assert.That(block.UserConfirmed, Is.False);
 		}
 
 		[Test]
@@ -860,7 +860,7 @@ namespace GlyssenEngineTests
 			block.UserConfirmed = false;
 
 			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(0));
-			Assert.That(false, Is.EqualTo(block.UserConfirmed));
+			Assert.That(block.UserConfirmed, Is.False);
 		}
 
 		[Test]
@@ -890,8 +890,8 @@ namespace GlyssenEngineTests
 
 			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(1));
 
-			Assert.That(CharacterVerseData.kUnexpectedCharacter, Is.EqualTo(blockInRev43.CharacterId));
-			Assert.That(CharacterVerseData.kUnexpectedCharacter, Is.EqualTo(blockInRev43.CharacterIdInScript));
+			Assert.That(blockInRev43.CharacterId, Is.EqualTo(CharacterVerseData.kUnexpectedCharacter));
+			Assert.That(blockInRev43.CharacterIdInScript, Is.EqualTo(CharacterVerseData.kUnexpectedCharacter));
 		}
 
 		[Test]
@@ -906,8 +906,8 @@ namespace GlyssenEngineTests
 
 			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(1));
 
-			Assert.That(CharacterVerseData.kAmbiguousCharacter, Is.EqualTo(blockInRev13V10.CharacterId));
-			Assert.That(CharacterVerseData.kAmbiguousCharacter, Is.EqualTo(blockInRev13V10.CharacterIdInScript));
+			Assert.That(blockInRev13V10.CharacterId, Is.EqualTo(CharacterVerseData.kAmbiguousCharacter));
+			Assert.That(blockInRev13V10.CharacterIdInScript, Is.EqualTo(CharacterVerseData.kAmbiguousCharacter));
 		}
 
 		[Test]
@@ -947,7 +947,7 @@ namespace GlyssenEngineTests
 
 			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(1));
 
-			Assert.That(CharacterVerseData.kUnexpectedCharacter, Is.EqualTo(unexpectedPeterInRev711.CharacterId));
+			Assert.That(unexpectedPeterInRev711.CharacterId, Is.EqualTo(CharacterVerseData.kUnexpectedCharacter));
 			Assert.That(testProject.ProjectCharacterVerseData.Any(), Is.False);
 		}
 
@@ -1054,7 +1054,7 @@ namespace GlyssenEngineTests
 			//SUT
 			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(1));
 
-			Assert.That(CharacterVerseData.kUnexpectedCharacter, Is.EqualTo(verses13And14Block.CharacterId));
+			Assert.That(verses13And14Block.CharacterId, Is.EqualTo(CharacterVerseData.kUnexpectedCharacter));
 			Assert.That(verses13And14Block.UserConfirmed, Is.False);
 		}
 
@@ -1112,11 +1112,11 @@ namespace GlyssenEngineTests
 
 			var bookScript = testProject.IncludedBooks.Single();
 			var overrideOba = NarratorOverrides.Singleton.Books.Single(b => b.Id == bookScript.BookId).Overrides.Single();
-			Assert.That(1, Is.EqualTo(overrideOba.StartChapter), "Test setup conditions not met!");
-			Assert.That(1, Is.EqualTo(overrideOba.EndChapter), "Test setup conditions not met!");
-			Assert.That(kObadiahTheProphet, Is.EqualTo(overrideOba.Character), "Test setup conditions not met!");
+			Assert.That(overrideOba.StartChapter, Is.EqualTo(1), "Test setup conditions not met!");
+			Assert.That(overrideOba.EndChapter, Is.EqualTo(1), "Test setup conditions not met!");
+			Assert.That(overrideOba.Character, Is.EqualTo(kObadiahTheProphet), "Test setup conditions not met!");
 			Assert.That(overrideOba.StartVerse, Is.LessThanOrEqualTo(19), "Test setup conditions not met!");
-			Assert.That(21, Is.EqualTo(overrideOba.EndVerse), "Test setup conditions not met!");
+			Assert.That(overrideOba.EndVerse, Is.EqualTo(21), "Test setup conditions not met!");
 
 			var explicitObadiahBlocks = new HashSet<Block>();
 			for (int i = 19; i < 21; i++)
@@ -1133,7 +1133,7 @@ namespace GlyssenEngineTests
 			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(0));
 
 			foreach (var block in explicitObadiahBlocks)
-				Assert.That(kObadiahTheProphet, Is.EqualTo(block.CharacterId));
+				Assert.That(block.CharacterId, Is.EqualTo(kObadiahTheProphet));
 		}
 
 		[Test]
@@ -1870,7 +1870,7 @@ namespace GlyssenEngineTests
 			if (!IsNullOrWhiteSpace(block2RefText) || !IsNullOrWhiteSpace(block3RefText))
 				Assert.That(joinedRefTextToVerifySetup, Is.Not.EqualTo(origBlock1RefText));
 			Assert.That(joinedRefTextToVerifySetup, Does.StartWith(origBlock1RefText));
-			Assert.That(joinedRefTextToVerifySetup.Contains(origBlock2RefText), Is.True);
+			Assert.That(joinedRefTextToVerifySetup, Does.Contain(origBlock2RefText));
 			Assert.That(joinedRefTextToVerifySetup, Does.EndWith(origBlock3RefText));
 
 			ProjectDataMigrator.MigrateDuplicatedReferenceTextFromJoining(testProject.Books);
@@ -1931,10 +1931,10 @@ namespace GlyssenEngineTests
 			}
 
 			Assert.That(joinedPrimaryRefTextToVerifySetup, Does.StartWith(origBlock1PrimaryRefText));
-			Assert.That(joinedPrimaryRefTextToVerifySetup.Contains(origBlock2PrimaryRefText), Is.True);
+			Assert.That(joinedPrimaryRefTextToVerifySetup, Does.Contain(origBlock2PrimaryRefText));
 			Assert.That(joinedPrimaryRefTextToVerifySetup, Does.EndWith(origBlock3PrimaryRefText));
 			Assert.That(joinedSecondaryRefTextToVerifySetup, Does.StartWith(origBlock1SecondaryRefText));
-			Assert.That(joinedSecondaryRefTextToVerifySetup.Contains(origBlock2SecondaryRefText), Is.True);
+			Assert.That(joinedSecondaryRefTextToVerifySetup, Does.Contain(origBlock2SecondaryRefText));
 			Assert.That(joinedSecondaryRefTextToVerifySetup, Does.EndWith(origBlock3SecondaryRefText));
 
 			ProjectDataMigrator.MigrateDuplicatedReferenceTextFromJoining(testProject.Books);
@@ -1981,8 +1981,8 @@ namespace GlyssenEngineTests
 			Assert.That(origBlocks.Count, Is.EqualTo(resultingBlocks.Count));
 			for (int i = 2; i < resultingBlocks.Count; i++)
 			{
-				Assert.That(expectedInitialStartVerse, Is.EqualTo(resultingBlocks[i].InitialStartVerseNumber));
-				Assert.That(expectedInitialEndVerse, Is.EqualTo(resultingBlocks[i].InitialEndVerseNumber));
+				Assert.That(resultingBlocks[i].InitialStartVerseNumber, Is.EqualTo(expectedInitialStartVerse));
+				Assert.That(resultingBlocks[i].InitialEndVerseNumber, Is.EqualTo(expectedInitialEndVerse));
 			}
 		}
 		#endregion

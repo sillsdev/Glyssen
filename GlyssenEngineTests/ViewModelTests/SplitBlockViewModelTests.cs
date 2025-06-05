@@ -100,7 +100,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				new BlockSplitData(3, block, "4", 19),
 				new BlockSplitData(4, block, "5", 4)
 			});
-			Assert.That(expected, Is.EqualTo(actual));
+			Assert.That(actual, Is.EqualTo(expected));
 		}
 
 		[Test]
@@ -130,7 +130,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				new BlockSplitData(3, block, "4", 113),
 				new BlockSplitData(4, block, "4", 41)
 			});
-			Assert.That(expected, Is.EqualTo(actual));
+			Assert.That(actual, Is.EqualTo(expected));
 		}
 
 		[Test]
@@ -146,7 +146,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, Array.Empty<ICharacter>(), "ACT");
 			var actual = model.GetSplitTextAsHtml(block, 0, false, new[] { new BlockSplitData(1, block, "3", 19) });
 
-			Assert.That(expected, Is.EqualTo(actual));
+			Assert.That(actual, Is.EqualTo(expected));
 		}
 
 		[Test]
@@ -171,7 +171,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				new BlockSplitData(1, block, "3", 2),
 			});
 
-			Assert.That(expected, Is.EqualTo(actual));
+			Assert.That(actual, Is.EqualTo(expected));
 		}
 
 		[Test]
@@ -182,7 +182,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var expected = "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">A &amp; &lt;&lt;B&gt;&gt; </div>" + SplitBlockViewModel.BuildSplitLineHtml(1) + "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">C</div>";
 			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, Array.Empty<ICharacter>(), "ACT");
 			var actual = model.GetSplitTextAsHtml(block, 0, false, new[] { new BlockSplitData(1, block, "3", 10) });
-			Assert.That(expected, Is.EqualTo(actual));
+			Assert.That(actual, Is.EqualTo(expected));
 		}
 
 		[Test]
@@ -203,7 +203,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				new BlockSplitData(1, block, "3", 4),
 				new BlockSplitData(2, block, "4", 3)
 			});
-			Assert.That(expected, Is.EqualTo(actual));
+			Assert.That(actual, Is.EqualTo(expected));
 		}
 
 		[Test]
@@ -225,7 +225,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				new BlockSplitData(1, block, "3", PortionScript.kSplitAtEndOfVerse),
 				new BlockSplitData(2, block, "4", 3)
 			});
-			Assert.That(expected, Is.EqualTo(actual));
+			Assert.That(actual, Is.EqualTo(expected));
 		}
 
 		[TestCase(0, "", "main text.) ")]
@@ -248,7 +248,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			{
 				new BlockSplitData(1, block, "3", offset)
 			});
-			Assert.That(expected, Is.EqualTo(actual));
+			Assert.That(actual, Is.EqualTo(expected));
 		}
 	}
 }

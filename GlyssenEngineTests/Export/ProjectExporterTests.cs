@@ -20,6 +20,7 @@ using NUnit.Framework;
 using SIL.Extensions;
 using SIL.Reflection;
 using static System.IO.Path;
+using static GlyssenEngine.Bundle.ExtraBiblicalMaterialSpeakerOption;
 using static GlyssenEngine.Export.ProjectExporter;
 
 namespace GlyssenEngineTests.Export
@@ -143,11 +144,12 @@ namespace GlyssenEngineTests.Export
 			Assert.That(expectedIntroParagraphs, Is.GreaterThan(0),
 				"The test resource \"TestJos.xml\" has been modified to remove intro material. It won't work for this test.");
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JOS);
-			project.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
+			project.DramatizationPreferences.BookIntroductionsDramatization = Narrator;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
 			Assert.That(data.Any(), Is.True);
-			Assert.That(expectedIntroParagraphs, Is.EqualTo(data.Count(t => t.StyleTag.StartsWith("i", StringComparison.Ordinal))));
+			Assert.That(data.Count(t => t.StyleTag.StartsWith("i", StringComparison.Ordinal)),
+				Is.EqualTo(expectedIntroParagraphs));
 		}
 
 		[Test]
@@ -156,7 +158,7 @@ namespace GlyssenEngineTests.Export
 			Assert.That(Regex.Matches(Properties.Resources.TestJOS, "para style=\"i", RegexOptions.Compiled).Count, Is.GreaterThan(0),
 				"The test resource \"TestJos.xml\" has been modified to remove intro material. It won't work for this test.");
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JOS);
-			project.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
+			project.DramatizationPreferences.BookIntroductionsDramatization = Omitted;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
 			Assert.That(data.Any(), Is.True);
@@ -170,20 +172,22 @@ namespace GlyssenEngineTests.Export
 			Assert.That(expectedSectionHeadParagraphs, Is.GreaterThan(0),
 				"The test resource \"TestJud.xml\" has been modified to remove section heads. It won't work for this test.");
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD);
-			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
+			project.DramatizationPreferences.SectionHeadDramatization = Narrator;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
 			Assert.That(data.Any(), Is.True);
-			Assert.That(expectedSectionHeadParagraphs, Is.EqualTo(data.Count(t => t.StyleTag.StartsWith("s", StringComparison.Ordinal))));
+			Assert.That(data.Count(t => t.StyleTag.StartsWith("s", StringComparison.Ordinal)),
+				Is.EqualTo(expectedSectionHeadParagraphs));
 		}
 
 		[Test]
 		public void GetExportData_SectionHeadsOmitted_NoSectionHeadsInExportData()
 		{
-			Assert.That(Regex.Matches(Properties.Resources.TestJUD, "para style=\"s", RegexOptions.Compiled).Count, Is.GreaterThan(0),
+			Assert.That(Regex.Matches(Properties.Resources.TestJUD, "para style=\"s", RegexOptions.Compiled).Count,
+				Is.GreaterThan(0),
 				"The test resource \"TestJud.xml\" has been modified to remove section heads. It won't work for this test.");
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD);
-			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
+			project.DramatizationPreferences.SectionHeadDramatization = Omitted;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
 			Assert.That(data.Any(), Is.True);
@@ -195,18 +199,19 @@ namespace GlyssenEngineTests.Export
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.EPH);
 			var expected = project.SkipChapterAnnouncementForFirstChapter ? 6 : 7;
-			project.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
+			project.DramatizationPreferences.BookTitleAndChapterDramatization = Narrator;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
 			Assert.That(data.Any(), Is.True);
-			Assert.That(expected, Is.EqualTo(data.Count(t => t.CharacterId == "book title or chapter (EPH)")));
+			Assert.That(data.Count(t => t.CharacterId == "book title or chapter (EPH)"),
+				Is.EqualTo(expected));
 		}
 
 		[Test]
 		public void GetExportData_TitlesAndChaptersOmitted_NoTitlesOrChaptersInExportData()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.EPH);
-			project.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
+			project.DramatizationPreferences.BookTitleAndChapterDramatization = Omitted;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
 			Assert.That(data.Any(), Is.True);
@@ -263,7 +268,7 @@ namespace GlyssenEngineTests.Export
 			Assert.That(data.ChapterNumber, Is.EqualTo(1));
 			Assert.That(data.VerseNumber, Is.EqualTo(9));
 			Assert.That(data.CharacterId, Is.EqualTo("Michael, archangel"));
-			Assert.That(expectedBlockNumber, Is.EqualTo(data.Number));
+			Assert.That(data.Number, Is.EqualTo(expectedBlockNumber));
 		}
 
 		[Test]
@@ -310,7 +315,7 @@ namespace GlyssenEngineTests.Export
 		public void GetExportData_BlocksAreJoinedToReferenceText_OutputContainsMatchedAndUnmatchedReferenceText()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD);
-			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			project.DramatizationPreferences.SectionHeadDramatization = ActorOfEitherGender;
 			var narrator = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator);
 			var sectionHead = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical);
 			var jude = project.IncludedBooks.Single();
@@ -610,7 +615,7 @@ namespace GlyssenEngineTests.Export
 		public void GetExportData_ExportAnnotationsInSeparateRows_ReferenceTextsContainAnnotations()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD, TestProject.TestBook.REV);
-			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			project.DramatizationPreferences.SectionHeadDramatization = ActorOfEitherGender;
 			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.AzeriJUD, TestReferenceTextResource.AzeriREV);
 			var exporter = new ProjectExporter(project);
 			exporter.ExportAnnotationsInSeparateRows = true;
@@ -664,7 +669,7 @@ namespace GlyssenEngineTests.Export
 		public void GetExportData_AnnotationsCombinedWithData_ReferenceTextsContainAnnotations(ExportFileType exportFileType)
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD, TestProject.TestBook.REV);
-			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			project.DramatizationPreferences.SectionHeadDramatization = ActorOfEitherGender;
 			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.AzeriJUD, TestReferenceTextResource.AzeriREV);
 			var exporter = new ProjectExporter(project) {SelectedFileType = exportFileType};
 			// This is the default: exporter.ExportAnnotationsInSeparateRows = false;
@@ -727,7 +732,7 @@ namespace GlyssenEngineTests.Export
 		public void GetExportData_EmptyReferenceTextForVersesWithAnnotations_AnnotationsInsertedIntoEmptyReferenceTextsWithoutCrashing()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD, TestProject.TestBook.REV);
-			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			project.DramatizationPreferences.SectionHeadDramatization = ActorOfEitherGender;
 			project.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Russian);
 			var jud = project.IncludedBooks[0];
 			var blockJud12 = jud.GetScriptBlocks().Single(b => b.BlockElements.OfType<Verse>().Any(v => v.Number == "12"));
@@ -773,7 +778,7 @@ namespace GlyssenEngineTests.Export
 			var rowsForJude25 = data.Where(d => d.BookId == "JUD" && d.ChapterNumber == 1 && d.VerseNumber == 25).ToList();
 			var rowForJude25 = rowsForJude25.Single();
 			annotationInfo = string.Format(Pause.kPauseSecondsFormat, "5");
-			Assert.That("{25}\u00A0" + annotationInfo, Is.EqualTo(rowForJude25.AdditionalReferenceText));
+			Assert.That(rowForJude25.AdditionalReferenceText, Is.EqualTo("{25}\u00A0" + annotationInfo));
 			Assert.That(annotationInfo, Is.EqualTo(rowForJude25.EnglishReferenceText.TrimStart()));
 			Assert.That(rowForJude25.VernacularText,
 				Is.EqualTo("{25}\u00A0Deyo, dit, loc ki twer ducu obed bot Lubaŋa acel keken, ma Lalarwa, pi Yecu Kricito Rwotwa, " +
@@ -782,7 +787,7 @@ namespace GlyssenEngineTests.Export
 			//Pause for non-final verse in book (pauses come after verse text)
 			var rowForRev1V3 = data.First(d => d.BookId == "REV" && d.ChapterNumber == 1 && d.VerseNumber == 3);
 			annotationInfo = string.Format(Pause.kPauseSecondsFormat, "2");
-			Assert.That("{3}\u00A0" + annotationInfo, Is.EqualTo(rowForRev1V3.AdditionalReferenceText));
+			Assert.That(rowForRev1V3.AdditionalReferenceText, Is.EqualTo("{3}\u00A0" + annotationInfo));
 			Assert.That(annotationInfo, Is.EqualTo(rowForRev1V3.EnglishReferenceText.TrimStart()));
 			Assert.That(rowForRev1V3.VernacularText,
 				Is.EqualTo("{3}\u00A0Ŋat ma kwano lok ma gitito i buk man i nyim lwak tye ki gum, jo ma winyo bene tye ki gum, ki jo ma lubo " +
@@ -790,7 +795,7 @@ namespace GlyssenEngineTests.Export
 
 			//Pause for final verse in chapter (pauses come after verse text)
 			var rowForRev1V20 = data.Single(d => d.BookId == "REV" && d.ChapterNumber == 1 && d.VerseNumber == 20);
-			Assert.That("{20}\u00A0" + annotationInfo, Is.EqualTo(rowForRev1V20.AdditionalReferenceText));
+			Assert.That(rowForRev1V20.AdditionalReferenceText, Is.EqualTo("{20}\u00A0" + annotationInfo));
 			Assert.That(annotationInfo, Is.EqualTo(rowForRev1V20.EnglishReferenceText.TrimStart()));
 			Assert.That(rowForRev1V20.VernacularText,
 				Is.EqualTo("{20}\u00A0Koŋ agonnyi tyen lok me muŋ me lakalatwe abiro ma ineno i ciŋa tuŋ lacuc, ki okar-mac abiro me jabu. " +
@@ -805,7 +810,7 @@ namespace GlyssenEngineTests.Export
 		public void GetExportData_NullPrimaryReferenceTextForAppendedAnnotation_PrimaryReferenceTextContainsOnlyAnnotation()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.REV);
-			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			project.DramatizationPreferences.SectionHeadDramatization = ActorOfEitherGender;
 			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.AzeriREV);
 
 			var rev =project.IncludedBooks.First();
@@ -833,7 +838,7 @@ namespace GlyssenEngineTests.Export
 		public void GetExportData_NullPrimaryReferenceTextForPrependedAnnotation_PrimaryReferenceTextContainsOnlyAnnotation()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.REV);
-			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			project.DramatizationPreferences.SectionHeadDramatization = ActorOfEitherGender;
 			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.AzeriREV);
 
 			// Force a block that has a prepended annotation to have a null secondary reference.

@@ -972,7 +972,7 @@ namespace GlyssenEngineTests.Rules
 			var authorsGroup = GetNarratorGroupForBook(narratorGroups, "ROM");
 			Assert.That(narratorGroupForActs, Is.Not.EqualTo(authorsGroup));
 
-			Assert.That(authorsGroup.CharacterIds.ToList().Contains(idPaul), Is.True);
+			Assert.That(authorsGroup.CharacterIds, Does.Contain(idPaul));
 			var narratorsForAuthor = authorsGroup.CharacterIds.Where(c => c != idPaul).ToList();
 			Assert.That(narratorsForAuthor.All(n => BiblicalAuthors.GetAuthorOfBook(CharacterVerseData.GetBookCodeFromStandardCharacterId(n))
 				.Name == idPaul), Is.True);

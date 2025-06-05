@@ -314,7 +314,7 @@ namespace GlyssenEngineTests.Character
 		{
 			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("people");
-			Assert.That(string.Empty, Is.EqualTo(group.AttributesDisplay));
+			Assert.That(group.AttributesDisplay, Is.Empty);
 		}
 
 		[Test]
@@ -362,7 +362,7 @@ namespace GlyssenEngineTests.Character
 			group.CharacterIds.Add("Andrew");
 			group.GroupIdLabel = CharacterGroup.Label.Child;
 			group.SetGroupIdLabel();
-			Assert.That(CharacterGroup.Label.Child, Is.EqualTo(group.GroupIdLabel));
+			Assert.That(group.GroupIdLabel, Is.EqualTo(CharacterGroup.Label.Child));
 		}
 
 		[Test]
@@ -374,7 +374,7 @@ namespace GlyssenEngineTests.Character
 			group.CharacterIds.Add("Andrew");
 			group.AssignVoiceActor(actor.Id);
 			group.SetGroupIdLabel();
-			Assert.That(CharacterGroup.Label.Other, Is.EqualTo(group.GroupIdLabel));
+			Assert.That(group.GroupIdLabel, Is.EqualTo(CharacterGroup.Label.Other));
 			Assert.That(group.GroupIdNumber, Is.EqualTo(0));
 			Assert.That(group.GroupId, Is.EqualTo("Cameo Name"));
 			Assert.That(group.GroupIdForUiDisplay, Is.EqualTo("Cameo Name"));
@@ -386,7 +386,7 @@ namespace GlyssenEngineTests.Character
 			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("Jesus (child)");
 			group.SetGroupIdLabel();
-			Assert.That(CharacterGroup.Label.Child, Is.EqualTo(group.GroupIdLabel));
+			Assert.That(group.GroupIdLabel, Is.EqualTo(CharacterGroup.Label.Child));
 		}
 
 		[Test]
@@ -396,7 +396,7 @@ namespace GlyssenEngineTests.Character
 			group.CharacterIds.Add("Andrew");
 			group.CharacterIds.Add("Jesus (child)");
 			group.SetGroupIdLabel();
-			Assert.That(CharacterGroup.Label.Male, Is.EqualTo(group.GroupIdLabel));
+			Assert.That(group.GroupIdLabel, Is.EqualTo(CharacterGroup.Label.Male));
 		}
 
 		[Test]
@@ -407,7 +407,7 @@ namespace GlyssenEngineTests.Character
 			group.CharacterIds.Add("Rhoda");
 			group.CharacterIds.Add("crowd");
 			group.SetGroupIdLabel();
-			Assert.That(CharacterGroup.Label.Male, Is.EqualTo(group.GroupIdLabel));
+			Assert.That(group.GroupIdLabel, Is.EqualTo(CharacterGroup.Label.Male));
 		}
 
 		[Test]
@@ -418,7 +418,7 @@ namespace GlyssenEngineTests.Character
 			group.CharacterIds.Add("crowd");
 			Assert.That(group.ContainsCharacterWithGender(CharacterGender.Female), Is.True);
 			group.SetGroupIdLabel();
-			Assert.That(CharacterGroup.Label.Female, Is.EqualTo(group.GroupIdLabel));
+			Assert.That(group.GroupIdLabel, Is.EqualTo(CharacterGroup.Label.Female));
 		}
 
 		[Test]
@@ -429,7 +429,7 @@ namespace GlyssenEngineTests.Character
 			group.CharacterIds.Add("crowd");
 			Assert.That(group.ContainsCharacterWithGender(CharacterGender.PreferMale), Is.True);
 			group.SetGroupIdLabel();
-			Assert.That(CharacterGroup.Label.Male, Is.EqualTo(group.GroupIdLabel));
+			Assert.That(group.GroupIdLabel, Is.EqualTo(CharacterGroup.Label.Male));
 		}
 
 		[Test]
@@ -440,7 +440,7 @@ namespace GlyssenEngineTests.Character
 			group.CharacterIds.Add("crowd");
 			Assert.That(group.ContainsCharacterWithGender(CharacterGender.PreferFemale), Is.True);
 			group.SetGroupIdLabel();
-			Assert.That(CharacterGroup.Label.Female, Is.EqualTo(group.GroupIdLabel));
+			Assert.That(group.GroupIdLabel, Is.EqualTo(CharacterGroup.Label.Female));
 		}
 
 		[Test]
@@ -450,7 +450,7 @@ namespace GlyssenEngineTests.Character
 			group.CharacterIds.Add("crowd");
 			Assert.That(group.ContainsCharacterWithGender(CharacterGender.Either), Is.True);
 			group.SetGroupIdLabel();
-			Assert.That(CharacterGroup.Label.Male, Is.EqualTo(group.GroupIdLabel));
+			Assert.That(group.GroupIdLabel, Is.EqualTo(CharacterGroup.Label.Male));
 		}
 	}
 }

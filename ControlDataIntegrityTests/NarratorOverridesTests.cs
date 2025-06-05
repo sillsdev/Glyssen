@@ -188,7 +188,7 @@ namespace ControlDataIntegrityTests
 					{
 						// This is an unusual situation, but it if happens that a character starts speaking in the first block
 						// of a verse, they have to stop in that same block; otherwise, they might as well have spoken the whole verse.
-						Assert.That(1, Is.EqualTo(partialStart.EndBlock),
+						Assert.That(partialStart.EndBlock, Is.EqualTo(1),
 							$"Character {partialStart.Character} starts speaking in block 1 of {book.Id} " +
 							$"{partialStart.StartChapter}:{partialStart.StartVerse} but then keeps on talking!");
 					}

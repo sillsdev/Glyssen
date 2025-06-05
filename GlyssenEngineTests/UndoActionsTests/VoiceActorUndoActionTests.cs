@@ -120,7 +120,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			Assert.That(action.Undo(), Is.True);
 			var restoredActor = m_testProject.VoiceActorList.GetVoiceActorById(1);
 			Assert.That(restoredActor.Name, Is.EqualTo("Amy"));
-			Assert.That(ActorAge.Child, Is.EqualTo(restoredActor.Age));
+			Assert.That(restoredActor.Age, Is.EqualTo(ActorAge.Child));
 		}
 
 		[Test]
@@ -179,7 +179,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			Assert.That(action.Redo(), Is.True);
 			var restoredActor = m_testProject.VoiceActorList.GetVoiceActorById(1);
 			Assert.That(restoredActor.Name, Is.EqualTo("Aimee"));
-			Assert.That(ActorAge.YoungAdult, Is.EqualTo(restoredActor.Age));
+			Assert.That(restoredActor.Age, Is.EqualTo(ActorAge.YoungAdult));
 		}
 		#endregion
 		#endregion
@@ -295,7 +295,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			Assert.That(action.Redo(), Is.True);
 			var reAddedActor = m_testProject.VoiceActorList.GetVoiceActorById(3);
 			Assert.That(reAddedActor.Name, Is.EqualTo("Chuck"));
-			Assert.That(ActorAge.YoungAdult, Is.EqualTo(reAddedActor.Age));
+			Assert.That(reAddedActor.Age, Is.EqualTo(ActorAge.YoungAdult));
 		}
 
 		[Test]
@@ -314,7 +314,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			Assert.That(m_testProject.VoiceActorList.AllActors.Count, Is.EqualTo(2));
 			var reAddedActor = m_testProject.VoiceActorList.AllActors.Single(a => a.Id != 3);
 			Assert.That(reAddedActor.Name, Is.EqualTo("Chuck"));
-			Assert.That(ActorAge.YoungAdult, Is.EqualTo(reAddedActor.Age));
+			Assert.That(reAddedActor.Age, Is.EqualTo(ActorAge.YoungAdult));
 		}
 
 		[Test]
@@ -330,7 +330,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 				new VoiceActor { Id = 40, Name = "Chuck", Age = ActorAge.Elder});
 
 			Assert.That(action.Redo(), Is.False);
-			Assert.That(ActorAge.Elder, Is.EqualTo(m_testProject.VoiceActorList.AllActors.Single().Age));
+			Assert.That(m_testProject.VoiceActorList.AllActors.Single().Age, Is.EqualTo(ActorAge.Elder));
 		}
 		#endregion
 

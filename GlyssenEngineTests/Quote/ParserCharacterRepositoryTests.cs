@@ -25,7 +25,7 @@ namespace GlyssenEngineTests.Quote
 
 			var characters = cvRepo.GetCharacters(book, chapter, new Verse(verse));
 
-			Assert.That(expectedCharacter, Is.EqualTo(characters.Single().ToString()));
+			Assert.That(characters.Single().ToString(), Is.EqualTo(expectedCharacter));
 		}
 
 		[Test]

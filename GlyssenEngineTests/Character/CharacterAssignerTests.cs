@@ -189,9 +189,9 @@ namespace GlyssenEngineTests.Character
 			Assert.That(bookScript[3].UserConfirmed, Is.True);
 
 			new CharacterAssigner(cvInfo, m_interruptionFinder).AssignAll(new[] { bookScript }, false, true);
-			Assert.That(CharacterVerseData.kAmbiguousCharacter, Is.EqualTo(bookScript[2].CharacterId));
+			Assert.That(bookScript[2].CharacterId, Is.EqualTo(CharacterVerseData.kAmbiguousCharacter));
 			Assert.That(bookScript[2].UserConfirmed, Is.False);
-			Assert.That(CharacterVerseData.kUnexpectedCharacter, Is.EqualTo(bookScript[3].CharacterId));
+			Assert.That(bookScript[3].CharacterId, Is.EqualTo(CharacterVerseData.kUnexpectedCharacter));
 			Assert.That(bookScript[3].UserConfirmed, Is.False);
 		}
 
@@ -207,8 +207,8 @@ namespace GlyssenEngineTests.Character
 			Assert.That(bookScript[1].UserConfirmed, Is.True);
 
 			new CharacterAssigner(cvInfo, m_interruptionFinder).AssignAll(new[] { bookScript }, false, false);
-			Assert.That(CharacterVerseData.kAmbiguousCharacter, Is.EqualTo(bookScript[0].CharacterId));
-			Assert.That(CharacterVerseData.kAmbiguousCharacter, Is.EqualTo(bookScript[1].CharacterId));
+			Assert.That(bookScript[0].CharacterId, Is.EqualTo(CharacterVerseData.kAmbiguousCharacter));
+			Assert.That(bookScript[1].CharacterId, Is.EqualTo(CharacterVerseData.kAmbiguousCharacter));
 			Assert.That(bookScript[2].CharacterId, Is.EqualTo("firstCharacter"));
 			Assert.That(bookScript[3].CharacterId, Is.EqualTo("firstCharacter"));
 			Assert.That(bookScript[0].UserConfirmed, Is.False);
@@ -250,7 +250,7 @@ namespace GlyssenEngineTests.Character
 
 			new CharacterAssigner(cvInfo, m_interruptionFinder).AssignAll(new[] { bookScript }, false, false);
 			Assert.That(bookScript[0].CharacterId, Is.EqualTo("Jesus"));
-			Assert.That(CharacterVerseData.kAmbiguousCharacter, Is.EqualTo(bookScript[1].CharacterId));
+			Assert.That(bookScript[1].CharacterId, Is.EqualTo(CharacterVerseData.kAmbiguousCharacter));
 			Assert.That(bookScript[2].CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(bookScript.GetScriptBlocks().Any(b => b.UserConfirmed), Is.False);
 		}
@@ -303,16 +303,16 @@ namespace GlyssenEngineTests.Character
 
 			Assert.That(bookScript.Blocks[0].CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(bookScript.Blocks[1].CharacterId, Is.EqualTo("Jesus"));
-			Assert.That(MultiBlockQuote.Start, Is.EqualTo(bookScript.Blocks[0].MultiBlockQuote));
-			Assert.That(MultiBlockQuote.Continuation, Is.EqualTo(bookScript.Blocks[1].MultiBlockQuote));
+			Assert.That(bookScript.Blocks[0].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
+			Assert.That(bookScript.Blocks[1].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Continuation));
 
 			var characterAssigner = new CharacterAssigner(cvInfo, m_interruptionFinder);
 			characterAssigner.AssignAll(new[] { bookScript }, false);
 
 			Assert.That(bookScript.Blocks[0].CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(bookScript.Blocks[1].CharacterId, Is.EqualTo("Jesus"));
-			Assert.That(MultiBlockQuote.Start, Is.EqualTo(bookScript.Blocks[0].MultiBlockQuote));
-			Assert.That(MultiBlockQuote.Continuation, Is.EqualTo(bookScript.Blocks[1].MultiBlockQuote));
+			Assert.That(bookScript.Blocks[0].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
+			Assert.That(bookScript.Blocks[1].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Continuation));
 		}
 
 		[Test]
@@ -327,21 +327,23 @@ namespace GlyssenEngineTests.Character
 
 			var expected = freshTestProject.Books;
 			var actual = testProjectToAssign.Books;
-			Assert.That(expected.Count, Is.EqualTo(actual.Count));
+			Assert.That(actual.Count, Is.EqualTo(expected.Count));
 
 			for (var i = 0; i < expected.Count; i++)
 			{
 				var expectedBlocks = expected[i].Blocks;
 				var actualBlocks = actual[i].Blocks;
 
-				// both books contains the same number of blocks
-				Assert.That(expectedBlocks.Count, Is.EqualTo(actualBlocks.Count));
+				Assert.That(actualBlocks.Count, Is.EqualTo(expectedBlocks.Count),
+					"Both books should contain the same number of blocks");
 
 				for (var j = 0; j < expectedBlocks.Count; j++)
 				{
-					// both blocks contain the same number of elements
-					Assert.That(expectedBlocks[j].BlockElements.Count, Is.EqualTo(actualBlocks[j].BlockElements.Count));
-					Assert.That(expectedBlocks[j].GetText(true), Is.EqualTo(actualBlocks[j].GetText(true)));
+					Assert.That(actualBlocks[j].BlockElements.Count,
+						Is.EqualTo(expectedBlocks[j].BlockElements.Count),
+						"Both blocks should contain the same number of elements");
+					Assert.That(actualBlocks[j].GetText(true),
+						Is.EqualTo(expectedBlocks[j].GetText(true)));
 				}
 			}
 		}

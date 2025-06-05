@@ -199,7 +199,7 @@ namespace GlyssenCharactersTests
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
 			var result = store.GetKnownCharacterName(close, BCVRef.BookToNumber(bookCode),
 				chapterNum, new[] {new Verse(verse)}, out var delivery, out _);
-			Assert.That(expectedDelivery, Is.EqualTo(delivery));
+			Assert.That(delivery, Is.EqualTo(expectedDelivery));
 			return result;
 		}
 
@@ -226,7 +226,7 @@ namespace GlyssenCharactersTests
 				ControlCharacterVerseData.Singleton, GetLocalizedVariants);
 			var result = store.GetKnownCharacterName(close, BCVRef.BookToNumber(bookCode),
 				chapterNum, new[] {new Verse(verse)}, out var delivery, out _);
-			Assert.That(expectedDelivery, Is.EqualTo(delivery));
+			Assert.That(delivery, Is.EqualTo(expectedDelivery));
 			return result;
 		}
 

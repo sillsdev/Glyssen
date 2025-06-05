@@ -15,7 +15,10 @@ using SIL.Scripture;
 using SIL.WritingSystems;
 using SIL.Xml;
 using static System.String;
+using static Glyssen.Shared.ReferenceTextType;
 using static GlyssenCharacters.CharacterVerseData;
+using static GlyssenCharacters.CharacterVerseData.StandardCharacter;
+using static GlyssenEngineTests.TestReferenceText;
 using static GlyssenEngineTests.XmlComparisonTestUtils;
 using Resources = GlyssenCharactersTests.Properties.Resources;
 
@@ -51,18 +54,18 @@ namespace GlyssenEngineTests.Script
 		[TearDown]
 		public void Teardown()
 		{
-			TestReferenceText.ForgetCustomReferenceTexts();
+			ForgetCustomReferenceTexts();
 		}
 
 		[Test]
 		public void ChangeReferenceText_EnglishToFrenchHeSaid_ReferenceTextChangesToIlADit()
 		{
-			var rtEnglish = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var rtEnglish = ReferenceText.GetStandardReferenceText(English);
 			var block = new Block("p", 1, 10);
 			block.BlockElements.Add(new ScriptText("dijo."));
-			block.CharacterId = GetStandardCharacterId("MRK", StandardCharacter.Narrator);
+			block.CharacterId = GetStandardCharacterId("MRK", Narrator);
 			block.SetMatchedReferenceBlock(rtEnglish.HeSaidText);
-			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
+			ReferenceText rtFrench = CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			Assert.That(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English), Is.True);
 			Assert.That(rtFrench.HeSaidText, Is.EqualTo(block.GetPrimaryReferenceText()));
 			Assert.That(rtEnglish.HeSaidText, Is.EqualTo(block.ReferenceBlocks.Single().GetPrimaryReferenceText()));
@@ -71,24 +74,26 @@ namespace GlyssenEngineTests.Script
 		[Test]
 		public void ChangeReferenceText_EnglishToFrenchHeSaidWithVerseNumber_ReferenceTextChangesToIlADitWithVerseNumber()
 		{
-			var rtEnglish = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var rtEnglish = ReferenceText.GetStandardReferenceText(English);
 			var block = new Block("p", 1, 10).AddVerse(10, "dijo."); // vernacular
-			block.CharacterId = GetStandardCharacterId("MRK", StandardCharacter.Narrator);
+			block.CharacterId = GetStandardCharacterId("MRK", Narrator);
 			block.SetMatchedReferenceBlock("{10}\u00A0" + rtEnglish.HeSaidText);
-			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
+			var rtFrench = CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			Assert.That(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English), Is.True);
-			Assert.That("{10}\u00A0" + rtFrench.HeSaidText, Is.EqualTo(block.GetPrimaryReferenceText()));
-			Assert.That("{10}\u00A0" + rtEnglish.HeSaidText, Is.EqualTo(block.ReferenceBlocks.Single().GetPrimaryReferenceText()));
+			Assert.That(block.GetPrimaryReferenceText(),
+				Is.EqualTo("{10}\u00A0" + rtFrench.HeSaidText));
+			Assert.That(block.ReferenceBlocks.Single().GetPrimaryReferenceText(),
+				Is.EqualTo("{10}\u00A0" + rtEnglish.HeSaidText));
 		}
 
 		[Test]
 		public void ChangeReferenceText_FrenchToEnglish_EnglishMovedFromSecondaryToPrimary()
 		{
 			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
-			block.CharacterId = GetStandardCharacterId("MRK", StandardCharacter.Narrator);
+			block.CharacterId = GetStandardCharacterId("MRK", Narrator);
 			var refBlock = block.SetMatchedReferenceBlock("{10}\u00A0This is some arbitrary French reference text.");
 			refBlock.SetMatchedReferenceBlock("{10}\u00A0This is some arbitrary English reference text.");
-			Assert.That(block.ChangeReferenceText("MRK", ReferenceText.GetStandardReferenceText(ReferenceTextType.English),
+			Assert.That(block.ChangeReferenceText("MRK", ReferenceText.GetStandardReferenceText(English),
 				ScrVers.English), Is.True);
 			Assert.That(block.MatchesReferenceText, Is.True);
 			Assert.That(block.GetPrimaryReferenceText(), Is.EqualTo("{10}\u00A0This is some arbitrary English reference text."));
@@ -99,11 +104,11 @@ namespace GlyssenEngineTests.Script
 			var block = new Block("p", 2, 1)
 				.AddVerse(1, "Now when Jesus was born in Bethlehem, Judea during King Herod's reign of terror, oriental magi came to Zion, ")
 				.AddVerse(2, "wondering where the King of the Jews was supposed to be born because they had seen his star in the sky and come to worship."); // vernacular
-			block.CharacterId = GetStandardCharacterId("MAT", StandardCharacter.Narrator);
+			block.CharacterId = GetStandardCharacterId("MAT", Narrator);
 			var frenchRefText = block.SetMatchedReferenceBlock("{1}\u00A0Jésus ... {2}\u00A0Ils ... demandent: <<Où ... l'adorer.>>");
 			frenchRefText.SetMatchedReferenceBlock("{1}\u00A0Now when Jesus was born in Bethlehem of Judea in the days of King Herod, behold, wise men from the east came to Jerusalem, " +
 				"{2}\u00A0saying, «Where is the one who is born King of the Jews? For we saw his star in the east, and have come to worship him.»");
-			ReferenceText rtSpanish = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.SpanishMAT);
+			ReferenceText rtSpanish = CreateCustomReferenceText(TestReferenceTextResource.SpanishMAT);
 			Assert.That(block.ChangeReferenceText("MAT", rtSpanish, ScrVers.English), Is.True);
 			Assert.That(block.MatchesReferenceText, Is.True);
 			Assert.That(block.GetPrimaryReferenceText(), Is.EqualTo(
@@ -117,9 +122,9 @@ namespace GlyssenEngineTests.Script
 		public void ChangeReferenceText_EnglishToFrenchArbitraryEditing_ReturnsFalse()
 		{
 			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
-			block.CharacterId = GetStandardCharacterId("MRK", StandardCharacter.Narrator);
+			block.CharacterId = GetStandardCharacterId("MRK", Narrator);
 			block.SetMatchedReferenceBlock("{10}\u00A0This is some arbitrary English reference text.");
-			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
+			ReferenceText rtFrench = CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			Assert.That(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English), Is.False);
 			// Caller will be responsible for clearing the alignment (for this and other related blocks)
 			Assert.That(block.MatchesReferenceText, Is.True);
@@ -131,9 +136,9 @@ namespace GlyssenEngineTests.Script
 		public void ChangeReferenceText_EnglishToFrenchWhiteSpaceOnlyAfterVerseNumber_VerseNumberKeptAsReferenceText()
 		{
 			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
-			block.CharacterId = GetStandardCharacterId("MRK", StandardCharacter.Narrator);
+			block.CharacterId = GetStandardCharacterId("MRK", Narrator);
 			block.SetMatchedReferenceBlock("{10}\u00A0     ");
-			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
+			ReferenceText rtFrench = CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			Assert.That(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English), Is.True);
 			Assert.That(block.MatchesReferenceText, Is.True);
 			Assert.That(block.GetPrimaryReferenceText(), Is.EqualTo("{10}\u00A0"));
@@ -145,9 +150,9 @@ namespace GlyssenEngineTests.Script
 		public void ChangeReferenceText_EnglishToFrenchWhiteSpaceOnlyNoVerseNumber_BlankReferenceText()
 		{
 			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
-			block.CharacterId = GetStandardCharacterId("MRK", StandardCharacter.Narrator);
+			block.CharacterId = GetStandardCharacterId("MRK", Narrator);
 			block.SetMatchedReferenceBlock("     ");
-			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
+			ReferenceText rtFrench = CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			Assert.That(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English), Is.True);
 			Assert.That(block.MatchesReferenceText, Is.True);
 			Assert.That(block.GetPrimaryReferenceText(), Is.EqualTo(""));
@@ -159,9 +164,9 @@ namespace GlyssenEngineTests.Script
 		public void ChangeReferenceText_EnglishToAzeriDifferentNumberOfBlockElements_DoesNotMatch_ReturnsFalse()
 		{
 			var block = new Block("p", 12, 17).AddVerse(17, "blah blah blah.").AddVerse(18, "More blah blah."); // vernacular
-			block.CharacterId = GetStandardCharacterId("REV", StandardCharacter.Narrator);
+			block.CharacterId = GetStandardCharacterId("REV", Narrator);
 			block.SetMatchedReferenceBlock("{17} Stuff that doesn't match...");
-			ReferenceText rtAzeri = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.AzeriREV);
+			ReferenceText rtAzeri = CreateCustomReferenceText(TestReferenceTextResource.AzeriREV);
 			Assert.That(block.ChangeReferenceText("REV", rtAzeri, ScrVers.English), Is.False);
 			// Caller will be responsible for clearing the alignment (for this and other related blocks)
 			Assert.That(block.GetPrimaryReferenceText(), Is.EqualTo("{17}\u00A0Stuff that doesn't match..."));
@@ -183,7 +188,7 @@ namespace GlyssenEngineTests.Script
 			block.BlockElements.Add(new ScriptText("<<Desde cuando le llega asi?>>"));
 			block.CharacterId = "Jesus";
 			block.SetMatchedReferenceBlock("«How long has it been since this has come to him?»");
-			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
+			ReferenceText rtFrench = CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			Assert.That(block.ChangeReferenceText("MRK", rtFrench, vernVers), Is.True);
 			Assert.That(block.MatchesReferenceText, Is.True);
 			Assert.That(block.GetPrimaryReferenceText(), Is.EqualTo("<<Cela lui arrive depuis quand?>>"));
@@ -200,10 +205,10 @@ namespace GlyssenEngineTests.Script
 			}
 
 			var block = new Block("p", 5, 43).AddVerse(43, "Whatever. ").AddVerse(44, "Cool.");
-			block.CharacterId = GetStandardCharacterId("MRK", StandardCharacter.Narrator);
+			block.CharacterId = GetStandardCharacterId("MRK", Narrator);
 			block.SetMatchedReferenceBlock("{43} He strictly ordered them, saying: «Tell no one about this!» Then he said: «Give her something to eat.» " +
 				"{1} He went out from there. He came into his own country, and his disciples followed him.");
-			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
+			ReferenceText rtFrench = CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			Assert.That(block.ChangeReferenceText("MRK", rtFrench, vernVers), Is.True);
 			Assert.That(block.MatchesReferenceText, Is.True);
 			Assert.That(block.GetPrimaryReferenceText(), Is.EqualTo(
@@ -525,9 +530,9 @@ namespace GlyssenEngineTests.Script
 			Assert.That(((Sound)thisBlock.ReferenceBlocks.Single().ReferenceBlocks.Single().BlockElements[2]).EffectName, Is.EqualTo("Whatever"));
 		}
 
-		[TestCase(StandardCharacter.BookOrChapter, "mt")]
-		[TestCase(StandardCharacter.Intro, "ip")]
-		[TestCase(StandardCharacter.ExtraBiblical, "s")]
+		[TestCase(BookOrChapter, "mt")]
+		[TestCase(Intro, "ip")]
+		[TestCase(ExtraBiblical, "s")]
 		public void AllVerses_ExtraBiblical_Empty(StandardCharacter type, string styleTag)
 		{
 			var block = new Block(styleTag) {BookCode = "MAT", CharacterId = GetStandardCharacterId("MAT", type)};
@@ -554,7 +559,7 @@ namespace GlyssenEngineTests.Script
 			var block = new Block("p", 1, start, end)
 			{
 				BookCode = "MAT",
-				CharacterId = GetStandardCharacterId("MAT", StandardCharacter.Narrator)
+				CharacterId = GetStandardCharacterId("MAT", Narrator)
 			}.AddText();
 			var result = block.AllVerses.Single();
 			Assert.That(start, Is.EqualTo(result.StartVerse));
@@ -567,7 +572,7 @@ namespace GlyssenEngineTests.Script
 			var block = new Block("p", 1, 3)
 			{
 				BookCode = "MAT",
-				CharacterId = GetStandardCharacterId("MAT", StandardCharacter.Narrator)
+				CharacterId = GetStandardCharacterId("MAT", Narrator)
 			}.AddVerse(3).AddVerse(4).AddVerse("5-6").AddVerse("7-9");
 			var result = block.AllVerses.ToList();
 			Assert.That(result.Count, Is.EqualTo(4));
@@ -587,7 +592,7 @@ namespace GlyssenEngineTests.Script
 			var block = new Block("p", 1, 3)
 			{
 				BookCode = "MAT",
-				CharacterId = GetStandardCharacterId("MAT", StandardCharacter.Narrator)
+				CharacterId = GetStandardCharacterId("MAT", Narrator)
 			}.AddText("Second half of verse 3").AddVerse(4);
 			var result = block.AllVerses.ToList();
 			Assert.That(result.Count, Is.EqualTo(2));
@@ -601,7 +606,7 @@ namespace GlyssenEngineTests.Script
 		public void GetText_GetBookNameNull_ChapterBlockTextBasedOnStoredText()
 		{
 			var block = new Block("c", 4);
-			block.SetStandardCharacter("MRK", StandardCharacter.BookOrChapter);
+			block.SetStandardCharacter("MRK", BookOrChapter);
 			block.BlockElements.Add(new ScriptText("Chapter 4"));
 
 			Assert.That(block.GetText(true), Is.EqualTo("Chapter 4"));
@@ -614,14 +619,14 @@ namespace GlyssenEngineTests.Script
 		{
 			Block.FormatChapterAnnouncement = (bookId, chapterNum) => chapterNum + (bookId == "MRK" ? " Marky" : " Unknown");
 			var block = new Block(chapterStyleTag, 4) { BookCode = "MRK" };
-			block.SetStandardCharacter("MRK", StandardCharacter.BookOrChapter);
+			block.SetStandardCharacter("MRK", BookOrChapter);
 			block.BlockElements.Add(new ScriptText("Chapter 4"));
 
 			Assert.That(block.GetText(true), Is.EqualTo("4 Marky"));
 			Assert.That(block.GetText(false), Is.EqualTo("4 Marky"));
 
 			block = new Block(chapterStyleTag, 1) { BookCode = "LUK" };
-			block.SetStandardCharacter("LUK", StandardCharacter.BookOrChapter);
+			block.SetStandardCharacter("LUK", BookOrChapter);
 			block.BlockElements.Add(new ScriptText("Chapter 1"));
 
 			Assert.That(block.GetText(true), Is.EqualTo("1 Unknown"));
@@ -634,7 +639,7 @@ namespace GlyssenEngineTests.Script
 		{
 			Block.FormatChapterAnnouncement = (bookId, chapterNum) => (bookId == null) ? "ARGHHHH!" : "Marky " + chapterNum;
 			var block = new Block(chapterStyleTag, 4) { BookCode = "MRK" };
-			block.SetStandardCharacter("MRK", StandardCharacter.BookOrChapter);
+			block.SetStandardCharacter("MRK", BookOrChapter);
 			block.BlockElements.Add(new ScriptText("Chapter 4"));
 
 			Assert.That(block.GetText(false), Is.EqualTo("Marky 4"));
@@ -647,7 +652,7 @@ namespace GlyssenEngineTests.Script
 		{
 			Block.FormatChapterAnnouncement = (bookId, chapterNum) => null;
 			var block = new Block("c", 4) { BookCode = "MRK" };
-			block.SetStandardCharacter("MRK", StandardCharacter.BookOrChapter);
+			block.SetStandardCharacter("MRK", BookOrChapter);
 			block.BlockElements.Add(new ScriptText("Chapter 4"));
 
 			Assert.That(block.GetText(false), Is.EqualTo("Chapter 4"));
@@ -683,7 +688,7 @@ namespace GlyssenEngineTests.Script
 		public void GetAsXml_VerseAndTextElements_XmlHasCorrectAttributesAndAlternatingVerseAndTextElements()
 		{
 			var block = new Block("p", 4);
-			block.SetStandardCharacter("MRK", StandardCharacter.Narrator);
+			block.SetStandardCharacter("MRK", Narrator);
 			block.BlockElements.Add(new Verse("1"));
 			block.BlockElements.Add(new ScriptText("Text of verse one. "));
 			block.BlockElements.Add(new Verse("2"));
@@ -758,7 +763,7 @@ namespace GlyssenEngineTests.Script
 			const string expected = "<div id=\"3\" class=\"scripttext\">The dog&#39;cat says, &lt;&lt;Woof!&gt;&gt; &amp; &quot;Meow.&quot;</div>";
 			var actual = block.GetTextAsHtml(true, false);
 
-			Assert.That(expected, Is.EqualTo(actual));
+			Assert.That(actual, Is.EqualTo(expected));
 		}
 
 		[TestCase("[", "]")]
@@ -820,7 +825,7 @@ namespace GlyssenEngineTests.Script
 			block.CharacterId = "Fred";
 			block.Delivery = "Freakin' out";
 			block.SetCharacterAndDelivery(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes, Array.Empty<CharacterSpeakingMode>());
-			Assert.That(kUnexpectedCharacter, Is.EqualTo(block.CharacterId));
+			Assert.That(block.CharacterId, Is.EqualTo(kUnexpectedCharacter));
 			Assert.That(block.Delivery, Is.Null);
 		}
 
@@ -832,8 +837,9 @@ namespace GlyssenEngineTests.Script
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
 			block.CharacterId = "Fred";
 			block.Delivery = "Freakin' out";
-			block.SetCharacterAndDelivery(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes, new [] { JesusCommanding, JesusQuestioning, Andrew });
-			Assert.That(kAmbiguousCharacter, Is.EqualTo(block.CharacterId));
+			block.SetCharacterAndDelivery(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes,
+				new [] { JesusCommanding, JesusQuestioning, Andrew });
+			Assert.That(block.CharacterId, Is.EqualTo(kAmbiguousCharacter));
 			Assert.That(block.Delivery, Is.Null);
 		}
 
@@ -843,7 +849,8 @@ namespace GlyssenEngineTests.Script
 			var block = new Block("p", 4, 4);
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
-			block.SetCharacterAndDelivery(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes, new[] { new CharacterSpeakingMode("Mary/Martha", null, null, false),  });
+			block.SetCharacterAndDelivery(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes,
+				new[] { new CharacterSpeakingMode("Mary/Martha", null, null, false),  });
 			Assert.That(block.CharacterId, Is.EqualTo("Mary/Martha"));
 			Assert.That(block.CharacterIdInScript, Is.EqualTo("Mary"));
 		}
@@ -905,7 +912,7 @@ namespace GlyssenEngineTests.Script
 			var block = new Block("p", 4, 4);
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
-			block.SetStandardCharacter("MRK", StandardCharacter.Narrator);
+			block.SetStandardCharacter("MRK", Narrator);
 			Assert.That(block.CharacterIsStandard, Is.True);
 		}
 
@@ -915,7 +922,7 @@ namespace GlyssenEngineTests.Script
 			var block = new Block("p", 4, 4);
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
-			block.SetStandardCharacter("GEN", StandardCharacter.ExtraBiblical);
+			block.SetStandardCharacter("GEN", ExtraBiblical);
 			Assert.That(block.CharacterIsStandard, Is.True);
 		}
 
@@ -924,7 +931,7 @@ namespace GlyssenEngineTests.Script
 		{
 			var block = new Block("c", 4);
 			block.BlockElements.Add(new ScriptText("4"));
-			block.SetStandardCharacter("REV", StandardCharacter.BookOrChapter);
+			block.SetStandardCharacter("REV", BookOrChapter);
 			Assert.That(block.CharacterIsStandard, Is.True);
 		}
 
@@ -933,7 +940,7 @@ namespace GlyssenEngineTests.Script
 		{
 			var block = new Block("ip");
 			block.BlockElements.Add(new ScriptText("This is a yadda yadda..."));
-			block.SetStandardCharacter("ROM", StandardCharacter.Intro);
+			block.SetStandardCharacter("ROM", Intro);
 			Assert.That(block.CharacterIsStandard, Is.True);
 		}
 
@@ -1205,7 +1212,7 @@ namespace GlyssenEngineTests.Script
 				CharacterId = narrator,
 				Delivery = "raspy"
 			};
-			ReferenceText rt = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMAT);
+			ReferenceText rt = CreateCustomReferenceText(TestReferenceTextResource.FrenchMAT);
 			joinedFrenchRefBlock.AppendJoinedBlockElements(new List<Block> { refBlockNarratorFrench, refBlockMatthewFrench }, rt);
 			Assert.That(joinedFrenchRefBlock.GetText(true),
 				Is.EqualTo("{2}\u00A0Jésus a dit. Pour que Matthieu a répondu, «Nous savions que.»"));
@@ -1449,7 +1456,7 @@ namespace GlyssenEngineTests.Script
 			var expected = block.GetText(true, true);
 
 			block.RemoveVerseNumbers(Array.Empty<Verse>());
-			Assert.That(expected, Is.EqualTo(block.GetText(true, true)));
+			Assert.That(block.GetText(true, true), Is.EqualTo(expected));
 		}
 
 		[Test]
@@ -1462,7 +1469,7 @@ namespace GlyssenEngineTests.Script
 			var expected = block.GetText(true, true);
 
 			block.RemoveVerseNumbers(new [] {new Verse("42"), new Verse("43")});
-			Assert.That(expected, Is.EqualTo(block.GetText(true, true)));
+			Assert.That(block.GetText(true, true), Is.EqualTo(expected));
 		}
 
 		[Test]
@@ -1510,8 +1517,8 @@ namespace GlyssenEngineTests.Script
 			Block.GetSwappedReferenceText(vernBlocks, "MAT", 8, 0, ScrVers.English, 
 				"{19}"+  separator + "Cool. {20}" + separator + "Fine", "This is another chunk of some verse.",
 				out var newRowAValue, out var newRowBValue);
-			Assert.That("{19}" + separator + "This is another chunk of some verse.", Is.EqualTo(newRowAValue));
-			Assert.That("Cool. {20}" + separator + "Fine", Is.EqualTo(newRowBValue));
+			Assert.That(newRowAValue, Is.EqualTo("{19}" + separator + "This is another chunk of some verse."));
+			Assert.That(newRowBValue, Is.EqualTo("Cool. {20}" + separator + "Fine"));
 		}
 
 		[TestCase(0)]
@@ -1525,7 +1532,7 @@ namespace GlyssenEngineTests.Script
 			{
 				vernBlocks.Add(new Block("s", 8, 18)
 				{
-					CharacterId = GetStandardCharacterId("MAT", StandardCharacter.ExtraBiblical),
+					CharacterId = GetStandardCharacterId("MAT", ExtraBiblical),
 					BlockElements = new List<BlockElement>(new [] { new ScriptText("Section head text") })
 				});
 			}
@@ -1622,8 +1629,8 @@ namespace GlyssenEngineTests.Script
 			Block.GetSwappedReferenceText(vernBlocks, "MAT", 8, 1, ScrVers.English,
 				"{19}"+  separator + "Cool. {20}" + separator + "Fine", "This is another chunk of some verse.",
 				out var newRowAValue, out var newRowBValue);
-			Assert.That("{19}" + separator + "This is another chunk of some verse.", Is.EqualTo(newRowAValue));
-			Assert.That("Cool. {20}" + separator + "Fine", Is.EqualTo(newRowBValue));
+			Assert.That(newRowAValue, Is.EqualTo("{19}" + separator + "This is another chunk of some verse."));
+			Assert.That(newRowBValue, Is.EqualTo("Cool. {20}" + separator + "Fine"));
 		}
 
 		[TestCase("")]
@@ -1640,8 +1647,8 @@ namespace GlyssenEngineTests.Script
 			Block.GetSwappedReferenceText(vernBlocks, "MAT", 8, 0, ScrVers.English,
 				"{19}"+  separator + "Cool. {20}" + separator + "Fine", "This is another chunk of some verse.",
 				out var newRowAValue, out var newRowBValue);
-			Assert.That("{19}" + separator + "This is another chunk of some verse.", Is.EqualTo(newRowAValue));
-			Assert.That("Cool. {20}" + separator + "Fine", Is.EqualTo(newRowBValue));
+			Assert.That(newRowAValue, Is.EqualTo("{19}" + separator + "This is another chunk of some verse."));
+			Assert.That(newRowBValue, Is.EqualTo("Cool. {20}" + separator + "Fine"));
 		}
 
 		[TestCase("", 0)]
@@ -1662,7 +1669,7 @@ namespace GlyssenEngineTests.Script
 				"{19}"+  separator + "Cool. {20}" + separator + "Fine", "This is another chunk of some verse.",
 				out var newRowAValue, out var newRowBValue);
 			Assert.That(newRowAValue, Is.EqualTo("This is another chunk of some verse."));
-			Assert.That("{19}" + separator + "Cool. {20}" + separator + "Fine", Is.EqualTo(newRowBValue));
+			Assert.That(newRowBValue, Is.EqualTo("{19}" + separator + "Cool. {20}" + separator + "Fine"));
 		}
 
 		[TestCase("", 0)]
@@ -1683,7 +1690,7 @@ namespace GlyssenEngineTests.Script
 				"Cool. {20}" + separator + "Fine", "This is another chunk of some verse.",
 				out var newRowAValue, out var newRowBValue);
 			Assert.That(newRowAValue, Is.EqualTo("This is another chunk of some verse."));
-			Assert.That("Cool. {20}" + separator + "Fine", Is.EqualTo(newRowBValue));
+			Assert.That(newRowBValue, Is.EqualTo("Cool. {20}" + separator + "Fine"));
 		}
 
 		[TestCase("", 0)]
@@ -1701,10 +1708,12 @@ namespace GlyssenEngineTests.Script
 				new Block("p", 8, 21).AddVerse("21", "Verse 21 text.")
 			};
 			Block.GetSwappedReferenceText(vernBlocks, "MAT", 8, currentRow, ScrVers.English,
-				"Cool. {20}" + separator + "Fine", "This is another chunk of some verse. {21}" + separator + "Verse twenty-one.",
+				"Cool. {20}" + separator + "Fine", "This is another chunk of some verse. {21}" +
+				separator + "Verse twenty-one.",
 				out var newRowAValue, out var newRowBValue);
-			Assert.That("This is another chunk of some verse. {21}" + separator + "Verse twenty-one.", Is.EqualTo(newRowAValue));
-			Assert.That("Cool. {20}" + separator + "Fine", Is.EqualTo(newRowBValue));
+			Assert.That(newRowAValue, Is.EqualTo(
+				"This is another chunk of some verse. {21}" + separator + "Verse twenty-one."));
+			Assert.That(newRowBValue, Is.EqualTo("Cool. {20}" + separator + "Fine"));
 		}
 
 		[TestCase("", 0)]
@@ -1724,8 +1733,8 @@ namespace GlyssenEngineTests.Script
 			Block.GetSwappedReferenceText(vernBlocks, "MAT", 8, currentRow, ScrVers.English,
 				"{19}" + separator + "Cool. {20}" + separator + "Fine", "{21}" + separator + "Verse twenty-one.",
 				out var newRowAValue, out var newRowBValue);
-			Assert.That("{21}" + separator + "Verse twenty-one.", Is.EqualTo(newRowAValue));
-			Assert.That("{19}" + separator + "Cool. {20}" + separator + "Fine", Is.EqualTo(newRowBValue));
+			Assert.That(newRowAValue, Is.EqualTo("{21}" + separator + "Verse twenty-one."));
+			Assert.That(newRowBValue, Is.EqualTo("{19}" + separator + "Cool. {20}" + separator + "Fine"));
 		}
 
 		[Test]
@@ -1817,7 +1826,7 @@ namespace GlyssenEngineTests.Script
 			var originalChapterFormat = Block.FormatChapterAnnouncement;
 
 			Block.FormatChapterAnnouncement = (bookCode, chapterNumber) => $"{bookCode} {chapterNumber}";
-			Assert.That("MAT 1".Length, Is.EqualTo(chapterAnnouncementBlock.Length));
+			Assert.That(chapterAnnouncementBlock.Length, Is.EqualTo("MAT 1".Length));
 
 			// If the formatting Func returns null, we get the text from the ScriptText element
 			Block.FormatChapterAnnouncement = (s, i) => null;
@@ -2154,7 +2163,7 @@ namespace GlyssenEngineTests.Script
 					new ScriptText("el dijo"),
 				}
 			};
-			Assert.That(block.TryMatchToReportingClause(new []{"el dijo"}, ReferenceText.GetStandardReferenceText(ReferenceTextType.English),
+			Assert.That(block.TryMatchToReportingClause(new []{"el dijo"}, ReferenceText.GetStandardReferenceText(English),
 				40, ScrVers.English), Is.False);
 		}
 
@@ -2163,7 +2172,7 @@ namespace GlyssenEngineTests.Script
 		{
 			var block = new Block("p", 1, 2)
 			{
-				CharacterId = GetStandardCharacterId("MAT", StandardCharacter.Narrator),
+				CharacterId = GetStandardCharacterId("MAT", Narrator),
 				BookCode = "MAT",
 				BlockElements =
 				{
@@ -2171,7 +2180,7 @@ namespace GlyssenEngineTests.Script
 					new ScriptText("el dijo"),
 				}
 			};
-			Assert.That(block.TryMatchToReportingClause(new []{"el dijo"}, ReferenceText.GetStandardReferenceText(ReferenceTextType.English),
+			Assert.That(block.TryMatchToReportingClause(new []{"el dijo"}, ReferenceText.GetStandardReferenceText(English),
 				40, ScrVers.English), Is.True);
 		}
 
@@ -2188,10 +2197,10 @@ namespace GlyssenEngineTests.Script
 					new ScriptText("el dijo"),
 				}
 			};
-			Assert.That(block.TryMatchToReportingClause(new []{"el dijo"}, ReferenceText.GetStandardReferenceText(ReferenceTextType.English),
+			Assert.That(block.TryMatchToReportingClause(new []{"el dijo"}, ReferenceText.GetStandardReferenceText(English),
 				40, ScrVers.English), Is.True);
 			Assert.That(block.CharacterId,
-				Is.EqualTo(GetStandardCharacterId("MAT", StandardCharacter.Narrator)));
+				Is.EqualTo(GetStandardCharacterId("MAT", Narrator)));
 		}
 
 		private Block GetBlockWithText(string text)

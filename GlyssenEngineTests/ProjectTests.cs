@@ -378,7 +378,7 @@ namespace GlyssenEngineTests
 
 			WaitForProjectInitializationToFinish(project, ProjectState.FullyInitialized);
 
-			Assert.That(QuoteSystem.Default, Is.Not.EqualTo(project.QuoteSystem));
+			Assert.That(project.QuoteSystem, Is.Not.EqualTo(QuoteSystem.Default));
 			project.SetQuoteSystem(QuoteSystemStatus.UserSet, QuoteSystem.Default);
 
 			do
@@ -386,8 +386,8 @@ namespace GlyssenEngineTests
 				Thread.Sleep(100);
 			} while (quoteSystemAfterQuoteParserCompletes == null);
 
-			Assert.That(QuoteSystem.Default, Is.EqualTo(quoteSystemAfterQuoteParserCompletes));
-			Assert.That(project.QuoteSystem, Is.EqualTo(quoteSystemAfterQuoteParserCompletes));
+			Assert.That(quoteSystemAfterQuoteParserCompletes, Is.EqualTo(QuoteSystem.Default));
+			Assert.That(quoteSystemAfterQuoteParserCompletes, Is.EqualTo(project.QuoteSystem));
 		}
 
 		[NonParallelizable]
@@ -799,7 +799,7 @@ namespace GlyssenEngineTests
 				new QuotationMark("<", ">", "<< <", 2, QuotationMarkingSystemType.Normal)
 			};
 
-			Assert.That(expected.SequenceEqual(project.WritingSystem.QuotationMarks), Is.True);
+			Assert.That(project.WritingSystem.QuotationMarks, Is.EqualTo(expected));
 		}
 
 		[Test]
@@ -825,7 +825,7 @@ namespace GlyssenEngineTests
 				new QuotationMark("<<", ">>", "<< < <<", 3, QuotationMarkingSystemType.Normal)
 			};
 
-			Assert.That(expected.SequenceEqual(project.WritingSystem.QuotationMarks), Is.True);
+			Assert.That(project.WritingSystem.QuotationMarks, Is.EqualTo(expected));
 		}
 
 		[Test]
@@ -892,7 +892,7 @@ namespace GlyssenEngineTests
 				new QuotationMark("<<", ">>", "<< << <<", 3, QuotationMarkingSystemType.Normal)
 			};
 
-			Assert.That(expected.SequenceEqual(project.WritingSystem.QuotationMarks), Is.True);
+			Assert.That(project.WritingSystem.QuotationMarks, Is.EqualTo(expected));
 		}
 
 		[Test]
@@ -946,7 +946,7 @@ namespace GlyssenEngineTests
 				new QuotationMark("--", null, null, 1, QuotationMarkingSystemType.Narrative)
 			};
 
-			Assert.That(expected.SequenceEqual(project.WritingSystem.QuotationMarks), Is.True);
+			Assert.That(project.WritingSystem.QuotationMarks, Is.EqualTo(expected));
 		}
 
 		[Test]
@@ -1158,7 +1158,7 @@ namespace GlyssenEngineTests
 			testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 
 			testProject.SetCharacterGroupGenerationPreferencesToValidValues();
-			Assert.That(expected, Is.EqualTo(testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators));
+			Assert.That(testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators, Is.EqualTo(expected));
 			Assert.That(testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators, Is.EqualTo(0));
 		}
 
@@ -1192,7 +1192,8 @@ namespace GlyssenEngineTests
 			Assert.That(matchup.CorrelatedBlocks.All(b => b.ReferenceBlocks.Count == 1), Is.True);
 			var expectedEnglishRefTextForMark9V9 = englishRefBlocks[mark9V9EnglishRefText].GetText(true) + " " +
 				englishRefBlocks[mark9V9EnglishRefText + 1].GetText(true);
-			Assert.That(expectedEnglishRefTextForMark9V9, Is.EqualTo(matchup.CorrelatedBlocks[0].GetPrimaryReferenceText()));
+			Assert.That(matchup.CorrelatedBlocks[0].GetPrimaryReferenceText(),
+				Is.EqualTo(expectedEnglishRefTextForMark9V9));
 			matchup.MatchAllBlocks();
 			matchup.Apply();
 			matchedVernBlocks = blocks.Skip(mark9V9).Take(3).ToList();
@@ -1224,7 +1225,8 @@ namespace GlyssenEngineTests
 			var mark9V9FrenchRefText = frenchRefBlocks.IndexOf(b => b.ChapterNumber == 9 && b.InitialStartVerseNumber == 9);
 			Assert.That(frenchRefBlocks[mark9V9FrenchRefText].GetText(true) + " " + frenchRefBlocks[mark9V9FrenchRefText + 1].GetText(true),
 				Is.EqualTo(matchedVernBlocks[0].GetPrimaryReferenceText()));
-			Assert.That(expectedEnglishRefTextForMark9V9, Is.EqualTo(matchedVernBlocks[0].ReferenceBlocks.Single().GetPrimaryReferenceText()));
+			Assert.That(matchedVernBlocks[0].ReferenceBlocks.Single().GetPrimaryReferenceText(),
+				Is.EqualTo(expectedEnglishRefTextForMark9V9));
 			Assert.That(matchedVernBlocks.Skip(1).All(b => frenchRefBlocks.Any(fb => fb.GetText(true) == b.GetPrimaryReferenceText() &&
 			fb.ChapterNumber == b.ChapterNumber && fb.InitialVerseNumberOrBridge == b.InitialVerseNumberOrBridge &&
 			b.ReferenceBlocks.Single().GetPrimaryReferenceText() == fb.GetPrimaryReferenceText())));
@@ -1242,9 +1244,9 @@ namespace GlyssenEngineTests
 
 			var mark5V41 = blocks.IndexOf(b => b.ChapterNumber == 5 && b.InitialStartVerseNumber == 41);
 			var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(mark, mark5V41);
-			Assert.That(5, Is.EqualTo(matchup.CorrelatedBlocks.Count), "Setup problem");
-			Assert.That(40, Is.EqualTo(matchup.CorrelatedBlocks[0].InitialStartVerseNumber), "Setup problem");
-			Assert.That(41, Is.EqualTo(matchup.CorrelatedBlocks[1].InitialStartVerseNumber), "Setup problem");
+			Assert.That(matchup.CorrelatedBlocks.Count, Is.EqualTo(5), "Setup problem");
+			Assert.That(matchup.CorrelatedBlocks[0].InitialStartVerseNumber, Is.EqualTo(40), "Setup problem");
+			Assert.That(matchup.CorrelatedBlocks[1].InitialStartVerseNumber, Is.EqualTo(41), "Setup problem");
 			Assert.That(matchup.CorrelatedBlocks.Take(4).All(b => b.MatchesReferenceText), Is.True,
 				"Setup problem: GetBlocksForVerseMatchedToReferenceText expected to match all except the last " +
 				"vern block to exactly one ref block.");

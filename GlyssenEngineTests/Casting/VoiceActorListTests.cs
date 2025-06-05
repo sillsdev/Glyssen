@@ -42,24 +42,24 @@ namespace GlyssenEngineTests.Casting
 		public void MigrateDeprecatedGenderAndAgeStrings()
 		{
 			var actor = new VoiceActor { Id = 0, Name = "A", GenderDeprecatedString = "M - Male", AgeDeprecatedString = "O - Old" };
-			Assert.That(ActorAge.Elder, Is.EqualTo(actor.Age));
-			Assert.That(ActorGender.Male, Is.EqualTo(actor.Gender));
+			Assert.That(actor.Age, Is.EqualTo(ActorAge.Elder));
+			Assert.That(actor.Gender, Is.EqualTo(ActorGender.Male));
 
 			actor = new VoiceActor { Id = 0, Name = "B", GenderDeprecatedString = "F - Female", AgeDeprecatedString = "E - Elder" };
-			Assert.That(ActorAge.Elder, Is.EqualTo(actor.Age));
-			Assert.That(ActorGender.Female, Is.EqualTo(actor.Gender));
+			Assert.That(actor.Age, Is.EqualTo(ActorAge.Elder));
+			Assert.That(actor.Gender, Is.EqualTo(ActorGender.Female));
 
 			actor = new VoiceActor { Id = 0, Name = "C", AgeDeprecatedString = "C - Child" };
-			Assert.That(ActorAge.Child, Is.EqualTo(actor.Age));
+			Assert.That(actor.Age, Is.EqualTo(ActorAge.Child));
 
 			actor = new VoiceActor { Id = 0, Name = "D", AgeDeprecatedString = "M - Middle Adult" };
-			Assert.That(ActorAge.Adult, Is.EqualTo(actor.Age));
+			Assert.That(actor.Age, Is.EqualTo(ActorAge.Adult));
 
 			actor = new VoiceActor { Id = 0, Name = "E", AgeDeprecatedString = "Y - Young" };
-			Assert.That(ActorAge.YoungAdult, Is.EqualTo(actor.Age));
+			Assert.That(actor.Age, Is.EqualTo(ActorAge.YoungAdult));
 
 			actor = new VoiceActor { Id = 0, Name = "E", AgeDeprecatedString = "Y - Young Adult" };
-			Assert.That(ActorAge.YoungAdult, Is.EqualTo(actor.Age));
+			Assert.That(actor.Age, Is.EqualTo(ActorAge.YoungAdult));
 		}
 	}
 }

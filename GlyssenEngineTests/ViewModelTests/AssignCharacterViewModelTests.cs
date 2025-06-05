@@ -98,10 +98,10 @@ namespace GlyssenEngineTests.ViewModelTests
 			var expectedNumberOfBlocks = m_model.CurrentReferenceTextMatchup.OriginalBlockCount;
 
 			m_model = new AssignCharacterViewModel(m_testProject, m_model.Mode, new BookBlockIndices(m_testProject.AvailableBooks.IndexOf(b => b.Code == expectedBook), expectedBlock, 2));
-			Assert.That(expectedBook, Is.EqualTo(m_model.CurrentBookId));
+			Assert.That(m_model.CurrentBookId, Is.EqualTo(expectedBook));
 			Assert.That(expectedBlock, Is.EqualTo(m_model.CurrentBlockIndexInBook));
-			Assert.That(expectedNumberOfBlocks, Is.EqualTo(m_model.CurrentReferenceTextMatchup.OriginalBlockCount));
-			Assert.That(expectedNumberOfBlocks, Is.EqualTo(m_model.BlockAccessor.GetIndices().MultiBlockCount));
+			Assert.That(m_model.CurrentReferenceTextMatchup.OriginalBlockCount, Is.EqualTo(expectedNumberOfBlocks));
+			Assert.That(m_model.BlockAccessor.GetIndices().MultiBlockCount, Is.EqualTo(expectedNumberOfBlocks));
 			Assert.That(m_model.IsCurrentLocationRelevant, Is.True);
 		}
 
@@ -409,7 +409,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				"Test setup conditions not met");
 			var cvMrk14V2 = ControlCharacterVerseData.Singleton.GetCharacters(m_model.CurrentBookNumber, 14, new SingleVerse(2),
 				m_testProject.Versification).Single();
-			Assert.That("chief priests/teachers of religious law/elders", Is.EqualTo(cvMrk14V2.Character),
+			Assert.That(cvMrk14V2.Character, Is.EqualTo("chief priests/teachers of religious law/elders"),
 				"Test setup conditions not met");
 
 			var block = new Block("p", 14, 1) { CharacterId = cvMrk14V2.Character }
@@ -423,7 +423,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			var cvMrk14V32 = ControlCharacterVerseData.Singleton.GetCharacters(m_model.CurrentBookNumber, 14, new SingleVerse(32),
 				m_testProject.Versification).Single();
-			Assert.That("Jesus", Is.EqualTo(cvMrk14V32.Character), "Test setup conditions not met");
+			Assert.That(cvMrk14V32.Character, Is.EqualTo("Jesus"), "Test setup conditions not met");
 			Assert.That(QuoteType.Normal, Is.EqualTo(cvMrk14V32.QuoteType), "Test setup conditions not met");
 			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(m_model.CurrentBookNumber, 14, new SingleVerse(33),
 					m_testProject.Versification).Single(cv => cv.Character == cvMrk14V32.Character).QuoteType,
@@ -441,7 +441,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			var cvMrk14V25 = ControlCharacterVerseData.Singleton.GetCharacters(m_model.CurrentBookNumber, 14, new SingleVerse(25),
 				m_testProject.Versification).Single();
-			Assert.That("Jesus", Is.EqualTo(cvMrk14V25.Character), "Test setup conditions not met");
+			Assert.That(cvMrk14V25.Character, Is.EqualTo("Jesus"), "Test setup conditions not met");
 			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(m_model.CurrentBookNumber, 14, new SingleVerse(26),
 				m_testProject.Versification).SingleOrDefault(), Is.Null,
 				"Test setup conditions not met");
@@ -522,7 +522,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			m_model.ApplyCurrentReferenceTextMatchup();
 			m_model.SetMode(BlocksToDisplay.KnownTroubleSpots);
-			Assert.That(0, Is.EqualTo(m_model.RelevantBlockCount),
+			Assert.That(m_model.RelevantBlockCount, Is.EqualTo(0),
 				"IMPORTANT NOTE: We're using the KnownTroubleSpots for convenience because it isn't " +
 				"implemented. Therefore, nothing matches it. If we ever implement it, this test may need to be adjusted to ensure that when we " +
 				"switch to the new filter, nothing matches.");
@@ -832,7 +832,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(currentBlock, Is.EqualTo(m_model.CurrentBlock));
 			var preSplit = currentBlock.Clone();
 
-			Assert.That(7, Is.EqualTo(currentBlock.InitialStartVerseNumber), "If this fails, update the test to reflect the test data.");
+			Assert.That(currentBlock.InitialStartVerseNumber, Is.EqualTo(7), "If this fails, update the test to reflect the test data.");
 
 			m_model.SplitBlock(new[]
 			{
@@ -942,10 +942,10 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(currentBlockCharacterId, Is.EqualTo(m_model.CurrentBlock.CharacterId));
 			m_model.LoadNextRelevantBlock();
 			Assert.That(m_model.CurrentBlock.ChapterNumber == 1 && m_model.CurrentBlock.InitialStartVerseNumber == 5, Is.True);
-			Assert.That(kUnexpectedCharacter, Is.EqualTo(m_model.CurrentBlock.CharacterId));
+			Assert.That(m_model.CurrentBlock.CharacterId, Is.EqualTo(kUnexpectedCharacter));
 			m_model.LoadNextRelevantBlock();
 			Assert.That(m_model.CurrentBlock.ChapterNumber == 1 && m_model.CurrentBlock.InitialStartVerseNumber == 5, Is.True);
-			Assert.That(kUnexpectedCharacter, Is.EqualTo(m_model.CurrentBlock.CharacterId));
+			Assert.That(m_model.CurrentBlock.CharacterId, Is.EqualTo(kUnexpectedCharacter));
 			m_model.LoadNextRelevantBlock();
 			Assert.That(firstRelevantBlockAfterTheBlockToSplit, Is.EqualTo(m_model.CurrentBlock));
 		}
@@ -961,7 +961,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(block1, Is.EqualTo(m_model.CurrentBlock));
 			var block2 = m_testProject.Books[0].Blocks[5];
 
-			Assert.That(2, Is.EqualTo(block1.InitialStartVerseNumber), "If this fails, update the test to reflect the test data.");
+			Assert.That(block1.InitialStartVerseNumber, Is.EqualTo(2), "If this fails, update the test to reflect the test data.");
 
 			Assert.DoesNotThrow(() =>
 					m_model.SplitBlock(new[]
@@ -1022,10 +1022,10 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(text2.Substring(10), Is.EqualTo(m_testProject.Books[0].Blocks[i + 3].GetText(false)));
 
 			// check the multi-block quote
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(m_testProject.Books[0].Blocks[i].MultiBlockQuote));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(m_testProject.Books[0].Blocks[i + 1].MultiBlockQuote));
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(m_testProject.Books[0].Blocks[i + 2].MultiBlockQuote));
-			Assert.That(MultiBlockQuote.Start, Is.EqualTo(m_testProject.Books[0].Blocks[i + 3].MultiBlockQuote));
+			Assert.That(m_testProject.Books[0].Blocks[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(m_testProject.Books[0].Blocks[i + 1].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(m_testProject.Books[0].Blocks[i + 2].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(m_testProject.Books[0].Blocks[i + 3].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
 		}
 
 		[Test]
@@ -1048,7 +1048,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var blockTextBeforeSplit = currentBlock.GetText(true);
 
 			model.SetMode(BlocksToDisplay.MissingExpectedQuote);
-			Assert.That("MRK", Is.EqualTo(model.CurrentBookId),
+			Assert.That(model.CurrentBookId, Is.EqualTo("MRK"),
 				"Changing the filter should not have caused us to go to a different book.");
 			model.CurrentBlockIndexInBook = indexOfBlockToSplit;
 			Assert.That(currentBlock, Is.EqualTo(model.CurrentBlock),
@@ -1188,7 +1188,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			// Validate our setup
 			Assert.That(model.IsCurrentLocationRelevant, Is.True);
-			Assert.That(18, Is.EqualTo(model.CurrentBlock.LastVerseNum), "CurrentBlock is not an original block, so it should end with v. 18");
+			Assert.That(model.CurrentBlock.LastVerseNum, Is.EqualTo(18), "CurrentBlock is not an original block, so it should end with v. 18");
 			Assert.That(model.CurrentReferenceTextMatchup.OriginalBlockCount, Is.EqualTo(1));
 			Assert.That(blockToSplit.LastVerseNum, Is.GreaterThan(18));
 
@@ -1227,7 +1227,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			// Validate our setup
 			Assert.That(model.IsCurrentLocationRelevant, Is.True);
-			Assert.That(18, Is.EqualTo(model.CurrentBlock.LastVerseNum), "CurrentBlock is not an original block, so it should end with v. 18");
+			Assert.That(model.CurrentBlock.LastVerseNum, Is.EqualTo(18), "CurrentBlock is not an original block, so it should end with v. 18");
 			Assert.That(blockToSplit.LastVerseNum, Is.GreaterThan(18));
 
 			model.SplitBlock(new[] { new BlockSplitData(1, blockToSplit, "18", 10) },
@@ -1557,11 +1557,12 @@ namespace GlyssenEngineTests.ViewModelTests
 			FindRefInMark(9, 21);
 			m_model.SetMode(m_model.Mode, true);
 			Assert.That(m_model.CurrentReferenceTextMatchup, Is.Not.Null);
-			Assert.That(m_model.CurrentReferenceTextMatchup.CountOfBlocksAddedBySplitting > 0, Is.True);
+			Assert.That(m_model.CurrentReferenceTextMatchup.CountOfBlocksAddedBySplitting,
+				Is.GreaterThan(0));
 			Assert.That(m_testProject.Books[0].Blocks.Contains(m_model.CurrentBlock), Is.False);
 			m_model.SetCurrentBookSingleVoice(true);
 			Assert.That(m_model.CurrentReferenceTextMatchup, Is.Null);
-			Assert.That(m_testProject.Books[0].Blocks.Contains(m_model.CurrentBlock), Is.True);
+			Assert.That(m_testProject.Books[0].Blocks, Does.Contain(m_model.CurrentBlock));
 		}
 
 		[Test]
@@ -1714,7 +1715,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		//	// Part I: Assign to Jesus/questioning (which is the automatic matchup)
 		//	Assert.That(m_model.IsModified(characterJesus, deliveryQuestioning),
 		//		"If this isn't true, it is not considered \"dirty\" and the Assign button will not be enabled.", Is.True);
-		//	Assert.That("Jesus", Is.Not.EqualTo(originalAnchorBlock.CharacterId));
+		//	Assert.That(originalAnchorBlock.CharacterId, Is.Not.EqualTo("Jesus"));
 		//	Assert.That(m_model.CurrentBlock.CharacterId, Is.EqualTo("Jesus"));
 
 		//	m_model.SetCharacterAndDelivery(characterJesus, deliveryQuestioning);
@@ -1882,15 +1883,15 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(m_model.CurrentReferenceTextMatchup, Is.Not.Null);
 			var block = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[1];
 			Assert.That(block.InitialStartVerseNumber, Is.EqualTo(5));
-			Assert.That(5, Is.EqualTo(block.LastVerseNum),
+			Assert.That(block.LastVerseNum, Is.EqualTo(5),
 				"Sanity check: In this test, we expected the reference text to split off " +
 				"individual verses such that verse 6 would be in a separate block from verse 5.");
 			var firstVerseNumFollowingSetBlock = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[2].InitialStartVerseNumber;
-			Assert.That(6, Is.EqualTo(firstVerseNumFollowingSetBlock),
+			Assert.That(firstVerseNumFollowingSetBlock, Is.EqualTo(6),
 				"Sanity check: In this test, we expected the reference text to split off " +
 				"individual verses such that verse 6 would be in a separate block from verse 5.");
 
-			Assert.That(8, Is.EqualTo(m_model.CurrentReferenceTextMatchup.OriginalBlocks.Last().LastVerseNum),
+			Assert.That(m_model.CurrentReferenceTextMatchup.OriginalBlocks.Last().LastVerseNum, Is.EqualTo(8),
 				"Sanity check: in this test, we were expecting the matchup to cover verses 5-8.");
 			int iFollowingBlock = m_model.CurrentBlockIndexInBook + m_model.CurrentReferenceTextMatchup.OriginalBlockCount;
 			var followingBlock = m_testProject.Books[0].GetScriptBlocks()[iFollowingBlock];
@@ -1899,7 +1900,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var lastVerseNumOfBlockFollowingMatchup = followingBlock.LastVerseNum;
 			Assert.That(m_testProject.Books[0].GetScriptBlocks()[iFollowingBlock + 1].IsContinuationOfPreviousBlockQuote, Is.False,
 				"Sanity check: in this test, we were expecting only one block after the matchup to be a continuation.");
-			Assert.That(13, Is.EqualTo(lastVerseNumOfBlockFollowingMatchup),
+			Assert.That(lastVerseNumOfBlockFollowingMatchup, Is.EqualTo(13),
 				"Sanity check: in this test, we were expecting the block after the matchup to end at verse 13.");
 			m_model.StoreCharacterDetail(charChrist, CharacterGender.Male, CharacterAge.Adult);
 			var newCharacterChrist = new AssignCharacterViewModel.Character(charChrist);
@@ -2157,7 +2158,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			FindRefInMark(9, 21);
 			m_model.SetMode(m_model.Mode, true);
-			Assert.That(5, Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count), "SETUP conditions not met");
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count, Is.EqualTo(5), "SETUP conditions not met");
 
 			Assert.Throws<ArgumentOutOfRangeException>(() =>
 				m_model.GetRowIndicesForMovingReferenceText(down, currentRow, out _, out int _));
@@ -2169,7 +2170,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			FindRefInMark(9, 21);
 			m_model.SetMode(m_model.Mode, true);
-			Assert.That(5, Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count), "SETUP conditions not met");
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count, Is.EqualTo(5), "SETUP conditions not met");
 
 			Assert.Throws<ArgumentException>(() =>
 				m_model.GetRowIndicesForMovingReferenceText(down, currentRow, out _, out int _));
@@ -2209,11 +2210,11 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			FindRefInMark(9, 21);
 			m_model.SetMode(m_model.Mode, true);
-			Assert.That(5, Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count), "SETUP conditions not met");
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count, Is.EqualTo(5), "SETUP conditions not met");
 
 			m_model.GetRowIndicesForMovingReferenceText(down, currentRow, out int iPreceding, out int iFollowing);
-			Assert.That(expectedPreceding, Is.EqualTo(iPreceding));
-			Assert.That(expectedFollowing, Is.EqualTo(iFollowing));
+			Assert.That(iPreceding, Is.EqualTo(expectedPreceding));
+			Assert.That(iFollowing, Is.EqualTo(expectedFollowing));
 		}
 
 		[TestCase(true, 0, 1, 0, 2)]
@@ -2225,13 +2226,13 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			FindRefInMark(9, 21);
 			m_model.SetMode(m_model.Mode, true);
-			Assert.That(5, Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count), "SETUP conditions not met");
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count, Is.EqualTo(5), "SETUP conditions not met");
 			m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[iRowToMakeSectionHead].CharacterId =
 				GetStandardCharacterId("MRK", StandardCharacter.ExtraBiblical);
 
 			m_model.GetRowIndicesForMovingReferenceText(down, currentRow, out int iPreceding, out int iFollowing);
-			Assert.That(expectedPreceding, Is.EqualTo(iPreceding));
-			Assert.That(expectedFollowing, Is.EqualTo(iFollowing));
+			Assert.That(iPreceding, Is.EqualTo(expectedPreceding));
+			Assert.That(iFollowing, Is.EqualTo(expectedFollowing));
 		}
 
 		[TestCase(1)]
@@ -2240,7 +2241,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			FindRefInMark(9, 21);
 			m_model.SetMode(m_model.Mode, true);
-			Assert.That(5, Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count), "SETUP conditions not met");
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count, Is.EqualTo(5), "SETUP conditions not met");
 			m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[row].CharacterId =
 				GetStandardCharacterId("MRK", StandardCharacter.ExtraBiblical);
 
@@ -2254,7 +2255,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			FindRefInMark(9, 21);
 			m_model.SetMode(m_model.Mode, true);
-			Assert.That(5, Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count), "SETUP conditions not met");
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count, Is.EqualTo(5), "SETUP conditions not met");
 			int row = 1;
 			m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[row].CharacterId =
 				GetStandardCharacterId("MRK", StandardCharacter.ExtraBiblical);
@@ -2270,7 +2271,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			FindRefInMark(9, 21);
 			m_model.SetMode(m_model.Mode, true);
-			Assert.That(5, Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count), "SETUP conditions not met");
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count, Is.EqualTo(5), "SETUP conditions not met");
 			int row = 3;
 			m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[row].CharacterId =
 				GetStandardCharacterId("MRK", StandardCharacter.ExtraBiblical);
@@ -2297,9 +2298,9 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			FindRefInMark(9, 21);
 			m_model.SetMode(m_model.Mode, true);
-			Assert.That(5, Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count), "SETUP conditions not met");
-			Assert.That(20, Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.First().InitialStartVerseNumber), "SETUP conditions not met");
-			Assert.That(22, Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum), "SETUP conditions not met");
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count, Is.EqualTo(5), "SETUP conditions not met");
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.First().InitialStartVerseNumber, Is.EqualTo(20), "SETUP conditions not met");
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum, Is.EqualTo(22), "SETUP conditions not met");
 
 			var row = 0;
 			var vRef = m_model.GetVerseRefForRow(row);
@@ -2319,7 +2320,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			FindRefInMark(9, 21);
 			m_model.SetMode(m_model.Mode, true);
-			Assert.That(5, Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count), "SETUP conditions not met");
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count, Is.EqualTo(5), "SETUP conditions not met");
 			int row = 2;
 			m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[row].CharacterId =
 				GetStandardCharacterId("MRK", StandardCharacter.ExtraBiblical);
@@ -2640,7 +2641,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.SetReferenceTextMatchupCharacter(indexOfQuoteStartBlock, AssignCharacterViewModel.Character.Narrator);
 
 			Assert.That(startBlock.CharacterIs(m_model.CurrentBookId, StandardCharacter.Narrator), Is.True);
-			Assert.That(MultiBlockQuote.None, Is.EqualTo(startBlock.MultiBlockQuote));
+			Assert.That(startBlock.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 			Assert.That(continuationBlocks.TrueForAll(b => b.CharacterIs(m_model.CurrentBookId, StandardCharacter.Narrator)), Is.True);
 			Assert.That(continuationBlocks.TrueForAll(b => !b.IsContinuationOfPreviousBlockQuote), Is.True);
 			foreach (var iBlock in m_indicesOfChangedBlocks)
@@ -2715,13 +2716,13 @@ namespace GlyssenEngineTests.ViewModelTests
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 
 			var overrideOba = NarratorOverrides.Singleton.Books.Single(b => b.Id == bookScript.BookId).Overrides.Single();
-			Assert.That(1, Is.EqualTo(overrideOba.StartChapter), "Test setup conditions not met!");
-			Assert.That(1, Is.EqualTo(overrideOba.EndChapter), "Test setup conditions not met!");
+			Assert.That(overrideOba.StartChapter, Is.EqualTo(1), "Test setup conditions not met!");
+			Assert.That(overrideOba.EndChapter, Is.EqualTo(1), "Test setup conditions not met!");
 			Assert.That(overrideOba.Character, Is.EqualTo(kObadiahTheProphet),
 				"Test setup conditions not met!");
-			Assert.That(1, Is.EqualTo(overrideOba.StartVerse), "Test setup conditions not met!");
-			Assert.That(2, Is.EqualTo(overrideOba.StartBlock), "Test setup conditions not met!");
-			Assert.That(21, Is.EqualTo(overrideOba.EndVerse), "Test setup conditions not met!");
+			Assert.That(overrideOba.StartVerse, Is.EqualTo(1), "Test setup conditions not met!");
+			Assert.That(overrideOba.StartBlock, Is.EqualTo(2), "Test setup conditions not met!");
+			Assert.That(overrideOba.EndVerse, Is.EqualTo(21), "Test setup conditions not met!");
 		}
 
 		[TearDown]
@@ -2742,8 +2743,8 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			// Verify
 			Assert.That(result.Count, Is.EqualTo(3));
-			Assert.That("God", Is.EqualTo(result[0].CharacterId), "God is first because the list is alphabetical (with narrator last)");
-			Assert.That(kObadiahTheProphet, Is.EqualTo(result[1].CharacterId));
+			Assert.That(result[0].CharacterId, Is.EqualTo("God"), "God is first because the list is alphabetical (with narrator last)");
+			Assert.That(result[1].CharacterId, Is.EqualTo(kObadiahTheProphet));
 			Assert.That(result[2].LocalizedDisplay, Is.EqualTo("narrator (OBA)"));
 		}
 
@@ -2758,10 +2759,10 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			// Verify
 			Assert.That(result.Count, Is.EqualTo(3));
-			Assert.That("narrator (OBA)", Is.EqualTo(result[0].LocalizedDisplay),
+			Assert.That(result[0].LocalizedDisplay, Is.EqualTo("narrator (OBA)"),
 				"GetUniqueCharactersForCurrentReference should always put the narrator first.");
-			Assert.That("God", Is.EqualTo(result[1].CharacterId), "God is second because remaining items in the list are alphabetical");
-			Assert.That(kObadiahTheProphet, Is.EqualTo(result[2].CharacterId));
+			Assert.That(result[1].CharacterId, Is.EqualTo("God"), "God is second because remaining items in the list are alphabetical");
+			Assert.That(result[2].CharacterId, Is.EqualTo(kObadiahTheProphet));
 		}
 
 		[Test]
@@ -2778,10 +2779,10 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(result.Count, Is.EqualTo(4));
 			Assert.That(result[0].CharacterId.StartsWith("Obadiah"), Is.True,
 				"The first match happens to be from a different book. List of matches is alphabetic");
-			Assert.That(kObadiahTheProphet, Is.EqualTo(result[1].CharacterId));
-			Assert.That("God", Is.EqualTo(result[2].CharacterId),
+			Assert.That(result[1].CharacterId, Is.EqualTo(kObadiahTheProphet));
+			Assert.That(result[2].CharacterId, Is.EqualTo("God"),
 				"God is second because he is a Normal character in OBA 1:1");
-			Assert.That("narrator (OBA)", Is.EqualTo(result[3].LocalizedDisplay),
+			Assert.That(result[3].LocalizedDisplay, Is.EqualTo("narrator (OBA)"),
 				"GetUniqueCharacters should always include the narrator at the end, if not " +
 				"already in the list.");
 		}
@@ -2809,9 +2810,9 @@ namespace GlyssenEngineTests.ViewModelTests
 			// Verify
 			Assert.That(result.Count >= 4, Is.True);
 			var iStartOfNonMatching = result.Count -3;
-			Assert.That("God", Is.EqualTo(result[iStartOfNonMatching].CharacterId),
+			Assert.That(result[iStartOfNonMatching].CharacterId, Is.EqualTo("God"),
 				"God should be first non-match because this part of list is alphabetical.");
-			Assert.That(kObadiahTheProphet, Is.EqualTo(result[iStartOfNonMatching + 1].CharacterId),
+			Assert.That(result[iStartOfNonMatching + 1].CharacterId, Is.EqualTo(kObadiahTheProphet),
 				$"{kObadiahTheProphet} should be " +
 				"second non-match because this part of list is alphabetical.");
 			Assert.That(result[iStartOfNonMatching + 2].LocalizedDisplay,

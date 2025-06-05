@@ -15,6 +15,7 @@ using SIL.IO;
 using SIL.Scripture;
 using SIL.WritingSystems;
 using SIL.Xml;
+using static GlyssenCharacters.CharacterSpeakingMode;
 using static GlyssenEngine.Script.MultiBlockQuote;
 using static GlyssenEngine.Script.PortionScript;
 using Resources = GlyssenCharactersTests.Properties.Resources;
@@ -345,7 +346,7 @@ namespace GlyssenEngineTests.Script
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var list = bookScript.GetBlocksForVerse(1, 75).ToList();
 			Assert.That(list.Count, Is.EqualTo(1));
-			Assert.That(expected, Is.EqualTo(list[0]));
+			Assert.That(list[0], Is.EqualTo(expected));
 		}
 
 		[Test]
@@ -362,7 +363,7 @@ namespace GlyssenEngineTests.Script
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var list = bookScript.GetBlocksForVerse(1, 75).ToList();
 			Assert.That(list.Count, Is.EqualTo(3));
-			Assert.That(expected, Is.EqualTo(list[0]));
+			Assert.That(list[0], Is.EqualTo(expected));
 		}
 
 		[Test]
@@ -379,7 +380,7 @@ namespace GlyssenEngineTests.Script
 			var bookScript = new BookScript("REV", revBlocks, ScrVers.English);
 			var list = bookScript.GetBlocksForVerse(15, 3).ToList();
 			Assert.That(list.Count, Is.EqualTo(3));
-			Assert.That(expected, Is.EqualTo(list[0]));
+			Assert.That(list[0], Is.EqualTo(expected));
 		}
 
 		[Test]
@@ -398,7 +399,7 @@ namespace GlyssenEngineTests.Script
 			var bookScript = new BookScript("ACT", blocks, ScrVers.English);
 			var list = bookScript.GetBlocksForVerse(8, 37).ToList();
 			Assert.That(list.Count, Is.EqualTo(4));
-			Assert.That(expected, Is.EqualTo(list[0]));
+			Assert.That(list[0], Is.EqualTo(expected));
 		}
 
 		[Test]
@@ -523,8 +524,8 @@ namespace GlyssenEngineTests.Script
 
 			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.That(result.Count, Is.EqualTo(2));
-			Assert.That("«This is line 1, This is line 2, This is line 3, This is line 4.»",
-				Is.EqualTo(result[1].GetText(true)));
+			Assert.That(result[1].GetText(true),
+				Is.EqualTo("«This is line 1, This is line 2, This is line 3, This is line 4.»"));
 		}
 
 		[TestCase(" ")]
@@ -580,8 +581,9 @@ namespace GlyssenEngineTests.Script
 
 			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.That(result.Count, Is.EqualTo(1));
-			Assert.That("{1}\u00A0Peter said, 'This is line 1, 'This is line 2, 'This is line 3, 'This is line 4, ",
-				Is.EqualTo(result[0].GetText(true)));
+			Assert.That(result[0].GetText(true), Is.EqualTo(
+				"{1}\u00A0Peter said, 'This is line 1, 'This is line 2, 'This is line 3, " +
+				"'This is line 4, "));
 		}
 
 		[Test]
@@ -639,10 +641,11 @@ namespace GlyssenEngineTests.Script
 			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.That(result.Count, Is.EqualTo(1));
 			Assert.That(result[0].MatchesReferenceText);
-			Assert.That("{1}\u00A0Este es la genealogia de Jesus" + vernBlock1EndingPunctuation +
-				" starting with the first patriarch: {2}\u00A0Abraham fue el primero.",
-				Is.EqualTo(result[0].GetText(true)));
-			Assert.That(result[0].GetPrimaryReferenceText(), Is.EqualTo("{1}\u00A0This is the genealogy of Jesus. {2}\u00A0Abraham was first."));
+			Assert.That(result[0].GetText(true), Is.EqualTo(
+				"{1}\u00A0Este es la genealogia de Jesus" + vernBlock1EndingPunctuation +
+			    " starting with the first patriarch: {2}\u00A0Abraham fue el primero."));
+			Assert.That(result[0].GetPrimaryReferenceText(), Is.EqualTo(
+				"{1}\u00A0This is the genealogy of Jesus. {2}\u00A0Abraham was first."));
 		}
 
 		[TestCase(ScrVersType.English, "PSA", 82, 1, TextExplicitOverrides.All, -1, ExpectedResult = "narrator-PSA")]
@@ -977,8 +980,10 @@ namespace GlyssenEngineTests.Script
 				"Ensure test setup was correct");
 
 			// Verify preceding blocks
-			Assert.That(bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[1]), Is.EqualTo("Solomon, king"));
-			Assert.That("maidens", Is.Not.EqualTo(bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[2])));
+			Assert.That(bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[1]),
+				Is.EqualTo("Solomon, king"));
+			Assert.That(bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[2]),
+				Is.Not.EqualTo("maidens"));
 
 			// SUT: Covered narrator block(s) should get overridden
 			if (sngScriptBlocks[3].CharacterId == narrator)
@@ -987,7 +992,8 @@ namespace GlyssenEngineTests.Script
 				Assert.That(bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[4]), Is.EqualTo("maidens"));
 			
 			// Verify following block
-			Assert.That("maidens", Is.Not.EqualTo(bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[5])));
+			Assert.That(bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[5]),
+				Is.Not.EqualTo("maidens"));
 		}
 
 		[TestCase("narrator-SNG", "maidens")]
@@ -1006,14 +1012,14 @@ namespace GlyssenEngineTests.Script
 
 			// Verify preceding blocks
 			Assert.That(bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[1]), Is.EqualTo("Solomon, king"));
-			Assert.That("maidens", Is.Not.EqualTo(bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[2])));
+			Assert.That(bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[2]), Is.Not.EqualTo("maidens"));
 
 			// SUT: Neither of these two covered blocks should get overridden
 			Assert.That(sngScriptBlocks[3].CharacterId, Is.EqualTo(bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[3])));
 			Assert.That(sngScriptBlocks[4].CharacterId, Is.EqualTo(bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[4])));
 
 			// Verify following block
-			Assert.That("maidens", Is.Not.EqualTo(bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[5])));
+			Assert.That(bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[5]), Is.Not.EqualTo("maidens"));
 		}
 		#endregion
 
@@ -1109,7 +1115,7 @@ namespace GlyssenEngineTests.Script
 
 			var testBlocks = GetTestBlocks(ScrVers.English, bookId, TextExplicitOverrides.None);
 			var iBlockFor6_13 = testBlocks.IndexOf(b => b.ChapterNumber == 6 && b.BlockElements.OfType<Verse>().LastOrDefault()?.Number == "13");
-			Assert.That(7, Is.EqualTo(testBlocks[iBlockFor6_13 + 1].ChapterNumber),
+			Assert.That(testBlocks[iBlockFor6_13 + 1].ChapterNumber, Is.EqualTo(7),
 				"Test set-up sanity check");
 			testBlocks.Insert(iBlockFor6_13 + 1, new Block("q2", 6, 13, 13)
 			{
@@ -1127,7 +1133,7 @@ namespace GlyssenEngineTests.Script
 				BlockElements = new List<BlockElement>(new[] { new ScriptText("as upon a dance before two armies?") })
 			});
 			var iBlockFor7_9 = testBlocks.IndexOf(b => b.ChapterNumber == 7 && b.BlockElements.OfType<Verse>().FirstOrDefault()?.Number == "9");
-			Assert.That(10, Is.EqualTo(testBlocks[iBlockFor7_9 + 1].InitialStartVerseNumber),
+			Assert.That(testBlocks[iBlockFor7_9 + 1].InitialStartVerseNumber, Is.EqualTo(10),
 				"Test set-up sanity check");
 			testBlocks.Insert(iBlockFor7_9 + 1, new Block("q1", 7, 9, 9)
 			{
@@ -1210,10 +1216,10 @@ namespace GlyssenEngineTests.Script
 
 			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.That(result.Count, Is.EqualTo(1));
-			Assert.That("{1}\u00A0Este es la genealogia de Jesus" + vernBlock1EndingPunctuation.TrimEnd() +
-				" Abraham fue el primero.",
-				Is.EqualTo(result[0].GetText(true)));
-			Assert.That(expectedCombinedRefText, Is.EqualTo(result[0].GetPrimaryReferenceText()));
+			Assert.That(result[0].GetText(true), Is.EqualTo(
+				"{1}\u00A0Este es la genealogia de Jesus" + vernBlock1EndingPunctuation.TrimEnd() +
+				" Abraham fue el primero."));
+			Assert.That(result[0].GetPrimaryReferenceText(), Is.EqualTo(expectedCombinedRefText));
 		}
 
 		[TestCase(";", "p", "{1} This is not empty, ", "okay?", "{1}\u00A0This is not empty, okay?")]
@@ -1239,10 +1245,10 @@ namespace GlyssenEngineTests.Script
 
 			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.That(result.Count, Is.EqualTo(1));
-			Assert.That("{1}\u00A0Este es la genealogia de Jesus" + vernBlock1EndingPunctuation.TrimEnd() +
-				" Abraham fue el primero.",
-				Is.EqualTo(result[0].GetText(true)));
-			Assert.That(expectedCombinedRefText, Is.EqualTo(result[0].GetPrimaryReferenceText()));
+			Assert.That(result[0].GetText(true), Is.EqualTo(
+				"{1}\u00A0Este es la genealogia de Jesus" + vernBlock1EndingPunctuation.TrimEnd() +
+			    " Abraham fue el primero."));
+			Assert.That(result[0].GetPrimaryReferenceText(), Is.EqualTo(expectedCombinedRefText));
 		}
 
 		[TestCase(".", "q", " ", "This is not empty.")]
@@ -1416,14 +1422,16 @@ namespace GlyssenEngineTests.Script
 			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.That(result.Count, Is.EqualTo(1));
 			Assert.That(result[0].MatchesReferenceText);
-			Assert.That("{1}\u00A0Este es la genealogia de Jesus" + vernBlock1EndingPunctuation.TrimEnd() +
-				" Abraham fue el primero.",
-				Is.EqualTo(result[0].GetText(true)));
-			Assert.That(expectedCombinedRefText, Is.EqualTo(result[0].GetPrimaryReferenceText()));
+			Assert.That(result[0].GetText(true), Is.EqualTo(
+				"{1}\u00A0Este es la genealogia de Jesus" + vernBlock1EndingPunctuation.TrimEnd() +
+			    " Abraham fue el primero."));
+			Assert.That(result[0].GetPrimaryReferenceText(), Is.EqualTo(expectedCombinedRefText));
 			// Finally, ensure that joining of reference texts did not alter the reference text of the original vernacular blocks
 			// because if it did, then when we save, that will get stored and can lead to the bug PG-1291.
-			Assert.That(origblock1RefText, Is.EqualTo(vernBook.GetScriptBlocks()[0].GetPrimaryReferenceText()));
-			Assert.That(origblock2RefText, Is.EqualTo(vernBook.GetScriptBlocks()[1].GetPrimaryReferenceText()));
+			Assert.That(vernBook.GetScriptBlocks()[0].GetPrimaryReferenceText(),
+				Is.EqualTo(origblock1RefText));
+			Assert.That(vernBook.GetScriptBlocks()[1].GetPrimaryReferenceText(),
+				Is.EqualTo(origblock2RefText));
 		}
 		#endregion
 
@@ -1684,7 +1692,7 @@ namespace GlyssenEngineTests.Script
 				{
 					if (i % 2 != 0)
 					{
-						Assert.That(CharacterVerseData.kUnexpectedCharacter, Is.EqualTo(target[i].CharacterId));
+						Assert.That(target[i].CharacterId, Is.EqualTo(CharacterVerseData.kUnexpectedCharacter));
 						Assert.That(target[i].Delivery, Is.Null);
 						Assert.That(target[i].UserConfirmed, Is.False);
 					}
@@ -2069,12 +2077,12 @@ namespace GlyssenEngineTests.Script
 			var v27SplitPos = 44;
 			source.SplitBlock(firstBlockforV27, "27", v27SplitPos, true, origSource.NarratorCharacterId);
 
-			firstBlockforV27.SetNonDramaticCharacterId(CharacterVerse.kScriptureCharacter);
+			firstBlockforV27.SetNonDramaticCharacterId(CharacterSpeakingMode.kScriptureCharacter);
 			firstBlockforV27.UserConfirmed = true;
 
 			var blockForV26 = source.GetScriptBlocks()[iBlockToSplit];
 			Assert.That(((Verse)blockForV26.BlockElements.First()).Number, Is.EqualTo("26"));
-			source.SplitBlock(blockForV26, "26", k1Co15V26Text.Length, true, CharacterVerse.kScriptureCharacter).UserConfirmed = true;
+			source.SplitBlock(blockForV26, "26", k1Co15V26Text.Length, true, CharacterSpeakingMode.kScriptureCharacter).UserConfirmed = true;
 
 			foreach (var sb in source.GetScriptBlocks().Where(b => b.CharacterIsUnclear))
 			{
@@ -2087,18 +2095,22 @@ namespace GlyssenEngineTests.Script
 
 			target.ApplyUserDecisions(source, englishRefText);
 			var targetBlocksAfterApplyingSplit = target.GetScriptBlocks();
-			Assert.That(countOfSourceBlocks, Is.EqualTo(source.GetScriptBlocks().Count),
-				"Sanity check");
-			Assert.That(countOfSourceBlocks, Is.EqualTo(targetBlocksAfterApplyingSplit.Count));
-			var blockWithVerse26 = targetBlocksAfterApplyingSplit.Single(b => b.ChapterNumber == 15 && b.LastVerseNum == 26);
-			Assert.That(k1Co15V26Text, Is.EqualTo(((ScriptText)blockWithVerse26.BlockElements.Last()).Content));
+			Assert.That(source.GetScriptBlocks().Count, Is.EqualTo(countOfSourceBlocks),
+				"Sanity check - block count should not have changed");
+			Assert.That(targetBlocksAfterApplyingSplit.Count, Is.EqualTo(countOfSourceBlocks));
+			var blockWithVerse26 = targetBlocksAfterApplyingSplit.Single(
+				b => b.ChapterNumber == 15 && b.LastVerseNum == 26);
+			Assert.That(((ScriptText)blockWithVerse26.BlockElements.Last()).Content,
+				Is.EqualTo(k1Co15V26Text));
 			var iBlockEndingInV26 = targetBlocksAfterApplyingSplit.IndexOf(blockWithVerse26);
-			Assert.That("{27}\u00A0" + k1Co15V27Text.Substring(0, v27SplitPos),
-				Is.EqualTo(targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 1].GetText(true)));
-			Assert.That(CharacterVerse.kScriptureCharacter, Is.EqualTo(targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 1].CharacterId));
-			Assert.That(k1Co15V27Text.Substring(v27SplitPos),
-				Is.EqualTo(targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 2].GetText(true)));
-			Assert.That(targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 2].CharacterId == origSource.NarratorCharacterId, Is.True);
+			Assert.That(targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 1].GetText(true),
+				Is.EqualTo("{27}\u00A0" + k1Co15V27Text.Substring(0, v27SplitPos)));
+			Assert.That(targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 1].CharacterId,
+				Is.EqualTo(kScriptureCharacter));
+			Assert.That(targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 2].GetText(true),
+				Is.EqualTo(k1Co15V27Text.Substring(v27SplitPos)));
+			Assert.That(targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 2].CharacterId,
+				Is.EqualTo(origSource.NarratorCharacterId));
 			Assert.That(target.UnappliedSplits, Is.Not.Null);
 			Assert.That(target.UnappliedSplits.Count, Is.EqualTo(0));
 		}
@@ -2117,7 +2129,7 @@ namespace GlyssenEngineTests.Script
 			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 
 			var blockForV26 = source.GetScriptBlocks()[source.GetIndexOfFirstBlockForVerse(15, 26)];
-			source.SplitBlock(blockForV26, "26", k1Co15V26Text.Length, true, CharacterVerse.kScriptureCharacter)
+			source.SplitBlock(blockForV26, "26", k1Co15V26Text.Length, true, CharacterSpeakingMode.kScriptureCharacter)
 				.UserConfirmed = true;
 
 			var matchup = englishRefText.GetBlocksForVerseMatchedToReferenceText(source,
@@ -2138,13 +2150,14 @@ namespace GlyssenEngineTests.Script
 
 			target.ApplyUserDecisions(source, englishRefText);
 			var targetBlocksAfterApplyingSplit = target.GetScriptBlocks();
-			Assert.That(countOfSourceBlocks, Is.EqualTo(targetBlocksAfterApplyingSplit.Count));
+			Assert.That(targetBlocksAfterApplyingSplit.Count, Is.EqualTo(countOfSourceBlocks));
 			var blockWithVerse26 = targetBlocksAfterApplyingSplit.Single(b => b.ChapterNumber == 15 && b.LastVerseNum == 26);
-			Assert.That(k1Co15V26Text, Is.EqualTo(((ScriptText)blockWithVerse26.BlockElements.Last()).Content));
+			Assert.That(((ScriptText)blockWithVerse26.BlockElements.Last()).Content,
+				Is.EqualTo(k1Co15V26Text));
 			var iBlockEndingInV26 = targetBlocksAfterApplyingSplit.IndexOf(blockWithVerse26);
-			Assert.That("{27}\u00A0" + k1Co15V27Text.Substring(0, v27SplitPos),
-				Is.EqualTo(targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 1].GetText(true)));
-			Assert.That(CharacterVerse.kScriptureCharacter, Is.EqualTo(targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 1].CharacterId));
+			Assert.That(targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 1].GetText(true),
+				Is.EqualTo("{27}\u00A0" + k1Co15V27Text.Substring(0, v27SplitPos)));
+			Assert.That(targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 1].CharacterId, Is.EqualTo(kScriptureCharacter));
 			Assert.That(k1Co15V27Text.Substring(v27SplitPos),
 				Is.EqualTo(targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 2].GetText(true)));
 			Assert.That(targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 2]
@@ -2235,19 +2248,23 @@ namespace GlyssenEngineTests.Script
 				"There were 4 explicit user splits, dividing v. 31 into 5 parts, plus the preceding verse and the following verse " +
 				"were split by and matched to the reference text. Therefore, what started as one block should now be seven blocks.");
 			var blockVerse31Start = targetBlocksAfterApplyingSplit.Single(b => b.BlockElements.OfType<Verse>().Any(v => v.Number == "31"));
-			Assert.That(kSplitPos1, Is.EqualTo(blockVerse31Start.BlockElements.OfType<ScriptText>().Last().Content.Length));
+			Assert.That(blockVerse31Start.BlockElements.OfType<ScriptText>().Last().Content.Length,
+				Is.EqualTo(kSplitPos1));
 			Assert.That(blockVerse31Start.MatchesReferenceText);
-			Assert.That(blockVerse31Start.GetPrimaryReferenceText(), Is.EqualTo("{31}\u00A0Which one of the two did the will of his father?”"));
+			Assert.That(blockVerse31Start.GetPrimaryReferenceText(),
+				Is.EqualTo("{31}\u00A0Which one of the two did the will of his father?”"));
 
 			var iBlock = targetBlocksAfterApplyingSplit.IndexOf(blockVerse31Start);
 
 			var block = targetBlocksAfterApplyingSplit[iBlock - 1];
-			Assert.That("{30}\u00A0Ia amaama i ditopot ma sianggian i, laos songon i do hatana, gabe didok i ma mangalusi: Olo, tuan! Hape, ndang saut laho. ",
-				Is.EqualTo(block.GetText(true)));
+			Assert.That(block.GetText(true), Is.EqualTo(
+				"{30}\u00A0Ia amaama i ditopot ma sianggian i, laos songon i do hatana, gabe " +
+				"didok i ma mangalusi: Olo, tuan! Hape, ndang saut laho. "));
 			Assert.That(block.CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(block.MatchesReferenceText);
-			Assert.That("{30}\u00A0He came to the second, and said the same thing. He answered, ‹I go, sir,› but he didn’t go.",
-				Is.EqualTo(block.ReferenceBlocks.Single().GetText(true)));
+			Assert.That(block.ReferenceBlocks.Single().GetText(true), Is.EqualTo(
+				"{30}\u00A0He came to the second, and said the same thing. He answered, " +
+				"‹I go, sir,› but he didn’t go."));
 
 			block = targetBlocksAfterApplyingSplit[++iBlock];
 			Assert.That(kSplitPos2 - kSplitPos1, Is.EqualTo(((ScriptText)block.BlockElements.Single()).Content.Length));
@@ -2657,7 +2674,7 @@ namespace GlyssenEngineTests.Script
 			newExpectedBlock.SplitId = Block.kNotSplit;
 
 			target.ApplyUserDecisions(source);
-			Assert.That(expected.GetScriptBlocks().SequenceEqual(target.GetScriptBlocks(), new BlockComparer()), Is.True);
+			Assert.That(target.GetScriptBlocks().SequenceEqual(expected.GetScriptBlocks(), new BlockComparer()), Is.True);
 			Assert.That(target.UnappliedSplits, Is.Not.Null);
 			Assert.That(target.UnappliedSplits.Count, Is.EqualTo(0));
 		}
@@ -2740,7 +2757,7 @@ namespace GlyssenEngineTests.Script
 			newExpectedBlock.SplitId = Block.kNotSplit;
 
 			target.ApplyUserDecisions(source);
-			Assert.That(expected.GetScriptBlocks().SequenceEqual(target.GetScriptBlocks(), new BlockComparer()), Is.True);
+			Assert.That(target.GetScriptBlocks().SequenceEqual(expected.GetScriptBlocks(), new BlockComparer()), Is.True);
 			Assert.That(target.UnappliedSplits, Is.Not.Null);
 			Assert.That(target.UnappliedSplits.Count, Is.EqualTo(0));
 		}
@@ -2825,7 +2842,7 @@ namespace GlyssenEngineTests.Script
 			}
 
 			target.ApplyUserDecisions(source);
-			Assert.That(expected.GetScriptBlocks().SequenceEqual(target.GetScriptBlocks(), new BlockComparer()), Is.True);
+			Assert.That(target.GetScriptBlocks().SequenceEqual(expected.GetScriptBlocks(), new BlockComparer()), Is.True);
 			Assert.That(target.UnappliedSplits, Is.Not.Null);
 			Assert.That(target.UnappliedSplits.Count, Is.EqualTo(0));
 		}
@@ -2884,7 +2901,7 @@ namespace GlyssenEngineTests.Script
 		{
 			var source = CreateStandardMarkScript();
 			Block blockToSplit = source.Blocks.First(b => b.InitialStartVerseNumber > 0 && b.BlockElements.First() is ScriptText && b.ContainsVerseNumber);
-			source.SplitBlock(blockToSplit, blockToSplit.InitialStartVerseNumber.ToString(), BookScript.kSplitAtEndOfVerse);
+			source.SplitBlock(blockToSplit, blockToSplit.InitialStartVerseNumber.ToString(), PortionScript.kSplitAtEndOfVerse);
 
 			var target = CreateStandardMarkScript();
 
@@ -2899,7 +2916,7 @@ namespace GlyssenEngineTests.Script
 		{
 			var source = CreateStandardMarkScript();
 			Block blockToSplit = source.Blocks.First(b => b.InitialStartVerseNumber > 0 && b.BlockElements.OfType<Verse>().Count() >= 3);
-			source.SplitBlock(blockToSplit, blockToSplit.BlockElements.OfType<Verse>().Skip(1).First().Number, BookScript.kSplitAtEndOfVerse);
+			source.SplitBlock(blockToSplit, blockToSplit.BlockElements.OfType<Verse>().Skip(1).First().Number, PortionScript.kSplitAtEndOfVerse);
 
 			var target = CreateStandardMarkScript();
 
@@ -3136,8 +3153,10 @@ namespace GlyssenEngineTests.Script
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.That(blocks.Count, Is.EqualTo(3));
 			Assert.That(blocks[2], Is.EqualTo(newBlock));
-			Assert.That("{9}\u00A0And as they were coming down the mountain, he charged them to tell no one what they had seen, " +
-				"until the Son of Man had risen from the dead. {10}\u00A0So they kept the matter to themselves, questioning: ",				Is.EqualTo(blocks[1].GetText(true)));
+			Assert.That(blocks[1].GetText(true), Is.EqualTo(
+				"{9}\u00A0And as they were coming down the mountain, he charged them to tell no " +
+				"one what they had seen, until the Son of Man had risen from the dead. " +
+				"{10}\u00A0So they kept the matter to themselves, questioning: "));
 			Assert.That(newBlock.InitialStartVerseNumber, Is.EqualTo(10));
 			Assert.That(newBlock.GetText(true), Is.EqualTo("What does rising from the dead mean?"));
 			Assert.That(newBlock.CharacterId, Is.EqualTo("Peter (Simon)/James/John"));
@@ -3161,12 +3180,13 @@ namespace GlyssenEngineTests.Script
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.That(blocks.Count, Is.EqualTo(3));
 			Assert.That(blocks[2], Is.EqualTo(newBlock));
-			Assert.That("{36}\u00A0Ignoring what they said, Jesus told the synagogue ruler: ",
-				Is.EqualTo(blocks[1].GetText(true)));
+			Assert.That(blocks[1].GetText(true),
+				Is.EqualTo("{36}\u00A0Ignoring what they said, Jesus told the synagogue ruler: "));
 			Assert.That(newBlock.InitialStartVerseNumber, Is.EqualTo(36));
 			Assert.That(newBlock.InitialEndVerseNumber, Is.EqualTo(0));
-			Assert.That("Don't be afraid; just believe. {37-38}\u00A0This is the text of following verses. {39}\u00A0This is the text of final verse. ",
-				Is.EqualTo(newBlock.GetText(true)));
+			Assert.That(newBlock.GetText(true),
+				Is.EqualTo("Don't be afraid; just believe. {37-38}\u00A0This is the text of " +
+				"following verses. {39}\u00A0This is the text of final verse. "));
 		}
 
 		[Test]
@@ -3545,7 +3565,7 @@ namespace GlyssenEngineTests.Script
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var newBlock = bookScript.SplitBlock(blockToSplit, "2", 5);
 			Assert.That(blockToSplit.CharacterId, Is.EqualTo("Bill"));
-			Assert.That(CharacterVerseData.kUnexpectedCharacter, Is.EqualTo(newBlock.CharacterId));
+			Assert.That(newBlock.CharacterId, Is.EqualTo(CharacterVerseData.kUnexpectedCharacter));
 			Assert.That(blockToSplit.UserConfirmed, Is.True);
 			Assert.That(newBlock.UserConfirmed, Is.False);
 		}
@@ -3588,8 +3608,8 @@ namespace GlyssenEngineTests.Script
 			bookScript.SplitBlock(blockToSplit, "36", 15);
 
 			var blocks = bookScript.GetScriptBlocks();
-			Assert.That(Block.kNotSplit, Is.EqualTo(blocks[0].SplitId)); // chapter number
-			Assert.That(Block.kNotSplit, Is.EqualTo(blocks[1].SplitId));
+			Assert.That(blocks[0].SplitId, Is.EqualTo(Block.kNotSplit)); // chapter number
+			Assert.That(blocks[1].SplitId, Is.EqualTo(Block.kNotSplit));
 			Assert.That(blocks[2].SplitId, Is.EqualTo(0));
 			Assert.That(blocks[3].SplitId, Is.EqualTo(0));
 		}
@@ -3614,7 +3634,7 @@ namespace GlyssenEngineTests.Script
 			bookScript.SplitBlock(blockToSplit, "36", 15);
 
 			var blocks = bookScript.GetScriptBlocks();
-			Assert.That(Block.kNotSplit, Is.EqualTo(blocks[0].SplitId)); // chapter number
+			Assert.That(blocks[0].SplitId, Is.EqualTo(Block.kNotSplit)); // chapter number
 			Assert.That(blocks[1].SplitId, Is.EqualTo(5));
 			Assert.That(blocks[2].SplitId, Is.EqualTo(5));
 			Assert.That(blocks[3].SplitId, Is.EqualTo(6));
@@ -3639,8 +3659,8 @@ namespace GlyssenEngineTests.Script
 			bookScript.SplitBlock(blockToSplit, "36", 15);
 
 			var blocks = bookScript.GetScriptBlocks();
-			Assert.That(Block.kNotSplit, Is.EqualTo(blocks[0].SplitId)); // chapter number
-			Assert.That(Block.kNotSplit, Is.EqualTo(blocks[1].SplitId));
+			Assert.That(blocks[0].SplitId, Is.EqualTo(Block.kNotSplit)); // chapter number
+			Assert.That(blocks[1].SplitId, Is.EqualTo(Block.kNotSplit));
 			Assert.That(blocks[2].SplitId, Is.EqualTo(3));
 			Assert.That(blocks[3].SplitId, Is.EqualTo(3));
 		}
@@ -3662,8 +3682,8 @@ namespace GlyssenEngineTests.Script
 			bookScript.SplitBlock(blockToSplitBefore, null, 0);
 
 			var blocks = bookScript.GetScriptBlocks();
-			Assert.That(Block.kNotSplit, Is.EqualTo(blocks[0].SplitId)); // chapter number
-			Assert.That(Block.kNotSplit, Is.EqualTo(blocks[1].SplitId));
+			Assert.That(blocks[0].SplitId, Is.EqualTo(Block.kNotSplit)); // chapter number
+			Assert.That(blocks[1].SplitId, Is.EqualTo(Block.kNotSplit));
 			Assert.That(blocks[2].SplitId, Is.EqualTo(0));
 			Assert.That(blocks[3].SplitId, Is.EqualTo(0));
 		}
@@ -3795,10 +3815,13 @@ namespace GlyssenEngineTests.Script
 			Assert.That(bookScript.TrySplitBlockAtEndOfVerse(blockToSplit, 2), Is.True);
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.That(blocks.Count, Is.EqualTo(3));
-			Assert.That("{1-2a}\u00A0This is the bridge that has the first part of verse 2. {2b}\u00A0This is the rest of verse two. ",				Is.EqualTo(blocks[1].GetText(true)));
+			Assert.That(blocks[1].GetText(true), Is.EqualTo(
+				"{1-2a}\u00A0This is the bridge that has the first part of verse 2. " +
+				"{2b}\u00A0This is the rest of verse two. "));
 			Assert.That(blocks[1].InitialStartVerseNumber, Is.EqualTo(1));
 			Assert.That(blocks[1].InitialEndVerseNumber, Is.EqualTo(2));
-			Assert.That(blocks[2].GetText(true), Is.EqualTo("{3}\u00A0This is the text of the following verse."));
+			Assert.That(blocks[2].GetText(true),
+				Is.EqualTo("{3}\u00A0This is the text of the following verse."));
 			Assert.That(blocks[2].InitialStartVerseNumber, Is.EqualTo(3));
 			Assert.That(blocks[2].InitialEndVerseNumber, Is.EqualTo(0));
 		}
@@ -3834,7 +3857,8 @@ namespace GlyssenEngineTests.Script
 			Assert.That(bookScript.TrySplitBlockAtEndOfVerse(blockToSplit, 2), Is.True);
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.That(blocks.Count, Is.EqualTo(4));
-			Assert.That(blocks[1].GetText(true),				Is.EqualTo("{1-2a}\u00A0This is the bridge that has the first part of verse 2. "));
+			Assert.That(blocks[1].GetText(true),
+				Is.EqualTo("{1-2a}\u00A0This is the bridge that has the first part of verse 2. "));
 			Assert.That(blocks[1].InitialStartVerseNumber, Is.EqualTo(1));
 			Assert.That(blocks[1].InitialEndVerseNumber, Is.EqualTo(2));
 			Assert.That(blocks[2].GetText(true),
@@ -3959,11 +3983,11 @@ namespace GlyssenEngineTests.Script
 			var result = bookScript.GetScriptBlocks();
 
 			Assert.That(result.Count, Is.EqualTo(3));
-			Assert.That(CharacterVerseData.kAmbiguousCharacter, Is.EqualTo(result[0].CharacterId));
-			Assert.That(CharacterVerseData.kAmbiguousCharacter, Is.EqualTo(result[0].CharacterIdInScript));
+			Assert.That(result[0].CharacterId, Is.EqualTo(CharacterVerseData.kAmbiguousCharacter));
+			Assert.That(result[0].CharacterIdInScript, Is.EqualTo(CharacterVerseData.kAmbiguousCharacter));
 			Assert.That(result[0].UserConfirmed, Is.False);
-			Assert.That(CharacterVerseData.kAmbiguousCharacter, Is.EqualTo(result[1].CharacterId));
-			Assert.That(CharacterVerseData.kAmbiguousCharacter, Is.EqualTo(result[1].CharacterIdInScript));
+			Assert.That(result[1].CharacterId, Is.EqualTo(CharacterVerseData.kAmbiguousCharacter));
+			Assert.That(result[1].CharacterIdInScript, Is.EqualTo(CharacterVerseData.kAmbiguousCharacter));
 			Assert.That(result[1].UserConfirmed, Is.False);
 			Assert.That(result[2].CharacterId, Is.EqualTo("Peter"));
 			Assert.That(result[2].CharacterIdInScript, Is.EqualTo("Peter"));
@@ -4052,10 +4076,12 @@ namespace GlyssenEngineTests.Script
 			replacementBlocks[1].SetMatchedReferenceBlock("{2} Reference text for v2.");
 			replacementBlocks[1].MultiBlockQuote = lastBlockMultiBlockQuote;
 
-			var exception = Assert.Throws<InvalidOperationException>(() => bookScript.ReplaceBlocks(1, 2, replacementBlocks));
-			Assert.That("Caller is responsible for setting preceding block(s)' MultiBlockQuote " +
-				"property set to None\r\n" + $"{replacementBlocks[1].ToString(true, "MRK")}",
-				Is.EqualTo(exception.Message));
+			Assert.That(() => bookScript.ReplaceBlocks(1, 2, replacementBlocks),
+				Throws.InstanceOf<InvalidOperationException>()
+					.With.Message.EqualTo(
+						"Caller is responsible for setting preceding block(s)' MultiBlockQuote " +
+						"property set to None\r\n" +
+						replacementBlocks[1].ToString(true, "MRK")));
 		}
 
 		[TestCase(Continuation)]
@@ -4929,7 +4955,7 @@ namespace GlyssenEngineTests.Script
 
 			var clonedMark1_4Blocks = clone.GetBlocksForVerse(1, 4);
 			Assert.That(origMark1_4Blocks.Select(b => b.GetText(true)).SequenceEqual(orig.GetBlocksForVerse(1, 4).Select(b => b.GetText(true))), Is.True);
-			clone.SplitBlock(clonedMark1_4Blocks.First(), "4", BookScript.kSplitAtEndOfVerse, false);
+			clone.SplitBlock(clonedMark1_4Blocks.First(), "4", PortionScript.kSplitAtEndOfVerse, false);
 			Assert.That(origMark1_4Blocks.SequenceEqual(orig.GetBlocksForVerse(1, 5)), Is.True);
 			Assert.That(origMark2_1Blocks.SequenceEqual(orig.GetBlocksForVerse(2, 1)), Is.True);
 			Assert.That(origMark1_4Blocks.Select(b => b.GetText(true)).SequenceEqual(clone.GetBlocksForVerse(1, 4).Select(b => b.GetText(true))), Is.False);

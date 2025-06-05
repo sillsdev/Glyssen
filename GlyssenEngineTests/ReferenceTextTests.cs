@@ -115,11 +115,12 @@ namespace GlyssenEngineTests
 			Assert.That(result.All(b => b.CharacterId == "Peter/James/John"), Is.True);
 			Assert.That(result.All(b => b.CharacterIdInScript == "John"), Is.True);
 			Assert.That(result.All(b => b.Delivery == "annoyed beyond belief"), Is.True);
-			Assert.That(expectedResultForFirstBlock, Is.EqualTo(result.First().MultiBlockQuote));
+			Assert.That(result.First().MultiBlockQuote, Is.EqualTo(expectedResultForFirstBlock));
 			Assert.That(result.Skip(1).All(b => b.MultiBlockQuote == expectedResultForSubsequentBlocks), Is.True);
 			Assert.That(result.All(b => b.UserConfirmed), Is.True);
 			Assert.That(result.All(b => b.SplitId == -1), Is.True);
-			Assert.That(result.Select(v => v.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Select(r => r.GetText(true))), Is.True);
+			Assert.That(result.Select(v => v.GetPrimaryReferenceText()),
+				Is.EqualTo(referenceBlocks.Select(r => r.GetText(true))));
 		}
 
 		[TestCase(MultiBlockQuote.None, MultiBlockQuote.Start, MultiBlockQuote.Continuation)]
@@ -178,7 +179,7 @@ namespace GlyssenEngineTests
 			Assert.That(result.All(b => b.CharacterId == "Peter/James/John"), Is.True);
 			Assert.That(result.All(b => b.CharacterIdInScript == "John"), Is.True);
 			Assert.That(result.All(b => b.Delivery == "annoyed beyond belief"), Is.True);
-			Assert.That(expectedResultForFirstBlock, Is.EqualTo(result.First().MultiBlockQuote));
+			Assert.That(result.First().MultiBlockQuote, Is.EqualTo(expectedResultForFirstBlock));
 			Assert.That(result.Skip(1).All(b => b.MultiBlockQuote == expectedResultForSubsequentBlocks), Is.True);
 			Assert.That(result.All(b => b.UserConfirmed), Is.True);
 			Assert.That(result.All(b => b.SplitId == -1), Is.True);
@@ -1280,7 +1281,7 @@ namespace GlyssenEngineTests
 			Assert.That(result[0].MatchesReferenceText);
 			Assert.That(referenceBlocks[1], Is.EqualTo(result[1].ReferenceBlocks.Single()));
 			Assert.That(result[1].MatchesReferenceText);
-			Assert.That(CharacterVerseData.kAmbiguousCharacter, Is.EqualTo(result[1].CharacterId));
+			Assert.That(result[1].CharacterId, Is.EqualTo(CharacterVerseData.kAmbiguousCharacter));
 			Assert.That(referenceBlocks[2], Is.EqualTo(result[2].ReferenceBlocks[0]));
 			Assert.That(referenceBlocks[3], Is.EqualTo(result[2].ReferenceBlocks[1]));
 			Assert.That(referenceBlocks[4], Is.EqualTo(result[3].ReferenceBlocks.Single()));
@@ -1750,14 +1751,14 @@ namespace GlyssenEngineTests
 			var result = vernBook.GetScriptBlocks();
 			Assert.That(result.Count, Is.EqualTo(2));
 
-			Assert.That("{1}\u00A0Now when Jesus was born in Bethlehem of Judea in the days of King Herod, " +
-				"behold, wise men from the east came to Jerusalem, ",
-				Is.EqualTo(result[0].ReferenceBlocks.Single().GetText(true)));
+			Assert.That(result[0].ReferenceBlocks.Single().GetText(true),
+				Is.EqualTo("{1}\u00A0Now when Jesus was born in Bethlehem of Judea in the days " +
+					"of King Herod, behold, wise men from the east came to Jerusalem, "));
 			Assert.That(result[0].MatchesReferenceText);
 
 			Assert.That(result[1].MatchesReferenceText);
-			Assert.That("{2}\u00A0saying, " + referenceBlocks[1].GetText(true),
-				Is.EqualTo(result[1].ReferenceBlocks.Single().GetText(true)));
+			Assert.That(result[1].ReferenceBlocks.Single().GetText(true),
+				Is.EqualTo("{2}\u00A0saying, " + referenceBlocks[1].GetText(true)));
 		}
 
 		/// <summary>
@@ -1925,7 +1926,8 @@ namespace GlyssenEngineTests
 			Assert.That(result[5].ReferenceBlocks.Count, Is.EqualTo(0));
 
 			Assert.That(result[6].MatchesReferenceText);
-			Assert.That("{38}\u00A0¡Para el carruaje!» " + referenceBlocks.Last().GetText(true), Is.EqualTo(result[6].ReferenceBlocks.Single().GetText(true)));
+			Assert.That(result[6].ReferenceBlocks.Single().GetText(true),
+				Is.EqualTo("{38}\u00A0¡Para el carruaje!» " + referenceBlocks.Last().GetText(true)));
 		}
 
 		[Test]
@@ -2348,8 +2350,8 @@ namespace GlyssenEngineTests
 				Assert.That(result[3].ReferenceBlocks.Count, Is.EqualTo(1));
 				Assert.That(result[3].MatchesReferenceText);
 				var expected = referenceBlocks[2].GetText(true) + " " + referenceBlocks[3].GetText(true);
-				Assert.That(expected, Is.EqualTo(result[3].ReferenceBlocks[0].GetText(true)));
-				Assert.That(expected, Is.EqualTo(result[3].GetPrimaryReferenceText()));
+				Assert.That(result[3].ReferenceBlocks[0].GetText(true), Is.EqualTo(expected));
+				Assert.That(result[3].GetPrimaryReferenceText(), Is.EqualTo(expected));
 			}
 		}
 
@@ -3690,8 +3692,8 @@ namespace GlyssenEngineTests
 
 				Assert.That(result.Count, Is.EqualTo(6));
 				Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
-				Assert.That(expectedRefTextForVerse18Part1, Is.EqualTo(result[4].ReferenceBlocks.Single().GetText(true)));
-				Assert.That(expectedRefTextForVerse18Part2, Is.EqualTo(result[5].ReferenceBlocks.Single().GetText(true)));
+				Assert.That(result[4].ReferenceBlocks.Single().GetText(true), Is.EqualTo(expectedRefTextForVerse18Part1));
+				Assert.That(result[5].ReferenceBlocks.Single().GetText(true), Is.EqualTo(expectedRefTextForVerse18Part2));
 			}
 			finally
 			{
@@ -3727,8 +3729,10 @@ namespace GlyssenEngineTests
 				Assert.That(result.Take(3).All(b => b.MatchesReferenceText), Is.True);
 				Assert.That(result[4].MatchesReferenceText, Is.False);
 				Assert.That(result[4].ReferenceBlocks.Count, Is.EqualTo(2));
-				Assert.That(expectedRefTextForVerse18Part1, Is.EqualTo(result[4].ReferenceBlocks[0].GetText(true)));
-				Assert.That(expectedRefTextForVerse18Part2, Is.EqualTo(result[4].ReferenceBlocks[1].GetText(true)));
+				Assert.That(result[4].ReferenceBlocks[0].GetText(true),
+					Is.EqualTo(expectedRefTextForVerse18Part1));
+				Assert.That(result[4].ReferenceBlocks[1].GetText(true),
+					Is.EqualTo(expectedRefTextForVerse18Part2));
 			}
 			finally
 			{
@@ -3765,7 +3769,8 @@ namespace GlyssenEngineTests
 
 				Assert.That(result.Count, Is.EqualTo(4));
 				Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
-				Assert.That(expectedRefTextForVerse18Part1 + " " + expectedRefTextForVerse18Part2, Is.EqualTo(result[3].ReferenceBlocks.Single().GetText(true)));
+				Assert.That(result[3].ReferenceBlocks.Single().GetText(true),
+					Is.EqualTo(expectedRefTextForVerse18Part1 + " " + expectedRefTextForVerse18Part2));
 			}
 			finally
 			{
@@ -4042,15 +4047,21 @@ namespace GlyssenEngineTests
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 1);
-			Assert.That(vernacularBlocks[1].GetText(true), Is.EqualTo(matchup.CorrelatedAnchorBlock.GetText(true)));
+			Assert.That(matchup.CorrelatedAnchorBlock.GetText(true),
+				Is.EqualTo(vernacularBlocks[1].GetText(true)));
 			var result = matchup.CorrelatedBlocks;
 			Assert.That(result.Count, Is.EqualTo(2));
 			Assert.That(vernacularBlocks.Intersect(result).Count(), Is.EqualTo(0));
 			Assert.That(result[0].MatchesReferenceText, Is.False);
 			Assert.That(result[1].MatchesReferenceText);
 
-			Assert.That(result[0].GetText(true), Is.EqualTo("{1}\u00A0Maria i karim Jisas long taun Betlehem long distrik Judia long taim Herot i stap king. Em i karim Jisas pinis, na bihain sampela saveman bilong hap sankamap i kam long Jerusalem na ol i askim nabaut olsem, "));
-			Assert.That("{2}\u00A0\"Nupela pikinini em king bilong ol Juda, em i stap we ? Mipela i lukim sta bilong en long hap sankamap, na mipela i kam bilong lotu long em.\"", Is.EqualTo(result[1].GetText(true)));
+			Assert.That(result[0].GetText(true), Is.EqualTo(
+				"{1}\u00A0Maria i karim Jisas long taun Betlehem long distrik Judia long taim " +
+				"Herot i stap king. Em i karim Jisas pinis, na bihain sampela saveman bilong " +
+				"hap sankamap i kam long Jerusalem na ol i askim nabaut olsem, "));
+			Assert.That(result[1].GetText(true), Is.EqualTo(
+				"{2}\u00A0\"Nupela pikinini em king bilong ol Juda, em i stap we ? Mipela i " +
+				"lukim sta bilong en long hap sankamap, na mipela i kam bilong lotu long em.\""));
 
 			Assert.That(result.Select(b => b.ReferenceBlocks.Single().GetText(true)).SequenceEqual(referenceBlocks.Take(2).Select(b => b.GetText(true))), Is.True);
 			Assert.That(referenceBlocks[1].GetText(true), Is.EqualTo(result[1].GetPrimaryReferenceText()));
@@ -4114,7 +4125,7 @@ namespace GlyssenEngineTests
 			var v25RefTextBlock = refText.Books.Single(b => b.BookId == kBookId).GetBlocksForVerse(13, 25).Single();
 			Assert.That(v25RefTextBlock.InitialStartVerseNumber, Is.EqualTo(24),
 				"Test setup conditions not met");
-			Assert.That("25", Is.EqualTo(((Verse)v25RefTextBlock.BlockElements[2]).Number),
+			Assert.That(((Verse)v25RefTextBlock.BlockElements[2]).Number, Is.EqualTo("25"),
 				"Test setup conditions not met");
 			var expectedRefTextForVerse25 = "{25}\u00A0" + ((ScriptText)v25RefTextBlock.BlockElements[3]).Content;
 
@@ -4125,7 +4136,8 @@ namespace GlyssenEngineTests
 			Assert.That(vernacularBlocks[0].GetText(true), Is.EqualTo(matchup.CorrelatedAnchorBlock.GetText(true)));
 			Assert.That(matchup.CorrelatedBlocks.Count, Is.EqualTo(1));
 			Assert.That(matchup.CorrelatedBlocks[0].MatchesReferenceText);
-			Assert.That(expectedRefTextForVerse25, Is.EqualTo(matchup.CorrelatedBlocks[0].GetPrimaryReferenceText()));
+			Assert.That(matchup.CorrelatedBlocks[0].GetPrimaryReferenceText(),
+				Is.EqualTo(expectedRefTextForVerse25));
 		}
 
 		[Test]
@@ -4426,11 +4438,11 @@ namespace GlyssenEngineTests
 				"Expected pre-condition for test not met. Reference text for MRK 14:70 should be 4 blocks.");
 			Assert.That(refBlocksMrk14V70[0].CharacterId, Is.EqualTo(narrator),
 				$"Expected pre-condition for test not met. Reference text block 0 for MRK 14:70 should be spoken by \"{narrator}\".");
-			Assert.That("Peter (Simon)", Is.EqualTo(refBlocksMrk14V70[1].CharacterId),
+			Assert.That(refBlocksMrk14V70[1].CharacterId, Is.EqualTo("Peter (Simon)"),
 				"Expected pre-condition for test not met. Reference text block 1 for MRK 14:70 should be spoken by \"Peter (Simon)\".");
 			Assert.That(refBlocksMrk14V70[2].CharacterId, Is.EqualTo(narrator),
 				$"Expected pre-condition for test not met. Reference text block 2 for MRK 14:70 should be spoken by \"{narrator}\".");
-			Assert.That("high priest's servant (relative of the man whose ear Peter cut off)/those standing near", Is.EqualTo(refBlocksMrk14V70[3].CharacterId),
+			Assert.That(refBlocksMrk14V70[3].CharacterId, Is.EqualTo("high priest's servant (relative of the man whose ear Peter cut off)/those standing near"),
 				"Expected pre-condition for test not met. Reference text block 3 for MRK 14:70 should be spoken by \"high priest's servant (relative of the man whose ear Peter cut off)/those standing near\".");
 
 			var vernacularBlocks = new List<Block>
@@ -4730,7 +4742,7 @@ namespace GlyssenEngineTests
 
 			var refText = GetStandardReferenceText(ReferenceTextType.English);
 			var refTextBlocks = refText.GetBook("MAT").GetBlocksForVerse(27, 9).ToList();
-			Assert.That(10, Is.EqualTo(refTextBlocks.Last().LastVerseNum),
+			Assert.That(refTextBlocks.Last().LastVerseNum, Is.EqualTo(10),
 				"SETUP check - expected English reference text to have verse 10 included with the last block for MAT 27:9.");
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
@@ -4764,15 +4776,15 @@ namespace GlyssenEngineTests
 			var refTextBlocks = refText.GetBook("MAT").GetBlocksForVerse(21, 31).ToList();
 			Assert.That(refTextBlocks.Count, Is.EqualTo(5),
 				"SETUP check - expected English reference text to have five blocks for Matthew 21:31.");
-			Assert.That("Jesus", Is.EqualTo(refTextBlocks[0].CharacterId),
+			Assert.That(refTextBlocks[0].CharacterId, Is.EqualTo("Jesus"),
 				"SETUP check - expected English reference text to have Jesus speak in first block for Luke 7:40.");
 			Assert.That(refTextBlocks[1].GetText(false), Does.Contain("They said"),
 				"SETUP check - expected English reference text to have reporting clause introducing chief priests/elders");
-			Assert.That("chief priests/elders", Is.EqualTo(refTextBlocks[2].CharacterId),
+			Assert.That(refTextBlocks[2].CharacterId, Is.EqualTo("chief priests/elders"),
 				"SETUP check - expected English reference text to have chief priests/elders speak in response to Jesus' question in Matthew 21:31.");
 			Assert.That(refTextBlocks[3].GetText(false), Does.Contain("Jesus said"),
 				"SETUP check - expected English reference text to have reporting clause introducing Jesus");
-			Assert.That("Jesus", Is.EqualTo(refTextBlocks.Last().CharacterId),
+			Assert.That(refTextBlocks.Last().CharacterId, Is.EqualTo("Jesus"),
 				"SETUP check - expected English reference text to have Jesus speak in final block for Matthew 21:31.");
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, new []{"– лагьана ада.", "– лагьана Исади. –", "– минетдалди лагьана ада. –", "– жаваб гана абуру."});
@@ -4805,14 +4817,14 @@ namespace GlyssenEngineTests
 			var refText = GetStandardReferenceText(ReferenceTextType.English);
 			var refTextBlocks = refText.GetBook("LUK").GetBlocksForVerse(7, 40).ToList();
 			Assert.That(refTextBlocks.Count, Is.EqualTo(4), "SETUP check - expected English reference text to have four blocks for Luke 7:40.");
-			Assert.That("Jesus", Is.EqualTo(refTextBlocks[1].CharacterId),
+			Assert.That(refTextBlocks[1].CharacterId, Is.EqualTo("Jesus"),
 				"SETUP check - expected English reference text to have Jesus speak in second block for Luke 7:40.");
 			Assert.That(((ScriptText)refTextBlocks[1].BlockElements.Single()).Content.TrimEnd(), Does.EndWith("»"),
 				"SETUP check - expected English reference text to have Jesus' words in quotes for Luke 7:40.");
 			Assert.That(refTextBlocks[2].GetText(false).ToLower().Replace(",", "."),
 				Is.EqualTo(refText.HeSaidText),
 				"SETUP check - expected English reference text to have leading reporting clause between two speakers");
-			Assert.That("Pharisee (Simon)", Is.EqualTo(refTextBlocks.Last().CharacterId),
+			Assert.That(refTextBlocks.Last().CharacterId, Is.EqualTo("Pharisee (Simon)"),
 				"SETUP check - expected English reference text to have Pharisee (Simon) speak in final block for Luke 7:40.");
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, new []{"– лагьана ада.", "– лагьана Исади. –", "– жаваб гана абуру."});
@@ -4852,7 +4864,7 @@ namespace GlyssenEngineTests
 				"SETUP check - expected the initial reporting clause in the English reference text to have additional words besides \"he said\".");
 			Assert.That(refTextActualReportingClauseLowercase, Does.Contain(refTextHeSaidLowercase),
 				"SETUP check - expected the initial reporting clause in the English reference text to contain \"he said\".");
-			Assert.That("Jesus", Is.EqualTo(refTextBlocks[1].CharacterId),
+			Assert.That(refTextBlocks[1].CharacterId, Is.EqualTo("Jesus"),
 				"SETUP check - expected English reference text to have Jesus speak in second block for Luke 10:18.");
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, new []{"– лагьана ада.", "– лагьана Исади. –", "– жаваб гана абуру."});
@@ -4975,14 +4987,14 @@ namespace GlyssenEngineTests
 			var refTextBlocksForJhn12V35 = refTextJhn.GetBlocksForVerse(12, 35).ToList();
 			Assert.That(refTextBlocksForJhn12V35.Count, Is.EqualTo(2),
 				"SETUP check - expected English reference text to have two blocks for John 12:35.");
-			Assert.That("Jesus", Is.EqualTo(refTextBlocksForJhn12V35[1].CharacterId),
+			Assert.That(refTextBlocksForJhn12V35[1].CharacterId, Is.EqualTo("Jesus"),
 				"SETUP check - expected English reference text to have Jesus speak in second block for John 12:35.");
 			Assert.That(refTextBlocksForJhn12V35[1].LastVerseNum, Is.EqualTo(35),
 				"SETUP check - expected English reference text to have have a block break between John 12:35 and v. 36.");
 			var refTextBlocksForJhn12V36 = refTextJhn.GetBlocksForVerse(12, 36).ToList();
 			Assert.That(refTextBlocksForJhn12V36.Count, Is.EqualTo(2),
 				"SETUP check - expected English reference text to have two blocks for John 12:36.");
-			Assert.That("Jesus", Is.EqualTo(refTextBlocksForJhn12V36[0].CharacterId),
+			Assert.That(refTextBlocksForJhn12V36[0].CharacterId, Is.EqualTo("Jesus"),
 				"SETUP check - expected English reference text to have Jesus speak in the first block for John 12:36.");
 			Assert.That(CharacterVerseData.IsCharacterOfType(refTextBlocksForJhn12V36[1].CharacterId,
 				CharacterVerseData.StandardCharacter.Narrator), Is.True,
@@ -5033,13 +5045,13 @@ namespace GlyssenEngineTests
 			Assert.That(refTextBlocksForMrk15V14.Count, Is.EqualTo(4), "SETUP check - expected reference text to have four blocks for Mark 15:14.");
 			Assert.That(refTextBlocksForMrk15V14[0].CharacterId, Is.EqualTo(narrator),
 				"SETUP check - expected reference text to have narrator speak in first block for Mark 15:14.");
-			Assert.That("Pilate", Is.EqualTo(refTextBlocksForMrk15V14[1].CharacterId),
+			Assert.That(refTextBlocksForMrk15V14[1].CharacterId, Is.EqualTo("Pilate"),
 				"SETUP check - expected reference text to have Pilate speak in second block for Mark 15:14.");
 			Assert.That(refTextBlocksForMrk15V14[2].CharacterId, Is.EqualTo(narrator),
 				"SETUP check - expected reference text to have narrator speak in third block for Mark 15:14.");
-			Assert.That("crowd before Pilate", Is.EqualTo(refTextBlocksForMrk15V14[3].CharacterId),
+			Assert.That(refTextBlocksForMrk15V14[3].CharacterId, Is.EqualTo("crowd before Pilate"),
 				"SETUP check - expected reference text to have the crowd before Pilate speak in last block for Mark 15:14.");
-			Assert.That(14, Is.EqualTo(refTextBlocksForMrk15V14.Last().LastVerseNum),
+			Assert.That(refTextBlocksForMrk15V14.Last().LastVerseNum, Is.EqualTo(14),
 				"SETUP check - expected reference text to have have a block break between Mark 15:14 and v. 15.");
 
 			var vernacularBlocks = new List<Block>
@@ -5076,7 +5088,7 @@ namespace GlyssenEngineTests
 
 			var blockComparer = new BlockComparer();
 
-			Assert.That(4, Is.EqualTo(allReferenceBlocks.Distinct(blockComparer).Count()),
+			Assert.That(allReferenceBlocks.Distinct(blockComparer).Count(), Is.EqualTo(4),
 				"There should be no duplicate reference blocks");
 
 			Assert.That(allReferenceBlocks.Single(b => b.StartsAtVerseStart).BlockElements.OfType<Verse>().Single().AllVerseNumbers.Single(), Is.EqualTo(14));
@@ -5140,14 +5152,14 @@ namespace GlyssenEngineTests
 				"SETUP check - expected reference text to have James and John speak in second block for Mark 10:39.");
 			Assert.That(refTextBlocksForMrk10V39And40[2].CharacterId, Is.EqualTo(narrator),
 				"SETUP check - expected reference text to have narrator speak in third block for Mark 10:39.");
-			Assert.That("Jesus", Is.EqualTo(refTextBlocksForMrk10V39And40[3].CharacterId),
+			Assert.That(refTextBlocksForMrk10V39And40[3].CharacterId, Is.EqualTo("Jesus"),
 				"SETUP check - expected reference text to have Jesus speak in last block for Mark 10:39.");
-			Assert.That(39, Is.EqualTo(refTextBlocksForMrk10V39And40.Last().LastVerseNum),
+			Assert.That(refTextBlocksForMrk10V39And40.Last().LastVerseNum, Is.EqualTo(39),
 				"SETUP check - expected reference text to have have a block break between Mark 10:39 and v. 40.");
 			var refTextBlocksForMrk10V40 = refTextMrk.GetBlocksForVerse(10, 40).Single();
-			Assert.That("Jesus", Is.EqualTo(refTextBlocksForMrk10V40.CharacterId),
+			Assert.That(refTextBlocksForMrk10V40.CharacterId, Is.EqualTo("Jesus"),
 				"SETUP check - expected reference text to have Jesus speak in block for Mark 10:40.");
-			Assert.That("40", Is.EqualTo(refTextBlocksForMrk10V40.BlockElements.OfType<Verse>().Single().Number),
+			Assert.That(refTextBlocksForMrk10V40.BlockElements.OfType<Verse>().Single().Number, Is.EqualTo("40"),
 				"SETUP check - expected reference text to have have a block break between Mark 10:40 and v. 41.");
 			refTextBlocksForMrk10V39And40.Add(refTextBlocksForMrk10V40);
 
@@ -5187,7 +5199,7 @@ namespace GlyssenEngineTests
 
 			var blockComparer = new BlockComparer();
 
-			Assert.That(5, Is.EqualTo(allReferenceBlocks.Distinct(blockComparer).Count()),
+			Assert.That(allReferenceBlocks.Distinct(blockComparer).Count(), Is.EqualTo(5),
 				"There should be no duplicate reference blocks");
 
 			Assert.That(allReferenceBlocks.SelectMany(b => b.BlockElements).OfType<Verse>().Select(v => v.Number)
@@ -5200,7 +5212,7 @@ namespace GlyssenEngineTests
 				Assert.That(allReferenceBlocks.All(b => b.MatchesReferenceText), Is.True);
 				var englishRefBlocks = allReferenceBlocks.Select(b => b.ReferenceBlocks.Single()).ToList();
 
-				Assert.That(5, Is.EqualTo(englishRefBlocks.Distinct(blockComparer).Count()),
+				Assert.That(englishRefBlocks.Distinct(blockComparer).Count(), Is.EqualTo(5),
 					"There should be no duplicate English reference blocks");
 
 				Assert.That(englishRefBlocks.SelectMany(b => b.BlockElements).OfType<Verse>().Select(v => v.Number)
@@ -5222,9 +5234,9 @@ namespace GlyssenEngineTests
 			Assert.That(refTextBlocksForMat19V20.Count, Is.EqualTo(2), "SETUP check - expected reference text to have two blocks for Matthew 19:20.");
 			Assert.That(refTextBlocksForMat19V20[0].CharacterId, Is.EqualTo(narrator),
 				"SETUP check - expected reference text to have narrator speak in first block for Matthew 19:20.");
-			Assert.That("rich young ruler", Is.EqualTo(refTextBlocksForMat19V20[1].CharacterId),
+			Assert.That(refTextBlocksForMat19V20[1].CharacterId, Is.EqualTo("rich young ruler"),
 				"SETUP check - expected reference text to have the rich young ruler speak in second block for Matthew 19:20.");
-			Assert.That(20, Is.EqualTo(refTextBlocksForMat19V20.Last().LastVerseNum),
+			Assert.That(refTextBlocksForMat19V20.Last().LastVerseNum, Is.EqualTo(20),
 				"SETUP check - expected reference text to have have a block break between Matthew 19:20 and v. 21.");
 
 			var vernacularBlocks = new List<Block>
@@ -5283,7 +5295,7 @@ namespace GlyssenEngineTests
 				"SETUP check - expected English reference text to have have a block break between Mat 2:19 and v. 20.");
 
 			var refTextBlockForMat2V20 = refTextMat.GetBlocksForVerse(2, 20).Last();
-			Assert.That("angel", Is.EqualTo(refTextBlockForMat2V20.CharacterId),
+			Assert.That(refTextBlockForMat2V20.CharacterId, Is.EqualTo("angel"),
 				"SETUP check - expected English reference text to have angel speak in block for Mat 2:20.");
 			Assert.That(refTextBlockForMat2V20.LastVerseNum, Is.EqualTo(20),
 				"SETUP check - expected English reference text to have have a block break between Mat 2:20 and v. 21.");
@@ -5340,7 +5352,7 @@ namespace GlyssenEngineTests
 				"SETUP check - expected Russian reference text to have have the start of Mat 2:20 included in block for v. 19.");
 
 			var refTextBlockForMat2V20 = refTextMat.GetBlocksForVerse(2, 20).Last();
-			Assert.That("angel", Is.EqualTo(refTextBlockForMat2V20.CharacterId),
+			Assert.That(refTextBlockForMat2V20.CharacterId, Is.EqualTo("angel"),
 				"SETUP check - expected Russian reference text to have angel speak in block for Mat 2:20.");
 			Assert.That(refTextBlockForMat2V20.LastVerseNum, Is.EqualTo(20),
 				"SETUP check - expected Russian reference text to have have a block break between Mat 2:20 and v. 21.");
@@ -5433,15 +5445,15 @@ namespace GlyssenEngineTests
 			var refTextBlocksMat15V34 = refTextMat.GetBlocksForVerse(15, 34).ToList();
 			Assert.That(refTextBlocksMat15V34.Count, Is.EqualTo(4),
 				"SETUP check - unexpected number of reference blocks for Matthew 15:34.");
-			Assert.That("Jesus", Is.EqualTo(refTextBlocksMat15V34[1].CharacterId),
+			Assert.That(refTextBlocksMat15V34[1].CharacterId, Is.EqualTo("Jesus"),
 				"SETUP check - expected English reference text to have Jesus speak in second block for Matthew 15:34.");
-			Assert.That("disciples", Is.EqualTo(refTextBlocksMat15V34[3].CharacterId),
+			Assert.That(refTextBlocksMat15V34[3].CharacterId, Is.EqualTo("disciples"),
 				"SETUP check - expected English reference text to have disciples speak in last block for Matthew 15:34.");
 			
 			var refTextBlocksMat15V35 = refTextMat.GetBlocksForVerse(15, 35).ToList();
 			Assert.That(refTextBlocksMat15V35.Count, Is.EqualTo(2),
 				"SETUP check - unexpected number of reference blocks for Matthew 15:35.");
-			Assert.That("Jesus", Is.EqualTo(refTextBlocksMat15V35[1].CharacterId),
+			Assert.That(refTextBlocksMat15V35[1].CharacterId, Is.EqualTo("Jesus"),
 				"SETUP check - expected English reference text to have Jesus speak in second block for Matthew 15:35.");
 
 			for (int v = 36; v <= 39; v++)

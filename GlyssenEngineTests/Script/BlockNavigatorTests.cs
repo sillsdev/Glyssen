@@ -81,7 +81,7 @@ namespace GlyssenEngineTests.Script
 		{
 			var firstBook = m_books.First();
 			var lastBlock = firstBook.GetScriptBlocks().Last();
-			Assert.That(true, Is.EqualTo(m_navigator.IsLastBlockInBook(firstBook, lastBlock)));
+			Assert.That(m_navigator.IsLastBlockInBook(firstBook, lastBlock));
 		}
 
 		[Test]
@@ -89,7 +89,7 @@ namespace GlyssenEngineTests.Script
 		{
 			var firstBook = m_books.First();
 			var firstBlock = firstBook[0];
-			Assert.That(false, Is.EqualTo(m_navigator.IsLastBlockInBook(firstBook, firstBlock)));
+			Assert.That(m_navigator.IsLastBlockInBook(firstBook, firstBlock), Is.False);
 		}
 
 		[Test]
@@ -97,7 +97,7 @@ namespace GlyssenEngineTests.Script
 		{
 			var lastBook = m_books.Last();
 			m_navigator.CurrentBlock = lastBook.GetScriptBlocks().Last();
-			Assert.That(true, Is.EqualTo(m_navigator.IsLastBlock()));
+			Assert.That(m_navigator.IsLastBlock());
 		}
 
 		[Test]
@@ -105,7 +105,7 @@ namespace GlyssenEngineTests.Script
 		{
 			var firstBook = m_books.First();
 			m_navigator.CurrentBlock = firstBook[0];
-			Assert.That(false, Is.EqualTo(m_navigator.IsLastBlock()));
+			Assert.That(m_navigator.IsLastBlock(), Is.False);
 		}
 
 		[Test]
@@ -113,14 +113,14 @@ namespace GlyssenEngineTests.Script
 		{
 			var firstBook = m_books.First();
 			m_navigator.CurrentBlock = firstBook.GetScriptBlocks().Last();
-			Assert.That(false, Is.EqualTo(m_navigator.IsLastBlock()));
+			Assert.That(m_navigator.IsLastBlock(), Is.False);
 		}
 
 		[Test]
 		public void IsLastBook_True()
 		{
 			var lastBook = m_books.Last();
-			Assert.That(true, Is.EqualTo(m_navigator.IsLastBook(lastBook)));
+			Assert.That(m_navigator.IsLastBook(lastBook));
 		}
 
 		[Test]
@@ -128,7 +128,7 @@ namespace GlyssenEngineTests.Script
 		{
 			var firstBook = m_books.First();
 			var firstBlock = firstBook[0];
-			Assert.That(true, Is.EqualTo(m_navigator.IsFirstBlockInBook(firstBook, firstBlock)));
+			Assert.That(m_navigator.IsFirstBlockInBook(firstBook, firstBlock));
 		}
 
 		[Test]
@@ -136,7 +136,7 @@ namespace GlyssenEngineTests.Script
 		{
 			var firstBook = m_books.First();
 			var lastBlock = firstBook.GetScriptBlocks().Last();
-			Assert.That(false, Is.EqualTo(m_navigator.IsFirstBlockInBook(firstBook, lastBlock)));
+			Assert.That(m_navigator.IsFirstBlockInBook(firstBook, lastBlock), Is.False);
 		}
 
 		[Test]
@@ -144,7 +144,7 @@ namespace GlyssenEngineTests.Script
 		{
 			var firstBook = m_books.First();
 			var firstBlock = firstBook[0];
-			Assert.That(true, Is.EqualTo(m_navigator.IsFirstBlock(firstBlock)));
+			Assert.That(m_navigator.IsFirstBlock(firstBlock));
 		}
 
 		[Test]
@@ -152,7 +152,7 @@ namespace GlyssenEngineTests.Script
 		{
 			var lastBook = m_books.Last();
 			var lastBlock = lastBook.GetScriptBlocks().Last();
-			Assert.That(false, Is.EqualTo(m_navigator.IsFirstBlock(lastBlock)));
+			Assert.That(m_navigator.IsFirstBlock(lastBlock), Is.False);
 		}
 
 		[Test]
@@ -160,14 +160,14 @@ namespace GlyssenEngineTests.Script
 		{
 			var lastBook = m_books.Last();
 			var firstBlock = lastBook[0];
-			Assert.That(false, Is.EqualTo(m_navigator.IsFirstBlock(firstBlock)));
+			Assert.That(m_navigator.IsFirstBlock(firstBlock), Is.False);
 		}
 
 		[Test]
 		public void IsFirstBook_True()
 		{
 			var firstBook = m_books.First();
-			Assert.That(true, Is.EqualTo(m_navigator.IsFirstBook(firstBook)));
+			Assert.That(m_navigator.IsFirstBook(firstBook));
 		}
 
 		[Test]
@@ -177,7 +177,7 @@ namespace GlyssenEngineTests.Script
 			var firstBlock = firstBook[0];
 			var secondBlock = firstBook[1];
 			m_navigator.CurrentBlock = firstBlock;
-			Assert.That(secondBlock, Is.EqualTo(m_navigator.GoToNextBlock()));
+			Assert.That(m_navigator.GoToNextBlock(), Is.EqualTo(secondBlock));
 		}
 
 		[Test]
@@ -188,7 +188,7 @@ namespace GlyssenEngineTests.Script
 			var thirdBlock = firstBook[2];
 			m_navigator.CurrentBlock = firstBlock;
 			m_navigator.ExtendCurrentBlockGroup(1);
-			Assert.That(thirdBlock, Is.EqualTo(m_navigator.GoToNextBlock()));
+			Assert.That(m_navigator.GoToNextBlock(), Is.EqualTo(thirdBlock));
 		}
 
 		[Test]
@@ -199,7 +199,7 @@ namespace GlyssenEngineTests.Script
 			var secondBook = m_books[1];
 			var firstBlock = secondBook[0];
 			m_navigator.CurrentBlock = lastBlock;
-			Assert.That(firstBlock, Is.EqualTo(m_navigator.GoToNextBlock()));
+			Assert.That(m_navigator.GoToNextBlock(), Is.EqualTo(firstBlock));
 		}
 
 		[TestCase(3)]
@@ -213,7 +213,7 @@ namespace GlyssenEngineTests.Script
 			var firstBlock = secondBook[0];
 			m_navigator.CurrentBlock = thirdBlockFromEnd;
 			m_navigator.ExtendCurrentBlockGroup((uint)numberOfBlocksToCover - 1);
-			Assert.That(firstBlock, Is.EqualTo(m_navigator.GoToNextBlock()));
+			Assert.That(m_navigator.GoToNextBlock(), Is.EqualTo(firstBlock));
 		}
 
 		[Test]

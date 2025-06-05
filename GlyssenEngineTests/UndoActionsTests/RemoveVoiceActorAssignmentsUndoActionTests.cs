@@ -272,22 +272,22 @@ namespace GlyssenEngineTests.UndoActionsTests
 			Assert.That(groupWithMoses.IsVoiceActorAssigned, Is.False);
 			Assert.That(groupWithMary.IsVoiceActorAssigned, Is.True);
 			Assert.That(action.GroupsAffectedByLastOperation.Count(), Is.EqualTo(2));
-			Assert.That(action.GroupsAffectedByLastOperation.Contains(groupWithJesus), Is.True);
-			Assert.That(action.GroupsAffectedByLastOperation.Contains(groupWithMoses), Is.True);
+			Assert.That(action.GroupsAffectedByLastOperation, Does.Contain(groupWithJesus));
+			Assert.That(action.GroupsAffectedByLastOperation, Does.Contain(groupWithMoses));
 		}
 
 		[Test]
 		public void Redo_UnassignmentOfSingleGroupWithNoCharacters_EmptyGroupRemoved()
 		{
 			AddCharacterGroup();
-			var emptygroup = m_testProject.CharacterGroupList.CharacterGroups.Last();
-			emptygroup.AssignVoiceActor(2);
-			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, emptygroup);
+			var emptyGroup = m_testProject.CharacterGroupList.CharacterGroups.Last();
+			emptyGroup.AssignVoiceActor(2);
+			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, emptyGroup);
 			action.Undo();
 			int countAfterUndo = m_testProject.CharacterGroupList.CharacterGroups.Count;
 			Assert.That(action.Redo(), Is.True);
 			Assert.That(m_testProject.CharacterGroupList.GetGroupsAssignedToActor(2).Any(), Is.False);
-			Assert.That(countAfterUndo - 1, Is.EqualTo(m_testProject.CharacterGroupList.CharacterGroups.Count));
+			Assert.That(m_testProject.CharacterGroupList.CharacterGroups.Count, Is.EqualTo(countAfterUndo - 1));
 		}
 	}
 }

@@ -32,8 +32,8 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_ValidControlVersionPresent()
 		{
-			Assert.That(Regex.IsMatch(Resources.CharacterVerseData,
-				@"\AControl File Version\t\d+\r?$", RegexOptions.Multiline));
+			Assert.That(Resources.CharacterVerseData,
+				Does.Match(new Regex(@"\AControl File Version\t\d+\r?$", RegexOptions.Multiline)));
 		}
 
 		[Test]
@@ -92,7 +92,7 @@ namespace ControlDataIntegrityTests
 				string typeAsString = match.Result("${type}");
 				if (CharacterVerseData.IsCharacterOfType(character, CharacterVerseData.StandardCharacter.Narrator))
 				{
-					Assert.That("Dialogue", Is.Not.EqualTo(typeAsString), "Line: " + line);
+					Assert.That(typeAsString, Is.Not.EqualTo("Dialogue"), "Line: " + line);
 					Assert.That(aliasDefined, Is.False, "Line: " + line);
 				}
 

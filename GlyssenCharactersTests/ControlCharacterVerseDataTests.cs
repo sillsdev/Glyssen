@@ -98,7 +98,7 @@ namespace GlyssenCharactersTests
 				ScrVers.English, includeNarratorOverrides: true));
 			var characters = ControlCharacterVerseData.Singleton.GetCharacters(bookNumGen, 32, new VerseBridge(1, 3),
 				ScrVers.Original, includeNarratorOverrides: true);
-			Assert.That(expected.SetEquals(characters), Is.True);
+			Assert.That(characters, Is.EquivalentTo(expected));
 		}
 
 		[TestCase(false)]
@@ -110,7 +110,7 @@ namespace GlyssenCharactersTests
 				ScrVers.English, includeNarratorOverrides: includeNarratorOverrides);
 			var characters = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber("PSA"), 37, new VerseBridge(16, 17),
 				ScrVers.RussianOrthodox, includeNarratorOverrides: includeNarratorOverrides).ToList();
-			Assert.That(expected.SequenceEqual(characters), Is.True);
+			Assert.That(characters, Is.EquivalentTo(expected));
 		}
 
 		[TestCase(2)]
@@ -126,7 +126,7 @@ namespace GlyssenCharactersTests
 				endVerse--;
 			var expected = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber("PSA"), 42, endVerse <= 1 ? (IVerse)new SingleVerse(1) : new VerseBridge(1, endVerse),
 				ScrVers.English, includeNarratorOverrides: true).Single();
-			Assert.That(expected, Is.EqualTo(character));
+			Assert.That(character, Is.EqualTo(expected));
 		}
 
 		[Test]
@@ -137,7 +137,7 @@ namespace GlyssenCharactersTests
 				ScrVers.English).Single();
 			var character = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber("1SA"), 24, new VerseBridge(1, 2),
 				ScrVers.Original).Single();
-			Assert.That(expected.Character, Is.EqualTo(character.Character));
+			Assert.That(character.Character, Is.EqualTo(expected.Character));
 		}
 
 		[Test]
