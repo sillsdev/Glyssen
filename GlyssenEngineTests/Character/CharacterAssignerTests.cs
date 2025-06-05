@@ -93,9 +93,9 @@ namespace GlyssenEngineTests.Character
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 4, ScrVers.English, "King Saul");
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 5, ScrVers.English, "Jesus");
 			new CharacterAssigner(cvInfo, m_interruptionFinder).AssignAll(new[] { bookScript }, false, false);
-			Assert.AreEqual("King Saul", bookScript[1].CharacterId);
-			Assert.AreEqual("Thomas/Andrew/Bartholomew", bookScript[2].CharacterId);
-			Assert.AreEqual("Thomas/Andrew/Bartholomew", bookScript[2].CharacterIdInScript);
+			Assert.That(bookScript[1].CharacterId, Is.EqualTo("King Saul"));
+			Assert.That(bookScript[2].CharacterId, Is.EqualTo("Thomas/Andrew/Bartholomew"));
+			Assert.That(bookScript[2].CharacterIdInScript, Is.EqualTo("Thomas/Andrew/Bartholomew"));
 		}
 
 		[Test]
@@ -107,8 +107,8 @@ namespace GlyssenEngineTests.Character
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 5, ScrVers.English, "King Saul");
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 6, ScrVers.English, new CharacterSpeakingMode[0]);
 			new CharacterAssigner(cvInfo, m_interruptionFinder).AssignAll(new[] { bookScript }, false, true);
-			Assert.AreEqual("John the Baptist", bookScript[1].CharacterId);
-			Assert.AreEqual("King Saul", bookScript[2].CharacterId);
+			Assert.That(bookScript[1].CharacterId, Is.EqualTo("John the Baptist"));
+			Assert.That(bookScript[2].CharacterId, Is.EqualTo("King Saul"));
 		}
 
 		[Test]
@@ -120,44 +120,44 @@ namespace GlyssenEngineTests.Character
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 5, ScrVers.English, "James/John");
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 6, ScrVers.English, new CharacterSpeakingMode[0]);
 			new CharacterAssigner(cvInfo, m_interruptionFinder).AssignAll(new[] { bookScript }, true, true);
-			Assert.AreEqual("Thomas/Andrew/Bartholomew", bookScript[1].CharacterId);
-			Assert.AreEqual("Andrew", bookScript[1].CharacterIdInScript);
-			Assert.AreEqual("James/John", bookScript[2].CharacterId);
-			Assert.AreEqual("James", bookScript[2].CharacterIdInScript);
+			Assert.That(bookScript[1].CharacterId, Is.EqualTo("Thomas/Andrew/Bartholomew"));
+			Assert.That(bookScript[1].CharacterIdInScript, Is.EqualTo("Andrew"));
+			Assert.That(bookScript[2].CharacterId, Is.EqualTo("James/John"));
+			Assert.That(bookScript[2].CharacterIdInScript, Is.EqualTo("James"));
 		}
 
 		[Test]
 		public void AssignAll_NotOverwriting_SetDefaultForMultipleChoiceCharactersTrue_ControlFileDoesNotHaveExplicitDefault_SetsImplicitDefault()
 		{
 			var bookScript = GetSimpleBookScript();
-			Assert.AreEqual("Thomas/Andrew/Bartholomew", bookScript[2].CharacterId);
-			Assert.AreEqual("Thomas/Andrew/Bartholomew", bookScript[2].CharacterIdInScript);
+			Assert.That(bookScript[2].CharacterId, Is.EqualTo("Thomas/Andrew/Bartholomew"));
+			Assert.That(bookScript[2].CharacterIdInScript, Is.EqualTo("Thomas/Andrew/Bartholomew"));
 
 			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 4, ScrVers.English, "Made Up Guy");
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 5, ScrVers.English,
 				new[] { new CharacterSpeakingMode("Thomas/Andrew/Bartholomew", null, null, false) }, true);
 			new CharacterAssigner(cvInfo, m_interruptionFinder).AssignAll(new[] { bookScript }, true, false);
-			Assert.AreEqual("Made Up Guy", bookScript[1].CharacterId);
-			Assert.AreEqual("Made Up Guy", bookScript[1].CharacterIdInScript);
-			Assert.AreEqual("Thomas/Andrew/Bartholomew", bookScript[2].CharacterId);
-			Assert.AreEqual("Thomas", bookScript[2].CharacterIdInScript);
+			Assert.That(bookScript[1].CharacterId, Is.EqualTo("Made Up Guy"));
+			Assert.That(bookScript[1].CharacterIdInScript, Is.EqualTo("Made Up Guy"));
+			Assert.That(bookScript[2].CharacterId, Is.EqualTo("Thomas/Andrew/Bartholomew"));
+			Assert.That(bookScript[2].CharacterIdInScript, Is.EqualTo("Thomas"));
 		}
 
 		[Test]
 		public void AssignAll_NotOverwriting_SetDefaultForMultipleChoiceCharactersTrue_ControlFileHasExplicitDefault_SetsExplicitDefault()
 		{
 			var bookScript = GetSimpleBookScript();
-			Assert.AreEqual("Thomas/Andrew/Bartholomew", bookScript[2].CharacterId);
-			Assert.AreEqual("Thomas/Andrew/Bartholomew", bookScript[2].CharacterIdInScript);
+			Assert.That(bookScript[2].CharacterId, Is.EqualTo("Thomas/Andrew/Bartholomew"));
+			Assert.That(bookScript[2].CharacterIdInScript, Is.EqualTo("Thomas/Andrew/Bartholomew"));
 
 			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 4, ScrVers.English, "Made Up Guy");
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 5, ScrVers.English,
 				new[] { new CharacterSpeakingMode("Thomas/Andrew/Bartholomew", null, null, false, QuoteType.Normal, "Andrew") }, true);
 			new CharacterAssigner(cvInfo, m_interruptionFinder).AssignAll(new[] { bookScript }, true, false);
-			Assert.AreEqual("Thomas/Andrew/Bartholomew", bookScript[2].CharacterId);
-			Assert.AreEqual("Andrew", bookScript[2].CharacterIdInScript);
+			Assert.That(bookScript[2].CharacterId, Is.EqualTo("Thomas/Andrew/Bartholomew"));
+			Assert.That(bookScript[2].CharacterIdInScript, Is.EqualTo("Andrew"));
 		}
 
 		[Test]
@@ -169,7 +169,7 @@ namespace GlyssenEngineTests.Character
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 5, ScrVers.English, "King Saul");
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 6, ScrVers.English, new CharacterSpeakingMode[0]);
 			new CharacterAssigner(cvInfo, m_interruptionFinder).AssignAll(new[] { bookScript }, false, true);
-			Assert.AreEqual("narrator-MRK", bookScript[0].CharacterId);
+			Assert.That(bookScript[0].CharacterId, Is.EqualTo("narrator-MRK"));
 		}
 
 		[Test]
@@ -185,14 +185,14 @@ namespace GlyssenEngineTests.Character
 			});
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 6, ScrVers.English, new CharacterSpeakingMode[0]);
 
-			Assert.True(bookScript[2].UserConfirmed);
-			Assert.True(bookScript[3].UserConfirmed);
+			Assert.That(bookScript[2].UserConfirmed, Is.True);
+			Assert.That(bookScript[3].UserConfirmed, Is.True);
 
 			new CharacterAssigner(cvInfo, m_interruptionFinder).AssignAll(new[] { bookScript }, false, true);
-			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, bookScript[2].CharacterId);
-			Assert.False(bookScript[2].UserConfirmed);
-			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, bookScript[3].CharacterId);
-			Assert.False(bookScript[3].UserConfirmed);
+			Assert.That(bookScript[2].CharacterId, Is.EqualTo(CharacterVerseData.kAmbiguousCharacter));
+			Assert.That(bookScript[2].UserConfirmed, Is.False);
+			Assert.That(bookScript[3].CharacterId, Is.EqualTo(CharacterVerseData.kUnexpectedCharacter));
+			Assert.That(bookScript[3].UserConfirmed, Is.False);
 		}
 
 		[Test]
@@ -203,18 +203,18 @@ namespace GlyssenEngineTests.Character
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 4, ScrVers.English, "irrelevant");
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 5, ScrVers.English, "irrelevant");
 
-			Assert.True(bookScript[0].UserConfirmed);
-			Assert.True(bookScript[1].UserConfirmed);
+			Assert.That(bookScript[0].UserConfirmed, Is.True);
+			Assert.That(bookScript[1].UserConfirmed, Is.True);
 
 			new CharacterAssigner(cvInfo, m_interruptionFinder).AssignAll(new[] { bookScript }, false, false);
-			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, bookScript[0].CharacterId);
-			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, bookScript[1].CharacterId);
-			Assert.AreEqual("firstCharacter", bookScript[2].CharacterId);
-			Assert.AreEqual("firstCharacter", bookScript[3].CharacterId);
-			Assert.False(bookScript[0].UserConfirmed);
-			Assert.False(bookScript[1].UserConfirmed);
-			Assert.True(bookScript[2].UserConfirmed);
-			Assert.True(bookScript[3].UserConfirmed);
+			Assert.That(bookScript[0].CharacterId, Is.EqualTo(CharacterVerseData.kAmbiguousCharacter));
+			Assert.That(bookScript[1].CharacterId, Is.EqualTo(CharacterVerseData.kAmbiguousCharacter));
+			Assert.That(bookScript[2].CharacterId, Is.EqualTo("firstCharacter"));
+			Assert.That(bookScript[3].CharacterId, Is.EqualTo("firstCharacter"));
+			Assert.That(bookScript[0].UserConfirmed, Is.False);
+			Assert.That(bookScript[1].UserConfirmed, Is.False);
+			Assert.That(bookScript[2].UserConfirmed, Is.True);
+			Assert.That(bookScript[3].UserConfirmed, Is.True);
 		}
 
 		/// <summary>
@@ -246,13 +246,13 @@ namespace GlyssenEngineTests.Character
 				new CharacterSpeakingMode("narrator-MRK", null, null, false, QuoteType.Interruption)
 			});
 
-			Assert.IsFalse(bookScript.GetScriptBlocks().Any(b => b.UserConfirmed));
+			Assert.That(bookScript.GetScriptBlocks().Any(b => b.UserConfirmed), Is.False);
 
 			new CharacterAssigner(cvInfo, m_interruptionFinder).AssignAll(new[] { bookScript }, false, false);
-			Assert.AreEqual("Jesus", bookScript[0].CharacterId);
-			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, bookScript[1].CharacterId);
-			Assert.AreEqual("Jesus", bookScript[2].CharacterId);
-			Assert.IsFalse(bookScript.GetScriptBlocks().Any(b => b.UserConfirmed));
+			Assert.That(bookScript[0].CharacterId, Is.EqualTo("Jesus"));
+			Assert.That(bookScript[1].CharacterId, Is.EqualTo(CharacterVerseData.kAmbiguousCharacter));
+			Assert.That(bookScript[2].CharacterId, Is.EqualTo("Jesus"));
+			Assert.That(bookScript.GetScriptBlocks().Any(b => b.UserConfirmed), Is.False);
 		}
 
 		[TestCase(ScrVersType.English)]
@@ -301,18 +301,18 @@ namespace GlyssenEngineTests.Character
 				versification
 			);
 
-			Assert.AreEqual("Jesus", bookScript.Blocks[0].CharacterId);
-			Assert.AreEqual("Jesus", bookScript.Blocks[1].CharacterId);
-			Assert.AreEqual(MultiBlockQuote.Start, bookScript.Blocks[0].MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.Continuation, bookScript.Blocks[1].MultiBlockQuote);
+			Assert.That(bookScript.Blocks[0].CharacterId, Is.EqualTo("Jesus"));
+			Assert.That(bookScript.Blocks[1].CharacterId, Is.EqualTo("Jesus"));
+			Assert.That(bookScript.Blocks[0].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
+			Assert.That(bookScript.Blocks[1].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Continuation));
 
 			var characterAssigner = new CharacterAssigner(cvInfo, m_interruptionFinder);
 			characterAssigner.AssignAll(new[] { bookScript }, false);
 
-			Assert.AreEqual("Jesus", bookScript.Blocks[0].CharacterId);
-			Assert.AreEqual("Jesus", bookScript.Blocks[1].CharacterId);
-			Assert.AreEqual(MultiBlockQuote.Start, bookScript.Blocks[0].MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.Continuation, bookScript.Blocks[1].MultiBlockQuote);
+			Assert.That(bookScript.Blocks[0].CharacterId, Is.EqualTo("Jesus"));
+			Assert.That(bookScript.Blocks[1].CharacterId, Is.EqualTo("Jesus"));
+			Assert.That(bookScript.Blocks[0].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
+			Assert.That(bookScript.Blocks[1].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Continuation));
 		}
 
 		[Test]
@@ -327,21 +327,23 @@ namespace GlyssenEngineTests.Character
 
 			var expected = freshTestProject.Books;
 			var actual = testProjectToAssign.Books;
-			Assert.AreEqual(expected.Count, actual.Count);
+			Assert.That(actual.Count, Is.EqualTo(expected.Count));
 
 			for (var i = 0; i < expected.Count; i++)
 			{
 				var expectedBlocks = expected[i].Blocks;
 				var actualBlocks = actual[i].Blocks;
 
-				// both books contains the same number of blocks
-				Assert.AreEqual(expectedBlocks.Count, actualBlocks.Count);
+				Assert.That(actualBlocks.Count, Is.EqualTo(expectedBlocks.Count),
+					"Both books should contain the same number of blocks");
 
 				for (var j = 0; j < expectedBlocks.Count; j++)
 				{
-					// both blocks contain the same number of elements
-					Assert.AreEqual(expectedBlocks[j].BlockElements.Count, actualBlocks[j].BlockElements.Count);
-					Assert.AreEqual(expectedBlocks[j].GetText(true), actualBlocks[j].GetText(true));
+					Assert.That(actualBlocks[j].BlockElements.Count,
+						Is.EqualTo(expectedBlocks[j].BlockElements.Count),
+						"Both blocks should contain the same number of elements");
+					Assert.That(actualBlocks[j].GetText(true),
+						Is.EqualTo(expectedBlocks[j].GetText(true)));
 				}
 			}
 		}

@@ -12,11 +12,11 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IJN, TestProject.TestBook.IIIJN);
 			var model = new ProjectSettingsViewModel(testProject);
-			Assert.AreEqual("1 JON 2", model.ExampleSubsequentChapterAnnouncement);
-			Assert.IsFalse(model.ChapterAnnouncementIsStrictlyNumeric);
+			Assert.That(model.ExampleSubsequentChapterAnnouncement, Is.EqualTo("1 JON 2"));
+			Assert.That(model.ChapterAnnouncementIsStrictlyNumeric, Is.False);
 			model.ChapterAnnouncementStyle = ChapterAnnouncement.ChapterLabel;
-			Assert.AreEqual("2", model.ExampleSubsequentChapterAnnouncement);
-			Assert.IsTrue(model.ChapterAnnouncementIsStrictlyNumeric);
+			Assert.That(model.ExampleSubsequentChapterAnnouncement, Is.EqualTo("2"));
+			Assert.That(model.ChapterAnnouncementIsStrictlyNumeric, Is.True);
 		}
 
 		[Test]
@@ -24,7 +24,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IIJN, TestProject.TestBook.IIIJN);
 			var model = new ProjectSettingsViewModel(testProject);
-			Assert.IsNull(model.ExampleSubsequentChapterAnnouncement);
+			Assert.That(model.ExampleSubsequentChapterAnnouncement, Is.Null);
 		}
 
 		[Test]
@@ -33,9 +33,9 @@ namespace GlyssenEngineTests.ViewModelTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IJN, TestProject.TestBook.IIIJN);
 			var model = new ProjectSettingsViewModel(testProject);
 			model.SkipChapterAnnouncementForFirstChapter = false;
-			Assert.AreEqual("1 JON 1", model.ExampleFirstChapterAnnouncement);
+			Assert.That(model.ExampleFirstChapterAnnouncement, Is.EqualTo("1 JON 1"));
 			model.ChapterAnnouncementStyle = ChapterAnnouncement.ChapterLabel;
-			Assert.AreEqual("1", model.ExampleFirstChapterAnnouncement);
+			Assert.That(model.ExampleFirstChapterAnnouncement, Is.EqualTo("1"));
 		}
 
 		[Test]
@@ -44,7 +44,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IJN, TestProject.TestBook.IIIJN);
 			var model = new ProjectSettingsViewModel(testProject);
 			model.SkipChapterAnnouncementForFirstChapter = true;
-			Assert.IsEmpty(model.ExampleFirstChapterAnnouncement);
+			Assert.That(model.ExampleFirstChapterAnnouncement, Is.Empty);
 		}
 
 		[Test]
@@ -53,7 +53,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IIJN, TestProject.TestBook.IIIJN);
 			var model = new ProjectSettingsViewModel(testProject);
 			model.SkipChapterAnnouncementForFirstChapter = false;
-			Assert.IsNull(model.ExampleFirstChapterAnnouncement);
+			Assert.That(model.ExampleFirstChapterAnnouncement, Is.Null);
 		}
 
 		[Test]
@@ -63,9 +63,9 @@ namespace GlyssenEngineTests.ViewModelTests
 			var model = new ProjectSettingsViewModel(testProject);
 			model.SkipChapterAnnouncementForFirstChapter = false;
 			model.SkipChapterAnnouncementForSingleChapterBooks = false;
-			Assert.AreEqual("3 JON 1", model.ExampleSingleChapterAnnouncement);
+			Assert.That(model.ExampleSingleChapterAnnouncement, Is.EqualTo("3 JON 1"));
 			model.ChapterAnnouncementStyle = ChapterAnnouncement.ChapterLabel;
-			Assert.AreEqual("1", model.ExampleSingleChapterAnnouncement);
+			Assert.That(model.ExampleSingleChapterAnnouncement, Is.EqualTo("1"));
 		}
 
 		[Test]
@@ -74,7 +74,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IJN, TestProject.TestBook.IIIJN);
 			var model = new ProjectSettingsViewModel(testProject);
 			model.SkipChapterAnnouncementForSingleChapterBooks = true;
-			Assert.IsEmpty(model.ExampleSingleChapterAnnouncement);
+			Assert.That(model.ExampleSingleChapterAnnouncement, Is.Empty);
 		}
 
 		[Test]
@@ -84,7 +84,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var model = new ProjectSettingsViewModel(testProject);
 			model.SkipChapterAnnouncementForFirstChapter = false;
 			model.SkipChapterAnnouncementForSingleChapterBooks = false;
-			Assert.IsNull(model.ExampleSingleChapterAnnouncement);
+			Assert.That(model.ExampleSingleChapterAnnouncement, Is.Null);
 		}
 
 		[Test]
@@ -93,7 +93,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.GAL, TestProject.TestBook.IJN);
 			var model = new ProjectSettingsViewModel(testProject);
 			model.ChapterAnnouncementStyle = ChapterAnnouncement.ChapterLabel;
-			Assert.IsTrue(model.ChapterAnnouncementIsStrictlyNumeric);
+			Assert.That(model.ChapterAnnouncementIsStrictlyNumeric, Is.True);
 		}
 
 		[Test]
@@ -102,7 +102,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.GAL, TestProject.TestBook.IJN);
 			var model = new ProjectSettingsViewModel(testProject);
 			model.ChapterAnnouncementStyle = ChapterAnnouncement.PageHeader;
-			Assert.IsFalse(model.ChapterAnnouncementIsStrictlyNumeric);
+			Assert.That(model.ChapterAnnouncementIsStrictlyNumeric, Is.False);
 		}
 
 		[Test]
@@ -110,7 +110,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IIJN, TestProject.TestBook.IIIJN);
 			var model = new ProjectSettingsViewModel(testProject);
-			Assert.IsFalse(model.ChapterAnnouncementIsStrictlyNumeric);
+			Assert.That(model.ChapterAnnouncementIsStrictlyNumeric, Is.False);
 		}
 	}
 }

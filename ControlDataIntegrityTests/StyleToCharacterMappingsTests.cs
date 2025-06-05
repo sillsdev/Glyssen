@@ -9,7 +9,7 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_LoadsCorrectly()
 		{
-			Assert.IsTrue(StyleToCharacterMappings.AllSfMarkers.Any());
+			Assert.That(StyleToCharacterMappings.AllSfMarkers.Any(), Is.True);
 		}
 
 		[Test]
@@ -19,13 +19,13 @@ namespace ControlDataIntegrityTests
 			{
 				if (StyleToCharacterMappings.TryGetCharacterForCharStyle(marker, out var characterId))
 				{
-					Assert.True(CharacterDetailData.Singleton.GetDictionary().Keys.Contains(characterId),
+					Assert.That(CharacterDetailData.Singleton.GetDictionary().Keys, Does.Contain(characterId),
 						$"Character {characterId} in StyleToCharacterMappings.xml was not found in CharacterDetail");
 				}
 				else
 				{
-					Assert.IsTrue(StyleToCharacterMappings.TryGetStandardCharacterForParaStyle(
-						marker, out _));
+					Assert.That(StyleToCharacterMappings.TryGetStandardCharacterForParaStyle(
+						marker, out _), Is.True);
 				}
 			}
 		}

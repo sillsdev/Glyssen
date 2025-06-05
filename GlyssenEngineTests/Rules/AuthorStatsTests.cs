@@ -19,10 +19,10 @@ namespace GlyssenEngineTests.Rules
 			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator)] = 1000;
 			var includedBooks = new List<string> { "JER", "EZK", "HOS", "JUD" };
 
-			Assert.AreEqual(52000, new AuthorStats(BiblicalAuthors.GetAuthorOfBook("JER"), includedBooks, keyStrokesByBook).KeyStrokeCount);
-			Assert.AreEqual(48000, new AuthorStats(BiblicalAuthors.GetAuthorOfBook("EZK"), includedBooks, keyStrokesByBook).KeyStrokeCount);
-			Assert.AreEqual(12000, new AuthorStats(BiblicalAuthors.GetAuthorOfBook("HOS"), includedBooks, keyStrokesByBook).KeyStrokeCount);
-			Assert.AreEqual(1000, new AuthorStats(BiblicalAuthors.GetAuthorOfBook("JUD"), includedBooks, keyStrokesByBook).KeyStrokeCount);
+			Assert.That(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("JER"), includedBooks, keyStrokesByBook).KeyStrokeCount, Is.EqualTo(52000));
+			Assert.That(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("EZK"), includedBooks, keyStrokesByBook).KeyStrokeCount, Is.EqualTo(48000));
+			Assert.That(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("HOS"), includedBooks, keyStrokesByBook).KeyStrokeCount, Is.EqualTo(12000));
+			Assert.That(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("JUD"), includedBooks, keyStrokesByBook).KeyStrokeCount, Is.EqualTo(1000));
 		}
 
 		[Test]
@@ -39,14 +39,14 @@ namespace GlyssenEngineTests.Rules
 			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)] = 22000;
 			var includedBooks = new List<string> { "GEN", "ISA", "JER", "EZK", "LUK", "ACT", "JHN", "REV" };
 
-			Assert.AreEqual(50000, new AuthorStats(BiblicalAuthors.GetAuthorOfBook("GEN"), includedBooks, keyStrokesByBook).KeyStrokeCount);
-			Assert.AreEqual(66000, new AuthorStats(BiblicalAuthors.GetAuthorOfBook("ISA"), includedBooks, keyStrokesByBook).KeyStrokeCount);
-			Assert.AreEqual(52000, new AuthorStats(BiblicalAuthors.GetAuthorOfBook("JER"), includedBooks, keyStrokesByBook).KeyStrokeCount);
-			Assert.AreEqual(48000, new AuthorStats(BiblicalAuthors.GetAuthorOfBook("EZK"), includedBooks, keyStrokesByBook).KeyStrokeCount);
-			Assert.AreEqual(52000, new AuthorStats(BiblicalAuthors.GetAuthorOfBook("LUK"), includedBooks, keyStrokesByBook).KeyStrokeCount);
-			Assert.AreEqual(52000, new AuthorStats(BiblicalAuthors.GetAuthorOfBook("ACT"), includedBooks, keyStrokesByBook).KeyStrokeCount);
-			Assert.AreEqual(42000, new AuthorStats(BiblicalAuthors.GetAuthorOfBook("JHN"), includedBooks, keyStrokesByBook).KeyStrokeCount);
-			Assert.AreEqual(42000, new AuthorStats(BiblicalAuthors.GetAuthorOfBook("REV"), includedBooks, keyStrokesByBook).KeyStrokeCount);
+			Assert.That(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("GEN"), includedBooks, keyStrokesByBook).KeyStrokeCount, Is.EqualTo(50000));
+			Assert.That(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("ISA"), includedBooks, keyStrokesByBook).KeyStrokeCount, Is.EqualTo(66000));
+			Assert.That(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("JER"), includedBooks, keyStrokesByBook).KeyStrokeCount, Is.EqualTo(52000));
+			Assert.That(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("EZK"), includedBooks, keyStrokesByBook).KeyStrokeCount, Is.EqualTo(48000));
+			Assert.That(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("LUK"), includedBooks, keyStrokesByBook).KeyStrokeCount, Is.EqualTo(52000));
+			Assert.That(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("ACT"), includedBooks, keyStrokesByBook).KeyStrokeCount, Is.EqualTo(52000));
+			Assert.That(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("JHN"), includedBooks, keyStrokesByBook).KeyStrokeCount, Is.EqualTo(42000));
+			Assert.That(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("REV"), includedBooks, keyStrokesByBook).KeyStrokeCount, Is.EqualTo(42000));
 		}
 
 		[Test]
@@ -57,7 +57,7 @@ namespace GlyssenEngineTests.Rules
 			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.Narrator)] = 28000;
 			var includedBooks = new List<string> { "GEN", "ISA", "JER", "JHN", "REV" };
 
-			Assert.AreEqual(0, new AuthorStats(BiblicalAuthors.GetAuthorOfBook("LUK"), includedBooks, keyStrokesByBook).KeyStrokeCount);
+			Assert.That(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("LUK"), includedBooks, keyStrokesByBook).KeyStrokeCount, Is.EqualTo(0));
 		}
 	}
 }

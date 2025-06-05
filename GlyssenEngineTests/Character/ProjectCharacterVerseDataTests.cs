@@ -22,13 +22,13 @@ namespace GlyssenEngineTests.Character
 
 				var quoteInfo = data.GetCharacters(kMATbookNum, 24, new SingleVerse(1)).Single();
 
-				Assert.AreEqual("Peter/Andrew", quoteInfo.Character);
-				Assert.AreEqual("Confused", quoteInfo.Delivery);
-				Assert.AreEqual("disciples", quoteInfo.Alias);
-				Assert.IsFalse(quoteInfo.IsDialogue);
-				Assert.IsTrue(quoteInfo.ProjectSpecific);
-				Assert.IsNull(quoteInfo.DefaultCharacter);
-				Assert.IsNull(quoteInfo.ParallelPassageReferences);
+				Assert.That(quoteInfo.Character, Is.EqualTo("Peter/Andrew"));
+				Assert.That(quoteInfo.Delivery, Is.EqualTo("Confused"));
+				Assert.That(quoteInfo.Alias, Is.EqualTo("disciples"));
+				Assert.That(quoteInfo.IsDialogue, Is.False);
+				Assert.That(quoteInfo.ProjectSpecific, Is.True);
+				Assert.That(quoteInfo.DefaultCharacter, Is.Null);
+				Assert.That(quoteInfo.ParallelPassageReferences, Is.Null);
 			}
 		}
 
@@ -42,12 +42,12 @@ namespace GlyssenEngineTests.Character
 
 				var quoteInfo = data.GetCharacters(kMATbookNum, 24, new SingleVerse(1)).Single();
 
-				Assert.AreEqual("Jesus", quoteInfo.Character);
-				Assert.AreEqual("Mysteriously", quoteInfo.Delivery);
-				Assert.IsFalse(quoteInfo.IsDialogue);
-				Assert.IsTrue(quoteInfo.ProjectSpecific);
-				Assert.IsNull(quoteInfo.DefaultCharacter);
-				Assert.IsNull(quoteInfo.ParallelPassageReferences);
+				Assert.That(quoteInfo.Character, Is.EqualTo("Jesus"));
+				Assert.That(quoteInfo.Delivery, Is.EqualTo("Mysteriously"));
+				Assert.That(quoteInfo.IsDialogue, Is.False);
+				Assert.That(quoteInfo.ProjectSpecific, Is.True);
+				Assert.That(quoteInfo.DefaultCharacter, Is.Null);
+				Assert.That(quoteInfo.ParallelPassageReferences, Is.Null);
 			}
 		}
 	}

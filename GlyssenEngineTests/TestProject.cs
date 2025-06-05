@@ -172,7 +172,7 @@ namespace GlyssenEngineTests
 				if (exception != null)
 					throw exception;
 				var project = Project.Load(new Project(metadata), null, null);
-				Assert.IsTrue(project.ProjectIsWritable);
+				Assert.That(project.ProjectIsWritable, Is.True);
 				return project;
 			}
 		}
@@ -191,7 +191,7 @@ namespace GlyssenEngineTests
 		//		AddBook(testBook, sampleMetadata, books);
 
 		//	int previousPercentageValue = 0;
-		//	var reportProgress = new Action<int>(i => Assert.IsTrue(previousPercentageValue <= i));
+		//	var reportProgress = new Action<int>(i => Assert.That(previousPercentageValue <= i), Is.True);
 
 		//	return UsxParser.ParseBooks(books, SfmLoader.GetUsfmStylesheet(), reportProgress);
 		//}

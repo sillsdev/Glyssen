@@ -68,16 +68,16 @@ namespace GlyssenEngineTests.ViewModelTests
 		[Test]
 		public void Constructor_ValidObject()
 		{
-			Assert.AreEqual(m_characterDetails.Count, m_model.FilteredCharactersCount);
+			Assert.That(m_characterDetails.Count, Is.EqualTo(m_model.FilteredCharactersCount));
 		}
 
 		[Test]
 		public void FilterCharacterIds_FindJohn_ActiveCountCorrect()
 		{
 			m_model.FilterCharacterIds("john");
-			Assert.AreEqual(2, m_model.FilteredCharactersCount);
-			Assert.AreEqual("John the Baptist", m_model.GetCharacterId(0));
-			Assert.AreEqual("John", m_model.GetCharacterId(1));
+			Assert.That(m_model.FilteredCharactersCount, Is.EqualTo(2));
+			Assert.That(m_model.GetCharacterId(0), Is.EqualTo("John the Baptist"));
+			Assert.That(m_model.GetCharacterId(1), Is.EqualTo("John"));
 		}
 	}
 }

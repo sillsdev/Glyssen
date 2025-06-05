@@ -47,8 +47,8 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var groupWithJesus = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
 			groupWithJesus.AssignVoiceActor(3);
 			var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 1);
-			Assert.AreEqual(1, groupWithJesus.VoiceActorId);
-			Assert.AreEqual(groupWithJesus, action.GroupsAffectedByLastOperation.Single());
+			Assert.That(groupWithJesus.VoiceActorId, Is.EqualTo(1));
+			Assert.That(groupWithJesus, Is.EqualTo(action.GroupsAffectedByLastOperation.Single()));
 		}
 
 		[Test]
@@ -57,7 +57,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var groupWithJesus = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
 			groupWithJesus.AssignVoiceActor(3);
 			var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 1);
-			Assert.AreEqual("Assign voice actor Oneyda Figueroa", action.Description);
+			Assert.That(action.Description, Is.EqualTo("Assign voice actor Oneyda Figueroa"));
 		}
 
 		[Test]
@@ -72,14 +72,14 @@ namespace GlyssenEngineTests.UndoActionsTests
 				m_testProject.VoiceActorList.AllActors.Add(new VoiceActor() {Id = 400, Name = "Bruce Bliss"});
 				action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 400);
 				descriptionBeforeDelete = action.Description;
-				Assert.AreEqual("Assign voice actor Bruce Bliss", descriptionBeforeDelete);
+				Assert.That(descriptionBeforeDelete, Is.EqualTo("Assign voice actor Bruce Bliss"));
 			}
 			finally
 			{
 				m_testProject.VoiceActorList.AllActors.RemoveAt(3);
 			}
 
-			Assert.AreEqual(descriptionBeforeDelete, action.Description);
+			Assert.That(descriptionBeforeDelete, Is.EqualTo(action.Description));
 		}
 
 		[Test]
@@ -90,9 +90,9 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 3);// This will assign it to 3.
 			action.Undo(); // This will reassign it back to 2.
 			groupWithJesus.AssignVoiceActor(4);
-			Assert.IsTrue(action.Redo(), "This should still work because we can find the group by name");
-			Assert.AreEqual(3, groupWithJesus.VoiceActorId);
-			Assert.AreEqual(groupWithJesus, action.GroupsAffectedByLastOperation.Single());
+			Assert.That(action.Redo(), Is.True, "This should still work because we can find the group by name");
+			Assert.That(groupWithJesus.VoiceActorId, Is.EqualTo(3));
+			Assert.That(groupWithJesus, Is.EqualTo(action.GroupsAffectedByLastOperation.Single()));
 		}
 
 		[Test]
@@ -104,9 +104,9 @@ namespace GlyssenEngineTests.UndoActionsTests
 			action.Undo(); // This will reassign it back to 2.
 			groupWithJesus.GroupIdLabel = CharacterGroup.Label.Other;
 			groupWithJesus.GroupIdOtherText = "Son of God";
-			Assert.IsTrue(action.Redo(), "This should still work because we can find the group by actor");
-			Assert.AreEqual(3, groupWithJesus.VoiceActorId);
-			Assert.AreEqual(groupWithJesus, action.GroupsAffectedByLastOperation.Single());
+			Assert.That(action.Redo(), Is.True, "This should still work because we can find the group by actor");
+			Assert.That(groupWithJesus.VoiceActorId, Is.EqualTo(3));
+			Assert.That(groupWithJesus, Is.EqualTo(action.GroupsAffectedByLastOperation.Single()));
 		}
 
 		[Test]
@@ -119,9 +119,9 @@ namespace GlyssenEngineTests.UndoActionsTests
 			groupWithJesus.AssignVoiceActor(4);
 			groupWithJesus.GroupIdLabel = CharacterGroup.Label.Other;
 			groupWithJesus.GroupIdOtherText = "Son of God";
-			Assert.IsFalse(action.Redo());
-			Assert.AreEqual(4, groupWithJesus.VoiceActorId);
-			Assert.AreEqual(0, action.GroupsAffectedByLastOperation.Count());
+			Assert.That(action.Redo(), Is.False);
+			Assert.That(groupWithJesus.VoiceActorId, Is.EqualTo(4));
+			Assert.That(action.GroupsAffectedByLastOperation.Count(), Is.EqualTo(0));
 		}
 
 		[Test]
@@ -131,9 +131,9 @@ namespace GlyssenEngineTests.UndoActionsTests
 			groupWithJesus.RemoveVoiceActor();
 			var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 2);
 			action.Undo();
-			Assert.IsTrue(action.Redo());
-			Assert.AreEqual(2, groupWithJesus.VoiceActorId);
-			Assert.AreEqual(groupWithJesus, action.GroupsAffectedByLastOperation.Single());
+			Assert.That(action.Redo(), Is.True);
+			Assert.That(groupWithJesus.VoiceActorId, Is.EqualTo(2));
+			Assert.That(groupWithJesus, Is.EqualTo(action.GroupsAffectedByLastOperation.Single()));
 		}
 
 		[Test]
@@ -143,9 +143,9 @@ namespace GlyssenEngineTests.UndoActionsTests
 			groupWithJesus.AssignVoiceActor(3);
 			var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 2);
 			action.Undo();
-			Assert.IsTrue(action.Redo());
-			Assert.AreEqual(2, groupWithJesus.VoiceActorId);
-			Assert.AreEqual(groupWithJesus, action.GroupsAffectedByLastOperation.Single());
+			Assert.That(action.Redo(), Is.True);
+			Assert.That(groupWithJesus.VoiceActorId, Is.EqualTo(2));
+			Assert.That(groupWithJesus, Is.EqualTo(action.GroupsAffectedByLastOperation.Single()));
 		}
 
 		[Test]
@@ -159,10 +159,10 @@ namespace GlyssenEngineTests.UndoActionsTests
 				otherGroup.AssignVoiceActor(3); // No longer possible via UI, but it used to be.
 				var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 2);
 				action.Undo();
-				Assert.IsTrue(action.Redo());
-				Assert.AreEqual(2, groupWithJesus.VoiceActorId);
-				Assert.AreEqual(3, otherGroup.VoiceActorId);
-				Assert.AreEqual(groupWithJesus, action.GroupsAffectedByLastOperation.Single());
+				Assert.That(action.Redo(), Is.True);
+				Assert.That(groupWithJesus.VoiceActorId, Is.EqualTo(2));
+				Assert.That(otherGroup.VoiceActorId, Is.EqualTo(3));
+				Assert.That(groupWithJesus, Is.EqualTo(action.GroupsAffectedByLastOperation.Single()));
 			}
 			finally
 			{
@@ -183,10 +183,10 @@ namespace GlyssenEngineTests.UndoActionsTests
 				action.Undo();
 				groupWithJesus.GroupIdLabel = CharacterGroup.Label.Other;
 				groupWithJesus.GroupIdOtherText = "Divine Son of God";
-				Assert.IsFalse(action.Redo());
-				Assert.AreEqual(3, groupWithJesus.VoiceActorId);
-				Assert.AreEqual(3, otherGroup.VoiceActorId);
-				Assert.AreEqual(0, action.GroupsAffectedByLastOperation.Count());
+				Assert.That(action.Redo(), Is.False);
+				Assert.That(groupWithJesus.VoiceActorId, Is.EqualTo(3));
+				Assert.That(otherGroup.VoiceActorId, Is.EqualTo(3));
+				Assert.That(action.GroupsAffectedByLastOperation.Count(), Is.EqualTo(0));
 			}
 			finally
 			{
@@ -203,8 +203,8 @@ namespace GlyssenEngineTests.UndoActionsTests
 			groupWithJesus.AssignVoiceActor(2);
 			groupWithJesus.GroupIdLabel = CharacterGroup.Label.Other;
 			groupWithJesus.GroupIdOtherText = "Friend of Sinners";
-			Assert.IsFalse(action.Undo());
-			Assert.AreEqual(0, action.GroupsAffectedByLastOperation.Count());
+			Assert.That(action.Undo(), Is.False);
+			Assert.That(action.GroupsAffectedByLastOperation.Count(), Is.EqualTo(0));
 		}
 
 		[Test]
@@ -214,9 +214,9 @@ namespace GlyssenEngineTests.UndoActionsTests
 			groupWithJesus.RemoveVoiceActor();
 			var origActor = groupWithJesus.VoiceActorId;
 			var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 2);
-			Assert.IsTrue(action.Undo());
-			Assert.AreEqual(origActor, groupWithJesus.VoiceActorId);
-			Assert.AreEqual(groupWithJesus, action.GroupsAffectedByLastOperation.Single());
+			Assert.That(action.Undo(), Is.True);
+			Assert.That(origActor, Is.EqualTo(groupWithJesus.VoiceActorId));
+			Assert.That(groupWithJesus, Is.EqualTo(action.GroupsAffectedByLastOperation.Single()));
 		}
 
 		[Test]
@@ -225,9 +225,9 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var groupWithJesus = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
 			groupWithJesus.AssignVoiceActor(3);
 			var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 2);
-			Assert.IsTrue(action.Undo());
-			Assert.AreEqual(3, groupWithJesus.VoiceActorId);
-			Assert.AreEqual(groupWithJesus, action.GroupsAffectedByLastOperation.Single());
+			Assert.That(action.Undo(), Is.True);
+			Assert.That(groupWithJesus.VoiceActorId, Is.EqualTo(3));
+			Assert.That(groupWithJesus, Is.EqualTo(action.GroupsAffectedByLastOperation.Single()));
 		}
 
 		[Test]
@@ -240,10 +240,10 @@ namespace GlyssenEngineTests.UndoActionsTests
 				groupWithJesus.AssignVoiceActor(3);
 				otherGroup.AssignVoiceActor(2);
 				var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 2); // UI shouldn't allow this.
-				Assert.IsTrue(action.Undo());
-				Assert.AreEqual(3, groupWithJesus.VoiceActorId);
-				Assert.AreEqual(2, otherGroup.VoiceActorId);
-				Assert.AreEqual(groupWithJesus, action.GroupsAffectedByLastOperation.Single());
+				Assert.That(action.Undo(), Is.True);
+				Assert.That(groupWithJesus.VoiceActorId, Is.EqualTo(3));
+				Assert.That(otherGroup.VoiceActorId, Is.EqualTo(2));
+				Assert.That(groupWithJesus, Is.EqualTo(action.GroupsAffectedByLastOperation.Single()));
 			}
 			finally
 			{

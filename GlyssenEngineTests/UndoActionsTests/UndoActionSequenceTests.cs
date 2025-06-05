@@ -26,59 +26,59 @@ namespace GlyssenEngineTests.UndoActionsTests
 		[Test]
 		public void Description_NoUndoActions_ThrowsArgumentException()
 		{
-			Assert.AreEqual("Blah", new UndoActionSequence<IUndoAction>(NewAction("a"), NewAction("Blah")).Description);
+			Assert.That(new UndoActionSequence<IUndoAction>(NewAction("a"), NewAction("Blah")).Description, Is.EqualTo("Blah"));
 		}
 
 		[Test]
 		public void Undo_MultipleActions_UndoesActionsInReverseOrder()
 		{
 			var action = new UndoActionSequence<IUndoAction>(NewAction("a"), NewAction("b"), NewAction("c"));
-			Assert.IsTrue(action.Undo());
-			Assert.AreEqual(3, m_actionsTaken.Count);
+			Assert.That(action.Undo(), Is.True);
+			Assert.That(m_actionsTaken.Count, Is.EqualTo(3));
 			int i = 0;
-			Assert.AreEqual("Undo c", m_actionsTaken[i++]);
-			Assert.AreEqual("Undo b", m_actionsTaken[i++]);
-			Assert.AreEqual("Undo a", m_actionsTaken[i++]);
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Undo c"));
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Undo b"));
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Undo a"));
 		}
 
 		[Test]
 		public void Undo_OneActionCannotBeUndone_RedoesActionsThatWereUndoneToGetBackToStateBeforeCallingUndo()
 		{
 			var action = new UndoActionSequence<IUndoAction>(NewAction("a", false), NewAction("b"), NewAction("c"));
-			Assert.IsFalse(action.Undo());
-			Assert.AreEqual(5, m_actionsTaken.Count);
+			Assert.That(action.Undo(), Is.False);
+			Assert.That(m_actionsTaken.Count, Is.EqualTo(5));
 			int i = 0;
-			Assert.AreEqual("Undo c", m_actionsTaken[i++]);
-			Assert.AreEqual("Undo b", m_actionsTaken[i++]);
-			Assert.AreEqual("Failed to undo a", m_actionsTaken[i++]);
-			Assert.AreEqual("Redo b", m_actionsTaken[i++]);
-			Assert.AreEqual("Redo c", m_actionsTaken[i++]);
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Undo c"));
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Undo b"));
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Failed to undo a"));
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Redo b"));
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Redo c"));
 		}
 
 		[Test]
 		public void Redo_MultipleActions_RedoesActionsInOriginalOrder()
 		{
 			var action = new UndoActionSequence<IUndoAction>(NewAction("a"), NewAction("b"), NewAction("c"));
-			Assert.IsTrue(action.Redo());
-			Assert.AreEqual(3, m_actionsTaken.Count);
+			Assert.That(action.Redo(), Is.True);
+			Assert.That(m_actionsTaken.Count, Is.EqualTo(3));
 			int i = 0;
-			Assert.AreEqual("Redo a", m_actionsTaken[i++]);
-			Assert.AreEqual("Redo b", m_actionsTaken[i++]);
-			Assert.AreEqual("Redo c", m_actionsTaken[i++]);
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Redo a"));
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Redo b"));
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Redo c"));
 		}
 
 		[Test]
 		public void Redo_OneActionCannotBeRedone_UndoesActionsThatWereRedoneToGetBackToStateBeforeCallingRedo()
 		{
 			var action = new UndoActionSequence<IUndoAction>(NewAction("a"), NewAction("b"), NewAction("c", true, false));
-			Assert.IsFalse(action.Redo());
-			Assert.AreEqual(5, m_actionsTaken.Count);
+			Assert.That(action.Redo(), Is.False);
+			Assert.That(m_actionsTaken.Count, Is.EqualTo(5));
 			int i = 0;
-			Assert.AreEqual("Redo a", m_actionsTaken[i++]);
-			Assert.AreEqual("Redo b", m_actionsTaken[i++]);
-			Assert.AreEqual("Failed to redo c", m_actionsTaken[i++]);
-			Assert.AreEqual("Undo b", m_actionsTaken[i++]);
-			Assert.AreEqual("Undo a", m_actionsTaken[i++]);
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Redo a"));
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Redo b"));
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Failed to redo c"));
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Undo b"));
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Undo a"));
 		}
 
 		private IUndoAction NewAction(string description = "", bool expectedUndoResult = true, bool expectedRedoResult = true)

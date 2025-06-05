@@ -35,7 +35,7 @@ namespace GlyssenTests.Dialogs
 	[Category("SkipOnTeamCity")] // These tests rely on local files that the developer has to put in place.
 	[TestFixture]
 	[OfflineSldr]
-	class CalculateMinimumCastSizesForNewTestamentBasedOnAcholi
+	public class CalculateMinimumCastSizesForNewTestamentBasedOnAcholi
 	{
 		private Project m_project;
 		private readonly ConcurrentDictionary<string, CastSizeRowValues> m_results = new ConcurrentDictionary<string, CastSizeRowValues>();
@@ -140,7 +140,7 @@ namespace GlyssenTests.Dialogs
 			}
 			m_project.ClearCharacterStatistics();
 
-			CastSizeRowValues validCast = new CastSizeRowValues(initialGuess + 2, 2, 1);
+			var validCast = new CastSizeRowValues(initialGuess + 2, 2, 1);
 			var currentCast = new CastSizeRowValues(initialGuess + 1, 2, 1);
 			List<CharacterGroup> groups;
 			do
@@ -153,7 +153,7 @@ namespace GlyssenTests.Dialogs
 				currentCast.Male--;
 
 			} while (groups != null && currentCast.Male >= 2);
-			Assert.IsTrue(validCast.Male <= initialGuess + 1);
+			Assert.That(validCast.Male, Is.LessThanOrEqualTo(initialGuess + 1));
 			m_results[bookCode] = validCast;
 		}
 	}
@@ -298,7 +298,7 @@ namespace GlyssenTests.Dialogs
 				currentCast.Male--;
 
 			} while (groups != null && currentCast.Male >= 2);
-			Assert.IsTrue(validCast.Male <= initialGuess + 1);
+			Assert.That(validCast.Male, Is.LessThanOrEqualTo(initialGuess + 1));
 			m_results[bookCode] = validCast;
 		}
 	}

@@ -42,28 +42,28 @@ namespace GlyssenCharactersTests
 		public void GetAll()
 		{
 			var allRelatedCharactersSet = RelatedCharactersData.Singleton.GetAll();
-			Assert.Greater(allRelatedCharactersSet.Count, 0);
+			Assert.That(allRelatedCharactersSet.Count, Is.GreaterThan(0));
 
 			var davidRelatedCharacters = allRelatedCharactersSet.First(rc => rc.CharacterIds.Contains("David"));
-			Assert.True(davidRelatedCharacters.CharacterIds.Contains("David (old)"));
-			Assert.AreEqual(CharacterRelationshipType.SameCharacterWithMultipleAges, davidRelatedCharacters.RelationshipType);
+			Assert.That(davidRelatedCharacters.CharacterIds, Does.Contain("David (old)"));
+			Assert.That(CharacterRelationshipType.SameCharacterWithMultipleAges, Is.EqualTo(davidRelatedCharacters.RelationshipType));
 		}
 
 		[Test]
 		public void GetCharacterIdsForType()
 		{
 			var characterIds = RelatedCharactersData.Singleton.GetCharacterIdsForType(CharacterRelationshipType.SameCharacterWithMultipleAges);
-			Assert.AreEqual(14, characterIds.Count);
-			Assert.True(characterIds.Contains("David"));
-			Assert.True(characterIds.Contains("David (old)"));
+			Assert.That(characterIds.Count, Is.EqualTo(14));
+			Assert.That(characterIds, Does.Contain("David"));
+			Assert.That(characterIds, Does.Contain("David (old)"));
 		}
 
 		[Test]
 		public void GetCharacterIdToRelatedCharactersDictionary()
 		{
 			var dictionary = RelatedCharactersData.Singleton.GetCharacterIdToRelatedCharactersDictionary();
-			Assert.AreEqual(14, dictionary.Count);
-			Assert.True(dictionary["David (old)"].Single().CharacterIds.Contains("David"));
+			Assert.That(dictionary.Count, Is.EqualTo(14));
+			Assert.That(dictionary["David (old)"].Single().CharacterIds, Does.Contain("David"));
 		}
 	}
 }

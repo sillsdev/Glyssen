@@ -22,15 +22,15 @@ namespace GlyssenEngineTests.UndoActionsTests
 		{
 			var stack = new UndoStack<IUndoAction>();
 			stack.Push(NewAction());
-			Assert.IsTrue(stack.CanUndo);
-			Assert.IsFalse(stack.CanRedo);
+			Assert.That(stack.CanUndo, Is.True);
+			Assert.That(stack.CanRedo, Is.False);
 		}
 
 		[Test]
 		public void GetUndoDescriptions_EmptyStack_ReturnsEmptyList()
 		{
 			var stack = new UndoStack<IUndoAction>();
-			Assert.AreEqual(0, stack.UndoDescriptions.Count);
+			Assert.That(stack.UndoDescriptions.Count, Is.EqualTo(0));
 		}
 
 		[Test]
@@ -41,11 +41,11 @@ namespace GlyssenEngineTests.UndoActionsTests
 			stack.Push(NewAction("Removing voice actor assignment"));
 			stack.Push(NewAction("Regenerating character groups"));
 			var descriptions = stack.UndoDescriptions;
-			Assert.AreEqual(3, descriptions.Count);
+			Assert.That(descriptions.Count, Is.EqualTo(3));
 			int i = 0;
-			Assert.AreEqual("Regenerating character groups", descriptions[i++]);
-			Assert.AreEqual("Removing voice actor assignment", descriptions[i++]);
-			Assert.AreEqual("Assigning voice actor: Fred Flintstone", descriptions[i++]);
+			Assert.That(descriptions[i++], Is.EqualTo("Regenerating character groups"));
+			Assert.That(descriptions[i++], Is.EqualTo("Removing voice actor assignment"));
+			Assert.That(descriptions[i++], Is.EqualTo("Assigning voice actor: Fred Flintstone"));
 		}
 
 		[Test]
@@ -58,7 +58,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			stack.Undo();
 			stack.Undo();
 			stack.Undo();
-			Assert.AreEqual(0, stack.UndoDescriptions.Count);
+			Assert.That(stack.UndoDescriptions.Count, Is.EqualTo(0));
 		}
 
 		[Test]
@@ -70,17 +70,17 @@ namespace GlyssenEngineTests.UndoActionsTests
 			stack.Push(NewAction("Regenerating character groups"));
 			stack.Undo();
 			var descriptions = stack.UndoDescriptions;
-			Assert.AreEqual(2, descriptions.Count);
+			Assert.That(descriptions.Count, Is.EqualTo(2));
 			int i = 0;
-			Assert.AreEqual("Removing voice actor assignment", descriptions[i++]);
-			Assert.AreEqual("Assigning voice actor: Fred Flintstone", descriptions[i++]);
+			Assert.That(descriptions[i++], Is.EqualTo("Removing voice actor assignment"));
+			Assert.That(descriptions[i++], Is.EqualTo("Assigning voice actor: Fred Flintstone"));
 		}
 
 		[Test]
 		public void GetRedoDescriptions_EmptyStack_ReturnsEmptyList()
 		{
 			var stack = new UndoStack<IUndoAction>();
-			Assert.AreEqual(0, stack.RedoDescriptions.Count);
+			Assert.That(stack.RedoDescriptions.Count, Is.EqualTo(0));
 		}
 
 		[Test]
@@ -94,11 +94,11 @@ namespace GlyssenEngineTests.UndoActionsTests
 			stack.Undo();
 			stack.Undo();
 			var descriptions = stack.RedoDescriptions;
-			Assert.AreEqual(3, descriptions.Count);
+			Assert.That(descriptions.Count, Is.EqualTo(3));
 			int i = 0;
-			Assert.AreEqual("Assigning voice actor: Fred Flintstone", descriptions[i++]);
-			Assert.AreEqual("Removing voice actor assignment", descriptions[i++]);
-			Assert.AreEqual("Regenerating character groups", descriptions[i++]);
+			Assert.That(descriptions[i++], Is.EqualTo("Assigning voice actor: Fred Flintstone"));
+			Assert.That(descriptions[i++], Is.EqualTo("Removing voice actor assignment"));
+			Assert.That(descriptions[i++], Is.EqualTo("Regenerating character groups"));
 		}
 
 		[Test]
@@ -108,7 +108,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			stack.Push(NewAction("Assigning voice actor: Fred Flintstone"));
 			stack.Push(NewAction("Removing voice actor assignment"));
 			stack.Push(NewAction("Regenerating character groups"));
-			Assert.AreEqual(0, stack.RedoDescriptions.Count);
+			Assert.That(stack.RedoDescriptions.Count, Is.EqualTo(0));
 		}
 
 		[Test]
@@ -121,10 +121,10 @@ namespace GlyssenEngineTests.UndoActionsTests
 			stack.Undo();
 			stack.Undo();
 			var descriptions = stack.RedoDescriptions;
-			Assert.AreEqual(2, descriptions.Count);
+			Assert.That(descriptions.Count, Is.EqualTo(2));
 			int i = 0;
-			Assert.AreEqual("Removing voice actor assignment", descriptions[i++]);
-			Assert.AreEqual("Regenerating character groups", descriptions[i++]);
+			Assert.That(descriptions[i++], Is.EqualTo("Removing voice actor assignment"));
+			Assert.That(descriptions[i++], Is.EqualTo("Regenerating character groups"));
 		}
 
 		[Test]
@@ -139,25 +139,25 @@ namespace GlyssenEngineTests.UndoActionsTests
 			stack.Push(NewAction("d"));
 			stack.Undo();
 			stack.Undo();
-			Assert.IsFalse(stack.CanUndo);
+			Assert.That(stack.CanUndo, Is.False);
 			stack.Redo();
 			stack.Redo();
-			Assert.IsFalse(stack.CanRedo);
-			Assert.AreEqual(6, m_actionsTaken.Count);
+			Assert.That(stack.CanRedo, Is.False);
+			Assert.That(m_actionsTaken.Count, Is.EqualTo(6));
 			int i = 0;
-			Assert.AreEqual("Undo c", m_actionsTaken[i++]);
-			Assert.AreEqual("Undo b", m_actionsTaken[i++]);
-			Assert.AreEqual("Undo d", m_actionsTaken[i++]);
-			Assert.AreEqual("Undo a", m_actionsTaken[i++]);
-			Assert.AreEqual("Redo a", m_actionsTaken[i++]);
-			Assert.AreEqual("Redo d", m_actionsTaken[i++]);
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Undo c"));
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Undo b"));
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Undo d"));
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Undo a"));
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Redo a"));
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Redo d"));
 		}
 
 		[Test]
 		public void CanUndo_EmptyStack_ReturnsFalse()
 		{
 			var stack = new UndoStack<IUndoAction>();
-			Assert.IsFalse(stack.CanUndo);
+			Assert.That(stack.CanUndo, Is.False);
 		}
 
 		[Test]
@@ -166,7 +166,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var stack = new UndoStack<IUndoAction>();
 			stack.Push(NewAction());
 			stack.Undo();
-			Assert.IsFalse(stack.CanUndo);
+			Assert.That(stack.CanUndo, Is.False);
 		}
 
 		[Test]
@@ -174,7 +174,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 		{
 			var stack = new UndoStack<IUndoAction>();
 			stack.Push(NewAction());
-			Assert.IsTrue(stack.CanUndo);
+			Assert.That(stack.CanUndo, Is.True);
 		}
 
 		[Test]
@@ -197,9 +197,9 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var stack = new UndoStack<IUndoAction>();
 			stack.Push(NewAction("a"));
 			stack.Undo();
-			Assert.IsTrue(stack.Redo());
-			Assert.AreEqual(2, m_actionsTaken.Count);
-			Assert.AreEqual("Redo a", m_actionsTaken[1]);
+			Assert.That(stack.Redo(), Is.True);
+			Assert.That(m_actionsTaken.Count, Is.EqualTo(2));
+			Assert.That(m_actionsTaken[1], Is.EqualTo("Redo a"));
 		}
 
 		[Test]
@@ -207,9 +207,9 @@ namespace GlyssenEngineTests.UndoActionsTests
 		{
 			var stack = new UndoStack<IUndoAction>();
 			stack.Push(NewAction("a"));
-			Assert.IsTrue(stack.Undo());
-			Assert.AreEqual(1, m_actionsTaken.Count);
-			Assert.AreEqual("Undo a", m_actionsTaken[0]);
+			Assert.That(stack.Undo(), Is.True);
+			Assert.That(m_actionsTaken.Count, Is.EqualTo(1));
+			Assert.That(m_actionsTaken[0], Is.EqualTo("Undo a"));
 		}
 
 		[Test]
@@ -219,16 +219,16 @@ namespace GlyssenEngineTests.UndoActionsTests
 			stack.Push(NewAction("a"));
 			stack.Push(NewAction("b", false));
 			stack.Push(NewAction("c"));
-			Assert.IsTrue(stack.Undo());
-			Assert.IsFalse(stack.Undo());
-			Assert.IsTrue(stack.CanRedo);
-			Assert.IsFalse(stack.CanUndo);
-			Assert.IsTrue(stack.Redo());
-			Assert.AreEqual(3, m_actionsTaken.Count);
+			Assert.That(stack.Undo(), Is.True);
+			Assert.That(stack.Undo(), Is.False);
+			Assert.That(stack.CanRedo, Is.True);
+			Assert.That(stack.CanUndo, Is.False);
+			Assert.That(stack.Redo(), Is.True);
+			Assert.That(m_actionsTaken.Count, Is.EqualTo(3));
 			int i = 0;
-			Assert.AreEqual("Undo c", m_actionsTaken[i++]);
-			Assert.AreEqual("Failed to undo b", m_actionsTaken[i++]);
-			Assert.AreEqual("Redo c", m_actionsTaken[i++]);
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Undo c"));
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Failed to undo b"));
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Redo c"));
 		}
 
 		[Test]
@@ -238,21 +238,21 @@ namespace GlyssenEngineTests.UndoActionsTests
 			stack.Push(NewAction("a"));
 			stack.Push(NewAction("b"));
 			stack.Push(NewAction("c"));
-			Assert.IsTrue(stack.Undo());
-			Assert.IsTrue(stack.Undo());
-			Assert.IsTrue(stack.Undo());
-			Assert.AreEqual(3, m_actionsTaken.Count);
+			Assert.That(stack.Undo(), Is.True);
+			Assert.That(stack.Undo(), Is.True);
+			Assert.That(stack.Undo(), Is.True);
+			Assert.That(m_actionsTaken.Count, Is.EqualTo(3));
 			int i = 0;
-			Assert.AreEqual("Undo c", m_actionsTaken[i++]);
-			Assert.AreEqual("Undo b", m_actionsTaken[i++]);
-			Assert.AreEqual("Undo a", m_actionsTaken[i++]);
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Undo c"));
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Undo b"));
+			Assert.That(m_actionsTaken[i++], Is.EqualTo("Undo a"));
 		}
 
 		[Test]
 		public void CanRedo_EmptyStack_ReturnsFalse()
 		{
 			var stack = new UndoStack<IUndoAction>();
-			Assert.IsFalse(stack.CanRedo);
+			Assert.That(stack.CanRedo, Is.False);
 		}
 
 		[Test]
@@ -261,7 +261,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var stack = new UndoStack<IUndoAction>();
 			stack.Push(NewAction());
 			stack.Undo();
-			Assert.IsTrue(stack.CanRedo);
+			Assert.That(stack.CanRedo, Is.True);
 		}
 
 		private IUndoAction NewAction(string description = "", bool expectedUndoResult = true, bool expectedRedoResult = true)
@@ -285,7 +285,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 		public void Peek_EmptyStack_ReturnsNull()
 		{
 			var stack = new UndoStack<IUndoAction>();
-			Assert.IsNull(stack.Peek());
+			Assert.That(stack.Peek(), Is.Null);
 		}
 
 		[Test]
@@ -294,7 +294,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var stack = new UndoStack<IUndoAction>();
 			stack.Push(NewAction());
 			stack.Undo();
-			Assert.IsNull(stack.Peek());
+			Assert.That(stack.Peek(), Is.Null);
 		}
 
 		[Test]
@@ -303,7 +303,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var stack = new UndoStack<IUndoAction>();
 			var action = NewAction();
 			stack.Push(action);
-			Assert.AreEqual(action, stack.Peek());
+			Assert.That(action, Is.EqualTo(stack.Peek()));
 		}
 
 		[Test]
@@ -314,7 +314,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			stack.Push(action);
 			stack.Push(NewAction());
 			stack.Undo();
-			Assert.AreEqual(action, stack.Peek());
+			Assert.That(action, Is.EqualTo(stack.Peek()));
 		}
 	}
 }

@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using GlyssenCharacters;
+﻿using GlyssenCharacters;
 using NUnit.Framework;
 
 namespace ControlDataIntegrityTests
@@ -11,7 +10,8 @@ namespace ControlDataIntegrityTests
 		{
 			foreach (var characterId in RelatedCharactersData.Singleton.GetCharacterIdToRelatedCharactersDictionary().Keys)
 			{
-				Assert.True(CharacterDetailData.Singleton.GetDictionary().Keys.Contains(characterId), "The following character ID was not found in CharacterDetail: {0}", characterId);
+				Assert.That(CharacterDetailData.Singleton.GetDictionary().Keys, Does.Contain(characterId),
+					$"The following character ID was not found in CharacterDetail: {characterId}");
 			}
 		}
 	}

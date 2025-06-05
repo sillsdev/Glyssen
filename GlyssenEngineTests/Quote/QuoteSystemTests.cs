@@ -13,7 +13,7 @@ namespace GlyssenEngineTests.Quote
 		//public void GetCorrespondingFirstLevelQuoteSystem_SameSystem()
 		//{
 		//	var french = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal), null, null); //Guillemets -- French
-		//	Assert.AreEqual(french, french.GetCorrespondingFirstLevelQuoteSystem());
+		//	Assert.That(french, Is.EqualTo(french.GetCorrespondingFirstLevelQuoteSystem()));
 		//	new QuotationMark("", "", "", 1, QuotationMarkingSystemType.Normal);
 		//}
 
@@ -23,8 +23,8 @@ namespace GlyssenEngineTests.Quote
 		//	var turkish = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal), "—", null); //Tırnak işareti (with 2014 Quotation dash) -- Turkish/Vietnamese
 		//	var french = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal), null, null); //Guillemets -- French
 		//	var english = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null); //Quotation marks, double -- English, US/Canada
-		//	Assert.AreEqual(french, turkish.GetCorrespondingFirstLevelQuoteSystem());
-		//	Assert.AreNotEqual(english, turkish.GetCorrespondingFirstLevelQuoteSystem());
+		//	Assert.That(french, Is.EqualTo(turkish.GetCorrespondingFirstLevelQuoteSystem()));
+		//	Assert.That(english, Is.Not.EqualTo(turkish.GetCorrespondingFirstLevelQuoteSystem()));
 		//}
 
 		//[Test]
@@ -33,8 +33,8 @@ namespace GlyssenEngineTests.Quote
 		//	var madeup = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "―", "―"); //Made-up
 		//	var french = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal), null, null); //Guillemets -- French
 		//	var english = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null); //Quotation marks, double -- English, US/Canada
-		//	Assert.AreEqual(english, madeup.GetCorrespondingFirstLevelQuoteSystem());
-		//	Assert.AreNotEqual(french, madeup.GetCorrespondingFirstLevelQuoteSystem());
+		//	Assert.That(english, Is.EqualTo(madeup.GetCorrespondingFirstLevelQuoteSystem()));
+		//	Assert.That(french, Is.Not.EqualTo(madeup.GetCorrespondingFirstLevelQuoteSystem()));
 		//}
 
 		[TestCase("a")]
@@ -169,17 +169,17 @@ namespace GlyssenEngineTests.Quote
 					<QuotationDashEndMarker>—</QuotationDashEndMarker>
 				</QuoteSystem>";
 			var quoteSystem = XmlSerializationHelper.DeserializeFromString<QuoteSystem>(input);
-			Assert.AreEqual("Virgolette (with opening and closing 2014 Quotation dash)", quoteSystem.Name);
-			Assert.AreEqual("Italian", quoteSystem.MajorLanguage);
-			Assert.AreEqual(2, quoteSystem.AllLevels.Count);
-			Assert.AreEqual(1, quoteSystem.NormalLevels.Count);
-			Assert.AreEqual("“", quoteSystem.FirstLevel.Open);
-			Assert.AreEqual("”", quoteSystem.FirstLevel.Close);
-			Assert.AreEqual("“", quoteSystem.FirstLevel.Continue);
-			Assert.AreEqual(1, quoteSystem.FirstLevel.Level);
-			Assert.AreEqual(QuotationMarkingSystemType.Normal, quoteSystem.FirstLevel.Type);
-			Assert.AreEqual("—", quoteSystem.QuotationDashMarker);
-			Assert.AreEqual("—", quoteSystem.QuotationDashEndMarker);
+			Assert.That(quoteSystem.Name, Is.EqualTo("Virgolette (with opening and closing 2014 Quotation dash)"));
+			Assert.That(quoteSystem.MajorLanguage, Is.EqualTo("Italian"));
+			Assert.That(quoteSystem.AllLevels.Count, Is.EqualTo(2));
+			Assert.That(quoteSystem.NormalLevels.Count, Is.EqualTo(1));
+			Assert.That(quoteSystem.FirstLevel.Open, Is.EqualTo("“"));
+			Assert.That(quoteSystem.FirstLevel.Close, Is.EqualTo("”"));
+			Assert.That(quoteSystem.FirstLevel.Continue, Is.EqualTo("“"));
+			Assert.That(quoteSystem.FirstLevel.Level, Is.EqualTo(1));
+			Assert.That(QuotationMarkingSystemType.Normal, Is.EqualTo(quoteSystem.FirstLevel.Type));
+			Assert.That(quoteSystem.QuotationDashMarker, Is.EqualTo("—"));
+			Assert.That(quoteSystem.QuotationDashEndMarker, Is.EqualTo("—"));
 		}
 	}
 }

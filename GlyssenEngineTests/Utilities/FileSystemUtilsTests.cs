@@ -14,7 +14,7 @@ namespace GlyssenEngineTests.Utilities
 		[TestCase("#deal&time~")]
 		public void RemoveDangerousCharacters_Valid_NoChange(string filename)
 		{
-			Assert.AreEqual(filename, FileSystemUtils.RemoveDangerousCharacters(filename));
+			Assert.That(filename, Is.EqualTo(FileSystemUtils.RemoveDangerousCharacters(filename)));
 		}
 
 		[TestCase("    ", ".")]
@@ -26,7 +26,7 @@ namespace GlyssenEngineTests.Utilities
 		public void RemoveDangerousCharacters_LeadingOrTrailingSpacesOrPeriods_Trimmed(string startJunk, string endJunk)
 		{
 			const string goodPart = "!abcdefg^";
-			Assert.AreEqual(goodPart, FileSystemUtils.RemoveDangerousCharacters(startJunk + goodPart + endJunk));
+			Assert.That(goodPart, Is.EqualTo(FileSystemUtils.RemoveDangerousCharacters(startJunk + goodPart + endJunk)));
 		}
 
 		[TestCase("This\u00a0is\u00a0a\u00a0string.", ExpectedResult = "This is a string")]
@@ -103,7 +103,7 @@ namespace GlyssenEngineTests.Utilities
 		[TestCase("LPT9.bloggyboofunkmomma")]
 		public void RemoveDangerousCharacters_ReservedFilenames_ReturnsEmptyString(string filename)
 		{
-			Assert.AreEqual("", FileSystemUtils.RemoveDangerousCharacters(filename));
+			Assert.That(FileSystemUtils.RemoveDangerousCharacters(filename), Is.EqualTo(""));
 		}
 
 		[TestCase("")]
@@ -113,7 +113,7 @@ namespace GlyssenEngineTests.Utilities
 		public void RemoveDangerousCharacters_NameTooLong_ReturnsTruncatedString(string stringToAppend)
 		{
 			var goodPart = "glkejhg#fekfnrwefnrwqenfjunruiugkfjnslkjn wefojweofjiw ;wer f.fuw";
-			Assert.AreEqual(goodPart, FileSystemUtils.RemoveDangerousCharacters(goodPart + stringToAppend, goodPart.Length));
+			Assert.That(goodPart, Is.EqualTo(FileSystemUtils.RemoveDangerousCharacters(goodPart + stringToAppend, goodPart.Length)));
 		}
 
 		[TestCase("This\u00a0is\u00a0a\u00a0string.", new[] { "NO-BREAK SPACE (U+00A0)" })]
@@ -158,7 +158,7 @@ namespace GlyssenEngineTests.Utilities
 		[TestCase(" This is bad-/", new[] { "/" })]
 		public void GetIllegalFilenameCharacters_BogusCharacters_GetsUniqueList(string filename, string[] badCharacters)
 		{
-			Assert.IsTrue(badCharacters.SequenceEqual(FileSystemUtils.GetIllegalFilenameCharacters(filename)));
+			Assert.That(badCharacters.SequenceEqual(FileSystemUtils.GetIllegalFilenameCharacters(filename)), Is.True);
 		}
 
 		[TestCase("")]
@@ -167,7 +167,7 @@ namespace GlyssenEngineTests.Utilities
 		[TestCase("#deal&time~")]
 		public void StartsOrEndsWithDisallowedCharacters_Valid_ReturnsFalse(string filename)
 		{
-			Assert.AreEqual(filename, FileSystemUtils.RemoveDangerousCharacters(filename));
+			Assert.That(filename, Is.EqualTo(FileSystemUtils.RemoveDangerousCharacters(filename)));
 		}
 
 		[TestCase("    ", ".")]
@@ -179,13 +179,13 @@ namespace GlyssenEngineTests.Utilities
 		public void StartsOrEndsWithDisallowedCharacters_LeadingOrTrailingSpacesOrPeriods_ReturnsTrue(string startJunk, string endJunk)
 		{
 			const string goodPart = "!abcdefg^";
-			Assert.IsTrue(FileSystemUtils.StartsOrEndsWithDisallowedCharacters(startJunk + goodPart + endJunk));
+			Assert.That(FileSystemUtils.StartsOrEndsWithDisallowedCharacters(startJunk + goodPart + endJunk), Is.True);
 		}
 
 		[Test]
 		public void StartsOrEndsWithDisallowedCharacters_EmptyString_ReturnsFalse()
 		{
-			Assert.IsFalse(FileSystemUtils.StartsOrEndsWithDisallowedCharacters(String.Empty));
+			Assert.That(FileSystemUtils.StartsOrEndsWithDisallowedCharacters(String.Empty), Is.False);
 		}
 
 		[TestCase("")]
@@ -198,7 +198,7 @@ namespace GlyssenEngineTests.Utilities
 		[TestCase("LPT9 \t")]
 		public void IsReservedFilename_NotReservedFilenames_ReturnsFalse(string filename)
 		{
-			Assert.IsFalse(FileSystemUtils.IsReservedFilename(filename));
+			Assert.That(FileSystemUtils.IsReservedFilename(filename), Is.False);
 		}
 
 		[TestCase("CON")]
@@ -229,7 +229,7 @@ namespace GlyssenEngineTests.Utilities
 		[TestCase("LPT9.bloggyboofunkmomma")]
 		public void IsReservedFilename_ReservedFilenames_ReturnsTrue(string filename)
 		{
-			Assert.IsTrue(FileSystemUtils.IsReservedFilename(filename));
+			Assert.That(FileSystemUtils.IsReservedFilename(filename), Is.True);
 		}
 	}
 }

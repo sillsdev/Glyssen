@@ -5,6 +5,7 @@ using GlyssenEngine.Bundle;
 using GlyssenEngine.Rules;
 using NUnit.Framework;
 using static System.Int32;
+using static GlyssenCharacters.CharacterVerseData.StandardCharacter;
 using Resources = GlyssenCharactersTests.Properties.Resources;
 
 namespace GlyssenEngineTests.Rules
@@ -44,130 +45,130 @@ namespace GlyssenEngineTests.Rules
 		[Test]
 		public void CalculateMinimumProximity_OneCharacterGroupJesus_ReturnsMaxInt()
 		{
-			HashSet<string> characterIds = new HashSet<string> { "Jesus" };
+			var characterIds = new HashSet<string> { "Jesus" };
 
-			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
+			var minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.AreEqual(MaxValue, minProximity.NumberOfBlocks);
-			Assert.AreEqual("Jesus", minProximity.FirstCharacterId);
-			Assert.AreEqual("Jesus", minProximity.SecondCharacterId);
-			Assert.AreEqual("MRK 1:17", minProximity.FirstReference);
-			Assert.AreEqual("MRK 1:17", minProximity.SecondReference);
+			Assert.That(minProximity.NumberOfBlocks, Is.EqualTo(MaxValue));
+			Assert.That(minProximity.FirstCharacterId, Is.EqualTo("Jesus"));
+			Assert.That(minProximity.SecondCharacterId, Is.EqualTo("Jesus"));
+			Assert.That(minProximity.FirstReference, Is.EqualTo("MRK 1:17"));
+			Assert.That(minProximity.SecondReference, Is.EqualTo("MRK 1:17"));
 
 		}
 
 		[Test]
 		public void CalculateMinimumProximity_JesusAndNarrator_ReturnsZero()
 		{
-			HashSet<string> characterIds = new HashSet<string>
+			var characterIds = new HashSet<string>
 			{
 				"Jesus",
 				"narrator-MRK"
 			};
 
-			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
+			var minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.AreEqual(0, minProximity.NumberOfBlocks);
-			Assert.AreEqual("narrator-MRK", minProximity.FirstCharacterId);
-			Assert.AreEqual("Jesus", minProximity.SecondCharacterId);
-			Assert.AreEqual("MRK 1:16", minProximity.FirstReference);
-			Assert.AreEqual("MRK 1:17", minProximity.SecondReference);
+			Assert.That(minProximity.NumberOfBlocks, Is.EqualTo(0));
+			Assert.That(minProximity.FirstCharacterId, Is.EqualTo("narrator-MRK"));
+			Assert.That(minProximity.SecondCharacterId, Is.EqualTo("Jesus"));
+			Assert.That(minProximity.FirstReference, Is.EqualTo("MRK 1:16"));
+			Assert.That(minProximity.SecondReference, Is.EqualTo("MRK 1:17"));
 		}
 
 		[Test]
 		public void CalculateMinimumProximity_MultipleLesserSpeakers_ReturnsPositive()
 		{
-			HashSet<string> characterIds = new HashSet<string>();
+			var characterIds = new HashSet<string>();
 
 			//Mark 5
 			characterIds.Add("demons (Legion)");
 			characterIds.Add("woman, bleeding for twelve years");
 			characterIds.Add("people, sick");
 
-			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
+			var minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.Greater(minProximity.NumberOfBlocks, 0);
-			Assert.AreEqual("demons (Legion)", minProximity.FirstCharacterId);
-			Assert.AreEqual("woman, bleeding for twelve years", minProximity.SecondCharacterId);
-			Assert.AreEqual("MRK 5:12", minProximity.FirstReference);
-			Assert.AreEqual("MRK 5:28", minProximity.SecondReference);
+			Assert.That(minProximity.NumberOfBlocks, Is.GreaterThan(0));
+			Assert.That(minProximity.FirstCharacterId, Is.EqualTo("demons (Legion)"));
+			Assert.That(minProximity.SecondCharacterId, Is.EqualTo("woman, bleeding for twelve years"));
+			Assert.That(minProximity.FirstReference, Is.EqualTo("MRK 5:12"));
+			Assert.That(minProximity.SecondReference, Is.EqualTo("MRK 5:28"));
 		}
 
 		[Test]
 		public void CalculateMinimumProximity_JesusAndTeachersOfReligiousLaw_ReturnsOne()
 		{
-			HashSet<string> characterIds = new HashSet<string>();
+			var characterIds = new HashSet<string>();
 
 			//Mark 2:16-17
 			characterIds.Add("Jesus");
 			characterIds.Add("teachers of religious law");
 
-			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
+			var minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.AreEqual(1, minProximity.NumberOfBlocks);
-			//Assert.AreEqual("Ka lupwony-cik mogo, ma onoŋo gibedo kunnu, gubedo ka pyem kekengi wa i cwinygi ni, ".Length, minProximity.NumberOfKeystrokes);
-			Assert.AreEqual("Jesus", minProximity.FirstCharacterId);
-			Assert.AreEqual("teachers of religious law", minProximity.SecondCharacterId);
-			Assert.AreEqual("MRK 2:5", minProximity.FirstReference);
-			Assert.AreEqual("MRK 2:7", minProximity.SecondReference);
+			Assert.That(minProximity.NumberOfBlocks, Is.EqualTo(1));
+			//Assert.That(minProximity.NumberOfKeystrokes, Is.EqualTo("Ka lupwony-cik mogo, ma onoŋo gibedo kunnu, gubedo ka pyem kekengi wa i cwinygi ni, ".Length));
+			Assert.That(minProximity.FirstCharacterId, Is.EqualTo("Jesus"));
+			Assert.That(minProximity.SecondCharacterId, Is.EqualTo("teachers of religious law"));
+			Assert.That(minProximity.FirstReference, Is.EqualTo("MRK 2:5"));
+			Assert.That(minProximity.SecondReference, Is.EqualTo("MRK 2:7"));
 		}
 
 		[Test]
 		public void CalculateMinimumProximity_SpecificCharacters_ReturnsExactNumbers()
 		{
-			HashSet<string> characterIds = new HashSet<string>();
+			var characterIds = new HashSet<string>();
 
 			//Mark 9:24-26
 			characterIds.Add("father of demon-possessed boy");
 			characterIds.Add("many in crowd");
 
-			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
+			var minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.AreEqual(3, minProximity.NumberOfBlocks);
+			Assert.That(minProximity.NumberOfBlocks, Is.EqualTo(3));
 			//Assert.AreEqual("Ka Yecu oneno lwak giriŋo gibino bote, ogerre i wi cen marac, kun wacce ni, “In cen ma pe loko-ni, ma iti odiŋ-ŋi, aciki ni, a woko ki i kom awobi-nu, pe dok idwog i kome matwal.” En okok, ci ocako ryene aryeya ki tek, ka oa woko i kome. Awobi-nu koŋ obedo macalo dano muto, omiyo jo mapol doggi ocer ni, "
 			//	.Length, minProximity.NumberOfKeystrokes);
-			Assert.AreEqual("father of demon-possessed boy", minProximity.FirstCharacterId);
-			Assert.AreEqual("many in crowd", minProximity.SecondCharacterId);
-			Assert.AreEqual("MRK 9:24", minProximity.FirstReference);
-			Assert.AreEqual("MRK 9:26", minProximity.SecondReference);
+			Assert.That(minProximity.FirstCharacterId, Is.EqualTo("father of demon-possessed boy"));
+			Assert.That(minProximity.SecondCharacterId, Is.EqualTo("many in crowd"));
+			Assert.That(minProximity.FirstReference, Is.EqualTo("MRK 9:24"));
+			Assert.That(minProximity.SecondReference, Is.EqualTo("MRK 9:26"));
 		}
 
 		[Test]
 		public void CalculateMinimumProximity_TwoVersionsOfSameCharacter_ReturnsMaxInt()
 		{
-			HashSet<string> characterIds = new HashSet<string>();
+			var characterIds = new HashSet<string>();
 
 			//Mark 14:60-63
 			characterIds.Add("Caiaphas, the high priest");
 			characterIds.Add("Caiaphas, the high priest (old)");
 
-			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
+			var minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.AreEqual(MaxValue, minProximity.NumberOfBlocks);
-			Assert.AreEqual("Caiaphas, the high priest", minProximity.FirstCharacterId);
-			Assert.AreEqual("Caiaphas, the high priest", minProximity.SecondCharacterId);
-			Assert.AreEqual("MRK 14:60", minProximity.FirstReference);
-			Assert.AreEqual("MRK 14:60", minProximity.SecondReference);
+			Assert.That(minProximity.NumberOfBlocks, Is.EqualTo(MaxValue));
+			Assert.That(minProximity.FirstCharacterId, Is.EqualTo("Caiaphas, the high priest"));
+			Assert.That(minProximity.SecondCharacterId, Is.EqualTo("Caiaphas, the high priest"));
+			Assert.That(minProximity.FirstReference, Is.EqualTo("MRK 14:60"));
+			Assert.That(minProximity.SecondReference, Is.EqualTo("MRK 14:60"));
 		}
 
 		[Test]
 		public void CalculateMinimumProximity_OneOfTheCharactersHasAnAgeVariationCounterpart_CalculatesAllAgeVariationsAsSameCharacter()
 		{
-			HashSet<string> characterIds = new HashSet<string>();
+			var characterIds = new HashSet<string>();
 
 			//Mark 14:60-65
 			characterIds.Add("Caiaphas, the high priest");
 			characterIds.Add("chief priests");
 
-			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
+			var minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.AreEqual(2, minProximity.NumberOfBlocks);
+			Assert.That(minProximity.NumberOfBlocks, Is.EqualTo(2));
 			//Assert.AreEqual("Gin ducu guŋolo lokke ni, balle romme to. Jo mukene gucako ŋulo laa i kome, kun giumo waŋe woko, ka gidoŋe kwede, ma kun giwacci, "
 			//	.Length, minProximity.NumberOfKeystrokes);
-			Assert.AreEqual("Caiaphas, the high priest (old)", minProximity.FirstCharacterId);
-			Assert.AreEqual("chief priests", minProximity.SecondCharacterId);
-			Assert.AreEqual("MRK 14:63", minProximity.FirstReference);
-			Assert.AreEqual("MRK 14:65", minProximity.SecondReference);
+			Assert.That(minProximity.FirstCharacterId, Is.EqualTo("Caiaphas, the high priest (old)"));
+			Assert.That(minProximity.SecondCharacterId, Is.EqualTo("chief priests"));
+			Assert.That(minProximity.FirstReference, Is.EqualTo("MRK 14:63"));
+			Assert.That(minProximity.SecondReference, Is.EqualTo("MRK 14:65"));
 		}
 
 		[Test]
@@ -184,38 +185,38 @@ namespace GlyssenEngineTests.Rules
 
 			var characterIds = new HashSet<string>
 			{
-				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter),
-				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
-				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Intro)
+				CharacterVerseData.GetStandardCharacterId("MRK", BookOrChapter),
+				CharacterVerseData.GetStandardCharacterId("MRK", ExtraBiblical),
+				CharacterVerseData.GetStandardCharacterId("MRK", Intro)
 			};
 
 
-			MinimumProximity minProximity = proximity.CalculateMinimumProximity(characterIds);
+			var minProximity = proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.AreEqual(0, minProximity.NumberOfBlocks);
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter), minProximity.FirstCharacterId);
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical), minProximity.SecondCharacterId);
-			Assert.AreEqual("MRK 1:0", minProximity.FirstReference);
-			Assert.AreEqual("MRK 1:0", minProximity.SecondReference);
+			Assert.That(minProximity.NumberOfBlocks, Is.EqualTo(0));
+			Assert.That(CharacterVerseData.GetStandardCharacterId("MRK", BookOrChapter), Is.EqualTo(minProximity.FirstCharacterId));
+			Assert.That(CharacterVerseData.GetStandardCharacterId("MRK", ExtraBiblical), Is.EqualTo(minProximity.SecondCharacterId));
+			Assert.That(minProximity.FirstReference, Is.EqualTo("MRK 1:0"));
+			Assert.That(minProximity.SecondReference, Is.EqualTo("MRK 1:0"));
 		}
 
 		[Test]
 		public void CalculateMinimumProximity_TreatStandardNonScriptureCharactersAsOne_ExtraBiblicalResultsInZeroProximityWithChapterNumber()
 		{
-			HashSet<string> characterIds = new HashSet<string>
+			var characterIds = new HashSet<string>
 			{
-				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter),
-				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
-				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Intro)
+				CharacterVerseData.GetStandardCharacterId("MRK", BookOrChapter),
+				CharacterVerseData.GetStandardCharacterId("MRK", ExtraBiblical),
+				CharacterVerseData.GetStandardCharacterId("MRK", Intro)
 			};
 
-			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
+			var minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.AreEqual(MaxValue, minProximity.NumberOfBlocks);
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter), minProximity.FirstCharacterId);
-			Assert.AreEqual(minProximity.FirstCharacterId, minProximity.SecondCharacterId);
-			Assert.AreEqual("MRK 0:0", minProximity.FirstReference);
-			Assert.AreEqual(minProximity.FirstReference, minProximity.SecondReference);
+			Assert.That(minProximity.NumberOfBlocks, Is.EqualTo(MaxValue));
+			Assert.That(CharacterVerseData.GetStandardCharacterId("MRK", BookOrChapter), Is.EqualTo(minProximity.FirstCharacterId));
+			Assert.That(minProximity.FirstCharacterId, Is.EqualTo(minProximity.SecondCharacterId));
+			Assert.That(minProximity.FirstReference, Is.EqualTo("MRK 0:0"));
+			Assert.That(minProximity.FirstReference, Is.EqualTo(minProximity.SecondReference));
 		}
 
 		[Test]
@@ -225,9 +226,7 @@ namespace GlyssenEngineTests.Rules
 			project.UseDefaultForUnresolvedMultipleChoiceCharacters();
 			var idPaul = BiblicalAuthors.GetAuthorOfBook("GAL").Name;
 			foreach (var block in project.IncludedBooks[0].GetBlocksForVerse(2, 15))
-			{
 				block.CharacterId = idPaul;
-			}
 
 			project.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.NarrationByAuthor;
 			project.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
@@ -237,14 +236,14 @@ namespace GlyssenEngineTests.Rules
 
 			var characterIds = new HashSet<string>
 			{
-				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator),
-				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.BookOrChapter),
+				CharacterVerseData.GetStandardCharacterId("GAL", Narrator),
+				CharacterVerseData.GetStandardCharacterId("GAL", BookOrChapter),
 				idPaul
 			};
 
-			MinimumProximity minProximity = proximity.CalculateMinimumProximity(characterIds);
+			var minProximity = proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.AreEqual(MaxValue, minProximity.NumberOfBlocks);
+			Assert.That(minProximity.NumberOfBlocks, Is.EqualTo(MaxValue));
 		}
 
 		[Test]
@@ -265,15 +264,15 @@ namespace GlyssenEngineTests.Rules
 
 			var characterIds = new HashSet<string>
 			{
-				CharacterVerseData.GetStandardCharacterId("JOS", CharacterVerseData.StandardCharacter.Narrator),
-				CharacterVerseData.GetStandardCharacterId("JOS", CharacterVerseData.StandardCharacter.ExtraBiblical),
-				CharacterVerseData.GetStandardCharacterId("JOS", CharacterVerseData.StandardCharacter.Intro),
-				CharacterVerseData.GetStandardCharacterId("JOS", CharacterVerseData.StandardCharacter.BookOrChapter),
+				CharacterVerseData.GetStandardCharacterId("JOS", Narrator),
+				CharacterVerseData.GetStandardCharacterId("JOS", ExtraBiblical),
+				CharacterVerseData.GetStandardCharacterId("JOS", Intro),
+				CharacterVerseData.GetStandardCharacterId("JOS", BookOrChapter),
 			};
 
-			MinimumProximity minProximity = proximity.CalculateMinimumProximity(characterIds);
+			var minProximity = proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.AreEqual(MaxValue, minProximity.NumberOfBlocks);
+			Assert.That(minProximity.NumberOfBlocks, Is.EqualTo(MaxValue));
 		}
 
 		[Test]
@@ -283,13 +282,11 @@ namespace GlyssenEngineTests.Rules
 			project.UseDefaultForUnresolvedMultipleChoiceCharacters();
 			var idPaul = BiblicalAuthors.GetAuthorOfBook("GAL").Name;
 			foreach (var block in project.IncludedBooks[0].GetBlocksForVerse(2, 15))
-			{
 				block.CharacterId = idPaul;
-			}
 
 			project.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.NarrationByAuthor;
 			// The following can be anything but omitted, but by making them all different, we prove that
-			// non-strict adherence to the the narrator preferences is really happening.
+			// non-strict adherence to the narrator preferences is really happening.
 			project.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
 			project.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.FemaleActor;
 			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.MaleActor;
@@ -298,16 +295,16 @@ namespace GlyssenEngineTests.Rules
 
 			var characterIds = new HashSet<string>
 			{
-				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator),
-				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.ExtraBiblical),
-				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Intro), // Not actually used in GAL test data
-				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.BookOrChapter),
+				CharacterVerseData.GetStandardCharacterId("GAL", Narrator),
+				CharacterVerseData.GetStandardCharacterId("GAL", ExtraBiblical),
+				CharacterVerseData.GetStandardCharacterId("GAL", Intro), // Not actually used in GAL test data
+				CharacterVerseData.GetStandardCharacterId("GAL", BookOrChapter),
 				idPaul
 			};
 
-			MinimumProximity minProximity = proximity.CalculateMinimumProximity(characterIds);
+			var minProximity = proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.AreEqual(MaxValue, minProximity.NumberOfBlocks);
+			Assert.That(minProximity.NumberOfBlocks, Is.EqualTo(MaxValue));
 		}
 	}
 }

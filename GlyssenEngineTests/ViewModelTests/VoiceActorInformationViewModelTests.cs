@@ -50,21 +50,21 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void ValidateActor_NameIsBlank_ReturnNoName()
 		{
 			m_model.AddNewActor();
-			Assert.AreEqual(VoiceActorInformationViewModel.ActorValidationState.NoName, m_model.ValidateActor(m_model.Actors.Count - 1));
+			Assert.That(VoiceActorInformationViewModel.ActorValidationState.NoName, Is.EqualTo(m_model.ValidateActor(m_model.Actors.Count - 1)));
 		}
 
 		[Test]
 		public void ValidateActor_NameIsNull_ReturnNoName()
 		{
 			m_model.AddNewActor().Name = null;
-			Assert.AreEqual(VoiceActorInformationViewModel.ActorValidationState.NoName, m_model.ValidateActor(m_model.Actors.Count - 1));
+			Assert.That(VoiceActorInformationViewModel.ActorValidationState.NoName, Is.EqualTo(m_model.ValidateActor(m_model.Actors.Count - 1)));
 		}
 
 		[Test]
 		public void ValidateActor_NameIsSpaces_ReturnNoName()
 		{
 			m_model.AddNewActor().Name = "     ";
-			Assert.AreEqual(VoiceActorInformationViewModel.ActorValidationState.NoName, m_model.ValidateActor(m_model.Actors.Count - 1));
+			Assert.That(VoiceActorInformationViewModel.ActorValidationState.NoName, Is.EqualTo(m_model.ValidateActor(m_model.Actors.Count - 1)));
 		}
 
 		[TestCase(0)]
@@ -73,7 +73,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		[TestCase(3)]
 		public void ValidateActor_NameIsValid_ReturnValid(int index)
 		{
-			Assert.AreEqual(VoiceActorInformationViewModel.ActorValidationState.Valid, m_model.ValidateActor(index));
+			Assert.That(VoiceActorInformationViewModel.ActorValidationState.Valid, Is.EqualTo(m_model.ValidateActor(index)));
 		}
 
 		[TestCase(-1)]
@@ -87,9 +87,9 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void DeleteVoiceActors_ActorsDeleted()
 		{
 			var actorsToDelete = new HashSet<VoiceActor>(m_testProject.VoiceActorList.AllActors.Where(a => a.Id < 3));
-			Assert.AreEqual(4, m_testProject.VoiceActorList.AllActors.Count);
-			Assert.True(m_model.DeleteVoiceActors(actorsToDelete));
-			Assert.AreEqual(2, m_testProject.VoiceActorList.AllActors.Count);
+			Assert.That(m_testProject.VoiceActorList.AllActors.Count, Is.EqualTo(4));
+			Assert.That(m_model.DeleteVoiceActors(actorsToDelete), Is.True);
+			Assert.That(m_testProject.VoiceActorList.AllActors.Count, Is.EqualTo(2));
 		}
 
 		[Test]
@@ -102,17 +102,17 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup2);
 			characterGroup1.AssignVoiceActor(2);
 			characterGroup2.AssignVoiceActor(4);
-			Assert.AreEqual(4, m_testProject.VoiceActorList.AllActors.Count);
-			Assert.True(m_model.DeleteVoiceActors(actorsToDelete));
-			Assert.AreEqual(2, m_testProject.VoiceActorList.AllActors.Count);
-			Assert.IsFalse(characterGroup1.IsVoiceActorAssigned);
-			Assert.IsTrue(characterGroup2.IsVoiceActorAssigned);
+			Assert.That(m_testProject.VoiceActorList.AllActors.Count, Is.EqualTo(4));
+			Assert.That(m_model.DeleteVoiceActors(actorsToDelete), Is.True);
+			Assert.That(m_testProject.VoiceActorList.AllActors.Count, Is.EqualTo(2));
+			Assert.That(characterGroup1.IsVoiceActorAssigned, Is.False);
+			Assert.That(characterGroup2.IsVoiceActorAssigned, Is.True);
 		}
 
 		[Test]
 		public void DeleteVoiceActors_NoActorsProvided_ReturnsFalse()
 		{
-			Assert.False(m_model.DeleteVoiceActors(new HashSet<VoiceActor>()));
+			Assert.That(m_model.DeleteVoiceActors(new HashSet<VoiceActor>()), Is.False);
 		}
 
 		[Test]
@@ -122,12 +122,12 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_testProject.VoiceActorList.AllActors.Add(actor);
 			var characterGroup = new CharacterGroup(m_testProject);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup);
-			Assert.True(actor.IsInactive);
-			Assert.False(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id));
+			Assert.That(actor.IsInactive, Is.True);
+			Assert.That(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id), Is.False);
 
 			m_model.SetInactive(actor, true);
-			Assert.True(actor.IsInactive);
-			Assert.False(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id));
+			Assert.That(actor.IsInactive, Is.True);
+			Assert.That(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id), Is.False);
 		}
 
 		[Test]
@@ -137,12 +137,12 @@ namespace GlyssenEngineTests.ViewModelTests
 			var characterGroup = new CharacterGroup(m_testProject);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup);
 			characterGroup.AssignVoiceActor(actor.Id);
-			Assert.False(actor.IsInactive);
-			Assert.True(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id));
+			Assert.That(actor.IsInactive, Is.False);
+			Assert.That(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id), Is.True);
 
 			m_model.SetInactive(actor, false);
-			Assert.False(actor.IsInactive);
-			Assert.True(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id));
+			Assert.That(actor.IsInactive, Is.False);
+			Assert.That(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id), Is.True);
 		}
 
 		[Test]
@@ -151,12 +151,12 @@ namespace GlyssenEngineTests.ViewModelTests
 			var actor = m_testProject.VoiceActorList.AllActors.Single(a => a.Id == 2);
 			var characterGroup = new CharacterGroup(m_testProject);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup);
-			Assert.False(actor.IsInactive);
-			Assert.False(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id));
+			Assert.That(actor.IsInactive, Is.False);
+			Assert.That(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id), Is.False);
 
 			m_model.SetInactive(actor, true);
-			Assert.True(actor.IsInactive);
-			Assert.False(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id));
+			Assert.That(actor.IsInactive, Is.True);
+			Assert.That(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id), Is.False);
 		}
 
 		[Test]
@@ -166,49 +166,49 @@ namespace GlyssenEngineTests.ViewModelTests
 			var characterGroup = new CharacterGroup(m_testProject);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup);
 			characterGroup.AssignVoiceActor(actor.Id);
-			Assert.False(actor.IsInactive);
-			Assert.True(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id));
+			Assert.That(actor.IsInactive, Is.False);
+			Assert.That(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id), Is.True);
 
 			m_model.SetInactive(actor, true);
-			Assert.True(actor.IsInactive);
-			Assert.False(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id));
+			Assert.That(actor.IsInactive, Is.True);
+			Assert.That(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id), Is.False);
 		}
 
 		[Test]
 		public void Changes_VoiceActorAdded_UndoActionCreated()
 		{
-			Assert.AreEqual(4, m_testProject.VoiceActorList.AllActors.Count);
+			Assert.That(m_testProject.VoiceActorList.AllActors.Count, Is.EqualTo(4));
 			m_model.AddNewActor().Name = "Phoenix";
-			Assert.AreEqual(5, m_testProject.VoiceActorList.AllActors.Count);
-			Assert.IsTrue(m_model.Changes.Single() is VoiceActorAddedUndoAction);
+			Assert.That(m_testProject.VoiceActorList.AllActors.Count, Is.EqualTo(5));
+			Assert.That(m_model.Changes.Single() is VoiceActorAddedUndoAction, Is.True);
 		}
 
 		[Test]
 		public void Changes_VoiceActorModified_UndoActionCreated()
 		{
-			Assert.AreEqual(4, m_testProject.VoiceActorList.AllActors.Count);
+			Assert.That(m_testProject.VoiceActorList.AllActors.Count, Is.EqualTo(4));
 			m_testProject.VoiceActorList.AllActors[0].Name = "Monkey Soup";
-			Assert.IsTrue(m_model.Changes.Single() is VoiceActorEditUndoAction);
+			Assert.That(m_model.Changes.Single() is VoiceActorEditUndoAction, Is.True);
 		}
 
 		[Test]
 		public void Changes_VoiceActorDeleted_UndoActionCreated()
 		{
 			var actorsToDelete = new HashSet<VoiceActor>(m_testProject.VoiceActorList.AllActors.Where(a => a.Id == 3));
-			Assert.True(m_model.DeleteVoiceActors(actorsToDelete));
-			Assert.IsTrue(m_model.Changes.Single() is VoiceActorDeletedUndoAction);
+			Assert.That(m_model.DeleteVoiceActors(actorsToDelete), Is.True);
+			Assert.That(m_model.Changes.Single() is VoiceActorDeletedUndoAction, Is.True);
 		}
 
 		[Test]
 		public void Changes_DeleteNewlyAddedVoiceActor_NoUndoActionCreated()
 		{
 			var addedActor = m_model.AddNewActor();
-			Assert.AreEqual(5, m_testProject.VoiceActorList.AllActors.Count);
+			Assert.That(m_testProject.VoiceActorList.AllActors.Count, Is.EqualTo(5));
 			var actorsToDelete = new HashSet<VoiceActor>();
 			actorsToDelete.Add(addedActor);
-			Assert.True(m_model.DeleteVoiceActors(actorsToDelete));
-			Assert.AreEqual(4, m_testProject.VoiceActorList.AllActors.Count);
-			Assert.AreEqual(0, m_model.Changes.Count());
+			Assert.That(m_model.DeleteVoiceActors(actorsToDelete), Is.True);
+			Assert.That(m_testProject.VoiceActorList.AllActors.Count, Is.EqualTo(4));
+			Assert.That(m_model.Changes.Count(), Is.EqualTo(0));
 		}
 	}
 }

@@ -13,10 +13,10 @@ namespace GlyssenEngineTests.Quote
 		{
 			var level1 = new QuotationMark("»", "«", "»", 1, QuotationMarkingSystemType.Normal);
 			var level2Possibilities = QuoteUtils.GetLevel2Possibilities(level1);
-			Assert.AreEqual(1, level2Possibilities.Count());
+			Assert.That(level2Possibilities.Count(), Is.EqualTo(1));
 			var level2 = level2Possibilities.First();
-			Assert.AreEqual("›", level2.Open);
-			Assert.AreEqual("‹", level2.Close);
+			Assert.That(level2.Open, Is.EqualTo("›"));
+			Assert.That(level2.Close, Is.EqualTo("‹"));
 		}
 
 		[Test]
@@ -24,13 +24,13 @@ namespace GlyssenEngineTests.Quote
 		{
 			var level1 = new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal);
 			var level2Possibilities = QuoteUtils.GetLevel2Possibilities(level1);
-			Assert.AreEqual(6, level2Possibilities.Count());
-			Assert.AreEqual(1, level2Possibilities.Count(p => p.Open.Equals("“") && p.Close.Equals("”") && p.Continue.Equals("« “")));
-			Assert.AreEqual(1, level2Possibilities.Count(p => p.Open.Equals("‹") && p.Close.Equals("›") && p.Continue.Equals("« ‹")));
-			Assert.AreEqual(1, level2Possibilities.Count(p => p.Open.Equals("«") && p.Close.Equals("»") && p.Continue.Equals("« «")));
-			Assert.AreEqual(1, level2Possibilities.Count(p => p.Open.Equals("„") && p.Close.Equals("“") && p.Continue.Equals("« „")));
-			Assert.AreEqual(1, level2Possibilities.Count(p => p.Open.Equals("’") && p.Close.Equals("’") && p.Continue.Equals("« ’")));
-			Assert.AreEqual(1, level2Possibilities.Count(p => p.Open.Equals("‘") && p.Close.Equals("’") && p.Continue.Equals("« ‘")));
+			Assert.That(level2Possibilities.Count(), Is.EqualTo(6));
+			Assert.That(level2Possibilities.Count(p => p.Open.Equals("“") && p.Close.Equals("”") && p.Continue.Equals("« “")), Is.EqualTo(1));
+			Assert.That(level2Possibilities.Count(p => p.Open.Equals("‹") && p.Close.Equals("›") && p.Continue.Equals("« ‹")), Is.EqualTo(1));
+			Assert.That(level2Possibilities.Count(p => p.Open.Equals("«") && p.Close.Equals("»") && p.Continue.Equals("« «")), Is.EqualTo(1));
+			Assert.That(level2Possibilities.Count(p => p.Open.Equals("„") && p.Close.Equals("“") && p.Continue.Equals("« „")), Is.EqualTo(1));
+			Assert.That(level2Possibilities.Count(p => p.Open.Equals("’") && p.Close.Equals("’") && p.Continue.Equals("« ’")), Is.EqualTo(1));
+			Assert.That(level2Possibilities.Count(p => p.Open.Equals("‘") && p.Close.Equals("’") && p.Continue.Equals("« ‘")), Is.EqualTo(1));
 		}
 
 		[Test]
@@ -38,11 +38,11 @@ namespace GlyssenEngineTests.Quote
 		{
 			var level1 = new QuotationMark("»", "«", "»", 1, QuotationMarkingSystemType.Normal);
 			var level2 = QuoteUtils.GetLevel2Default(level1);
-			Assert.AreEqual("›", level2.Open);
-			Assert.AreEqual("‹", level2.Close);
-			Assert.AreEqual("›", level2.Continue);
-			Assert.AreEqual(2, level2.Level);
-			Assert.AreEqual(QuotationMarkingSystemType.Normal, level2.Type);
+			Assert.That(level2.Open, Is.EqualTo("›"));
+			Assert.That(level2.Close, Is.EqualTo("‹"));
+			Assert.That(level2.Continue, Is.EqualTo("›"));
+			Assert.That(level2.Level, Is.EqualTo(2));
+			Assert.That(QuotationMarkingSystemType.Normal, Is.EqualTo(level2.Type));
 		}
 
 		[Test]
@@ -50,11 +50,11 @@ namespace GlyssenEngineTests.Quote
 		{
 			var level1 = new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal);
 			var level2 = QuoteUtils.GetLevel2Default(level1);
-			Assert.AreEqual("“", level2.Open);
-			Assert.AreEqual("”", level2.Close);
-			Assert.AreEqual("“", level2.Continue);
-			Assert.AreEqual(2, level2.Level);
-			Assert.AreEqual(QuotationMarkingSystemType.Normal, level2.Type);
+			Assert.That(level2.Open, Is.EqualTo("“"));
+			Assert.That(level2.Close, Is.EqualTo("”"));
+			Assert.That(level2.Continue, Is.EqualTo("“"));
+			Assert.That(level2.Level, Is.EqualTo(2));
+			Assert.That(QuotationMarkingSystemType.Normal, Is.EqualTo(level2.Type));
 		}
 	}
 }
