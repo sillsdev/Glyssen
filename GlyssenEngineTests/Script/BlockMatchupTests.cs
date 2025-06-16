@@ -358,12 +358,12 @@ namespace GlyssenEngineTests.Script
 			Assert.That(matchup.CorrelatedBlocks[0].CharacterId, Is.EqualTo("someone"));
 			Assert.That(matchup.CorrelatedBlocks[0].Delivery, Is.Null);
 			Assert.That(matchup.CorrelatedBlocks[0].GetPrimaryReferenceText(), Is.EqualTo("{2}\u00A0“This is verse two,” "));
-			Assert.That(narrator, Is.EqualTo(matchup.CorrelatedBlocks[1].CharacterId));
+			Assert.That(matchup.CorrelatedBlocks[1].CharacterId, Is.EqualTo(narrator));
 			Assert.That(matchup.CorrelatedBlocks[1].GetPrimaryReferenceText(), Is.EqualTo("said Jesus. "));
 			Assert.That(matchup.CorrelatedBlocks[2].CharacterId, Is.EqualTo("disciples"));
 			Assert.That(matchup.CorrelatedBlocks[2].Delivery, Is.EqualTo("confident"));
 			Assert.That(matchup.CorrelatedBlocks[2].GetPrimaryReferenceText(), Is.EqualTo("“We knew that,” "));
-			Assert.That(narrator, Is.EqualTo(matchup.CorrelatedBlocks[3].CharacterId));
+			Assert.That(matchup.CorrelatedBlocks[3].CharacterId, Is.EqualTo(narrator));
 			Assert.That(matchup.CorrelatedBlocks[3].GetPrimaryReferenceText(), Is.EqualTo("replied Matthew."));
 			Assert.That(matchup.HasOutstandingChangesToApply, Is.False);
 		}
@@ -399,7 +399,7 @@ namespace GlyssenEngineTests.Script
 			Assert.That(matchup.CorrelatedBlocks[0].CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(matchup.CorrelatedBlocks[0].UserConfirmed, Is.True);
 			Assert.That(matchup.CorrelatedBlocks[0].GetPrimaryReferenceText(), Is.EqualTo("{2}\u00A0“This is verse two,” "));
-			Assert.That(narrator, Is.EqualTo(matchup.CorrelatedBlocks[1].CharacterId));
+			Assert.That(matchup.CorrelatedBlocks[1].CharacterId, Is.EqualTo(narrator));
 			Assert.That(matchup.CorrelatedBlocks[1].UserConfirmed, Is.False);
 			Assert.That(matchup.CorrelatedBlocks[1].GetPrimaryReferenceText(), Is.EqualTo("said Jesus. "));
 			Assert.That(matchup.CorrelatedBlocks[2].CharacterId, Is.EqualTo("Batholomew/Matthew"));
@@ -407,7 +407,7 @@ namespace GlyssenEngineTests.Script
 			Assert.That(matchup.CorrelatedBlocks[2].UserConfirmed, Is.True);
 			Assert.That(matchup.CorrelatedBlocks[2].Delivery, Is.EqualTo("smug"));
 			Assert.That(matchup.CorrelatedBlocks[2].GetPrimaryReferenceText(), Is.EqualTo("“We knew that,” "));
-			Assert.That(narrator, Is.EqualTo(matchup.CorrelatedBlocks[3].CharacterId));
+			Assert.That(matchup.CorrelatedBlocks[3].CharacterId, Is.EqualTo(narrator));
 			Assert.That(matchup.CorrelatedBlocks[3].UserConfirmed, Is.False);
 			Assert.That(matchup.CorrelatedBlocks[3].GetPrimaryReferenceText(), Is.EqualTo("replied Matthew."));
 			Assert.That(matchup.HasOutstandingChangesToApply, Is.True);
@@ -462,7 +462,7 @@ namespace GlyssenEngineTests.Script
 			var joinedRefBlock = matchup.CorrelatedBlocks[3].ReferenceBlocks.Single();
 			// We may not technically really care too much about the next four lines (at least
 			// right now), but this is how we expect the reference block to be built.
-			Assert.That(narrator, Is.EqualTo(joinedRefBlock.CharacterId));
+			Assert.That(joinedRefBlock.CharacterId, Is.EqualTo(narrator));
 			Assert.That(((ScriptText)joinedRefBlock.BlockElements[0]).Content,
 				Is.EqualTo("He said this "));
 			Assert.That(((Verse)joinedRefBlock.BlockElements[1]).Number, Is.EqualTo("3"));
@@ -1276,11 +1276,11 @@ namespace GlyssenEngineTests.Script
 			var lastPrimaryRefBlock = matchup.CorrelatedBlocks[2].ReferenceBlocks.Single();
 			Assert.That(lastPrimaryRefBlock.InitialStartVerseNumber, Is.EqualTo(4));
 			Assert.That(lastPrimaryRefBlock.InitialEndVerseNumber, Is.EqualTo(0));
-			Assert.That(narrator, Is.EqualTo(lastPrimaryRefBlock.CharacterId));
+			Assert.That(lastPrimaryRefBlock.CharacterId, Is.EqualTo(narrator));
 			var lastSecondaryRefBlock = lastPrimaryRefBlock.ReferenceBlocks.Single();
 			Assert.That(lastSecondaryRefBlock.InitialStartVerseNumber, Is.EqualTo(2));
 			Assert.That(lastSecondaryRefBlock.InitialEndVerseNumber, Is.EqualTo(3));
-			Assert.That(narrator, Is.EqualTo(lastSecondaryRefBlock.CharacterId));
+			Assert.That(lastSecondaryRefBlock.CharacterId, Is.EqualTo(narrator));
 		}
 
 		[Test]
@@ -1428,7 +1428,7 @@ namespace GlyssenEngineTests.Script
 			Assert.That(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText), Is.True);
 			Assert.That(matchup.CorrelatedBlocks.Select(b => b.ReferenceBlocks.Single()).Any(rb => rb.ReferenceBlocks.Any()), Is.False,
 				"This matchup only has English - no additional levels should be present.");
-			Assert.That(narrator, Is.EqualTo(matchup.CorrelatedBlocks[1].CharacterId));
+			Assert.That(matchup.CorrelatedBlocks[1].CharacterId, Is.EqualTo(narrator));
 			Assert.That(matchup.CorrelatedBlocks[1].GetPrimaryReferenceText(), Is.EqualTo("he said."));
 			Assert.That(matchup.CorrelatedBlocks[0].CharacterId, Is.EqualTo("Jesus"),
 				"First reference text should not have been changed!");
@@ -1462,7 +1462,7 @@ namespace GlyssenEngineTests.Script
 				callbackCalled = true;
 			});
 			Assert.That(callbackCalled, Is.True);
-			Assert.That(narrator, Is.EqualTo(matchup.CorrelatedBlocks[1].CharacterId));
+			Assert.That(matchup.CorrelatedBlocks[1].CharacterId, Is.EqualTo(narrator));
 			Assert.That(matchup.CorrelatedBlocks[1].GetPrimaryReferenceText(), Is.EqualTo("{3}\u00A0he said."));
 			Assert.That(matchup.CorrelatedBlocks[0].CharacterId, Is.EqualTo("Jesus"), "First reference text should not have been changed!");
 			Assert.That(matchup.CorrelatedBlocks[0].GetPrimaryReferenceText(),
@@ -1488,7 +1488,7 @@ namespace GlyssenEngineTests.Script
 			Assert.That(matchup.CorrelatedBlocks.Select(b => b.GetPrimaryReferenceText()).All(t => t == ""), Is.True);
 			Assert.That(matchup.CorrelatedBlocks.Select(b => b.ReferenceBlocks.Single()).Any(rb => rb.ReferenceBlocks.Any()), Is.False,
 				"This matchup only has English - no additional levels should be present.");
-			Assert.That(narrator, Is.EqualTo(matchup.CorrelatedBlocks[1].CharacterId));
+			Assert.That(matchup.CorrelatedBlocks[1].CharacterId, Is.EqualTo(narrator));
 			Assert.That(matchup.CorrelatedBlocks[0].CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().CharacterId, Is.EqualTo(narrator),
 				"Reference text character id should not have been changed!");
@@ -1516,7 +1516,7 @@ namespace GlyssenEngineTests.Script
 				"Reference text should not have been changed!");
 			Assert.That(matchup.CorrelatedBlocks.Select(b => b.ReferenceBlocks.Single()).Any(rb => rb.ReferenceBlocks.Any()), Is.False,
 				"This matchup only has English - no additional levels should be present.");
-			Assert.That(narrator, Is.EqualTo(matchup.CorrelatedBlocks[1].CharacterId));
+			Assert.That(matchup.CorrelatedBlocks[1].CharacterId, Is.EqualTo(narrator));
 			Assert.That(matchup.CorrelatedBlocks[0].CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().CharacterId, Is.EqualTo(narrator),
 				"Reference text character id should not have been changed!");
@@ -1544,7 +1544,7 @@ namespace GlyssenEngineTests.Script
 				"Reference text should not have been changed!");
 			Assert.That(matchup.CorrelatedBlocks.Select(b => b.ReferenceBlocks.Single()).Any(rb => rb.ReferenceBlocks.Any()), Is.False,
 				"This matchup only has English - no additional levels should be present.");
-			Assert.That(narrator, Is.EqualTo(matchup.CorrelatedBlocks[1].CharacterId));
+			Assert.That(matchup.CorrelatedBlocks[1].CharacterId, Is.EqualTo(narrator));
 			Assert.That(matchup.CorrelatedBlocks[0].CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().CharacterId, Is.EqualTo(narrator),
 				"Reference text character id should not have been changed!");
@@ -1573,8 +1573,8 @@ namespace GlyssenEngineTests.Script
 
 			Assert.That(matchup.CorrelatedBlocks[1].GetPrimaryReferenceText(), Is.EqualTo("he said."));
 			var narrator = GetStandardCharacterId("MAT", Narrator);
-			Assert.That(narrator, Is.EqualTo(matchup.CorrelatedBlocks[1].CharacterId));
-			Assert.That(narrator, Is.EqualTo(matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().CharacterId));
+			Assert.That(matchup.CorrelatedBlocks[1].CharacterId, Is.EqualTo(narrator));
+			Assert.That(matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().CharacterId, Is.EqualTo(narrator));
 
 			Assert.That(matchup.CorrelatedBlocks[0].CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().CharacterId, Is.EqualTo("Jesus"), "Reference text character id should not have been changed!");
@@ -1687,20 +1687,20 @@ namespace GlyssenEngineTests.Script
 
 			var row1VernBlock = matchup.CorrelatedBlocks[1];
 			Assert.That(row1VernBlock.MatchesReferenceText, Is.True);
-			Assert.That(narrator, Is.EqualTo(row1VernBlock.CharacterId));
+			Assert.That(row1VernBlock.CharacterId, Is.EqualTo(narrator));
 			Assert.That(row1VernBlock.GetPrimaryReferenceText(), Is.EqualTo("dijo Jesus. "));
 			var row1SpanishRefBlock = row1VernBlock.ReferenceBlocks.Single();
 			Assert.That(row1SpanishRefBlock.MatchesReferenceText, Is.True);
-			Assert.That(narrator, Is.EqualTo(row1SpanishRefBlock.CharacterId));
+			Assert.That(row1SpanishRefBlock.CharacterId, Is.EqualTo(narrator));
 			Assert.That(row1SpanishRefBlock.GetPrimaryReferenceText(), Is.EqualTo("he said. "));
 
 			var row3VernBlock = matchup.CorrelatedBlocks[3];
 			Assert.That(row3VernBlock.MatchesReferenceText, Is.True);
-			Assert.That(narrator, Is.EqualTo(row3VernBlock.CharacterId));
+			Assert.That(row3VernBlock.CharacterId, Is.EqualTo(narrator));
 			Assert.That(row3VernBlock.GetPrimaryReferenceText(), Is.EqualTo("dijo."));
 			var row3SpanishRefBlock = row3VernBlock.ReferenceBlocks.Single();
 			Assert.That(row3SpanishRefBlock.MatchesReferenceText, Is.True);
-			Assert.That(narrator, Is.EqualTo(row3SpanishRefBlock.CharacterId));
+			Assert.That(row3SpanishRefBlock.CharacterId, Is.EqualTo(narrator));
 			Assert.That(row3SpanishRefBlock.GetPrimaryReferenceText(), Is.EqualTo("Peter said."));
 
 			Assert.That(matchup.CorrelatedBlocks[0].MatchesReferenceText, Is.False);
@@ -1746,8 +1746,8 @@ namespace GlyssenEngineTests.Script
 			Assert.That(vernacularBlocks[4].ReferenceBlocks.Any(), Is.False);
 			vernacularBlocks[4].SetMatchedReferenceBlock("This is some arbitrary reference text.");
 			vernacularBlocks[4].ReferenceBlocks.Single().CharacterId = refTextCharacter;
-			Assert.That(narrator, Is.EqualTo(vernacularBlocks[5].ReferenceBlocks.Single().CharacterId));
-			Assert.That(narrator, Is.EqualTo(vernacularBlocks[6].ReferenceBlocks.Single().CharacterId));
+			Assert.That(vernacularBlocks[5].ReferenceBlocks.Single().CharacterId, Is.EqualTo(narrator));
+			Assert.That(vernacularBlocks[6].ReferenceBlocks.Single().CharacterId, Is.EqualTo(narrator));
 			Assert.That(vernAndrewSaidBlock.MatchesReferenceText, Is.False);
 			Assert.That(vernAndrewSaidBlock.ReferenceBlocks.Any(), Is.False);
 			Assert.That(vernacularBlocks.Count(vb => vb.GetReferenceTextAtDepth(0) == ""), Is.EqualTo(2));
@@ -1776,7 +1776,7 @@ namespace GlyssenEngineTests.Script
 
 			var row2VernBlock = matchup.CorrelatedBlocks[2];
 			Assert.That(row2VernBlock.MatchesReferenceText, Is.True);
-			Assert.That(narrator, Is.EqualTo(row2VernBlock.CharacterId));
+			Assert.That(row2VernBlock.CharacterId, Is.EqualTo(narrator));
 			Assert.That(row2VernBlock.GetPrimaryReferenceText(), Is.EqualTo("he said. "));
 			Assert.That(row2VernBlock.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 
@@ -1788,11 +1788,11 @@ namespace GlyssenEngineTests.Script
 
 			var row7VernBlock = matchup.CorrelatedBlocks[7];
 			Assert.That(row7VernBlock.MatchesReferenceText, Is.True);
-			Assert.That(narrator, Is.EqualTo(row7VernBlock.CharacterId));
+			Assert.That(row7VernBlock.CharacterId, Is.EqualTo(narrator));
 			Assert.That(row7VernBlock.GetPrimaryReferenceText(), Is.EqualTo("he said. "));
 			Assert.That(row7VernBlock.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 
-			Assert.That(narrator, Is.EqualTo(matchup.CorrelatedBlocks.Last().CharacterId));
+			Assert.That(matchup.CorrelatedBlocks.Last().CharacterId, Is.EqualTo(narrator));
 			Assert.That(matchup.CorrelatedBlocks.Last().MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 		}
 
@@ -1835,15 +1835,15 @@ namespace GlyssenEngineTests.Script
 
 			var row2VernBlock = matchup.CorrelatedBlocks[2];
 			Assert.That(row2VernBlock.MatchesReferenceText, Is.True);
-			Assert.That(narrator, Is.EqualTo(row2VernBlock.CharacterId));
+			Assert.That(row2VernBlock.CharacterId, Is.EqualTo(narrator));
 			Assert.That(row2VernBlock.GetPrimaryReferenceText(), Is.EqualTo("he said. "));
 			Assert.That(row2VernBlock.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 
 			Assert.That(matchup.CorrelatedBlocks[3].GetPrimaryReferenceText(), Is.EqualTo(""));
-			Assert.That(narrator, Is.EqualTo(matchup.CorrelatedBlocks[3].CharacterId));
+			Assert.That(matchup.CorrelatedBlocks[3].CharacterId, Is.EqualTo(narrator));
 			Assert.That(matchup.CorrelatedBlocks[3].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 			Assert.That(matchup.CorrelatedBlocks[4].GetPrimaryReferenceText(), Is.EqualTo(""));
-			Assert.That(narrator, Is.EqualTo(matchup.CorrelatedBlocks[4].CharacterId));
+			Assert.That(matchup.CorrelatedBlocks[4].CharacterId, Is.EqualTo(narrator));
 			Assert.That(matchup.CorrelatedBlocks[4].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 		}
 

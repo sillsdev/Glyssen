@@ -71,14 +71,14 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(output[0].CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(output[0].HasPreConfirmedCharacter, Is.True);
 
-			Assert.That(narrator, Is.EqualTo(output[1].CharacterId));
+			Assert.That(output[1].CharacterId, Is.EqualTo(narrator));
 			Assert.That(output[1].HasPreConfirmedCharacter, Is.False);
 
 			Assert.That(output[2].CharacterId, Is.EqualTo("disciples"));
 			Assert.That(output[2].CharacterIdInScript, Is.EqualTo("Andrew"));
 			Assert.That(output[2].HasPreConfirmedCharacter, Is.True);
 
-			Assert.That(narrator, Is.EqualTo(output[3].CharacterId));
+			Assert.That(output[3].CharacterId, Is.EqualTo(narrator));
 			Assert.That(output[3].HasPreConfirmedCharacter, Is.False);
 
 			Assert.That(output[4].CharacterId, Is.EqualTo(kAmbiguousCharacter));
@@ -106,13 +106,13 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(output.Count, Is.EqualTo(4));
 
 			var narrator = GetStandardCharacterId("MRK", Narrator);
-			Assert.That(narrator, Is.EqualTo(output[0].CharacterId));
+			Assert.That(output[0].CharacterId, Is.EqualTo(narrator));
 			Assert.That(output[0].HasPreConfirmedCharacter, Is.False);
 
 			Assert.That(output[1].CharacterId, Is.EqualTo(kAmbiguousCharacter));
 			Assert.That(output[1].HasPreConfirmedCharacter, Is.False);
 
-			Assert.That(character ?? kAmbiguousCharacter, Is.EqualTo(output[2].CharacterId));
+			Assert.That(output[2].CharacterId, Is.EqualTo(character ?? kAmbiguousCharacter));
 			Assert.That(output[2].IsPredeterminedFirstLevelQuoteStart, Is.True);
 
 			Assert.That(output[3].CharacterId, Is.EqualTo(kNeedsReview));
@@ -155,7 +155,7 @@ namespace GlyssenEngineTests.Quote
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 			var narrator = GetStandardCharacterId("MRK", Narrator);
 			int i = 0;
-			Assert.That(narrator, Is.EqualTo(output[i].CharacterId));
+			Assert.That(output[i].CharacterId, Is.EqualTo(narrator));
 			Assert.That(output[i].HasPreConfirmedCharacter, Is.False);
 
 			Assert.That(output[++i].CharacterId, Is.EqualTo(kAmbiguousCharacter));
@@ -163,14 +163,14 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(output[i].GetText(includeVerseNumbers:false),
 				Does.StartWith("«No, you feed them, Phil!"));
 
-			Assert.That(character ?? kAmbiguousCharacter, Is.EqualTo(output[++i].CharacterId));
-			Assert.That(delivery, Is.EqualTo(output[i].Delivery));
+			Assert.That(output[++i].CharacterId, Is.EqualTo(character ?? kAmbiguousCharacter));
+			Assert.That(output[i].Delivery, Is.EqualTo(delivery));
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.True);
 
 			Assert.That(output[++i].CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(output[i].HasPreConfirmedCharacter, Is.False);
 
-			Assert.That(narrator, Is.EqualTo(output[++i].CharacterId));
+			Assert.That(output[++i].CharacterId, Is.EqualTo(narrator));
 			Assert.That(output[i].HasPreConfirmedCharacter, Is.False);
 
 			Assert.That(output[++i].CharacterId, Is.EqualTo(kAmbiguousCharacter));
@@ -208,13 +208,13 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(output.Count, Is.EqualTo(includeFollowingParagraph ? 5 : 4));
 
 			var narrator = GetStandardCharacterId("MRK", Narrator);
-			Assert.That(narrator, Is.EqualTo(output[0].CharacterId));
+			Assert.That(output[0].CharacterId, Is.EqualTo(narrator));
 			Assert.That(output[0].HasPreConfirmedCharacter, Is.False);
 
 			Assert.That(output[1].CharacterId, Is.EqualTo(kAmbiguousCharacter));;;
 			Assert.That(output[1].HasPreConfirmedCharacter, Is.False);
 
-			Assert.That(narrator, Is.EqualTo(output[2].CharacterId));
+			Assert.That(output[2].CharacterId, Is.EqualTo(narrator));
 			Assert.That(output[2].HasPreConfirmedCharacter, Is.False);
 
 			Assert.That(output[3].CharacterId, Is.EqualTo("Andrew"));
@@ -223,7 +223,7 @@ namespace GlyssenEngineTests.Quote
 
 			if (includeFollowingParagraph)
 			{
-				Assert.That(narrator, Is.EqualTo(output.Last().CharacterId));
+				Assert.That(output.Last().CharacterId, Is.EqualTo(narrator));
 				Assert.That(output.Last().HasPreConfirmedCharacter, Is.False);
 			}
 		}
@@ -259,9 +259,9 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(output.All(b => !b.IsPredeterminedQuoteInterruption));
 
 			var i = 0;
-			Assert.That(chapterCharacter, Is.EqualTo(output[i].CharacterId));
+			Assert.That(output[i].CharacterId, Is.EqualTo(chapterCharacter));
 
-			Assert.That(narrator, Is.EqualTo(output[++i].CharacterId));
+			Assert.That(output[++i].CharacterId, Is.EqualTo(narrator));
 			Assert.That(output[i].InitialStartVerseNumber, Is.EqualTo(9));
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
@@ -301,7 +301,7 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 			Assert.That(output[i].GetText(true), Is.EqualTo("“I see the branch of an almond tree,” "));
 
-			Assert.That(narrator, Is.EqualTo(output[++i].CharacterId));
+			Assert.That(output[++i].CharacterId, Is.EqualTo(narrator));
 			Assert.That(output[i].InitialStartVerseNumber, Is.EqualTo(11));
 			Assert.That(output[i].IsParagraphStart, Is.False);
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
@@ -345,15 +345,15 @@ namespace GlyssenEngineTests.Quote
 			var input = new List<Block> { blockC5, blockV12, blockV3a, blockV3b, blockV4a, blockV4b,
 				blockV11ff, blockC6, block6V1ff, block6V3a, block6V3b };
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
-			Assert.That(input.Count - 2, Is.EqualTo(output.Count),
+			Assert.That(output.Count, Is.EqualTo(input.Count - 2),
 				"Poetry blocks not ending with periods should have joined with following poetry blocks.");
 			var narrator = GetStandardCharacterId("MAT", Narrator);
 
 			var i = 0;
-			Assert.That(chapterCharacter, Is.EqualTo(output[i].CharacterId));
-			Assert.That(input[i].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
-			Assert.That(narrator, Is.EqualTo(output[++i].CharacterId));
-			Assert.That(input[i].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[i].CharacterId, Is.EqualTo(chapterCharacter));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i].GetText(true, true)));
+			Assert.That(output[++i].CharacterId, Is.EqualTo(narrator));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i].GetText(true, true)));
 
 			Assert.That(output[++i].HasPreConfirmedCharacter, Is.True);
 			Assert.That(output[i].CharacterId, Is.EqualTo("Jesus"));
@@ -377,26 +377,26 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(output[++i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(output[i].CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Continuation));
-			Assert.That(input[i + 2].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i + 2].GetText(true, true)));
 
-			Assert.That(chapterCharacter, Is.EqualTo(output[++i].CharacterId));
-			Assert.That(input[i + 2].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[++i].CharacterId, Is.EqualTo(chapterCharacter));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i + 2].GetText(true, true)));
 
 			Assert.That(output[++i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(output[i].CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
-			Assert.That(input[i + 2].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i + 2].GetText(true, true)));
 
 			Assert.That(output[++i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteEnd, Is.True);
 			Assert.That(output[i].CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Continuation));
-			Assert.That(input[i + 2].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i + 2].GetText(true, true)));
 
-			Assert.That(narrator, Is.EqualTo(output[++i].CharacterIdInScript));
+			Assert.That(output[++i].CharacterIdInScript, Is.EqualTo(narrator));
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteEnd, Is.False);
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
-			Assert.That(input[i + 2].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i + 2].GetText(true, true)));
 		}
 
 		[TestCase(true, true, null)]
@@ -424,24 +424,24 @@ namespace GlyssenEngineTests.Quote
 
 			var input = new List<Block> { blockC7, blockJ24, block28 };
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
-			Assert.That(input.Count, Is.EqualTo(output.Count));
+			Assert.That(output.Count, Is.EqualTo(input.Count));
 
 			var i = 0;
-			Assert.That(chapterCharacter, Is.EqualTo(output[i].CharacterId));
+			Assert.That(output[i].CharacterId, Is.EqualTo(chapterCharacter));
 
 			Assert.That(output[++i].CharacterId, Is.EqualTo(kUnexpectedCharacter));
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.False,
 				"This becomes false when the character is set to unexpected");
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteEnd, Is.False);
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
-			Assert.That(input[i].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i].GetText(true, true)));
 
 			Assert.That(output[++i].CharacterIdInScript,
 				Is.EqualTo(GetStandardCharacterId("MAT", Narrator)));
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteEnd, Is.False);
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
-			Assert.That(input[i].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i].GetText(true, true)));
 		}
 
 		[Test]
@@ -461,24 +461,24 @@ namespace GlyssenEngineTests.Quote
 
 			var input = new List<Block> { blockC7, blockJ24, blockJ27b };
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
-			Assert.That(input.Count, Is.EqualTo(output.Count));
+			Assert.That(output.Count, Is.EqualTo(input.Count));
 
 			var i = 0;
-			Assert.That(chapterCharacter, Is.EqualTo(output[i].CharacterId));
+			Assert.That(output[i].CharacterId, Is.EqualTo(chapterCharacter));
 
 			Assert.That(output[++i].CharacterId, Is.EqualTo(kNeedsReview));
 			Assert.That(output[i].CharacterIdInScript, Is.EqualTo("Fred"));
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.True);
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteEnd, Is.True);
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
-			Assert.That(input[i].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i].GetText(true, true)));
 
 			Assert.That(output[++i].CharacterIdInScript,
 				Is.EqualTo(GetStandardCharacterId("MAT", Narrator)));
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteEnd, Is.False);
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
-			Assert.That(input[i].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i].GetText(true, true)));
 		}
 		#endregion // PG-1419 tests (blocks created by quote milestones)
 
@@ -1171,7 +1171,7 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(output[1].GetText(false), Is.EqualTo("<<She said <Go!> and "));
 			Assert.That(output[2].GetText(false), Is.EqualTo("<<Continue>> "));
 			Assert.That(output[3].GetText(false), Is.EqualTo("Not a quote."));
-			Assert.That(GetStandardCharacterId("MRK", Narrator), Is.EqualTo(output[3].CharacterId));
+			Assert.That(output[3].CharacterId, Is.EqualTo(GetStandardCharacterId("MRK", Narrator)));
 		}
 
 		[Test]
@@ -1197,16 +1197,16 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(output.Count, Is.EqualTo(4));
 
 			Assert.That(output[0].GetText(false), Is.EqualTo("A gye 'ushu kong le, "));
-			Assert.That(GetStandardCharacterId("MRK", Narrator), Is.EqualTo(output[0].CharacterId));
+			Assert.That(output[0].CharacterId, Is.EqualTo(GetStandardCharacterId("MRK", Narrator)));
 
 			Assert.That(output[1].GetText(false), Is.EqualTo("<<Udebid ugyang a ma de le: <Unim a de Atyagi le: <<Be bel kwu-m abee fe he itang.>> > "));
-			Assert.That(GetStandardCharacterId("MRK", Narrator), Is.Not.EqualTo(output[1].CharacterId));
+			Assert.That(output[1].CharacterId, Is.Not.EqualTo(GetStandardCharacterId("MRK", Narrator)));
 
 			Assert.That(output[2].GetText(false), Is.EqualTo("Gbe Udebid or a ma ko Ukristi le Atyam, ki nya sha ná a, ufe ù ha fel igia ima?>> "));
-			Assert.That(GetStandardCharacterId("MRK", Narrator), Is.Not.EqualTo(output[2].CharacterId));
+			Assert.That(output[2].CharacterId, Is.Not.EqualTo(GetStandardCharacterId("MRK", Narrator)));
 
 			Assert.That(output[3].GetText(false), Is.EqualTo("Undi ken or lè he."));
-			Assert.That(GetStandardCharacterId("MRK", Narrator), Is.EqualTo(output[3].CharacterId));
+			Assert.That(output[3].CharacterId, Is.EqualTo(GetStandardCharacterId("MRK", Narrator)));
 		}
 
 		[Test]
@@ -2430,7 +2430,7 @@ namespace GlyssenEngineTests.Quote
 
 			Assert.That(output[0].GetText(false), Is.EqualTo("—Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, "));
 			Assert.That(output[0].CharacterId, Is.EqualTo("Jesus"));
-			Assert.That(null, Is.EqualTo(output[0].Delivery));
+			Assert.That(output[0].Delivery, Is.Null);
 			Assert.That(output[0].ChapterNumber, Is.EqualTo(1));
 			Assert.That(output[0].InitialStartVerseNumber, Is.EqualTo(17));
 
@@ -2467,7 +2467,7 @@ namespace GlyssenEngineTests.Quote
 				"{7}\u00A0Si me hubierais conocido, también hubierais conocido a mi Padre; " +
 				"desde ahora le conocéis y le habéis visto."));
 			Assert.That(output[1].CharacterId, Is.EqualTo("Jesus"));
-			Assert.That(null, Is.EqualTo(output[1].Delivery));
+			Assert.That(output[1].Delivery, Is.Null);
 			Assert.That(output[1].ChapterNumber, Is.EqualTo(14));
 			Assert.That(output[1].InitialStartVerseNumber, Is.EqualTo(6));
 
@@ -2478,7 +2478,7 @@ namespace GlyssenEngineTests.Quote
 
 			Assert.That(output[3].GetText(true), Is.EqualTo("Señor, muéstranos al Padre, y nos basta."));
 			Assert.That(output[3].CharacterId, Is.EqualTo("Philip"));
-			Assert.That(null, Is.EqualTo(output[3].Delivery));
+			Assert.That(output[3].Delivery, Is.Null);
 			Assert.That(output[3].ChapterNumber, Is.EqualTo(14));
 			Assert.That(output[3].InitialStartVerseNumber, Is.EqualTo(8));
 		}
@@ -2555,7 +2555,7 @@ namespace GlyssenEngineTests.Quote
 
 			Assert.That(output[0].GetText(false), Is.EqualTo("—Wína nemartustaram: “Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum,” "));
 			Assert.That(output[0].CharacterId, Is.EqualTo("Jesus"));
-			Assert.That(null, Is.EqualTo(output[0].Delivery));
+			Assert.That(output[0].Delivery, Is.Null);
 
 			Assert.That(output[1].GetText(false), Is.EqualTo("—timiayi."));
 			Assert.That(output[1].CharacterIs("MRK", Narrator), Is.True);
@@ -2635,7 +2635,7 @@ namespace GlyssenEngineTests.Quote
 
 			Assert.That(output[0].GetText(true), Is.EqualTo("—Belén yaktanam Judá nungkanam nuni akiinatnuitai. Cristo akiinatniuri pachis aarmauka nuwaitai:"));
 			Assert.That(output[0].CharacterId, Is.EqualTo("Good Priest"));
-			Assert.That(null, Is.EqualTo(output[0].Delivery));
+			Assert.That(output[0].Delivery, Is.Null);
 			Assert.That(output[0].ChapterNumber, Is.EqualTo(2));
 			Assert.That(output[0].InitialStartVerseNumber, Is.EqualTo(5));
 
@@ -2670,7 +2670,7 @@ namespace GlyssenEngineTests.Quote
 
 			Assert.That(output[0].GetText(true), Is.EqualTo("—Quote:"));
 			Assert.That(output[0].CharacterId, Is.EqualTo("Good Priest"));
-			Assert.That(null, Is.EqualTo(output[0].Delivery));
+			Assert.That(output[0].Delivery, Is.Null);
 			Assert.That(output[0].ChapterNumber, Is.EqualTo(2));
 			Assert.That(output[0].InitialStartVerseNumber, Is.EqualTo(5));
 
@@ -2896,7 +2896,7 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator), Is.True);
 
 			Assert.That(output[1].GetText(true), Is.EqualTo("—“Nintimrataram” is my favorite word."));
-			Assert.That(CharacterVerseData.UnknownCharacter, Is.EqualTo(output[1].CharacterId));
+			Assert.That(output[1].CharacterId, Is.EqualTo(CharacterVerseData.UnknownCharacter));
 		}
 
 		[Ignore("This is alternate version #2 of the above test, depending on what we decide is the desired behavior.")]
@@ -2964,10 +2964,10 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator), Is.True);
 
 			Assert.That(output[1].GetText(true), Is.EqualTo("—“Nintimrataram” "));
-			Assert.That(CharacterVerseData.UnknownCharacter, Is.EqualTo(output[1].CharacterId));
+			Assert.That(output[1].CharacterId, Is.EqualTo(CharacterVerseData.UnknownCharacter));
 
 			Assert.That(output[2].GetText(true), Is.EqualTo("is my favorite word, for thus saith Isaiah "));
-			Assert.That(CharacterVerseData.UnknownCharacter, Is.EqualTo(output[2].CharacterId));
+			Assert.That(output[2].CharacterId, Is.EqualTo(CharacterVerseData.UnknownCharacter));
 
 			Assert.That(output[3].GetText(true), Is.EqualTo("“Don't even go there!”"));
 			Assert.That(output[3].CharacterId, Is.EqualTo("Jesus"));
@@ -3042,10 +3042,10 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator), Is.True);
 
 			Assert.That(output[1].GetText(true), Is.EqualTo("—“Nintimrataram” "));
-			Assert.That(CharacterVerseData.UnknownCharacter, Is.EqualTo(output[1].CharacterId));
+			Assert.That(output[1].CharacterId, Is.EqualTo(CharacterVerseData.UnknownCharacter));
 
 			Assert.That(output[2].GetText(true), Is.EqualTo("is my favorite word, for thus saith Isaiah? "));
-			Assert.That(CharacterVerseData.UnknownCharacter, Is.EqualTo(output[2].CharacterId));
+			Assert.That(output[2].CharacterId, Is.EqualTo(CharacterVerseData.UnknownCharacter));
 
 			Assert.That(output[3].GetText(true), Is.EqualTo("“Don't even go there!”"));
 			Assert.That(output[3].CharacterId, Is.EqualTo("Jesus"));
@@ -3088,10 +3088,10 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator), Is.True);
 
 			Assert.That(output[1].GetText(true), Is.EqualTo("“Nintimrataram” "));
-			Assert.That(CharacterVerseData.UnknownCharacter, Is.EqualTo(output[1].CharacterId));
+			Assert.That(output[1].CharacterId, Is.EqualTo(CharacterVerseData.UnknownCharacter));
 
 			Assert.That(output[2].GetText(true), Is.EqualTo("is my favorite word."));
-			Assert.That(CharacterVerseData.UnknownCharacter, Is.EqualTo(output[2].CharacterId));
+			Assert.That(output[2].CharacterId, Is.EqualTo(CharacterVerseData.UnknownCharacter));
 		}
 
 		[TestCase(".”")]
@@ -3167,10 +3167,10 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator), Is.True);
 
 			Assert.That(output[1].GetText(true), Is.EqualTo("“Nintimrataram” "));
-			Assert.That(CharacterVerseData.UnknownCharacter, Is.EqualTo(output[1].CharacterId));
+			Assert.That(output[1].CharacterId, Is.EqualTo(CharacterVerseData.UnknownCharacter));
 
 			Assert.That(output[2].GetText(true), Is.EqualTo("is my favorite word, for thus saith Isaiah,"));
-			Assert.That(CharacterVerseData.UnknownCharacter, Is.EqualTo(output[2].CharacterId));
+			Assert.That(output[2].CharacterId, Is.EqualTo(CharacterVerseData.UnknownCharacter));
 
 			Assert.That(output[3].GetText(true), Is.EqualTo("Don't even go there!"));
 			Assert.That(output[3].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator), Is.True);
@@ -3590,7 +3590,7 @@ namespace GlyssenEngineTests.Quote
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), dialogueDash, dialogueDash);
 			var outputBlock = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA", input, quoteSystem).Parse().Single();
 			
-			Assert.That(block.GetText(true), Is.EqualTo(outputBlock.GetText(true)));
+			Assert.That(outputBlock.GetText(true), Is.EqualTo(block.GetText(true)));
 			Assert.That(outputBlock.CharacterIsStandard, Is.True);
 		}
 
@@ -4102,7 +4102,7 @@ namespace GlyssenEngineTests.Quote
 
 			Assert.That(output[0].GetText(false), Is.EqualTo("-Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, "));
 			Assert.That(output[0].CharacterId, Is.EqualTo("Jesus"));
-			Assert.That(null, Is.EqualTo(output[0].Delivery));
+			Assert.That(output[0].Delivery, Is.Null);
 			Assert.That(output[0].ChapterNumber, Is.EqualTo(1));
 			Assert.That(output[0].InitialStartVerseNumber, Is.EqualTo(17));
 
@@ -4127,7 +4127,7 @@ namespace GlyssenEngineTests.Quote
 
 			Assert.That(output[0].GetText(false), Is.EqualTo("--Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, "));
 			Assert.That(output[0].CharacterId, Is.EqualTo("Jesus"));
-			Assert.That(null, Is.EqualTo(output[0].Delivery));
+			Assert.That(output[0].Delivery, Is.Null);
 			Assert.That(output[0].ChapterNumber, Is.EqualTo(1));
 			Assert.That(output[0].InitialStartVerseNumber, Is.EqualTo(17));
 
@@ -4162,7 +4162,7 @@ namespace GlyssenEngineTests.Quote
 
 			Assert.That(output[0].GetText(false), Is.EqualTo("–Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, "));
 			Assert.That(output[0].CharacterId, Is.EqualTo("Jesus"));
-			Assert.That(null, Is.EqualTo(output[0].Delivery));
+			Assert.That(output[0].Delivery, Is.Null);
 			Assert.That(output[0].ChapterNumber, Is.EqualTo(1));
 			Assert.That(output[0].InitialStartVerseNumber, Is.EqualTo(17));
 
@@ -4198,7 +4198,7 @@ namespace GlyssenEngineTests.Quote
 
 			Assert.That(output[0].GetText(false), Is.EqualTo("—¿Exota naexana pexuyo, po pexuyo judiomonae itorobiya pia pepa peewatsinchi exanaeinchi poxonae pinyo tsane? Paxan payaputan xua bapon naexana xote tsipei bapon pia opiteito tatsi panaitomatsiya punaenaponan pata nacua werena, po nacuatha ichaxota pocotsiwa xometo weecoina. Papatan xua pata wʉnae jainchiwa tsane barapo pexuyo"));
 			Assert.That(output[0].CharacterId, Is.EqualTo("magi"));
-			Assert.That(null, Is.EqualTo(output[0].Delivery));
+			Assert.That(output[0].Delivery, Is.Null);
 			Assert.That(output[0].ChapterNumber, Is.EqualTo(2));
 			Assert.That(output[0].InitialStartVerseNumber, Is.EqualTo(2));
 
@@ -4451,7 +4451,7 @@ namespace GlyssenEngineTests.Quote
 
 			Assert.That(output[1].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.ChangeOfDelivery));
 			Assert.That(output[1].CharacterId, Is.EqualTo("Jesus"));
-			Assert.That(null, Is.EqualTo(output[1].Delivery));
+			Assert.That(output[1].Delivery, Is.Null);
 		}
 
 		[Test]
@@ -4500,7 +4500,7 @@ namespace GlyssenEngineTests.Quote
 
 			Assert.That(output[0].GetText(false), Is.EqualTo("–Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, "));
 			Assert.That(output[0].CharacterId, Is.EqualTo("Jesus"));
-			Assert.That(null, Is.EqualTo(output[0].Delivery));
+			Assert.That(output[0].Delivery, Is.Null);
 			Assert.That(output[0].ChapterNumber, Is.EqualTo(1));
 			Assert.That(output[0].InitialStartVerseNumber, Is.EqualTo(17));
 
@@ -4521,7 +4521,7 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(output.Count, Is.EqualTo(1));
 			Assert.That(output[0].GetText(false), Is.EqualTo("–Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, –timiayi."));
 			Assert.That(output[0].CharacterId, Is.EqualTo("Jesus"));
-			Assert.That(null, Is.EqualTo(output[0].Delivery));
+			Assert.That(output[0].Delivery, Is.Null);
 			Assert.That(output[0].ChapterNumber, Is.EqualTo(1));
 			Assert.That(output[0].InitialStartVerseNumber, Is.EqualTo(17));
 
@@ -4535,7 +4535,7 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(output.Count, Is.EqualTo(2));
 			Assert.That(output[0].GetText(false), Is.EqualTo("–Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum."));
 			Assert.That(output[0].CharacterId, Is.EqualTo("Jesus"));
-			Assert.That(null, Is.EqualTo(output[0].Delivery));
+			Assert.That(output[0].Delivery, Is.Null);
 			Assert.That(output[0].ChapterNumber, Is.EqualTo(1));
 			Assert.That(output[0].InitialStartVerseNumber, Is.EqualTo(17));
 			Assert.That(output[1].GetText(false), Is.EqualTo("timiayi."));
@@ -4747,9 +4747,9 @@ namespace GlyssenEngineTests.Quote
 			var result = parser.Parse().ToList();
 			Assert.That(result.Count, Is.EqualTo(2));
 			Assert.That(result[0].CharacterId, Is.EqualTo("Satan"));
-			Assert.That(blockP.GetText(true) + " " + blockQ.GetText(true), Is.EqualTo(result[0].GetText(true)));
+			Assert.That(result[0].GetText(true), Is.EqualTo(blockP.GetText(true) + " " + blockQ.GetText(true)));
 			Assert.That(result[1].CharacterId, Is.EqualTo(GetStandardCharacterId("MAT", Narrator)));
-			Assert.That(blockM.GetText(true), Is.EqualTo(result[1].GetText(true)));
+			Assert.That(result[1].GetText(true), Is.EqualTo(blockM.GetText(true)));
 		}
 
 		[TestCase("—")]
@@ -4782,7 +4782,8 @@ namespace GlyssenEngineTests.Quote
 			var result = parser.Parse().ToList();
 			Assert.That(result.Count, Is.EqualTo(1));
 			Assert.That(result[0].CharacterId, Is.EqualTo("Satan"));
-			Assert.That(blockP.GetText(true) + " " + blockQ.GetText(true) + " " + blockM.GetText(true), Is.EqualTo(result[0].GetText(true)));
+			Assert.That(result[0].GetText(true), Is.EqualTo(
+				blockP.GetText(true) + " " + blockQ.GetText(true) + " " + blockM.GetText(true)));
 		}
 
 		[TestCase("p", "q1", "q2")]
@@ -4819,19 +4820,19 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(results[0].ChapterNumber, Is.EqualTo(1));
 			Assert.That(results[0].InitialStartVerseNumber, Is.EqualTo(0));
 			Assert.That(results[0].GetText(true), Is.EqualTo("1"));
-			Assert.That(style1, Is.EqualTo(results[1].StyleTag));
+			Assert.That(results[1].StyleTag, Is.EqualTo(style1));
 			Assert.That(results[1].ChapterNumber, Is.EqualTo(1));
 			Assert.That(results[1].InitialStartVerseNumber, Is.EqualTo(1));
 			Assert.That(results[1].GetText(true), Is.EqualTo(
 				"{1}\u00A0Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco."));
-			Assert.That(style2, Is.EqualTo(results[2].StyleTag));
+			Assert.That(results[2].StyleTag, Is.EqualTo(style2));
 			Assert.That(results[2].ChapterNumber, Is.EqualTo(1));
 			Assert.That(results[2].InitialStartVerseNumber, Is.EqualTo(2));
 			Assert.That(results[2].GetText(true), Is.EqualTo(
 				"{2}\u00A0This is a poem, about something good;"));
 			// The TestCharacterVerse file does not know about the Scripture quote in Mark 1:2-3.
 			Assert.That(results[1].CharacterId, Is.EqualTo(results[2].CharacterId));
-			Assert.That(style2, Is.EqualTo(results[3].StyleTag));
+			Assert.That(results[3].StyleTag, Is.EqualTo(style2));
 			Assert.That(results[3].ChapterNumber, Is.EqualTo(1));
 			Assert.That(results[3].InitialStartVerseNumber, Is.EqualTo(3));
 			Assert.That(results[3].GetText(true), Is.EqualTo(
@@ -5286,16 +5287,19 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(results.Count, Is.EqualTo(5));
 			var narrator = GetStandardCharacterId("ROM", Narrator);
 			int i = 0;
-			Assert.That(results[i].GetText(true), Is.EqualTo("{6}\u00A0But the righteousness that is by faith says: "));
-			Assert.That(narrator, Is.EqualTo(results[i].CharacterId));
-			Assert.That(results[++i].GetText(true), Is.EqualTo("«Do not say in your heart, ‹Who will ascend into heaven?›» "));
+			Assert.That(results[i].GetText(true), Is.EqualTo(
+				"{6}\u00A0But the righteousness that is by faith says: "));
+			Assert.That(results[i].CharacterId, Is.EqualTo(narrator));
+			Assert.That(results[++i].GetText(true), Is.EqualTo(
+				"«Do not say in your heart, ‹Who will ascend into heaven?›» "));
 			Assert.That(results[i].CharacterId, Is.EqualTo(kScriptureCharacter));
-			Assert.That(narratorTextV6, Is.EqualTo(results[++i].GetText(true)));
-			Assert.That(narrator, Is.EqualTo(results[i].CharacterId));
-			Assert.That(results[++i].GetText(true), Is.EqualTo("{7}\u00A0«or ‹Who will descend into the deep?›» "));
+			Assert.That(results[++i].GetText(true), Is.EqualTo(narratorTextV6));
+			Assert.That(results[i].CharacterId, Is.EqualTo(narrator));
+			Assert.That(results[++i].GetText(true), Is.EqualTo(
+				"{7}\u00A0«or ‹Who will descend into the deep?›» "));
 			Assert.That(results[i].CharacterId, Is.EqualTo(kScriptureCharacter));
-			Assert.That(narratorTextV7, Is.EqualTo(results[++i].GetText(true)));
-			Assert.That(narrator, Is.EqualTo(results[i].CharacterId));
+			Assert.That(results[++i].GetText(true), Is.EqualTo(narratorTextV7));
+			Assert.That(results[i].CharacterId, Is.EqualTo(narrator));
 		}
 
 		[Test]
@@ -5572,7 +5576,7 @@ namespace GlyssenEngineTests.Quote
 				Is.EqualTo("«Do not say in your heart, ‹Who will ascend into heaven?› "));
 			Assert.That(results[i].CharacterId, Is.EqualTo(kScriptureCharacter));
 			Assert.That(results[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
-			Assert.That(interruptionTextV6, Is.EqualTo(results[++i].GetText(true)));
+			Assert.That(results[++i].GetText(true), Is.EqualTo(interruptionTextV6));
 			Assert.That(results[i].CharacterId, Is.EqualTo(kAmbiguousCharacter));
 			Assert.That(results[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 			Assert.That(results[++i].GetText(true),
@@ -5631,14 +5635,14 @@ namespace GlyssenEngineTests.Quote
 			var narrator = GetStandardCharacterId("ROM", Narrator);
 			int i = 0;
 			Assert.That(results[i].GetText(true), Is.EqualTo("{6}\u00A0Re' la' chiriij i korik wach k'uxliis re' inchalik ruuk' i kojb'aal iriq'or i Looq' laj Huuj chi je' wilih: "));
-			Assert.That(narrator, Is.EqualTo(results[i].CharacterId));
+			Assert.That(results[i].CharacterId, Is.EqualTo(narrator));
 			Assert.That(results[++i].GetText(true), Is.EqualTo("«Ma-aq'or pan ak'ux: “Ha'wach narijohtiik pan taxaaj?” "));
 			Assert.That(results[i].CharacterId, Is.EqualTo(kScriptureCharacter));
 			AssertIsInterruption(results[++i], "(re're' je' cho yuq'unb'al reh i Kristo reh chi nariqajiik cho); ");
 			Assert.That(results[++i].GetText(true), Is.EqualTo("{7}\u00A0oon: “Ha'wach nariqajiik chipaam i richamiil i julkahq?”» "));
 			Assert.That(results[i].CharacterId, Is.EqualTo(kScriptureCharacter));
 			Assert.That(results[++i].GetText(true), Is.EqualTo("(re're' je' cho ruksjiik i Kristo chikixilak taqeh kamnaq). "));
-			Assert.That(narrator, Is.EqualTo(results[i].CharacterId));
+			Assert.That(results[i].CharacterId, Is.EqualTo(narrator));
 		}
 
 		/// <summary>
@@ -5660,12 +5664,14 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(results.Count, Is.EqualTo(4));
 			var narrator = GetStandardCharacterId("JHN", Narrator);
 			int i = 0;
-			Assert.That(results[i].GetText(true), Is.EqualTo("{41}\u00A0Ariqueate iriatimpa iroqueti yoaquiti icoaguequitiri iriguentijeguite, inejapojaqueriqueate icampojiri: "));
-			Assert.That(narrator, Is.EqualTo(results[i].CharacterId));
-			Assert.That(dialogueDash + "Nonejajiaqueri Meshiashi ", Is.EqualTo(results[++i].GetText(true)));
+			Assert.That(results[i].GetText(true), Is.EqualTo(
+				"{41}\u00A0Ariqueate iriatimpa iroqueti yoaquiti icoaguequitiri " +
+				"iriguentijeguite, inejapojaqueriqueate icampojiri: "));
+			Assert.That(results[i].CharacterId, Is.EqualTo(narrator));
+			Assert.That(results[++i].GetText(true), Is.EqualTo(dialogueDash + "Nonejajiaqueri Meshiashi "));
 			Assert.That(results[i].CharacterId, Is.EqualTo(kAmbiguousCharacter));
-			Assert.That(dialogueDash + "ocantaque: ", Is.EqualTo(results[++i].GetText(true)));
-			Assert.That(narrator, Is.EqualTo(results[i].CharacterId));
+			Assert.That(results[++i].GetText(true), Is.EqualTo(dialogueDash + "ocantaque: "));
+			Assert.That(results[i].CharacterId, Is.EqualTo(narrator));
 			AssertIsInterruption(results[++i], "“Quirishito.”");
 		}
 
@@ -5690,9 +5696,13 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(results.Count, Is.EqualTo(2));
 			var narrator = GetStandardCharacterId("JHN", Narrator);
 			int i = 0;
-			Assert.That(results[i].GetText(true), Is.EqualTo("{41}\u00A0Ariqueate iriatimpa iroqueti yoaquiti icoaguequitiri iriguentijeguite, inejapojaqueriqueate icampojiri: "));
-			Assert.That(narrator, Is.EqualTo(results[i].CharacterId));
-			Assert.That(dialogueDash + "Nonejajiaqueri Meshiashi " + dashUsedInText + "ocantaque: “Quirishito.”", Is.EqualTo(results[++i].GetText(true)));
+			Assert.That(results[i].GetText(true), Is.EqualTo(
+				"{41}\u00A0Ariqueate iriatimpa iroqueti yoaquiti icoaguequitiri " +
+				"iriguentijeguite, inejapojaqueriqueate icampojiri: "));
+			Assert.That(results[i].CharacterId, Is.EqualTo(narrator));
+			Assert.That(results[++i].GetText(true), Is.EqualTo(
+				dialogueDash + "Nonejajiaqueri Meshiashi " + dashUsedInText +
+				"ocantaque: “Quirishito.”"));
 			Assert.That(results[i].CharacterId, Is.EqualTo(kAmbiguousCharacter));
 		}
 
@@ -5729,8 +5739,8 @@ namespace GlyssenEngineTests.Quote
 			var narrator = GetStandardCharacterId("JHN", Narrator);
 			int i = 0;
 			Assert.That(results[i].GetText(true), Is.EqualTo("{41}\u00A0Ariqueate ... icampojiri: "));
-			Assert.That(narrator, Is.EqualTo(results[i].CharacterId));
-			Assert.That(dialogueQuotation, Is.EqualTo(results[++i].GetText(true)));
+			Assert.That(results[i].CharacterId, Is.EqualTo(narrator));
+			Assert.That(results[++i].GetText(true), Is.EqualTo(dialogueQuotation));
 			Assert.That(results[i].CharacterId, Is.EqualTo(kAmbiguousCharacter));
 		}
 
@@ -5758,9 +5768,11 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(results.Count, Is.EqualTo(3));
 			var narrator = GetStandardCharacterId("JHN", Narrator);
 			int i = 0;
-			Assert.That(results[i].GetText(true), Is.EqualTo("{41}\u00A0Ariqueate iriatimpa ... inejapojaqueriqueate icampojiri: "));
-			Assert.That(narrator, Is.EqualTo(results[i].CharacterId));
-			Assert.That(dialogueDash + "Nonejajiaqueri Meshiashi ", Is.EqualTo(results[++i].GetText(true)));
+			Assert.That(results[i].GetText(true), Is.EqualTo(
+				"{41}\u00A0Ariqueate iriatimpa ... inejapojaqueriqueate icampojiri: "));
+			Assert.That(results[i].CharacterId, Is.EqualTo(narrator));
+			Assert.That(results[++i].GetText(true), Is.EqualTo(
+				dialogueDash + "Nonejajiaqueri Meshiashi "));
 			Assert.That(results[i].CharacterId, Is.EqualTo(kAmbiguousCharacter));
 			AssertIsInterruption(results[++i], interruption);
 		}
@@ -5917,7 +5929,7 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(output[4].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 			Assert.That(output[5].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 
-			Assert.That(GetStandardCharacterId("ROM", Narrator), Is.EqualTo(output[0].CharacterId));
+			Assert.That(output[0].CharacterId, Is.EqualTo(GetStandardCharacterId("ROM", Narrator)));
 			Assert.That(output[1].CharacterId, Is.EqualTo(kScriptureCharacter));
 			Assert.That(output[2].CharacterId, Is.EqualTo(kAmbiguousCharacter));
 			Assert.That(output[3].CharacterId, Is.EqualTo(kScriptureCharacter));
@@ -6103,7 +6115,7 @@ namespace GlyssenEngineTests.Quote
 			};
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "\u2014", "\u2014");
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA", input, quoteSystem).Parse().ToList();
-			Assert.That(input.Count + 1, Is.EqualTo(output.Count));
+			Assert.That(output.Count, Is.EqualTo(input.Count + 1));
 
 			Assert.That(output[0].CharacterIs("ISA", Narrator), Is.True);
 
@@ -6269,7 +6281,7 @@ namespace GlyssenEngineTests.Quote
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "PSA", input).Parse().ToList();
 			Assert.That(output.Count, Is.EqualTo(3));
 
-			Assert.That(q1, Is.EqualTo(output[0].StyleTag));
+			Assert.That(output[0].StyleTag, Is.EqualTo(q1));
 			Assert.That(output[0].GetText(true), Is.EqualTo("{8}\u00A0I will keep thy statutes; This language doesn't use periods in poetry"));
 
 			Assert.That(output[1].GetText(true), Is.EqualTo("Beth"));
@@ -6390,7 +6402,7 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(block.GetText(true), Is.EqualTo("nispa."));
 			Assert.That(IsCharacterOfType(block.CharacterId, Narrator), Is.True);
 
-			Assert.That(i, Is.EqualTo(output.Count));
+			Assert.That(output.Count, Is.EqualTo(i));
 		}
 
 		#region PG-1191: Combine poetry blocks with preceding paragraph only if there's not an expected Scripture quote in the verse
@@ -6541,7 +6553,7 @@ namespace GlyssenEngineTests.Quote
 				"{37}\u00A0and then surviving as a widow for 84 more), who didn’t leave the temple, where she worshipped with fasting and prayer."));
 			Assert.That(IsCharacterOfType(block.CharacterId, Narrator), Is.True);
 
-			Assert.That(i, Is.EqualTo(output.Count));
+			Assert.That(output.Count, Is.EqualTo(i));
 		}
 
 		[Test]
@@ -6573,7 +6585,7 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(outBlock.InitialStartVerseNumber, Is.EqualTo(36));
 			Assert.That(outBlock.CharacterIs("LEV", Narrator), Is.True);
 
-			Assert.That(i, Is.EqualTo(output.Count));
+			Assert.That(output.Count, Is.EqualTo(i));
 		}
 
 		[Test]
@@ -6602,7 +6614,7 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(outBlock.InitialStartVerseNumber, Is.EqualTo(36));
 			Assert.That(outBlock.CharacterIs("LEV", Narrator), Is.True);
 
-			Assert.That(i, Is.EqualTo(output.Count));
+			Assert.That(output.Count, Is.EqualTo(i));
 		}
 
 		[Test]
@@ -6636,7 +6648,7 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(outBlock.InitialStartVerseNumber, Is.EqualTo(36));
 			Assert.That(outBlock.CharacterIs("LEV", Narrator), Is.True);
 
-			Assert.That(i, Is.EqualTo(output.Count));
+			Assert.That(output.Count, Is.EqualTo(i));
 		}
 
 		[Test]
@@ -6715,7 +6727,7 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(outBlock.InitialStartVerseNumber, Is.EqualTo(36));
 			Assert.That(outBlock.CharacterIs("LEV", Narrator), Is.True);
 
-			Assert.That(i, Is.EqualTo(output.Count));
+			Assert.That(output.Count, Is.EqualTo(i));
 		}
 
 		[Test]
@@ -6762,7 +6774,7 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(outBlock.InitialStartVerseNumber, Is.EqualTo(36));
 			Assert.That(outBlock.CharacterIs("LEV", Narrator), Is.True);
 
-			Assert.That(i, Is.EqualTo(output.Count));
+			Assert.That(output.Count, Is.EqualTo(i));
 		}
 
 		[Test]
@@ -6826,7 +6838,7 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(outBlock.InitialStartVerseNumber, Is.EqualTo(36));
 			Assert.That(outBlock.CharacterIs("LEV", Narrator), Is.True);
 
-			Assert.That(i, Is.EqualTo(output.Count));
+			Assert.That(output.Count, Is.EqualTo(i));
 		}
 
 		[Test]
@@ -6842,7 +6854,7 @@ namespace GlyssenEngineTests.Quote
 			var input = new List<Block> { chapter, block1, block2, block3, block4, block5, block6 };
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LEV", input).Parse().ToList();
 
-			Assert.That(input.Count, Is.EqualTo(output.Count));
+			Assert.That(output.Count, Is.EqualTo(input.Count));
 
 			int i = 1;
 			var block = output[i++];
@@ -6899,7 +6911,7 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(outBlock.InitialEndVerseNumber, Is.EqualTo(36));
 			Assert.That(outBlock.CharacterId, Is.EqualTo(kNeedsReview));
 
-			Assert.That(i, Is.EqualTo(output.Count));
+			Assert.That(output.Count, Is.EqualTo(i));
 		}
 		#endregion PG-40
 
@@ -6925,7 +6937,7 @@ namespace GlyssenEngineTests.Quote
 			IList<Block> output = new QuoteParser(cvRepo, "1CO", input, quoteSystem).Parse()
 				.ToList();
 
-			Assert.That(input.Count, Is.EqualTo(output.Count));
+			Assert.That(output.Count, Is.EqualTo(input.Count));
 			Assert.That(output.Skip(1).All(b => b.CharacterIs("1CO", Narrator)), Is.True);
 		}
 
@@ -6962,13 +6974,13 @@ namespace GlyssenEngineTests.Quote
 			var narrator = GetStandardCharacterId("PSA", Narrator);
 			Assert.That(output[i].GetText(true), Is.EqualTo("{6}\u00A0He says to himself, "));
 
-			Assert.That(narrator, Is.EqualTo(output[i++].CharacterId));
+			Assert.That(output[i++].CharacterId, Is.EqualTo(narrator));
 			Assert.That(output[i].GetText(true), Is.EqualTo("“Nothing could ever shake me.”"));
 
 			Assert.That(output[i++].CharacterId, Is.EqualTo("man, wicked"));
 			Assert.That(output[i].GetText(true), Is.EqualTo("He swears, "));
 
-			Assert.That(narrator, Is.EqualTo(output[i++].CharacterId));
+			Assert.That(output[i++].CharacterId, Is.EqualTo(narrator));
 			Assert.That(output[i].GetText(true), Is.EqualTo("“No one will ever harm me.”"));
 
 			Assert.That(output[i++].CharacterId, Is.EqualTo("man, wicked"));
@@ -7230,7 +7242,7 @@ namespace GlyssenEngineTests.Quote
 				"{1}\u00A0Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco."));
 			Assert.That(results[1].CharacterIs(blockChapter1.BookCode, Narrator), Is.True);
 
-			Assert.That(style2, Is.EqualTo(results[2].StyleTag));
+			Assert.That(results[2].StyleTag, Is.EqualTo(style2));
 			Assert.That(results[2].ChapterNumber, Is.EqualTo(1));
 			Assert.That(results[2].InitialStartVerseNumber, Is.EqualTo(2));
 			Assert.That(results[2].GetText(true), Is.EqualTo(
@@ -7238,7 +7250,7 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(results[2].CharacterId, Is.EqualTo("scripture"));
 			Assert.That(results[2].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
 
-			Assert.That(style2, Is.EqualTo(results[3].StyleTag));
+			Assert.That(results[3].StyleTag, Is.EqualTo(style2));
 			Assert.That(results[3].ChapterNumber, Is.EqualTo(1));
 			Assert.That(results[3].InitialStartVerseNumber, Is.EqualTo(3));
 			Assert.That(results[3].GetText(true), Is.EqualTo(
@@ -7357,28 +7369,28 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(results[1].CharacterIs(blockChapter1.BookCode, Narrator), Is.True);
 			Assert.That(results[1].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 
-			Assert.That(style1, Is.EqualTo(results[2].StyleTag));
+			Assert.That(results[2].StyleTag, Is.EqualTo(style1));
 			Assert.That(results[2].ChapterNumber, Is.EqualTo(1));
 			Assert.That(results[2].InitialStartVerseNumber, Is.EqualTo(2));
 			Assert.That(results[2].GetText(true), Is.EqualTo("{2}\u00A0This is a poem, "));
 			Assert.That(results[2].CharacterId, Is.EqualTo("scripture"));
 			Assert.That(results[2].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 
-			Assert.That(continuationStyle, Is.EqualTo(results[3].StyleTag));
+			Assert.That(results[3].StyleTag, Is.EqualTo(continuationStyle));
 			Assert.That(results[3].ChapterNumber, Is.EqualTo(1));
 			Assert.That(results[3].InitialStartVerseNumber, Is.EqualTo(2));
 			Assert.That(results[3].GetText(true), Is.EqualTo("about something good;"));
 			Assert.That(results[3].CharacterIs(blockChapter1.BookCode, Narrator), Is.True);
 			Assert.That(results[3].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 
-			Assert.That(style2, Is.EqualTo(results[4].StyleTag));
+			Assert.That(results[4].StyleTag, Is.EqualTo(style2));
 			Assert.That(results[4].ChapterNumber, Is.EqualTo(1));
 			Assert.That(results[4].InitialStartVerseNumber, Is.EqualTo(3));
 			Assert.That(results[4].GetText(true), Is.EqualTo("{3}\u00A0So you can see that"));
 			Assert.That(results[4].CharacterId, Is.EqualTo("scripture"));
 			Assert.That(results[4].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 
-			Assert.That(continuationStyle, Is.EqualTo(results[5].StyleTag));
+			Assert.That(results[5].StyleTag, Is.EqualTo(continuationStyle));
 			Assert.That(results[5].ChapterNumber, Is.EqualTo(1));
 			Assert.That(results[5].InitialStartVerseNumber, Is.EqualTo(3));
 			Assert.That(results[5].GetText(true), Is.EqualTo("it's not about something wood."));
@@ -7549,47 +7561,47 @@ namespace GlyssenEngineTests.Quote
 
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "2CH", input,
 				QuoteSystemForStandardAmericanEnglish).Parse().ToList();
-			Assert.That(input.Count, Is.EqualTo(output.Count));
+			Assert.That(output.Count, Is.EqualTo(input.Count));
 			var i = 0;
-			Assert.That(chapterCharacter, Is.EqualTo(output[i].CharacterId));
+			Assert.That(output[i].CharacterId, Is.EqualTo(chapterCharacter));
 
-			Assert.That(narrator, Is.EqualTo(output[++i].CharacterIdInScript));
+			Assert.That(output[++i].CharacterIdInScript, Is.EqualTo(narrator));
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(output[i].IsPredeterminedQuoteInterruption, Is.False);
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
-			Assert.That(input[i].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i].GetText(true, true)));
 
-			Assert.That(narrator, Is.EqualTo(output[++i].CharacterIdInScript));
+			Assert.That(output[++i].CharacterIdInScript, Is.EqualTo(narrator));
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(output[i].IsPredeterminedQuoteInterruption, Is.False);
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
-			Assert.That(input[i].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i].GetText(true, true)));
 
 			Assert.That(output[++i].CharacterId, Is.EqualTo("men, some"));
 			Assert.That(output[i].CharacterId, Is.EqualTo(output[i].CharacterIdInScript));
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.True);
 			Assert.That(output[i].IsPredeterminedQuoteInterruption, Is.False);
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
-			Assert.That(input[i].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i].GetText(true, true)));
 
-			Assert.That(narrator, Is.EqualTo(output[++i].CharacterIdInScript));
+			Assert.That(output[++i].CharacterIdInScript, Is.EqualTo(narrator));
 			Assert.That(output[i].IsPredeterminedQuoteInterruption, Is.True);
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
-			Assert.That(input[i].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i].GetText(true, true)));
 
 			Assert.That(output[++i].CharacterId, Is.EqualTo("men, some"));
 			Assert.That(output[i].CharacterId, Is.EqualTo(output[i].CharacterIdInScript));
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.True);
 			Assert.That(output[i].IsPredeterminedQuoteInterruption, Is.False);
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
-			Assert.That(input[i].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i].GetText(true, true)));
 
-			Assert.That(narrator, Is.EqualTo(output[++i].CharacterIdInScript));
+			Assert.That(output[++i].CharacterIdInScript, Is.EqualTo(narrator));
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(output[i].IsPredeterminedQuoteInterruption, Is.False);
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
-			Assert.That(input[i].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i].GetText(true, true)));
 
 			Assert.That(output[++i].CharacterId, Is.EqualTo("Jehoshaphat, king of Judah"));
 			Assert.That(output[i].Delivery, Is.Null);
@@ -7599,7 +7611,7 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(output[i].IsPredeterminedQuoteInterruption, Is.False);
 			Assert.That(output[i].StyleTag, Is.EqualTo("qt1-s"));
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
-			Assert.That(input[i].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i].GetText(true, true)));
 		}
 
 		[TestCase(true)]
@@ -7629,15 +7641,15 @@ namespace GlyssenEngineTests.Quote
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "2CH", input,
 				QuoteSystemForStandardAmericanEnglish).Parse().ToList();
 			var i = 0;
-			Assert.That(chapterCharacter, Is.EqualTo(output[i].CharacterId));
+			Assert.That(output[i].CharacterId, Is.EqualTo(chapterCharacter));
 
-			Assert.That(narrator, Is.EqualTo(output[++i].CharacterIdInScript));
+			Assert.That(output[++i].CharacterIdInScript, Is.EqualTo(narrator));
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(output[i].IsPredeterminedQuoteInterruption, Is.False);
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
-			Assert.That(input[i].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i].GetText(true, true)));
 
-			Assert.That(narrator, Is.EqualTo(output[++i].CharacterIdInScript));
+			Assert.That(output[++i].CharacterIdInScript, Is.EqualTo(narrator));
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(output[i].IsPredeterminedQuoteInterruption, Is.False);
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
@@ -7648,26 +7660,29 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(output[i].IsPredeterminedQuoteInterruption, Is.False);
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
-			Assert.That(output[i].GetText(true, true), Is.EqualTo("“A vast army is coming against you from Edom, from the other side of the Dead Sea. Hazezon Tamar "));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo("“A vast army is coming " +
+				"against you from Edom, from the other side of the Dead Sea. Hazezon Tamar "));
 
-			Assert.That(narrator, Is.EqualTo(output[++i].CharacterIdInScript));
+			Assert.That(output[++i].CharacterIdInScript, Is.EqualTo(narrator));
 			Assert.That(output[i].IsPredeterminedQuoteInterruption, Is.True);
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
-			Assert.That(blockInt2b.GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(blockInt2b.GetText(true, true)));
 
 			Assert.That(output[++i].CharacterId, Is.EqualTo("men, some"));
 			Assert.That(output[i].CharacterId, Is.EqualTo(output[i].CharacterIdInScript));
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(output[i].IsPredeterminedQuoteInterruption, Is.False);
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
-			Assert.That(output[i].GetText(true, true), Is.EqualTo("is where they are currently camped.” "));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(
+				"is where they are currently camped.” "));
 
-			Assert.That(narrator, Is.EqualTo(output[++i].CharacterIdInScript));
+			Assert.That(output[++i].CharacterIdInScript, Is.EqualTo(narrator));
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(output[i].IsPredeterminedQuoteInterruption, Is.False);
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
-			Assert.That(output[i].GetText(true, true), Is.EqualTo("{3}\u00A0Alarmed, Jehoshaphat resolved to inquire of the Lord, and he proclaimed: "));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(
+				"{3}\u00A0Alarmed, Jehoshaphat resolved to inquire of the Lord, and he proclaimed: "));
 
 			Assert.That(output[++i].CharacterId, Is.EqualTo(kNeedsReview));
 			Assert.That(output[i].CharacterIdOverrideForScript, Is.Null);
@@ -7711,22 +7726,22 @@ namespace GlyssenEngineTests.Quote
 
 			var output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input,
 					QuoteSystemForStandardAmericanEnglish).Parse().ToList();
-			Assert.That(input.Count, Is.EqualTo(output.Count));
+			Assert.That(output.Count, Is.EqualTo(input.Count));
 			var i = 0;
-			Assert.That(chapterCharacter, Is.EqualTo(output[i].CharacterId));
+			Assert.That(output[i].CharacterId, Is.EqualTo(chapterCharacter));
 
-			Assert.That(narrator, Is.EqualTo(output[++i].CharacterIdInScript));
+			Assert.That(output[++i].CharacterIdInScript, Is.EqualTo(narrator));
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(output[i].IsPredeterminedQuoteInterruption, Is.False);
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
-			Assert.That(input[i].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i].GetText(true, true)));
 
 			Assert.That(output[++i].CharacterIdInScript, Is.EqualTo("Jesus"));
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.True);
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteEnd, Is.False);
 			Assert.That(output[i].IsPredeterminedQuoteInterruption, Is.False);
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
-			Assert.That(input[i].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i].GetText(true, true)));
 
 			Assert.That(output[++i].CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(output[i].CharacterId, Is.EqualTo(output[i].CharacterIdInScript));
@@ -7734,7 +7749,7 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteEnd, Is.False);
 			Assert.That(output[i].IsPredeterminedQuoteInterruption, Is.False);
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Continuation));
-			Assert.That(input[i].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i].GetText(true, true)));
 
 			Assert.That(output[++i].CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(output[i].CharacterId, Is.EqualTo(output[i].CharacterIdInScript));
@@ -7742,20 +7757,20 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteEnd, Is.False);
 			Assert.That(output[i].IsPredeterminedQuoteInterruption, Is.False);
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Continuation));
-			Assert.That(input[i].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i].GetText(true, true)));
 
-			Assert.That(narrator, Is.EqualTo(output[++i].CharacterIdInScript));
+			Assert.That(output[++i].CharacterIdInScript, Is.EqualTo(narrator));
 			Assert.That(output[i].IsPredeterminedQuoteInterruption, Is.True);
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
-			Assert.That(input[i].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i].GetText(true, true)));
 
 			Assert.That(output[++i].CharacterIdInScript, Is.EqualTo("Jesus"));
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.True);
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteEnd, Is.True);
 			Assert.That(output[i].IsPredeterminedQuoteInterruption, Is.False);
 			Assert.That(output[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
-			Assert.That(input[i].GetText(true, true), Is.EqualTo(output[i].GetText(true, true)));
+			Assert.That(output[i].GetText(true, true), Is.EqualTo(input[i].GetText(true, true)));
 
 			Assert.That(output.Count, Is.EqualTo(++i));
 		}
@@ -7805,14 +7820,14 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(output.All(b => !b.IsPredeterminedQuoteInterruption));
 
 			var i = 0;
-			Assert.That(chapterCharacter, Is.EqualTo(output[i].CharacterId));
+			Assert.That(output[i].CharacterId, Is.EqualTo(chapterCharacter));
 
 			Assert.That(output[++i].CharacterId, Is.EqualTo("Jeremiah"));
 			Assert.That(output[i].InitialStartVerseNumber, Is.EqualTo(6));
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(output[i].GetText(true, true), Is.EqualTo("{6}\u00A0“Alas, Sovereign Lord,” "));
 
-			Assert.That(narrator, Is.EqualTo(output[++i].CharacterId));
+			Assert.That(output[++i].CharacterId, Is.EqualTo(narrator));
 			Assert.That(output[i].InitialStartVerseNumber, Is.EqualTo(6));
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(output[i].GetText(true, true), Is.EqualTo("I said, "));
@@ -7823,7 +7838,7 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(output[i].GetText(true, true),
 				Is.EqualTo("“I do not know how to speak; I am too young.” "));
 
-			Assert.That(narrator, Is.EqualTo(output[++i].CharacterId));
+			Assert.That(output[++i].CharacterId, Is.EqualTo(narrator));
 			Assert.That(output[i].InitialStartVerseNumber, Is.EqualTo(7));
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(output[i].GetText(true, true), Is.EqualTo("{7}\u00A0But the Lord said to me, "));
@@ -7833,19 +7848,19 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(output[i].GetText(true, true), Is.EqualTo("“Do not say, "));
 
-			Assert.That(character ?? "God", Is.EqualTo(output[++i].CharacterId));
+			Assert.That(output[++i].CharacterId, Is.EqualTo(character ?? "God"));
 			Assert.That(output[i].InitialStartVerseNumber, Is.EqualTo(7));
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.True);
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteEnd, Is.True);
 			Assert.That(output[i].GetText(true), Is.EqualTo("‘I am too young.’ "));
 			var quoteAnnotation = (QuoteId)output[i].BlockElements.Last();
-			Assert.That(includeQuoteId ? quid : null, Is.EqualTo(quoteAnnotation.Id));
+			Assert.That(quoteAnnotation.Id, Is.EqualTo(includeQuoteId ? quid : null));
 			Assert.That(quoteAnnotation.Start, Is.False);
 			Assert.That(quoteAnnotation.IsNarrator, Is.False);
 			if (includeQuoteId)
 			{
 				quoteAnnotation = (QuoteId)output[i].BlockElements[0];
-				Assert.That(quid, Is.EqualTo(quoteAnnotation.Id));
+				Assert.That(quoteAnnotation.Id, Is.EqualTo(quid));
 				Assert.That(quoteAnnotation.Start, Is.True);
 				Assert.That(quoteAnnotation.IsNarrator, Is.False);
 			}
@@ -7859,7 +7874,7 @@ namespace GlyssenEngineTests.Quote
 				"{8}\u00A0Do not be afraid of them, for I am with you and will rescue you,” " +
 				"declares the Lord."));
 			
-			Assert.That(narrator, Is.EqualTo(output[++i].CharacterId));
+			Assert.That(output[++i].CharacterId, Is.EqualTo(narrator));
 			Assert.That(output[i].InitialStartVerseNumber, Is.EqualTo(9));
 			Assert.That(output[i].IsParagraphStart, Is.True);
 			Assert.That(output[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
@@ -8090,7 +8105,7 @@ namespace GlyssenEngineTests.Quote
 
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN",
 				input, GetUsQuoteSystem()).Parse().ToList();
-			Assert.That(input.Count, Is.EqualTo(output.Count));
+			Assert.That(output.Count, Is.EqualTo(input.Count));
 
 			Assert.That(IsCharacterOfType(output[0].CharacterId, Narrator), Is.True);
 			Assert.That(output[0].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
@@ -8124,7 +8139,7 @@ namespace GlyssenEngineTests.Quote
 
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN",
 				input, GetUsQuoteSystem()).Parse().ToList();
-			Assert.That(input.Count, Is.EqualTo(output.Count));
+			Assert.That(output.Count, Is.EqualTo(input.Count));
 
 			Assert.That(IsCharacterOfType(output[0].CharacterId, Narrator), Is.True);
 			Assert.That(output[0].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
@@ -8166,7 +8181,7 @@ namespace GlyssenEngineTests.Quote
 
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA",
 				input, GetUsQuoteSystem()).Parse().ToList();
-			Assert.That(input.Count, Is.EqualTo(output.Count));
+			Assert.That(output.Count, Is.EqualTo(input.Count));
 
 			Assert.That(IsCharacterOfType(output[0].CharacterId, Narrator), Is.True);
 			Assert.That(output[0].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));

@@ -183,8 +183,8 @@ namespace GlyssenEngineTests
 
 			WaitForProjectInitializationToFinish(project, ProjectState.FullyInitialized);
 
-			Assert.That(bogusQuoteSystem, Is.EqualTo(project.QuoteSystem));
-			Assert.That(QuoteSystemStatus.Obtained, Is.EqualTo(project.Status.QuoteSystemStatus));
+			Assert.That(project.QuoteSystem, Is.EqualTo(bogusQuoteSystem));
+			Assert.That(project.Status.QuoteSystemStatus, Is.EqualTo(QuoteSystemStatus.Obtained));
 		}
 
 		[Test]
@@ -196,7 +196,7 @@ namespace GlyssenEngineTests
 			WaitForProjectInitializationToFinish(project, ProjectState.NeedsQuoteSystemConfirmation);
 
 			Assert.That(project.QuoteSystem.AllLevels.Any(), Is.True);
-			Assert.That(QuoteSystemStatus.Guessed, Is.EqualTo(project.Status.QuoteSystemStatus));
+			Assert.That(project.Status.QuoteSystemStatus, Is.EqualTo(QuoteSystemStatus.Guessed));
 		}
 
 		[NonParallelizable]
@@ -267,7 +267,9 @@ namespace GlyssenEngineTests
 
 			WaitForProjectInitializationToFinish(updatedProject, ProjectState.FullyInitialized);
 
-			Assert.That(verseRef.Verse, Is.EqualTo(updatedProject.Books[0].GetScriptBlocks().First(b => b.CharacterId == "Wilma").InitialStartVerseNumber));
+			Assert.That(updatedProject.Books[0].GetScriptBlocks()
+				.First(b => b.CharacterId == "Wilma").InitialStartVerseNumber,
+				Is.EqualTo(verseRef.Verse));
 		}
 
 		[NonParallelizable]
@@ -301,8 +303,8 @@ namespace GlyssenEngineTests
 			targetMetadata.ProjectStatus.QuoteSystemStatus = QuoteSystemStatus.Obtained;
 			project.CopyQuoteMarksIfAppropriate(targetWs, targetMetadata);
 
-			Assert.That(bogusQuoteSystem.AllLevels, Is.EqualTo(targetWs.QuotationMarks));
-			Assert.That(QuoteSystemStatus.Obtained, Is.EqualTo(project.Status.QuoteSystemStatus));
+			Assert.That(targetWs.QuotationMarks, Is.EqualTo(bogusQuoteSystem.AllLevels));
+			Assert.That(project.Status.QuoteSystemStatus, Is.EqualTo(QuoteSystemStatus.Obtained));
 		}
 
 		[Test]
@@ -331,8 +333,8 @@ namespace GlyssenEngineTests
 			var targetMetadata = new GlyssenDblTextMetadata();
 			project.CopyQuoteMarksIfAppropriate(targetWs, targetMetadata);
 
-			Assert.That(bogusQuoteSystem.AllLevels, Is.EqualTo(targetWs.QuotationMarks));
-			Assert.That(QuoteSystemStatus.UserSet, Is.EqualTo(project.Status.QuoteSystemStatus));
+			Assert.That(targetWs.QuotationMarks, Is.EqualTo(bogusQuoteSystem.AllLevels));
+			Assert.That(project.Status.QuoteSystemStatus, Is.EqualTo(QuoteSystemStatus.UserSet));
 		}
 
 		[Test]
@@ -361,8 +363,8 @@ namespace GlyssenEngineTests
 			var targetMetadata = new GlyssenDblTextMetadata();
 			project.CopyQuoteMarksIfAppropriate(targetWs, targetMetadata);
 
-			Assert.That(bogusQuoteSystem2.AllLevels, Is.EqualTo(targetWs.QuotationMarks));
-			Assert.That(QuoteSystemStatus.UserSet, Is.EqualTo(project.Status.QuoteSystemStatus));
+			Assert.That(targetWs.QuotationMarks, Is.EqualTo(bogusQuoteSystem2.AllLevels));
+			Assert.That(project.Status.QuoteSystemStatus, Is.EqualTo(QuoteSystemStatus.UserSet));
 		}
 
 		[NonParallelizable]
@@ -427,7 +429,7 @@ namespace GlyssenEngineTests
 
 			var prevQuoteSystemDate = testProject.QuoteSystemDate;
 			testProject.SetQuoteSystem(QuoteSystemStatus.UserSet, newQuoteSystem);
-			Assert.That(prevQuoteSystemDate < testProject.QuoteSystemDate, Is.True);
+			Assert.That(testProject.QuoteSystemDate, Is.GreaterThanOrEqualTo(prevQuoteSystemDate));
 
 			do
 			{
@@ -435,10 +437,10 @@ namespace GlyssenEngineTests
 			} while (!complete);
 
 			var userConfirmedBlocksAfterReapplying = testProject.IncludedBooks.First().GetScriptBlocks().Where(b => b.UserConfirmed).ToList();
-			Assert.That(origCountOfUserConfirmedBlocks, Is.EqualTo(userConfirmedBlocksAfterReapplying.Count));
+			Assert.That(userConfirmedBlocksAfterReapplying.Count, Is.EqualTo(origCountOfUserConfirmedBlocks));
 			foreach (var blockWithReappliedUserDecision in userConfirmedBlocksAfterReapplying)
 			{
-				Assert.That(character, Is.EqualTo(blockWithReappliedUserDecision.CharacterId));
+				Assert.That(blockWithReappliedUserDecision.CharacterId, Is.EqualTo(character));
 				Assert.That(blockWithReappliedUserDecision.Delivery, Is.EqualTo("foamy"));
 			}
 
@@ -487,7 +489,7 @@ namespace GlyssenEngineTests
 			newQuoteSystem = new QuoteSystem(testProject.QuoteSystem);
 			newQuoteSystem.AllLevels.Add(new QuotationMark("*+", "@!", "~`", newQuoteSystem.FirstLevel.Level, QuotationMarkingSystemType.Normal));
 			testProject.SetQuoteSystem(QuoteSystemStatus.UserSet, newQuoteSystem);
-			Assert.That(prevQuoteSystemDate < testProject.QuoteSystemDate, Is.True);
+			Assert.That(testProject.QuoteSystemDate, Is.GreaterThanOrEqualTo(prevQuoteSystemDate));
 
 			WaitForParsingToComplete();
 		}
@@ -565,10 +567,10 @@ namespace GlyssenEngineTests
 			} while (!complete);
 
 			var userConfirmedBlocksAfterReapplying = updatedProject.IncludedBooks.First().GetScriptBlocks().Where(b => b.UserConfirmed).ToList();
-			Assert.That(origCountOfUserConfirmedBlocks, Is.EqualTo(userConfirmedBlocksAfterReapplying.Count));
+			Assert.That(userConfirmedBlocksAfterReapplying.Count, Is.EqualTo(origCountOfUserConfirmedBlocks));
 			foreach (var blockWithReappliedUserDecision in userConfirmedBlocksAfterReapplying)
 			{
-				Assert.That(character, Is.EqualTo(blockWithReappliedUserDecision.CharacterId));
+				Assert.That(blockWithReappliedUserDecision.CharacterId, Is.EqualTo(character));
 				Assert.That(blockWithReappliedUserDecision.Delivery, Is.EqualTo("foamy"));
 			}
 
@@ -628,10 +630,10 @@ namespace GlyssenEngineTests
 			} while (!complete);
 
 			var userConfirmedBlocksAfterReapplying = updatedProject.IncludedBooks.First().GetScriptBlocks().Where(b => b.UserConfirmed).ToList();
-			Assert.That(origCountOfUserConfirmedBlocks, Is.EqualTo(userConfirmedBlocksAfterReapplying.Count));
+			Assert.That(userConfirmedBlocksAfterReapplying.Count, Is.EqualTo(origCountOfUserConfirmedBlocks));
 			foreach (var blockWithReappliedUserDecision in userConfirmedBlocksAfterReapplying)
 			{
-				Assert.That(character, Is.EqualTo(blockWithReappliedUserDecision.CharacterId));
+				Assert.That(blockWithReappliedUserDecision.CharacterId, Is.EqualTo(character));
 				Assert.That(blockWithReappliedUserDecision.Delivery, Is.EqualTo("foamy"));
 			}
 		}

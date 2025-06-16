@@ -11,6 +11,7 @@ using SIL.Extensions;
 using SIL.Reflection;
 using SIL.Scripture;
 using static System.String;
+using static GlyssenCharacters.CharacterVerseData;
 using static GlyssenEngineTests.TestProject;
 using BlockNavigatorViewModel = GlyssenEngine.ViewModels.BlockNavigatorViewModel<Rhino.Mocks.Interfaces.IMockedObject>;
 using Resources = GlyssenCharactersTests.Properties.Resources;
@@ -607,12 +608,13 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.SetMode(BlocksToDisplay.AllScripture, true);
 			FindRefInMark(3, 19);
 
-			var iSectionHeadBlock = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.IndexOf(b => b.CharacterIs("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical));
+			var iSectionHeadBlock = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks
+				.IndexOf(b => b.CharacterIs("MRK", StandardCharacter.ExtraBiblical));
 			var indexOfBlockToSelect = m_model.CurrentReferenceTextMatchup.IndexOfStartBlockInBook + iSectionHeadBlock;
 
 			m_model.CurrentBlockIndexInBook = indexOfBlockToSelect;
-			Assert.That(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
-				Is.Not.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock.CharacterId));
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock.CharacterId,
+				Is.Not.EqualTo(GetStandardCharacterId("MRK", StandardCharacter.ExtraBiblical)));
 			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[iSectionHeadBlock + 1],
 				Is.EqualTo(m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock));
 		}
@@ -673,7 +675,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(m_model.CurrentBlock.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
 
 			//Create bad data
-			BlockNavigator navigator = (BlockNavigator)ReflectionHelper.GetField(m_model, "m_navigator");
+			var navigator = (BlockNavigator)ReflectionHelper.GetField(m_model, "m_navigator");
 			Block nextBlock = navigator.GetNextBlock();
 			var originalStatus = nextBlock.MultiBlockQuote;
 			nextBlock.MultiBlockQuote = followingStatus;
@@ -1184,7 +1186,6 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			m_model.SetMode(BlocksToDisplay.NotAssignedAutomatically, false);
 			BlockNavigatorViewModelTests.FindRefInMark(m_model, 9, 21);
-			var blockIndex = m_model.CurrentBlockIndexInBook;
 			m_model.CurrentBlock.SetCharacterIdAndCharacterIdInScript("Jesus", 0, m_testProject.Versification);
 			m_model.LoadNextRelevantBlock();
 			m_model.CurrentBlock.SetCharacterIdAndCharacterIdInScript("father of demon-possessed boy", 0, m_testProject.Versification);
@@ -1356,7 +1357,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			SimulateDisambiguationForAllBooks(m_testProject);
 			var blockToMatchFilter = m_testProject.IncludedBooks.First().GetScriptBlocks().First(b => b.UserConfirmed);
 			blockToMatchFilter.UserConfirmed = false;
-			blockToMatchFilter.CharacterId = CharacterVerseData.kUnexpectedCharacter;
+			blockToMatchFilter.CharacterId = kUnexpectedCharacter;
 
 			// Create model and initialize state
 			var model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NotYetAssigned);
@@ -1461,7 +1462,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void ApplyCurrentReferenceTextMatchup_HeSaid_SetsReferenceTextsForBlocksInGroupAndUpdatesState()
 		{
 			// SETUP
-			var markNarrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			var markNarrator = GetStandardCharacterId("MRK", StandardCharacter.Narrator);
 			AddHeSaidAfterQuoteAtEndOfVerseInMark(1, 8, markNarrator);
 			var addedHeSaidBlockToMatchExplicitly = AddHeSaidAfterQuoteAtEndOfVerseInMark(1, 11, markNarrator);
 			AddHeSaidAfterQuoteAtEndOfVerseInMark(1, 15, markNarrator);
@@ -1575,7 +1576,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				b.LastVerseNum == ScrVers.English.GetLastVerse(bookNum, b.ChapterNumber) &&
 				b.StartsAtVerseStart &&
 				b.AllVerses.Skip(1).Any() &&
-				b.CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
+				b.CharacterIs("MRK", StandardCharacter.Narrator));
 			// We have to manually split the block to separate the initial verses which already don't match
 			// the reference text from the last two verses, which are just plain narrator verses in both the
 			// Vernacular and the English reference text.

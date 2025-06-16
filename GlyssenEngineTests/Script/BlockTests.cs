@@ -678,10 +678,16 @@ namespace GlyssenEngineTests.Script
 			const string text2 = "text2 ";
 			var block = new Block("p", 1, 1);
 			block.BlockElements.Add(new ScriptText(text1));
-			block.BlockElements.Add(new Sound { SoundType = SoundType.Sfx, EffectName = "effect name", UserSpecifiesLocation = true });
+			block.BlockElements.Add(new Sound
+			{
+				SoundType = SoundType.Sfx,
+				EffectName = "effect name",
+				UserSpecifiesLocation = true
+			});
 			block.BlockElements.Add(new ScriptText(text2));
 
-			Assert.That(text1 + "{F8 SFX--effect name} " + text2, Is.EqualTo(block.GetText(true, true)));
+			Assert.That(block.GetText(true, true), Is.EqualTo(
+				text1 + "{F8 SFX--effect name} " + text2));
 		}
 
 		[Test]
@@ -1243,7 +1249,7 @@ namespace GlyssenEngineTests.Script
 			Assert.That(englishRefBlock.GetText(true), Is.EqualTo("{2}\u00A0said Jesus. To which Matthew replied, “We knew that.”"));
 			// We may not technically really care too much about the next four lines (at least right now),
 			// but this is how we expect the reference block to be built.
-			Assert.That(narrator, Is.EqualTo(englishRefBlock.CharacterId));
+			Assert.That(englishRefBlock.CharacterId, Is.EqualTo(narrator));
 			Assert.That(englishRefBlock.Delivery, Is.EqualTo("raspy"));
 			Assert.That(englishRefBlock.BlockElements.Count, Is.EqualTo(2));
 			Assert.That(((Verse)englishRefBlock.BlockElements[0]).Number, Is.EqualTo("2"));
@@ -1432,18 +1438,22 @@ namespace GlyssenEngineTests.Script
 		[Test]
 		public void SetMatchedReferenceBlock_VernBlockHasCharacter_AnnotationParsedAndIncludedAsBlockElement()
 		{
-			var block = new Block("p", 8, 29).AddVerse("29", "“¡No te metas con nosotros, Hijo de Dios! ¿Viniste acá para atormentarnos antes de tiempo?”");
-			block.SetCharacterIdAndCharacterIdInScript(@"demons (Legion)/man delivered from Legion of demons", 40, m_testVersification);
-			Assert.That(@"demons (Legion)", Is.EqualTo(block.CharacterIdOverrideForScript));
-			var refBlock = block.SetMatchedReferenceBlock("{29} “What do we have to do with you, Jesus, Son of God? Have you come here to torment us before the time?”");
+			var block = new Block("p", 8, 29).AddVerse("29",
+				"“¡No te metas con nosotros, Hijo de Dios! ¿Viniste acá para atormentarnos antes de tiempo?”");
+			block.SetCharacterIdAndCharacterIdInScript(
+				"demons (Legion)/man delivered from Legion of demons", 40, m_testVersification);
+			Assert.That(block.CharacterIdOverrideForScript, Is.EqualTo("demons (Legion)"));
+			var refBlock = block.SetMatchedReferenceBlock("{29} “What do we have to do with " +
+				"you, Jesus, Son of God? Have you come here to torment us before the time?”");
 			Assert.That(block.MatchesReferenceText, Is.True);
 			Assert.That(refBlock, Is.EqualTo(block.ReferenceBlocks.Single()));
 			Assert.That(refBlock.InitialStartVerseNumber, Is.EqualTo(29));
 			Assert.That(refBlock.InitialEndVerseNumber, Is.EqualTo(0));
 			Assert.That(refBlock.BlockElements.OfType<Verse>().Single().Number, Is.EqualTo("29"));
-			Assert.That(@"demons (Legion)/man delivered from Legion of demons", Is.EqualTo(refBlock.CharacterId));
-			Assert.That(@"demons (Legion)", Is.EqualTo(refBlock.CharacterIdInScript));
-			Assert.That(@"demons (Legion)", Is.EqualTo(refBlock.CharacterIdOverrideForScript));
+			Assert.That(refBlock.CharacterId, Is.EqualTo(
+				"demons (Legion)/man delivered from Legion of demons"));
+			Assert.That(refBlock.CharacterIdInScript, Is.EqualTo("demons (Legion)"));
+			Assert.That(refBlock.CharacterIdOverrideForScript, Is.EqualTo("demons (Legion)"));
 		}
 
 		[Test]
@@ -1996,7 +2006,8 @@ namespace GlyssenEngineTests.Script
 
 			Assert.That(block.GetText(true), Is.EqualTo("{2}\u00A0abcdef ghi"));
 			Assert.That(block.InitialStartVerseNumber, Is.EqualTo(2));
-			Assert.That(trailingPunctuation + " {3}\u00A0jk lmno p", Is.EqualTo(newBlock.GetText(true)));
+			Assert.That(newBlock.GetText(true), Is.EqualTo(
+				trailingPunctuation + " {3}\u00A0jk lmno p"));
 			Assert.That(newBlock.InitialStartVerseNumber, Is.EqualTo(3));
 		}
 

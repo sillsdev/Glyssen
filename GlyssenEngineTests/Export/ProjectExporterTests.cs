@@ -503,7 +503,7 @@ namespace GlyssenEngineTests.Export
 			var i = 0;
 			var row = data[i];
 			Assert.That(row.VerseNumber, Is.EqualTo(39));
-			Assert.That(narratorInOutput, Is.EqualTo(row.CharacterId));
+			Assert.That(row.CharacterId, Is.EqualTo(narratorInOutput));
 			Assert.That(mark.GetScriptBlocks()[i].GetText(true), Is.EqualTo(row.VernacularText));
 			Assert.That(refBlocks[i].GetText(true), Is.EqualTo(row.AdditionalReferenceText));
 
@@ -516,7 +516,7 @@ namespace GlyssenEngineTests.Export
 
 			row = data[++i];
 			Assert.That(row.VerseNumber, Is.EqualTo(39));
-			Assert.That(narratorInOutput, Is.EqualTo(row.CharacterId));
+			Assert.That(row.CharacterId, Is.EqualTo(narratorInOutput));
 			Assert.That(mark.GetScriptBlocks()[i].GetText(true), Is.EqualTo(row.VernacularText));
 			Assert.That(string.IsNullOrEmpty(row.AdditionalReferenceText as string), Is.True);
 
@@ -529,7 +529,7 @@ namespace GlyssenEngineTests.Export
 			row = data[++i];
 			Assert.That(string.IsNullOrEmpty(row.AsObjectArray()[0] as string), Is.True);
 			Assert.That(row.VerseNumber, Is.EqualTo(39));
-			Assert.That(narratorInOutput, Is.EqualTo(row.CharacterId));
+			Assert.That(row.CharacterId, Is.EqualTo(narratorInOutput));
 			Assert.That(mark.GetScriptBlocks()[i].GetText(true), Is.EqualTo(row.VernacularText));
 			Assert.That(refBlocks[i - 2].GetText(true), Is.EqualTo(row.AdditionalReferenceText));
 
@@ -767,11 +767,14 @@ namespace GlyssenEngineTests.Export
 			//SFX (music/sfx come before verse text)
 			var rowForVerse12 = data.Single(d => d.BookId == "JUD" && d.ChapterNumber == 1 && d.VerseNumber == 12);
 			var annotationInfo = Sound.kDoNotCombine + exporter.AnnotationElementSeparator + "{SFX--Eerie--Starts @ v12}";
-			Assert.That(annotationInfo + " {12}\u00A0", Is.EqualTo(rowForVerse12.AdditionalReferenceText));
-			Assert.That(annotationInfo, Is.EqualTo(rowForVerse12.EnglishReferenceText.TrimEnd()));
+			Assert.That(rowForVerse12.AdditionalReferenceText, Is.EqualTo(
+				annotationInfo + " {12}\u00A0"));
+			Assert.That(rowForVerse12.EnglishReferenceText.TrimEnd(), Is.EqualTo(annotationInfo));
 			Assert.That(rowForVerse12.AdditionalReferenceText, Does.StartWith(annotationInfo + " {12}\u00A0"));
-			Assert.That(rowForVerse12.VernacularText, Is.EqualTo("{12}\u00A0Gikelo lewic i karamawu me mar ka gicamo matek mukato kare laboŋo lworo, kun giparo pi komgi keken. " +
-				"Gubedo calo pol ma pii pe iye ma yamo kolo; girom ki yadi ma nyiggi pe nen i kare me cekgi, ma giputo lwitgi woko, " +
+			Assert.That(rowForVerse12.VernacularText, Is.EqualTo(
+				"{12}\u00A0Gikelo lewic i karamawu me mar ka gicamo matek mukato kare laboŋo " +
+				"lworo, kun giparo pi komgi keken. Gubedo calo pol ma pii pe iye ma yamo kolo; " +
+				"girom ki yadi ma nyiggi pe nen i kare me cekgi, ma giputo lwitgi woko, " +
 				"yam guto kiryo. "));
 
 			//Pause for final verse in book (pauses come after verse text)
@@ -780,9 +783,9 @@ namespace GlyssenEngineTests.Export
 			annotationInfo = string.Format(Pause.kPauseSecondsFormat, "5");
 			Assert.That(rowForJude25.AdditionalReferenceText, Is.EqualTo("{25}\u00A0" + annotationInfo));
 			Assert.That(annotationInfo, Is.EqualTo(rowForJude25.EnglishReferenceText.TrimStart()));
-			Assert.That(rowForJude25.VernacularText,
-				Is.EqualTo("{25}\u00A0Deyo, dit, loc ki twer ducu obed bot Lubaŋa acel keken, ma Lalarwa, pi Yecu Kricito Rwotwa, " +
-				"cakke ma peya giketo lobo, nio koni, ki kare ma pe gik. Amen."));
+			Assert.That(rowForJude25.VernacularText, Is.EqualTo(
+				"{25}\u00A0Deyo, dit, loc ki twer ducu obed bot Lubaŋa acel keken, ma Lalarwa, " +
+				"pi Yecu Kricito Rwotwa, cakke ma peya giketo lobo, nio koni, ki kare ma pe gik. Amen."));
 
 			//Pause for non-final verse in book (pauses come after verse text)
 			var rowForRev1V3 = data.First(d => d.BookId == "REV" && d.ChapterNumber == 1 && d.VerseNumber == 3);
