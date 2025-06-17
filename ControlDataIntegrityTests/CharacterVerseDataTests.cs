@@ -62,7 +62,7 @@ namespace ControlDataIntegrityTests
 
 				var verseAsString = match.Result("${verse}");
 				var verse = Parse(verseAsString);
-				Assert.That(verse > 0 || verse == 0 && bookId == "PSA", Is.True, "Line: " + line);
+				Assert.That(verse > 0 || verse == 0 && bookId == "PSA", "Line: " + line);
 				Assert.That(verse, Is.LessThanOrEqualTo(ScrVers.English.GetLastVerse(bookNum, chapter)),
 					"Line: " + line);
 

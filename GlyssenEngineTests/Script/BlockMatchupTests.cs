@@ -746,7 +746,7 @@ namespace GlyssenEngineTests.Script
 
 			matchup.Apply();
 			var resultingBlocks = vernBook.GetScriptBlocks().ToList();
-			Assert.That(resultingBlocks.All(b => b.MultiBlockQuote == MultiBlockQuote.None), Is.True);
+			Assert.That(resultingBlocks.All(b => b.MultiBlockQuote == MultiBlockQuote.None));
 		}
 
 		[Test]

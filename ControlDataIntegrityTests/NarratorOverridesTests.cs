@@ -119,7 +119,7 @@ namespace ControlDataIntegrityTests
 					{
 						Assert.That(overrideDetail.EndChapter > prev.EndChapter || (overrideDetail.EndChapter == prev.EndChapter &&
 								overrideDetail.EndVerse > prev.EndVerse) || (overrideDetail.EndChapter == prev.EndChapter &&
-								overrideDetail.EndVerse == prev.EndVerse && overrideDetail.EndBlock > prev.EndBlock), Is.True,
+								overrideDetail.EndVerse == prev.EndVerse && overrideDetail.EndBlock > prev.EndBlock),
 							$"In NarratorOverrides.xml, book {kvp.Key}: override {overrideDetail} overlaps {prev}.");
 					}
 					prev = overrideDetail;

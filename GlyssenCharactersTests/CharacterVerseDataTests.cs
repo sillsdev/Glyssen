@@ -145,7 +145,7 @@ namespace GlyssenCharactersTests
 		//		}
 		//	}
 
-		//	Assert.That(proposedNewVersionTotal < baselineTotal, Is.True);
+		//	Assert.That(proposedNewVersionTotal, Is.LessThan(baselineTotal);
 		//	Console.WriteLine($"Elapsed new proposed version ticks: {proposedNewVersionTotal}; Elapsed baseline version ticks: {baselineTotal}");
 		//}
 	}

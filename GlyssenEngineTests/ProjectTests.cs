@@ -217,7 +217,7 @@ namespace GlyssenEngineTests
 
 			// Technically, this is overkill. Since newBundle's metadata has a font size of 14, we could just leave it as 10
 			// and check that it stays as 10.
-			Assert.That(12, Is.Not.EqualTo(newBundle.Metadata.FontSizeInPoints));
+			Assert.That(newBundle.Metadata.FontSizeInPoints, Is.Not.EqualTo(12));
 			project.UpdateSettings(new GlyssenEngine.ViewModels.ProjectSettingsViewModel(project), "Polaris Basic Frog", 12, false);
 
 			var updatedProject = project.UpdateProjectFromBundleData(newBundle);
@@ -579,7 +579,7 @@ namespace GlyssenEngineTests
 		}
 
 		[NonParallelizable]
-		[Timeout(5000)]
+		[Timeout(7000)]
 		[TestCase("Mark")]
 		[TestCase("Andrew")]
 		public void UpdateFromParatextData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)

@@ -302,13 +302,13 @@ namespace GlyssenEngineTests.Export
 			}
 
 			var iStartOfJude = data.IndexOf(d => d.BookId == "JUD");
-			Assert.That(iStartOfJude > 0, Is.True);
-			Assert.That(data.Take(iStartOfJude).All(d => d.BookId == "GAL"), Is.True);
-			Assert.That(data.Skip(iStartOfJude).All(d => d.BookId == "JUD"), Is.True);
-			Assert.That(data.Take(iStartOfJude).All(d => d.CharacterId == "narrator (GAL)"), Is.True);
-			Assert.That(data.Skip(iStartOfJude).All(d => d.CharacterId == "narrator (JUD)"), Is.True);
-			Assert.That(data.Take(iStartOfJude).All(d => d.VoiceActor == "Marlon"), Is.True);
-			Assert.That(data.Skip(iStartOfJude).All(d => d.VoiceActor == "Aiden"), Is.True);
+			Assert.That(iStartOfJude, Is.GreaterThan(0));
+			Assert.That(data.Take(iStartOfJude).All(d => d.BookId == "GAL"));
+			Assert.That(data.Skip(iStartOfJude).All(d => d.BookId == "JUD"));
+			Assert.That(data.Take(iStartOfJude).All(d => d.CharacterId == "narrator (GAL)"));
+			Assert.That(data.Skip(iStartOfJude).All(d => d.CharacterId == "narrator (JUD)"));
+			Assert.That(data.Take(iStartOfJude).All(d => d.VoiceActor == "Marlon"));
+			Assert.That(data.Skip(iStartOfJude).All(d => d.VoiceActor == "Aiden"));
 		}
 
 		[Test]
@@ -356,7 +356,7 @@ namespace GlyssenEngineTests.Export
 			Assert.That(data.All(d => d.BookId == "JUD" && d.ChapterNumber == 1), Is.True);
 			var i = 0;
 			var row = data[i++];
-			Assert.That(i, Is.EqualTo(row.Number)); // Row 1
+			Assert.That(row.Number, Is.EqualTo(i)); // Row 1
 			Assert.That(row.StyleTag, Is.EqualTo("p"));
 			Assert.That(row.VerseNumber, Is.EqualTo(1));
 			Assert.That(row.CharacterId, Is.EqualTo("narrator (JUD)"));
@@ -365,38 +365,38 @@ namespace GlyssenEngineTests.Export
 			Assert.That(row.EnglishReferenceText, Is.EqualTo("{1}\u00A0Secondary"));
 
 			row = data[i++];
-			Assert.That(i, Is.EqualTo(row.Number)); // Row 2
+			Assert.That(row.Number, Is.EqualTo(i)); // Row 2
 			Assert.That(row.StyleTag, Is.EqualTo("s"));
 			Assert.That(row.VerseNumber, Is.EqualTo(1));
 			Assert.That(row.CharacterId, Is.EqualTo("section head (JUD)"));
 			Assert.That(row.VernacularText, Is.EqualTo("Jude complains"));
-			Assert.That(string.IsNullOrEmpty(row.AdditionalReferenceText), Is.True);
-			Assert.That(string.IsNullOrEmpty(row.EnglishReferenceText), Is.True);
+			Assert.That(row.AdditionalReferenceText, Is.Null.Or.Empty);
+			Assert.That(row.EnglishReferenceText, Is.Null.Or.Empty);
 
 			row = data[i++];
-			Assert.That(i, Is.EqualTo(row.Number)); // Row 3
+			Assert.That(row.Number, Is.EqualTo(i)); // Row 3
 			Assert.That(row.StyleTag, Is.EqualTo("p"));
 			Assert.That(row.VerseNumber, Is.EqualTo(2));
 			Assert.That(row.CharacterId, Is.EqualTo("Enoch"));
 			Assert.That(row.VernacularText, Is.EqualTo("{2}\u00A0B"));
-			Assert.That(string.IsNullOrEmpty(row.AdditionalReferenceText), Is.True);
-			Assert.That(string.IsNullOrEmpty(row.EnglishReferenceText), Is.True);
+			Assert.That(row.AdditionalReferenceText, Is.Null.Or.Empty);
+			Assert.That(row.EnglishReferenceText, Is.Null.Or.Empty);
 
 			row = data[i++];
-			Assert.That(i, Is.EqualTo(row.Number)); // Row 4
+			Assert.That(row.Number, Is.EqualTo(i)); // Row 4
 			Assert.That(row.StyleTag, Is.EqualTo("p"));
 			Assert.That(row.VerseNumber, Is.EqualTo(3));
 			Assert.That(row.CharacterId, Is.EqualTo("narrator (JUD)"));
 			Assert.That(row.VernacularText, Is.EqualTo("{3}\u00A0C"));
-			Assert.That(string.IsNullOrEmpty(row.AdditionalReferenceText), Is.True);
-			Assert.That(string.IsNullOrEmpty(row.EnglishReferenceText), Is.True);
+			Assert.That(row.AdditionalReferenceText, Is.Null.Or.Empty);
+			Assert.That(row.EnglishReferenceText, Is.Null.Or.Empty);
 
 			row = data[i++];
 			Assert.That(row.Number, Is.EqualTo(0));
 			Assert.That(row.StyleTag, Is.EqualTo("p"));
 			Assert.That(row.VerseNumber, Is.EqualTo(2));
 			Assert.That(row.CharacterId, Is.EqualTo("narrator (JUD)"));
-			Assert.That(string.IsNullOrEmpty(row.VernacularText), Is.True);
+			Assert.That(row.VernacularText, Is.Null.Or.Empty);
 			Assert.That(row.AdditionalReferenceText, Is.EqualTo("{2-3}\u00A0Bee Cee"));
 			Assert.That(row.EnglishReferenceText, Is.EqualTo("{2-3}\u00A0Secondary"));
 			Assert.That(row.Length, Is.EqualTo(0));
@@ -428,7 +428,7 @@ namespace GlyssenEngineTests.Export
 			Assert.That(row.AdditionalReferenceText, Is.EqualTo("{6}\u00A0Ef ||| + 5 SECs |||"));
 			Assert.That(row.EnglishReferenceText, Is.EqualTo("{6}\u00A0Secondary ||| + 5 SECs |||"));
 
-			Assert.That(i, Is.EqualTo(data.Count));
+			Assert.That(data.Count, Is.EqualTo(i));
 		}
 
 		[Test]
@@ -518,23 +518,23 @@ namespace GlyssenEngineTests.Export
 			Assert.That(row.VerseNumber, Is.EqualTo(39));
 			Assert.That(row.CharacterId, Is.EqualTo(narratorInOutput));
 			Assert.That(mark.GetScriptBlocks()[i].GetText(true), Is.EqualTo(row.VernacularText));
-			Assert.That(string.IsNullOrEmpty(row.AdditionalReferenceText as string), Is.True);
+			Assert.That(row.AdditionalReferenceText, Is.Null.Or.Empty);
 
 			row = data[++i];
 			Assert.That(row.VerseNumber, Is.EqualTo(39));
 			Assert.That(row.CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(mark.GetScriptBlocks()[i].GetText(true), Is.EqualTo(row.VernacularText));
-			Assert.That(string.IsNullOrEmpty(row.AdditionalReferenceText as string), Is.True);
+			Assert.That(row.AdditionalReferenceText, Is.Null.Or.Empty);
 
 			row = data[++i];
-			Assert.That(string.IsNullOrEmpty(row.AsObjectArray()[0] as string), Is.True);
+			Assert.That(row.AsObjectArray()[0] as string, Is.Null.Or.Empty);
 			Assert.That(row.VerseNumber, Is.EqualTo(39));
 			Assert.That(row.CharacterId, Is.EqualTo(narratorInOutput));
 			Assert.That(mark.GetScriptBlocks()[i].GetText(true), Is.EqualTo(row.VernacularText));
 			Assert.That(refBlocks[i - 2].GetText(true), Is.EqualTo(row.AdditionalReferenceText));
 
 			row = data[++i];
-			Assert.That(string.IsNullOrEmpty(row.AsObjectArray()[0] as string), Is.True);
+			Assert.That(row.AsObjectArray()[0] as string, Is.Null.Or.Empty);
 			Assert.That(row.VerseNumber, Is.EqualTo(40));
 			Assert.That(row.CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(mark.GetScriptBlocks()[i].GetText(true), Is.EqualTo(row.VernacularText));
@@ -553,26 +553,26 @@ namespace GlyssenEngineTests.Export
 
 			var data = exporter.GetExportData().ToList();
 
-			Assert.That(data.All(d => d.BookId == "JUD"), Is.True);
+			Assert.That(data.All(d => d.BookId == "JUD"));
 			Assert.That(data[0].AdditionalReferenceText, Is.EqualTo("YӘHUDANIN MӘKTUBU"));
 			Assert.That(data[0].EnglishReferenceText, Is.EqualTo("JUDE"));
-			Assert.That(data.Skip(1).All(d => d.ChapterNumber == 1), Is.True);
+			Assert.That(data.Skip(1).All(d => d.ChapterNumber == 1));
 			Assert.That(data[1].AdditionalReferenceText, Is.EqualTo("YӘHUDA 1"));
 			Assert.That(data[1].EnglishReferenceText, Is.EqualTo("JUDE CHP 1"));
 			var matchedRows = data.Where(d => d.VernacularText != null && d.AdditionalReferenceText != null).ToList();
-			Assert.That(matchedRows.Count > data.Count / 2, Is.True); // This is kind of arbitrary, but I just want to say we got a reasonable number of matches
-			Assert.That(matchedRows.Any(d => d.AdditionalReferenceText.Contains("Ә")), Is.True); // A letter that should be in Azeri, but not English
-			Assert.That(matchedRows.All(d => d.EnglishReferenceText != null), Is.True);
-			Assert.That(matchedRows.Any(d => d.EnglishReferenceText.Contains(" the ")), Is.True); // A word that should be in English, but not Azeri
+			Assert.That(matchedRows.Count, Is.GreaterThan(data.Count / 2)); // This is kind of arbitrary, but I just want to say we got a reasonable number of matches
+			Assert.That(matchedRows.Any(d => d.AdditionalReferenceText.Contains("Ә"))); // A letter that should be in Azeri, but not English
+			Assert.That(matchedRows.All(d => d.EnglishReferenceText != null));
+			Assert.That(matchedRows.Any(d => d.EnglishReferenceText.Contains(" the "))); // A word that should be in English, but not Azeri
 			// Since the test version of Jude does not match perfectly with this reference text, we expect two rows
 			// where the vernacular has no corresponding reference text.
 			var extra = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical));
 			var narrator = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator));
-			Assert.That(data.Where(d => d.StyleTag == "s1").All(d => d.CharacterId == extra), Is.True);
+			Assert.That(data.Where(d => d.StyleTag == "s1").All(d => d.CharacterId == extra));
 			var scriptureRowsWithNoReferenceText = data.Where(d => d.AdditionalReferenceText == null && d.StyleTag != "s1").ToList();
 			Assert.That(scriptureRowsWithNoReferenceText.Count, Is.EqualTo(2));
 			Assert.That(scriptureRowsWithNoReferenceText.Count(d => d.CharacterId == narrator), Is.EqualTo(1));
-			Assert.That(scriptureRowsWithNoReferenceText.All(d => d.EnglishReferenceText == null), Is.True);
+			Assert.That(scriptureRowsWithNoReferenceText.All(d => d.EnglishReferenceText == null));
 		}
 
 		[Test]
@@ -587,28 +587,28 @@ namespace GlyssenEngineTests.Export
 
 			var data = exporter.GetExportData().ToList();
 
-			Assert.That(data.All(d => d.BookId == "JUD"), Is.True);
+			Assert.That(data.All(d => d.BookId == "JUD"));
 			Assert.That(data[0].AdditionalReferenceText, Is.EqualTo("Иуда"));
 			Assert.That(data[0].EnglishReferenceText, Is.EqualTo("JUDE"));
-			Assert.That(data.Skip(1).All(d => d.ChapterNumber == 1), Is.True);
+			Assert.That(data.Skip(1).All(d => d.ChapterNumber == 1));
 			Assert.That(data[1].AdditionalReferenceText, Is.EqualTo("Иуда 1"));
 			Assert.That(data[1].EnglishReferenceText, Is.EqualTo("JUDE CHP 1"));
 			var matchedRows = data.Where(d => d.VernacularText != null && d.AdditionalReferenceText != null).ToList();
-			Assert.That(matchedRows.Count > data.Count / 2, Is.True); // This is kind of arbitrary, but I just want to say we got a reasonable number of matches
-			Assert.That(matchedRows.Any(d => d.AdditionalReferenceText.Contains("п")), Is.True); // A letter that should be in Russian, but not English
-			Assert.That(matchedRows.All(d => d.EnglishReferenceText != null), Is.True);
-			Assert.That(matchedRows.Any(d => d.EnglishReferenceText.Contains(" the ")), Is.True); // A word that should be in English, but not Russian
+			Assert.That(matchedRows.Count, Is.GreaterThan(data.Count / 2)); // This is kind of arbitrary, but I just want to say we got a reasonable number of matches
+			Assert.That(matchedRows.Any(d => d.AdditionalReferenceText.Contains("п"))); // A letter that should be in Russian, but not English
+			Assert.That(matchedRows.All(d => d.EnglishReferenceText != null));
+			Assert.That(matchedRows.Any(d => d.EnglishReferenceText.Contains(" the "))); // A word that should be in English, but not Russian
 			// Since the test version of Jude does not match perfectly with the standard reference texts, we expect two Scripture rows
 			// where the vernacular has no corresponding reference text.
 			var extra = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical));
 			var narrator = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.That(data.Where(d => d.StyleTag == "s1")
-				.All(d => d.CharacterId == extra), Is.True);
+				.All(d => d.CharacterId == extra));
 			var scriptureRowsWithNoReferenceText = data.Where(d => d.AdditionalReferenceText == null &&
 				d.StyleTag != "s1").ToList();
 			Assert.That(scriptureRowsWithNoReferenceText.Count, Is.EqualTo(2));
 			Assert.That(scriptureRowsWithNoReferenceText.Count(d => d.CharacterId == narrator), Is.EqualTo(1));
-			Assert.That(scriptureRowsWithNoReferenceText.All(d => d.EnglishReferenceText == null), Is.True);
+			Assert.That(scriptureRowsWithNoReferenceText.All(d => d.EnglishReferenceText == null));
 		}
 
 		[Test]

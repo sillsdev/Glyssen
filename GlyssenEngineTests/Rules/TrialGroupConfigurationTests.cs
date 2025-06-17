@@ -372,7 +372,8 @@ namespace GlyssenEngineTests.Rules
 				if (i < numberOfNarratorsExpectedToBeAssignedToASingleAuthor)
 				{
 					var author = BiblicalAuthors.GetAuthorOfBook(booksAssignedToNarrator[0]).Name;
-					Assert.That(booksAssignedToNarrator.SetEquals(m_authorStats.Single(a => a.Author.Name == author).BookIds), Is.True);
+					Assert.That(booksAssignedToNarrator, Is.EquivalentTo(
+						m_authorStats.Single(a => a.Author.Name == author).BookIds));
 				}
 				else
 				{

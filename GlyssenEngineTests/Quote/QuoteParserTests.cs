@@ -5990,9 +5990,10 @@ namespace GlyssenEngineTests.Quote
 			Assert.That(!ControlCharacterVerseData.Singleton.GetCharacters(bookNumActs, 10, new SingleVerse(15))
 				.Any(cv => cv.Character == "God" || cv.Character == "Jesus"),
 				"Test setup condition not met: Neither God nor Jesus should be returned as a character when includeAlternatesAndRareQuotes is false.");
-			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(bookNumActs, 10, new SingleVerse(15), includeAlternatesAndRareQuotes: true)
-				.Select(cv => cv.Character)
-				.SetEquals(new HashSet<string>{"Holy Spirit, the", "God", "Jesus"}),
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(bookNumActs, 10,
+				new SingleVerse(15), includeAlternatesAndRareQuotes: true)
+				.Select(cv => cv.Character),
+				Is.EquivalentTo(new[] { "Holy Spirit, the", "God", "Jesus" }),
 				"Test setup condition not met: God and Jesus should be returned as characters when includeAlternatesAndRareQuotes is true.");
 
 			var input = new List<Block> { new Block("p", 10, 15)
@@ -6020,10 +6021,10 @@ namespace GlyssenEngineTests.Quote
 				"Test setup condition not met: Isaiah should be the only character returned for ISA 37:7 when includeAlternatesAndRareQuotes is false.");
 			Assert.That(onlyNonAlternateCv.QuoteType, Is.EqualTo(QuoteType.Implicit),
 				"Test setup condition not met: Isaiah should be Implicit for ISA 37:7.");
-			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 37, new []{ new SingleVerse(6), new SingleVerse(7)},
-				includeAlternatesAndRareQuotes: true)
-					.Select(cv => cv.Character)
-					.SetEquals(new HashSet<string> { "Isaiah", "God" }),
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 37,
+				new []{ new SingleVerse(6), new SingleVerse(7)}, includeAlternatesAndRareQuotes: true)
+				.Select(cv => cv.Character),
+				Is.EquivalentTo(new [] { "Isaiah", "God" }),
 				"Test setup condition not met: Isaiah and God should be returned as characters when includeAlternatesAndRareQuotes is true.");
 
 			var input = new List<Block>
@@ -6097,9 +6098,10 @@ namespace GlyssenEngineTests.Quote
 				Is.EqualTo("Isaiah"),
 				"Test setup condition not met: Isaiah (not God) should be the primary/expected character in ISA 1:4-5; " +
 				"God should not be included when includeAlternatesAndRareQuotes is false.");
-			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 1, new VerseBridge(2, 5), includeAlternatesAndRareQuotes: true)
-					.Select(cv => cv.Character).Distinct()
-					.SetEquals(new HashSet<string> { "Isaiah", "God" }),
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 1,
+				new VerseBridge(2, 5), includeAlternatesAndRareQuotes: true)
+				.Select(cv => cv.Character).Distinct(),
+				Is.EquivalentTo(new [] { "Isaiah", "God" }),
 				"Test setup condition not met: God and Isaiah should both be returned as characters for ISA 1:2-5 when includeAlternatesAndRareQuotes is true.");
 
 			var input = new List<Block> {

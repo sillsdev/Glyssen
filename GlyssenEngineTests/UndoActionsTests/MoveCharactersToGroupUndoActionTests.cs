@@ -65,14 +65,24 @@ namespace GlyssenEngineTests.UndoActionsTests
 
 			Assert.That(destGroup, Is.EqualTo(action.GroupsAffectedByLastOperation.Single()));
 			m_testProject.CharacterGroupList.CharacterGroups.SetEquals(new[] {destGroup});
-			Assert.That(destGroup.CharacterIds.SetEquals(new[] { "centurion at crucifixion", "man possessed by evil spirit", "John", "Pharisees", "Peter (Simon)", "John the Baptist", "rich young ruler" }), Is.True);
+			Assert.That(destGroup.CharacterIds, Is.EquivalentTo(new[]
+			{
+				"centurion at crucifixion",
+				"man possessed by evil spirit",
+				"John",
+				"Pharisees",
+				"Peter (Simon)",
+				"John the Baptist",
+				"rich young ruler"
+			}));
 			Assert.That(estHoursOfDestBeforeMove < destGroup.EstimatedHours, Is.True);
 		}
 
 		[Test]
 		public void Constructor_NoDestSupplied_CharactersGetMovedToNewGroup()
 		{
-			var sourceGroup = AddCharacterGroup("Peter (Simon)", "John the Baptist", "rich young ruler", "centurion at crucifixion", "man possessed by evil spirit");
+			var sourceGroup = AddCharacterGroup("Peter (Simon)", "John the Baptist",
+				"rich young ruler", "centurion at crucifixion", "man possessed by evil spirit");
 			var estHoursOfSourceBeforeMove = sourceGroup.EstimatedHours;
 			var anotherGroup = AddCharacterGroup("John, third", "Pharisees");
 			var charactersToMove = new List<string> { "rich young ruler", "man possessed by evil spirit" };
@@ -81,9 +91,9 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var newGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("rich young ruler");
 			Assert.That(action.GroupsAffectedByLastOperation.SequenceEqual(new[] { newGroup, sourceGroup }), Is.True);
 			Assert.That(sourceGroup, Is.Not.EqualTo(newGroup));
-			Assert.That(newGroup.CharacterIds.SetEquals(charactersToMove), Is.True);
-			Assert.That(sourceGroup.CharacterIds.SetEquals(new[] { "Peter (Simon)", "John the Baptist", "centurion at crucifixion" }), Is.True);
-			Assert.That(anotherGroup.CharacterIds.SetEquals(new[] { "John, third", "Pharisees" }), Is.True);
+			Assert.That(newGroup.CharacterIds, Is.EquivalentTo(charactersToMove));
+			Assert.That(sourceGroup.CharacterIds, Is.EquivalentTo(new[] { "Peter (Simon)", "John the Baptist", "centurion at crucifixion" }));
+			Assert.That(anotherGroup.CharacterIds, Is.EquivalentTo(new[] { "John, third", "Pharisees" }));
 			Assert.That(estHoursOfSourceBeforeMove > sourceGroup.EstimatedHours, Is.True);
 		}
 
@@ -98,7 +108,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var newGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("rich young ruler");
 			Assert.That(action.GroupsAffectedByLastOperation.SequenceEqual(new[] { newGroup, sourceGroup }), Is.True);
 			Assert.That(sourceGroup, Is.Not.EqualTo(newGroup));
-			Assert.That(newGroup.CharacterIds.SetEquals(charactersToMove), Is.True);
+			Assert.That(newGroup.CharacterIds, Is.EquivalentTo(charactersToMove));
 			Assert.That(sourceGroup.CharacterIds.Count, Is.EqualTo(0));
 			Assert.That(sourceGroup.VoiceActorId, Is.EqualTo(13));
 		}
@@ -157,11 +167,11 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var action = new MoveCharactersToGroupUndoAction(m_testProject, sourceGroup, destGroup, new List<string> { "woman, bleeding for twelve years", "people, some" });
 
 			Assert.That(action.Undo(), Is.True);
-			Assert.That(sourceGroup.CharacterIds.SetEquals(originalCharactersInSource), Is.True);
+			Assert.That(sourceGroup.CharacterIds, Is.EquivalentTo(originalCharactersInSource));
 			Assert.That(action.GroupsAffectedByLastOperation.SequenceEqual(new [] { sourceGroup, destGroup }), Is.True);
 			Assert.That(m_testProject.CharacterGroupList.CharacterGroups.Count, Is.EqualTo(2));
-			Assert.That(sourceGroup.CharacterIds.SetEquals(originalCharactersInSource), Is.True);
-			Assert.That(destGroup.CharacterIds.SetEquals(originalCharactersInDest), Is.True);
+			Assert.That(sourceGroup.CharacterIds, Is.EquivalentTo(originalCharactersInSource));
+			Assert.That(destGroup.CharacterIds, Is.EquivalentTo(originalCharactersInDest));
 			Assert.That(estHoursOfDestBeforeMove, Is.EqualTo(destGroup.EstimatedHours));
 			Assert.That(estHoursOfSourceBeforeMove, Is.EqualTo(sourceGroup.EstimatedHours));
 		}
@@ -180,11 +190,11 @@ namespace GlyssenEngineTests.UndoActionsTests
 
 			Assert.That(action.Undo(), Is.True);
 			var recreatedGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("rich young ruler");
-			Assert.That(recreatedGroup.CharacterIds.SetEquals(charactersToMove), Is.True);
+			Assert.That(recreatedGroup.CharacterIds, Is.EquivalentTo(charactersToMove));
 			Assert.That(action.GroupsAffectedByLastOperation.SequenceEqual(new[] { recreatedGroup, destGroup }), Is.True);
 			Assert.That(m_testProject.CharacterGroupList.CharacterGroups.Count, Is.EqualTo(2));
-			Assert.That(recreatedGroup.CharacterIds.SetEquals(charactersToMove), Is.True);
-			Assert.That(destGroup.CharacterIds.SetEquals(originalCharactersInDest), Is.True);
+			Assert.That(recreatedGroup.CharacterIds, Is.EquivalentTo(charactersToMove));
+			Assert.That(destGroup.CharacterIds, Is.EquivalentTo(originalCharactersInDest));
 			Assert.That(estHoursOfDestBeforeMove, Is.EqualTo(destGroup.EstimatedHours));
 			Assert.That(estHoursOfSourceBeforeMove, Is.EqualTo(recreatedGroup.EstimatedHours));
 		}
@@ -201,7 +211,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var action = new MoveCharactersToGroupUndoAction(m_testProject, sourceGroup, null, new List<string>(sourceGroup.CharacterIds));
 
 			Assert.That(action.Undo(), Is.True);
-			Assert.That(sourceGroup.CharacterIds.SetEquals(originalCharactersInSource), Is.True);
+			Assert.That(sourceGroup.CharacterIds, Is.EquivalentTo(originalCharactersInSource));
 			Assert.That(sourceGroup, Is.EqualTo(action.GroupsAffectedByLastOperation.Single()));
 			Assert.That(m_testProject.CharacterGroupList.CharacterGroups.Count, Is.EqualTo(1));
 			Assert.That(sourceGroup, Is.EqualTo(m_testProject.CharacterGroupList.GroupContainingCharacterId("rich young ruler")));
@@ -217,7 +227,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			action.IsSplit = true;
 
 			Assert.That(action.Undo(), Is.True);
-			Assert.That(sourceGroup.CharacterIds.SetEquals(originalCharactersInSource), Is.True);
+			Assert.That(sourceGroup.CharacterIds, Is.EquivalentTo(originalCharactersInSource));
 			Assert.That(sourceGroup, Is.EqualTo(action.GroupsAffectedByLastOperation.Single()));
 			Assert.That(m_testProject.CharacterGroupList.CharacterGroups.Count, Is.EqualTo(1));
 			Assert.That(sourceGroup, Is.EqualTo(m_testProject.CharacterGroupList.GroupContainingCharacterId("rich young ruler")));
@@ -238,8 +248,18 @@ namespace GlyssenEngineTests.UndoActionsTests
 			Assert.That(action.Redo(), Is.True);
 
 			Assert.That(action.GroupsAffectedByLastOperation.SequenceEqual(new[] { destGroup, sourceGroup }), Is.True);
-			Assert.That(sourceGroup.CharacterIds.SetEquals(new[] { "Peter (Simon)", "John the Baptist", "rich young ruler", "Jesus' family", "man possessed by evil spirit", "John", "Pharisees" }), Is.True);
-			Assert.That(destGroup.CharacterIds.SetEquals(new[] { "crowd", "woman, bleeding for twelve years", "Pilate", "passers by" }), Is.True);
+			Assert.That(sourceGroup.CharacterIds, Is.EquivalentTo(new[]
+			{
+				"Peter (Simon)",
+				"John the Baptist",
+				"rich young ruler",
+				"Jesus' family",
+				"man possessed by evil spirit",
+				"John",
+				"Pharisees"
+			}));
+			Assert.That(destGroup.CharacterIds, Is.EquivalentTo(
+				new[] { "crowd", "woman, bleeding for twelve years", "Pilate", "passers by" }));
 			Assert.That(m_testProject.CharacterGroupList.CharacterGroups.Count, Is.EqualTo(2));
 			Assert.That(estHoursOfSourceBeforeRedo > sourceGroup.EstimatedHours, Is.True);
 			Assert.That(estHoursOfDestBeforeRedo < destGroup.EstimatedHours, Is.True);
@@ -261,7 +281,16 @@ namespace GlyssenEngineTests.UndoActionsTests
 
 			Assert.That(destGroup, Is.EqualTo(action.GroupsAffectedByLastOperation.Single()));
 			m_testProject.CharacterGroupList.CharacterGroups.SetEquals(new[] { destGroup });
-			Assert.That(destGroup.CharacterIds.SetEquals(new[] { "centurion at crucifixion", "man possessed by evil spirit", "John", "Pharisees", "Peter (Simon)", "John the Baptist", "rich young ruler" }), Is.True);
+			Assert.That(destGroup.CharacterIds, Is.EquivalentTo(new[]
+			{
+				"centurion at crucifixion",
+				"man possessed by evil spirit",
+				"John",
+				"Pharisees",
+				"Peter (Simon)",
+				"John the Baptist",
+				"rich young ruler"
+			}));
 			Assert.That(estHoursOfDestBeforeRedo < destGroup.EstimatedHours, Is.True);
 		}
 
@@ -282,7 +311,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var newGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("rich young ruler");
 			Assert.That(action.GroupsAffectedByLastOperation.SequenceEqual(new[] { newGroup, sourceGroup }), Is.True);
 			Assert.That(sourceGroup, Is.Not.EqualTo(newGroup));
-			Assert.That(newGroup.CharacterIds.SetEquals(charactersToMove), Is.True);
+			Assert.That(newGroup.CharacterIds, Is.EquivalentTo(charactersToMove));
 			Assert.That(sourceGroup.CharacterIds.Count, Is.EqualTo(0));
 			Assert.That(sourceGroup.VoiceActorId, Is.EqualTo(13));
 			Assert.That(estHoursOfSourceBeforeRedo > sourceGroup.EstimatedHours, Is.True);
@@ -304,8 +333,9 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var newGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("rich young ruler");
 			Assert.That(action.GroupsAffectedByLastOperation.SequenceEqual(new[] { newGroup, sourceGroup }), Is.True);
 			Assert.That(sourceGroup, Is.Not.EqualTo(newGroup));
-			Assert.That(newGroup.CharacterIds.SetEquals(charactersToMove), Is.True);
-			Assert.That(sourceGroup.CharacterIds.SetEquals(new[] { "Peter (Simon)", "John the Baptist", "Jesus' family", "John", "Pharisees" }), Is.True);
+			Assert.That(newGroup.CharacterIds, Is.EquivalentTo(charactersToMove));
+			Assert.That(sourceGroup.CharacterIds, Is.EquivalentTo(new[]
+				{ "Peter (Simon)", "John the Baptist", "Jesus' family", "John", "Pharisees" }));
 			Assert.That(estHoursOfSourceBeforeRedo > sourceGroup.EstimatedHours, Is.True);
 		}
 

@@ -91,7 +91,8 @@ namespace GlyssenEngineTests.UndoActionsTests
 				new VoiceActorAddedUndoAction(m_testProject, addedActor.Id),
 				new VoiceActorDeletedUndoAction(m_testProject, removedActor)
 			});
-			Assert.That(action.GroupsAffectedByLastOperation.SetEquals(new [] {maleGroup, femaleGroup} ), Is.True);
+			Assert.That(action.GroupsAffectedByLastOperation.Distinct(),
+				Is.EquivalentTo(new [] {maleGroup, femaleGroup} ));
 		}
 
 		[Test]

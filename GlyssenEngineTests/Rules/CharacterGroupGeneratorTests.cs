@@ -1620,7 +1620,7 @@ namespace GlyssenEngineTests.Rules
 
 				if (booksNarratedInThisGroup.Contains("EPH"))
 				{
-					Assert.That(booksNarratedInThisGroup.SetEquals(new [] { "GAL", "EPH", "PHM" }), Is.True);
+					Assert.That(booksNarratedInThisGroup, Is.EquivalentTo(new [] { "GAL", "EPH", "PHM" }));
 					Assert.That(narGroup.CharacterIds.ToList(), Does.Contain("Paul"));
 				}
 				else
@@ -2077,7 +2077,7 @@ namespace GlyssenEngineTests.Rules
 
 			Assert.That(m_testProject.VoiceActorList.AllActors.Count, Is.EqualTo(groups.Count));
 			var deityGroup = groups.Single(g => g.CharacterIds.Contains("Jesus"));
-			Assert.That(deityGroup.CharacterIds.SetEquals(new []
+			Assert.That(deityGroup.CharacterIds, Is.EquivalentTo(new []
 				{
 					"Jesus", "God", "Holy Spirit, the", CharacterSpeakingMode.kScriptureCharacter
 				}));

@@ -46,7 +46,7 @@ namespace GlyssenEngineTests
 			var blocks = parser.Parse().ToList();
 			Assert.That(blocks.Count, Is.EqualTo(2));
 			Assert.That(blocks[0].CharacterIs("MRK", StandardCharacter.BookOrChapter), Is.True);
-			Assert.That(blocks[1].CharacterId == Block.kNotSet, Is.True);
+			Assert.That(blocks[1].CharacterId, Is.EqualTo(Block.kNotSet));
 			Assert.That(blocks[1].ChapterNumber, Is.EqualTo(1));
 			Assert.That(blocks[1].InitialStartVerseNumber, Is.EqualTo(1));
 			Assert.That(blocks[1].GetText(false), Is.EqualTo("Acakki me lok me kwena maber i " +

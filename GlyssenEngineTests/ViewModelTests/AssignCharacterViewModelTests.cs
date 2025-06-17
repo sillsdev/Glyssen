@@ -929,7 +929,9 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.CurrentBlockIndexInBook -= 2;
 			var blockToSplit = m_model.CurrentBlock;
 			var currentBlockCharacterId = blockToSplit.CharacterId;
-			Assert.That(blockToSplit.ChapterNumber == 1 && blockToSplit.InitialStartVerseNumber == 5, Is.True);
+			Assert.That(blockToSplit.ChapterNumber, Is.EqualTo(1));
+			Assert.That(blockToSplit.InitialStartVerseNumber, Is.EqualTo(5));
+
 			Assert.That(m_model.IsCurrentLocationRelevant, Is.False);
 
 			m_model.SplitBlock(new[]
@@ -2480,7 +2482,8 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.TryLoadBlock(verseRefActs837);
 			if (!m_model.IsCurrentLocationRelevant)
 				m_model.LoadNextRelevantBlock();
-			Assert.That(m_model.CurrentBlock.ChapterNumber == 8 && m_model.CurrentBlock.InitialStartVerseNumber == 37, Is.True);
+			Assert.That(m_model.CurrentBlock.ChapterNumber, Is.EqualTo(8));
+			Assert.That(m_model.CurrentBlock.InitialStartVerseNumber, Is.EqualTo(37));
 
 			m_model.CurrentBlock.CharacterId = m_model.GetUniqueCharacters("Philip the evangelist").First().CharacterId;
 			m_model.CurrentBlock.UserConfirmed = true;

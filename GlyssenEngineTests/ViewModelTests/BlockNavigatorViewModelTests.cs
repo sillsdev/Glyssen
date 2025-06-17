@@ -1476,15 +1476,15 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(m_model.IsCurrentLocationRelevant, Is.True);
 			m_model.LoadNextRelevantBlock();
 			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.First().InitialStartVerseNumber <= 11, Is.True);
-			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum == 11, Is.True);
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum, Is.EqualTo(11));
 			const string separator = "***";
 			var Mark1V11MatchupBlocks = Join(separator, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Select(b => b.GetText(true)));
 			m_model.LoadNextRelevantBlock();
 			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.First().InitialStartVerseNumber <= 15, Is.True);
-			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum == 15, Is.True);
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum, Is.EqualTo(15));
 			m_model.LoadNextRelevantBlock();
 			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.First().InitialStartVerseNumber <= 17, Is.True);
-			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum == 17, Is.True);
+			Assert.That(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum, Is.EqualTo(17));
 			Assert.That(m_model.CanNavigateToNextRelevantBlock, Is.True, "Setup condition not met");
 			m_model.LoadNextRelevantBlock();
 			var firstRelevantMatchupPastMark1V17Blocks = Join(separator, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Select(b => b.GetText(true)));
