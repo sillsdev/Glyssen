@@ -15,7 +15,7 @@ namespace GlyssenEngineTests.Utilities
 		[Test]
 		public void PercentAsDouble_ResultCalculatesCorrectly()
 		{
-			Assert.That(50d, Is.EqualTo(MathUtilities.PercentAsDouble(1, 2)));
+			Assert.That(MathUtilities.PercentAsDouble(1, 2), Is.EqualTo(50d));
 		}
 
 		[Test]
@@ -28,23 +28,23 @@ namespace GlyssenEngineTests.Utilities
 		[Test]
 		public void PercentAsDouble_AllowsResultGreaterThan100()
 		{
-			Assert.That(200d, Is.EqualTo(MathUtilities.PercentAsDouble(2, 1, 0)));
+			Assert.That(MathUtilities.PercentAsDouble(2, 1, 0), Is.EqualTo(200d));
 		}
 
 		[Test]
 		public void PercentAsDouble_DenominatorIs0_InsteadOfDivideBy0ReturnsMaxOr100()
 		{
-			Assert.That(99d, Is.EqualTo(MathUtilities.PercentAsDouble(1, 0, 99)));
-			Assert.That(100d, Is.EqualTo(MathUtilities.PercentAsDouble(1, 0, 0)));
-			Assert.That(100d, Is.EqualTo(MathUtilities.PercentAsDouble(1, 0)));
+			Assert.That(MathUtilities.PercentAsDouble(1, 0, 99), Is.EqualTo(99d));
+			Assert.That(MathUtilities.PercentAsDouble(1, 0, 0), Is.EqualTo(100d));
+			Assert.That(MathUtilities.PercentAsDouble(1, 0), Is.EqualTo(100d));
 		}
 
 		[Test]
 		public void PercentAsDouble_NumeratorAndDenominatorBoth0_Returns0()
 		{
-			Assert.That(0d, Is.EqualTo(MathUtilities.PercentAsDouble(0, 0, 99)));
-			Assert.That(0d, Is.EqualTo(MathUtilities.PercentAsDouble(0, 0, 0)));
-			Assert.That(0d, Is.EqualTo(MathUtilities.PercentAsDouble(0, 0)));
+			Assert.That(MathUtilities.PercentAsDouble(0, 0, 99), Is.EqualTo(0d));
+			Assert.That(MathUtilities.PercentAsDouble(0, 0, 0), Is.EqualTo(0d));
+			Assert.That(MathUtilities.PercentAsDouble(0, 0), Is.EqualTo(0d));
 		}
 
 		[Test]

@@ -65,8 +65,8 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var emptyGroup = m_testProject.CharacterGroupList.CharacterGroups.Last();
 			emptyGroup.AssignVoiceActor(2);
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, emptyGroup);
-			Assert.That(m_testProject.CharacterGroupList.CharacterGroups.Contains(emptyGroup), Is.False);
-			Assert.That(action.GroupsAffectedByLastOperation.Any(), Is.False);
+			Assert.That(m_testProject.CharacterGroupList.CharacterGroups, Does.Not.Contain(emptyGroup));
+			Assert.That(action.GroupsAffectedByLastOperation, Is.Empty);
 		}
 
 		[Test]
@@ -197,7 +197,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, emptygroup);
 			Assert.That(action.Undo(), Is.True);
 			var restoredGroup = m_testProject.CharacterGroupList.GetGroupsAssignedToActor(2).Single();
-			Assert.That(restoredGroup.CharacterIds.Any(), Is.False);
+			Assert.That(restoredGroup.CharacterIds, Is.Empty);
 			Assert.That(restoredGroup.EstimatedHours, Is.EqualTo(0));
 			Assert.That(restoredGroup.AttributesDisplay, Is.Not.Null);
 			Assert.That(wasCameo, Is.EqualTo(restoredGroup.AssignedToCameoActor));
@@ -229,7 +229,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			groupWithMary.GroupIdOtherText = "Ladies";
 			Assert.That(action.Redo(), Is.False);
 			Assert.That(groupWithMary.IsVoiceActorAssigned, Is.True);
-			Assert.That(action.GroupsAffectedByLastOperation.Any(), Is.False);
+			Assert.That(action.GroupsAffectedByLastOperation, Is.Empty);
 		}
 
 		[Test]
@@ -286,7 +286,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			action.Undo();
 			int countAfterUndo = m_testProject.CharacterGroupList.CharacterGroups.Count;
 			Assert.That(action.Redo(), Is.True);
-			Assert.That(m_testProject.CharacterGroupList.GetGroupsAssignedToActor(2).Any(), Is.False);
+			Assert.That(m_testProject.CharacterGroupList.GetGroupsAssignedToActor(2), Is.Empty);
 			Assert.That(m_testProject.CharacterGroupList.CharacterGroups.Count, Is.EqualTo(countAfterUndo - 1));
 		}
 	}

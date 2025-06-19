@@ -394,7 +394,7 @@ namespace GlyssenEngineTests.Rules
 			var originalCountOfGroups = m_testProject.CharacterGroupList.CharacterGroups.Count;
 			var groupsToRemove = adjuster.CharacterGroupsToRemove.ToList();
 			Assert.That(groupsToRemove.Count, Is.EqualTo(1));
-			Assert.That(groupsToRemove.Contains(michaelTheArchAngelGroup), Is.False);
+			Assert.That(groupsToRemove, Does.Not.Contain(michaelTheArchAngelGroup));
 
 			adjuster.MakeMinimalAdjustments();
 			Assert.That(adjuster.GroupsAreNotInSynchWithData, Is.False);

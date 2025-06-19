@@ -102,7 +102,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			m_model = new AssignCharacterViewModel(m_testProject, m_model.Mode, new BookBlockIndices(m_testProject.AvailableBooks.IndexOf(b => b.Code == expectedBook), expectedBlock, 2));
 			Assert.That(m_model.CurrentBookId, Is.EqualTo(expectedBook));
-			Assert.That(expectedBlock, Is.EqualTo(m_model.CurrentBlockIndexInBook));
+			Assert.That(m_model.CurrentBlockIndexInBook, Is.EqualTo(expectedBlock));
 			Assert.That(m_model.CurrentReferenceTextMatchup.OriginalBlockCount, Is.EqualTo(expectedNumberOfBlocks));
 			Assert.That(m_model.BlockAccessor.GetIndices().MultiBlockCount, Is.EqualTo(expectedNumberOfBlocks));
 			Assert.That(m_model.IsCurrentLocationRelevant, Is.True);
@@ -541,7 +541,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		[Test]
 		public void GetDeliveriesForCharacter_NullCharacter_GetsEmptyEnumeration()
 		{
-			Assert.That(m_model.GetDeliveriesForCharacter(null).Any(), Is.False);
+			Assert.That(m_model.GetDeliveriesForCharacter(null), Is.Empty);
 		}
 
 		[Test]
@@ -839,14 +839,15 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(currentBlock, Is.EqualTo(m_model.CurrentBlock));
 			var preSplit = currentBlock.Clone();
 
-			Assert.That(currentBlock.InitialStartVerseNumber, Is.EqualTo(7), "If this fails, update the test to reflect the test data.");
+			Assert.That(currentBlock.InitialStartVerseNumber, Is.EqualTo(7),
+				"If this fails, update the test to reflect the test data.");
 
 			m_model.SplitBlock(new[]
 			{
 				// The order here is significant as we need to be able to handle them "out of order" like this
 				new BlockSplitData(1, currentBlock, "7", 6),
 				new BlockSplitData(5, currentBlock, "8", 3),
-				new BlockSplitData(4, currentBlock, "7", BookScript.kSplitAtEndOfVerse),
+				new BlockSplitData(4, currentBlock, "7", kSplitAtEndOfVerse),
 				new BlockSplitData(2, currentBlock, "7", 11),
 				new BlockSplitData(3, currentBlock, "7", 2)
 			}, GetListOfCharacters(6, new string[0]));
@@ -970,7 +971,8 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(block1, Is.EqualTo(m_model.CurrentBlock));
 			var block2 = m_testProject.Books[0].Blocks[5];
 
-			Assert.That(block1.InitialStartVerseNumber, Is.EqualTo(2), "If this fails, update the test to reflect the test data.");
+			Assert.That(block1.InitialStartVerseNumber, Is.EqualTo(2),
+				"If this fails, update the test to reflect the test data.");
 
 			Assert.DoesNotThrow(() =>
 					m_model.SplitBlock(new[]
@@ -1277,7 +1279,9 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			var indexOfFirstVerseElement = blockToSplit.BlockElements.IndexOf(be => be is Verse);
 			var verseToSplit = ((Verse)blockToSplit.BlockElements[indexOfFirstVerseElement]).Number;
-			var splitPosInVerse = ((ScriptText)blockToSplit.BlockElements[indexOfFirstVerseElement + 1]).Content.IndexOf(" ");
+			var splitPosInVerse =
+				((ScriptText)blockToSplit.BlockElements[indexOfFirstVerseElement + 1]).Content
+				.IndexOf(" ", StringComparison.Ordinal);
 
 			model.SplitBlock(new[] { new BlockSplitData(1, blockToSplit, verseToSplit, splitPosInVerse) },
 				GetListOfCharacters(2, new[] { "", "" }));
@@ -1571,7 +1575,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(m_model.CurrentReferenceTextMatchup, Is.Not.Null);
 			Assert.That(m_model.CurrentReferenceTextMatchup.CountOfBlocksAddedBySplitting,
 				Is.GreaterThan(0));
-			Assert.That(m_testProject.Books[0].Blocks.Contains(m_model.CurrentBlock), Is.False);
+			Assert.That(m_testProject.Books[0].Blocks, Does.Not.Contain(m_model.CurrentBlock));
 			m_model.SetCurrentBookSingleVoice(true);
 			Assert.That(m_model.CurrentReferenceTextMatchup, Is.Null);
 			Assert.That(m_testProject.Books[0].Blocks, Does.Contain(m_model.CurrentBlock));
@@ -2263,7 +2267,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			int expected = row + 1;
 			Assert.That(m_model.TryFindScriptureRowAtOrBelow(ref row), Is.True);
-			Assert.That(expected, Is.EqualTo(row));
+			Assert.That(row, Is.EqualTo(expected));
 		}
 
 		[Test]
@@ -2632,7 +2636,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				Assert.That(i >= 0, Is.True);
 				continuationBlocks.RemoveAt(i);
 			}
-			Assert.That(continuationBlocks.Any(), Is.False);
+			Assert.That(continuationBlocks, Is.Empty);
 		}
 
 		[Test]
@@ -2668,7 +2672,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				Assert.That(i >= 0, Is.True);
 				continuationBlocks.RemoveAt(i);
 			}
-			Assert.That(continuationBlocks.Any(), Is.False);
+			Assert.That(continuationBlocks, Is.Empty);
 		}
 
 		[Test]
@@ -2693,7 +2697,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.SetReferenceTextMatchupCharacter(indexOfQuoteStartBlock, new AssignCharacterViewModel.Character("Martin"));
 
 			Assert.That(startBlock.CharacterId, Is.EqualTo("Martin"));
-			Assert.That(m_indicesOfChangedBlocks.Any(), Is.False);
+			Assert.That(m_indicesOfChangedBlocks, Is.Empty);
 		}
 	}
 

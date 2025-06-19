@@ -1576,7 +1576,7 @@ namespace GlyssenEngineTests.Script
 			int iLastBlock = target.GetScriptBlocks().Count - 1; // this block has extra verses
 			Assert.That(iLastBlock > iBlockAtVerse7, Is.True);
 			var indicesOfQuoteBlocksWithExtraVerses = new[] { iBlockAtVerse7, iLastBlock };
-			Assert.That(indicesOfQuoteBlocksWithExtraVerses.Except(quoteBlockIndices).Any(), Is.False);
+			Assert.That(indicesOfQuoteBlocksWithExtraVerses.Except(quoteBlockIndices), Is.Empty);
 
 			target.ApplyUserDecisions(source);
 
@@ -1635,7 +1635,7 @@ namespace GlyssenEngineTests.Script
 			int iLastBlock = target.GetScriptBlocks().Count - 1; // this block has extra verses
 			Assert.That(iLastBlock > iBlockAtVerse7, Is.True);
 			var indicesOfQuoteBlocksWithExtraVerses = new[] { iBlockAtVerse7, iLastBlock };
-			Assert.That(indicesOfQuoteBlocksWithExtraVerses.Except(quoteBlockIndices).Any(), Is.False);
+			Assert.That(indicesOfQuoteBlocksWithExtraVerses.Except(quoteBlockIndices), Is.Empty);
 
 			target.ApplyUserDecisions(source);
 
@@ -2614,7 +2614,7 @@ namespace GlyssenEngineTests.Script
 		//	int iLastBlock = target.GetScriptBlocks().Count - 1; // this block has extra verses
 		//	Assert.That(iLastBlock > iBlockAtVerse7, Is.True);
 		//	var indicesOfQuoteBlocksWithExtraVerses = new[] { iBlockAtVerse7, iLastBlock };
-		//	Assert.That(indicesOfQuoteBlocksWithExtraVerses.Except(quoteBlockIndices).Any(), Is.False);
+		//	Assert.That(indicesOfQuoteBlocksWithExtraVerses.Except(quoteBlockIndices), Is.Empty);
 
 		//	target.ApplyUserDecisions(source);
 
@@ -3723,9 +3723,9 @@ namespace GlyssenEngineTests.Script
 			Assert.That(newBlock.InitialEndVerseNumber, Is.EqualTo(0));
 			Assert.That(newBlock.GetText(true), Is.EqualTo("No temas; solo cree."));
 			Assert.That(blockToSplit.MatchesReferenceText, Is.False);
-			Assert.That(blockToSplit.ReferenceBlocks.Any(), Is.False);
+			Assert.That(blockToSplit.ReferenceBlocks, Is.Empty);
 			Assert.That(newBlock.MatchesReferenceText, Is.False);
-			Assert.That(newBlock.ReferenceBlocks.Any(), Is.False);
+			Assert.That(newBlock.ReferenceBlocks, Is.Empty);
 		}
 
 		[Test]

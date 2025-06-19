@@ -51,7 +51,8 @@ namespace ControlDataIntegrityTests
 			var characterIds = new List<string>(ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Select(d => d.Character)
 				.SelectMany(characters => characters.Split('/')));
 
-			var defaultCharacters = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Select(d => d.DefaultCharacter).ToList();
+			var defaultCharacters = ControlCharacterVerseData.Singleton.GetAllQuoteInfo()
+				.Select(d => d.DefaultCharacter).ToList();
 			ISet<string> missingCharacters = new SortedSet<string>();
 			foreach (string character in CharacterDetailData.Singleton.GetAll().Select(d => d.CharacterId))
 			{
@@ -61,7 +62,8 @@ namespace ControlDataIntegrityTests
 					missingCharacters.Add(character);
 				}
 			}
-			Assert.That(missingCharacters.Where(c => !NarratorOverrides.Singleton.Books.SelectMany(b => b.Overrides.Select(o => o.Character)).Contains(c)),
+			Assert.That(missingCharacters.Where(c => !NarratorOverrides.Singleton.Books
+					.SelectMany(b => b.Overrides.Select(o => o.Character)).Contains(c)),
 				Is.Empty,
 				"Characters in Character-Detail data but not in Character-Verse data or NarratorOverrides:" +
 				Environment.NewLine + missingCharacters.OnePerLineWithIndent());
@@ -81,7 +83,8 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_FCBHCharacterIdNotEqualtoGlyssenCharacterId()
 		{
-			var unnecessary = CharacterDetailData.Singleton.GetAll().Where(d => d.CharacterId == d.DefaultFCBHCharacter).ToList();
+			var unnecessary = CharacterDetailData.Singleton.GetAll()
+				.Where(d => d.CharacterId == d.DefaultFCBHCharacter).ToList();
 			Assert.That(unnecessary, Is.Empty,
 				"No need to specify FCBH character ID in Character-Detail data if it matches Glyssen character ID:" +
 				Environment.NewLine +

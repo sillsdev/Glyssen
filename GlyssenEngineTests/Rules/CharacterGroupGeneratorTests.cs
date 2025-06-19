@@ -547,7 +547,7 @@ namespace GlyssenEngineTests.Rules
 
 			var groups = new CharacterGroupGenerator(m_testProject).GenerateCharacterGroups();
 			var groupWithActorAssigned = groups.Single(g => g.IsVoiceActorAssigned);
-			Assert.That(groupWithActorAssigned.CharacterIds.Any(), Is.False);
+			Assert.That(groupWithActorAssigned.CharacterIds, Is.Empty);
 			Assert.That(groups.Where(g => g != groupWithActorAssigned).SelectMany(g => g.CharacterIds),
 				Does.Not.Contain("Bob the Builder"));
 		}
@@ -989,8 +989,8 @@ namespace GlyssenEngineTests.Rules
 			var groups = gen.GenerateCharacterGroups();
 			var jesusGroup = groups.Single(g => g.CharacterIds.Contains("Jesus"));
 			var deityGroup = groups.Single(g => g.CharacterIds.Contains("God"));
-			Assert.That(deityGroup.CharacterIds.Contains("Holy Spirit, the"));
-			Assert.That(deityGroup.CharacterIds.Contains(kScriptureCharacter));
+			Assert.That(deityGroup.CharacterIds, Does.Contain("Holy Spirit, the"));
+			Assert.That(deityGroup.CharacterIds, Does.Contain(kScriptureCharacter));
 			Assert.That(jesusGroup.CharacterIds.Count, Is.EqualTo(1));
 			Assert.That(deityGroup.CharacterIds.Count, Is.EqualTo(3));
 		}
@@ -1002,9 +1002,9 @@ namespace GlyssenEngineTests.Rules
 			var gen = new CharacterGroupGenerator(m_testProject);
 			var groups = gen.GenerateCharacterGroups();
 			var deityGroup = groups.Single(g => g.CharacterIds.Contains("Jesus"));
-			Assert.That(deityGroup.CharacterIds.Contains("God"));
-			Assert.That(deityGroup.CharacterIds.Contains("Holy Spirit, the"));
-			Assert.That(deityGroup.CharacterIds.Contains(kScriptureCharacter));
+			Assert.That(deityGroup.CharacterIds, Does.Contain("God"));
+			Assert.That(deityGroup.CharacterIds, Does.Contain("Holy Spirit, the"));
+			Assert.That(deityGroup.CharacterIds, Does.Contain(kScriptureCharacter));
 			Assert.That(deityGroup.CharacterIds.Count, Is.EqualTo(4));
 		}
 

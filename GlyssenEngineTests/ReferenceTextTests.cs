@@ -546,7 +546,7 @@ namespace GlyssenEngineTests
 
 
 			Assert.That(result.Last().CharacterId, Is.EqualTo(vernacularBlocks.Last().CharacterId));
-			Assert.That(result.Last().ReferenceBlocks.Any(), Is.False);
+			Assert.That(result.Last().ReferenceBlocks, Is.Empty);
 			Assert.That(result.Last().MatchesReferenceText, Is.False);
 		}
 
@@ -744,8 +744,8 @@ namespace GlyssenEngineTests
 				Is.EqualTo(referenceBlocks[0].GetText(true)));
 			Assert.That(result[1].ReferenceBlocks.Single().GetText(true),
 				Is.EqualTo(referenceBlocks[1].GetText(true)));
-			Assert.That(result[2].ReferenceBlocks.Any(), Is.False);
-			Assert.That(result[3].ReferenceBlocks.Any(), Is.False);
+			Assert.That(result[2].ReferenceBlocks, Is.Empty);
+			Assert.That(result[3].ReferenceBlocks, Is.Empty);
 			Assert.That(result[4].ReferenceBlocks.Single().GetText(true),
 				Is.EqualTo(referenceBlocks[2].GetText(true)));
 			Assert.That(result[5].ReferenceBlocks.Single().GetText(true),
@@ -2213,7 +2213,7 @@ namespace GlyssenEngineTests
 			Assert.That(result[8].ReferenceBlocks.Single().ChapterNumber, Is.EqualTo(16));
 			Assert.That(result[9].ReferenceBlocks.Single().ChapterNumber, Is.EqualTo(16));
 			Assert.That(result[9].GetPrimaryReferenceText(), Does.StartWith("{23}\u00A0"));
-			Assert.That(result[10].ReferenceBlocks.Any(), Is.False);
+			Assert.That(result[10].ReferenceBlocks, Is.Empty);
 		}
 
 		[Test]
@@ -3764,7 +3764,7 @@ namespace GlyssenEngineTests
 
 			Assert.That(result[0].ReferenceBlocks.Count, Is.EqualTo(3));
 			Assert.That(result[1].MatchesReferenceText, Is.False);
-			Assert.That(result[1].ReferenceBlocks.Any(), Is.False);
+			Assert.That(result[1].ReferenceBlocks, Is.Empty);
 		}
 
 		/// <summary>
@@ -4769,7 +4769,7 @@ namespace GlyssenEngineTests
 			Assert.That(matchup.CorrelatedBlocks, ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 			Assert.That(((Verse)matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().BlockElements.First()).Number,
 				Is.EqualTo("5"));
-			Assert.That(matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().BlockElements.OfType<Verse>().Any(), Is.False);
+			Assert.That(matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().BlockElements.OfType<Verse>(), Is.Empty);
 		}
 
 		[Test]
@@ -5771,7 +5771,9 @@ namespace GlyssenEngineTests
 
 			Assert.That(result.Count, Is.EqualTo(3));
 			var attachedRefTexts = result.SelectMany(r => r.ReferenceBlocks).Select(b => b.GetText(false)).ToList();
-			Assert.That(referenceBlocks.Select(b => b.GetText(false)).All(t => attachedRefTexts.Contains(t)));
+			Assert.That(referenceBlocks,
+				ForEvery<Block>(b => attachedRefTexts.Contains(b.GetText(false)), Is.True,
+				"text found in attached reference texts"));
 		}
 		#endregion
 

@@ -13,7 +13,7 @@ using Resources = GlyssenCharactersTests.Properties.Resources;
 namespace GlyssenEngineTests.ViewModelTests
 {
 	[TestFixture]
-	class VoiceActorInformationViewModelTests
+	public class VoiceActorInformationViewModelTests
 	{
 		private Project m_testProject;
 		private VoiceActorInformationViewModel m_model;
@@ -50,21 +50,24 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void ValidateActor_NameIsBlank_ReturnNoName()
 		{
 			m_model.AddNewActor();
-			Assert.That(VoiceActorInformationViewModel.ActorValidationState.NoName, Is.EqualTo(m_model.ValidateActor(m_model.Actors.Count - 1)));
+			Assert.That(m_model.ValidateActor(m_model.Actors.Count - 1),
+				Is.EqualTo(VoiceActorInformationViewModel.ActorValidationState.NoName));
 		}
 
 		[Test]
 		public void ValidateActor_NameIsNull_ReturnNoName()
 		{
 			m_model.AddNewActor().Name = null;
-			Assert.That(VoiceActorInformationViewModel.ActorValidationState.NoName, Is.EqualTo(m_model.ValidateActor(m_model.Actors.Count - 1)));
+			Assert.That(m_model.ValidateActor(m_model.Actors.Count - 1),
+				Is.EqualTo(VoiceActorInformationViewModel.ActorValidationState.NoName));
 		}
 
 		[Test]
 		public void ValidateActor_NameIsSpaces_ReturnNoName()
 		{
 			m_model.AddNewActor().Name = "     ";
-			Assert.That(VoiceActorInformationViewModel.ActorValidationState.NoName, Is.EqualTo(m_model.ValidateActor(m_model.Actors.Count - 1)));
+			Assert.That(m_model.ValidateActor(m_model.Actors.Count - 1),
+				Is.EqualTo(VoiceActorInformationViewModel.ActorValidationState.NoName));
 		}
 
 		[TestCase(0)]
@@ -73,14 +76,15 @@ namespace GlyssenEngineTests.ViewModelTests
 		[TestCase(3)]
 		public void ValidateActor_NameIsValid_ReturnValid(int index)
 		{
-			Assert.That(VoiceActorInformationViewModel.ActorValidationState.Valid, Is.EqualTo(m_model.ValidateActor(index)));
+			Assert.That(m_model.ValidateActor(index),
+				Is.EqualTo(VoiceActorInformationViewModel.ActorValidationState.Valid));
 		}
 
 		[TestCase(-1)]
 		[TestCase(4)]
 		public void ValidateActor_IndexOutOfRange_ThrowsArgumentOutOfRangeException(int index)
 		{
-			Assert.Throws<ArgumentOutOfRangeException>(() => m_model.ValidateActor(index));
+			Assert.That(() => m_model.ValidateActor(index), Throws.TypeOf<ArgumentOutOfRangeException>());
 		}
 
 		[Test]

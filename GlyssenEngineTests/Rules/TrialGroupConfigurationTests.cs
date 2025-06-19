@@ -979,7 +979,7 @@ namespace GlyssenEngineTests.Rules
 				.Name == idPaul), Is.True);
 			Assert.That(narratorGroupForActs.CharacterIds.All(c =>
 				CharacterVerseData.GetStandardCharacterType(c) == CharacterVerseData.StandardCharacter.Narrator), Is.True);
-			Assert.That(authorsGroup.CharacterIds.ToList().Intersect(narratorGroupForActs.CharacterIds.ToList()).Any(), Is.False);
+			Assert.That(authorsGroup.CharacterIds.ToList().Intersect(narratorGroupForActs.CharacterIds.ToList()), Is.Empty);
 		}
 
 		[TestCase(30000, 2900, 1000, 999)]

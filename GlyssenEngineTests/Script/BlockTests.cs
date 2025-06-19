@@ -392,18 +392,18 @@ namespace GlyssenEngineTests.Script
 			var newBlock = Block.CombineBlocks(blockA, blockB);
 			Assert.That(newBlock, Is.Not.EqualTo(blockA));
 			Assert.That(newBlock, Is.Not.EqualTo(blockB));
-			Assert.That(origBlockAText, Is.EqualTo(blockA.GetText(true)));
-			Assert.That(origBlockBText, Is.EqualTo(blockB.GetText(true)));
-			Assert.That(origBlockAElements.SequenceEqual(blockA.BlockElements), Is.True);
-			Assert.That(origBlockBElements.SequenceEqual(blockB.BlockElements), Is.True);
+			Assert.That(blockA.GetText(true), Is.EqualTo(origBlockAText));
+			Assert.That(blockB.GetText(true), Is.EqualTo(origBlockBText));
+			Assert.That(blockA.BlockElements, Is.EqualTo(origBlockAElements));
+			Assert.That(blockB.BlockElements, Is.EqualTo(origBlockBElements));
 			Assert.That(newBlock.BlockElements.Any(e => origBlockAElements.Contains(e)), Is.False);
 			Assert.That(newBlock.BlockElements.Any(e => origBlockBElements.Contains(e)), Is.False);
 			Assert.That(newBlock.ReferenceBlocks.Single(), Is.Not.EqualTo(blockA.ReferenceBlocks.Single()));
 			Assert.That(newBlock.ReferenceBlocks.Single(), Is.Not.EqualTo(blockB.ReferenceBlocks.Single()));
-			Assert.That(origSpanishRefTextA, Is.EqualTo(blockA.GetPrimaryReferenceText()));
-			Assert.That(origEnglishRefTextA, Is.EqualTo(blockA.ReferenceBlocks.Single().GetPrimaryReferenceText()));
-			Assert.That(origSpanishRefTextB, Is.EqualTo(blockB.GetPrimaryReferenceText()));
-			Assert.That(origEnglishRefTextB, Is.EqualTo(blockB.ReferenceBlocks.Single().GetPrimaryReferenceText()));
+			Assert.That(blockA.GetPrimaryReferenceText(), Is.EqualTo(origSpanishRefTextA));
+			Assert.That(blockA.ReferenceBlocks.Single().GetPrimaryReferenceText(), Is.EqualTo(origEnglishRefTextA));
+			Assert.That(blockB.GetPrimaryReferenceText(), Is.EqualTo(origSpanishRefTextB));
+			Assert.That(blockB.ReferenceBlocks.Single().GetPrimaryReferenceText(), Is.EqualTo(origEnglishRefTextB));
 		}
 
 		[Test]
@@ -1185,7 +1185,7 @@ namespace GlyssenEngineTests.Script
 			Assert.That(refBlockPortuguese.GetPrimaryReferenceText(), Is.EqualTo(""));
 			var refBlockEnglish = refBlockPortuguese.ReferenceBlocks.Single();
 			Assert.That(refBlockEnglish.MatchesReferenceText, Is.False);
-			Assert.That(refBlockEnglish.ReferenceBlocks.Any(), Is.False);
+			Assert.That(refBlockEnglish.ReferenceBlocks, Is.Empty);
 		}
 
 		/// <summary>
@@ -1426,13 +1426,13 @@ namespace GlyssenEngineTests.Script
 			Assert.That(block.MatchesReferenceText, Is.True);
 			Assert.That(refBlock, Is.EqualTo(block.ReferenceBlocks.Single()));
 			Assert.That(refBlock.InitialStartVerseNumber, Is.EqualTo(2));
-			Assert.That(refBlock.BlockElements.OfType<Verse>().Any(), Is.False);
+			Assert.That(refBlock.BlockElements.OfType<Verse>(), Is.Empty);
 			var effect = refBlock.BlockElements.OfType<Sound>().Single();
 			Assert.That(SoundType.Music, Is.EqualTo(effect.SoundType));
 			Assert.That(startVerse, Is.EqualTo(effect.StartVerse));
 			Assert.That(effect.UserSpecifiesLocation, Is.True);
 			Assert.That(effect.EffectName, Is.Null);
-			Assert.That(refBlock.BlockElements.OfType<ScriptText>().Any(), Is.False);
+			Assert.That(refBlock.BlockElements.OfType<ScriptText>(), Is.Empty);
 		}
 
 		[Test]

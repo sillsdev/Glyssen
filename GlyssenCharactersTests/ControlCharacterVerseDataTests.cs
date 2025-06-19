@@ -41,7 +41,7 @@ namespace GlyssenCharactersTests
 		[Test]
 		public void GetCharacters_NoMatch_EmptyResults()
 		{
-			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(kMRKbookNum, 1, new SingleVerse(1)).Any(), Is.False);
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(kMRKbookNum, 1, new SingleVerse(1)), Is.Empty);
 		}
 
 		[Test]
@@ -74,7 +74,7 @@ namespace GlyssenCharactersTests
 		[Test]
 		public void GetCharacters_ControlHasNoDataForInitialStartVerseButDoesForSecondVerse_ReturnsNoCharacters()
 		{
-			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(kACTbookNum, 11, new []{new SingleVerse(2), new SingleVerse(3) }).Any(), Is.False);
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(kACTbookNum, 11, new []{new SingleVerse(2), new SingleVerse(3) }), Is.Empty);
 		}
 
 		[Test]
@@ -143,7 +143,7 @@ namespace GlyssenCharactersTests
 		[Test]
 		public void GetCharacters_ControlHasNoDataForInitialStartVerseButDoesForThirdVerse_ReturnsNoCharacters()
 		{
-			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(kACTbookNum, 11, new []{ new SingleVerse(1), new SingleVerse(3) }).Any(), Is.False);
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(kACTbookNum, 11, new []{ new SingleVerse(1), new SingleVerse(3) }), Is.Empty);
 		}
 
 		[Test]
@@ -174,13 +174,13 @@ namespace GlyssenCharactersTests
 		[Test]
 		public void GetCharacters_MultipleCharactersInMultipleVerses_NoCharacterInInitialStartVerse_ReturnsNoCharacters()
 		{
-			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(k1SAbookNum, 8, new[] { new SingleVerse(20), new SingleVerse(22) }).Any(), Is.False);
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(k1SAbookNum, 8, new[] { new SingleVerse(20), new SingleVerse(22) }), Is.Empty);
 		}
 
 		[Test]
 		public void GetCharacters_SingleCharactersInMultipleVerses_NoCharacterInInitialStartVerse_ReturnsNoCharacters()
 		{
-			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(k1SAbookNum, 9, new[] { new SingleVerse(4), new SingleVerse(6) }).Any(), Is.False);
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(k1SAbookNum, 9, new[] { new SingleVerse(4), new SingleVerse(6) }), Is.Empty);
 		}
 
 		[Test]

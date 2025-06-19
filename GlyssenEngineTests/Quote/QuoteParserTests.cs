@@ -4333,7 +4333,7 @@ namespace GlyssenEngineTests.Quote
 			// Validate environment
 			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(kMRKbookNum, 8, 23).Select(cv => cv.Character).Single(), Is.EqualTo("Jesus"));
 			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(kMRKbookNum, 8, 24).Select(cv => cv.Character).Single(), Is.EqualTo("blind man"));
-			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(kMRKbookNum, 8, 25).Any(), Is.False);
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(kMRKbookNum, 8, 25), Is.Empty);
 
 			Assert.That(output.Count, Is.EqualTo(3));
 
@@ -4387,7 +4387,7 @@ namespace GlyssenEngineTests.Quote
 
 			// Validate environment
 			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(kMATbookNum, 19, 8).Select(cv => cv.Character).Single(), Is.EqualTo("Jesus"));
-			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(kMATbookNum, 19, 9).Any(), Is.False);
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(kMATbookNum, 19, 9), Is.Empty);
 
 			Assert.That(output.Count, Is.EqualTo(2));
 
@@ -4413,7 +4413,7 @@ namespace GlyssenEngineTests.Quote
 			// Validate environment
 			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(kMATbookNum, 19, 18).Select(cv => cv.Character), Does.Contain("Jesus"));
 			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(kMATbookNum, 19, 18).Select(cv => cv.Character), Does.Contain("ruler, a certain=man, rich young"));
-			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(kMATbookNum, 19, 19).Any(), Is.False);
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(kMATbookNum, 19, 19), Is.Empty);
 
 			Assert.That(output.Count, Is.EqualTo(2));
 

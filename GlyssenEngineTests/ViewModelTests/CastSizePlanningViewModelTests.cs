@@ -149,7 +149,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void GetCastSizeRowValues_ProjectHasSingleBookWithNoSpeakingParts_AllCastSizesHaveTwoMalesForNarratorAndExtra()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.PHM);
-			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject);
+			var model = new CastSizePlanningViewModel(testProject);
 
 			var smallCast = model.GetCastSizeRowValues(CastSizeOption.Small);
 			Assert.That(smallCast.Male, Is.EqualTo(2));
@@ -174,7 +174,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void GetCastSizeRowValues_ProjectHasTwoBooksByDifferentAuthorsWithNoSpeakingParts_AllCastSizesHaveThreeMalesForNarratorAndExtra()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.PHM, TestProject.TestBook.IIIJN);
-			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject)
+			var model = new CastSizePlanningViewModel(testProject)
 			{
 				NarratorOption = NarratorsOption.NarrationByAuthor
 			};
@@ -204,7 +204,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void GetCastSizeRowValues_ProjectHasTwoBooksBySameAuthorsWithNoSpeakingParts_AllCastSizesHaveTwoMalesForNarratorAndExtra()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IIJN, TestProject.TestBook.IIIJN);
-			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject)
+			var model = new CastSizePlanningViewModel(testProject)
 			{
 				NarratorOption = NarratorsOption.NarrationByAuthor
 			};
@@ -232,7 +232,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void GetCastSizeRowValues_ProjectHasTwoBooksWithNoSpeakingPartsCustomNarratorValues_AllCastSizesHaveBasedOnCustomNarratorsPlusExtraMale()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IIJN, TestProject.TestBook.IIIJN);
-			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject)
+			var model = new CastSizePlanningViewModel(testProject)
 			{
 				NarratorOption = NarratorsOption.Custom,
 				MaleNarrators = 1,
@@ -263,7 +263,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.JUD);
-			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject);
+			var model = new CastSizePlanningViewModel(testProject);
 
 			var smallCast = model.GetCastSizeRowValues(CastSizeOption.Small);
 			Assert.That(smallCast.Male, Is.EqualTo(4));
@@ -289,7 +289,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.ACT);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
-			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject);
+			var model = new CastSizePlanningViewModel(testProject);
 
 			var smallCast = model.GetCastSizeRowValues(CastSizeOption.Small);
 			Assert.That(smallCast.Male, Is.EqualTo(9));
@@ -318,8 +318,9 @@ namespace GlyssenEngineTests.ViewModelTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.HEB);
 			//testProject.IncludedBooks.Single().GetBlocksForVerse()
 			testProject.DramatizationPreferences.ScriptureQuotationsShouldBeSpokenBy = scriptureQuotationsSpokenBy;
-			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject);
-			Assert.That(expectedBaseNNumberOfMaleActors + 2, Is.EqualTo(model.GetCastSizeRowValues(CastSizeOption.Small).Male));
+			var model = new CastSizePlanningViewModel(testProject);
+			Assert.That(model.GetCastSizeRowValues(CastSizeOption.Small).Male,
+				Is.EqualTo(expectedBaseNNumberOfMaleActors + 2));
 		}
 
 		// ENHANCE: For now, the Orpah/Ruth character automatically resolves to Ruth. Later, when we give the user a way to determine this --
@@ -332,7 +333,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var harvestersBlock = testProject.IncludedBooks[0].GetScriptBlocks().First(b => b.ChapterNumber == 2 &&
 				b.InitialStartVerseNumber == 4 && !b.ContainsVerseNumber);
 			harvestersBlock.CharacterId = "harvesters";
-			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject)
+			var model = new CastSizePlanningViewModel(testProject)
 			{
 				NarratorOption = NarratorsOption.Custom,
 				MaleNarrators = 0,
@@ -364,7 +365,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.ACT, TestProject.TestBook.RUT,
 				TestProject.TestBook.JUD, TestProject.TestBook.LUK, TestProject.TestBook.JOS);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
-			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject)
+			var model = new CastSizePlanningViewModel(testProject)
 			{
 				NarratorOption = NarratorsOption.Custom,
 				MaleNarrators = 1,

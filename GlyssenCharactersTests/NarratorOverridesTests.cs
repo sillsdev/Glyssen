@@ -18,7 +18,7 @@ namespace GlyssenCharactersTests
 		public void GetCharacterOverrideDetailsForRefRange_BookWithNoOverrides_ReturnsEmpty()
 		{
 			var genesis1_1 = new VerseRef(001001001, ScrVers.English);
-			Assert.That(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(genesis1_1, 1).Any(), Is.False);
+			Assert.That(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(genesis1_1, 1), Is.Empty);
 		}
 
 		[Test]
@@ -26,7 +26,7 @@ namespace GlyssenCharactersTests
 		{
 			var bookNum = BCVRef.BookToNumber("EZR");
 			var ezra1_1 = new VerseRef(new BCVRef(bookNum, 1, 1), ScrVers.English);
-			Assert.That(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(ezra1_1, 1).Any(), Is.False);
+			Assert.That(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(ezra1_1, 1), Is.Empty);
 		}
 
 		[Test]
@@ -34,7 +34,7 @@ namespace GlyssenCharactersTests
 		{
 			var bookNum = BCVRef.BookToNumber("EZR");
 			var ezra10_1 = new VerseRef(new BCVRef(bookNum, 10, 1), ScrVers.English);
-			Assert.That(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(ezra10_1, 1).Any(), Is.False);
+			Assert.That(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(ezra10_1, 1), Is.Empty);
 		}
 
 		[Test]
@@ -42,7 +42,7 @@ namespace GlyssenCharactersTests
 		{
 			var bookNum = BCVRef.BookToNumber("EZR");
 			var ezra7_26 = new VerseRef(new BCVRef(bookNum, 7, 26), ScrVers.English);
-			Assert.That(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(ezra7_26, 26).Any(), Is.False);
+			Assert.That(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(ezra7_26, 26), Is.Empty);
 		}
 
 		[Test]
@@ -50,7 +50,7 @@ namespace GlyssenCharactersTests
 		{
 			var bookNum = BCVRef.BookToNumber("NEH");
 			var nehemiah7_6 = new VerseRef(new BCVRef(bookNum, 7, 6), ScrVers.English);
-			Assert.That(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(nehemiah7_6, 6).Any(), Is.False);
+			Assert.That(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(nehemiah7_6, 6), Is.Empty);
 		}
 
 		[Test]
@@ -122,7 +122,7 @@ namespace GlyssenCharactersTests
 		{
 			var bookNum = BCVRef.BookToNumber(bookId);
 			var verseRef = new VerseRef(new BCVRef(bookNum, chapter, startVerse), ScrVers.English);
-			Assert.That(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, endVerse).Any(), Is.False);
+			Assert.That(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, endVerse), Is.Empty);
 		}
 
 		[Test]
@@ -130,7 +130,7 @@ namespace GlyssenCharactersTests
 		{
 			var bookNum = BCVRef.BookToNumber("PSA");
 			var verseRef = new VerseRef(new BCVRef(bookNum, 45, 0), ScrVers.English);
-			Assert.That(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, 2).Any(), Is.False);
+			Assert.That(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, 2), Is.Empty);
 		}
 
 		[Test]

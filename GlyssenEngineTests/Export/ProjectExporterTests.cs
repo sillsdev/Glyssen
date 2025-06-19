@@ -607,7 +607,7 @@ namespace GlyssenEngineTests.Export
 			var matchedRows = data.Where(d => d.VernacularText != null && d.AdditionalReferenceText != null).ToList();
 			Assert.That(matchedRows.Count, Is.GreaterThan(data.Count / 2)); // This is kind of arbitrary, but I just want to say we got a reasonable number of matches
 			Assert.That(matchedRows.Any(d => d.AdditionalReferenceText.Contains("п"))); // A letter that should be in Russian, but not English
-			Assert.That(matchedRows.All(d => d.EnglishReferenceText != null));
+			Assert.That(matchedRows, No<ExportBlock>(d => d.EnglishReferenceText, Is.Null));
 			Assert.That(matchedRows.Any(d => d.EnglishReferenceText.Contains(" the "))); // A word that should be in English, but not Russian
 			// Since the test version of Jude does not match perfectly with the standard reference texts, we expect two Scripture rows
 			// where the vernacular has no corresponding reference text.
@@ -619,7 +619,7 @@ namespace GlyssenEngineTests.Export
 				d.StyleTag != "s1").ToList();
 			Assert.That(scriptureRowsWithNoReferenceText.Count, Is.EqualTo(2));
 			Assert.That(scriptureRowsWithNoReferenceText.Count(d => d.CharacterId == narrator), Is.EqualTo(1));
-			Assert.That(scriptureRowsWithNoReferenceText.All(d => d.EnglishReferenceText == null));
+			Assert.That(scriptureRowsWithNoReferenceText, ForEvery<ExportBlock>(d => d.EnglishReferenceText, Is.Null));
 		}
 
 		[Test]
@@ -1201,7 +1201,7 @@ namespace GlyssenEngineTests.Export
 			using (var tempDir = new SIL.TestUtilities.TemporaryFolder("PG855ExportActorExcelScripts"))
 			{
 				exporter.FullFileName = Combine(tempDir.Path, ChangeExtension("base", Constants.kExcelFileExtension));
-				Assert.That(exporter.ExportNow(false).Any(), Is.False);
+				Assert.That(exporter.ExportNow(false), Is.Empty);
 				Assert.That(Directory.Exists(exporter.ActorDirectory), Is.True);
 				foreach (var actor in project.CharacterGroupList.AssignedGroups.Select(g => g.VoiceActor.Name))
 				{
@@ -1225,7 +1225,7 @@ namespace GlyssenEngineTests.Export
 			{
 				exporter.FullFileName = Combine(tempDir.Path,
 					ChangeExtension("base", Constants.kExcelFileExtension));
-				Assert.That(exporter.ExportNow(false).Any(), Is.False);
+				Assert.That(exporter.ExportNow(false), Is.Empty);
 				Assert.That(Directory.Exists(exporter.BookDirectory), Is.True);
 				Assert.That(Combine(exporter.BookDirectory,
 					ChangeExtension("3JN", Constants.kExcelFileExtension)), Does.Exist);

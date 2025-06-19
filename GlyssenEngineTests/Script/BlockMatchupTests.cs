@@ -40,7 +40,7 @@ namespace GlyssenEngineTests.Script
 			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 			var matchup = new BlockMatchup(vernBook, iBlock, null, i => true, null);
 			Assert.That(vernacularBlocks[iBlock].GetText(true), Is.EqualTo(matchup.CorrelatedBlocks.Single().GetText(true)));
-			Assert.That(vernacularBlocks.Contains(matchup.CorrelatedBlocks.Single()), Is.False);
+			Assert.That(vernacularBlocks, Does.Not.Contain(matchup.CorrelatedBlocks.Single()));
 			//Assert.That(vernacularBlocks[iBlock], Is.EqualTo(matchup.OriginalAnchorBlock));
 			Assert.That(matchup.CorrelatedBlocks.Single(), Is.EqualTo(matchup.CorrelatedAnchorBlock));
 		}
@@ -913,7 +913,7 @@ namespace GlyssenEngineTests.Script
 			Assert.That(matchup.CountOfBlocksAddedBySplitting, Is.EqualTo(0));
 			Assert.That(matchup.HasOutstandingChangesToApply, Is.False);
 			Assert.That(matchup.OriginalBlocks.Select(b => b.GetText(true)).SequenceEqual(matchup.CorrelatedBlocks.Select(b => b.GetText(true))), Is.True);
-			Assert.That(matchup.OriginalBlocks.Intersect(matchup.CorrelatedBlocks).Any(), Is.False);
+			Assert.That(matchup.OriginalBlocks.Intersect(matchup.CorrelatedBlocks), Is.Empty);
 		}
 
 		[TestCase(1)]
@@ -1791,16 +1791,16 @@ namespace GlyssenEngineTests.Script
 			rt.ApplyTo(vernBook);
 			Assert.That(vernacularBlocks[1].ReferenceBlocks.Count, Is.EqualTo(1));
 			Assert.That(vernJesusSaidBlock.MatchesReferenceText, Is.False);
-			Assert.That(vernJesusSaidBlock.ReferenceBlocks.Any(), Is.False);
+			Assert.That(vernJesusSaidBlock.ReferenceBlocks, Is.Empty);
 			vernacularBlocks[3].SetMatchedReferenceBlock("This is some arbitrary reference text.");
 			vernacularBlocks[3].ReferenceBlocks.Single().CharacterId = refTextCharacter;
-			Assert.That(vernacularBlocks[4].ReferenceBlocks.Any(), Is.False);
+			Assert.That(vernacularBlocks[4].ReferenceBlocks, Is.Empty);
 			vernacularBlocks[4].SetMatchedReferenceBlock("This is some arbitrary reference text.");
 			vernacularBlocks[4].ReferenceBlocks.Single().CharacterId = refTextCharacter;
 			Assert.That(vernacularBlocks[5].ReferenceBlocks.Single().CharacterId, Is.EqualTo(narrator));
 			Assert.That(vernacularBlocks[6].ReferenceBlocks.Single().CharacterId, Is.EqualTo(narrator));
 			Assert.That(vernAndrewSaidBlock.MatchesReferenceText, Is.False);
-			Assert.That(vernAndrewSaidBlock.ReferenceBlocks.Any(), Is.False);
+			Assert.That(vernAndrewSaidBlock.ReferenceBlocks, Is.Empty);
 			Assert.That(vernacularBlocks.Count(vb => vb.GetReferenceTextAtDepth(0) == ""), Is.EqualTo(2));
 			var matchup = new BlockMatchup(vernBook, 0, null, i => false, rt);
 			matchup.MatchAllBlocks();
@@ -1920,7 +1920,7 @@ namespace GlyssenEngineTests.Script
 			var matchup = new BlockMatchup(vernBook, 0, null, i => true, rt, (uint)vernacularBlocks.Count);
 			matchup.MatchAllBlocks();
 
-			Assert.That(matchup.HeSaidBlocks.Any(), Is.False);
+			Assert.That(matchup.HeSaidBlocks, Is.Empty);
 		}
 
 		[Test]
@@ -1946,7 +1946,7 @@ namespace GlyssenEngineTests.Script
 			matchup.MatchAllBlocks();
 			matchup.SetReferenceText(2, rt.HeSaidText);
 
-			Assert.That(matchup.HeSaidBlocks.Any(), Is.False);
+			Assert.That(matchup.HeSaidBlocks, Is.Empty);
 		}
 
 		[Test]
