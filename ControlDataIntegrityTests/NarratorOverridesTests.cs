@@ -1,9 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using GlyssenCharacters;
 using NUnit.Framework;
+using NUnit.Framework.Constraints;
 using SIL.Scripture;
+using static GlyssenCharacters.NarratorOverrides;
+using static GlyssenSharedTests.CustomConstraints;
 
 namespace ControlDataIntegrityTests
 {
@@ -12,13 +16,13 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_LoadsCorrectly()
 		{
-			Assert.That(NarratorOverrides.GetNarratorOverridesForBook("PSA"), Is.Not.Empty);
+			Assert.That(GetNarratorOverridesForBook("PSA"), Is.Not.Empty);
 		}
 
 		[Test]
 		public void DataIntegrity_AllCharactersExistInCharacterDetail()
 		{
-			foreach (var overrideDetail in NarratorOverrides.NarratorOverridesByBookId.Values.SelectMany(o => o))
+			foreach (var overrideDetail in NarratorOverridesByBookId.Values.SelectMany(o => o))
 			{
 				Assert.That(CharacterDetailData.Singleton.GetDictionary().Keys, Does.Contain(overrideDetail.Character),
 					$"Character {overrideDetail.Character} In NarratorOverrides.xml was not found in CharacterDetail");
@@ -28,9 +32,9 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_StartsPrecedeEnds()
 		{
-			foreach (var bookId in NarratorOverrides.NarratorOverridesByBookId.Keys)
+			foreach (var bookId in NarratorOverridesByBookId.Keys)
 			{
-				foreach (var overrideDetail in NarratorOverrides.GetNarratorOverridesForBook(bookId))
+				foreach (var overrideDetail in GetNarratorOverridesForBook(bookId))
 				{
 					Assert.That(overrideDetail.StartChapter, Is.LessThanOrEqualTo(overrideDetail.EndChapter),
 						$"In NarratorOverrides.xml, book {bookId}: end chapter {overrideDetail.EndChapter} precedes start chapter {overrideDetail.StartChapter}.");
@@ -53,9 +57,9 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_StartChapterSet()
 		{
-			foreach (var bookId in NarratorOverrides.NarratorOverridesByBookId.Keys)
+			foreach (var bookId in NarratorOverridesByBookId.Keys)
 			{
-				foreach (var overrideDetail in NarratorOverrides.GetNarratorOverridesForBook(bookId))
+				foreach (var overrideDetail in GetNarratorOverridesForBook(bookId))
 				{
 					Assert.That(overrideDetail.StartChapter, Is.GreaterThanOrEqualTo(1),
 						$"In NarratorOverrides.xml, book {bookId}, StartChapter not set for override {overrideDetail}.");
@@ -69,9 +73,9 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_StartBlockLessThanSix()
 		{
-			foreach (var bookId in NarratorOverrides.NarratorOverridesByBookId.Keys)
+			foreach (var bookId in NarratorOverridesByBookId.Keys)
 			{
-				foreach (var overrideDetail in NarratorOverrides.GetNarratorOverridesForBook(bookId))
+				foreach (var overrideDetail in GetNarratorOverridesForBook(bookId))
 				{
 					Assert.That(overrideDetail.StartBlock, Is.LessThan(6),
 						$"In NarratorOverrides.xml, book {bookId}, StartBlock set to invalid value for override {overrideDetail}.");
@@ -82,7 +86,7 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_ValidBookId()
 		{
-			foreach (var bookId in NarratorOverrides.NarratorOverridesByBookId.Keys)
+			foreach (var bookId in NarratorOverridesByBookId.Keys)
 			{
 				var bookNum = BCVRef.BookToNumber(bookId);
 				Assert.That(bookNum, Is.GreaterThanOrEqualTo(1), $"Invalid book ID: {bookId}");
@@ -93,13 +97,13 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_NoOverlappingRanges()
 		{
-			var overridesByBook = new Dictionary<string, SortedDictionary<int, NarratorOverrides.NarratorOverrideDetail>>();
-			foreach (var bookId in NarratorOverrides.NarratorOverridesByBookId.Keys)
+			var overridesByBook = new Dictionary<string, SortedDictionary<int, NarratorOverrideDetail>>();
+			foreach (var bookId in NarratorOverridesByBookId.Keys)
 			{
 				var bookNum = BCVRef.BookToNumber(bookId);
-				var dictionary = new SortedDictionary<int, NarratorOverrides.NarratorOverrideDetail>();
+				var dictionary = new SortedDictionary<int, NarratorOverrideDetail>();
 				overridesByBook.Add(bookId, dictionary);
-				foreach (var overrideDetail in NarratorOverrides.GetNarratorOverridesForBook(bookId))
+				foreach (var overrideDetail in GetNarratorOverridesForBook(bookId))
 				{
 					var newKey = new BCVRef(bookNum, overrideDetail.StartChapter, overrideDetail.StartVerse).BBCCCVVV * 10 + overrideDetail.StartBlock;
 					if (dictionary.ContainsKey(newKey))
@@ -112,7 +116,7 @@ namespace ControlDataIntegrityTests
 			foreach (var kvp in overridesByBook)
 			{
 				var dictionary = kvp.Value;
-				NarratorOverrides.NarratorOverrideDetail prev = null;
+				NarratorOverrideDetail prev = null;
 				foreach (var overrideDetail in dictionary.Values)
 				{
 					if (prev != null)
@@ -130,10 +134,10 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_EndChaptersAndVersesWithinEnglishVersificationLimits()
 		{
-			foreach (var bookOverrides in NarratorOverrides.NarratorOverridesByBookId)
+			foreach (var bookOverrides in NarratorOverridesByBookId)
 			{
 				var bookNum = BCVRef.BookToNumber(bookOverrides.Key);
-				foreach (NarratorOverrides.NarratorOverrideDetail overrideDetail in bookOverrides.Value)
+				foreach (NarratorOverrideDetail overrideDetail in bookOverrides.Value)
 				{
 					Assert.That(overrideDetail.EndChapter, Is.LessThanOrEqualTo(ScrVers.English.GetLastChapter(bookNum)),
 						$"Invalid end chapter: {overrideDetail}");
@@ -150,13 +154,13 @@ namespace ControlDataIntegrityTests
 		/// Therefore, explicit quotes should be present. But since some languages don't mark quotes, or do so inconsistently
 		/// (and often omit them for longer discourses), in the absence of any quoted text, we can safely apply the known
 		/// character to the entire verse. (If quotes are marked up, there's no need to do this, and it would be wrong to do
-		/// so since this would presumably end up assigning the character to speak a "he said".)
+		/// so since this could presumably end up assigning the character to speak a "he said".)
 		/// 
 		/// By contrast, a narrator override is used in places where the text is unlikely to contain quotes. The text (based
 		/// on pronoun usage, etc.) tells us who the "narrator" is in real life. In this case, the decision to assign the text
 		/// to the real-life character who is the author/narrator is based on desired dramatic effect or to prevent confusion
 		/// where there are self-quotes. Strictly speaking, however, the text could be read entirely by a narrator.
-		/// When text is to be overridden to be spoken by a character but could have explicit quotes the Character-Verse control
+		/// When text is to be overridden to be spoken by a character but could have explicit quotes, the Character-Verse control
 		/// file should use Potential or Quotation rather than Implicit as the quote type, because in the absence of explicit
 		/// quotes, we want to respect that the text really is narration and can be treated as such for scripting purposes. The
 		/// ultimate decision to override the narrator can be left to the last minute.
@@ -170,8 +174,9 @@ namespace ControlDataIntegrityTests
 			foreach (var cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Where(i => i.IsImplicit))
 			{
 				var verse = new VerseRef(BCVRef.BookToNumber(cv.BookCode), cv.Chapter, cv.Verse, ScrVers.English);
-				var overrideInfo = NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verse, cv.Verse);
-				Assert.That(overrideInfo.All(oi => oi.Character != cv.Character), Is.True,
+				var overrideInfo = GetCharacterOverrideDetailsForRefRange(verse, cv.Verse);
+				Assert.That(overrideInfo, No<NarratorOverrideDetail>(oi => oi.Character,
+						Is.EqualTo(cv.Character)),
 					$"Character-verse file contains an Implicit quote for {cv.Character} in verse {verse} that is also covered " +
 					$"by narrator override {overrideInfo}.");
 			}
@@ -180,7 +185,7 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_PartialVerseStartsAreValid()
 		{
-			foreach (var book in NarratorOverrides.Singleton.Books)
+			foreach (var book in Singleton.Books)
 			{
 				foreach (var partialStart in book.Overrides.Where(o => o.StartBlock > 0))
 				{
@@ -209,9 +214,12 @@ namespace ControlDataIntegrityTests
 
 						var endsForSameChapterAndVerse = book.Overrides.Where(o => o.EndChapter == partialStart.StartChapter &&
 							o.EndVerse == partialStart.StartVerse).ToList();
-						Assert.That(endsForSameChapterAndVerse.All(e => e.EndBlock > 0), Is.True, $"An override for {book.Id} " +
-							$"{partialStart.StartChapter}:{partialStart.StartVerse} has a start block ({partialStart.StartBlock}) " +
-							"that is already covered by the end verse of another entry!");
+						Assert.That(endsForSameChapterAndVerse,
+							ForEvery<NarratorOverrideDetail>(e => e.EndBlock, Is.GreaterThan(0)),
+							$"An override for {book.Id} " +
+							$"{partialStart.StartChapter}:{partialStart.StartVerse} has a start " +
+							$"block ({partialStart.StartBlock}) that is already covered by the " +
+							"end verse of another entry!");
 
 						if (partialStart.StartBlock >= 3)
 						{

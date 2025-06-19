@@ -20,6 +20,7 @@ using static GlyssenCharacters.CharacterVerseData;
 using static GlyssenEngine.Script.MultiBlockQuote;
 using static GlyssenEngine.Script.PortionScript;
 using Resources = GlyssenCharactersTests.Properties.Resources;
+using static GlyssenSharedTests.CustomConstraints;
 
 namespace GlyssenEngineTests.Script
 {
@@ -329,8 +330,9 @@ namespace GlyssenEngineTests.Script
 			mrkBlocks.Add(block);
 			mrkBlocks.Add(NewSingleVersePara(4));
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
-			var firstBlockForVerse1_3 = bookScript.GetFirstBlockForVerse(1, 3);
-			Assert.That(firstBlockForVerse1_3.GetText(true), Does.EndWith("{3}\u00A0This is it!"));
+			var firstBlockForVerses1Thru3 = bookScript.GetFirstBlockForVerse(1, 3);
+			Assert.That(firstBlockForVerses1Thru3.GetText(true),
+				Does.EndWith("{3}\u00A0This is it!"));
 		}
 		#endregion
 
@@ -615,7 +617,7 @@ namespace GlyssenEngineTests.Script
 
 			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.That(result.Count, Is.EqualTo(2));
-			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(result, ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 			Assert.That(result[0].GetPrimaryReferenceText(), Is.EqualTo("rt0"));
 			Assert.That(result[1].GetPrimaryReferenceText(), Is.EqualTo("rt1 rt2 rt3 rt4"));
 		}
@@ -931,8 +933,10 @@ namespace GlyssenEngineTests.Script
 
 			var bookOfPsalms = new BookScript("PRO", blocks, ScrVers.English);
 
-			Assert.That(bookOfPsalms.GetScriptBlocks().Where(b => !b.IsChapterAnnouncement && b.ChapterNumber == 1).All(b => bookOfPsalms.GetCharacterIdInScript(b) == narrator), Is.True);
-			Assert.That(bookOfPsalms.GetScriptBlocks().Where(b => !b.IsChapterAnnouncement && b.ChapterNumber == 2).All(b => bookOfPsalms.GetCharacterIdInScript(b) == "Solomon, king"), Is.True);
+			Assert.That(bookOfPsalms.GetScriptBlocks().Where(b => !b.IsChapterAnnouncement && b.ChapterNumber == 1),
+				ForEvery<Block>(b => bookOfPsalms.GetCharacterIdInScript(b), Is.EqualTo(narrator)));
+			Assert.That(bookOfPsalms.GetScriptBlocks().Where(b => !b.IsChapterAnnouncement && b.ChapterNumber == 2),
+				ForEvery<Block>(b => bookOfPsalms.GetCharacterIdInScript(b), Is.EqualTo("Solomon, king")));
 		}
 
 		#region Test GetCharacterIdInScript for override covering two blocks in a single verse
@@ -1329,12 +1333,13 @@ namespace GlyssenEngineTests.Script
 
 			var result = jude.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.That(countOfOrigParagraphs, Is.EqualTo(result.Count));
-			Assert.That(result.All(b => b.CharacterIsStandard), Is.True);
-			Assert.That(result.Any(b => b.MatchesReferenceText), Is.False);
+			Assert.That(result, ForEvery<Block>(b => b.CharacterIsStandard, Is.True));
+			Assert.That(result, No<Block>(b => b.MatchesReferenceText, Is.True));
 
-			// Verify that the original book was not modified
-			Assert.That(jude.GetScriptBlocks().All(b => b.MatchesReferenceText), Is.True);
-			Assert.That(jude.GetScriptBlocks().All(b => b.GetPrimaryReferenceText() == "blah"), Is.True);
+			Assert.That(jude.GetScriptBlocks(),
+				ForEvery<Block>((b => b.MatchesReferenceText, Is.True, nameof(Block.MatchesReferenceText)),
+					(b => b.GetPrimaryReferenceText(), Is.EqualTo("blah"), nameof(Block.GetPrimaryReferenceText))),
+				"Original book should not have been modified");
 		}
 
 		// PG-1334
@@ -1392,9 +1397,10 @@ namespace GlyssenEngineTests.Script
 			Assert.That(firstVerse.StartsAtVerseStart, Is.True);
 			Assert.That(firstVerse.InitialStartVerseNumber, Is.EqualTo(1));
 			Assert.That(firstVerse.StyleTag, Is.EqualTo("p"));
-			Assert.That(((ScriptText)firstVerse.BlockElements[1]).Content, Is.EqualTo("Este es la genealogia de Jesus: Abraham fue el primero."));
-			Assert.That(result.All(b => b.CharacterIsStandard), Is.True);
-			Assert.That(iBlock + 1, Is.EqualTo(result.Count));
+			Assert.That(((ScriptText)firstVerse.BlockElements[1]).Content,
+				Is.EqualTo("Este es la genealogia de Jesus: Abraham fue el primero."));
+			Assert.That(result, ForEvery<Block>(b => b.CharacterIsStandard, Is.True));
+			Assert.That(result.Count, Is.EqualTo(iBlock + 1));
 		}
 
 		[TestCase(";", "q1", "", "Part 2.", "Part 2.")]
@@ -1444,9 +1450,12 @@ namespace GlyssenEngineTests.Script
 			var source = CreateStandardMarkScript();
 			var target = CreateStandardMarkScript();
 			target.ApplyUserDecisions(source);
-			Assert.That(target.GetScriptBlocks().Any(b => b.UserConfirmed), Is.False);
-			Assert.That(target.GetScriptBlocks().All(b => b.CharacterIsStandard || b.CharacterId == kUnexpectedCharacter), Is.True);
-			Assert.That(source.GetScriptBlocks().SequenceEqual(target.GetScriptBlocks(), new BlockComparer()), Is.True);
+			Assert.That(target.GetScriptBlocks(), No<Block>(b => b.UserConfirmed, Is.True));
+			Assert.That(target.GetScriptBlocks(), ForEvery<Block>(b =>
+					b.CharacterIsStandard || b.CharacterId == kUnexpectedCharacter, Is.True,
+					$"CharacterIsStandard or has the `{kUnexpectedCharacter}` character ID"));
+			Assert.That(source.GetScriptBlocks()
+				.SequenceEqual(target.GetScriptBlocks(), new BlockComparer()), Is.True);
 			Assert.That(target.UnappliedSplits, Is.Not.Null);
 			Assert.That(target.UnappliedSplits.Count, Is.EqualTo(0));
 		}
@@ -2455,29 +2464,29 @@ namespace GlyssenEngineTests.Script
 		public void ApplyUserDecisions_SplitBlockBeforeMissingVerseNumber_TargetContainsBridgeWithMissingVerseNumber_SplitNotApplied()
 		{
 			const int kChapter = 1;
-			const string kMat1_20a = "Gang hapëko opët le, imbalingum gang ɗakëko gokëɗ, aɗaŋal ar Urün ale komaŝaŋëta gonëkëɗ laŋ. Komare: ";
-			const string kMat1_20b = "<Ŝosef, wuj ar ŝalëk ŝan gañamb an Dafid, koyéŋ imamaɗ Mari ogé asówar arój ɓawo ñaŋëso ñan ɗüɓko Mari ñaŋ fangar Genjëm en Urün le rik haŋ ŝotëko gacëɗ aŋ, mage hal. ";
-			const string kMat1_21a = "Mari omadëme ñaŋëso ñacan. Ñungum imatap Ŝésü. Koto ër uyat or Ŝésü ówum oɗ le gon e oŋ iyi Afeyën ar ɓal e. Gungum ejëmatapal ñaŋëso ñungum Ŝésü ɓawo oɓepeyëne ɓal ɓüróm ɓële oméƴ or ñüdëkëɓe kongol ër ɓiñüŋüla ɓindóɓün laŋ. ";
-			const string kMat1_21b = "Ngër kak reɗëkoma aɗaŋal ar Urün ale Ŝosef. Gang hëñëlakoma mëŝësün, koƴe. ";
-			const string kMat1_23a = "Gen oŝot or gacëɗ or ŝungutuŋ ër mamalange aŝan eŋ, Urün oɗ acasëɗ kabiriŋ alëka iyi ogéye le. Adeɗ: ";
-			const string kMat1_23b = "<Ŝungutuŋ ër mamalange aŝan ocote gacëɗ, omadëme ñaŋëso ñacan ñungum ënmayó Emanuwel. ";
+			const string kMat1V20a = "Gang hapëko opët le, imbalingum gang ɗakëko gokëɗ, aɗaŋal ar Urün ale komaŝaŋëta gonëkëɗ laŋ. Komare: ";
+			const string kMat1V20b = "<Ŝosef, wuj ar ŝalëk ŝan gañamb an Dafid, koyéŋ imamaɗ Mari ogé asówar arój ɓawo ñaŋëso ñan ɗüɓko Mari ñaŋ fangar Genjëm en Urün le rik haŋ ŝotëko gacëɗ aŋ, mage hal. ";
+			const string kMat1V21a = "Mari omadëme ñaŋëso ñacan. Ñungum imatap Ŝésü. Koto ër uyat or Ŝésü ówum oɗ le gon e oŋ iyi Afeyën ar ɓal e. Gungum ejëmatapal ñaŋëso ñungum Ŝésü ɓawo oɓepeyëne ɓal ɓüróm ɓële oméƴ or ñüdëkëɓe kongol ër ɓiñüŋüla ɓindóɓün laŋ. ";
+			const string kMat1V21b = "Ngër kak reɗëkoma aɗaŋal ar Urün ale Ŝosef. Gang hëñëlakoma mëŝësün, koƴe. ";
+			const string kMat1V23a = "Gen oŝot or gacëɗ or ŝungutuŋ ër mamalange aŝan eŋ, Urün oɗ acasëɗ kabiriŋ alëka iyi ogéye le. Adeɗ: ";
+			const string kMat1V23b = "<Ŝungutuŋ ër mamalange aŝan ocote gacëɗ, omadëme ñaŋëso ñacan ñungum ënmayó Emanuwel. ";
 			var narrator = GetStandardCharacterId("MAT", StandardCharacter.Narrator);
 			var blocks = new List<Block> {
 				NewChapterBlock(kChapter, "MAT"),
 				new Block("p", kChapter, 20) { IsParagraphStart = true, CharacterId = narrator }
-					.AddVerse(20, kMat1_20a),
+					.AddVerse(20, kMat1V20a),
 				// Block break triggered by opening quote
 				new Block("p", kChapter, 20) { IsParagraphStart = false, CharacterId = kUnexpectedCharacter }
-					.AddText(kMat1_20b)
-					.AddVerse(21, kMat1_21a + kMat1_21b),
+					.AddText(kMat1V20b)
+					.AddVerse(21, kMat1V21a + kMat1V21b),
 				// The closing quote mark is missing in the text, but the parser would force this block break (and
 				// mark the previous one unknown because no known character from v. 20-21 should still be speaking
 				// in v. 23 (or 22 for that matter).
 				new Block("p", kChapter, 23) { IsParagraphStart = false, CharacterId = narrator }
-					.AddVerse(23, kMat1_23a),
+					.AddVerse(23, kMat1V23a),
 				// Block break triggered by opening quote. Again, this is unknown because of the missing closer.
 				new Block("p", kChapter, 23) { IsParagraphStart = false, CharacterId = kUnexpectedCharacter }
-					.AddVerse(23, kMat1_23b + "Koto ër Emanuwel le gon e oŋ iyi Urün oɗ ëng ɓé eene. Gon reɗëko Urün oŋ aŝükélün ar Urün ale añugëɗ. Gang ŝotëko Mari gacëɗ hara mamalangëɗelaŋ aŝan, agé gon reɗëko Urün kabiriŋ alëka ogéye oŋ. ")
+					.AddVerse(23, kMat1V23b + "Koto ër Emanuwel le gon e oŋ iyi Urün oɗ ëng ɓé eene. Gon reɗëko Urün oŋ aŝükélün ar Urün ale añugëɗ. Gang ŝotëko Mari gacëɗ hara mamalangëɗelaŋ aŝan, agé gon reɗëko Urün kabiriŋ alëka ogéye oŋ. ")
 					.AddVerse(24, "Ŝosef gang lügütéko, adiɗ ngër gang reɗëkoma aɗaŋal ar Urün ale le. Komamaɗ Mari. Kogé asówar aróm. \v 25 Kono mënɓarɗelaŋ gañar ëng Ŝosef haŋ fo rëmkoma Mari ñaŋëso ñaŋ le. Gang rëmkoma, Ŝosef amatapëɗ ñaŋëso ñungum Ŝésü."),
 			};
 
@@ -2498,7 +2507,7 @@ namespace GlyssenEngineTests.Script
 			Assert.That(((Verse)firstBlockForV20.BlockElements[0]).Number, Is.EqualTo("20"));
 			var secondBlockForV20 = source.GetScriptBlocks()[i++];
 
-			var secondBlockForV21 = source.SplitBlock(secondBlockForV20, "21", kMat1_21a.Length, true, narrator);
+			var secondBlockForV21 = source.SplitBlock(secondBlockForV20, "21", kMat1V21a.Length, true, narrator);
 			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 
 			var origBlockCount = source.GetScriptBlocks().Count;
@@ -2513,7 +2522,7 @@ namespace GlyssenEngineTests.Script
 			source.GetScriptBlocks()[2].SplitId = -1;
 
 			var v23Thru24Block = source.GetScriptBlocks().Last();
-			var newBlock = source.SplitBlock(v23Thru24Block, "23", kMat1_23b.Length, true, narrator);
+			var newBlock = source.SplitBlock(v23Thru24Block, "23", kMat1V23b.Length, true, narrator);
 			newBlock.UserConfirmed = true;
 			v23Thru24Block.CharacterId = kAmbiguousCharacter;
 

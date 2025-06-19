@@ -332,6 +332,10 @@
       <Project>{7e9e51ef-c687-441e-8a1a-d2a4b4a96d58}</Project>
       <Name>GlyssenCharacters</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GlyssenSharedTests\GlyssenSharedTests.csproj">
+      <Project>{a91a6d5e-f3a1-4e6f-b9a8-4fa5c3af7707}</Project>
+      <Name>GlyssenSharedTests</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GlyssenShared\GlyssenShared.csproj">
       <Project>{965c34cf-8afb-4132-a2ff-fd4ebb0b410d}</Project>
       <Name>GlyssenShared</Name>

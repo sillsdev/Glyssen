@@ -13,14 +13,17 @@ using SIL.Extensions;
 using SIL.Scripture;
 using static System.String;
 using static GlyssenCharacters.CharacterVerseData;
+using static GlyssenEngine.Script.PortionScript;
 using AssignCharacterViewModel = GlyssenEngine.ViewModels.AssignCharacterViewModel<Rhino.Mocks.Interfaces.IMockedObject>;
 using Resources = GlyssenCharactersTests.Properties.Resources;
+using static GlyssenSharedTests.CustomConstraints;
 
 namespace GlyssenEngineTests.ViewModelTests
 {
 	[TestFixture]
 	internal class AssignCharacterViewModelTests
 	{
+		private const string kLegionCharacter = "demons (Legion)/man delivered from Legion of demons";
 		private Project m_testProject;
 		private AssignCharacterViewModel m_model;
 		private bool m_fullProjectRefreshRequired;
@@ -168,7 +171,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(characters[0].ProjectSpecific, Is.False);
 			Assert.That(characters[1].CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(characters[1].ProjectSpecific, Is.False);
-			Assert.That(characters[2].CharacterId, Is.EqualTo("demons (Legion)/man delivered from Legion of demons"));
+			Assert.That(characters[2].CharacterId, Is.EqualTo(kLegionCharacter));
 			Assert.That(characters[2].ProjectSpecific, Is.False);
 		}
 
@@ -229,7 +232,8 @@ namespace GlyssenEngineTests.ViewModelTests
 			var result = m_model.GetDeliveriesForCurrentReferenceTextMatchup().ToList();
 			Assert.That(baseList.Count + 1, Is.EqualTo(result.Count));
 			Assert.That(result[0].IsNormal, Is.True);
-			Assert.That(baseList.All(d => result.Contains(d)), Is.True);
+			Assert.That(baseList,
+				ForEvery<AssignCharacterViewModel.Delivery>(d => result.Contains(d), Is.True));
 			Assert.That(result.Any(d => d.Text == "slurred"), Is.True);
 		}
 
@@ -250,7 +254,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var result = m_model.GetDeliveriesForCurrentReferenceTextMatchup().ToList();
 			Assert.That(baseList.Count + 1, Is.EqualTo(result.Count));
 			Assert.That(result[0].IsNormal, Is.True);
-			Assert.That(baseList.All(d => result.Contains(d)), Is.True);
+			Assert.That(baseList, ForEvery<AssignCharacterViewModel.Delivery>(d => result.Contains(d), Is.True));
 			Assert.That(result.Any(d => d.Text == "squealing"), Is.True);
 		}
 		#endregion
@@ -262,8 +266,8 @@ namespace GlyssenEngineTests.ViewModelTests
 			var characters = m_model.GetUniqueCharacters().ToList();
 			Assert.That(characters.Count, Is.EqualTo(80));
 			Assert.That(characters.Any(c => c.IsNarrator), Is.True);
-			Assert.That(characters.Any(c => c.CharacterId == "Jesus"), Is.True);
-			Assert.That(characters.Any(c => c.CharacterId == "demons (Legion)/man delivered from Legion of demons"), Is.True);
+			Assert.That(characters.Select(c => c.CharacterId), Does.Contain("Jesus"));
+			Assert.That(characters.Select(c => c.CharacterId), Does.Contain(kLegionCharacter));
 		}
 
 		[Test]
@@ -273,14 +277,16 @@ namespace GlyssenEngineTests.ViewModelTests
 			var characters = m_model.GetUniqueCharacters("zeru").ToList();
 			Assert.That(characters.Count, Is.EqualTo(5));
 			Assert.That(characters[0].CharacterId, Is.EqualTo("Zerubbabel"));
-			Assert.That(characters[1].CharacterId, Is.EqualTo("Zerubbabel/Jeshua/rest of heads of families"));
-			Assert.That(characters.Any(c => c.CharacterId == "Jesus"), Is.True);
-			Assert.That(characters.Any(c => c.CharacterId == "demons (Legion)/man delivered from Legion of demons"), Is.True);
+			Assert.That(characters[1].CharacterId,
+				Is.EqualTo("Zerubbabel/Jeshua/rest of heads of families"));
+			Assert.That(characters.Select(c => c.CharacterId), Does.Contain("Jesus"));
+			Assert.That(characters.Select(c => c.CharacterId), Does.Contain(kLegionCharacter));
 			Assert.That(characters[4].IsNarrator, Is.True);
 		}
 
 		[TestCase("father of cured man, blind from birth")]
-		public void GetUniqueCharacters_MatchingFilterInCharacterDetailButNotInCharacterVerse_ResultIncludesMatchingDetailCharacter(string character)
+		public void GetUniqueCharacters_MatchingFilterInCharacterDetailButNotInCharacterVerse_ResultIncludesMatchingDetailCharacter(
+			string character)
 		{
 			Assert.That(ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Any(c => c.Character == character), Is.False,
 				"Setup precondition not met");
@@ -304,7 +310,8 @@ namespace GlyssenEngineTests.ViewModelTests
 
 		[TestCase(null)]
 		[TestCase("")]
-		public void IsBlockAssignedToUnknownCharacterDeliveryPair_BlockHasNormalDelivery_ControlFileHasOnlySpecificDeliveryForThisCharacter_ReturnsTrue(string delivery)
+		public void IsBlockAssignedToUnknownCharacterDeliveryPair_BlockHasNormalDelivery_ControlFileHasOnlySpecificDeliveryForThisCharacter_ReturnsTrue(
+			string delivery)
 		{
 			var block = new Block("p", 10, 49) {CharacterId = "crowd at Jericho", Delivery = delivery};
 			Assert.That(m_model.IsBlockAssignedToUnknownCharacterDeliveryPair(block), Is.True);
@@ -578,7 +585,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.SetMode(BlocksToDisplay.AllScripture);
 			FindRefInMark(5, 7);
 			m_model.GetUniqueCharactersForCurrentReference();
-			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("demons (Legion)/man delivered from Legion of demons"));
+			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character(kLegionCharacter));
 			Assert.That(deliveries.Count(), Is.EqualTo(2));
 			var uniqueDeliveries = m_model.GetUniqueDeliveries();
 			Assert.That(uniqueDeliveries.Count(), Is.EqualTo(259));
@@ -590,7 +597,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.SetMode(BlocksToDisplay.AllScripture);
 			FindRefInMark(5, 7);
 			m_model.GetUniqueCharactersForCurrentReference();
-			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("demons (Legion)/man delivered from Legion of demons"));
+			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character(kLegionCharacter));
 			Assert.That(deliveries.Count(), Is.EqualTo(2));
 			var uniqueDeliveries = m_model.GetUniqueDeliveries("shrieking");
 			Assert.That(uniqueDeliveries.Count(), Is.EqualTo(2));
@@ -1114,7 +1121,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			Assert.That(model.CurrentBlock, Is.EqualTo(blockToSplit), "setup problem!");
 
-			model.SplitBlock(new[] { new BlockSplitData(1, blockToSplit, blockToSplit.LastVerseNum.ToString(), BookScript.kSplitAtEndOfVerse) },
+			model.SplitBlock(new[] { new BlockSplitData(1, blockToSplit, blockToSplit.LastVerseNum.ToString(), kSplitAtEndOfVerse) },
 				GetListOfCharacters(2, new string[] { null, null }));
 
 			// Validates our test was set up correctly
@@ -1156,7 +1163,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var origIndexOfNextRelevantBlock = model.BlockAccessor.GetIndices().BlockIndex;
 			model.LoadPreviousRelevantBlock();
 
-			model.SplitBlock(new[] { new BlockSplitData(1, blockToSplit, blockToSplit.LastVerseNum.ToString(), PortionScript.kSplitAtEndOfVerse) },
+			model.SplitBlock(new[] { new BlockSplitData(1, blockToSplit, blockToSplit.LastVerseNum.ToString(), kSplitAtEndOfVerse) },
 				GetListOfCharacters(2, new [] { "", "" }));
 
 			// Validates our test was set up correctly
@@ -1194,7 +1201,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(model.CurrentReferenceTextMatchup.OriginalBlockCount, Is.EqualTo(1));
 			Assert.That(blockToSplit.LastVerseNum, Is.GreaterThan(18));
 
-			model.SplitBlock(new[] { new BlockSplitData(1, blockToSplit, "18", PortionScript.kSplitAtEndOfVerse) },
+			model.SplitBlock(new[] { new BlockSplitData(1, blockToSplit, "18", kSplitAtEndOfVerse) },
 				GetListOfCharacters(2, new[] { "", "" }));
 
 			Assert.That(model.CurrentBlock.InitialStartVerseNumber, Is.EqualTo(18));
@@ -1240,7 +1247,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(model.CurrentBlock.LastVerseNum, Is.EqualTo(18));
 			Assert.That(model.CurrentReferenceTextMatchup.OriginalBlockCount, Is.EqualTo(2));
 			Assert.That(origBlock, Is.EqualTo(model.CurrentReferenceTextMatchup.OriginalBlocks.First()));
-			Assert.That(Join("", model.CurrentReferenceTextMatchup.OriginalBlocks.Select(b => b.GetText(true))),
+			Assert.That(Concat(model.CurrentReferenceTextMatchup.OriginalBlocks.Select(b => b.GetText(true))),
 				Is.EqualTo(origBlockText));
 
 			model.LoadNextRelevantBlock();
@@ -1278,7 +1285,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(model.CurrentReferenceTextMatchup.OriginalBlockCount, Is.EqualTo(2));
 			Assert.That(model.CurrentReferenceTextMatchup.OriginalBlocks.First(),
 				Is.EqualTo(origBlock));
-			Assert.That(Join("", model.CurrentReferenceTextMatchup.OriginalBlocks.Select(b => b.GetText(true))),
+			Assert.That(Concat(model.CurrentReferenceTextMatchup.OriginalBlocks.Select(b => b.GetText(true))),
 				Is.EqualTo(origBlockText));
 
 			var indexOfBlockThatWasSplitOff = model.IndexOfLastBlockInCurrentGroup;
@@ -1311,14 +1318,17 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			var indexOfFirstVerseElement = blockToSplit.BlockElements.IndexOf(be => be is Verse);
 			var verseToSplit = ((Verse)blockToSplit.BlockElements[indexOfFirstVerseElement]).Number;
-			var splitPosInVerse = ((ScriptText)blockToSplit.BlockElements[indexOfFirstVerseElement + 1]).Content.IndexOf(" ");
+			var splitPosInVerse =
+				((ScriptText)blockToSplit.BlockElements[indexOfFirstVerseElement + 1]).Content
+				.IndexOf(" ", StringComparison.Ordinal);
 
 			model.SplitBlock(new[] { new BlockSplitData(1, blockToSplit, verseToSplit, splitPosInVerse) },
 				GetListOfCharacters(2, new[] { "", "" }));
 
 			Assert.That(model.CurrentReferenceTextMatchup.OriginalBlockCount, Is.EqualTo(2));
 			Assert.That(origBlock, Is.EqualTo(model.CurrentReferenceTextMatchup.OriginalBlocks.First()));
-			Assert.That(Join("", model.CurrentReferenceTextMatchup.OriginalBlocks.Select(b => b.GetText(true))), Is.EqualTo(origBlockText));
+			Assert.That(Concat(model.CurrentReferenceTextMatchup.OriginalBlocks.Select(b => b.GetText(true))),
+				Is.EqualTo(origBlockText));
 			Assert.That(model.IsCurrentLocationRelevant, Is.False);
 
 			var indexOfBlockThatWasSplitOff = model.IndexOfLastBlockInCurrentGroup;
@@ -1342,14 +1352,14 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(model.TryLoadBlock(new VerseRef(042021020)), Is.True);
 
 		    var blockToSplit = model.CurrentReferenceTextMatchup.OriginalBlocks.Single();
-			model.SplitBlock(new[] { new BlockSplitData(1, blockToSplit, "20", PortionScript.kSplitAtEndOfVerse) },
+			model.SplitBlock(new[] { new BlockSplitData(1, blockToSplit, "20", kSplitAtEndOfVerse) },
 				GetListOfCharacters(2, new[] { "", "" }));
 
 			// LUK 21:21
 			Assert.That(model.TryLoadBlock(new VerseRef(042021021)), Is.True);
 
 			blockToSplit = model.CurrentReferenceTextMatchup.OriginalBlocks.Last();
-			model.SplitBlock(new[] { new BlockSplitData(1, blockToSplit, "21", PortionScript.kSplitAtEndOfVerse) },
+			model.SplitBlock(new[] { new BlockSplitData(1, blockToSplit, "21", kSplitAtEndOfVerse) },
 				GetListOfCharacters(2, new[] { "", "" }));
 
 			// LUK 21:25
@@ -1670,10 +1680,12 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void SetReferenceTextMatchupCharacter_Null_CharacterSetToAmbiguousAndNotUserConfirmed()
 		{
 			m_model.SetMode(m_model.Mode, true);
-			// To most closely simulate the real situation where this can occur, find a place where the matchup results in a correlated block with an
-			// unknown character ID. Then set an adjacent block's character id to "null", as would happen if the user atempted to swap the values between
-			// these two blocks.
-			while ((m_model.CurrentReferenceTextMatchup == null || !m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Any(b => b.CharacterIsUnclear)) &&
+			// To most closely simulate the real situation where this can occur, find a place where
+			// the matchup results in a correlated block with an unknown character ID. Then set an
+			// adjacent block's character id to "null", as would happen if the user attempted to
+			// swap the values between these two blocks.
+			while ((m_model.CurrentReferenceTextMatchup == null ||
+				!m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Any(b => b.CharacterIsUnclear)) &&
 				m_model.CanNavigateToNextRelevantBlock)
 			{
 				m_model.LoadNextRelevantBlock();
@@ -1991,7 +2003,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var matchup = m_model.CurrentReferenceTextMatchup;
 			Assert.That(matchup.CountOfBlocksAddedBySplitting, Is.EqualTo(0));
 			Assert.That(matchup.CorrelatedBlocks.Count, Is.EqualTo(2));
-			Assert.That(matchup.OriginalBlocks.All(b => !b.CharacterIsUnclear), Is.True);
+			Assert.That(matchup.OriginalBlocks, ForEvery<Block>(b => b.CharacterIsUnclear, Is.False));
 
 			try
 			{
@@ -2073,8 +2085,10 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			var matchupForMark1215 = m_model.CurrentReferenceTextMatchup;
 			Assert.That(matchupForMark1215.CountOfBlocksAddedBySplitting, Is.EqualTo(1));
-			Assert.That(matchupForMark1215.OriginalBlocks.Count(b => b.CharacterIsUnclear), Is.EqualTo(1));
-			Assert.That(matchupForMark1215.CorrelatedBlocks.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(matchupForMark1215.OriginalBlocks.Count(b => b.CharacterIsUnclear),
+				Is.EqualTo(1));
+			Assert.That(matchupForMark1215.CorrelatedBlocks,
+				ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 			m_model.SetReferenceTextMatchupCharacter(4, new AssignCharacterViewModel.Character("Jesus"));
 
 			try

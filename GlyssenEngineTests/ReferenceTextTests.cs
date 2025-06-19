@@ -23,6 +23,7 @@ using SIL.Extensions;
 using static System.String;
 using static GlyssenCharacters.CharacterVerseData;
 using static GlyssenEngine.ReferenceText;
+using static GlyssenSharedTests.CustomConstraints;
 
 namespace GlyssenEngineTests
 {
@@ -113,13 +114,13 @@ namespace GlyssenEngineTests
 			Assert.That(referenceBlocks.Count, Is.EqualTo(3));
 			var result = vernBook.GetScriptBlocks();
 			Assert.That(result.Count, Is.EqualTo(3));
-			Assert.That(result.All(b => b.CharacterId == "Peter/James/John"), Is.True);
-			Assert.That(result.All(b => b.CharacterIdInScript == "John"), Is.True);
-			Assert.That(result.All(b => b.Delivery == "annoyed beyond belief"), Is.True);
+			Assert.That(result, ForEvery<Block>(b => b.CharacterId, Is.EqualTo("Peter/James/John")));
+			Assert.That(result, ForEvery<Block>(b => b.CharacterIdInScript, Is.EqualTo("John")));
+			Assert.That(result, ForEvery<Block>(b => b.Delivery, Is.EqualTo("annoyed beyond belief")));
 			Assert.That(result.First().MultiBlockQuote, Is.EqualTo(expectedResultForFirstBlock));
-			Assert.That(result.Skip(1).All(b => b.MultiBlockQuote == expectedResultForSubsequentBlocks), Is.True);
-			Assert.That(result.All(b => b.UserConfirmed), Is.True);
-			Assert.That(result.All(b => b.SplitId == -1), Is.True);
+			Assert.That(result.Skip(1), ForEvery<Block>(b => b.MultiBlockQuote, Is.EqualTo(expectedResultForSubsequentBlocks)));
+			Assert.That(result, ForEvery<Block>(b => b.UserConfirmed, Is.True));
+			Assert.That(result, ForEvery<Block>(b => b.SplitId, Is.EqualTo(-1)));
 			Assert.That(result.Select(v => v.GetPrimaryReferenceText()),
 				Is.EqualTo(referenceBlocks.Select(r => r.GetText(true))));
 		}
@@ -177,13 +178,13 @@ namespace GlyssenEngineTests
 			Assert.That(referenceBlocks.Count, Is.EqualTo(3));
 			var result = vernBook.GetScriptBlocks();
 			Assert.That(result.Count, Is.EqualTo(3));
-			Assert.That(result.All(b => b.CharacterId == "Peter/James/John"), Is.True);
-			Assert.That(result.All(b => b.CharacterIdInScript == "John"), Is.True);
-			Assert.That(result.All(b => b.Delivery == "annoyed beyond belief"), Is.True);
+			Assert.That(result, ForEvery<Block>(b => b.CharacterId, Is.EqualTo("Peter/James/John")));
+			Assert.That(result, ForEvery<Block>(b => b.CharacterIdInScript, Is.EqualTo("John")));
+			Assert.That(result, ForEvery<Block>(b => b.Delivery, Is.EqualTo("annoyed beyond belief")));
 			Assert.That(result.First().MultiBlockQuote, Is.EqualTo(expectedResultForFirstBlock));
-			Assert.That(result.Skip(1).All(b => b.MultiBlockQuote == expectedResultForSubsequentBlocks), Is.True);
-			Assert.That(result.All(b => b.UserConfirmed), Is.True);
-			Assert.That(result.All(b => b.SplitId == -1), Is.True);
+			Assert.That(result.Skip(1), ForEvery<Block>(b => b.MultiBlockQuote, Is.EqualTo(expectedResultForSubsequentBlocks)));
+			Assert.That(result, ForEvery<Block>(b => b.UserConfirmed, Is.True));
+			Assert.That(result, ForEvery<Block>(b => b.SplitId, Is.EqualTo(-1)));
 			Assert.That(result.Select(v => v.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Select(r => r.GetText(true))), Is.True);
 		}
 
@@ -412,8 +413,8 @@ namespace GlyssenEngineTests
 				GetStandardCharacterId("MAT", StandardCharacter.Narrator)));
 			Assert.That(result[1].CharacterId, Is.EqualTo("Peter/James/John"));
 			Assert.That(result[1].CharacterIdInScript, Is.EqualTo("John"));
-			Assert.That(result.All(b => !b.UserConfirmed), Is.True);
-			Assert.That(result.All(b => b.SplitId == -1), Is.True);
+			Assert.That(result, ForEvery<Block>(b => b.UserConfirmed, Is.False));
+			Assert.That(result, ForEvery<Block>(b => b.SplitId, Is.EqualTo(-1)));
 			Assert.That(result.Select(v => v.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Select(r => r.GetText(true))), Is.True);
 		}
 
@@ -1041,7 +1042,7 @@ namespace GlyssenEngineTests
 			// Ensure all reference blocks are accounted for
 			Assert.That(string.Concat(result.SelectMany(v => v.ReferenceBlocks).Select(r => r.GetText(true))),
 				Is.EqualTo(string.Concat(referenceBlocks.Select(r => r.GetText(true)))));
-			Assert.That(result.Skip(1).All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(result.Skip(1), ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 		}
 
 		/// <summary>
@@ -1093,7 +1094,7 @@ namespace GlyssenEngineTests
 			Assert.That(result.Skip(1).SelectMany(v => v.ReferenceBlocks).Count(), Is.EqualTo(referenceBlocks.Count - 1));
 			Assert.That(result.Skip(1).SelectMany(v => v.ReferenceBlocks).Select(r => r.GetText(true))
 				.SequenceEqual(referenceBlocks.Skip(1).Select(r => r.GetText(true))), Is.True);
-			Assert.That(result.Skip(1).All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(result.Skip(1), ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 		}
 
 		[Test]
@@ -1222,7 +1223,7 @@ namespace GlyssenEngineTests
 			Assert.That(result[1].ReferenceBlocks.Count, Is.EqualTo(0));
 			Assert.That(result[2].ReferenceBlocks.Count, Is.EqualTo(0));
 			Assert.That(result[3].ReferenceBlocks.Count, Is.EqualTo(0));
-			Assert.That(result.Take(4).All(b => b.GetPrimaryReferenceText() == null), Is.True);
+			Assert.That(result.Take(4), ForEvery<Block>(b => b.GetPrimaryReferenceText(), Is.EqualTo(null)));
 
 			// Verse 2 (different character IDs but we match them anyway because it is the entirety of the verse)
 			Assert.That(result[4].ReferenceBlocks.Count, Is.EqualTo(1));
@@ -1279,7 +1280,7 @@ namespace GlyssenEngineTests
 
 			var result = vernBook.GetScriptBlocks();
 			Assert.That(result.Count, Is.EqualTo(vernacularBlocks.Count));
-			Assert.That(result.All(v => v.ReferenceBlocks.Any()));
+			Assert.That(result, No<Block>(v => v.ReferenceBlocks, Is.Empty));
 			var refBlocksConnectedToVernBlocks = result.SelectMany(v => v.ReferenceBlocks).ToList();
 			Assert.That(string.Concat(refBlocksConnectedToVernBlocks.Select(r => r.GetText(true))),
 				Is.EqualTo(string.Concat(referenceBlocks.Select(r => r.GetText(true)))));
@@ -1945,7 +1946,7 @@ namespace GlyssenEngineTests
 
 			var result = vernBook.GetScriptBlocks();
 			Assert.That(result.Count, Is.EqualTo(3));
-			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(result, ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 
 			Assert.That(result[1].ReferenceBlocks.Single().GetPrimaryReferenceText(), Is.EqualTo("Matthew 3"));
 		}
@@ -2118,7 +2119,7 @@ namespace GlyssenEngineTests
 
 			var result = vernBook.GetScriptBlocks();
 			Assert.That(result.Count, Is.EqualTo(7));
-			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(result, ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 
 			Assert.That(result[0].GetPrimaryReferenceText(), Is.EqualTo(referenceBlocks[0].GetText(true)));
 			Assert.That(result[1].GetPrimaryReferenceText(), Is.EqualTo("{2}\u00A0Then Jesus said:"));
@@ -2190,7 +2191,7 @@ namespace GlyssenEngineTests
 
 			var result = vernBook.GetScriptBlocks();
 			Assert.That(result.Count, Is.EqualTo(vernacularBlocks.Count));
-			Assert.That(vernacularBlocks.Take(9).All(b => b.MatchesReferenceText), Is.True); // This could be 10, but that's not the point of this test
+			Assert.That(vernacularBlocks.Take(9), ForEvery<Block>(b => b.MatchesReferenceText, Is.True)); // This could be 10, but that's not the point of this test
 
 			Assert.That(result[0].GetPrimaryReferenceText(), Does.StartWith("{23}\u00A0"));
 			Assert.That(result[0].ReferenceBlocks.Single().ChapterNumber, Is.EqualTo(14));
@@ -2339,7 +2340,7 @@ namespace GlyssenEngineTests
 			var result = vernBook.GetScriptBlocks();
 			Assert.That(result.Count, Is.EqualTo(2));
 
-			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(result, ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 			var russianRefTextBlock = result[0].ReferenceBlocks.Single();
 			Assert.That(((Verse)russianRefTextBlock.BlockElements.First()).StartVerse, Is.EqualTo(24));
 			var englishRefTextBlock = russianRefTextBlock.ReferenceBlocks.Single();
@@ -2527,8 +2528,8 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			Assert.That(vernBook.GetScriptBlocks()
-				.Where(b => !b.CharacterIs("JOB", StandardCharacter.ExtraBiblical))
-				.All(b => b.MatchesReferenceText));
+				.Where(b => !b.CharacterIs("JOB", StandardCharacter.ExtraBiblical)),
+				ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 		}
 		
 		// PG-1374
@@ -2583,8 +2584,8 @@ namespace GlyssenEngineTests
 			refText.ApplyTo(vernBook);
 
 			Assert.That(vernBook.GetScriptBlocks()
-				.Where(b => !b.CharacterIs("PSA", StandardCharacter.ExtraBiblical) && b.InitialStartVerseNumber != 1)
-				.All(b => b.MatchesReferenceText));
+				.Where(b => !b.CharacterIs("PSA", StandardCharacter.ExtraBiblical) && b.InitialStartVerseNumber != 1),
+				ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 		}
 		
 		// PG-1386
@@ -2819,7 +2820,8 @@ namespace GlyssenEngineTests
 			var result = refTextForJude.GetBooksWithBlocksConnectedToReferenceText(testProject, applyNarratorOverrides);
 			var resultBlocks = result.Single().GetScriptBlocks();
 			Assert.That(blocksBeforeCall.Select(b => b.GetText(true)).SequenceEqual(resultBlocks.Select(b => b.GetText(true))), Is.True);
-			Assert.That(resultBlocks.All(b => (b.ReferenceBlocks == null || !b.ReferenceBlocks.Any()) && !b.MatchesReferenceText), Is.True);
+			Assert.That(resultBlocks, ForEvery<Block>(b =>
+				(b.ReferenceBlocks == null || !b.ReferenceBlocks.Any()) && !b.MatchesReferenceText, Is.True));
 		}
 
 		[Test]
@@ -2915,7 +2917,7 @@ namespace GlyssenEngineTests
 			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject, false).Single().GetScriptBlocks();
 
 			Assert.That(result.Count, Is.EqualTo(6));
-			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(result, ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 
 			Assert.That(result[0].GetPrimaryReferenceText(), Is.EqualTo(referenceBlocks[0].GetText(true)));
 			Assert.That(result[1].GetPrimaryReferenceText(), Is.EqualTo("{2}\u00A0Then Jesus said:"));
@@ -3102,7 +3104,14 @@ namespace GlyssenEngineTests
 			// =============================================
 			var resultBlocksExcludingDirectSpeech = result.Where(b => b != theBlockSpokenByMike && b != theBlockSpokenByFred).ToList();
 
-			Assert.That(resultBlocksExcludingDirectSpeech.All(b => b.IsChapterAnnouncement ^ (b.CharacterId == psalms.NarratorCharacterId || b.CharacterId == "Mike/Fred")), Is.True);
+			Assert.That(resultBlocksExcludingDirectSpeech,
+				CustomConstraints.ForEvery<Block>(
+					b => b.IsChapterAnnouncement ^
+					     (b.CharacterId == psalms.NarratorCharacterId || b.CharacterId == "Mike/Fred"),
+					Is.True,
+					"All blocks that are not direct speech should be chapter announcements, " +
+					"narrator blocks or have the overridden CharacterId"
+				));
 
 			var narratorBlocks = resultBlocksExcludingDirectSpeech.Where(b => !b.IsChapterAnnouncement);
 
@@ -3146,7 +3155,7 @@ namespace GlyssenEngineTests
 			}
 			else
 			{
-				Assert.That(narratorBlocks.All(b => b.CharacterIdInScript == psalms.NarratorCharacterId), Is.True);
+				Assert.That(narratorBlocks, ForEvery<Block>(b => b.CharacterIdInScript, Is.EqualTo(psalms.NarratorCharacterId)));
 			}
 
 			// VERIFY BLOCK DETAILS (CH 71)
@@ -3445,8 +3454,14 @@ namespace GlyssenEngineTests
 			// =============================================
 			var resultBlocksExcludingDirectSpeech = result.Where(b => b != theBlockSpokenByMike && b != theBlockSpokenByFred).ToList();
 
-			Assert.That(resultBlocksExcludingDirectSpeech.All(b => b.IsChapterAnnouncement ^
-				(b.CharacterId == psalms.NarratorCharacterId || b.CharacterId == "Mike/Fred")));
+			Assert.That(resultBlocksExcludingDirectSpeech,
+				CustomConstraints.ForEvery<Block>(
+					b => b.IsChapterAnnouncement ^
+					     (b.CharacterId == psalms.NarratorCharacterId || b.CharacterId == "Mike/Fred"),
+					Is.True,
+					"All blocks that are not direct speech should be chapter announcements, " +
+					"narrator blocks or have the overridden CharacterId"
+				));
 
 			var narratorBlocks = resultBlocksExcludingDirectSpeech.Where(b => !b.IsChapterAnnouncement);
 
@@ -3487,7 +3502,7 @@ namespace GlyssenEngineTests
 			}
 			else
 			{
-				Assert.That(narratorBlocks.All(b => b.CharacterIdInScript == psalms.NarratorCharacterId), Is.True);
+				Assert.That(narratorBlocks, ForEvery<Block>(b => b.CharacterIdInScript, Is.EqualTo(psalms.NarratorCharacterId)));
 			}
 
 			// VERIFY BLOCK DETAILS (CH 71)
@@ -3728,7 +3743,7 @@ namespace GlyssenEngineTests
 
 			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject, false).Single().GetScriptBlocks();
 
-			Assert.That(result.Where(b => b.IsScripture).All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(result.Where(b => b.IsScripture), ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 		}
 
 		[Test]
@@ -3784,7 +3799,7 @@ namespace GlyssenEngineTests
 				var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject, false).Single().GetScriptBlocks();
 
 				Assert.That(result.Count, Is.EqualTo(6));
-				Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
+				Assert.That(result, ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 				Assert.That(result[4].ReferenceBlocks.Single().GetText(true), Is.EqualTo(expectedRefTextForVerse18Part1));
 				Assert.That(result[5].ReferenceBlocks.Single().GetText(true), Is.EqualTo(expectedRefTextForVerse18Part2));
 			}
@@ -3819,7 +3834,7 @@ namespace GlyssenEngineTests
 				var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject, false).Single().GetScriptBlocks();
 
 				Assert.That(result.Count, Is.EqualTo(5));
-				Assert.That(result.Take(3).All(b => b.MatchesReferenceText), Is.True);
+				Assert.That(result.Take(3), ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 				Assert.That(result[4].MatchesReferenceText, Is.False);
 				Assert.That(result[4].ReferenceBlocks.Count, Is.EqualTo(2));
 				Assert.That(result[4].ReferenceBlocks[0].GetText(true),
@@ -3861,7 +3876,7 @@ namespace GlyssenEngineTests
 				var result = testProject.Books[0].Blocks;
 
 				Assert.That(result.Count, Is.EqualTo(4));
-				Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
+				Assert.That(result, ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 				Assert.That(result[3].ReferenceBlocks.Single().GetText(true),
 					Is.EqualTo(expectedRefTextForVerse18Part1 + " " + expectedRefTextForVerse18Part2));
 			}
@@ -3915,7 +3930,7 @@ namespace GlyssenEngineTests
 			var result = matchup.CorrelatedBlocks;
 			Assert.That(result.Select(b => b.ToString()).SequenceEqual(vernacularBlocks.Select(b => b.ToString())), Is.True);
 			Assert.That(vernacularBlocks.Intersect(result).Count(), Is.EqualTo(0));
-			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(result, ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 		}
 
 		[TestCase(0)]
@@ -3984,7 +3999,7 @@ namespace GlyssenEngineTests
 			var result = matchup.CorrelatedBlocks;
 			Assert.That(result.Select(b => b.ToString()).SequenceEqual(vernacularBlocks.Skip(1).Take(4).Select(b => b.ToString())), Is.True);
 			Assert.That(vernacularBlocks.Intersect(result).Count(), Is.EqualTo(0));
-			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(result, ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 			Assert.That(referenceBlocks.Skip(1).Take(4).Select(r => r.GetText(true)).SequenceEqual(result.Select(v => v.GetPrimaryReferenceText())), Is.True);
 		}
 
@@ -4048,7 +4063,7 @@ namespace GlyssenEngineTests
 			var result = matchup.CorrelatedBlocks;
 			Assert.That(result.Select(b => b.ToString()).SequenceEqual(vernacularBlocks.Skip(1).Take(4).Select(b => b.ToString())), Is.True);
 			Assert.That(vernacularBlocks.Intersect(result).Count(), Is.EqualTo(0));
-			Assert.That(result.Take(3).All(b => b.MatchesReferenceText), Is.False);
+			Assert.That(result.Take(3), ForEvery<Block>(b => b.MatchesReferenceText, Is.False));
 			Assert.That(referenceBlocks.Skip(1).Take(3).Select(r => r.GetText(true)).SequenceEqual(result[0].ReferenceBlocks.Select(b => b.GetText(true))), Is.True);
 			Assert.That(result[3].MatchesReferenceText);
 		}
@@ -4086,7 +4101,7 @@ namespace GlyssenEngineTests
 			var result = matchup.CorrelatedBlocks;
 			Assert.That(result.Select(b => b.ToString()).SequenceEqual(vernacularBlocks.Skip(1).Take(4).Select(b => b.ToString())), Is.True);
 			Assert.That(vernacularBlocks.Intersect(result).Count(), Is.EqualTo(0));
-			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(result, ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 			Assert.That(referenceBlocks.Skip(1).Take(4).Select(r => r.GetText(true)).SequenceEqual(result.Select(v => v.GetPrimaryReferenceText())), Is.True);
 		}
 
@@ -4114,7 +4129,7 @@ namespace GlyssenEngineTests
 			var result = matchup.CorrelatedBlocks;
 			Assert.That(result.Count, Is.EqualTo(3));
 			Assert.That(vernacularBlocks.Intersect(result).Count(), Is.EqualTo(0));
-			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(result, ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 
 			Assert.That(result[0].GetText(true), Is.EqualTo("{1}\u00A0Partieron de alli para Jerico. "));
 			Assert.That(result[1].GetText(true), Is.EqualTo("{2}\u00A0Entonces dijo Jesus: "));
@@ -4691,7 +4706,7 @@ namespace GlyssenEngineTests
 			Assert.That(result.Count, Is.EqualTo(2));
 			Assert.That(vernacularBlocks.Select(b => b.GetText(true)).SequenceEqual(result.Select(b => b.GetText(true))), Is.True);
 			Assert.That(result.First().ReferenceBlocks.Single().GetText(true), Is.EqualTo(referenceBlocks[0].GetText(true)));
-			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(result, ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 			Assert.That(result.Last().ReferenceBlocks.Single().GetText(true), Is.EqualTo(referenceBlocks[1].GetText(true) + referenceBlocks[2].GetText(true)));
 		}
 		
@@ -4713,7 +4728,7 @@ namespace GlyssenEngineTests
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
 			var result = matchup.CorrelatedBlocks;
 			Assert.That(result.Count, Is.EqualTo(2));
-			Assert.That(result.All(b => b.MatchesReferenceText), Is.False);
+			Assert.That(result, ForEvery<Block>(b => b.MatchesReferenceText, Is.False));
 			var refTextVerses = result.SelectMany(b => b.ReferenceBlocks).SelectMany(r => r.BlockElements.OfType<Verse>()).ToList();
 			Assert.That(refTextVerses.Count, Is.EqualTo(2));
 			Assert.That(refTextVerses[0].StartVerse, Is.EqualTo(20));
@@ -4733,7 +4748,7 @@ namespace GlyssenEngineTests
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(mat, iMat21v33, new[] {"Jesús Judío-dummaganga sogdebalid:"});
 
 			// VERIFY
-			Assert.That(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(matchup.CorrelatedBlocks, ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 			var v33 = ((Verse)matchup.CorrelatedBlocks.First().BlockElements.First()).Number;
 			Assert.That(((Verse)matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().BlockElements.First()).Number,
 				Is.EqualTo(v33));
@@ -4751,7 +4766,7 @@ namespace GlyssenEngineTests
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, new[] {"Continuó:"});
 
 			// VERIFY
-			Assert.That(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(matchup.CorrelatedBlocks, ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 			Assert.That(((Verse)matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().BlockElements.First()).Number,
 				Is.EqualTo("5"));
 			Assert.That(matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().BlockElements.OfType<Verse>().Any(), Is.False);
@@ -4785,7 +4800,7 @@ namespace GlyssenEngineTests
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(mat, iMat8v7, new[] {", pregunto-sogde."});
 
 			// VERIFY
-			Assert.That(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(matchup.CorrelatedBlocks, ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 			Assert.That(matchup.CorrelatedBlocks.Last().ReferenceBlocks.Single().GetText(true),
 				Is.EqualTo(refText.HeSaidText));
 		}
@@ -4842,8 +4857,11 @@ namespace GlyssenEngineTests
 			var result = matchup.CorrelatedBlocks;
 
 			var scriptureBlocks = result.Where(b => b.CharacterId == "scripture").ToList();
-			Assert.That(scriptureBlocks.All(b => b.MatchesReferenceText &&
-				b.InitialStartVerseNumber == b.ReferenceBlocks.Single().InitialStartVerseNumber), Is.True);
+			Assert.That(scriptureBlocks, ForEvery<Block>(
+				(b => b.MatchesReferenceText, Is.True, nameof(Block.MatchesReferenceText)),
+				(b => b.InitialStartVerseNumber == b.ReferenceBlocks.Single().InitialStartVerseNumber, Is.True,
+					$"{nameof(Block.InitialStartVerseNumber)} == ReferenceBlocks.Single().InitialStartVerseNumber")));
+
 			Assert.That(((Verse)scriptureBlocks.Last().ReferenceBlocks.Single().BlockElements.First()).Number, Is.EqualTo("10"));
 		}
 
@@ -4883,7 +4901,7 @@ namespace GlyssenEngineTests
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, new []{"– лагьана ада.", "– лагьана Исади. –", "– минетдалди лагьана ада. –", "– жаваб гана абуру."});
 			var result = matchup.CorrelatedBlocks;
 			Assert.That(result.Count, Is.EqualTo(5));
-			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(result, ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 
 			var textOfMatchedRefTextBlocks = result.SelectMany(b => b.ReferenceBlocks).Select(r => r.GetText(true)).ToList();
 
@@ -4925,7 +4943,7 @@ namespace GlyssenEngineTests
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, new []{"– лагьана ада.", "– лагьана Исади. –", "– жаваб гана абуру."});
 			var result = matchup.CorrelatedBlocks;
 			Assert.That(result.Count, Is.EqualTo(4));
-			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(result, ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 
 			Assert.That(result[0].ReferenceBlocks.Single().GetText(true), Is.EqualTo(refTextBlocks[0].GetText(true)),
 				"Expected the first narrator block in the English reference text to be matched to the first block of matchup for Luke 7:40.");
@@ -4969,7 +4987,7 @@ namespace GlyssenEngineTests
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, new []{"– лагьана ада.", "– лагьана Исади. –", "– жаваб гана абуру."});
 			var result = matchup.CorrelatedBlocks;
 			Assert.That(result.Count, Is.EqualTo(2));
-			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(result, ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 			var firstMatchedRefBlock = result[0].ReferenceBlocks.Single();
 			Assert.That(firstMatchedRefBlock.StartsAtVerseStart, Is.True,
 				"Expected the matched reference text of the first block to start with v 18.");
@@ -5009,7 +5027,7 @@ namespace GlyssenEngineTests
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, new []{"– лагьана ада.", "– лагьана Исади. –", "– жаваб гана абуру."});
 			var result = matchup.CorrelatedBlocks;
 			Assert.That(result.Count, Is.EqualTo(2));
-			Assert.That(result.All(b => b.MatchesReferenceText), Is.True);
+			Assert.That(result, ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 			var firstMatchedRefBlock = result[0].ReferenceBlocks.Single();
 			Assert.That(firstMatchedRefBlock.StartsAtVerseStart, Is.True,
 				"Expected the matched reference text of the first block to start with v 19.");
@@ -5311,7 +5329,7 @@ namespace GlyssenEngineTests
 
 			if (refText.HasSecondaryReferenceText)
 			{
-				Assert.That(allReferenceBlocks.All(b => b.MatchesReferenceText), Is.True);
+				Assert.That(allReferenceBlocks, ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 				var englishRefBlocks = allReferenceBlocks.Select(b => b.ReferenceBlocks.Single()).ToList();
 
 				Assert.That(englishRefBlocks.Distinct(blockComparer).Count(), Is.EqualTo(5),
@@ -5377,7 +5395,7 @@ namespace GlyssenEngineTests
 
 			if (refText.HasSecondaryReferenceText)
 			{
-				Assert.That(allReferenceBlocks.All(b => b.MatchesReferenceText));
+				Assert.That(allReferenceBlocks, ForEvery<Block>(b => b.MatchesReferenceText, Is.True));
 				Assert.That(((Verse)allReferenceBlocks.Select(b => b.ReferenceBlocks.Single()).First().BlockElements.First()).Number, Is.EqualTo("20"));
 			}
 		}
@@ -5603,7 +5621,7 @@ namespace GlyssenEngineTests
 				foreach (var rb in refTextMat.GetBlocksForVerse(15, v))
 				{
 					var text = rb.GetText(false);
-					Assert.That(refBlocksAttachedToVern.Any(t => t.Contains(text)), Is.True,
+					Assert.That(refBlocksAttachedToVern.Where(t => t.Contains(text)), Is.Not.Empty,
 						$"Reference text from verse {v} is missing: {text}");
 				}
 			}
@@ -5671,7 +5689,8 @@ namespace GlyssenEngineTests
 			Assert.That(result[3].MatchesReferenceText, Is.False);
 			Assert.That(result[4].MatchesReferenceText);
 			Assert.That(result[5].MatchesReferenceText);
-			Assert.That(result.All(b => b.ReferenceBlocks.All(ind => ind.MatchesReferenceText)), Is.True);
+			Assert.That(result, ForEvery<Block>(b =>
+				b.ReferenceBlocks.All(ind => ind.MatchesReferenceText), Is.True));
 		}
 		#endregion
 
@@ -5708,7 +5727,7 @@ namespace GlyssenEngineTests
 			Assert.That(!result[1].MatchesReferenceText || !result[2].MatchesReferenceText);
 			Assert.That(result.Skip(1).SelectMany(s => s.ReferenceBlocks).Single().GetText(true),
 				Is.EqualTo(referenceBlocks.Last().GetText(true)));
-			Assert.That(result.All(b => b.ReferenceBlocks.All(ind => ind.MatchesReferenceText)));
+			Assert.That(result, ForEvery<Block>(b => b.ReferenceBlocks.All(ind => ind.MatchesReferenceText), Is.True));
 		}
 
 		[TestCase()]

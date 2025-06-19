@@ -16,6 +16,7 @@ using System.Xml;
 using GlyssenCharacters;
 using static GlyssenCharacters.CharacterVerseData;
 using Resources = GlyssenCharactersTests.Properties.Resources;
+using static GlyssenSharedTests.CustomConstraints;
 
 namespace GlyssenEngineTests
 {
@@ -165,9 +166,9 @@ namespace GlyssenEngineTests
 			Assert.That(blocks.Count, Is.EqualTo(3));
 			Assert.That(blocks[2].GetText(true), Is.EqualTo(
 				"{10}\u00A0A zʋlʋ pɔlɛ 'kʋ ɩya. N solu 'nylugo ‑laagɔɔn na, ‑deliin" + v10Ending +
-                "{12}\u00A0'Nsasa a 'lɛ wɔlɩ ‑naa bha? Gbazɩ nclɔɔ ‑ka 'nyɩ ‑ka mlɔ na, 'ɔ cɩ " +
-                "'ta 'ka ‑ɛ mlɔ 'lɛ na, mʋ bha? " +
-                "{13}\u00A0N solu anyɩ ɩ ‑glɩ ‑nʋawlɛ."));
+				"{12}\u00A0'Nsasa a 'lɛ wɔlɩ ‑naa bha? Gbazɩ nclɔɔ ‑ka 'nyɩ ‑ka mlɔ na, 'ɔ cɩ " +
+				"'ta 'ka ‑ɛ mlɔ 'lɛ na, mʋ bha? " +
+				"{13}\u00A0N solu anyɩ ɩ ‑glɩ ‑nʋawlɛ."));
 			Assert.That(blocks[2].StartsAtVerseStart, Is.True);
 			Assert.That(blocks[2].InitialStartVerseNumber, Is.EqualTo(10));
 		}
@@ -514,8 +515,8 @@ namespace GlyssenEngineTests
 			Assert.That(lastBlock.GetText(true), Is.EqualTo(
 				"{23}\u00A0Mbolimo i Pue Ala Papa, pai i Yesu Kerisitu da mawai jaya ri pura - " +
 				"pura anggota dompu kasamba'a-mba'a pai pombepotowe pai todo ri peaya ri Kerisitu. " +
-			    "{24}\u00A0Mbolimo i Pue Ala da madonco komi pura - pura anu mampotowe Pueta i " +
-			    "Yesu Kerisitu pai towe ndaya anu bare'e da re'e kabalinya."));
+				"{24}\u00A0Mbolimo i Pue Ala da madonco komi pura - pura anu mampotowe Pueta i " +
+				"Yesu Kerisitu pai towe ndaya anu bare'e da re'e kabalinya."));
 			Assert.That(blocks.Any(b => b.GetText(false).Contains(@"Petubunaka")), Is.False);
 		}
 
@@ -578,11 +579,13 @@ namespace GlyssenEngineTests
 			var blocks = parser.Parse().ToList();
 			Assert.That(blocks.Count, Is.EqualTo(7),
 				"Should have a chapter block, 4 \"scripture\" blocks, and one regular \\q block.");
-			Assert.That(blocks.Skip(1).Take(4).All(b => b.CharacterId == "scripture"), Is.True);
+			Assert.That(blocks.Skip(1).Take(4), ForEvery<Block>(b => b.CharacterId,
+				Is.EqualTo("scripture")));
 			Assert.That(blocks[5].GetText(true), Does.StartWith(@"Emanuweli."),
 				"Period should get pulled into the \"scripture\" block with \"Emanuweli.\" " +
 				"We probably don't really care if the trailing space is retained or not.");
-			Assert.That(blocks.Last().GetText(true), Is.EqualTo(@"Kire wi jo “Kulocelie ye ne we ni.” " +
+			Assert.That(blocks.Last().GetText(true), Is.EqualTo(
+				"Kire wi jo “Kulocelie ye ne we ni.” " +
 				"{24}\u00A0Ba Yusufu wi keni ye ngonimo ne be."));
 		}
 
@@ -1007,7 +1010,7 @@ namespace GlyssenEngineTests
 			Assert.That(blocks[i].IsPredeterminedFirstLevelQuoteStart);
 			Assert.That(blocks[i].GetText(true), Is.EqualTo(
 				"“Which is right in God’s eyes: to listen to you, or to him? You be the judges! " +
-			    "{20}\u00A0As for us, we cannot help speaking about what we have seen and heard.”"));
+				"{20}\u00A0As for us, we cannot help speaking about what we have seen and heard.”"));
 			VerifyQuoteEnd(blocks[i]);
 			Assert.That(blocks[i].CharacterId, Is.EqualTo("Peter (Simon)/John"));
 			Assert.That(blocks[i].CharacterIdInScript, Is.EqualTo("Peter (Simon)"));
@@ -1302,7 +1305,7 @@ namespace GlyssenEngineTests
 			Assert.That(blocks[i].IsPredeterminedFirstLevelQuoteStart);
 			Assert.That(blocks[i].GetText(true), Is.EqualTo(
 				"You must go to everyone I send you to and say whatever I command you. " +
-			    "{8}\u00A0Do not be afraid of them, for I am with you and will rescue you,” "));
+				"{8}\u00A0Do not be afraid of them, for I am with you and will rescue you,” "));
 			VerifyQuoteEnd(blocks[i], qtId1);
 			Assert.That(blocks[i].BlockElements.Count, Is.EqualTo(4));
 
@@ -1485,13 +1488,13 @@ namespace GlyssenEngineTests
 			{
 				Assert.That(blocks[i].GetText(true, true), Is.EqualTo(
 					"“A vast army is coming against you from Edom, from the other " +
-				    "side of the Dead Sea. They have already reached Hazezon Tamar "));
+					"side of the Dead Sea. They have already reached Hazezon Tamar "));
 			}
 			else
 			{
 				Assert.That(blocks[i].GetText(true), Is.EqualTo(
 					"“A vast army is coming against you from Edom, from the other " +
-				    "side of the Dead Sea. They have already reached Hazezon Tamar "));
+					"side of the Dead Sea. They have already reached Hazezon Tamar "));
 				var quoteIdAnnotation = (QuoteId)blocks[i].BlockElements.First();
 				Assert.That(quoteIdAnnotation.Id, Is.EqualTo(qtMenId));
 				Assert.That(quoteIdAnnotation.Start, Is.True);
@@ -1584,7 +1587,7 @@ namespace GlyssenEngineTests
 			Assert.That(blocks[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(blocks[i].GetText(true, true), Is.EqualTo(
 				"{2}\u00A0Some people came and told Jehoshaphat, “A vast army is coming" +
-			    @" against you from Edom, from the other side of the Dead Sea. Hazezon Tamar "));
+				@" against you from Edom, from the other side of the Dead Sea. Hazezon Tamar "));
 			Assert.That(blocks[i].CharacterId, Is.Null);
 
 			Assert.That(blocks[++i].InitialStartVerseNumber, Is.EqualTo(2));
@@ -1610,7 +1613,7 @@ namespace GlyssenEngineTests
 			Assert.That(blocks[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 			Assert.That(blocks[i].GetText(true, true), Is.EqualTo(
 				"is where they are currently camped.” {3}\u00A0Alarmed, Jehoshaphat " +
-			    "resolved to inquire of the Lord, and he proclaimed a fast for all Judah. "));
+				"resolved to inquire of the Lord, and he proclaimed a fast for all Judah. "));
 			Assert.That(blocks[i].CharacterId, Is.Null);
 
 			Assert.That(++i, Is.EqualTo(blocks.Count));
@@ -1795,7 +1798,7 @@ namespace GlyssenEngineTests
 			Assert.That(blocks[i].GetText(true, true), Is.EqualTo(
 				"{22}\u00A0All this took place to fulfill what the Lord had said through the " +
 				"prophet: " +
-			    "{23}\u00A0“The virgin will conceive and give birth to a son, and Immanuel "));
+				"{23}\u00A0“The virgin will conceive and give birth to a son, and Immanuel "));
 			Assert.That(blocks[i].CharacterId, Is.Null);
 			
 			Assert.That(blocks[++i].InitialStartVerseNumber, Is.EqualTo(23));
@@ -1939,7 +1942,7 @@ namespace GlyssenEngineTests
 			{
 				Assert.That(blocks[i].GetText(true), Is.EqualTo(
 					"“A vast army is coming against you from Edom, from the other side of " +
-				    "the Dead Sea. They have already reached Hazezon Tamar "));
+					"the Dead Sea. They have already reached Hazezon Tamar "));
 				var quoteIdAnnotation = (QuoteId)blocks[i].BlockElements.First();
 				Assert.That(quoteIdAnnotation.Id, Is.EqualTo(qtMenId));
 				Assert.That(quoteIdAnnotation.Start, Is.True);
@@ -2211,7 +2214,7 @@ namespace GlyssenEngineTests
 			Assert.That(blocks[i].StyleTag, Is.EqualTo("p"));
 			Assert.That(blocks[i].GetText(true), Is.EqualTo(
 				"{2}\u00A0So when you give to the poor, do not make a big deal of it. " +
-			    "{3}\u00A0Do not even let your one hand know what the other is doing."));
+				"{3}\u00A0Do not even let your one hand know what the other is doing."));
 			Assert.That(blocks[i].CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(blocks[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Continuation));
 			
@@ -2221,7 +2224,7 @@ namespace GlyssenEngineTests
 			Assert.That(blocks[i].StyleTag, Is.EqualTo("p"));
 			Assert.That(blocks[i].GetText(true), Is.EqualTo(
 				"{34}\u00A0So do not worry about tomorrow; it will worry about itself. " +
-			    "Each day is enough of a problem."));
+				"Each day is enough of a problem."));
 			Assert.That(blocks[i].CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(blocks[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Continuation));
 
@@ -2289,7 +2292,7 @@ namespace GlyssenEngineTests
 			Assert.That(blocks[i].IsPredeterminedFirstLevelQuoteStart);
 			Assert.That(blocks[i].GetText(true, true), Is.EqualTo(
 				"“Sir, if You would, you can cleanse me.” " +
-			    "{3}\u00A0Jesus reached out with His hand and touched him, saying, "));
+				"{3}\u00A0Jesus reached out with His hand and touched him, saying, "));
 			Assert.That(blocks[i].CharacterId, Is.EqualTo(kNeedsReview));
 			Assert.That(blocks[i].CharacterIdInScript, Is.EqualTo("leper"));
 			Assert.That(blocks[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
@@ -3207,9 +3210,9 @@ namespace GlyssenEngineTests
 			// World English Bible, MAT 5:27, PG-593
 			var doc = UsxDocumentTests.CreateMarkOneDoc(
 				"  <para style=\"p\">\r\n" +
-				"    <verse number=\"27\" style=\"v\" />\r\n" +
-				"    <char style=\"wj\">“You have heard that it was said, </char>\r\n" +
-				"    <note caller=\"+\" style=\"f\">TR adds “to the ancients”.</note> " +
+				"	<verse number=\"27\" style=\"v\" />\r\n" +
+				"	<char style=\"wj\">“You have heard that it was said, </char>\r\n" +
+				"	<note caller=\"+\" style=\"f\">TR adds “to the ancients”.</note> " +
 				"<char style=\"wj\">‘You shall not commit adultery;’</char><note caller=\"+\" " +
 				"style=\"x\">Exodus 20:14</note> <verse number=\"28\" style=\"v\" />" +
 				"<char style=\"wj\">but I tell you that everyone who gazes at a woman to lust " +
@@ -3261,9 +3264,9 @@ namespace GlyssenEngineTests
 		{
 			// World English Bible, LUK 17:36
 			const string data = "  <para style=\"p\">\r\n" +
-				"    <verse number=\"35\" style=\"v\" /><char style=\"wj\">There will be two grinding grain together. One will be taken and the other will be left.”</char> <verse number=\"36\" style=\"v\" /><note caller=\"+\" style=\"f\">Some Greek manuscripts add: “Two will be in the field: the one taken, and the other left.”</note></para>\r\n" +
+				"	<verse number=\"35\" style=\"v\" /><char style=\"wj\">There will be two grinding grain together. One will be taken and the other will be left.”</char> <verse number=\"36\" style=\"v\" /><note caller=\"+\" style=\"f\">Some Greek manuscripts add: “Two will be in the field: the one taken, and the other left.”</note></para>\r\n" +
 				"  <para style=\"p\">\r\n" +
-				"    <verse number=\"37\" style=\"v\" />They, answering, asked him, “Where, Lord?”</para>";
+				"	<verse number=\"37\" style=\"v\" />They, answering, asked him, “Where, Lord?”</para>";
 
 			var blocks = ParseLuke17Data(data);
 			Assert.That(blocks.Count, Is.EqualTo(3));
@@ -3278,9 +3281,9 @@ namespace GlyssenEngineTests
 		public void Parse_VerseElementWithEid_EndVerseElementIgnored()
 		{
 			var data = "  <para style=\"p\">\r\n" +
-				"    <verse number=\"35\" style=\"v\" sid=\"LUK 17:35\" />There will be two grinding grain together. One will be taken and the other will be left. <verse eid=\"LUK 17:35\" /><verse number=\"36\" style=\"v\" sid=\"LUK 17:36\" />Two will be in the field: the one taken, and the other left, Jesus concluded.<verse eid=\"LUK 17:36\" /></para>\r\n" +
+				"	<verse number=\"35\" style=\"v\" sid=\"LUK 17:35\" />There will be two grinding grain together. One will be taken and the other will be left. <verse eid=\"LUK 17:35\" /><verse number=\"36\" style=\"v\" sid=\"LUK 17:36\" />Two will be in the field: the one taken, and the other left, Jesus concluded.<verse eid=\"LUK 17:36\" /></para>\r\n" +
 				"  <para style=\"p\">\r\n" +
-				"    <verse number=\"37\" style=\"v\" sid=\"LUK 17:37\" />They, answering, asked him, “Where, Lord?”</para>";
+				"	<verse number=\"37\" style=\"v\" sid=\"LUK 17:37\" />They, answering, asked him, “Where, Lord?”</para>";
 
 			var blocks = ParseLuke17Data(data);
 			Assert.That(blocks.Count, Is.EqualTo(3));
@@ -3317,8 +3320,8 @@ namespace GlyssenEngineTests
 			Assert.That(blocks[1].BlockElements.Count, Is.EqualTo(6));
 			Assert.That(blocks[1].GetText(true), Is.EqualTo(
 				"{23}\u00A0Yesu pǝlǝa arǝ Bitǝrus sǝ ne wi ama, Nyaram anggo, Shetan! " +
-			    "{24}\u00A0Ɓwa mǝnana kat earce ama nǝ̀ yiu atam nǝ̀ duk mǝkpatam ngga. " +
-			    "{25}\u00A0Ɓwa mana kat kǝ sǝni nǝ̀ amsǝ yilǝmi ka nǝ̀ ngga ɗwanyi banì."));
+				"{24}\u00A0Ɓwa mǝnana kat earce ama nǝ̀ yiu atam nǝ̀ duk mǝkpatam ngga. " +
+				"{25}\u00A0Ɓwa mana kat kǝ sǝni nǝ̀ amsǝ yilǝmi ka nǝ̀ ngga ɗwanyi banì."));
 		}
 
 		#region PG-1272 Tests
@@ -3344,8 +3347,8 @@ namespace GlyssenEngineTests
 			Assert.That(blocks[2].BlockElements.Count, Is.EqualTo(5));
 			Assert.That(blocks[2].GetText(true), Is.EqualTo(
 				"Nyaram anggo, Shetan! " +
-			    "{24}\u00A0Ɓwa mǝnana kat earce ama nǝ̀ yiu atam nǝ̀ duk mǝkpatam ngga. " +
-			    "{25}\u00A0Ɓwa mana kat kǝ sǝni nǝ̀ amsǝ yilǝmi ka nǝ̀ ngga ɗwanyi banì."));
+				"{24}\u00A0Ɓwa mǝnana kat earce ama nǝ̀ yiu atam nǝ̀ duk mǝkpatam ngga. " +
+				"{25}\u00A0Ɓwa mana kat kǝ sǝni nǝ̀ amsǝ yilǝmi ka nǝ̀ ngga ɗwanyi banì."));
 		}
 
 		// Note: Although it might feel like the USX should logically have the trailing space after a run of "wj" characters
@@ -3359,9 +3362,9 @@ namespace GlyssenEngineTests
 		public void Parse_WordsOfJesus_BreakIntoSeparateBlockAssignedToJesus(string trailingSpaceInsideChar, string trailingSpaceOutsideChar)
 		{
 			var data = "  <para style=\"p\">\r\n" +
-				$"    <verse number=\"35\" style=\"v\" /><char style=\"wj\">There will be two grinding grain together. One will be taken and the other will be left.{trailingSpaceInsideChar}</char>{trailingSpaceOutsideChar}<verse number=\"36\" style=\"v\" sid=\"LUK 17:36\" /><char style=\"wj\">Two will be in the field: the one taken, and the other left,{trailingSpaceInsideChar}</char>{trailingSpaceOutsideChar}Jesus concluded.</para>\r\n" +
+				$"	<verse number=\"35\" style=\"v\" /><char style=\"wj\">There will be two grinding grain together. One will be taken and the other will be left.{trailingSpaceInsideChar}</char>{trailingSpaceOutsideChar}<verse number=\"36\" style=\"v\" sid=\"LUK 17:36\" /><char style=\"wj\">Two will be in the field: the one taken, and the other left,{trailingSpaceInsideChar}</char>{trailingSpaceOutsideChar}Jesus concluded.</para>\r\n" +
 				"  <para style=\"p\">\r\n" +
-				"    <verse number=\"37\" style=\"v\" />They, answering, asked him, “Where, Lord?”</para>";
+				"	<verse number=\"37\" style=\"v\" />They, answering, asked him, “Where, Lord?”</para>";
 
 			var blocks = ParseLuke17Data(data);
 			Assert.That(blocks.Count, Is.EqualTo(4));
@@ -3388,9 +3391,9 @@ namespace GlyssenEngineTests
 		{
 			var doc = UsxDocumentTests.CreateMarkOneDoc(
 				"  <para style=\"p\">\r\n" +
-				"    <verse number=\"7\" style=\"v\" />And he preached: <char style=\"wj\">Someone is coming who is > I, the thong of whose sandals I am unworthy to untie.</char></para>\r\n" +
+				"	<verse number=\"7\" style=\"v\" />And he preached: <char style=\"wj\">Someone is coming who is > I, the thong of whose sandals I am unworthy to untie.</char></para>\r\n" +
 				"  <para style=\"p\">\r\n" +
-				"    <verse number=\"8\" style=\"v\" /><char style=\"wj\">I immerse you in H2O, but he will plunge you into life with God's 'Holy Spirit.</char></para>");
+				"	<verse number=\"8\" style=\"v\" /><char style=\"wj\">I immerse you in H2O, but he will plunge you into life with God's 'Holy Spirit.</char></para>");
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.That(blocks.Count, Is.EqualTo(4));
@@ -3446,9 +3449,9 @@ namespace GlyssenEngineTests
 		{
 			var doc = UsxDocumentTests.CreateMarkOneDoc(
 				"  <para style=\"p\">\r\n" +
-				"    <verse number=\"36\" style=\"v\" /><note caller=\"+\" style=\"f\">Some Greek manuscripts add: “Two will be in the field: the one taken, and the other left.”</note></para>\r\n" +
+				"	<verse number=\"36\" style=\"v\" /><note caller=\"+\" style=\"f\">Some Greek manuscripts add: “Two will be in the field: the one taken, and the other left.”</note></para>\r\n" +
 				"  <para style=\"p\">\r\n" +
-				"    <verse number=\"37\" style=\"v\" />They, answering, asked him, “Where, Lord?”</para>");
+				"	<verse number=\"37\" style=\"v\" />They, answering, asked him, “Where, Lord?”</para>");
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.That(blocks.Count, Is.EqualTo(2));
@@ -3462,7 +3465,7 @@ namespace GlyssenEngineTests
 			// World English Bible, LUK 17:36, PG-594
 			var doc = UsxDocumentTests.CreateMarkOneDoc(
 				"  <para style=\"p\">\r\n" +
-				"    <verse number=\"35\" style=\"v\" /><char style=\"wj\">There will be two grinding grain together. One will be taken and the other will be left.”</char> <verse number=\"36\" style=\"v\" /><note caller=\"+\" style=\"f\">Some Greek manuscripts add: “Two will be in the field: the one taken, and the other left.”</note> <verse number=\"37\" style=\"v\" />They, answering, asked him, “Where, Lord?”</para>");
+				"	<verse number=\"35\" style=\"v\" /><char style=\"wj\">There will be two grinding grain together. One will be taken and the other will be left.”</char> <verse number=\"36\" style=\"v\" /><note caller=\"+\" style=\"f\">Some Greek manuscripts add: “Two will be in the field: the one taken, and the other left.”</note> <verse number=\"37\" style=\"v\" />They, answering, asked him, “Where, Lord?”</para>");
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.That(blocks.Count, Is.EqualTo(3));

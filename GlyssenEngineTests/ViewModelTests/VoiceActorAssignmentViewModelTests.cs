@@ -12,6 +12,7 @@ using NUnit.Framework;
 using SIL.Extensions;
 using CharacterIdHashSet = GlyssenEngine.Character.CharacterIdHashSet;
 using Resources = GlyssenCharactersTests.Properties.Resources;
+using static GlyssenSharedTests.CustomConstraints;
 
 namespace GlyssenEngineTests.ViewModelTests
 {
@@ -390,7 +391,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(actorA, Is.EqualTo(actorList[0].Item1));
 			Assert.That(actorB, Is.EqualTo(actorList[1].Item1));
 			Assert.That(actorC, Is.EqualTo(actorList[2].Item1));
-			Assert.That(actorList.Select(a => a.Item2).All(available => available), Is.True);
+			Assert.That(actorList, ForEvery<Tuple<VoiceActor, bool>>(a => a.Item2, Is.True, "available"));
 		}
 
 		[Test]
@@ -603,7 +604,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var group3 = AddNewGroup("children");
 			var newActor1 = m_model.AddNewActorToGroup("Friedrich", group1);
 			var newActor2 = m_model.AddNewActorToGroup("Wallace", group2);
-			var newActor3 = m_model.AddNewActorToGroup("Grommit", group3);
+			var newActor3 = m_model.AddNewActorToGroup("Gromit", group3);
 			Assert.That(newActor1.Name, Is.EqualTo("Friedrich"));
 			Assert.That(newActor1.Id, Is.EqualTo(0));
 			Assert.That(m_testProject.VoiceActorList.ActiveActors.Contains(newActor1));
@@ -616,7 +617,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(newActor2, Is.EqualTo(group2.VoiceActor));
 			Assert.That(newActor2.Gender, Is.EqualTo(ActorGender.Female));
 			Assert.That(newActor2.Age, Is.EqualTo(ActorAge.Adult));
-			Assert.That(newActor3.Name, Is.EqualTo("Grommit"));
+			Assert.That(newActor3.Name, Is.EqualTo("Gromit"));
 			Assert.That(newActor3.Id, Is.EqualTo(2));
 			Assert.That(m_testProject.VoiceActorList.ActiveActors.Contains(newActor3));
 			Assert.That(newActor3, Is.EqualTo(group3.VoiceActor));

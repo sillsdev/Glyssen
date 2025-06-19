@@ -20,8 +20,10 @@ using NUnit.Framework;
 using SIL.Extensions;
 using SIL.Reflection;
 using static System.IO.Path;
+using static System.String;
 using static GlyssenEngine.Bundle.ExtraBiblicalMaterialSpeakerOption;
 using static GlyssenEngine.Export.ProjectExporter;
+using static GlyssenSharedTests.CustomConstraints;
 
 namespace GlyssenEngineTests.Export
 {
@@ -50,7 +52,7 @@ namespace GlyssenEngineTests.Export
 			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
-			Assert.That(data.All(t => t.VoiceActor == null), Is.True);
+			Assert.That(data, ForEvery<ExportBlock>(b => b.VoiceActor, Is.Null));
 		}
 
 		[Test]
@@ -79,8 +81,11 @@ namespace GlyssenEngineTests.Export
 			var rowsForCharacterNotAssignedToActor = data.Where(d => d.CharacterId != characterIdAssignedToGroup1).ToList();
 			Assert.That(rowsForCharacterAssignedToActor.Any(), Is.True);
 			Assert.That(rowsForCharacterNotAssignedToActor.Any(), Is.True);
-			Assert.That(rowsForCharacterAssignedToActor.All(t => t.VoiceActor == "Ralphy"), Is.True);
-			Assert.That(rowsForCharacterNotAssignedToActor.All(t => String.IsNullOrEmpty(t.VoiceActor)), Is.True);
+			
+			Assert.That(rowsForCharacterAssignedToActor,
+				ForEvery<ExportBlock>(t => t.VoiceActor, Is.EqualTo("Ralphy")));
+			Assert.That(rowsForCharacterNotAssignedToActor,
+				ForEvery<ExportBlock>(t => t.VoiceActor, Is.Null.Or.Empty));
 		}
 
 		[Test]
@@ -235,7 +240,7 @@ namespace GlyssenEngineTests.Export
 				var block = data[index];
 				Assert.That(++prevNumber, Is.EqualTo(block.Number));
 			}
-			Assert.That(data.All(t => t.BookId == "2JN"), Is.True);
+			Assert.That(data, ForEvery<ExportBlock>(t => t.BookId, Is.EqualTo("2JN")));
 		}
 
 		[Test]
@@ -353,7 +358,10 @@ namespace GlyssenEngineTests.Export
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData().ToList();
 
-			Assert.That(data.All(d => d.BookId == "JUD" && d.ChapterNumber == 1), Is.True);
+			Assert.That(data, ForEvery<ExportBlock>(
+				(b => b.BookId, Is.EqualTo("JUD"), nameof(ExportBlock.BookId)),
+				(b => b.ChapterNumber, Is.EqualTo(1), nameof(ExportBlock.ChapterNumber))));
+			
 			var i = 0;
 			var row = data[i++];
 			Assert.That(row.Number, Is.EqualTo(i)); // Row 1
@@ -499,7 +507,10 @@ namespace GlyssenEngineTests.Export
 
 			var narratorInOutput = CharacterVerseData.GetCharacterNameForUi(narrator);
 
-			Assert.That(data.All(d => d.BookId == "MRK" && d.ChapterNumber == 4), Is.True);
+			Assert.That(data, ForEvery<ExportBlock>(
+				(b => b.BookId, Is.EqualTo("MRK"), nameof(ExportBlock.BookId)),
+				(b => b.ChapterNumber, Is.EqualTo(4), nameof(ExportBlock.ChapterNumber))));
+			
 			var i = 0;
 			var row = data[i];
 			Assert.That(row.VerseNumber, Is.EqualTo(39));
@@ -640,7 +651,7 @@ namespace GlyssenEngineTests.Export
 			var annotationRowForJude25 = rowsForJude25[1];
 			Assert.That(rowForJude25.AdditionalReferenceText, Does.Not.Contain("|||"));
 			Assert.That(annotationRowForJude25.AdditionalReferenceText.Equals(annotationRowForJude25.EnglishReferenceText) &&
-				annotationRowForJude25.AdditionalReferenceText.Equals(string.Format(Pause.kPauseSecondsFormat, "5")), Is.True);
+				annotationRowForJude25.AdditionalReferenceText.Equals(Format(Pause.kPauseSecondsFormat, "5")), Is.True);
 
 			//Pause for non-final verse in book (pauses come after verse text)
 			var rowsForRev1V3 = data.Where(d => d.BookId == "REV" && d.ChapterNumber == 1 && d.VerseNumber == 3).ToList();
@@ -650,7 +661,7 @@ namespace GlyssenEngineTests.Export
 			var sectionHeadRowForRev1V3 = rowsForRev1V3[2];
 			Assert.That(rowForRev1V3.AdditionalReferenceText, Does.Not.Contain("|||"));
 			Assert.That(annotationRowForRev1V3.AdditionalReferenceText.Equals(annotationRowForRev1V3.EnglishReferenceText) &&
-				annotationRowForRev1V3.AdditionalReferenceText.Equals(string.Format(Pause.kPauseSecondsFormat, "2")), Is.True);
+				annotationRowForRev1V3.AdditionalReferenceText.Equals(Format(Pause.kPauseSecondsFormat, "2")), Is.True);
 			Assert.That(sectionHeadRowForRev1V3.CharacterId,
 				Is.EqualTo(CharacterVerseData.GetStandardCharacterNameForUi(CharacterVerseData.StandardCharacter.ExtraBiblical, "REV")));
 
@@ -661,7 +672,7 @@ namespace GlyssenEngineTests.Export
 			var annotationRowForRev1V20 = rowsForRev1V20[1];
 			Assert.That(rowForRev1V20.AdditionalReferenceText, Does.Not.Contain("|||"));
 			Assert.That(annotationRowForRev1V20.AdditionalReferenceText.Equals(annotationRowForRev1V20.EnglishReferenceText) &&
-				annotationRowForRev1V20.AdditionalReferenceText.Equals(string.Format(Pause.kPauseSecondsFormat, "2")), Is.True);
+				annotationRowForRev1V20.AdditionalReferenceText.Equals(Format(Pause.kPauseSecondsFormat, "2")), Is.True);
 		}
 
 		[TestCase(ExportFileType.Excel)]
@@ -688,7 +699,7 @@ namespace GlyssenEngineTests.Export
 				"yam guto kiryo. "));
 
 			//Pause for final verse in book (pauses come after verse text)
-			var annotationForEndOfBook = " " + string.Format(Pause.kPauseSecondsFormat, "5");
+			var annotationForEndOfBook = " " + Format(Pause.kPauseSecondsFormat, "5");
 			var rowsForJude25 = data.Where(d => d.BookId == "JUD" && d.ChapterNumber == 1 && d.VerseNumber == 25).ToList();
 			var rowForJude25 = rowsForJude25.Single();
 			
@@ -703,7 +714,7 @@ namespace GlyssenEngineTests.Export
 			Assert.That(rowsForRev1V3.Count, Is.EqualTo(2));
 			var rowForRev1V3 = rowsForRev1V3[0];
 			var sectionHeadRowForRev1V3 = rowsForRev1V3[1];
-			var annotationForTwoSecondPause = " " + string.Format(Pause.kPauseSecondsFormat, "2");
+			var annotationForTwoSecondPause = " " + Format(Pause.kPauseSecondsFormat, "2");
 			Assert.That(rowForRev1V3.AdditionalReferenceText, Does.EndWith(annotationForTwoSecondPause));
 			Assert.That(rowForRev1V3.EnglishReferenceText, Does.EndWith(annotationForTwoSecondPause));
 			Assert.That(rowForRev1V3.VernacularText,
@@ -780,7 +791,7 @@ namespace GlyssenEngineTests.Export
 			//Pause for final verse in book (pauses come after verse text)
 			var rowsForJude25 = data.Where(d => d.BookId == "JUD" && d.ChapterNumber == 1 && d.VerseNumber == 25).ToList();
 			var rowForJude25 = rowsForJude25.Single();
-			annotationInfo = string.Format(Pause.kPauseSecondsFormat, "5");
+			annotationInfo = Format(Pause.kPauseSecondsFormat, "5");
 			Assert.That(rowForJude25.AdditionalReferenceText, Is.EqualTo("{25}\u00A0" + annotationInfo));
 			Assert.That(annotationInfo, Is.EqualTo(rowForJude25.EnglishReferenceText.TrimStart()));
 			Assert.That(rowForJude25.VernacularText, Is.EqualTo(
@@ -789,7 +800,7 @@ namespace GlyssenEngineTests.Export
 
 			//Pause for non-final verse in book (pauses come after verse text)
 			var rowForRev1V3 = data.First(d => d.BookId == "REV" && d.ChapterNumber == 1 && d.VerseNumber == 3);
-			annotationInfo = string.Format(Pause.kPauseSecondsFormat, "2");
+			annotationInfo = Format(Pause.kPauseSecondsFormat, "2");
 			Assert.That(rowForRev1V3.AdditionalReferenceText, Is.EqualTo("{3}\u00A0" + annotationInfo));
 			Assert.That(annotationInfo, Is.EqualTo(rowForRev1V3.EnglishReferenceText.TrimStart()));
 			Assert.That(rowForRev1V3.VernacularText,
@@ -829,7 +840,7 @@ namespace GlyssenEngineTests.Export
 			//Pause for final verse in chapter (pauses come after verse text)
 			var rowsForRev22V17 = data.Where(d => d.BookId == "REV" && d.ChapterNumber == 22 && d.VerseNumber == 17).ToList();
 			var rowForRev22V17 = rowsForRev22V17.Last();
-			var annotationInfo = " " + string.Format(Pause.kPauseSecondsFormat, "2");
+			var annotationInfo = " " + Format(Pause.kPauseSecondsFormat, "2");
 			Assert.That(rowForRev22V17.AdditionalReferenceText, Does.EndWith(annotationInfo));
 			Assert.That(annotationInfo, Is.EqualTo(rowForRev22V17.EnglishReferenceText));
 		}
@@ -880,7 +891,7 @@ namespace GlyssenEngineTests.Export
 			Assert.That(narratorTextRow1ForMark4V39.AdditionalReferenceText, Does.Not.Contain("|||"));
 			Assert.That(jesusTextRowForMark4V39.AdditionalReferenceText, Does.Not.Contain("|||"));
 			Assert.That(annotationRowForMark4V39.AdditionalReferenceText.Equals(annotationRowForMark4V39.EnglishReferenceText) &&
-				annotationRowForMark4V39.AdditionalReferenceText.Equals(string.Format(Pause.kPauseSecondsFormat, "1.5")), Is.True);
+				annotationRowForMark4V39.AdditionalReferenceText.Equals(Format(Pause.kPauseSecondsFormat, "1.5")), Is.True);
 			Assert.That(narratorTextRow2ForMark4V39.AdditionalReferenceText, Does.Not.Contain("|||"));
 		}
 
@@ -901,7 +912,7 @@ namespace GlyssenEngineTests.Export
 			var jesusTextRowForMark4V39 = rowsForMark4V39[1];
 			var narratorTextRow2ForMark4V39 = rowsForMark4V39[2];
 			Assert.That(narratorTextRow1ForMark4V39.AdditionalReferenceText, Does.Not.Contain("|||"));
-			var annotationInfo = " " + string.Format(Pause.kPauseSecondsFormat, "1.5");
+			var annotationInfo = " " + Format(Pause.kPauseSecondsFormat, "1.5");
 			Assert.That(jesusTextRowForMark4V39.AdditionalReferenceText, Does.EndWith(annotationInfo));
 			Assert.That(jesusTextRowForMark4V39.EnglishReferenceText, Does.EndWith(annotationInfo));
 			Assert.That(narratorTextRow2ForMark4V39.AdditionalReferenceText, Does.Not.Contain("|||"));

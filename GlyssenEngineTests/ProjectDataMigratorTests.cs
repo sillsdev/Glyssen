@@ -10,13 +10,19 @@ using NUnit.Framework;
 using SIL.Reflection;
 using SIL.Scripture;
 using static System.String;
+using static GlyssenCharacters.CharacterVerseData;
+using static GlyssenCharacters.CharacterVerseData.StandardCharacter;
 using static GlyssenEngineTests.ReferenceTextTests;
 using Resources = GlyssenCharactersTests.Properties.Resources;
+using static GlyssenSharedTests.CustomConstraints;
 
 namespace GlyssenEngineTests
 {
 	class ProjectDataMigratorTests
 	{
+		private const string kCreatures =
+			"living creature, first/living creature, second/living creature, third/living creature, fourth/twenty-four elders";
+
 		[OneTimeSetUp]
 		public void OneTimeSetUp()
 		{
@@ -545,7 +551,7 @@ namespace GlyssenEngineTests
 		public void CleanUpMultiBlockQuotesAssignedToNarrator_MultiBlockQuoteChainAssignedToNarrator_AllBlocksInChainSetToNone()
 		{
 			var blocks = new List<Block>(7);
-			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			var narrator = GetStandardCharacterId("MAT", Narrator);
 			blocks.Add(CreateTestBlock(1, MultiBlockQuote.None));
 			blocks.Last().SetNonDramaticCharacterId(narrator);
 			blocks.Add(CreateTestBlock(2, MultiBlockQuote.Start));
@@ -581,16 +587,16 @@ namespace GlyssenEngineTests
 		public void ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks_SingleUnclearBlocksMatched_UnclearBlocksSetToCorrespondingCharacterAndDeliveryFromRefBlocks()
 		{
 			var blocks = new List<Block>(4);
-			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			var narrator = GetStandardCharacterId("MAT", Narrator);
 			blocks.Add(CreateTestBlock(1, MultiBlockQuote.None));
 			blocks.Last().SetNonDramaticCharacterId(narrator);
 			blocks.Add(CreateTestBlock(2, MultiBlockQuote.None));
-			blocks.Last().CharacterId = CharacterVerseData.kUnexpectedCharacter;
+			blocks.Last().CharacterId = kUnexpectedCharacter;
 			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil", Delivery = "Panicky" });
 			blocks.Add(CreateTestBlock(3, MultiBlockQuote.Start));
 			blocks.Last().CharacterId = "Jesus";
 			blocks.Add(CreateTestBlock(4, MultiBlockQuote.Continuation));
-			blocks.Last().CharacterId = CharacterVerseData.kAmbiguousCharacter;
+			blocks.Last().CharacterId = kAmbiguousCharacter;
 			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil/Kelsy", CharacterIdInScript = "Kelsy" });
 
 			var book = new BookScript("MAT", blocks.Select(b => b.Clone()), ScrVers.English);
@@ -614,19 +620,19 @@ namespace GlyssenEngineTests
 		public void ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks_SomeUnclearBlocksInQuoteChainMatched_AllBlocksInEntireChainSetToSameCharacter()
 		{
 			var blocks = new List<Block>(5);
-			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			var narrator = GetStandardCharacterId("MAT", Narrator);
 			blocks.Add(CreateTestBlock(1, MultiBlockQuote.None));
 			blocks.Last().SetNonDramaticCharacterId(narrator);
 			blocks.Add(CreateTestBlock(2, MultiBlockQuote.Start));
-			blocks.Last().CharacterId = CharacterVerseData.kUnexpectedCharacter;
+			blocks.Last().CharacterId = kUnexpectedCharacter;
 			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil", Delivery = "panicky" }
 				.AddVerse(2, "This is the start of verse two."));
-			blocks.Add(new Block("p", 1, 2) { MultiBlockQuote = MultiBlockQuote.Continuation, CharacterId = CharacterVerseData.kUnexpectedCharacter }
+			blocks.Add(new Block("p", 1, 2) { MultiBlockQuote = MultiBlockQuote.Continuation, CharacterId = kUnexpectedCharacter }
 				.AddText("Esto es el resto de ello."));
 			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil", Delivery = "calmer" }
 				.AddText("This is the rest of it."));
 			blocks.Add(CreateTestBlock(3, MultiBlockQuote.Continuation));
-			blocks.Last().CharacterId = CharacterVerseData.kUnexpectedCharacter;
+			blocks.Last().CharacterId = kUnexpectedCharacter;
 			blocks.Add(CreateTestBlock(4, MultiBlockQuote.None));
 			blocks.Last().CharacterId = "the people";
 
@@ -664,9 +670,10 @@ namespace GlyssenEngineTests
 			Assert.That(block2.CharacterIdInScript, Is.EqualTo("Peter"));
 		}
 
-		[TestCase(CharacterVerseData.kAmbiguousCharacter)]
-		[TestCase(CharacterVerseData.kUnexpectedCharacter)]
-		public void MigrateInvalidCharacterIdForScriptDataToVersion88_CharacterIdUnclearAndCharacterIdInScriptNotNull_CharacterIdInScriptSetToNull(string unclearCharacterId)
+		[TestCase(kAmbiguousCharacter)]
+		[TestCase(kUnexpectedCharacter)]
+		public void MigrateInvalidCharacterIdForScriptDataToVersion88_CharacterIdUnclearAndCharacterIdInScriptNotNull_CharacterIdInScriptSetToNull(
+			string unclearCharacterId)
 		{
 			var block1 = CreateTestBlock("Andrew");
 			block1.UserConfirmed = true;
@@ -715,8 +722,8 @@ namespace GlyssenEngineTests
 		[Test]
 		public void MigrateInvalidCharacterIdForScriptData_NarratorBlocksWithNonNullCharacterIdInScript_CharacterIdInScriptSetToNull()
 		{
-			var bcMat = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter);
-			var narratorMat = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			var bcMat = GetStandardCharacterId("MAT", BookOrChapter);
+			var narratorMat = GetStandardCharacterId("MAT", Narrator);
 			var block1 = CreateTestBlock("Andrew");
 			block1.UserConfirmed = false;
 			block1.CharacterId = bcMat;
@@ -761,8 +768,8 @@ namespace GlyssenEngineTests
 
 			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(1));
 
-			Assert.That(johnSpeakingInRev714.CharacterId, Is.EqualTo(CharacterVerseData.kAmbiguousCharacter));
-			Assert.That(johnSpeakingInRev714.CharacterIdInScript, Is.EqualTo(CharacterVerseData.kAmbiguousCharacter));
+			Assert.That(johnSpeakingInRev714.CharacterId, Is.EqualTo(kAmbiguousCharacter));
+			Assert.That(johnSpeakingInRev714.CharacterIdInScript, Is.EqualTo(kAmbiguousCharacter));
 			Assert.That(johnSpeakingInRev714.UserConfirmed, Is.False);
 			Assert.That(elderSpeakingInRev714.CharacterId, Is.EqualTo("elders, one of the"));
 			Assert.That(elderSpeakingInRev714.CharacterIdInScript, Is.EqualTo("elders, one of the"));
@@ -785,7 +792,8 @@ namespace GlyssenEngineTests
 		[TestCase("humming")]
 		[TestCase("")]
 		[TestCase(null)]
-		public void MigrateDeprecatedCharacterIds_DeliveryChanged_DeliveryChangedInBlock(string initialDelivery)
+		public void MigrateDeprecatedCharacterIds_DeliveryChanged_DeliveryChangedInBlock(
+			string initialDelivery)
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
@@ -795,14 +803,16 @@ namespace GlyssenEngineTests
 
 			Assert.That(singersInRev59.Count, Is.EqualTo(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject)));
 
-			Assert.That(singersInRev59.All(b => b.CharacterId == "living creature, first/living creature, second/living creature, third/living creature, fourth/twenty-four elders" &&
-				b.Delivery == "singing"), Is.True);
+			Assert.That(singersInRev59, ForEvery<Block>(
+				(b => b.CharacterId, Is.EqualTo(kCreatures), nameof(Block.CharacterId)),
+				(b => b.Delivery, Is.EqualTo("singing"), nameof(Block.Delivery))));
 		}
 
 		[TestCase("Bartimaeus (a blind man)", "humming", "shouting")]
 		[TestCase("Bartimaeus (a blind man)", "", "shouting")]
 		[TestCase("crowd, many in the", null, "rebuking")]
-		public void MigrateDeprecatedCharacterIds_DeliveryChangedForOneOfTwoCharactersInVerse_DeliveryChangedInBlock(string character, string initialDelivery, string expectedDelivery)
+		public void MigrateDeprecatedCharacterIds_DeliveryChangedForOneOfTwoCharactersInVerse_DeliveryChangedInBlock(
+			string character, string initialDelivery, string expectedDelivery)
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
@@ -821,7 +831,7 @@ namespace GlyssenEngineTests
 			{
 				new Block("c", 16)
 				{
-					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter),
+					CharacterId = GetStandardCharacterId("MAT", BookOrChapter),
 					BlockElements = new List<BlockElement>(new[] { new ScriptText("16") })
 				},
 				CreateNarratorBlockForVerse(23, "Jesus rebuked him, saying:", true,  16)
@@ -843,7 +853,7 @@ namespace GlyssenEngineTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			var block = testProject.IncludedBooks.Single().GetBlocksForVerse(18, 39).Last();
-			block.CharacterId = CharacterVerseData.kAmbiguousCharacter;
+			block.CharacterId = kAmbiguousCharacter;
 			block.UserConfirmed = true;
 
 			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(1));
@@ -856,7 +866,7 @@ namespace GlyssenEngineTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			var block = testProject.IncludedBooks.Single().GetBlocksForVerse(18, 39).Last();
-			block.CharacterId = CharacterVerseData.kAmbiguousCharacter;
+			block.CharacterId = kAmbiguousCharacter;
 			block.UserConfirmed = false;
 
 			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(0));
@@ -874,8 +884,9 @@ namespace GlyssenEngineTests
 
 			Assert.That(singersInRev59.Count, Is.EqualTo(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject)));
 
-			Assert.That(singersInRev59.All(b => b.CharacterId == "living creature, first/living creature, second/living creature, third/living creature, fourth/twenty-four elders" &&
-				b.CharacterIdInScript == "living creature, first"), Is.True);
+			Assert.That(singersInRev59, ForEvery<Block>(
+				(b => b.CharacterId, Is.EqualTo(kCreatures), nameof(Block.CharacterId)),
+				(b => b.CharacterIdInScript, Is.EqualTo("living creature, first"), nameof(Block.CharacterIdInScript))));
 		}
 
 		[Test]
@@ -890,8 +901,8 @@ namespace GlyssenEngineTests
 
 			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(1));
 
-			Assert.That(blockInRev43.CharacterId, Is.EqualTo(CharacterVerseData.kUnexpectedCharacter));
-			Assert.That(blockInRev43.CharacterIdInScript, Is.EqualTo(CharacterVerseData.kUnexpectedCharacter));
+			Assert.That(blockInRev43.CharacterId, Is.EqualTo(kUnexpectedCharacter));
+			Assert.That(blockInRev43.CharacterIdInScript, Is.EqualTo(kUnexpectedCharacter));
 		}
 
 		[Test]
@@ -906,18 +917,21 @@ namespace GlyssenEngineTests
 
 			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(1));
 
-			Assert.That(blockInRev13V10.CharacterId, Is.EqualTo(CharacterVerseData.kAmbiguousCharacter));
-			Assert.That(blockInRev13V10.CharacterIdInScript, Is.EqualTo(CharacterVerseData.kAmbiguousCharacter));
+			Assert.That(blockInRev13V10.CharacterId, Is.EqualTo(kAmbiguousCharacter));
+			Assert.That(blockInRev13V10.CharacterIdInScript, Is.EqualTo(kAmbiguousCharacter));
 		}
 
 		[Test]
 		public void MigrateDeprecatedCharacterIds_NormalQuoteChangedToAlternate_CharacterIdUnchanged()
 		{
-			Assert.That(!ControlCharacterVerseData.Singleton.GetCharacters(66, 1, new SingleVerse(8)).Any(cv => cv.Character == "God"),
-				"Test setup condition not met: God should not be returned as a character when includeAlternatesAndRareQuotes is false.");
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(66, 1, new SingleVerse(8)),
+				No<CharacterSpeakingMode>(cv => cv.Character, Is.EqualTo("God")),
+				"Test setup condition not met: God should not be returned as a character when " +
+				"`includeAlternatesAndRareQuotes` is false.");
 			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(66, 1, new SingleVerse(8), includeAlternatesAndRareQuotes: true)
 					.Any(cv => cv.Character == "God"),
-				"Test setup condition not met: God should be returned as a character when includeAlternatesAndRareQuotes is true.");
+				"Test setup condition not met: God should be returned as a character when " +
+				"`includeAlternatesAndRareQuotes` is true.");
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			var stringRepresentationOfQuoteBlocksInRevC1V8 = new List<string>(2);
@@ -929,8 +943,10 @@ namespace GlyssenEngineTests
 			Assert.That(stringRepresentationOfQuoteBlocksInRevC1V8.Any(),
 				"Test setup condition not met: There should be a direct quote in Rev 1:8");
 			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(0));
-			Assert.That(stringRepresentationOfQuoteBlocksInRevC1V8.SequenceEqual(
-				testProject.IncludedBooks.Single().GetBlocksForVerse(1, 8).Where(b => b.IsQuote).Select(b => b.ToString(true, "REV"))), Is.True);
+			Assert.That(stringRepresentationOfQuoteBlocksInRevC1V8, Is.EqualTo(
+				testProject.IncludedBooks.Single().GetBlocksForVerse(1, 8).Where(b => b.IsQuote)
+					.Select(b => b.ToString(true, "REV"))
+			));
 		}
 
 		/// <summary>
@@ -947,7 +963,7 @@ namespace GlyssenEngineTests
 
 			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(1));
 
-			Assert.That(unexpectedPeterInRev711.CharacterId, Is.EqualTo(CharacterVerseData.kUnexpectedCharacter));
+			Assert.That(unexpectedPeterInRev711.CharacterId, Is.EqualTo(kUnexpectedCharacter));
 			Assert.That(testProject.ProjectCharacterVerseData.Any(), Is.False);
 		}
 
@@ -1054,7 +1070,7 @@ namespace GlyssenEngineTests
 			//SUT
 			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(1));
 
-			Assert.That(verses13And14Block.CharacterId, Is.EqualTo(CharacterVerseData.kUnexpectedCharacter));
+			Assert.That(verses13And14Block.CharacterId, Is.EqualTo(kUnexpectedCharacter));
 			Assert.That(verses13And14Block.UserConfirmed, Is.False);
 		}
 
@@ -1195,7 +1211,7 @@ namespace GlyssenEngineTests
 			foreach (var block in altarBlocksInRev16v7)
 			{
 				block.StyleTag = "qt1-s";
-				block.CharacterId = CharacterVerseData.kNeedsReview;
+				block.CharacterId = kNeedsReview;
 				block.CharacterIdInScript = "altar";
 			}
 
@@ -1214,7 +1230,7 @@ namespace GlyssenEngineTests
 			var genesis = new BookScript("GEN",
 				new List<Block>
 				{
-					CreateTestBlock(CharacterVerseData.GetStandardCharacterId("GEN", CharacterVerseData.StandardCharacter.BookOrChapter)),
+					CreateTestBlock(GetStandardCharacterId("GEN", BookOrChapter)),
 					CreateChapterBlock("GEN", 1, chapterStyleTag),
 					CreateTestBlock(1, MultiBlockQuote.None),
 					CreateChapterBlock("GEN", 2, chapterStyleTag),
@@ -1235,7 +1251,7 @@ namespace GlyssenEngineTests
 			var matthew = new BookScript("MAT",
 				new List<Block>
 				{
-					CreateTestBlock(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter)),
+					CreateTestBlock(GetStandardCharacterId("MAT", BookOrChapter)),
 					CreateChapterBlock("MAT", 1, chapterStyleTag),
 					CreateTestBlock(2, MultiBlockQuote.None),
 					CreateTestBlock(1, MultiBlockQuote.None),
@@ -1305,7 +1321,7 @@ namespace GlyssenEngineTests
 					},
 					MultiBlockQuote = MultiBlockQuote.None,
 					SplitId = -1,
-					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+					CharacterId = GetStandardCharacterId("MAT", Narrator),
 				},
 				new Block
 				{
@@ -1340,7 +1356,7 @@ namespace GlyssenEngineTests
 			Assert.That(resultingBlocks.Select(b => b.MultiBlockQuote),
 				Is.EqualTo(origBlocks.Select(b => b.MultiBlockQuote)));
 
-			Assert.That(resultingBlocks.All(b => b.SplitId == 0), Is.True);
+			Assert.That(resultingBlocks, ForEvery<Block>(b => b.SplitId, Is.EqualTo(0)));
 
 			Assert.That(resultingBlocks.Select(b => b.MatchesReferenceText),
 				Is.EqualTo(origBlocks.Select(b => b.MatchesReferenceText)));
@@ -1399,7 +1415,7 @@ namespace GlyssenEngineTests
 						},
 						MultiBlockQuote = MultiBlockQuote.None,
 						SplitId = -1,
-						CharacterId = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator),
+						CharacterId = GetStandardCharacterId(bookId, Narrator),
 					},
 					new Block
 					{
@@ -1410,7 +1426,7 @@ namespace GlyssenEngineTests
 						},
 						MultiBlockQuote = MultiBlockQuote.None,
 						SplitId = -1,
-						CharacterId = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator),
+						CharacterId = GetStandardCharacterId(bookId, Narrator),
 					},
 					new Block
 					{
@@ -1432,7 +1448,7 @@ namespace GlyssenEngineTests
 						},
 						MultiBlockQuote = MultiBlockQuote.None,
 						SplitId = -1,
-						CharacterId = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator),
+						CharacterId = GetStandardCharacterId(bookId, Narrator),
 					},
 					new Block
 					{
@@ -1481,7 +1497,7 @@ namespace GlyssenEngineTests
 				Assert.That(resultingBlocks.Select(b => b.MultiBlockQuote),
 					Is.EqualTo(origBookBlocks.Select(b => b.MultiBlockQuote)));
 
-				Assert.That(resultingBlocks.All(b => b.SplitId == i), Is.True);
+				Assert.That(resultingBlocks, ForEvery<Block>(b => b.SplitId, Is.EqualTo(i)));
 
 				Assert.That(resultingBlocks.Select(b => b.MatchesReferenceText),
 					Is.EqualTo(origBookBlocks.Select(b => b.MatchesReferenceText)));
@@ -1536,7 +1552,7 @@ namespace GlyssenEngineTests
 					},
 					MultiBlockQuote = MultiBlockQuote.None,
 					SplitId = -1,
-					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+					CharacterId = GetStandardCharacterId("MAT", Narrator),
 				},
 				new Block
 				{
@@ -1548,7 +1564,7 @@ namespace GlyssenEngineTests
 					},
 					MultiBlockQuote = MultiBlockQuote.None,
 					SplitId = -1,
-					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+					CharacterId = GetStandardCharacterId("MAT", Narrator),
 					UserConfirmed = true,
 				},
 				new Block
@@ -1640,7 +1656,7 @@ namespace GlyssenEngineTests
 					},
 					MultiBlockQuote = MultiBlockQuote.None,
 					SplitId = 1,
-					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+					CharacterId = GetStandardCharacterId("MAT", Narrator),
 					UserConfirmed = true,
 				},
 				new Block
@@ -1723,7 +1739,7 @@ namespace GlyssenEngineTests
 					},
 					MultiBlockQuote = MultiBlockQuote.None,
 					SplitId = 0,
-					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+					CharacterId = GetStandardCharacterId("MAT", Narrator),
 					UserConfirmed = true,
 				}
 			};
@@ -1775,7 +1791,7 @@ namespace GlyssenEngineTests
 					},
 					MultiBlockQuote = MultiBlockQuote.None,
 					SplitId = 0,
-					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+					CharacterId = GetStandardCharacterId("MAT", Narrator),
 					UserConfirmed = true,
 				},
 				new Block
@@ -2066,11 +2082,11 @@ namespace GlyssenEngineTests
 				.AddVerse(34, "Mœ sœ 'e, lœ butshɔnœ asœmœ, ayakoshe: endje za anga bale, yé anga œ sœpe. ")
 				.AddVerse(35, "Ayashe bisha œ sœ kœtɔ œrœ tœ œsœnœ bale: endje za anga bale, yé anga œ sœpe. "));
 			// The following call sets up the bogus data condition because it sets the Initial start/end verse numbers to 35.
-			AddBlockForVerseInProgress(origBlocks, CharacterVerseData.kUnexpectedCharacter, trailingPunctuation, "p")
+			AddBlockForVerseInProgress(origBlocks, kUnexpectedCharacter, trailingPunctuation, "p")
 				.AddVerse(verseRef, "Ayambarœ nœ Yisu yu she adœke:");
-			AddBlockForVerseInProgress(origBlocks, CharacterVerseData.kUnexpectedCharacter, " «Œrœnœ atamœ œ mbœrœtœ endje kpœta Gbozu?» ", "p");
+			AddBlockForVerseInProgress(origBlocks, kUnexpectedCharacter, " «Œrœnœ atamœ œ mbœrœtœ endje kpœta Gbozu?» ", "p");
 			AddNarratorBlockForVerseInProgress(origBlocks, "é tshe kœgi fœ endje adœke: ", "LUK");
-			AddBlockForVerseInProgress(origBlocks, CharacterVerseData.kAmbiguousCharacter, "«Osho á oko sœ tœnœ, œ kœngbɔtœ endje ɓa zœ.»", "p");
+			AddBlockForVerseInProgress(origBlocks, kAmbiguousCharacter, "«Osho á oko sœ tœnœ, œ kœngbɔtœ endje ɓa zœ.»", "p");
 			var book = new BookScript("LUK", origBlocks, ScrVers.English);
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.MigrateInvalidInitialStartVerseNumberFromSplitBeforePunctuation(books);
@@ -2093,7 +2109,7 @@ namespace GlyssenEngineTests
 		public void SetBlocksFollowingSectionHeadToParagraphStart_SetsIsParagraphStartTrueForVersesFollowingSectionHeads(
 			bool initialValueForBlocksFollowingSection, bool initialValueForOtherBlocks)
 		{
-			var sectionHead = CharacterVerseData.GetStandardCharacterId("LEV", CharacterVerseData.StandardCharacter.ExtraBiblical);
+			var sectionHead = GetStandardCharacterId("LEV", ExtraBiblical);
 			var origBlocks = new List<Block>();
 			var indicesOfVersesFollowingSectionHeads = new List<int>(3);
 			origBlocks.Add(CreateChapterBlock("LEV", 1, "c", true));
@@ -2176,7 +2192,7 @@ namespace GlyssenEngineTests
 
 		private Block CreateChapterBlock(string bookId, int chapter, string styleTag, bool omitLabel = false)
 		{
-			var chapterVerse = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.BookOrChapter);
+			var chapterVerse = GetStandardCharacterId(bookId, BookOrChapter);
 
 			return new Block
 			{
