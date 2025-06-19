@@ -119,10 +119,10 @@ namespace GlyssenEngineTests.ViewModelTests
 			var group1 = m_model.CharacterGroups[0];
 			group1.SetGroupIdLabel();
 			m_model.AssignActorToGroup(actor2.Id, group1);
-			Assert.That(group1.IsVoiceActorAssigned, Is.True);
+			Assert.That(group1.IsVoiceActorAssigned);
 			var group2 = AddNewGroup("Nicodemus");
 			m_model.AssignActorToGroup(actor1.Id, group2);
-			Assert.That(group2.IsVoiceActorAssigned, Is.True);
+			Assert.That(group2.IsVoiceActorAssigned);
 			Assert.That(m_model.UndoActions.Count, Is.EqualTo(2));
 
 			m_model.UnAssignActorFromGroups(new List<CharacterGroup> { group1, group2 });
@@ -140,15 +140,15 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_testProject.VoiceActorList.AllActors.Add(actor2);
 			var group1 = m_model.CharacterGroups[0];
 			m_model.AssignActorToGroup(actor2.Id, group1);
-			Assert.That(group1.IsVoiceActorAssigned, Is.True);
+			Assert.That(group1.IsVoiceActorAssigned);
 			var cameoGroup = AddNewGroup(); // No characters => cameo
 			m_model.AssignActorToGroup(actor1.Id, cameoGroup);
-			Assert.That(cameoGroup.IsVoiceActorAssigned, Is.True);
+			Assert.That(cameoGroup.IsVoiceActorAssigned);
 			Assert.That(m_model.UndoActions.Count, Is.EqualTo(2));
 
 			m_model.UnAssignActorFromGroups(new List<CharacterGroup> { group1, cameoGroup });
 			Assert.That(group1.IsVoiceActorAssigned, Is.False);
-			Assert.That(cameoGroup.IsVoiceActorAssigned, Is.True);
+			Assert.That(cameoGroup.IsVoiceActorAssigned);
 			Assert.That(m_model.UndoActions.Count, Is.EqualTo(3));
 		}
 

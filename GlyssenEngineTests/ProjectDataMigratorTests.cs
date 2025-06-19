@@ -2140,7 +2140,7 @@ namespace GlyssenEngineTests
 				if (block.IsChapterAnnouncement)
 					continue;
 				if (indicesOfVersesFollowingSectionHeads.Contains(i))
-					Assert.That(block.IsParagraphStart, Is.True);
+					Assert.That(block.IsParagraphStart);
 				else
 					Assert.That(block.IsParagraphStart, Is.EqualTo(initialValueForOtherBlocks));
 			}

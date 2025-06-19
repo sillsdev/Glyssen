@@ -110,7 +110,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(m_model.DeleteVoiceActors(actorsToDelete), Is.True);
 			Assert.That(m_testProject.VoiceActorList.AllActors.Count, Is.EqualTo(2));
 			Assert.That(characterGroup1.IsVoiceActorAssigned, Is.False);
-			Assert.That(characterGroup2.IsVoiceActorAssigned, Is.True);
+			Assert.That(characterGroup2.IsVoiceActorAssigned);
 		}
 
 		[Test]
@@ -126,11 +126,11 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_testProject.VoiceActorList.AllActors.Add(actor);
 			var characterGroup = new CharacterGroup(m_testProject);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup);
-			Assert.That(actor.IsInactive, Is.True);
+			Assert.That(actor.IsInactive);
 			Assert.That(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id), Is.False);
 
 			m_model.SetInactive(actor, true);
-			Assert.That(actor.IsInactive, Is.True);
+			Assert.That(actor.IsInactive);
 			Assert.That(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id), Is.False);
 		}
 
@@ -159,7 +159,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id), Is.False);
 
 			m_model.SetInactive(actor, true);
-			Assert.That(actor.IsInactive, Is.True);
+			Assert.That(actor.IsInactive);
 			Assert.That(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id), Is.False);
 		}
 
@@ -174,7 +174,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id), Is.True);
 
 			m_model.SetInactive(actor, true);
-			Assert.That(actor.IsInactive, Is.True);
+			Assert.That(actor.IsInactive);
 			Assert.That(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id), Is.False);
 		}
 

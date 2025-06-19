@@ -234,7 +234,7 @@ namespace GlyssenEngineTests.Script
 		public void IsFollowOnParagraphStyle_LineBreakingUsfmTag_ReturnsTrue(string tag)
 		{
 			var block = new Block(tag);
-			Assert.That(block.IsFollowOnParagraphStyle, Is.True);
+			Assert.That(block.IsFollowOnParagraphStyle);
 		}
 
 		[TestCase("p")] // Normal paragraph: https://ubsicap.github.io/usfm/paragraphs/index.html#p
@@ -288,7 +288,7 @@ namespace GlyssenEngineTests.Script
 				};
 			Assert.That(block.CoversMoreThanOneVerse, Is.False);
 			// SUT
-			Assert.That(block.IsSimpleBridge, Is.True);
+			Assert.That(block.IsSimpleBridge);
 		}
 
 		[TestCase(3, 4)]
@@ -300,7 +300,7 @@ namespace GlyssenEngineTests.Script
 				};
 			Assert.That(block.CoversMoreThanOneVerse, Is.False);
 			// SUT
-			Assert.That(block.IsSimpleBridge, Is.True);
+			Assert.That(block.IsSimpleBridge);
 		}
 
 		[TestCase(3)]

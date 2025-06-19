@@ -136,7 +136,7 @@ namespace GlyssenEngineTests
 			var blocks = parser.Parse().ToList();
 			Assert.That(blocks.Count, Is.EqualTo(3));
 			var lastBlock = blocks.Last();
-			Assert.That(lastBlock.IsScripture, Is.True);
+			Assert.That(lastBlock.IsScripture);
 			Assert.That(lastBlock.GetText(true), Is.EqualTo("{1}\u00A0This is Scripture text."));
 			Assert.That(lastBlock.InitialStartVerseNumber, Is.EqualTo(1));
 			Assert.That(lastBlock.ChapterNumber, Is.EqualTo(15));
@@ -456,7 +456,7 @@ namespace GlyssenEngineTests
 			Assert.That(blocks[1].InitialStartVerseNumber, Is.EqualTo(0));
 			Assert.That(blocks[1].GetText(false), Is.EqualTo(@"Lok ma Jon Labatija otito"));
 			Assert.That(blocks[1].CharacterId, Is.Null);
-			Assert.That(blocks[1].IsParagraphStart, Is.True);
+			Assert.That(blocks[1].IsParagraphStart);
 		}
 
 		[Test]
@@ -473,7 +473,7 @@ namespace GlyssenEngineTests
 			Assert.That(blocks[1].InitialStartVerseNumber, Is.EqualTo(0));
 			Assert.That(blocks[1].GetText(false), Is.EqualTo(@"Lok ma Jon Labatija otito"));
 			Assert.That(blocks[1].CharacterId, Is.Null);
-			Assert.That(blocks[1].IsParagraphStart, Is.True);
+			Assert.That(blocks[1].IsParagraphStart);
 		}
 
 		/// <summary>
@@ -1190,7 +1190,7 @@ namespace GlyssenEngineTests
 
 			Assert.That(blocks[++i].InitialStartVerseNumber, Is.EqualTo(7));
 			Assert.That(blocks[i].StartsAtVerseStart, Is.True);
-			Assert.That(blocks[i].IsParagraphStart, Is.True);
+			Assert.That(blocks[i].IsParagraphStart);
 			Assert.That(blocks[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(blocks[i].GetText(true, true), Is.EqualTo("{7}\u00A0But the Lord said to me, "));
 			Assert.That(blocks[i].CharacterId, Is.Null);
@@ -1262,7 +1262,7 @@ namespace GlyssenEngineTests
 
 			Assert.That(blocks[++i].InitialStartVerseNumber, Is.EqualTo(7));
 			Assert.That(blocks[i].StartsAtVerseStart, Is.True);
-			Assert.That(blocks[i].IsParagraphStart, Is.True);
+			Assert.That(blocks[i].IsParagraphStart);
 			Assert.That(blocks[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(blocks[i].GetText(true, true), Is.EqualTo("{7}\u00A0But the Lord said to me, "));
 			Assert.That(blocks[i].CharacterId, Is.Null);
@@ -1367,7 +1367,7 @@ namespace GlyssenEngineTests
 
 			Assert.That(blocks[++i].InitialStartVerseNumber, Is.EqualTo(2));
 			Assert.That(blocks[i].StartsAtVerseStart, Is.True);
-			Assert.That(blocks[i].IsParagraphStart, Is.True);
+			Assert.That(blocks[i].IsParagraphStart);
 			Assert.That(blocks[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(blocks[i].GetText(true, true),
 				Is.EqualTo("{2}\u00A0Some people came and told Jehoshaphat, "));
@@ -1474,7 +1474,7 @@ namespace GlyssenEngineTests
 
 			Assert.That(blocks[++i].InitialStartVerseNumber, Is.EqualTo(2));
 			Assert.That(blocks[i].StartsAtVerseStart, Is.True);
-			Assert.That(blocks[i].IsParagraphStart, Is.True);
+			Assert.That(blocks[i].IsParagraphStart);
 			Assert.That(blocks[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(blocks[i].GetText(true, true),
 				Is.EqualTo("{2}\u00A0Some people came and told Jehoshaphat, "));
@@ -1521,7 +1521,7 @@ namespace GlyssenEngineTests
 			VerifyQuoteEnd(blocks[i], qtMenId);
 			Assert.That(blocks[i].BlockElements.Count, Is.EqualTo(expectedBlockElementCount));
 			Assert.That(blocks[i].CharacterIs("2CH", StandardCharacter.Narrator), Is.True);
-			Assert.That(blocks[i].IsPredeterminedQuoteInterruption, Is.True);
+			Assert.That(blocks[i].IsPredeterminedQuoteInterruption);
 
 			Assert.That(blocks[++i].InitialStartVerseNumber, Is.EqualTo(3));
 			Assert.That(blocks[i].StartsAtVerseStart);
@@ -1583,7 +1583,7 @@ namespace GlyssenEngineTests
 
 			Assert.That(blocks[++i].InitialStartVerseNumber, Is.EqualTo(2));
 			Assert.That(blocks[i].StartsAtVerseStart, Is.True);
-			Assert.That(blocks[i].IsParagraphStart, Is.True);
+			Assert.That(blocks[i].IsParagraphStart);
 			Assert.That(blocks[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(blocks[i].GetText(true, true), Is.EqualTo(
 				"{2}\u00A0Some people came and told Jehoshaphat, “A vast army is coming" +
@@ -1604,7 +1604,7 @@ namespace GlyssenEngineTests
 				Assert.That(quoteIdAnnotation.Start, Is.False);
 			}
 			Assert.That(blocks[i].CharacterIs("2CH", StandardCharacter.Narrator));
-			Assert.That(blocks[i].IsPredeterminedQuoteInterruption, Is.True);
+			Assert.That(blocks[i].IsPredeterminedQuoteInterruption);
 
 			Assert.That(blocks[++i].InitialStartVerseNumber, Is.EqualTo(2));
 			Assert.That(blocks[i].StartsAtVerseStart, Is.False);
@@ -1657,7 +1657,7 @@ namespace GlyssenEngineTests
 
 			Assert.That(blocks[++i].InitialStartVerseNumber, Is.EqualTo(1));
 			Assert.That(blocks[i].StartsAtVerseStart, Is.True);
-			Assert.That(blocks[i].IsParagraphStart, Is.True);
+			Assert.That(blocks[i].IsParagraphStart);
 			Assert.That(blocks[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(blocks[i].IsPredeterminedQuoteInterruption, Is.False);
 			Assert.That(blocks[i].GetText(true), Is.EqualTo("{1}\u00A0Now about Spirit-given " +
@@ -1720,7 +1720,7 @@ namespace GlyssenEngineTests
 
 			Assert.That(blocks[++i].InitialStartVerseNumber, Is.EqualTo(22));
 			Assert.That(blocks[i].StartsAtVerseStart, Is.True);
-			Assert.That(blocks[i].IsParagraphStart, Is.True);
+			Assert.That(blocks[i].IsParagraphStart);
 			Assert.That(blocks[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(blocks[i].IsPredeterminedQuoteInterruption, Is.False);
 			Assert.That(blocks[i].GetText(true, true), Is.EqualTo(
@@ -1741,7 +1741,7 @@ namespace GlyssenEngineTests
 			Assert.That(blocks[i].StartsAtVerseStart, Is.False);
 			Assert.That(blocks[i].IsParagraphStart, Is.False);
 			Assert.That(blocks[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
-			Assert.That(blocks[i].IsPredeterminedQuoteInterruption, Is.True);
+			Assert.That(blocks[i].IsPredeterminedQuoteInterruption);
 			Assert.That(blocks[i].GetText(true, true), Is.EqualTo("(which means ‘God with us’) "));
 			Assert.That(blocks[i].CharacterIs("MAT", StandardCharacter.Narrator));
 
@@ -1792,7 +1792,7 @@ namespace GlyssenEngineTests
 
 			Assert.That(blocks[++i].InitialStartVerseNumber, Is.EqualTo(22));
 			Assert.That(blocks[i].StartsAtVerseStart, Is.True);
-			Assert.That(blocks[i].IsParagraphStart, Is.True);
+			Assert.That(blocks[i].IsParagraphStart);
 			Assert.That(blocks[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(blocks[i].IsPredeterminedQuoteInterruption, Is.False);
 			Assert.That(blocks[i].GetText(true, true), Is.EqualTo(
@@ -1856,7 +1856,7 @@ namespace GlyssenEngineTests
 
 			Assert.That(blocks[++i].InitialStartVerseNumber, Is.EqualTo(22));
 			Assert.That(blocks[i].StartsAtVerseStart, Is.True);
-			Assert.That(blocks[i].IsParagraphStart, Is.True);
+			Assert.That(blocks[i].IsParagraphStart);
 			Assert.That(blocks[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(blocks[i].IsPredeterminedQuoteInterruption, Is.False);
 			Assert.That(blocks[i].GetText(true), Is.EqualTo(
@@ -1922,7 +1922,7 @@ namespace GlyssenEngineTests
 
 			Assert.That(blocks[++i].InitialStartVerseNumber, Is.EqualTo(2));
 			Assert.That(blocks[i].StartsAtVerseStart, Is.True);
-			Assert.That(blocks[i].IsParagraphStart, Is.True);
+			Assert.That(blocks[i].IsParagraphStart);
 			Assert.That(blocks[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
 			Assert.That(blocks[i].GetText(true, true),
 				Is.EqualTo("{2}\u00A0Some people came and told Jehoshaphat, "));
@@ -2036,7 +2036,7 @@ namespace GlyssenEngineTests
 			Assert.That(blocks[++i].InitialStartVerseNumber, Is.EqualTo(10));
 			Assert.That(blocks[i].CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(blocks[i].StartsAtVerseStart, Is.True);
-			Assert.That(blocks[i].IsParagraphStart, Is.True);
+			Assert.That(blocks[i].IsParagraphStart);
 			Assert.That(blocks[i].IsPredeterminedFirstLevelQuoteStart);
 			Assert.That(blocks[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
 			Assert.That(blocks[i].GetText(true, true), Is.EqualTo(
@@ -2051,9 +2051,9 @@ namespace GlyssenEngineTests
 			Assert.That(blocks[i].InitialEndVerseNumber, Is.EqualTo(16));
 			Assert.That(blocks[i].CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(blocks[i].StartsAtVerseStart, Is.True);
-			Assert.That(blocks[i].IsParagraphStart, Is.True);
+			Assert.That(blocks[i].IsParagraphStart);
 			Assert.That(blocks[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
-			Assert.That(blocks[i].IsContinuationOfPreviousBlockQuote, Is.True);
+			Assert.That(blocks[i].IsContinuationOfPreviousBlockQuote);
 			Assert.That(blocks[i].GetText(true, true), Is.EqualTo("{15-16}\u00A0" +
 				"“The Judeans must run to hide in the hills when in the temple the you see the " +
 				"abomination of desolation, "));
@@ -2063,7 +2063,7 @@ namespace GlyssenEngineTests
 			Assert.That(blocks[i].StartsAtVerseStart, Is.False);
 			Assert.That(blocks[i].IsParagraphStart, Is.False);
 			Assert.That(blocks[i].IsPredeterminedFirstLevelQuoteStart, Is.False);
-			Assert.That(blocks[i].IsPredeterminedQuoteInterruption, Is.True);
+			Assert.That(blocks[i].IsPredeterminedQuoteInterruption);
 			Assert.That(blocks[i].MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 			Assert.That(blocks[i].GetText(true),
 				Is.EqualTo("with which a reader of Daniel should be familiar. "));
@@ -3095,9 +3095,9 @@ namespace GlyssenEngineTests
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.That(blocks.Count, Is.EqualTo(3));
-			Assert.That(blocks[0].IsParagraphStart, Is.True); //chapter
-			Assert.That(blocks[1].IsParagraphStart, Is.True);
-			Assert.That(blocks[2].IsParagraphStart, Is.True);
+			Assert.That(blocks[0].IsParagraphStart); //chapter
+			Assert.That(blocks[1].IsParagraphStart);
+			Assert.That(blocks[2].IsParagraphStart);
 		}
 
 		[Test]
@@ -3520,7 +3520,7 @@ namespace GlyssenEngineTests
 			Assert.That(block.InitialStartVerseNumber, Is.EqualTo(0));
 			Assert.That(block.GetText(true), Is.EqualTo(text ?? number.ToString()));
 			Assert.That(block.CharacterId, Is.EqualTo($"BC-{bookId}"));
-			Assert.That(block.IsParagraphStart, Is.True);
+			Assert.That(block.IsParagraphStart);
 		}
 	}
 

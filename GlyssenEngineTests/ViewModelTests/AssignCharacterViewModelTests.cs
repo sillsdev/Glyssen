@@ -105,7 +105,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(m_model.CurrentBlockIndexInBook, Is.EqualTo(expectedBlock));
 			Assert.That(m_model.CurrentReferenceTextMatchup.OriginalBlockCount, Is.EqualTo(expectedNumberOfBlocks));
 			Assert.That(m_model.BlockAccessor.GetIndices().MultiBlockCount, Is.EqualTo(expectedNumberOfBlocks));
-			Assert.That(m_model.IsCurrentLocationRelevant, Is.True);
+			Assert.That(m_model.IsCurrentLocationRelevant);
 		}
 
 		[Test]
@@ -119,7 +119,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			var characters = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
 			Assert.That(characters.Count, Is.EqualTo(1));
-			Assert.That(characters[0].IsNarrator, Is.True);
+			Assert.That(characters[0].IsNarrator);
 			Assert.That(characters[0].ProjectSpecific, Is.False);
 		}
 
@@ -130,7 +130,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(m_model.GetBlockReferenceString(), Is.EqualTo("MRK 1:16-17"));
 			var characters = m_model.GetUniqueCharactersForCurrentReference().ToList();
 			Assert.That(characters.Count, Is.EqualTo(2));
-			Assert.That(characters[0].IsNarrator, Is.True);
+			Assert.That(characters[0].IsNarrator);
 			Assert.That(characters[1].CharacterId, Is.EqualTo("Jesus"));
 		}
 
@@ -140,7 +140,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			// Note: Default forward/backward context is 10 blocks.
 			var characters = m_model.GetUniqueCharactersForCurrentReference().ToList();
 			Assert.That(characters.Count, Is.EqualTo(1));
-			Assert.That(characters[0].IsNarrator, Is.True);
+			Assert.That(characters[0].IsNarrator);
 			Assert.That(characters[0].ProjectSpecific, Is.False);
 		}
 
@@ -150,7 +150,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.ForwardContextBlockCount = 20;
 			var characters = m_model.GetUniqueCharactersForCurrentReference().ToList();
 			Assert.That(characters.Count, Is.EqualTo(3));
-			Assert.That(characters[0].IsNarrator, Is.True);
+			Assert.That(characters[0].IsNarrator);
 			Assert.That(characters[0].ProjectSpecific, Is.False);
 			Assert.That(characters[1].CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(characters[1].ProjectSpecific, Is.True);
@@ -167,7 +167,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			FindRefInMark(5, 9);
 			var characters = m_model.GetUniqueCharactersForCurrentReference().ToList();
 			Assert.That(characters.Count, Is.EqualTo(3));
-			Assert.That(characters[0].IsNarrator, Is.True);
+			Assert.That(characters[0].IsNarrator);
 			Assert.That(characters[0].ProjectSpecific, Is.False);
 			Assert.That(characters[1].CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(characters[1].ProjectSpecific, Is.False);
@@ -183,7 +183,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			var result = m_model.GetCharactersForCurrentReferenceTextMatchup().ToList();
 			Assert.That(result.Count, Is.EqualTo(3));
-			Assert.That(result[0].IsNarrator, Is.True);
+			Assert.That(result[0].IsNarrator);
 			Assert.That(result[1].CharacterId, Is.EqualTo("Jesus"));
 			Assert.That(result[2].CharacterId, Is.EqualTo("father of demon-possessed boy"));
 		}
@@ -196,7 +196,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			var result = m_model.GetDeliveriesForCurrentReferenceTextMatchup().ToList();
 			Assert.That(result.Count, Is.EqualTo(3));
-			Assert.That(result[0].IsNormal, Is.True);
+			Assert.That(result[0].IsNormal);
 			Assert.That(result.Count(d => d.Text == "questioning"), Is.EqualTo(1));
 			Assert.That(result.Count(d => d.Text == "distraught"), Is.EqualTo(1));
 		}
@@ -212,7 +212,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			var result = m_model.GetDeliveriesForCurrentReferenceTextMatchup().ToList();
 			Assert.That(result.Count, Is.EqualTo(3));
-			Assert.That(result[0].IsNormal, Is.True);
+			Assert.That(result[0].IsNormal);
 			Assert.That(result.Count(d => d.Text == "encouraging"), Is.EqualTo(1));
 			Assert.That(result.Count(d => d.Text == "ordering"), Is.EqualTo(1));
 		}
@@ -231,7 +231,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			var result = m_model.GetDeliveriesForCurrentReferenceTextMatchup().ToList();
 			Assert.That(baseList.Count + 1, Is.EqualTo(result.Count));
-			Assert.That(result[0].IsNormal, Is.True);
+			Assert.That(result[0].IsNormal);
 			Assert.That(baseList,
 				ForEvery<AssignCharacterViewModel.Delivery>(d => result.Contains(d), Is.True));
 			Assert.That(result.Any(d => d.Text == "slurred"), Is.True);
@@ -253,7 +253,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			var result = m_model.GetDeliveriesForCurrentReferenceTextMatchup().ToList();
 			Assert.That(baseList.Count + 1, Is.EqualTo(result.Count));
-			Assert.That(result[0].IsNormal, Is.True);
+			Assert.That(result[0].IsNormal);
 			Assert.That(baseList, ForEvery<AssignCharacterViewModel.Delivery>(d => result.Contains(d), Is.True));
 			Assert.That(result.Any(d => d.Text == "squealing"), Is.True);
 		}
@@ -281,7 +281,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				Is.EqualTo("Zerubbabel/Jeshua/rest of heads of families"));
 			Assert.That(characters.Select(c => c.CharacterId), Does.Contain("Jesus"));
 			Assert.That(characters.Select(c => c.CharacterId), Does.Contain(kLegionCharacter));
-			Assert.That(characters[4].IsNarrator, Is.True);
+			Assert.That(characters[4].IsNarrator);
 		}
 
 		[TestCase("father of cured man, blind from birth")]
@@ -301,7 +301,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			FindRefInMark(6, 24);
 			var characters = m_model.GetUniqueCharactersForCurrentReference().ToList();
 			Assert.That(characters.Count, Is.EqualTo(3));
-			Assert.That(characters[0].IsNarrator, Is.True);
+			Assert.That(characters[0].IsNarrator);
 			Assert.That(characters[1].CharacterId, Is.EqualTo("Herodias' daughter"));
 			Assert.That(characters[1].Alias, Is.EqualTo("alias"));
 			Assert.That(characters[2].CharacterId, Is.EqualTo("Herodias"));
@@ -720,9 +720,9 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			m_fullProjectRefreshRequired = true;
 			m_model.SetCurrentBookSingleVoice(true);
-			Assert.That(m_model.IsCurrentBookSingleVoice, Is.True);
+			Assert.That(m_model.IsCurrentBookSingleVoice);
 			Assert.That(m_model.SetCurrentBookSingleVoice(true), Is.False);
-			Assert.That(m_model.IsCurrentBookSingleVoice, Is.True);
+			Assert.That(m_model.IsCurrentBookSingleVoice);
 		}
 
 		[Test]
@@ -730,7 +730,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			m_fullProjectRefreshRequired = true;
 			m_model.SetCurrentBookSingleVoice(true);
-			Assert.That(m_model.IsCurrentBookSingleVoice, Is.True);
+			Assert.That(m_model.IsCurrentBookSingleVoice);
 			Assert.That(m_model.SetCurrentBookSingleVoice(false), Is.True);
 			Assert.That(m_model.IsCurrentBookSingleVoice, Is.False);
 		}
@@ -755,7 +755,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_fullProjectRefreshRequired = true;
 			Assert.That(m_model.IsCurrentTaskComplete, Is.False);
 			m_model.SetCurrentBookSingleVoice(true);
-			Assert.That(m_model.IsCurrentTaskComplete, Is.True);
+			Assert.That(m_model.IsCurrentTaskComplete);
 		}
 
 		[Test]
@@ -1049,7 +1049,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			while (!model.CurrentBlock.BlockElements.OfType<ScriptText>().First().Content.TrimEnd().Contains(" "))
 				model.LoadNextRelevantBlock();
 			var currentBlock = model.CurrentBlock;
-			Assert.That(model.IsCurrentLocationRelevant, Is.True, "Couldn't find a block to use for this test.");
+			Assert.That(model.IsCurrentLocationRelevant, "Couldn't find a block to use for this test.");
 			Assert.That(model.CurrentBookId, Is.EqualTo("MRK"));
 
 			var verse = currentBlock.InitialVerseNumberOrBridge;
@@ -1198,7 +1198,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var blockToSplit = model.CurrentReferenceTextMatchup.OriginalBlocks.Single();
 
 			// Validate our setup
-			Assert.That(model.IsCurrentLocationRelevant, Is.True);
+			Assert.That(model.IsCurrentLocationRelevant);
 			Assert.That(model.CurrentBlock.LastVerseNum, Is.EqualTo(18), "CurrentBlock is not an original block, so it should end with v. 18");
 			Assert.That(model.CurrentReferenceTextMatchup.OriginalBlockCount, Is.EqualTo(1));
 			Assert.That(blockToSplit.LastVerseNum, Is.GreaterThan(18));
@@ -1237,7 +1237,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			model.LoadPreviousRelevantBlock();
 
 			// Validate our setup
-			Assert.That(model.IsCurrentLocationRelevant, Is.True);
+			Assert.That(model.IsCurrentLocationRelevant);
 			Assert.That(model.CurrentBlock.LastVerseNum, Is.EqualTo(18), "CurrentBlock is not an original block, so it should end with v. 18");
 			Assert.That(blockToSplit.LastVerseNum, Is.GreaterThan(18));
 
@@ -1245,7 +1245,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				GetListOfCharacters(2, new[] { "", "" }));
 
 			Assert.That(origRelevantBlockCount, Is.EqualTo(model.RelevantBlockCount));
-			Assert.That(model.IsCurrentLocationRelevant, Is.True);
+			Assert.That(model.IsCurrentLocationRelevant);
 			Assert.That(model.CurrentBlock.LastVerseNum, Is.EqualTo(18));
 			Assert.That(model.CurrentReferenceTextMatchup.OriginalBlockCount, Is.EqualTo(2));
 			Assert.That(origBlock, Is.EqualTo(model.CurrentReferenceTextMatchup.OriginalBlocks.First()));
@@ -1264,12 +1264,12 @@ namespace GlyssenEngineTests.ViewModelTests
 			var model = new AssignCharacterViewModel(project);
 
 			model.SetMode(BlocksToDisplay.MissingExpectedQuote, true);
-			Assert.That(model.IsCurrentLocationRelevant, Is.True);
+			Assert.That(model.IsCurrentLocationRelevant);
 			while (model.CurrentReferenceTextMatchup.OriginalBlockCount != 1 && model.CanNavigateToNextRelevantBlock)
 			{
 				model.LoadNextRelevantBlock();
 			}
-			Assert.That(model.IsCurrentLocationRelevant, Is.True,
+			Assert.That(model.IsCurrentLocationRelevant,
 				$"Setup problem: no block in {project.IncludedBooks.Single().BookId} " +
 				$"matches the filter for {model.Mode} and results in a matchup with a single original block.");
 
@@ -1598,7 +1598,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.That(m_model.TryLoadBlock(new VerseRef(041001039)), Is.True);
 			var characters = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
 			Assert.That(characters.Count, Is.EqualTo(1), "Test setup: expected conditions not met");
-			Assert.That(characters[0].IsNarrator, Is.True, "Test setup: expected conditions not met");
+			Assert.That(characters[0].IsNarrator, "Test setup: expected conditions not met");
 			Assert.That(m_model.GetCharacterToSelectForCurrentBlock(null),
 				Is.EqualTo(AssignCharacterViewModel.Character.Narrator));
 		}
@@ -1913,7 +1913,7 @@ namespace GlyssenEngineTests.ViewModelTests
 				"Sanity check: in this test, we were expecting the matchup to cover verses 5-8.");
 			int iFollowingBlock = m_model.CurrentBlockIndexInBook + m_model.CurrentReferenceTextMatchup.OriginalBlockCount;
 			var followingBlock = m_testProject.Books[0].GetScriptBlocks()[iFollowingBlock];
-			Assert.That(followingBlock.IsContinuationOfPreviousBlockQuote, Is.True,
+			Assert.That(followingBlock.IsContinuationOfPreviousBlockQuote,
 				"Sanity check: in this test, we were expecting the block after the matchup to be a continuation.");
 			var lastVerseNumOfBlockFollowingMatchup = followingBlock.LastVerseNum;
 			Assert.That(m_testProject.Books[0].GetScriptBlocks()[iFollowingBlock + 1].IsContinuationOfPreviousBlockQuote, Is.False,
@@ -1958,7 +1958,7 @@ namespace GlyssenEngineTests.ViewModelTests
 					Is.EqualTo(1),
 					$"Character ID \"{charChrist}\" missing from ProjectCharacterVerseData for block {block}");
 
-				Assert.That(block.IsContinuationOfPreviousBlockQuote, Is.True);
+				Assert.That(block.IsContinuationOfPreviousBlockQuote);
 				Assert.That(block.CharacterId, Is.EqualTo("Christ"), $"Following block is not assigned to \"{charChrist}\"");
 				Assert.That(block.Delivery, Is.Null.Or.Empty, "Following block should not have Delivery assigned.");
 			} while (block.IsScripture && block.LastVerseNum < lastVerseNumOfBlockFollowingMatchup);
@@ -2082,7 +2082,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.SetMode(BlocksToDisplay.NotAlignedToReferenceText, true);
 			FindRefInMark(12, 15);
 			m_model.SetMode(BlocksToDisplay.NotAssignedAutomatically, true);
-			Assert.That(m_model.IsCurrentLocationRelevant, Is.True);
+			Assert.That(m_model.IsCurrentLocationRelevant);
 
 			var origRelevantBlockCount = m_model.RelevantBlockCount;
 			m_assigned = 0;
@@ -2167,7 +2167,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			Assert.That(origRelevantBlockCount, Is.EqualTo(m_model.RelevantBlockCount));
 			Assert.That(m_assigned, Is.EqualTo(1));
-			Assert.That(m_model.IsCurrentLocationRelevant, Is.True);
+			Assert.That(m_model.IsCurrentLocationRelevant);
 		}
 
 		[TestCase(true, -1)]
@@ -2533,7 +2533,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var characters = m_model.GetUniqueCharactersForCurrentReference().ToList();
 			Assert.That(characters.Count, Is.EqualTo(4));
 			Assert.That(characters.Any(c => c.ProjectSpecific), Is.False);
-			Assert.That(characters[0].IsNarrator, Is.True);
+			Assert.That(characters[0].IsNarrator);
 			Assert.That(characters.Count(c => c.CharacterId == "Jesus"), Is.EqualTo(1));
 			Assert.That(characters.Count(c => c.CharacterId == "God"), Is.EqualTo(1));
 			Assert.That(characters.Count(c => c.CharacterId == "Holy Spirit, the"), Is.EqualTo(1));

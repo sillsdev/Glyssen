@@ -464,13 +464,13 @@ namespace GlyssenEngineTests.Script
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var result = bookScript.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.That(result[1].CharacterIs("MRK", StandardCharacter.Narrator), Is.True);
-			Assert.That(result[1].IsParagraphStart, Is.True);
+			Assert.That(result[1].IsParagraphStart);
 			var textOfFirstVerseBlock = result[1].GetText(true);
 			Assert.That(textOfFirstVerseBlock, Does.StartWith("{1}\u00A0"));
 			Assert.That(textOfFirstVerseBlock, Does.Contain("{2}\u00A0"));
 			Assert.That(textOfFirstVerseBlock, Does.Contain(" «Sons of Thunder» the rest of verse 2. {3}\u00A0"));
 			Assert.That(result[2].CharacterIs("MRK", StandardCharacter.Narrator), Is.True);
-			Assert.That(result[2].IsParagraphStart, Is.True);
+			Assert.That(result[2].IsParagraphStart);
 			Assert.That(result[2].GetText(true), Does.StartWith("{4}\u00A0"));
 		}
 
@@ -1382,7 +1382,7 @@ namespace GlyssenEngineTests.Script
 			Assert.That(((ScriptText)result[iBlock].BlockElements.Single()).Content, Is.EqualTo("The Gospel According to Saint Matthew"));
 			Assert.That(((ScriptText)result[++iBlock].BlockElements.Single()).Content, Is.EqualTo("Matthew's gospel: Jesus the Messianic King"));
 			Assert.That(result[iBlock].StyleTag, Is.EqualTo("ip"));
-			Assert.That(result[++iBlock].IsChapterAnnouncement, Is.True);
+			Assert.That(result[++iBlock].IsChapterAnnouncement);
 			if (paragraphStart)
 			{
 				Assert.That(((ScriptText)result[++iBlock].BlockElements.Single()).Content, Is.EqualTo("INTRODUCTION"));

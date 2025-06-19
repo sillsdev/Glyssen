@@ -228,7 +228,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			groupWithMary.GroupIdLabel = CharacterGroup.Label.Other;
 			groupWithMary.GroupIdOtherText = "Ladies";
 			Assert.That(action.Redo(), Is.False);
-			Assert.That(groupWithMary.IsVoiceActorAssigned, Is.True);
+			Assert.That(groupWithMary.IsVoiceActorAssigned);
 			Assert.That(action.GroupsAffectedByLastOperation, Is.Empty);
 		}
 
@@ -270,7 +270,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			Assert.That(action.Redo(), Is.True);
 			Assert.That(groupWithJesus.IsVoiceActorAssigned, Is.False);
 			Assert.That(groupWithMoses.IsVoiceActorAssigned, Is.False);
-			Assert.That(groupWithMary.IsVoiceActorAssigned, Is.True);
+			Assert.That(groupWithMary.IsVoiceActorAssigned);
 			Assert.That(action.GroupsAffectedByLastOperation.Count(), Is.EqualTo(2));
 			Assert.That(action.GroupsAffectedByLastOperation, Does.Contain(groupWithJesus));
 			Assert.That(action.GroupsAffectedByLastOperation, Does.Contain(groupWithMoses));

@@ -2201,13 +2201,13 @@ namespace GlyssenEngineTests
 			Assert.That(result[2].ReferenceBlocks.Single().ChapterNumber, Is.EqualTo(16));
 			Assert.That(result[3].GetPrimaryReferenceText(), Does.StartWith("{27}\u00A0"));
 			Assert.That(result[3].ReferenceBlocks.Single().ChapterNumber, Is.EqualTo(16));
-			Assert.That(result[4].ReferenceBlocks.Single().IsChapterAnnouncement, Is.True);
+			Assert.That(result[4].ReferenceBlocks.Single().IsChapterAnnouncement);
 			Assert.That(result[4].ReferenceBlocks.Single().ChapterNumber, Is.EqualTo(15));
 			Assert.That(result[5].GetPrimaryReferenceText(), Does.StartWith("{1}\u00A0"));
 			Assert.That(result[5].ReferenceBlocks.Single().ChapterNumber, Is.EqualTo(15));
 			Assert.That(result[6].GetPrimaryReferenceText(), Does.StartWith("{2}\u00A0"));
 			Assert.That(result[6].ReferenceBlocks.Single().ChapterNumber, Is.EqualTo(15));
-			Assert.That(result[7].ReferenceBlocks.Single().IsChapterAnnouncement, Is.True);
+			Assert.That(result[7].ReferenceBlocks.Single().IsChapterAnnouncement);
 			Assert.That(result[7].ReferenceBlocks.Single().ChapterNumber, Is.EqualTo(16));
 			Assert.That(result[8].GetPrimaryReferenceText(), Does.StartWith("{1}\u00A0"));
 			Assert.That(result[8].ReferenceBlocks.Single().ChapterNumber, Is.EqualTo(16));
@@ -2954,7 +2954,7 @@ namespace GlyssenEngineTests
 				.GetBooksWithBlocksConnectedToReferenceText(testProject, applyNarratorOverrides).Single().GetScriptBlocks();
 
 			Assert.That(result.Count, Is.EqualTo(6));
-			Assert.That(result[0].MatchesReferenceText && result[0].ReferenceBlocks.Single().IsChapterAnnouncement, Is.True);
+			Assert.That(result[0].MatchesReferenceText && result[0].ReferenceBlocks.Single().IsChapterAnnouncement);
 			Assert.That(result[1].MatchesReferenceText);
 			Assert.That(result[2].MatchesReferenceText);
 			// These final three blocks aren't of major importance in this test, but here's how they shake out:
@@ -3165,7 +3165,7 @@ namespace GlyssenEngineTests
 
 			chapter = 71;
 			Assert.That(block.ChapterNumber, Is.EqualTo(chapter));
-			Assert.That(block.IsChapterAnnouncement, Is.True);
+			Assert.That(block.IsChapterAnnouncement);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.That(block.ChapterNumber, Is.EqualTo(chapter));
@@ -3191,7 +3191,7 @@ namespace GlyssenEngineTests
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 72;
 			Assert.That(block.ChapterNumber, Is.EqualTo(chapter));
-			Assert.That(block.IsChapterAnnouncement, Is.True);
+			Assert.That(block.IsChapterAnnouncement);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.That(block.ChapterNumber, Is.EqualTo(chapter));
@@ -3222,7 +3222,7 @@ namespace GlyssenEngineTests
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 73;
 			Assert.That(block.ChapterNumber, Is.EqualTo(chapter));
-			Assert.That(block.IsChapterAnnouncement, Is.True);
+			Assert.That(block.IsChapterAnnouncement);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.That(block.ChapterNumber, Is.EqualTo(chapter));
@@ -3254,7 +3254,7 @@ namespace GlyssenEngineTests
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 74;
 			Assert.That(block.ChapterNumber, Is.EqualTo(chapter));
-			Assert.That(block.IsChapterAnnouncement, Is.True);
+			Assert.That(block.IsChapterAnnouncement);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.That(block.ChapterNumber, Is.EqualTo(chapter));
@@ -3286,7 +3286,7 @@ namespace GlyssenEngineTests
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 82;
 			Assert.That(block.ChapterNumber, Is.EqualTo(chapter));
-			Assert.That(block.IsChapterAnnouncement, Is.True);
+			Assert.That(block.IsChapterAnnouncement);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.That(block.ChapterNumber, Is.EqualTo(chapter));
@@ -3323,7 +3323,7 @@ namespace GlyssenEngineTests
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 84;
 			Assert.That(block.ChapterNumber, Is.EqualTo(chapter));
-			Assert.That(block.IsChapterAnnouncement, Is.True);
+			Assert.That(block.IsChapterAnnouncement);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.That(block.ChapterNumber, Is.EqualTo(chapter));
@@ -3512,7 +3512,7 @@ namespace GlyssenEngineTests
 
 			chapter = 71 + chapterNumAdjustment;
 			Assert.That(block.ChapterNumber, Is.EqualTo(chapter));
-			Assert.That(block.IsChapterAnnouncement, Is.True);
+			Assert.That(block.IsChapterAnnouncement);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.That(block.ChapterNumber, Is.EqualTo(chapter));
@@ -3538,7 +3538,7 @@ namespace GlyssenEngineTests
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 72 + chapterNumAdjustment;
 			Assert.That(block.ChapterNumber, Is.EqualTo(chapter));
-			Assert.That(block.IsChapterAnnouncement, Is.True);
+			Assert.That(block.IsChapterAnnouncement);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.That(block.ChapterNumber, Is.EqualTo(chapter));
@@ -3563,7 +3563,7 @@ namespace GlyssenEngineTests
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 73 + chapterNumAdjustment;
 			Assert.That(block.ChapterNumber, Is.EqualTo(chapter));
-			Assert.That(block.IsChapterAnnouncement, Is.True);
+			Assert.That(block.IsChapterAnnouncement);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.That(block.ChapterNumber, Is.EqualTo(chapter));
@@ -3589,7 +3589,7 @@ namespace GlyssenEngineTests
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 74 + chapterNumAdjustment;
 			Assert.That(block.ChapterNumber, Is.EqualTo(chapter));
-			Assert.That(block.IsChapterAnnouncement, Is.True);
+			Assert.That(block.IsChapterAnnouncement);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.That(block.ChapterNumber, Is.EqualTo(chapter));
@@ -3614,7 +3614,7 @@ namespace GlyssenEngineTests
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 82 + chapterNumAdjustment;
 			Assert.That(block.ChapterNumber, Is.EqualTo(chapter));
-			Assert.That(block.IsChapterAnnouncement, Is.True);
+			Assert.That(block.IsChapterAnnouncement);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.That(block.ChapterNumber, Is.EqualTo(chapter));
@@ -3645,7 +3645,7 @@ namespace GlyssenEngineTests
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 84 + chapterNumAdjustment;
 			Assert.That(block.ChapterNumber, Is.EqualTo(chapter));
-			Assert.That(block.IsChapterAnnouncement, Is.True);
+			Assert.That(block.IsChapterAnnouncement);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.That(block.ChapterNumber, Is.EqualTo(chapter));

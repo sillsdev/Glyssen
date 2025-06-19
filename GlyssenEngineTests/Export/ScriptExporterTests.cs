@@ -164,7 +164,7 @@ namespace GlyssenEngineTests.Export
 						case "16":
 						case "17":
 						case "24":
-							Assert.That(block.IsParagraphStart, Is.True);
+							Assert.That(block.IsParagraphStart);
 							break;
 						default:
 							Assert.That(block.IsParagraphStart, Is.False);

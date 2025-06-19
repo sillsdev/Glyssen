@@ -651,7 +651,7 @@ namespace GlyssenEngineTests
 			group.AssignVoiceActor(actor.Id);
 			project.CharacterGroupList.CharacterGroups.Add(group);
 
-			Assert.That(project.IsVoiceActorAssignmentsComplete, Is.True);
+			Assert.That(project.IsVoiceActorAssignmentsComplete);
 		}
 
 		[Test]
@@ -1074,7 +1074,7 @@ namespace GlyssenEngineTests
 			Assert.That(project, Is.Not.Null);
 			Assert.That(project.QuoteSystem.AllLevels, Is.Not.Empty);
 			Assert.That(project.WritingSystem.Id, Is.EqualTo("zyt"));
-			Assert.That(project.WritingSystem.Language.IsPrivateUse, Is.True);
+			Assert.That(project.WritingSystem.Language.IsPrivateUse);
 		}
 
 		[Test]

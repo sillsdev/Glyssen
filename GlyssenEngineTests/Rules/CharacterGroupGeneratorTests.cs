@@ -2230,7 +2230,7 @@ namespace GlyssenEngineTests.Rules
 			{
 				var minProximity = p.CalculateMinimumProximity(group.CharacterIds);
 				Debug.WriteLine(group.GroupIdForUiDisplay + ": " + minProximity);
-				Assert.That(minProximity.IsAcceptable, Is.True, $"Group {group.GroupIdForUiDisplay} has proximity problem: " +
+				Assert.That(minProximity.IsAcceptable, $"Group {group.GroupIdForUiDisplay} has proximity problem: " +
 					$"{minProximity.NumberOfBlocks} between {minProximity.FirstCharacterId} ({minProximity.FirstReference}) and " +
 					$"{minProximity.SecondCharacterId} ({minProximity.SecondReference}).");
 			}
