@@ -16,6 +16,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [6.2.0] - 2025-06-20
+
 ### Fixed
 - Load failure (L10nSharp.dll) in v. 6.1.3. Lots of dependencies upgraded, so clients of GlyssenEngine should watch for possible incompatibilities.
 
