@@ -23,7 +23,7 @@ namespace GlyssenTests.Utilities
 
 			Thread.Sleep(1000);
 
-			Assert.AreEqual(vr, DummyForm.MessageReceived);
+			Assert.That(vr, Is.EqualTo(DummyForm.MessageReceived));
 
 			DummyForm.Stop();
 		}

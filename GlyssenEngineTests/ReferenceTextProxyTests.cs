@@ -28,7 +28,7 @@ namespace GlyssenEngineTests
 		{
 			var publicDomainDistributedReferenceTexts = ReferenceTextProxy.AllAvailable.ToList();
 
-			Assert.AreEqual(2, publicDomainDistributedReferenceTexts.Count);
+			Assert.That(publicDomainDistributedReferenceTexts.Count, Is.EqualTo(2));
 			VerifyBuiltInReferenceTexts(publicDomainDistributedReferenceTexts);
 		}
 
@@ -42,14 +42,14 @@ namespace GlyssenEngineTests
 
 			VerifyBuiltInReferenceTexts(referenceTexts);
 
-			Assert.AreEqual(4, referenceTexts.Count);
+			Assert.That(referenceTexts.Count, Is.EqualTo(4));
 			var customEnglish = referenceTexts.Single(r => r.Type == ReferenceTextType.Custom && r.CustomIdentifier == "English");
-			Assert.AreEqual(ReferenceTextType.Custom, customEnglish.Type);
-			Assert.AreEqual("English", customEnglish.CustomIdentifier);
+			Assert.That(ReferenceTextType.Custom, Is.EqualTo(customEnglish.Type));
+			Assert.That(customEnglish.CustomIdentifier, Is.EqualTo("English"));
 
 			var azeri = referenceTexts.Single(r => r.Type == ReferenceTextType.Custom && r.CustomIdentifier == "Azeri");
-			Assert.AreEqual(ReferenceTextType.Custom, azeri.Type);
-			Assert.AreEqual("Azeri", azeri.CustomIdentifier);
+			Assert.That(ReferenceTextType.Custom, Is.EqualTo(azeri.Type));
+			Assert.That(azeri.CustomIdentifier, Is.EqualTo("Azeri"));
 		}
 
 		[Test]
@@ -67,8 +67,9 @@ namespace GlyssenEngineTests
 
 			VerifyBuiltInReferenceTexts(referenceTexts);
 
-			Assert.AreEqual(4, referenceTexts.Count);
-			Assert.IsNotNull(referenceTexts.Single(r => r.Type == ReferenceTextType.Custom && r.CustomIdentifier == "English"));
+			Assert.That(referenceTexts.Count, Is.EqualTo(4));
+			Assert.That(referenceTexts.Single(r => r.Type == ReferenceTextType.Custom && r.CustomIdentifier == "English"),
+				Is.Not.Null);
 		}
 
 		[Test]
@@ -76,25 +77,25 @@ namespace GlyssenEngineTests
 		{
 			var idEpl = ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, "EsperantoPigLatin");
 
-			Assert.IsTrue(idEpl.Missing);
+			Assert.That(idEpl.Missing, Is.True);
 
 			var referenceTexts = ReferenceTextProxy.AllAvailable.ToList();
 
 			VerifyBuiltInReferenceTexts(referenceTexts);
 
-			Assert.AreEqual(3, referenceTexts.Count);
-			Assert.AreEqual(idEpl, referenceTexts.Single(r => r.Type == ReferenceTextType.Custom && r.CustomIdentifier == "EsperantoPigLatin"));
+			Assert.That(referenceTexts.Count, Is.EqualTo(3));
+			Assert.That(idEpl, Is.EqualTo(referenceTexts.Single(r => r.Type == ReferenceTextType.Custom && r.CustomIdentifier == "EsperantoPigLatin")));
 		}
 
 		private static void VerifyBuiltInReferenceTexts(IEnumerable<ReferenceTextProxy> referenceTexts)
 		{
 			var english = referenceTexts.Single(r => r.Type == ReferenceTextType.English);
-			Assert.AreEqual(ReferenceTextType.English, english.Type);
-			Assert.IsNull(english.CustomIdentifier);
+			Assert.That(ReferenceTextType.English, Is.EqualTo(english.Type));
+			Assert.That(english.CustomIdentifier, Is.Null);
 
 			var russian = referenceTexts.Single(r => r.Type == ReferenceTextType.Russian);
-			Assert.AreEqual(ReferenceTextType.Russian, russian.Type);
-			Assert.IsNull(russian.CustomIdentifier);
+			Assert.That(ReferenceTextType.Russian, Is.EqualTo(russian.Type));
+			Assert.That(russian.CustomIdentifier, Is.Null);
 		}
 	}
 }

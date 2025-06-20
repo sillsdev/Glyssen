@@ -7,6 +7,7 @@ using GlyssenCharacters;
 using NUnit.Framework;
 using SIL.Extensions;
 using SIL.Scripture;
+using static System.Int32;
 using static System.String;
 using NarratorOverrides = GlyssenCharacters.NarratorOverrides;
 using Resources = GlyssenCharacters.Properties.Resources;
@@ -31,7 +32,8 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_ValidControlVersionPresent()
 		{
-			Assert.IsTrue(Regex.IsMatch(Resources.CharacterVerseData, @"\AControl File Version\t\d+\r?$", RegexOptions.Multiline));
+			Assert.That(Resources.CharacterVerseData,
+				Does.Match(new Regex(@"\AControl File Version\t\d+\r?$", RegexOptions.Multiline)));
 		}
 
 		[Test]
@@ -45,71 +47,75 @@ namespace ControlDataIntegrityTests
 			foreach (var line in AllDataLines)
 			{
 				var match = regex.Match(line);
-				Assert.IsTrue(match.Success, "Failed to match line: " + line);
+				Assert.That(match.Success, Is.True, "Failed to match line: " + line);
 
 				var bookId = match.Result("${bookId}");
 				var bookNum = BCVRef.BookToNumber(bookId);
-				Assert.IsTrue(bookNum > 0, "Line: " + line);
-				Assert.IsTrue(bookNum <= 66, "Line: " + line);
+				Assert.That(bookNum, Is.GreaterThan(0), "Line: " + line);
+				Assert.That(bookNum, Is.LessThanOrEqualTo(66), "Line: " + line);
 
 				var chapterAsString = match.Result("${chapter}");
-				var chapter = Int32.Parse(chapterAsString);
-				Assert.IsTrue(chapter > 0, "Line: " + line);
-				Assert.IsTrue(chapter <= ScrVers.English.GetLastChapter(bookNum), "Line: " + line);
+				var chapter = Parse(chapterAsString);
+				Assert.That(chapter, Is.GreaterThan(0), "Line: " + line);
+				Assert.That(chapter, Is.LessThanOrEqualTo(ScrVers.English.GetLastChapter(bookNum)),
+					"Line: " + line);
 
 				var verseAsString = match.Result("${verse}");
-				var verse = Int32.Parse(verseAsString);
-				Assert.IsTrue(verse > 0 || verse == 0 && bookId == "PSA", "Line: " + line);
-				Assert.IsTrue(verse <= ScrVers.English.GetLastVerse(bookNum, chapter), "Line: " + line);
+				var verse = Parse(verseAsString);
+				Assert.That(verse > 0 || verse == 0 && bookId == "PSA", "Line: " + line);
+				Assert.That(verse, Is.LessThanOrEqualTo(ScrVers.English.GetLastVerse(bookNum, chapter)),
+					"Line: " + line);
 
 				var sEndVerse = match.Result("${endVerse}");
-				if (!string.IsNullOrEmpty(sEndVerse))
+				if (!IsNullOrEmpty(sEndVerse))
 				{
-					var endVerse = Int32.Parse(sEndVerse);
-					Assert.IsTrue(endVerse > verse, "Line: " + line);
-					Assert.IsTrue(endVerse <= 152, "Line: " + line);
+					var endVerse = Parse(sEndVerse);
+					Assert.That(endVerse, Is.GreaterThan(verse), "Line: " + line);
+					Assert.That(endVerse, Is.LessThanOrEqualTo(152), "Line: " + line);
 				}
 
 				var character = match.Result("${character}");
 
 				var alias = match.Result("${alias}");
-				bool aliasDefined = !string.IsNullOrEmpty(alias);
+				bool aliasDefined = !IsNullOrEmpty(alias);
 				if (aliasDefined)
-					Assert.AreNotEqual(character, alias, "Line: " + line);
+					Assert.That(character, Is.Not.EqualTo(alias), "Line: " + line);
 
 				var defaultCharacter = match.Result("${defaultCharacter}");
-				if (!string.IsNullOrEmpty(defaultCharacter))
+				if (!IsNullOrEmpty(defaultCharacter))
 				{
-					Assert.AreNotEqual(character, defaultCharacter, "Line: " + line);
-					Assert.IsFalse(defaultCharacter.Contains("/"), $"Line: {line} has a default character which is a multi-character ID.");
+					Assert.That(character, Is.Not.EqualTo(defaultCharacter), "Line: " + line);
+					Assert.That(defaultCharacter, Does.Not.Contain("/"),
+						$"Line: {line} has a default character which is a multi-character ID.");
 				}
 
 				string typeAsString = match.Result("${type}");
 				if (CharacterVerseData.IsCharacterOfType(character, CharacterVerseData.StandardCharacter.Narrator))
 				{
-					Assert.AreNotEqual("Dialogue", typeAsString, "Line: " + line);
-					Assert.IsFalse(aliasDefined, "Line: " + line);
+					Assert.That(typeAsString, Is.Not.EqualTo("Dialogue"), "Line: " + line);
+					Assert.That(aliasDefined, Is.False, "Line: " + line);
 				}
 
 				var matchResult = match.Result("$&");
-				Assert.IsTrue(set.Add(matchResult), "Duplicate line: " + matchResult);
+				Assert.That(set.Add(matchResult), Is.True, "Duplicate line: " + matchResult);
 
-				Assert.IsTrue(Enum.TryParse(typeAsString, out QuoteType type));
+				Assert.That(Enum.TryParse(typeAsString, out QuoteType type), Is.True);
 				foreach (var bcvRef in CharacterVerseData.GetAllVerses(new [] {bookId, chapterAsString, verseAsString}, () => throw new Exception("This should never happen")))
 				{
 					var cv = new CharacterVerse(bcvRef, character, match.Result("${delivery}"), alias, false, type, defaultCharacter);
-					Assert.IsTrue(uniqueCharacterVerses.Add(cv), "Line is equivalent to another line even though they are not identical: " + matchResult);
+					Assert.That(uniqueCharacterVerses.Add(cv), Is.True,
+						"Line is equivalent to another line even though they are not identical: " + matchResult);
 				}
 
 				var sPosition = match.Result("${quotePosition}");
 				if (!IsNullOrEmpty(sPosition))
 				{
-					Assert.IsTrue(Enum.TryParse(sPosition, out QuotePosition position), "Invalid QuotePosition: " + sPosition);
+					Assert.That(Enum.TryParse(sPosition, out QuotePosition position), Is.True, "Invalid QuotePosition: " + sPosition);
 					if (type == QuoteType.Implicit || type == QuoteType.ImplicitWithPotentialSelfQuote)
 						Assert.That(position, Is.EqualTo(QuotePosition.EntireVerse), "Line: " + line);
 
-					Assert.False(type.IsOneOf(QuoteType.Potential, QuoteType.Rare, QuoteType.Alternate,
-						QuoteType.Indirect, QuoteType.Interruption), "Line: " + line);
+					Assert.That(type.IsOneOf(QuoteType.Potential, QuoteType.Rare, QuoteType.Alternate,
+						QuoteType.Indirect, QuoteType.Interruption), Is.False, "Line: " + line);
 				}
 				else
 				{
@@ -121,7 +127,7 @@ namespace ControlDataIntegrityTests
 				}
 
 				var extraSpacesMatch = extraSpacesRegex.Match(line);
-				Assert.IsFalse(extraSpacesMatch.Success, "Line with extra space(s): " + line);
+				Assert.That(extraSpacesMatch.Success, Is.False, "Line with extra space(s): " + line);
 			}
 		}
 
@@ -131,7 +137,7 @@ namespace ControlDataIntegrityTests
 			// PG-152/PG-1272: Glyssen now handles duplicates where the only difference is
 			// between normal (blank) delivery and a specified delivery, but if the same
 			// character speaks twice in the same verse with two different deliveries, it's
-			// still genrally best to make them both explicit. We allow for the exception
+			// still generally best to make them both explicit. We allow for the exception
 			// of an Alternate (where the main speaker is allowed to speak the quotation
 			// rather than having it spoken by the character being quoted), because in this
 			// case the delivery is as much an informational note to the scripter as it is
@@ -140,16 +146,16 @@ namespace ControlDataIntegrityTests
 			ISet<CharacterVerse> uniqueCharacterVerses = new HashSet<CharacterVerse>(comparer);
 			IList<CharacterVerse> duplicateCharacterVerses = new List<CharacterVerse>();
 			foreach (CharacterVerse cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo()
-				.OrderBy(cv => cv.BcvRef).ThenBy(cv => string.IsNullOrEmpty(cv.Delivery)))
+				.OrderBy(cv => cv.BcvRef).ThenBy(cv => IsNullOrEmpty(cv.Delivery)))
 			{
-				if (!uniqueCharacterVerses.Add(cv) && string.IsNullOrEmpty(cv.Delivery))
+				if (!uniqueCharacterVerses.Add(cv) && IsNullOrEmpty(cv.Delivery))
 				{
 					if (uniqueCharacterVerses.Single(c => comparer.Equals(c, cv)).QuoteType != QuoteType.Alternate)
 						duplicateCharacterVerses.Add(cv);
 				}
 			}
 
-			Assert.False(duplicateCharacterVerses.Any(),
+			Assert.That(duplicateCharacterVerses, Is.Empty,
 				"Duplicate Character-Verse data:" +
 				Environment.NewLine +
 				duplicateCharacterVerses.Select(cv => cv.BcvRef + ", " + cv.Character).OnePerLineWithIndent());
@@ -165,7 +171,7 @@ namespace ControlDataIntegrityTests
 					entriesWhereAliasEqualsCharacterId.Add(cv);
 			}
 
-			Assert.False(entriesWhereAliasEqualsCharacterId.Any(),
+			Assert.That(entriesWhereAliasEqualsCharacterId, Is.Empty,
 				"Character-Verse data where Alias equals Character ID:" +
 				Environment.NewLine +
 				entriesWhereAliasEqualsCharacterId.Select(cv => cv.BcvRef + ", " + cv.Character + ", " + cv.Alias).OnePerLineWithIndent());
@@ -176,7 +182,7 @@ namespace ControlDataIntegrityTests
 		{
 			foreach (CharacterVerse cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo())
 			{
-				Assert.IsFalse(CharacterVerseData.IsCharacterExtraBiblical(cv.Character),
+				Assert.That(CharacterVerseData.IsCharacterExtraBiblical(cv.Character), Is.False,
 					$"Character-Verse data cannot contain extra-biblical characters: {cv.BcvRef}: {cv.Character}");
 			}
 		}
@@ -197,7 +203,7 @@ namespace ControlDataIntegrityTests
 						continue;
 					// For interruptions, we actually never pay any attention to the character ID. They are always narrator.
 					// But in some verses we have both a normal narrator Quotation and an interruption, so to avoid a problem
-					// in other data integrity checks, we just use the dummy character id "interruption-XXX" (where XXX is the
+					// in other data integrity checks, we just use the dummy character id "interruption-XXX", where XXX is the
 					// 3-letter book code.
 					if (cv.QuoteType == QuoteType.Interruption || cv.Character.StartsWith("interruption-"))
 						continue;
@@ -212,7 +218,7 @@ namespace ControlDataIntegrityTests
 						missingCharacters.Add(cv.Character);
 				}
 
-				if (!(string.IsNullOrEmpty(cv.DefaultCharacter) || charactersHavingDetail.Contains(cv.DefaultCharacter)))
+				if (!(IsNullOrEmpty(cv.DefaultCharacter) || charactersHavingDetail.Contains(cv.DefaultCharacter)))
 				{
 					if (CharacterVerseData.IsCharacterStandard(cv.DefaultCharacter) || cv.DefaultCharacter == CharacterVerseData.kNeedsReview)
 						continue;
@@ -221,7 +227,7 @@ namespace ControlDataIntegrityTests
 				}
 			}
 
-			Assert.False(missingCharacters.Any() || missingDefaultCharacters.Any(),
+			Assert.That(missingCharacters.Any() || missingDefaultCharacters.Any(), Is.False,
 				(missingCharacters.Any() ? "Characters in Character-Verse data but not in Character-Detail:" +
 				Environment.NewLine +
 				missingCharacters.OnePerLineWithIndent() : "") +
@@ -234,10 +240,10 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_ParallelPassageReferences()
 		{
-			var referenceDoesntMatchLineFailures = new List<string>();
+			var referenceDoesNotMatchLineFailures = new List<string>();
 			var charactersNotEqualFailures = new List<string>();
 
-			var allParallelPassageData = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Where(c => !string.IsNullOrEmpty(c.ParallelPassageReferences));
+			var allParallelPassageData = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Where(c => !IsNullOrEmpty(c.ParallelPassageReferences));
 			foreach (CharacterVerse cv in allParallelPassageData)
 			{
 				bool checkCharacters = !cv.ParallelPassageReferences.StartsWith("*");
@@ -252,17 +258,19 @@ namespace ControlDataIntegrityTests
 				}
 
 				if (!parallelPassageVersesForCurrentDatum.Contains(cv.BcvRef))
-					referenceDoesntMatchLineFailures.Add(string.Format("{0}  =>  {1}", cv.BcvRef, cv.ParallelPassageReferences));
+					referenceDoesNotMatchLineFailures.Add($"{cv.BcvRef}  =>  {cv.ParallelPassageReferences}");
 
 				if (checkCharacters && !allParallelPassageData.Any(p => (p.BookCode != cv.BookCode || p.Chapter != cv.Chapter || p.Verse != cv.Verse) &&
 					(p.Character == cv.Character || p.Character == cv.DefaultCharacter || p.DefaultCharacter == cv.Character) &&
 					parallelPassageVersesForCurrentDatum.Contains(p.BcvRef)))
-					charactersNotEqualFailures.Add(string.Format("{0}  =>  {1}  =>  {2}", cv.BcvRef, cv.Character, cv.ParallelPassageReferences));
+					charactersNotEqualFailures.Add($"{cv.BcvRef}  =>  {cv.Character}  =>  {cv.ParallelPassageReferences}");
 			}
 
-			Assert.IsTrue(!referenceDoesntMatchLineFailures.Any(), "Parallel passage reference does not match the reference for this line:" + Environment.NewLine +
-				referenceDoesntMatchLineFailures.OnePerLineWithIndent());
-			Assert.IsTrue(!charactersNotEqualFailures.Any(), "Characters do not match for one or more parallel passages:" + Environment.NewLine +
+			Assert.That(referenceDoesNotMatchLineFailures, Is.Empty,
+				"Parallel passage reference does not match the reference for this line:" + Environment.NewLine +
+				referenceDoesNotMatchLineFailures.OnePerLineWithIndent());
+			Assert.That(charactersNotEqualFailures, Is.Empty,
+				"Characters do not match for one or more parallel passages:" + Environment.NewLine +
 				charactersNotEqualFailures.OnePerLineWithIndent());
 		}
 
@@ -287,8 +295,8 @@ namespace ControlDataIntegrityTests
 					.GetOtherEntriesIncompatibleWithImplicitCv(cv).ToList();
 				if (otherEntries.Any())
 				{
-					Assert.IsTrue(cv.BookCode == "DEU" && otherEntries.All(o => 
-						o.QuoteType == QuoteType.Quotation || o.QuoteType == QuoteType.Indirect),
+					Assert.That(cv.BookCode == "DEU" && otherEntries.All(o => 
+						o.QuoteType == QuoteType.Quotation || o.QuoteType == QuoteType.Indirect), Is.True,
 					$"Character-verse file contains an Implicit quote for {cv.Character} in {cv.BookCode} {cv.Chapter}:{cv.Verse} " +
 						"that also has other incompatible quotes.");
 				}
@@ -309,10 +317,11 @@ namespace ControlDataIntegrityTests
 				.Where(q => q.QuoteType == QuoteType.Quotation && q.Character == CharacterSpeakingMode.kScriptureCharacter &&
 					(IsNullOrEmpty(q.DefaultCharacter) || q.DefaultCharacter == "God")))
 			{
-				Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber(cv.BookCode),
-						cv.Chapter, new SingleVerse(cv.Verse), ScrVers.English).Any(c => c.Character == "God"),
-						$"Character-verse file contains a Scripture quote that defaults to God in {cv.BookCode} {cv.Chapter}:{cv.Verse}, " +
-						"but that verse also has God speaking directly.");
+				Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber(cv.BookCode),
+					cv.Chapter, new SingleVerse(cv.Verse), ScrVers.English).Where(c => c.Character == "God"),
+					Is.Empty,
+					$"Character-verse file contains a Scripture quote that defaults to God in {cv.BookCode} {cv.Chapter}:{cv.Verse}, " +
+					"but that verse also has God speaking directly.");
 			}
 		}
 
@@ -347,14 +356,14 @@ namespace ControlDataIntegrityTests
 				var otherEntries = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber(alternate.BookCode),
 						alternate.Chapter, new SingleVerse(alternate.Verse), ScrVers.English)
 					.Where(c => acceptablePrimaryQuoteTypes.Contains(c.QuoteType)).ToList();
-				Assert.IsFalse(otherEntries.Any(c => c.Character == alternate.Character && c.Delivery == alternate.Delivery),
+				Assert.That(otherEntries.Where(c => c.Character == alternate.Character && c.Delivery == alternate.Delivery), Is.Empty,
 					$"Alternate used for a {alternate.Character} in {alternate.BookCode} {alternate.Chapter}:{alternate.Verse}, " +
 					"but that character also has another quote type in that verse!");
-				Assert.IsTrue(otherEntries.Any(c => c.QuoteType != QuoteType.Quotation || !c.Character.StartsWith("narrator-") ||
+				Assert.That(otherEntries.Any(c => c.QuoteType != QuoteType.Quotation || !c.Character.StartsWith("narrator-") ||
 						// PG-1248: Because of the logic in AdjustData, this Alternate could be a Quotation that was turned into
 						// an Alternate because there was a corresponding narrator Quotation that should be considered as primary.
 						// If so, we don't want to flag this as a mistake.
-						c.Character == alternate.DefaultCharacter),
+						c.Character == alternate.DefaultCharacter), Is.True,
 					$"Character-verse file contains an Alternate quote for {alternate.Character} in {alternate.BookCode} {alternate.Chapter}:{alternate.Verse}" +
 					", but there is no primary character.");
 			}
@@ -397,7 +406,8 @@ namespace ControlDataIntegrityTests
 				}
 			}
 
-			Assert.IsFalse(problems.Any(), "Character-verse file contains the following Quotation with no accompanying narrator option:" +
+			Assert.That(problems, Is.Empty,
+				"Character-verse file contains the following Quotation with no accompanying narrator option:" +
 				Environment.NewLine + Join(Environment.NewLine, problems));
 		}
 
@@ -417,8 +427,9 @@ namespace ControlDataIntegrityTests
 		public void DataIntegrity_HypotheticalNarratorQuoteNotPermitted()
 		{
 			var hypotheticalNarrators = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Where(i => i.QuoteType == QuoteType.Hypothetical && i.Character.StartsWith("narrator-")).ToList();
-			Assert.IsFalse(hypotheticalNarrators.Any(), "Hypothetical narrator quotes are not permitted:" + Environment.NewLine +
-				string.Join(Environment.NewLine, hypotheticalNarrators.Select(cv => $"{cv.BcvRef.AsString}")));
+			Assert.That(hypotheticalNarrators, Is.Empty,
+				"Hypothetical narrator quotes are not permitted:" + Environment.NewLine +
+				Join(Environment.NewLine, hypotheticalNarrators.Select(cv => $"{cv.BcvRef.AsString}")));
 		}
 
 		/// <summary>
@@ -433,14 +444,15 @@ namespace ControlDataIntegrityTests
 		public void DataIntegrity_NarratorCannotHaveDelivery()
 		{
 			var narratorsWithDelivery = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Where(i => i.Character.StartsWith("narrator-") &&
-				!String.IsNullOrEmpty(i.Delivery)).ToList();
-			Assert.IsFalse(narratorsWithDelivery.Any(), "Narrator quotes are not permitted to have delivery info:" + Environment.NewLine +
-				string.Join(Environment.NewLine, narratorsWithDelivery.Select(cv => $"{cv.BcvRef.AsString}")));
+				!IsNullOrEmpty(i.Delivery)).ToList();
+			Assert.That(narratorsWithDelivery, Is.Empty,
+				"Narrator quotes are not permitted to have delivery info:" + Environment.NewLine +
+				Join(Environment.NewLine, narratorsWithDelivery.Select(cv => $"{cv.BcvRef.AsString}")));
 		}
 		 
 		/// <summary>
 		/// The Rare quote type must always be accompanied by a Needs Review entry, because this type of quote nearly always requires
-		/// input from a native speaker to know whether or not to dramatize it as actual spoken words (or thinking out loud) or treat
+		/// input from a native speaker to know whether to dramatize it as actual spoken words (or thinking out loud) or treat
 		/// it as "hypothetical" speech that should be read by the narrator to convey an attitude, thought or belief of a character.
 		/// In many cases review may also be needed to determine which character is thinking or speaking the quoted text. Furthermore,
 		/// if all the possible quotes in the verse are Rare, then the Needs Review should be of type Potential, so that it will be
@@ -470,19 +482,21 @@ namespace ControlDataIntegrityTests
 					switch (anticipatedCharacterEntries)
 					{
 						case 0:
-							Assert.AreEqual(QuoteType.Potential, needsReviewQuoteType, "Character-verse file contains a Rare quote " +
-							$"for {rare.Character} in {rare.BookCode} {rare.Chapter}:{rare.Verse}, and there are no non-rare " +
-							$"entries, so the corresponding {CharacterVerseData.kNeedsReview} entry for that " +
-							"verse should be of type Potential.");
+							Assert.That(needsReviewQuoteType, Is.EqualTo(QuoteType.Potential),
+								$"Character-verse file contains a Rare quote for {rare.Character} in " +
+								$"{rare.BookCode} {rare.Chapter}:{rare.Verse}, and there are no non-rare " +
+								$"entries, so the corresponding {CharacterVerseData.kNeedsReview} " +
+								"entry for that verse should be of type Potential.");
 							break;
 						case 1:
-							Assert.AreEqual(QuoteType.Rare, needsReviewQuoteType, "Character-verse file contains a Rare quote " +
+							Assert.That(needsReviewQuoteType, Is.EqualTo(QuoteType.Rare),
+								"Character-verse file contains a Rare quote " +
 								$"for {rare.Character} in {rare.BookCode} {rare.Chapter}:{rare.Verse} along with 1 " +
 								$"non-rare entry, so the corresponding {CharacterVerseData.kNeedsReview} entry for that " +
 								"verse should be of type Rare to prevent an unnecessary ambiguity.");
 							break;
 						default:
-							Assert.IsTrue(needsReviewQuoteType == QuoteType.Rare || needsReviewQuoteType == QuoteType.Potential,
+							Assert.That(needsReviewQuoteType, Is.AnyOf(QuoteType.Rare, QuoteType.Potential),
 								$"Character-verse file contains a Needs Review entry in {rare.BookCode} {rare.Chapter}:" +
 								$"{rare.Verse} that is neither Rare nor Potential. If there is a valid reason, this check can " +
 								"be removed from this test.");
@@ -513,7 +527,7 @@ namespace ControlDataIntegrityTests
 			foreach (var line in AllDataLines)
 			{
 				var match = regex.Match(line);
-				Assert.IsTrue(match.Success, "Failed to match line: " + line);
+				Assert.That(match.Success, Is.True, "Failed to match line: " + line);
 
 				var bookId = match.Result("${bookId}");
 				var bookNum = BCVRef.BookToNumber(bookId);
@@ -523,16 +537,17 @@ namespace ControlDataIntegrityTests
 					prevVerseNum = bookId == "PSA" ? 0 : 1;
 				}
 				else
-					Assert.AreEqual(prevBookNum, bookNum, "Book out of order" + Environment.NewLine + line);
+					Assert.That(prevBookNum, Is.EqualTo(bookNum), "Book out of order" + Environment.NewLine + line);
 
-				var chapter = Int32.Parse(match.Result("${chapter}"));
+				var chapter = Parse(match.Result("${chapter}"));
 				if (prevChapterNum < chapter)
 					prevVerseNum = bookId == "PSA" ? 0 : 1;
 				else
-					Assert.AreEqual(prevChapterNum, chapter, "Chapter out of order" + Environment.NewLine + line);
+					Assert.That(prevChapterNum, Is.EqualTo(chapter), "Chapter out of order" + Environment.NewLine + line);
 
-				var verse = Int32.Parse(match.Result("${verse}"));
-				Assert.IsTrue(verse >= prevVerseNum, "Verse out of order" + Environment.NewLine + line);
+				var verse = Parse(match.Result("${verse}"));
+				Assert.That(verse, Is.GreaterThanOrEqualTo(prevVerseNum),
+					"Verse out of order" + Environment.NewLine + line);
 			}
 		}
 

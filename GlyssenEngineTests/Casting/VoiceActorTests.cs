@@ -10,89 +10,89 @@ namespace GlyssenEngineTests.Casting
 		public void IsValid_HasName_ReturnsTrue()
 		{
 			var actor = new VoiceActor { Name = "A" };
-			Assert.IsTrue(actor.IsValid());
+			Assert.That(actor.IsValid(), Is.True);
 		}
 
 		[Test]
 		public void IsValid_HasNoName_ReturnsFalse()
 		{
 			var actor = new VoiceActor { Gender = ActorGender.Female };
-			Assert.IsFalse(actor.IsValid());
+			Assert.That(actor.IsValid(), Is.False);
 		}
 
 		[Test]
 		public void Matches_CharacterMatchesExactlyOnGenderAndAge_ReturnsTrue()
 		{
 			var actor = new VoiceActor { Gender = ActorGender.Female, Age = ActorAge.Elder };
-			Assert.IsTrue(actor.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.Elder }));
+			Assert.That(actor.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.Elder }));
 		}
 
 		[Test]
 		public void Matches_GenderDifferent_ReturnsFalse()
 		{
 			var actor = new VoiceActor { Gender = ActorGender.Male };
-			Assert.IsFalse(actor.Matches(new CharacterDetail { Gender = CharacterGender.Female }));
+			Assert.That(actor.Matches(new CharacterDetail { Gender = CharacterGender.Female }), Is.False);
 
 			actor = new VoiceActor { Gender = ActorGender.Female };
-			Assert.IsFalse(actor.Matches(new CharacterDetail { Gender = CharacterGender.Male }));
+			Assert.That(actor.Matches(new CharacterDetail { Gender = CharacterGender.Male }), Is.False);
 
 			actor = new VoiceActor { Gender = ActorGender.Female };
-			Assert.IsFalse(actor.Matches(new CharacterDetail { Gender = CharacterGender.PreferMale }));
+			Assert.That(actor.Matches(new CharacterDetail { Gender = CharacterGender.PreferMale }), Is.False);
 
 			actor = new VoiceActor { Gender = ActorGender.Male };
-			Assert.IsFalse(actor.Matches(new CharacterDetail { Gender = CharacterGender.PreferFemale }));
+			Assert.That(actor.Matches(new CharacterDetail { Gender = CharacterGender.PreferFemale }), Is.False);
 		}
 
 		[Test]
 		public void Matches_MaleActorCharacterGenderEither_ReturnsTrue()
 		{
 			var actor = new VoiceActor { Gender = ActorGender.Male };
-			Assert.IsTrue(actor.Matches(new CharacterDetail { Gender = CharacterGender.Either }));
+			Assert.That(actor.Matches(new CharacterDetail { Gender = CharacterGender.Either }));
 		}
 
 		[Test]
 		public void Matches_CharacterGenderNeuter_ReturnsTrue()
 		{
 			var actor = new VoiceActor { Gender = ActorGender.Male };
-			Assert.IsTrue(actor.Matches(new CharacterDetail { Gender = CharacterGender.Neuter }));
+			Assert.That(actor.Matches(new CharacterDetail { Gender = CharacterGender.Neuter }));
 
 			actor = new VoiceActor { Gender = ActorGender.Female };
-			Assert.IsTrue(actor.Matches(new CharacterDetail { Gender = CharacterGender.Neuter }));
+			Assert.That(actor.Matches(new CharacterDetail { Gender = CharacterGender.Neuter }));
 		}
 
 		[Test]
 		public void Matches_FemaleActorCharacterGenderEither_ReturnsFalse()
 		{
 			var actor = new VoiceActor { Gender = ActorGender.Female };
-			Assert.IsFalse(actor.Matches(new CharacterDetail { Gender = CharacterGender.Either }));
+			Assert.That(actor.Matches(new CharacterDetail { Gender = CharacterGender.Either }), Is.False);
 		}
 
 		[Test]
 		public void Matches_CharacterGenderPrefMale_ActorGenderMale_ReturnsTrue()
 		{
 			var actor = new VoiceActor { Gender = ActorGender.Male };
-			Assert.IsTrue(actor.Matches(new CharacterDetail { Gender = CharacterGender.PreferMale }));
+			Assert.That(actor.Matches(new CharacterDetail { Gender = CharacterGender.PreferMale }));
 		}
 
 		[Test]
 		public void Matches_CharacterGenderPrefFemale_ActorGenderFemale_ReturnsTrue()
 		{
 			var actor = new VoiceActor { Gender = ActorGender.Female };
-			Assert.IsTrue(actor.Matches(new CharacterDetail { Gender = CharacterGender.PreferFemale }));
+			Assert.That(actor.Matches(new CharacterDetail { Gender = CharacterGender.PreferFemale }));
 		}
 
 		[Test]
 		public void Matches_StrictAgeMatchingFalse_CharacterHasDifferentAge_ReturnsTrue()
 		{
 			var actor = new VoiceActor { Gender = ActorGender.Female, Age = ActorAge.YoungAdult };
-			Assert.IsTrue(actor.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.Elder }, false));
+			Assert.That(actor.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.Elder }, false));
 		}
 
 		[Test]
 		public void Matches_StrictAgeMatchingFalse_CharacterIsChild_ActorIsChild_ReturnsTrue()
 		{
 			var actor = new VoiceActor { Gender = ActorGender.Female, Age = ActorAge.Child };
-			Assert.IsTrue(actor.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.Child }, false));
+			Assert.That(actor.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.Child }, false));
 		}
 
 		[TestCase(ActorAge.Child)]
@@ -101,37 +101,37 @@ namespace GlyssenEngineTests.Casting
 		public void Matches_StrictAgeMatchingFalse_CharacterIsChild_ActorIsNonElderlyFemale_ReturnsTrue(ActorAge age)
 		{
 			var actor = new VoiceActor { Gender = ActorGender.Female, Age = age };
-			Assert.IsTrue(actor.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.Child }, false));
+			Assert.That(actor.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.Child }, false));
 		}
 
 		[Test]
 		public void Matches_StrictAgeMatchingFalse_CharacterIsChild_ActorIsElderlyFemale_ReturnsFalse()
 		{
 			var actor = new VoiceActor { Gender = ActorGender.Female, Age = ActorAge.Elder };
-			Assert.IsFalse(actor.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.Child }, false));
+			Assert.That(actor.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.Child }, false), Is.False);
 		}
 
 		[Test]
 		public void Matches_StrictAgeMatchingFalse_CharacterIsNotChild_ActorIsAChild_ReturnsFalse()
 		{
 			var actor = new VoiceActor { Gender = ActorGender.Female, Age = ActorAge.Child };
-			Assert.IsFalse(actor.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.YoungAdult }, false));
+			Assert.That(actor.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.YoungAdult }, false), Is.False);
 		}
 
 		[Test]
 		public void Matches_StrictAgeMatching_CharacterHasDifferentAge_ReturnsFalse()
 		{
 			var actor = new VoiceActor { Gender = ActorGender.Female, Age = ActorAge.YoungAdult };
-			Assert.IsFalse(actor.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.Elder }, true));
+			Assert.That(actor.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.Elder }, true), Is.False);
 
 			actor = new VoiceActor { Gender = ActorGender.Female, Age = ActorAge.Elder };
-			Assert.IsFalse(actor.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.YoungAdult }, true));
+			Assert.That(actor.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.YoungAdult }, true), Is.False);
 
 			actor = new VoiceActor { Gender = ActorGender.Female, Age = ActorAge.Child };
-			Assert.IsFalse(actor.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.Adult }, true));
+			Assert.That(actor.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.Adult }, true), Is.False);
 
 			actor = new VoiceActor { Gender = ActorGender.Female, Age = ActorAge.Adult };
-			Assert.IsFalse(actor.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.Child }, true));
+			Assert.That(actor.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.Child }, true), Is.False);
 		}
 
 		[TestCase(ActorAge.Adult, CharacterAge.Adult)]
@@ -142,7 +142,7 @@ namespace GlyssenEngineTests.Casting
 		{
 			var actor = new VoiceActor { Age = actorAge };
 			var matchQuality = actor.GetAgeMatchQuality(new CharacterDetail {  Age = characterAge });
-			Assert.AreEqual(MatchLevel.Perfect, matchQuality);
+			Assert.That(MatchLevel.Perfect, Is.EqualTo(matchQuality));
 		}
 
 		[TestCase(ActorAge.Adult, CharacterAge.YoungAdult)]
@@ -153,7 +153,7 @@ namespace GlyssenEngineTests.Casting
 		{
 			var actor = new VoiceActor { Age = actorAge };
 			var matchQuality = actor.GetAgeMatchQuality(new CharacterDetail { Age = characterAge });
-			Assert.AreEqual(MatchLevel.Acceptable, matchQuality);
+			Assert.That(MatchLevel.Acceptable, Is.EqualTo(matchQuality));
 		}
 
 		[TestCase(ActorAge.YoungAdult, CharacterAge.Elder)]
@@ -162,7 +162,7 @@ namespace GlyssenEngineTests.Casting
 		{
 			var actor = new VoiceActor { Age = actorAge };
 			var matchQuality = actor.GetAgeMatchQuality(new CharacterDetail { Age = characterAge });
-			Assert.AreEqual(MatchLevel.Poor, matchQuality);
+			Assert.That(MatchLevel.Poor, Is.EqualTo(matchQuality));
 		}
 
 		[TestCase(ActorAge.Adult, CharacterAge.Child)]
@@ -175,7 +175,7 @@ namespace GlyssenEngineTests.Casting
 		{
 			var actor = new VoiceActor { Age = actorAge };
 			var matchQuality = actor.GetAgeMatchQuality(new CharacterDetail { Age = characterAge });
-			Assert.AreEqual(MatchLevel.Mismatch, matchQuality);
+			Assert.That(MatchLevel.Mismatch, Is.EqualTo(matchQuality));
 		}
 
 		[TestCase(ActorGender.Female, CharacterGender.Female)]
@@ -189,7 +189,7 @@ namespace GlyssenEngineTests.Casting
 		{
 			var actor = new VoiceActor { Gender = actorGender };
 			var matchQuality = actor.GetGenderMatchQuality(new CharacterDetail { Gender = characterGender });
-			Assert.AreEqual(MatchLevel.Perfect, matchQuality);
+			Assert.That(MatchLevel.Perfect, Is.EqualTo(matchQuality));
 		}
 
 		[TestCase(ActorGender.Male, CharacterGender.PreferFemale)]
@@ -199,7 +199,7 @@ namespace GlyssenEngineTests.Casting
 			// could easily be performed by a male actor.
 			var actor = new VoiceActor { Gender = actorGender };
 			var matchQuality = actor.GetGenderMatchQuality(new CharacterDetail { Gender = characterGender });
-			Assert.AreEqual(MatchLevel.Acceptable, matchQuality);
+			Assert.That(MatchLevel.Acceptable, Is.EqualTo(matchQuality));
 		}
 
 		[TestCase(ActorGender.Female, CharacterGender.Male)]
@@ -210,7 +210,7 @@ namespace GlyssenEngineTests.Casting
 		{
 			var actor = new VoiceActor { Gender = actorGender };
 			var matchQuality = actor.GetGenderMatchQuality(new CharacterDetail { Gender = characterGender });
-			Assert.AreEqual(MatchLevel.Mismatch, matchQuality);
+			Assert.That(MatchLevel.Mismatch, Is.EqualTo(matchQuality));
 		}
 	}
 }

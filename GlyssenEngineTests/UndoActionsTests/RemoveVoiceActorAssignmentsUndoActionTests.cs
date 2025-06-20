@@ -54,8 +54,8 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var groupWithJesus = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
 			groupWithJesus.AssignVoiceActor(2);
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, groupWithJesus);
-			Assert.False(groupWithJesus.IsVoiceActorAssigned);
-			Assert.AreEqual(groupWithJesus, action.GroupsAffectedByLastOperation.Single());
+			Assert.That(groupWithJesus.IsVoiceActorAssigned, Is.False);
+			Assert.That(groupWithJesus, Is.EqualTo(action.GroupsAffectedByLastOperation.Single()));
 		}
 
 		[Test]
@@ -65,8 +65,8 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var emptyGroup = m_testProject.CharacterGroupList.CharacterGroups.Last();
 			emptyGroup.AssignVoiceActor(2);
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, emptyGroup);
-			Assert.IsFalse(m_testProject.CharacterGroupList.CharacterGroups.Contains(emptyGroup));
-			Assert.IsFalse(action.GroupsAffectedByLastOperation.Any());
+			Assert.That(m_testProject.CharacterGroupList.CharacterGroups, Does.Not.Contain(emptyGroup));
+			Assert.That(action.GroupsAffectedByLastOperation, Is.Empty);
 		}
 
 		[Test]
@@ -76,9 +76,9 @@ namespace GlyssenEngineTests.UndoActionsTests
 			m_testProject.CharacterGroupList.GetGroupById("Crusty Old Dudes").AssignVoiceActor(2);
 			m_testProject.CharacterGroupList.GroupContainingCharacterId("Mary, Jesus' mother").AssignVoiceActor(1);
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, m_testProject.CharacterGroupList.CharacterGroups);
-			Assert.IsFalse(m_testProject.CharacterGroupList.CharacterGroups.Any(g => g.IsVoiceActorAssigned));
-			Assert.AreEqual(3, action.GroupsAffectedByLastOperation.Count());
-			Assert.AreEqual(3, action.GroupsAffectedByLastOperation.Intersect(m_testProject.CharacterGroupList.CharacterGroups).Count());
+			Assert.That(m_testProject.CharacterGroupList.CharacterGroups.Any(g => g.IsVoiceActorAssigned), Is.False);
+			Assert.That(action.GroupsAffectedByLastOperation.Count(), Is.EqualTo(3));
+			Assert.That(action.GroupsAffectedByLastOperation.Intersect(m_testProject.CharacterGroupList.CharacterGroups).Count(), Is.EqualTo(3));
 		}
 
 		[Test]
@@ -87,7 +87,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var groupWithJesus = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
 			groupWithJesus.AssignVoiceActor(2);
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, groupWithJesus);
-			Assert.AreEqual("Remove voice actor assignment for Jesus", action.Description);
+			Assert.That(action.Description, Is.EqualTo("Remove voice actor assignment for Jesus"));
 		}
 
 		[Test]
@@ -96,7 +96,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var groupWithMoses = m_testProject.CharacterGroupList.GroupContainingCharacterId("Moses");
 			groupWithMoses.AssignVoiceActor(2);
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, groupWithMoses);
-			Assert.AreEqual("Remove voice actor assignment for Crusty Old Dudes group", action.Description);
+			Assert.That(action.Description, Is.EqualTo("Remove voice actor assignment for Crusty Old Dudes group"));
 		}
 
 		[Test]
@@ -106,7 +106,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var emptygroup = m_testProject.CharacterGroupList.CharacterGroups.Last();
 			emptygroup.AssignVoiceActor(2);
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, emptygroup);
-			Assert.AreEqual("Remove voice actor assignment", action.Description);
+			Assert.That(action.Description, Is.EqualTo("Remove voice actor assignment"));
 		}
 
 		[Test]
@@ -116,7 +116,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			m_testProject.CharacterGroupList.GetGroupById("Crusty Old Dudes").AssignVoiceActor(2);
 			m_testProject.CharacterGroupList.GroupContainingCharacterId("Mary, Jesus' mother").AssignVoiceActor(1);
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, m_testProject.CharacterGroupList.CharacterGroups);
-			Assert.AreEqual("Remove voice actor assignment for multiple groups", action.Description);
+			Assert.That(action.Description, Is.EqualTo("Remove voice actor assignment for multiple groups"));
 		}
 
 		[Test]
@@ -125,11 +125,11 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var groupWithMoses = m_testProject.CharacterGroupList.GroupContainingCharacterId("Moses");
 			groupWithMoses.AssignVoiceActor(2);
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, groupWithMoses);
-			Assert.IsFalse(groupWithMoses.IsVoiceActorAssigned);
+			Assert.That(groupWithMoses.IsVoiceActorAssigned, Is.False);
 			groupWithMoses.GroupIdOtherText = "Elderly men";
-			Assert.IsFalse(action.Undo());
-			Assert.IsFalse(groupWithMoses.IsVoiceActorAssigned);
-			Assert.AreEqual(0, action.GroupsAffectedByLastOperation.Count());
+			Assert.That(action.Undo(), Is.False);
+			Assert.That(groupWithMoses.IsVoiceActorAssigned, Is.False);
+			Assert.That(action.GroupsAffectedByLastOperation.Count(), Is.EqualTo(0));
 		}
 
 		[Test]
@@ -142,9 +142,9 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, m_testProject.CharacterGroupList.CharacterGroups);
 
 			groupWithMoses.GroupIdOtherText = null;
-			Assert.IsFalse(action.Undo());
-			Assert.IsFalse(m_testProject.CharacterGroupList.CharacterGroups.Any(g => g.IsVoiceActorAssigned));
-			Assert.AreEqual(0, action.GroupsAffectedByLastOperation.Count());
+			Assert.That(action.Undo(), Is.False);
+			Assert.That(m_testProject.CharacterGroupList.CharacterGroups.Any(g => g.IsVoiceActorAssigned), Is.False);
+			Assert.That(action.GroupsAffectedByLastOperation.Count(), Is.EqualTo(0));
 		}
 
 		[Test]
@@ -153,9 +153,9 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var groupWithJesus = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
 			groupWithJesus.RemoveVoiceActor();
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, groupWithJesus);
-			Assert.IsTrue(action.Undo());
-			Assert.IsFalse(groupWithJesus.IsVoiceActorAssigned);
-			Assert.AreEqual(0, action.GroupsAffectedByLastOperation.Count());
+			Assert.That(action.Undo(), Is.True);
+			Assert.That(groupWithJesus.IsVoiceActorAssigned, Is.False);
+			Assert.That(action.GroupsAffectedByLastOperation.Count(), Is.EqualTo(0));
 		}
 
 		[Test]
@@ -164,9 +164,9 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var groupWithJesus = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
 			groupWithJesus.AssignVoiceActor(3);
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, groupWithJesus);
-			Assert.IsTrue(action.Undo());
-			Assert.AreEqual(3, groupWithJesus.VoiceActorId);
-			Assert.AreEqual(groupWithJesus, action.GroupsAffectedByLastOperation.Single());
+			Assert.That(action.Undo(), Is.True);
+			Assert.That(groupWithJesus.VoiceActorId, Is.EqualTo(3));
+			Assert.That(groupWithJesus, Is.EqualTo(action.GroupsAffectedByLastOperation.Single()));
 		}
 
 		[Test]
@@ -179,12 +179,12 @@ namespace GlyssenEngineTests.UndoActionsTests
 			groupWithMoses.AssignVoiceActor(2);
 			groupWithMary.AssignVoiceActor(1);
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, m_testProject.CharacterGroupList.CharacterGroups);
-			Assert.IsTrue(action.Undo());
-			Assert.AreEqual(3, groupWithJesus.VoiceActorId);
-			Assert.AreEqual(2, groupWithMoses.VoiceActorId);
-			Assert.AreEqual(1, groupWithMary.VoiceActorId);
-			Assert.AreEqual(3, action.GroupsAffectedByLastOperation.Count());
-			Assert.AreEqual(3, action.GroupsAffectedByLastOperation.Intersect(m_testProject.CharacterGroupList.CharacterGroups).Count());
+			Assert.That(action.Undo(), Is.True);
+			Assert.That(groupWithJesus.VoiceActorId, Is.EqualTo(3));
+			Assert.That(groupWithMoses.VoiceActorId, Is.EqualTo(2));
+			Assert.That(groupWithMary.VoiceActorId, Is.EqualTo(1));
+			Assert.That(action.GroupsAffectedByLastOperation.Count(), Is.EqualTo(3));
+			Assert.That(action.GroupsAffectedByLastOperation.Intersect(m_testProject.CharacterGroupList.CharacterGroups).Count(), Is.EqualTo(3));
 		}
 
 		[Test]
@@ -195,12 +195,12 @@ namespace GlyssenEngineTests.UndoActionsTests
 			emptygroup.AssignVoiceActor(2);
 			var wasCameo = emptygroup.AssignedToCameoActor;
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, emptygroup);
-			Assert.IsTrue(action.Undo());
+			Assert.That(action.Undo(), Is.True);
 			var restoredGroup = m_testProject.CharacterGroupList.GetGroupsAssignedToActor(2).Single();
-			Assert.IsFalse(restoredGroup.CharacterIds.Any());
-			Assert.AreEqual(0, restoredGroup.EstimatedHours);
-			Assert.IsNotNull(restoredGroup.AttributesDisplay);
-			Assert.AreEqual(wasCameo, restoredGroup.AssignedToCameoActor);
+			Assert.That(restoredGroup.CharacterIds, Is.Empty);
+			Assert.That(restoredGroup.EstimatedHours, Is.EqualTo(0));
+			Assert.That(restoredGroup.AttributesDisplay, Is.Not.Null);
+			Assert.That(wasCameo, Is.EqualTo(restoredGroup.AssignedToCameoActor));
 		}
 
 		[Test]
@@ -210,11 +210,11 @@ namespace GlyssenEngineTests.UndoActionsTests
 			groupWithMoses.AssignVoiceActor(2);
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, groupWithMoses);
 			action.Undo();
-			Assert.AreEqual(2, groupWithMoses.VoiceActorId);
+			Assert.That(groupWithMoses.VoiceActorId, Is.EqualTo(2));
 			groupWithMoses.GroupIdOtherText = "Elderly men";
-			Assert.IsFalse(action.Redo());
-			Assert.AreEqual(2, groupWithMoses.VoiceActorId);
-			Assert.AreEqual(0, action.GroupsAffectedByLastOperation.Count());
+			Assert.That(action.Redo(), Is.False);
+			Assert.That(groupWithMoses.VoiceActorId, Is.EqualTo(2));
+			Assert.That(action.GroupsAffectedByLastOperation.Count(), Is.EqualTo(0));
 		}
 
 		[Test]
@@ -224,12 +224,12 @@ namespace GlyssenEngineTests.UndoActionsTests
 			groupWithMary.AssignVoiceActor(1);
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, groupWithMary);
 			action.Undo();
-			Assert.AreEqual(1, groupWithMary.VoiceActorId);
+			Assert.That(groupWithMary.VoiceActorId, Is.EqualTo(1));
 			groupWithMary.GroupIdLabel = CharacterGroup.Label.Other;
 			groupWithMary.GroupIdOtherText = "Ladies";
-			Assert.IsFalse(action.Redo());
-			Assert.IsTrue(groupWithMary.IsVoiceActorAssigned);
-			Assert.IsFalse(action.GroupsAffectedByLastOperation.Any());
+			Assert.That(action.Redo(), Is.False);
+			Assert.That(groupWithMary.IsVoiceActorAssigned);
+			Assert.That(action.GroupsAffectedByLastOperation, Is.Empty);
 		}
 
 		[Test]
@@ -239,9 +239,9 @@ namespace GlyssenEngineTests.UndoActionsTests
 			groupWithJesus.RemoveVoiceActor();
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, groupWithJesus);
 			action.Undo();
-			Assert.IsTrue(action.Redo());
-			Assert.IsFalse(groupWithJesus.IsVoiceActorAssigned);
-			Assert.AreEqual(0, action.GroupsAffectedByLastOperation.Count());
+			Assert.That(action.Redo(), Is.True);
+			Assert.That(groupWithJesus.IsVoiceActorAssigned, Is.False);
+			Assert.That(action.GroupsAffectedByLastOperation.Count(), Is.EqualTo(0));
 		}
 
 		[Test]
@@ -251,9 +251,9 @@ namespace GlyssenEngineTests.UndoActionsTests
 			groupWithJesus.AssignVoiceActor(3);
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, groupWithJesus);
 			action.Undo();
-			Assert.IsTrue(action.Redo());
-			Assert.IsFalse(groupWithJesus.IsVoiceActorAssigned);
-			Assert.AreEqual(groupWithJesus, action.GroupsAffectedByLastOperation.Single());
+			Assert.That(action.Redo(), Is.True);
+			Assert.That(groupWithJesus.IsVoiceActorAssigned, Is.False);
+			Assert.That(groupWithJesus, Is.EqualTo(action.GroupsAffectedByLastOperation.Single()));
 		}
 
 		[Test]
@@ -267,27 +267,27 @@ namespace GlyssenEngineTests.UndoActionsTests
 			groupWithMary.AssignVoiceActor(1);
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, new [] { groupWithJesus, groupWithMoses });
 			action.Undo();
-			Assert.IsTrue(action.Redo());
-			Assert.IsFalse(groupWithJesus.IsVoiceActorAssigned);
-			Assert.IsFalse(groupWithMoses.IsVoiceActorAssigned);
-			Assert.IsTrue(groupWithMary.IsVoiceActorAssigned);
-			Assert.AreEqual(2, action.GroupsAffectedByLastOperation.Count());
-			Assert.IsTrue(action.GroupsAffectedByLastOperation.Contains(groupWithJesus));
-			Assert.IsTrue(action.GroupsAffectedByLastOperation.Contains(groupWithMoses));
+			Assert.That(action.Redo(), Is.True);
+			Assert.That(groupWithJesus.IsVoiceActorAssigned, Is.False);
+			Assert.That(groupWithMoses.IsVoiceActorAssigned, Is.False);
+			Assert.That(groupWithMary.IsVoiceActorAssigned);
+			Assert.That(action.GroupsAffectedByLastOperation.Count(), Is.EqualTo(2));
+			Assert.That(action.GroupsAffectedByLastOperation, Does.Contain(groupWithJesus));
+			Assert.That(action.GroupsAffectedByLastOperation, Does.Contain(groupWithMoses));
 		}
 
 		[Test]
 		public void Redo_UnassignmentOfSingleGroupWithNoCharacters_EmptyGroupRemoved()
 		{
 			AddCharacterGroup();
-			var emptygroup = m_testProject.CharacterGroupList.CharacterGroups.Last();
-			emptygroup.AssignVoiceActor(2);
-			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, emptygroup);
+			var emptyGroup = m_testProject.CharacterGroupList.CharacterGroups.Last();
+			emptyGroup.AssignVoiceActor(2);
+			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, emptyGroup);
 			action.Undo();
 			int countAfterUndo = m_testProject.CharacterGroupList.CharacterGroups.Count;
-			Assert.IsTrue(action.Redo());
-			Assert.IsFalse(m_testProject.CharacterGroupList.GetGroupsAssignedToActor(2).Any());
-			Assert.AreEqual(countAfterUndo - 1, m_testProject.CharacterGroupList.CharacterGroups.Count);
+			Assert.That(action.Redo(), Is.True);
+			Assert.That(m_testProject.CharacterGroupList.GetGroupsAssignedToActor(2), Is.Empty);
+			Assert.That(m_testProject.CharacterGroupList.CharacterGroups.Count, Is.EqualTo(countAfterUndo - 1));
 		}
 	}
 }

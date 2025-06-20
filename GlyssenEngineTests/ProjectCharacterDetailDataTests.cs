@@ -29,14 +29,15 @@ namespace GlyssenEngineTests
 			{
 				ProjectCharacterDetailData.Write(data, writer);
 				var detailData = ProjectCharacterDetailData.Load(new StringReader(sb.ToString()));
-				Assert.AreEqual(3, detailData.Count);
+				Assert.That(detailData.Count, Is.EqualTo(3));
 				foreach (var characterDetail in detailData)
 				{
-					Assert.AreEqual(1, data.Count(cd =>
+					Assert.That(data.Count(cd =>
 						cd.CharacterId == characterDetail.CharacterId &&
 						cd.Age == characterDetail.Age &&
 						cd.Gender == characterDetail.Gender &&
-						cd.MaxSpeakers == characterDetail.MaxSpeakers));
+						cd.MaxSpeakers == characterDetail.MaxSpeakers),
+						Is.EqualTo(1));
 				}
 			}
 		}
@@ -61,13 +62,13 @@ namespace GlyssenEngineTests
 			{
 				ProjectCharacterDetailData.Write(data, writer);
 				var detailData = ProjectCharacterDetailData.Load(new StringReader(sb.ToString()));
-				Assert.AreEqual(2, detailData.Count);
-				Assert.IsTrue(detailData.Any(cd =>
+				Assert.That(detailData.Count, Is.EqualTo(2));
+				Assert.That(detailData.Any(cd =>
 					cd.CharacterId == "Fred" &&
 					cd.Age == Child &&
 					cd.Gender == CharacterGender.Either &&
 					cd.MaxSpeakers == 1));
-				Assert.IsTrue(detailData.Any(cd => cd.CharacterId == "the whole gang of bums"));
+				Assert.That(detailData.Any(cd => cd.CharacterId == "the whole gang of bums"), Is.True);
 			}
 		}
 	}

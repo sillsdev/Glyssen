@@ -1,9 +1,11 @@
-﻿using System.IO;
+﻿using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using Glyssen.Shared;
 using GlyssenSharedTests;
 using GlyssenFileBasedPersistence;
 using NUnit.Framework;
+using static GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation;
 
 namespace GlyssenFileBasedPersistenceTests
 {
@@ -13,26 +15,26 @@ namespace GlyssenFileBasedPersistenceTests
 		[Test]
 		public void GetCustomReferenceTextsNotAlreadyLoaded_CustomReferenceTextsExist_GetsThemAll()
 		{
-			PersistenceImplementation persistenceImpl = TestFilePersistenceImplementation.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
+			var persistenceImpl = OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
 
 			try
 			{
-				Assert.AreEqual("Azeri",
-					ReferenceTextTestUtils.CreateCustomReferenceText(persistenceImpl, TestReferenceTextResource.AzeriJUD),
+				Assert.That(ReferenceTextTestUtils.CreateCustomReferenceText(persistenceImpl, TestReferenceTextResource.AzeriJUD),
+					Is.EqualTo("Azeri"),
 					"Setup problem: AzeriJUD should return language name as Azeri.");
-				Assert.AreEqual("English",
-					ReferenceTextTestUtils.CreateCustomReferenceText(persistenceImpl, TestReferenceTextResource.EnglishJUD),
+				Assert.That(ReferenceTextTestUtils.CreateCustomReferenceText(persistenceImpl, TestReferenceTextResource.EnglishJUD),
+					Is.EqualTo("English"),
 					"Setup problem: AzeriJUD should return language name as Azeri.");
 
 				var result = persistenceImpl.GetCustomReferenceTextsNotAlreadyLoaded().ToList();
 
 				try
 				{
-					Assert.AreEqual(2, result.Count);
+					Assert.That(result.Count, Is.EqualTo(2));
 					var metadata = ((TextReader)result.Single(r => r.Id == "English")).ReadToEnd();
-					Assert.AreEqual(ReferenceTextTestUtils.GetReferenceTextMetadata("English"), metadata);
+					Assert.That(metadata, Is.EqualTo(ReferenceTextTestUtils.GetReferenceTextMetadata("English")));
 					metadata = ((TextReader)result.Single(r => r.Id == "Azeri")).ReadToEnd();
-					Assert.AreEqual(ReferenceTextTestUtils.GetReferenceTextMetadata("Azeri"), metadata);
+					Assert.That(metadata, Is.EqualTo(ReferenceTextTestUtils.GetReferenceTextMetadata("Azeri")));
 				}
 				finally
 				{
@@ -44,7 +46,7 @@ namespace GlyssenFileBasedPersistenceTests
 			}
 			finally	
 			{
-				TestFilePersistenceImplementation.CleanupUpTempImplementationAndRestorePreviousImplementation();
+				CleanupUpTempImplementationAndRestorePreviousImplementation();
 			}
 		}
 
@@ -52,15 +54,15 @@ namespace GlyssenFileBasedPersistenceTests
 		[TestCase(false)]
 		public void GetCustomReferenceTextsNotAlreadyLoaded_NoCustomReferenceTextsExist_GetsEmptyCollection(bool folderExists)
 		{
-			PersistenceImplementation persistenceImpl = TestFilePersistenceImplementation.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation(folderExists);
+			var persistenceImpl = OverrideProprietaryReferenceTextProjectFileLocationToTempLocation(folderExists);
 
 			try
 			{
-				Assert.IsFalse(persistenceImpl.GetCustomReferenceTextsNotAlreadyLoaded().Any());
+				Assert.That(persistenceImpl.GetCustomReferenceTextsNotAlreadyLoaded(), Is.Empty);
 			}
 			finally	
 			{
-				TestFilePersistenceImplementation.CleanupUpTempImplementationAndRestorePreviousImplementation();
+				CleanupUpTempImplementationAndRestorePreviousImplementation();
 			}
 		}
 
@@ -69,15 +71,14 @@ namespace GlyssenFileBasedPersistenceTests
 		public void GetStandardReferenceText_NoCustomReferenceTextsExist_GetsReaderForMetadataOfRequestedReferenceText(ReferenceTextType type)
 		{
 			IProjectPersistenceReader persistenceImpl = new PersistenceImplementation();
-			string projectFileName = type.ToString().ToLowerInvariant() + ProjectRepository.kProjectFileExtension;
 
 			using (var reader = persistenceImpl.Load(new ReferenceTextId(type), ProjectResource.Metadata))
 			{
-				Assert.IsTrue(reader.ReadLine().StartsWith("<?xml version"));
-				Assert.IsTrue(reader.ReadLine().StartsWith("<DBLMetadata id="));
-				Assert.AreEqual("<language>", reader.ReadLine().Trim());
-				Assert.IsTrue(reader.ReadLine().Trim().Contains("<iso>"));
-				Assert.AreEqual($"<name>{type.ToString()}</name>", reader.ReadLine().Trim());
+				Assert.That(reader.ReadLine(), Does.StartWith("<?xml version"));
+				Assert.That(reader.ReadLine(), Does.StartWith("<DBLMetadata id="));
+				Assert.That(reader.ReadLine().Trim(), Is.EqualTo("<language>"));
+				Assert.That(reader.ReadLine().Trim(), Does.Contain("<iso>"));
+				Assert.That($"<name>{type.ToString()}</name>", Is.EqualTo(reader.ReadLine().Trim()));
 
 			}
 		}

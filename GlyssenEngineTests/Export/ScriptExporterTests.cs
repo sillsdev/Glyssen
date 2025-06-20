@@ -137,7 +137,7 @@ namespace GlyssenEngineTests.Export
 
 			var scriptBlocks = glyssenScript.Script.Books[0].Chapters[1].Blocks; // Chapter 0 is just the book title
 			var michael = scriptBlocks.Single(b => b.Character == "Michael, archangel");
-			Assert.AreEqual("rebuking", michael.Delivery);
+			Assert.That(michael.Delivery, Is.EqualTo("rebuking"));
 		}
 
 		[Test]
@@ -164,10 +164,10 @@ namespace GlyssenEngineTests.Export
 						case "16":
 						case "17":
 						case "24":
-							Assert.IsTrue(block.IsParagraphStart);
+							Assert.That(block.IsParagraphStart);
 							break;
 						default:
-							Assert.IsFalse(block.IsParagraphStart);
+							Assert.That(block.IsParagraphStart, Is.False);
 							break;
 					}
 					prevVerse = block.Verse;
@@ -175,7 +175,8 @@ namespace GlyssenEngineTests.Export
 				else
 				{
 					// The first verse in Jude (in TestJUD.xml) is broken into to two paragraphs 
-					Assert.AreEqual(block.Verse == "1", block.IsParagraphStart, $"Block should not have been a paragraph start: {block.Verse}");
+					Assert.That(block.Verse == "1", Is.EqualTo(block.IsParagraphStart),
+						$"Block should not have been a paragraph start: {block.Verse}");
 				}
 			}
 		}
