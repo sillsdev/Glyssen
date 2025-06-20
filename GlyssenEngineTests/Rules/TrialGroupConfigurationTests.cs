@@ -10,6 +10,7 @@ using GlyssenEngine.Character;
 using GlyssenEngine.Rules;
 using NUnit.Framework;
 using SIL.Extensions;
+using static GlyssenEngine.Rules.CharacterGroupGenerator.TrialGroupConfiguration;
 using Resources = GlyssenCharactersTests.Properties.Resources;
 
 namespace GlyssenEngineTests.Rules
@@ -47,12 +48,12 @@ namespace GlyssenEngineTests.Rules
 
 			var narratorGroups = GetNarratorCharacterGroups(3);
 
-			CharacterGroupGenerator.TrialGroupConfiguration.DistributeBooksAmongNarratorGroups(authorStats, narratorGroups);
+			DistributeBooksAmongNarratorGroups(authorStats, narratorGroups);
 			var groupForJeremiah = GetNarratorGroupForBook(narratorGroups, "JER");
 			var groupForJude = GetNarratorGroupForBook(narratorGroups, "JUD");
-			Assert.AreNotEqual(groupForJeremiah, GetNarratorGroupForBook(narratorGroups, "EZK"));
-			Assert.AreNotEqual(groupForJeremiah, groupForJude);
-			Assert.AreEqual(groupForJude, GetNarratorGroupForBook(narratorGroups, "HOS"));
+			Assert.That(groupForJeremiah, Is.Not.EqualTo(GetNarratorGroupForBook(narratorGroups, "EZK")));
+			Assert.That(groupForJeremiah, Is.Not.EqualTo(groupForJude));
+			Assert.That(groupForJude, Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "HOS")));
 		}
 
 		[Test]
@@ -81,20 +82,20 @@ namespace GlyssenEngineTests.Rules
 
 			var narratorGroups = GetNarratorCharacterGroups(3);
 
-			CharacterGroupGenerator.TrialGroupConfiguration.DistributeBooksAmongNarratorGroups(authorStats, narratorGroups);
+			DistributeBooksAmongNarratorGroups(authorStats, narratorGroups);
 
 			// Since there are two authors with exactly 52000 keystrokes, we can't know for sure which one will combine with GEN and
 			// which will combine with EZK. So we just assert that they are grouped properly.
-			Assert.AreNotEqual(GetNarratorGroupForBook(narratorGroups, "ISA"), GetNarratorGroupForBook(narratorGroups, "JER"));
-			Assert.AreNotEqual(GetNarratorGroupForBook(narratorGroups, "ISA"), GetNarratorGroupForBook(narratorGroups, "EZK"));
-			Assert.AreNotEqual(GetNarratorGroupForBook(narratorGroups, "ISA"), GetNarratorGroupForBook(narratorGroups, "GEN"));
-			Assert.AreNotEqual(GetNarratorGroupForBook(narratorGroups, "GEN"), GetNarratorGroupForBook(narratorGroups, "EZK"));
-			Assert.AreEqual(GetNarratorGroupForBook(narratorGroups, "ISA"), GetNarratorGroupForBook(narratorGroups, "JHN"));
-			Assert.AreEqual(GetNarratorGroupForBook(narratorGroups, "LUK"), GetNarratorGroupForBook(narratorGroups, "ACT"));
-			Assert.AreEqual(GetNarratorGroupForBook(narratorGroups, "JHN"), GetNarratorGroupForBook(narratorGroups, "REV"));
-			Assert.AreEqual(3, narratorGroups.Single(g => g.GroupId == "Narrator1").CharacterIds.Count);
-			Assert.AreEqual(3, narratorGroups.Single(g => g.GroupId == "Narrator2").CharacterIds.Count);
-			Assert.AreEqual(2, narratorGroups.Single(g => g.GroupId == "Narrator3").CharacterIds.Count);
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "ISA"), Is.Not.EqualTo(GetNarratorGroupForBook(narratorGroups, "JER")));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "ISA"), Is.Not.EqualTo(GetNarratorGroupForBook(narratorGroups, "EZK")));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "ISA"), Is.Not.EqualTo(GetNarratorGroupForBook(narratorGroups, "GEN")));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "GEN"), Is.Not.EqualTo(GetNarratorGroupForBook(narratorGroups, "EZK")));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "ISA"), Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "JHN")));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "LUK"), Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "ACT")));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "JHN"), Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "REV")));
+			Assert.That(narratorGroups.Single(g => g.GroupId == "Narrator1").CharacterIds.Count, Is.EqualTo(3));
+			Assert.That(narratorGroups.Single(g => g.GroupId == "Narrator2").CharacterIds.Count, Is.EqualTo(3));
+			Assert.That(narratorGroups.Single(g => g.GroupId == "Narrator3").CharacterIds.Count, Is.EqualTo(2));
 		}
 
 		[Test]
@@ -112,17 +113,17 @@ namespace GlyssenEngineTests.Rules
 
 			var narratorGroups = GetNarratorCharacterGroups(5);
 
-			CharacterGroupGenerator.TrialGroupConfiguration.DistributeBooksAmongNarratorGroups(narratorGroups, 4,
+			DistributeBooksAmongNarratorGroups(narratorGroups, 4,
 				keyStrokesByBook.Keys.Select(CharacterVerseData.GetBookCodeFromStandardCharacterId), keyStrokesByBook);
 			var narratorGroupForJeremiah = GetNarratorGroupForBook(narratorGroups, "JER");
-			Assert.AreEqual(narratorGroupForJeremiah, GetNarratorGroupForBook(narratorGroups, "LAM"));
+			Assert.That(narratorGroupForJeremiah, Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "LAM")));
 			var listOfBooksFoundSoFar = new HashSet<string>();
 			foreach (var group in narratorGroups)
 			{
 				var booksAssignedToNarrator = group.CharacterIds.Select(CharacterVerseData.GetBookCodeFromStandardCharacterId).ToList();
 				if (group != narratorGroupForJeremiah)
-					Assert.AreEqual(1, booksAssignedToNarrator.Count);
-				Assert.IsFalse(listOfBooksFoundSoFar.Overlaps(booksAssignedToNarrator));
+					Assert.That(booksAssignedToNarrator.Count, Is.EqualTo(1));
+				Assert.That(listOfBooksFoundSoFar.Overlaps(booksAssignedToNarrator), Is.False);
 				listOfBooksFoundSoFar.AddRange(booksAssignedToNarrator);
 			}
 		}
@@ -142,17 +143,17 @@ namespace GlyssenEngineTests.Rules
 
 			var narratorGroups = GetNarratorCharacterGroups(5);
 
-			CharacterGroupGenerator.TrialGroupConfiguration.DistributeBooksAmongNarratorGroups(narratorGroups, 2,
+			DistributeBooksAmongNarratorGroups(narratorGroups, 2,
 				keyStrokesByBook.Keys.Select(CharacterVerseData.GetBookCodeFromStandardCharacterId), keyStrokesByBook);
 			var narratorGroupForJohn = GetNarratorGroupForBook(narratorGroups, "JHN");
-			Assert.AreEqual(narratorGroupForJohn, GetNarratorGroupForBook(narratorGroups, "REV"));
+			Assert.That(narratorGroupForJohn, Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "REV")));
 			var listOfBooksFoundSoFar = new HashSet<string>();
 			foreach (var group in narratorGroups)
 			{
 				var booksAssignedToNarrator = group.CharacterIds.Select(CharacterVerseData.GetBookCodeFromStandardCharacterId).ToList();
 				if (group != narratorGroupForJohn)
-					Assert.AreEqual(1, booksAssignedToNarrator.Count);
-				Assert.IsFalse(listOfBooksFoundSoFar.Overlaps(booksAssignedToNarrator));
+					Assert.That(booksAssignedToNarrator.Count, Is.EqualTo(1));
+				Assert.That(listOfBooksFoundSoFar.Overlaps(booksAssignedToNarrator), Is.False);
 				listOfBooksFoundSoFar.AddRange(booksAssignedToNarrator);
 			}
 		}
@@ -352,7 +353,7 @@ namespace GlyssenEngineTests.Rules
 			m_authorStats.Add(new AuthorStats(m_james, m_keyStrokesByBook, "JAS"));
 			m_authorStats.Add(new AuthorStats(m_peter, m_keyStrokesByBook, "1PE", "2PE"));
 			m_authorStats.Add(new AuthorStats(m_jude, m_keyStrokesByBook, "JUD"));
-			Assert.AreEqual(38, m_authorStats.Count);
+			Assert.That(m_authorStats.Count, Is.EqualTo(38));
 		}
 
 		private static List<CharacterGroup> GetNarratorCharacterGroups(int n)
@@ -362,7 +363,7 @@ namespace GlyssenEngineTests.Rules
 
 		private void VerifyBasic(List<CharacterGroup> narratorGroups, int numberOfNarratorsExpectedToBeAssignedToASingleAuthor)
 		{
-			CharacterGroupGenerator.TrialGroupConfiguration.DistributeBooksAmongNarratorGroups(m_authorStats, narratorGroups);
+			DistributeBooksAmongNarratorGroups(m_authorStats, narratorGroups);
 
 			for (int i = 0; i < narratorGroups.Count; i++)
 			{
@@ -371,7 +372,8 @@ namespace GlyssenEngineTests.Rules
 				if (i < numberOfNarratorsExpectedToBeAssignedToASingleAuthor)
 				{
 					var author = BiblicalAuthors.GetAuthorOfBook(booksAssignedToNarrator[0]).Name;
-					Assert.IsTrue(booksAssignedToNarrator.SetEquals(m_authorStats.Single(a => a.Author.Name == author).BookIds));
+					Assert.That(booksAssignedToNarrator, Is.EquivalentTo(
+						m_authorStats.Single(a => a.Author.Name == author).BookIds));
 				}
 				else
 				{
@@ -382,7 +384,7 @@ namespace GlyssenEngineTests.Rules
 					foreach (var bookId in booksAssignedToNarrator)
 					{
 						var author = BiblicalAuthors.GetAuthorOfBook(bookId).Name;
-						Assert.IsTrue(set.IsProperSupersetOf(m_authorStats.Single(a => a.Author.Name == author).BookIds));
+						Assert.That(set.IsProperSupersetOf(m_authorStats.Single(a => a.Author.Name == author).BookIds), Is.True);
 					}
 				}
 			}
@@ -393,30 +395,30 @@ namespace GlyssenEngineTests.Rules
 		{
 			var narratorGroups = GetNarratorCharacterGroups(3);
 
-			CharacterGroupGenerator.TrialGroupConfiguration.DistributeBooksAmongNarratorGroups(m_authorStats, narratorGroups);
+			DistributeBooksAmongNarratorGroups(m_authorStats, narratorGroups);
 
-			Assert.AreNotEqual(GetNarratorGroupForBook(narratorGroups, "GEN"), GetNarratorGroupForBook(narratorGroups, "PSA"));
-			Assert.AreNotEqual(GetNarratorGroupForBook(narratorGroups, "GEN"), GetNarratorGroupForBook(narratorGroups, "ROM"));
-			Assert.AreNotEqual(GetNarratorGroupForBook(narratorGroups, "PSA"), GetNarratorGroupForBook(narratorGroups, "ROM"));
-			Assert.AreEqual(GetNarratorGroupForBook(narratorGroups, "GEN"), GetNarratorGroupForBook(narratorGroups, "OBA"));
-			Assert.AreEqual(GetNarratorGroupForBook(narratorGroups, "GEN"), GetNarratorGroupForBook(narratorGroups, "JUD"));
-			Assert.AreEqual(30, narratorGroups[0].CharacterIds.Count);
-			Assert.AreEqual(GetNarratorGroupForBook(narratorGroups, "GEN"), GetNarratorGroupForBook(narratorGroups, "OBA"));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "GEN"), Is.Not.EqualTo(GetNarratorGroupForBook(narratorGroups, "PSA")));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "GEN"), Is.Not.EqualTo(GetNarratorGroupForBook(narratorGroups, "ROM")));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "PSA"), Is.Not.EqualTo(GetNarratorGroupForBook(narratorGroups, "ROM")));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "GEN"), Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "OBA")));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "GEN"), Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "JUD")));
+			Assert.That(narratorGroups[0].CharacterIds.Count, Is.EqualTo(30));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "GEN"), Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "OBA")));
 			// Etc.
-			Assert.AreEqual(GetNarratorGroupForBook(narratorGroups, "GEN"), GetNarratorGroupForBook(narratorGroups, "JOS"));
-			Assert.AreEqual(14, narratorGroups[1].CharacterIds.Count);
-			Assert.AreEqual(GetNarratorGroupForBook(narratorGroups, "PSA"), GetNarratorGroupForBook(narratorGroups, "MAT"));
-			Assert.AreEqual(GetNarratorGroupForBook(narratorGroups, "PSA"), GetNarratorGroupForBook(narratorGroups, "JOB"));
-			Assert.AreEqual(GetNarratorGroupForBook(narratorGroups, "PSA"), GetNarratorGroupForBook(narratorGroups, "EZK"));
-			Assert.AreEqual(GetNarratorGroupForBook(narratorGroups, "PSA"), GetNarratorGroupForBook(narratorGroups, "1KI"));
-			Assert.AreEqual(GetNarratorGroupForBook(narratorGroups, "PSA"), GetNarratorGroupForBook(narratorGroups, "JHN"));
-			Assert.AreEqual(GetNarratorGroupForBook(narratorGroups, "PSA"), GetNarratorGroupForBook(narratorGroups, "PRO"));
-			Assert.AreEqual(22, narratorGroups[2].CharacterIds.Count);
-			Assert.AreEqual(GetNarratorGroupForBook(narratorGroups, "ROM"), GetNarratorGroupForBook(narratorGroups, "LUK"));
-			Assert.AreEqual(GetNarratorGroupForBook(narratorGroups, "ROM"), GetNarratorGroupForBook(narratorGroups, "1SA"));
-			Assert.AreEqual(GetNarratorGroupForBook(narratorGroups, "ROM"), GetNarratorGroupForBook(narratorGroups, "JER"));
-			Assert.AreEqual(GetNarratorGroupForBook(narratorGroups, "ROM"), GetNarratorGroupForBook(narratorGroups, "ISA"));
-			Assert.AreEqual(GetNarratorGroupForBook(narratorGroups, "ROM"), GetNarratorGroupForBook(narratorGroups, "1CH"));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "GEN"), Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "JOS")));
+			Assert.That(narratorGroups[1].CharacterIds.Count, Is.EqualTo(14));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "PSA"), Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "MAT")));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "PSA"), Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "JOB")));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "PSA"), Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "EZK")));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "PSA"), Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "1KI")));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "PSA"), Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "JHN")));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "PSA"), Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "PRO")));
+			Assert.That(narratorGroups[2].CharacterIds.Count, Is.EqualTo(22));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "ROM"), Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "LUK")));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "ROM"), Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "1SA")));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "ROM"), Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "JER")));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "ROM"), Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "ISA")));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "ROM"), Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "1CH")));
 		}
 
 		[Test]
@@ -425,8 +427,8 @@ namespace GlyssenEngineTests.Rules
 			var narratorGroups = GetNarratorCharacterGroups(37);
 
 			VerifyBasic(narratorGroups, 36);
-			Assert.AreEqual(2, narratorGroups[36].CharacterIds.Count);
-			Assert.AreEqual(GetNarratorGroupForBook(narratorGroups, "JUD"), GetNarratorGroupForBook(narratorGroups, "OBA"));
+			Assert.That(narratorGroups[36].CharacterIds.Count, Is.EqualTo(2));
+			Assert.That(GetNarratorGroupForBook(narratorGroups, "JUD"), Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "OBA")));
 		}
 
 		[Test]
@@ -436,8 +438,8 @@ namespace GlyssenEngineTests.Rules
 
 			VerifyBasic(narratorGroups, 34);
 
-			Assert.AreEqual(2, narratorGroups[34].CharacterIds.Count);
-			Assert.AreEqual(2, narratorGroups[35].CharacterIds.Count);
+			Assert.That(narratorGroups[34].CharacterIds.Count, Is.EqualTo(2));
+			Assert.That(narratorGroups[35].CharacterIds.Count, Is.EqualTo(2));
 			// Obadiah and Jude are tied for the fewest number of keystrokes. Haggai is by itself in second-to-last place.
 			// Joel, Nahum, Habakkuk, Zephaniah, and Zechariah are all tied for third-to-last place.
 			var bookCombinedWithHaggai = CharacterVerseData.GetBookCodeFromStandardCharacterId(narratorGroups[35].CharacterIds.Single(
@@ -447,17 +449,13 @@ namespace GlyssenEngineTests.Rules
 				bookWhoseAuthorCombinedWithThirdToLastPlaceAuthor = "OBA";
 			else
 			{
-				Assert.AreEqual("OBA", bookCombinedWithHaggai);
+				Assert.That(bookCombinedWithHaggai, Is.EqualTo("OBA"));
 				bookWhoseAuthorCombinedWithThirdToLastPlaceAuthor = "JUD";
 			}
 			var thirdToLastPlaceBookThatGotCombined = CharacterVerseData.GetBookCodeFromStandardCharacterId(
 				narratorGroups[34].CharacterIds.Single(c => c != CharacterVerseData.GetStandardCharacterId(bookWhoseAuthorCombinedWithThirdToLastPlaceAuthor, CharacterVerseData.StandardCharacter.Narrator)));
-			Assert.IsTrue(
-				thirdToLastPlaceBookThatGotCombined == "JOL" ||
-				thirdToLastPlaceBookThatGotCombined == "NAM" ||
-				thirdToLastPlaceBookThatGotCombined == "HAB" ||
-				thirdToLastPlaceBookThatGotCombined == "ZEP" ||
-				thirdToLastPlaceBookThatGotCombined == "ZEC");
+			Assert.That(thirdToLastPlaceBookThatGotCombined,
+				Is.AnyOf("JOL", "NAM", "HAB", "ZEP", "ZEC"));
 		}
 
 		[Test]
@@ -468,7 +466,7 @@ namespace GlyssenEngineTests.Rules
 			VerifyBasic(narratorGroups, 26);
 
 			for (int i = 27; i <= 32; i++)
-				Assert.AreEqual(2, narratorGroups[i - 1].CharacterIds.Count);
+				Assert.That(narratorGroups[i - 1].CharacterIds.Count, Is.EqualTo(2));
 		}
 
 		[Test]
@@ -485,7 +483,7 @@ namespace GlyssenEngineTests.Rules
 			{
 				var narratorGroups = GetNarratorCharacterGroups(i);
 
-				CharacterGroupGenerator.TrialGroupConfiguration.DistributeBooksAmongNarratorGroups(m_authorStats,
+				DistributeBooksAmongNarratorGroups(m_authorStats,
 					narratorGroups);
 
 				Trace.WriteLine(i + " Narrator Groups");
@@ -504,7 +502,7 @@ namespace GlyssenEngineTests.Rules
 		{
 			var narratorGroups = GetNarratorCharacterGroups(50);
 
-			CharacterGroupGenerator.TrialGroupConfiguration.DistributeBooksAmongNarratorGroups(narratorGroups, 38,
+			DistributeBooksAmongNarratorGroups(narratorGroups, 38,
 				m_keyStrokesByBook.Keys.Select(CharacterVerseData.GetBookCodeFromStandardCharacterId), m_keyStrokesByBook);
 
 			var narratorsWithMultipleBooks = new List<CharacterGroup>();
@@ -513,15 +511,15 @@ namespace GlyssenEngineTests.Rules
 			var narratorGroupForRevelation = GetNarratorGroupForBook(narratorGroups, "REV");
 			narratorsWithMultipleBooks.Add(narratorGroupForGospelOfJohn);
 			narratorsWithMultipleBooks.Add(narratorGroupForRevelation);
-			Assert.AreNotEqual(narratorGroupForGospelOfJohn, narratorGroupForRevelation);
-			Assert.AreEqual(narratorGroupForGospelOfJohn, GetNarratorGroupForBook(narratorGroups, "1JN"));
-			Assert.AreEqual(narratorGroupForRevelation, GetNarratorGroupForBook(narratorGroups, "2JN"));
-			Assert.AreEqual(narratorGroupForRevelation, GetNarratorGroupForBook(narratorGroups, "3JN"));
+			Assert.That(narratorGroupForGospelOfJohn, Is.Not.EqualTo(narratorGroupForRevelation));
+			Assert.That(narratorGroupForGospelOfJohn, Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "1JN")));
+			Assert.That(narratorGroupForRevelation, Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "2JN")));
+			Assert.That(narratorGroupForRevelation, Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "3JN")));
 
 			// Peter
 			var narratorGroupForFirstPeter = GetNarratorGroupForBook(narratorGroups, "2PE");
 			narratorsWithMultipleBooks.Add(narratorGroupForFirstPeter);
-			Assert.AreEqual(narratorGroupForFirstPeter, GetNarratorGroupForBook(narratorGroups, "1PE"));
+			Assert.That(narratorGroupForFirstPeter, Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "1PE")));
 
 			// Paul
 			var narratorGroupForRomans = GetNarratorGroupForBook(narratorGroups, "ROM");
@@ -530,34 +528,34 @@ namespace GlyssenEngineTests.Rules
 			narratorsWithMultipleBooks.Add(narratorGroupForRomans);
 			narratorsWithMultipleBooks.Add(narratorGroupForFirstCorinthians);
 			narratorsWithMultipleBooks.Add(narratorGroupForSecondCorinthians);
-			Assert.AreNotEqual(narratorGroupForRomans, narratorGroupForFirstCorinthians);
-			Assert.AreNotEqual(narratorGroupForFirstCorinthians, narratorGroupForSecondCorinthians);
-			Assert.AreNotEqual(narratorGroupForRomans, narratorGroupForSecondCorinthians);
+			Assert.That(narratorGroupForRomans, Is.Not.EqualTo(narratorGroupForFirstCorinthians));
+			Assert.That(narratorGroupForFirstCorinthians, Is.Not.EqualTo(narratorGroupForSecondCorinthians));
+			Assert.That(narratorGroupForRomans, Is.Not.EqualTo(narratorGroupForSecondCorinthians));
 
 			// Jeremiah
 			var narratorGroupForJeremiah = GetNarratorGroupForBook(narratorGroups, "JER");
 			narratorsWithMultipleBooks.Add(narratorGroupForJeremiah);
-			Assert.AreEqual(narratorGroupForJeremiah, GetNarratorGroupForBook(narratorGroups, "LAM"));
+			Assert.That(narratorGroupForJeremiah, Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "LAM")));
 
 			// Solomon
 			var narratorGroupForEcclesiastes = GetNarratorGroupForBook(narratorGroups, "ECC");
 			narratorsWithMultipleBooks.Add(narratorGroupForEcclesiastes);
-			Assert.AreNotEqual(narratorGroupForEcclesiastes, GetNarratorGroupForBook(narratorGroups, "PRO"));
-			Assert.AreEqual(narratorGroupForEcclesiastes, GetNarratorGroupForBook(narratorGroups, "SNG"));
+			Assert.That(narratorGroupForEcclesiastes, Is.Not.EqualTo(GetNarratorGroupForBook(narratorGroups, "PRO")));
+			Assert.That(narratorGroupForEcclesiastes, Is.EqualTo(GetNarratorGroupForBook(narratorGroups, "SNG")));
 
 			var listOfBooksFoundSoFar = new HashSet<string>();
 
 			foreach (var group in narratorGroups)
 			{
 				var booksAssignedToNarrator = group.CharacterIds.Select(CharacterVerseData.GetBookCodeFromStandardCharacterId).ToList();
-				Assert.IsTrue(booksAssignedToNarrator.Any());
+				Assert.That(booksAssignedToNarrator.Any(), Is.True);
 				if (booksAssignedToNarrator.Count > 1)
 				{
 					var author = BiblicalAuthors.GetAuthorOfBook(booksAssignedToNarrator[0]);
-					Assert.IsFalse(booksAssignedToNarrator.Any(b => author != BiblicalAuthors.GetAuthorOfBook(b)));
-					Assert.IsTrue(narratorsWithMultipleBooks.Contains(group), author.Name);
+					Assert.That(booksAssignedToNarrator.Any(b => author != BiblicalAuthors.GetAuthorOfBook(b)), Is.False);
+					Assert.That(narratorsWithMultipleBooks, Does.Contain(group), author.Name);
 				}
-				Assert.IsFalse(listOfBooksFoundSoFar.Overlaps(booksAssignedToNarrator));
+				Assert.That(listOfBooksFoundSoFar.Overlaps(booksAssignedToNarrator), Is.False);
 				listOfBooksFoundSoFar.AddRange(booksAssignedToNarrator);
 			}
 		}
@@ -614,7 +612,7 @@ namespace GlyssenEngineTests.Rules
 			// GeneratePossibilities assumes each group has an actor assigned, so we make the final assignment here.
 			groups.Single(g => g.GroupIdLabel == CharacterGroup.Label.Child).AssignVoiceActor(m_testProject.VoiceActorList.AllActors.Single(a => a.Age == ActorAge.Child).Id);
 
-			Assert.DoesNotThrow(() => CharacterGroupGenerator.TrialGroupConfiguration.GeneratePossibilities(
+			Assert.DoesNotThrow(() => GeneratePossibilities(
 				fallbackPass,
 				groups,
 				maxMaleNarrators,
@@ -630,7 +628,7 @@ namespace GlyssenEngineTests.Rules
 	}
 
 	[TestFixture]
-	class TrialGroupConfigurationTestsNarationByAuthorWithPaulPeterMisc : CharacterGroupGeneratorAndAdjusterTestBase
+	class TrialGroupConfigurationTestsNarrationByAuthorWithPaulPeterMisc : CharacterGroupGeneratorAndAdjusterTestBase
 	{
 		private readonly string idPaul = BiblicalAuthors.GetAuthorOfBook("GAL").Name;
 		private readonly string idPeter = BiblicalAuthors.GetAuthorOfBook("2PE").Name;
@@ -732,17 +730,17 @@ namespace GlyssenEngineTests.Rules
 				charactersSpokenByPaul, charactersSpokenByPeter);
 			PopulateCharacterDetails();
 
-			var result = CharacterGroupGenerator.TrialGroupConfiguration.GeneratePossibilities(false, groups,
+			var result = GeneratePossibilities(false, groups,
 				m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators, 0, false,
 				m_includedCharacterDetails, m_keyStrokesByCharId, m_testProject, m_characterDetails).Single();
 
 			var narratorGroups = result.NarratorGroups;
-			Assert.AreEqual(groups.Count, narratorGroups.Count);
+			Assert.That(groups.Count, Is.EqualTo(narratorGroups.Count));
 
 			var authorsGroup = GetNarratorGroupForBook(narratorGroups, expectedBookToGroupWithAuthor);
 			var narratorGroupForActs = GetNarratorGroupForBook(narratorGroups, "ACT");
-			Assert.AreEqual(2, authorsGroup.CharacterIds.Count);
-			Assert.AreEqual(3, narratorGroupForActs.CharacterIds.Count);
+			Assert.That(authorsGroup.CharacterIds.Count, Is.EqualTo(2));
+			Assert.That(narratorGroupForActs.CharacterIds.Count, Is.EqualTo(3));
 			string expectedNarrToGroupWithActsAndMark, idAuthorCharacter;
 			if (expectedBookToGroupWithAuthor == "GAL")
 			{
@@ -755,8 +753,9 @@ namespace GlyssenEngineTests.Rules
 				idAuthorCharacter = idPeter;
 			}
 
-			Assert.IsTrue(authorsGroup.CharacterIds.ToList().Contains(idAuthorCharacter));
-			Assert.IsTrue(narratorGroupForActs.CharacterIds.ToList().SetEquals(new[] { narratorMrkForUi, narratorActForUi, expectedNarrToGroupWithActsAndMark }));
+			Assert.That(authorsGroup.CharacterIds.ToList(), Does.Contain(idAuthorCharacter));
+			Assert.That(narratorGroupForActs.CharacterIds.ToList(), Is.EquivalentTo(new[] {
+				narratorMrkForUi, narratorActForUi, expectedNarrToGroupWithActsAndMark }));
 		}
 
 		[TestCase(30000, 2900, 1000, 999)]
@@ -774,20 +773,23 @@ namespace GlyssenEngineTests.Rules
 				charactersSpokenByPaul, charactersSpokenByPeter);
 			PopulateCharacterDetails();
 
-			var result = CharacterGroupGenerator.TrialGroupConfiguration.GeneratePossibilities(false, groups,
+			var result = GeneratePossibilities(false, groups,
 				m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators, 0, false,
 				m_includedCharacterDetails, m_keyStrokesByCharId, m_testProject, m_characterDetails).Single();
 
 			var narratorGroups = result.NarratorGroups;
-			Assert.AreEqual(groups.Count, narratorGroups.Count);
+			Assert.That(groups.Count, Is.EqualTo(narratorGroups.Count));
 
 			var paulGroup = GetNarratorGroupForBook(narratorGroups, "GAL");
 			var peterGroup = GetNarratorGroupForBook(narratorGroups, "2PE");
 			var narratorGroupForActs = GetNarratorGroupForBook(narratorGroups, "ACT");
 
-			Assert.IsTrue(paulGroup.CharacterIds.ToList().SetEquals(new[] { narratorGalForUi, idPaul }));
-			Assert.IsTrue(peterGroup.CharacterIds.ToList().SetEquals(new[] { narrator2PeForUi, idPeter }));
-			Assert.IsTrue(narratorGroupForActs.CharacterIds.ToList().SetEquals(new[] { narratorMrkForUi, narratorActForUi }));
+			Assert.That(paulGroup.CharacterIds.ToList(),
+				Is.EquivalentTo(new[] { narratorGalForUi, idPaul }));
+			Assert.That(peterGroup.CharacterIds.ToList(),
+				Is.EquivalentTo(new[] { narrator2PeForUi, idPeter }));
+			Assert.That(narratorGroupForActs.CharacterIds.ToList(),
+				Is.EquivalentTo(new[] { narratorMrkForUi, narratorActForUi }));
 		}
 
 		[TestCase(60000, 60000, 1000, 999)]
@@ -807,22 +809,24 @@ namespace GlyssenEngineTests.Rules
 				charactersSpokenByPaul, charactersSpokenByPeter);
 			PopulateCharacterDetails();
 
-			var result = CharacterGroupGenerator.TrialGroupConfiguration.GeneratePossibilities(false, groups,
+			var result = GeneratePossibilities(false, groups,
 				m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators, 0, false,
 				m_includedCharacterDetails, m_keyStrokesByCharId, m_testProject, m_characterDetails).Single();
 
 			var narratorGroups = result.NarratorGroups;
-			Assert.AreEqual(groups.Count, narratorGroups.Count);
+			Assert.That(groups.Count, Is.EqualTo(narratorGroups.Count));
 
 			var paulGroup = GetNarratorGroupForBook(narratorGroups, "GAL");
 			var peterGroup = GetNarratorGroupForBook(narratorGroups, "2PE");
 			var narratorGroupForActs = GetNarratorGroupForBook(narratorGroups, "ACT");
 			var narratorGroupForMark = GetNarratorGroupForBook(narratorGroups, "MRK");
 
-			Assert.IsTrue(paulGroup.CharacterIds.ToList().SetEquals(new[] { narratorGalForUi, idPaul }));
-			Assert.IsTrue(peterGroup.CharacterIds.ToList().SetEquals(new[] { narrator2PeForUi, idPeter }));
-			Assert.AreEqual(1, narratorGroupForActs.CharacterIds.Count);
-			Assert.AreEqual(1, narratorGroupForMark.CharacterIds.Count);
+			Assert.That(paulGroup.CharacterIds.ToList(),
+				Is.EquivalentTo(new[] { narratorGalForUi, idPaul }));
+			Assert.That(peterGroup.CharacterIds.ToList(),
+				Is.EquivalentTo(new[] { narrator2PeForUi, idPeter }));
+			Assert.That(narratorGroupForActs.CharacterIds.Count, Is.EqualTo(1));
+			Assert.That(narratorGroupForMark.CharacterIds.Count, Is.EqualTo(1));
 		}
 	}
 
@@ -958,24 +962,24 @@ namespace GlyssenEngineTests.Rules
 				charactersSpokenByPaul, charactersSpokenByPeter);
 			PopulateCharacterDetails();
 
-			var result = CharacterGroupGenerator.TrialGroupConfiguration.GeneratePossibilities(false, groups,
+			var result = GeneratePossibilities(false, groups,
 				m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators, 0, false,
 				m_includedCharacterDetails, m_keyStrokesByCharId, m_testProject, m_characterDetails).Single();
 
 			var narratorGroups = result.NarratorGroups;
-			Assert.AreEqual(groups.Count, narratorGroups.Count);
+			Assert.That(groups.Count, Is.EqualTo(narratorGroups.Count));
 
 			var narratorGroupForActs = GetNarratorGroupForBook(narratorGroups, "ACT");
 			var authorsGroup = GetNarratorGroupForBook(narratorGroups, "ROM");
-			Assert.AreNotEqual(narratorGroupForActs, authorsGroup);
+			Assert.That(narratorGroupForActs, Is.Not.EqualTo(authorsGroup));
 
-			Assert.IsTrue(authorsGroup.CharacterIds.ToList().Contains(idPaul));
+			Assert.That(authorsGroup.CharacterIds, Does.Contain(idPaul));
 			var narratorsForAuthor = authorsGroup.CharacterIds.Where(c => c != idPaul).ToList();
-			Assert.IsTrue(narratorsForAuthor.All(n => BiblicalAuthors.GetAuthorOfBook(CharacterVerseData.GetBookCodeFromStandardCharacterId(n))
-				.Name == idPaul));
-			Assert.IsTrue(narratorGroupForActs.CharacterIds.All(c =>
-				CharacterVerseData.GetStandardCharacterType(c) == CharacterVerseData.StandardCharacter.Narrator));
-			Assert.IsFalse(authorsGroup.CharacterIds.ToList().Intersect(narratorGroupForActs.CharacterIds.ToList()).Any());
+			Assert.That(narratorsForAuthor.All(n => BiblicalAuthors.GetAuthorOfBook(CharacterVerseData.GetBookCodeFromStandardCharacterId(n))
+				.Name == idPaul), Is.True);
+			Assert.That(narratorGroupForActs.CharacterIds.All(c =>
+				CharacterVerseData.GetStandardCharacterType(c) == CharacterVerseData.StandardCharacter.Narrator), Is.True);
+			Assert.That(authorsGroup.CharacterIds.ToList().Intersect(narratorGroupForActs.CharacterIds.ToList()), Is.Empty);
 		}
 
 		[TestCase(30000, 2900, 1000, 999)]
@@ -993,22 +997,26 @@ namespace GlyssenEngineTests.Rules
 				charactersSpokenByPaul, charactersSpokenByPeter);
 			PopulateCharacterDetails();
 
-			var result = CharacterGroupGenerator.TrialGroupConfiguration.GeneratePossibilities(false, groups,
+			var result = GeneratePossibilities(false, groups,
 				m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators, 0, false,
 				m_includedCharacterDetails, m_keyStrokesByCharId, m_testProject, m_characterDetails).Single();
 
 			var narratorGroups = result.NarratorGroups;
-			Assert.AreEqual(groups.Count, narratorGroups.Count);
+			Assert.That(groups.Count, Is.EqualTo(narratorGroups.Count));
 
 			var paulGroup = GetNarratorGroupForBook(narratorGroups, "GAL");
 			var peterGroup = GetNarratorGroupForBook(narratorGroups, "2PE");
 			var narratorGroupForActs = GetNarratorGroupForBook(narratorGroups, "ACT");
 
-			Assert.IsTrue(paulGroup.CharacterIds.ToList().SetEquals(new[] { GetNarrUi("ROM"), GetNarrUi("1CO"), GetNarrUi("2CO"), GetNarrUi("GAL"), GetNarrUi("EPH"), GetNarrUi("PHP"), GetNarrUi("COL"), GetNarrUi("1TH"),
-				GetNarrUi("2TH"), GetNarrUi("1TI"), GetNarrUi("2TI"), GetNarrUi("TIT"), GetNarrUi("PHM"), idPaul }));
-			Assert.IsTrue(peterGroup.CharacterIds.ToList().SetEquals(new[] { GetNarrUi("1PE"), GetNarrUi("2PE"), idPeter }));
-			Assert.IsTrue(narratorGroupForActs.CharacterIds.ToList().SetEquals(new[] { GetNarrUi("MAT"), GetNarrUi("MRK"), GetNarrUi("LUK"),
-				GetNarrUi("JHN"), GetNarrUi("ACT"), GetNarrUi("HEB"), GetNarrUi("JAS"), GetNarrUi("1JN"),
+			Assert.That(paulGroup.CharacterIds.ToList(), Is.EquivalentTo(new[] { GetNarrUi("ROM"),
+				GetNarrUi("1CO"), GetNarrUi("2CO"), GetNarrUi("GAL"), GetNarrUi("EPH"),
+				GetNarrUi("PHP"), GetNarrUi("COL"), GetNarrUi("1TH"), GetNarrUi("2TH"),
+				GetNarrUi("1TI"), GetNarrUi("2TI"), GetNarrUi("TIT"), GetNarrUi("PHM"), idPaul }));
+			Assert.That(peterGroup.CharacterIds.ToList(),
+				Is.EquivalentTo(new[] { GetNarrUi("1PE"), GetNarrUi("2PE"), idPeter }));
+			Assert.That(narratorGroupForActs.CharacterIds.ToList(), Is.EquivalentTo(new[] {
+				GetNarrUi("MAT"), GetNarrUi("MRK"), GetNarrUi("LUK"), GetNarrUi("JHN"),
+				GetNarrUi("ACT"), GetNarrUi("HEB"), GetNarrUi("JAS"), GetNarrUi("1JN"),
 				GetNarrUi("2JN"), GetNarrUi("3JN"), GetNarrUi("JUD"), GetNarrUi("REV") }));
 		}
 
@@ -1029,24 +1037,30 @@ namespace GlyssenEngineTests.Rules
 				charactersSpokenByPaul, charactersSpokenByPeter);
 			PopulateCharacterDetails();
 
-			var result = CharacterGroupGenerator.TrialGroupConfiguration.GeneratePossibilities(false, groups,
+			var result = GeneratePossibilities(false, groups,
 				m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators, 0, false,
 				m_includedCharacterDetails, m_keyStrokesByCharId, m_testProject, m_characterDetails).Single();
 
 			var narratorGroups = result.NarratorGroups;
-			Assert.AreEqual(groups.Count, narratorGroups.Count);
+			Assert.That(groups.Count, Is.EqualTo(narratorGroups.Count));
 
 			var paulGroup = GetNarratorGroupForBook(narratorGroups, "GAL");
 			var peterGroup = GetNarratorGroupForBook(narratorGroups, "2PE");
 			var jamesGroup = GetNarratorGroupForBook(narratorGroups, "JAS");
 			var narratorGroupForActs = GetNarratorGroupForBook(narratorGroups, "ACT");
 
-			Assert.IsTrue(paulGroup.CharacterIds.ToList().SetEquals(new[] { GetNarrUi("ROM"), GetNarrUi("1CO"), GetNarrUi("2CO"), GetNarrUi("GAL"), GetNarrUi("EPH"), GetNarrUi("PHP"), GetNarrUi("COL"), GetNarrUi("1TH"),
-				GetNarrUi("2TH"), GetNarrUi("1TI"), GetNarrUi("2TI"), GetNarrUi("TIT"), GetNarrUi("PHM"), idPaul }));
-			Assert.IsTrue(peterGroup.CharacterIds.ToList().SetEquals(new[] { GetNarrUi("1PE"), GetNarrUi("2PE"), idPeter }));
-			Assert.IsTrue(jamesGroup.CharacterIds.ToList().SetEquals(new[] { GetNarrUi("JAS"), idJames }));
-			Assert.IsTrue(narratorGroupForActs.CharacterIds.ToList().SetEquals(new[] { GetNarrUi("MAT"), GetNarrUi("MRK"), GetNarrUi("LUK"), GetNarrUi("JHN"), GetNarrUi("ACT"), GetNarrUi("HEB"), GetNarrUi("1JN"),
-				GetNarrUi("2JN"), GetNarrUi("3JN"), GetNarrUi("JUD"), GetNarrUi("REV") }));
+			Assert.That(paulGroup.CharacterIds.ToList(), Is.EquivalentTo(new[] { GetNarrUi("ROM"),
+				GetNarrUi("1CO"), GetNarrUi("2CO"), GetNarrUi("GAL"), GetNarrUi("EPH"),
+				GetNarrUi("PHP"), GetNarrUi("COL"), GetNarrUi("1TH"), GetNarrUi("2TH"),
+				GetNarrUi("1TI"), GetNarrUi("2TI"), GetNarrUi("TIT"), GetNarrUi("PHM"), idPaul }));
+			Assert.That(peterGroup.CharacterIds.ToList(),
+				Is.EquivalentTo(new[] { GetNarrUi("1PE"), GetNarrUi("2PE"), idPeter }));
+			Assert.That(jamesGroup.CharacterIds.ToList(),
+				Is.EquivalentTo(new[] { GetNarrUi("JAS"), idJames }));
+			Assert.That(narratorGroupForActs.CharacterIds.ToList(), Is.EquivalentTo(new[] {
+				GetNarrUi("MAT"), GetNarrUi("MRK"), GetNarrUi("LUK"), GetNarrUi("JHN"),
+				GetNarrUi("ACT"), GetNarrUi("HEB"), GetNarrUi("1JN"), GetNarrUi("2JN"),
+				GetNarrUi("3JN"), GetNarrUi("JUD"), GetNarrUi("REV") }));
 		}
 
 		[TestCase(60000, 60000, 1000, 999)]
@@ -1066,31 +1080,36 @@ namespace GlyssenEngineTests.Rules
 				charactersSpokenByPaul, charactersSpokenByPeter);
 			PopulateCharacterDetails();
 
-			var result = CharacterGroupGenerator.TrialGroupConfiguration.GeneratePossibilities(false, groups,
+			var result = GeneratePossibilities(false, groups,
 				m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators, 0, false,
 				m_includedCharacterDetails, m_keyStrokesByCharId, m_testProject, m_characterDetails).Single();
 
 			var narratorGroups = result.NarratorGroups;
-			Assert.AreEqual(groups.Count, narratorGroups.Count);
-			Assert.AreEqual(27, narratorGroups.Sum(g => g.CharacterIds.Count(
-				c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator))));
+			Assert.That(groups.Count, Is.EqualTo(narratorGroups.Count));
+			Assert.That(narratorGroups.Sum(g => g.CharacterIds.Count(
+				c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator))), Is.EqualTo(27));
 
 			var paulGroup = GetNarratorGroupForBook(narratorGroups, "GAL");
 			var peterGroup = GetNarratorGroupForBook(narratorGroups, "2PE");
 			var jamesGroup = GetNarratorGroupForBook(narratorGroups, "JAS");
 			var johnGroup = GetNarratorGroupForBook(narratorGroups, "JHN");
 			var otherNarratorGroup = GetNarratorGroupForBook(narratorGroups, "ACT");
-			Assert.AreNotEqual(johnGroup, otherNarratorGroup);
+			Assert.That(johnGroup, Is.Not.EqualTo(otherNarratorGroup));
 
-			Assert.IsTrue(paulGroup.CharacterIds.ToList().SetEquals(new[] { GetNarrUi("ROM"), GetNarrUi("1CO"), GetNarrUi("2CO"),
-				GetNarrUi("GAL"), GetNarrUi("EPH"), GetNarrUi("PHP"), GetNarrUi("COL"), GetNarrUi("1TH"), GetNarrUi("2TH"),
-				GetNarrUi("1TI"), GetNarrUi("2TI"), GetNarrUi("TIT"), GetNarrUi("PHM"), idPaul }));
-			Assert.IsTrue(peterGroup.CharacterIds.ToList().SetEquals(new[] { GetNarrUi("1PE"), GetNarrUi("2PE"), idPeter }));
-			Assert.IsTrue(jamesGroup.CharacterIds.ToList().SetEquals(new[] { GetNarrUi("JAS"), idJames }));
+			Assert.That(paulGroup.CharacterIds.ToList(), Is.EquivalentTo(
+				new[] { GetNarrUi("ROM"), GetNarrUi("1CO"), GetNarrUi("2CO"), GetNarrUi("GAL"),
+					GetNarrUi("EPH"), GetNarrUi("PHP"), GetNarrUi("COL"), GetNarrUi("1TH"),
+					GetNarrUi("2TH"), GetNarrUi("1TI"), GetNarrUi("2TI"), GetNarrUi("TIT"),
+					GetNarrUi("PHM"), idPaul }));
+			Assert.That(peterGroup.CharacterIds.ToList(),
+				Is.EquivalentTo(new[] { GetNarrUi("1PE"), GetNarrUi("2PE"), idPeter }));
+			Assert.That(jamesGroup.CharacterIds.ToList(),
+				Is.EquivalentTo(new[] { GetNarrUi("JAS"), idJames }));
 			// Algorithm will group another small book with John's
-			Assert.IsTrue(johnGroup.CharacterIds.IsProperSupersetOf(new[] { "narrator-JHN", "narrator-1JN", "narrator-2JN",
-				"narrator-3JN", "narrator-REV" }));
-			Assert.IsTrue(otherNarratorGroup.CharacterIds.IsProperSupersetOf(new[] { "narrator-ACT", "narrator-MRK" }));
+			Assert.That(johnGroup.CharacterIds.IsProperSupersetOf(new[] { "narrator-JHN",
+				"narrator-1JN", "narrator-2JN", "narrator-3JN", "narrator-REV" }));
+			Assert.That(otherNarratorGroup.CharacterIds.IsProperSupersetOf(
+				new[] { "narrator-ACT", "narrator-MRK" }));
 		}
 
 		private string GetNarrUi(string bookId)

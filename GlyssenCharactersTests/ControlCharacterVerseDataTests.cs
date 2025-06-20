@@ -41,47 +41,47 @@ namespace GlyssenCharactersTests
 		[Test]
 		public void GetCharacters_NoMatch_EmptyResults()
 		{
-			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters(kMRKbookNum, 1, new SingleVerse(1)).Any());
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(kMRKbookNum, 1, new SingleVerse(1)), Is.Empty);
 		}
 
 		[Test]
 		public void GetCharacters_OneInControlFile_Retrieved()
 		{
-			Assert.AreEqual("God", ControlCharacterVerseData.Singleton.GetCharacters(kGENbookNum, 15, new SingleVerse(20)).Single().Character);
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(kGENbookNum, 15, new SingleVerse(20)).Single().Character, Is.EqualTo("God"));
 		}
 
 		[Test]
 		public void GetCharacters_VerseBridgeInControlFile_StartVerse()
 		{
 			var character = ControlCharacterVerseData.Singleton.GetCharacters(kLUKbookNum, 1, new SingleVerse(43)).Single();
-			Assert.AreEqual("Elizabeth", character.Character);
+			Assert.That(character.Character, Is.EqualTo("Elizabeth"));
 		}
 
 		[Test]
 		public void GetCharacters_VerseBridgeInControlFile_MiddleVerse()
 		{
 			var character = ControlCharacterVerseData.Singleton.GetCharacters(kGENbookNum, 15, new SingleVerse(20)).Single();
-			Assert.AreEqual("God", character.Character);
+			Assert.That(character.Character, Is.EqualTo("God"));
 		}
 
 		[Test]
 		public void GetCharacters_VerseBridgeInControlFile_EndVerse()
 		{
 			var character = ControlCharacterVerseData.Singleton.GetCharacters(kLUKbookNum, 1, new SingleVerse(55)).Single();
-			Assert.AreEqual("Mary (Jesus' mother)", character.Character);
+			Assert.That(character.Character, Is.EqualTo("Mary (Jesus' mother)"));
 		}
 
 		[Test]
 		public void GetCharacters_ControlHasNoDataForInitialStartVerseButDoesForSecondVerse_ReturnsNoCharacters()
 		{
-			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters(kACTbookNum, 11, new []{new SingleVerse(2), new SingleVerse(3) }).Any());
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(kACTbookNum, 11, new []{new SingleVerse(2), new SingleVerse(3) }), Is.Empty);
 		}
 
 		[Test]
 		public void GetCharacters_ControlHasSameCharacterEntryForInitialStartAndInitialEndVerse_GetsOnlyOneEntryForCharacter()
 		{
 			var character = ControlCharacterVerseData.Singleton.GetCharacters(kGENbookNum, 1, new VerseBridge(14, 15)).Single();
-			Assert.AreEqual("God", character.Character);
+			Assert.That(character.Character, Is.EqualTo("God"));
 		}
 
 		[Test]
@@ -98,7 +98,7 @@ namespace GlyssenCharactersTests
 				ScrVers.English, includeNarratorOverrides: true));
 			var characters = ControlCharacterVerseData.Singleton.GetCharacters(bookNumGen, 32, new VerseBridge(1, 3),
 				ScrVers.Original, includeNarratorOverrides: true);
-			Assert.IsTrue(expected.SetEquals(characters));
+			Assert.That(characters, Is.EquivalentTo(expected));
 		}
 
 		[TestCase(false)]
@@ -110,7 +110,7 @@ namespace GlyssenCharactersTests
 				ScrVers.English, includeNarratorOverrides: includeNarratorOverrides);
 			var characters = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber("PSA"), 37, new VerseBridge(16, 17),
 				ScrVers.RussianOrthodox, includeNarratorOverrides: includeNarratorOverrides).ToList();
-			Assert.IsTrue(expected.SequenceEqual(characters));
+			Assert.That(characters, Is.EquivalentTo(expected));
 		}
 
 		[TestCase(2)]
@@ -126,7 +126,7 @@ namespace GlyssenCharactersTests
 				endVerse--;
 			var expected = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber("PSA"), 42, endVerse <= 1 ? (IVerse)new SingleVerse(1) : new VerseBridge(1, endVerse),
 				ScrVers.English, includeNarratorOverrides: true).Single();
-			Assert.AreEqual(expected, character);
+			Assert.That(character, Is.EqualTo(expected));
 		}
 
 		[Test]
@@ -137,50 +137,50 @@ namespace GlyssenCharactersTests
 				ScrVers.English).Single();
 			var character = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber("1SA"), 24, new VerseBridge(1, 2),
 				ScrVers.Original).Single();
-			Assert.AreEqual(expected.Character, character.Character);
+			Assert.That(character.Character, Is.EqualTo(expected.Character));
 		}
 
 		[Test]
 		public void GetCharacters_ControlHasNoDataForInitialStartVerseButDoesForThirdVerse_ReturnsNoCharacters()
 		{
-			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters(kACTbookNum, 11, new []{ new SingleVerse(1), new SingleVerse(3) }).Any());
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(kACTbookNum, 11, new []{ new SingleVerse(1), new SingleVerse(3) }), Is.Empty);
 		}
 
 		[Test]
 		public void GetCharacters_MoreThanOneWithNoDuplicates_ReturnsAll()
 		{
 			var characters = ControlCharacterVerseData.Singleton.GetCharacters(kMRKbookNum, 6, new SingleVerse(24));
-			Assert.AreEqual(2, characters.Count);
-			Assert.AreEqual(1, characters.Count(c => c.Character == "Herodias"));
-			Assert.AreEqual(1, characters.Count(c => c.Character == "Herodias' daughter"));
+			Assert.That(characters.Count, Is.EqualTo(2));
+			Assert.That(characters.Count(c => c.Character == "Herodias"), Is.EqualTo(1));
+			Assert.That(characters.Count(c => c.Character == "Herodias' daughter"), Is.EqualTo(1));
 		}
 
 		[Test]
 		public void GetCharacters_MultipleCharactersInOneButNotAllVerses_ReturnsSingleCharacter()
 		{
 			var character = ControlCharacterVerseData.Singleton.GetCharacters(k1SAbookNum, 6, new[] { new SingleVerse(4), new SingleVerse(6) }).Single();
-			Assert.AreEqual("Philistine priests and diviners", character.Character);
+			Assert.That(character.Character, Is.EqualTo("Philistine priests and diviners"));
 		}
 
 		[Test]
 		public void GetCharacters_MultipleCharactersInMultipleVerses_ReturnsAmbiguous()
 		{
 			var characters = ControlCharacterVerseData.Singleton.GetCharacters(k1SAbookNum, 8, new[] { new SingleVerse(21), new SingleVerse(22) });
-			Assert.AreEqual(2, characters.Count);
-			Assert.AreEqual(1, characters.Count(c => c.Character == "God"));
-			Assert.AreEqual(1, characters.Count(c => c.Character == "Samuel"));
+			Assert.That(characters.Count, Is.EqualTo(2));
+			Assert.That(characters.Count(c => c.Character == "God"), Is.EqualTo(1));
+			Assert.That(characters.Count(c => c.Character == "Samuel"), Is.EqualTo(1));
 		}
 
 		[Test]
 		public void GetCharacters_MultipleCharactersInMultipleVerses_NoCharacterInInitialStartVerse_ReturnsNoCharacters()
 		{
-			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters(k1SAbookNum, 8, new[] { new SingleVerse(20), new SingleVerse(22) }).Any());
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(k1SAbookNum, 8, new[] { new SingleVerse(20), new SingleVerse(22) }), Is.Empty);
 		}
 
 		[Test]
 		public void GetCharacters_SingleCharactersInMultipleVerses_NoCharacterInInitialStartVerse_ReturnsNoCharacters()
 		{
-			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters(k1SAbookNum, 9, new[] { new SingleVerse(4), new SingleVerse(6) }).Any());
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(k1SAbookNum, 9, new[] { new SingleVerse(4), new SingleVerse(6) }), Is.Empty);
 		}
 
 		[Test]
@@ -188,16 +188,16 @@ namespace GlyssenCharactersTests
 		{
 			// Prove the test is valid
 			var character = ControlCharacterVerseData.Singleton.GetCharacters(1, 32, new SingleVerse(6)).Single();
-			Assert.AreEqual("messengers of Jacob", character.Character);
+			Assert.That(character.Character, Is.EqualTo("messengers of Jacob"));
 			var verseRef = new VerseRef(1, 32, 6, ScrVers.English);
 			verseRef.ChangeVersification(m_testVersification);
-			Assert.AreEqual(1, verseRef.BookNum);
-			Assert.AreEqual(32, verseRef.ChapterNum);
-			Assert.AreEqual(7, verseRef.VerseNum);
+			Assert.That(verseRef.BookNum, Is.EqualTo(1));
+			Assert.That(verseRef.ChapterNum, Is.EqualTo(32));
+			Assert.That(verseRef.VerseNum, Is.EqualTo(7));
 
 			// Run the test
 			character = ControlCharacterVerseData.Singleton.GetCharacters(verseRef.BookNum, verseRef.ChapterNum, (SingleVerse)verseRef, m_testVersification).Single();
-			Assert.AreEqual("messengers of Jacob", character.Character);
+			Assert.That(character.Character, Is.EqualTo("messengers of Jacob"));
 		}
 
 		[Test]
@@ -205,10 +205,13 @@ namespace GlyssenCharactersTests
 		{
 			var characters = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber("JER"), 31, new SingleVerse(18),
 				includeAlternatesAndRareQuotes: true);
-			Assert.AreEqual(3, characters.Count);
-			Assert.IsTrue(characters.Any(c => c.Character == "God" && c.Delivery == ""));
-			Assert.IsTrue(characters.Any(c => c.Character == "God" && c.Delivery != "" && c.QuoteType == QuoteType.Alternate));
-			Assert.IsTrue(characters.Any(c => c.Character == "Ephraim" && c.QuoteType == QuoteType.Quotation));
+			Assert.That(characters.Count, Is.EqualTo(3));
+			Assert.That(characters.Where(c => c.Character == "God" && c.Delivery == ""),
+				Is.Not.Empty);
+			Assert.That(characters.Where(c => c.Character == "God" && c.Delivery != "" &&
+				c.QuoteType == QuoteType.Alternate), Is.Not.Empty);
+			Assert.That(characters.Where(c => c.Character == "Ephraim" &&
+				c.QuoteType == QuoteType.Quotation), Is.Not.Empty);
 		}
 	}
 
@@ -226,7 +229,8 @@ namespace GlyssenCharactersTests
 		public void ExpectedQuotes_ScriptureQuotation_IsExpected()
 		{
 			// ACT	8	32	scripture			Quotation	Isaiah	
-			Assert.True(ControlCharacterVerseData.Singleton.ExpectedQuotes[BCVRef.BookToNumber("ACT")][8].Contains(32));
+			Assert.That(ControlCharacterVerseData.Singleton
+				.ExpectedQuotes[BCVRef.BookToNumber("ACT")][8], Does.Contain(32));
 		}
 
 		[Test]
@@ -236,21 +240,24 @@ namespace GlyssenCharactersTests
 			// MAT	9	36	scripture			Quotation	Micaiah, prophet of the LORD	
 			// MAT	9	36	Jesus			Rare		
 			// MAT	9	36	Needs Review			Rare		
-			Assert.False(ControlCharacterVerseData.Singleton.ExpectedQuotes[BCVRef.BookToNumber("MAT")][9].Contains(36));
+			Assert.That(ControlCharacterVerseData.Singleton
+				.ExpectedQuotes[BCVRef.BookToNumber("MAT")][9], Does.Not.Contain(36));
 		}
 
 		[Test]
 		public void ExpectedQuotes_QuotationDefaultedToNarrator_IsNotExpected()
 		{
 			// 1KI	12	12	Rehoboam, king			Quotation	narrator-1KI	
-			Assert.False(ControlCharacterVerseData.Singleton.ExpectedQuotes[BCVRef.BookToNumber("1KI")][12].Contains(12));
+			Assert.That(ControlCharacterVerseData.Singleton
+				.ExpectedQuotes[BCVRef.BookToNumber("1KI")][12], Does.Not.Contain(12));
 		}
 
 		[Test]
 		public void ExpectedQuotes_Normal_IsExpected()
 		{
 			//GEN 1   11  God God(the LORD)  Normal
-			Assert.True(ControlCharacterVerseData.Singleton.ExpectedQuotes[BCVRef.BookToNumber("GEN")][1].Contains(11));
+			Assert.That(ControlCharacterVerseData.Singleton
+				.ExpectedQuotes[BCVRef.BookToNumber("GEN")][1], Does.Contain(11));
 		}
 
 		[Test]
@@ -258,14 +265,16 @@ namespace GlyssenCharactersTests
 		{
 			// 2SA 9   2   David David, king Dialogue
 			// 2SA 9   2   Ziba, servant of Saul's household			Dialogue		
-			Assert.True(ControlCharacterVerseData.Singleton.ExpectedQuotes[BCVRef.BookToNumber("2SA")][9].Contains(2));
+			Assert.That(ControlCharacterVerseData.Singleton
+				.ExpectedQuotes[BCVRef.BookToNumber("2SA")][9], Does.Contain(2));
 		}
 
 		[Test]
 		public void ExpectedQuotes_Hypothetical_IsNotExpected()
 		{
 			// Every line in the control file for PSA 10 is Hypothetical
-			Assert.False(ControlCharacterVerseData.Singleton.ExpectedQuotes[BCVRef.BookToNumber("PSA")].ContainsKey(10));
+			Assert.That(ControlCharacterVerseData.Singleton
+				.ExpectedQuotes[BCVRef.BookToNumber("PSA")].ContainsKey(10), Is.False);
 		}
 
 		[Test]
@@ -273,7 +282,8 @@ namespace GlyssenCharactersTests
 		{
 			// ACT 8   37  Ethiopian officer of Queen Candace Indirect
 			// ACT 8   37  Philip the evangelist Philip  Potential
-			Assert.False(ControlCharacterVerseData.Singleton.ExpectedQuotes[BCVRef.BookToNumber("ACT")][8].Contains(37));
+			Assert.That(ControlCharacterVerseData.Singleton
+				.ExpectedQuotes[BCVRef.BookToNumber("ACT")][8], Does.Not.Contain(37));
 		}
 
 		// Note: We didn't used to consider Implicit as expected, but now that we're marking more things as implicit (so we can
@@ -284,21 +294,22 @@ namespace GlyssenCharactersTests
 		public void ExpectedQuotes_Implicit_IsExpected()
 		{
 			// Every line in the control file for LEV 1 is Implicit.
-			Assert.True(ControlCharacterVerseData.Singleton.ExpectedQuotes[BCVRef.BookToNumber("LEV")].ContainsKey(1));
+			Assert.That(ControlCharacterVerseData.Singleton
+				.ExpectedQuotes[BCVRef.BookToNumber("LEV")].ContainsKey(1), Is.True);
 		}
 
 		[Test]
 		public void GetUniqueCharacterDeliveryAliasInfo_DoesNotContainInterruption()
 		{
-			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetUniqueCharacterDeliveryAliasInfo()
-				.Any(c => c.Character.StartsWith("interruption-")));
+			Assert.That(ControlCharacterVerseData.Singleton.GetUniqueCharacterDeliveryAliasInfo()
+				.Any(c => c.Character.StartsWith("interruption-")), Is.False);
 		}
 
 		[Test]
 		public void GetUniqueCharacterDeliveryInfo_DoesNotContainInterruption()
 		{
-			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetUniqueCharacterDeliveryInfo("JHN")
-				.Any(c => c.Character.StartsWith("interruption-")));
+			Assert.That(ControlCharacterVerseData.Singleton.GetUniqueCharacterDeliveryInfo("JHN")
+				.Any(c => c.Character.StartsWith("interruption-")), Is.False);
 		}
 	}
 }

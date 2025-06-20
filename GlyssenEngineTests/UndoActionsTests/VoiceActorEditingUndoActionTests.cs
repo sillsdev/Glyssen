@@ -42,7 +42,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			m_testProject.VoiceActorList.AllActors.Add(new VoiceActor { Id = 1, Name = "B", Age = ActorAge.Adult });
 			var replacedActor = new VoiceActor { Id = 1, Name = "B", Age = ActorAge.YoungAdult };
 			var action = new VoiceActorEditingUndoAction(m_testProject, new[] { new VoiceActorEditUndoAction(m_testProject, replacedActor) });
-			Assert.AreEqual(0, action.GroupsAffectedByLastOperation.Count());
+			Assert.That(action.GroupsAffectedByLastOperation.Count(), Is.EqualTo(0));
 		}
 
 		[Test]
@@ -56,7 +56,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			m_testProject.VoiceActorList.AllActors = new List<VoiceActor> { affectedActor };
 			assignedGroup.AssignVoiceActor(1);
 			var action = new VoiceActorEditingUndoAction(m_testProject, new[] { new VoiceActorEditUndoAction(m_testProject, replacedActor) });
-			Assert.AreEqual(assignedGroup, action.GroupsAffectedByLastOperation.Single());
+			Assert.That(assignedGroup, Is.EqualTo(action.GroupsAffectedByLastOperation.Single()));
 		}
 
 		[Test]
@@ -91,7 +91,8 @@ namespace GlyssenEngineTests.UndoActionsTests
 				new VoiceActorAddedUndoAction(m_testProject, addedActor.Id),
 				new VoiceActorDeletedUndoAction(m_testProject, removedActor)
 			});
-			Assert.IsTrue(action.GroupsAffectedByLastOperation.SetEquals(new [] {maleGroup, femaleGroup} ));
+			Assert.That(action.GroupsAffectedByLastOperation.Distinct(),
+				Is.EquivalentTo(new [] {maleGroup, femaleGroup} ));
 		}
 
 		[Test]
@@ -103,7 +104,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			{
 				new VoiceActorDeletedUndoAction(m_testProject, removedActor)
 			});
-			Assert.AreEqual("Delete voice actor Dominic", action.Description);
+			Assert.That(action.Description, Is.EqualTo("Delete voice actor Dominic"));
 		}
 
 		[Test]
@@ -115,7 +116,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			{
 				new VoiceActorAddedUndoAction(m_testProject, 3)
 			});
-			Assert.AreEqual("Add voice actor Chuck", action.Description);
+			Assert.That(action.Description, Is.EqualTo("Add voice actor Chuck"));
 		}
 
 		[Test]
@@ -128,7 +129,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			{
 				new VoiceActorEditUndoAction(m_testProject, oldName)
 			});
-			Assert.AreEqual("Change name of voice actor from Prince to Icon", action.Description);
+			Assert.That(action.Description, Is.EqualTo("Change name of voice actor from Prince to Icon"));
 		}
 
 		[Test]
@@ -142,7 +143,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 			{
 				new VoiceActorEditUndoAction(m_testProject, replacedActor)
 			});
-			Assert.AreEqual("Edit voice actor Aimee", action.Description);
+			Assert.That(action.Description, Is.EqualTo("Edit voice actor Aimee"));
 		}
 	}
 }

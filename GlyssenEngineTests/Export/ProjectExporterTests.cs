@@ -19,6 +19,11 @@ using GlyssenSharedTests;
 using NUnit.Framework;
 using SIL.Extensions;
 using SIL.Reflection;
+using static System.IO.Path;
+using static System.String;
+using static GlyssenEngine.Bundle.ExtraBiblicalMaterialSpeakerOption;
+using static GlyssenEngine.Export.ProjectExporter;
+using static GlyssenSharedTests.CustomConstraints;
 
 namespace GlyssenEngineTests.Export
 {
@@ -47,7 +52,7 @@ namespace GlyssenEngineTests.Export
 			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
-			Assert.True(data.All(t => t.VoiceActor == null));
+			Assert.That(data, ForEvery<ExportBlock>(b => b.VoiceActor, Is.Null));
 		}
 
 		[Test]
@@ -74,10 +79,13 @@ namespace GlyssenEngineTests.Export
 			var data = exporter.GetExportData();
 			var rowsForCharacterAssignedToActor = data.Where(d => d.CharacterId == characterIdAssignedToGroup1).ToList();
 			var rowsForCharacterNotAssignedToActor = data.Where(d => d.CharacterId != characterIdAssignedToGroup1).ToList();
-			Assert.True(rowsForCharacterAssignedToActor.Any());
-			Assert.True(rowsForCharacterNotAssignedToActor.Any());
-			Assert.True(rowsForCharacterAssignedToActor.All(t => t.VoiceActor == "Ralphy"));
-			Assert.True(rowsForCharacterNotAssignedToActor.All(t => String.IsNullOrEmpty(t.VoiceActor)));
+			Assert.That(rowsForCharacterAssignedToActor.Any(), Is.True);
+			Assert.That(rowsForCharacterNotAssignedToActor.Any(), Is.True);
+			
+			Assert.That(rowsForCharacterAssignedToActor,
+				ForEvery<ExportBlock>(t => t.VoiceActor, Is.EqualTo("Ralphy")));
+			Assert.That(rowsForCharacterNotAssignedToActor,
+				ForEvery<ExportBlock>(t => t.VoiceActor, Is.Null.Or.Empty));
 		}
 
 		[Test]
@@ -95,7 +103,7 @@ namespace GlyssenEngineTests.Export
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
 			var chapterBlockForEphesians = data.Single(t => t.StyleTag == "cl" && t.ChapterNumber == 1);
-			Assert.AreEqual("EPH", chapterBlockForEphesians.BookId);
+			Assert.That(chapterBlockForEphesians.BookId, Is.EqualTo("EPH"));
 		}
 
 		[Test]
@@ -107,7 +115,7 @@ namespace GlyssenEngineTests.Export
 			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
-			Assert.AreEqual(2, data.Count(t => t.StyleTag == "c" && t.ChapterNumber == 1));
+			Assert.That(data.Count(t => t.StyleTag == "c" && t.ChapterNumber == 1), Is.EqualTo(2));
 		}
 
 		[Test]
@@ -118,7 +126,7 @@ namespace GlyssenEngineTests.Export
 			metadata.IncludeChapterAnnouncementForFirstChapter = false;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
-			Assert.False(data.Any(t => t.StyleTag == "c" && t.ChapterNumber == 1));
+			Assert.That(data.Any(t => t.StyleTag == "c" && t.ChapterNumber == 1), Is.False);
 		}
 
 		[Test]
@@ -131,59 +139,64 @@ namespace GlyssenEngineTests.Export
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
 			var chapterBlockForEphesians = data.Single(t => t.StyleTag == "c" && t.ChapterNumber == 1);
-			Assert.AreEqual("EPH", chapterBlockForEphesians.BookId);
+			Assert.That(chapterBlockForEphesians.BookId, Is.EqualTo("EPH"));
 		}
 
 		[Test]
 		public void GetExportData_IntrosIncluded_IntroMaterialInExportData()
 		{
 			var expectedIntroParagraphs = Regex.Matches(Properties.Resources.TestJOS, "para style=\"i", RegexOptions.Compiled).Count;
-			Assert.IsTrue(expectedIntroParagraphs > 0, "The test resource \"TestJos.xml\" has been modified to remove intro material. It won't work for this test.");
+			Assert.That(expectedIntroParagraphs, Is.GreaterThan(0),
+				"The test resource \"TestJos.xml\" has been modified to remove intro material. It won't work for this test.");
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JOS);
-			project.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
+			project.DramatizationPreferences.BookIntroductionsDramatization = Narrator;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
-			Assert.IsTrue(data.Any());
-			Assert.AreEqual(expectedIntroParagraphs, data.Count(t => t.StyleTag.StartsWith("i", StringComparison.Ordinal)));
+			Assert.That(data.Any(), Is.True);
+			Assert.That(data.Count(t => t.StyleTag.StartsWith("i", StringComparison.Ordinal)),
+				Is.EqualTo(expectedIntroParagraphs));
 		}
 
 		[Test]
 		public void GetExportData_IntrosOmitted_NoIntroMaterialInExportData()
 		{
-			Assert.IsTrue(Regex.Matches(Properties.Resources.TestJOS, "para style=\"i", RegexOptions.Compiled).Count > 0,
+			Assert.That(Regex.Matches(Properties.Resources.TestJOS, "para style=\"i", RegexOptions.Compiled).Count, Is.GreaterThan(0),
 				"The test resource \"TestJos.xml\" has been modified to remove intro material. It won't work for this test.");
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JOS);
-			project.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
+			project.DramatizationPreferences.BookIntroductionsDramatization = Omitted;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
-			Assert.IsTrue(data.Any());
-			Assert.IsFalse(data.Any(t => t.StyleTag.StartsWith("i", StringComparison.Ordinal)));
+			Assert.That(data.Any(), Is.True);
+			Assert.That(data.Any(t => t.StyleTag.StartsWith("i", StringComparison.Ordinal)), Is.False);
 		}
 
 		[Test]
 		public void GetExportData_SectionHeadsIncluded_SectionHeadsInExportData()
 		{
 			var expectedSectionHeadParagraphs = Regex.Matches(Properties.Resources.TestJUD, "para style=\"s", RegexOptions.Compiled).Count;
-			Assert.IsTrue(expectedSectionHeadParagraphs > 0, "The test resource \"TestJud.xml\" has been modified to remove section heads. It won't work for this test.");
+			Assert.That(expectedSectionHeadParagraphs, Is.GreaterThan(0),
+				"The test resource \"TestJud.xml\" has been modified to remove section heads. It won't work for this test.");
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD);
-			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
+			project.DramatizationPreferences.SectionHeadDramatization = Narrator;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
-			Assert.IsTrue(data.Any());
-			Assert.AreEqual(expectedSectionHeadParagraphs, data.Count(t => t.StyleTag.StartsWith("s", StringComparison.Ordinal)));
+			Assert.That(data.Any(), Is.True);
+			Assert.That(data.Count(t => t.StyleTag.StartsWith("s", StringComparison.Ordinal)),
+				Is.EqualTo(expectedSectionHeadParagraphs));
 		}
 
 		[Test]
 		public void GetExportData_SectionHeadsOmitted_NoSectionHeadsInExportData()
 		{
-			Assert.IsTrue(Regex.Matches(Properties.Resources.TestJUD, "para style=\"s", RegexOptions.Compiled).Count > 0,
+			Assert.That(Regex.Matches(Properties.Resources.TestJUD, "para style=\"s", RegexOptions.Compiled).Count,
+				Is.GreaterThan(0),
 				"The test resource \"TestJud.xml\" has been modified to remove section heads. It won't work for this test.");
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD);
-			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
+			project.DramatizationPreferences.SectionHeadDramatization = Omitted;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
-			Assert.IsTrue(data.Any());
-			Assert.IsFalse(data.Any(t => t.StyleTag.StartsWith("s", StringComparison.Ordinal)));
+			Assert.That(data.Any(), Is.True);
+			Assert.That(data.Any(t => t.StyleTag.StartsWith("s", StringComparison.Ordinal)), Is.False);
 		}
 
 		[Test]
@@ -191,22 +204,23 @@ namespace GlyssenEngineTests.Export
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.EPH);
 			var expected = project.SkipChapterAnnouncementForFirstChapter ? 6 : 7;
-			project.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
+			project.DramatizationPreferences.BookTitleAndChapterDramatization = Narrator;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
-			Assert.IsTrue(data.Any());
-			Assert.AreEqual(expected, data.Count(t => t.CharacterId == "book title or chapter (EPH)"));
+			Assert.That(data.Any(), Is.True);
+			Assert.That(data.Count(t => t.CharacterId == "book title or chapter (EPH)"),
+				Is.EqualTo(expected));
 		}
 
 		[Test]
 		public void GetExportData_TitlesAndChaptersOmitted_NoTitlesOrChaptersInExportData()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.EPH);
-			project.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
+			project.DramatizationPreferences.BookTitleAndChapterDramatization = Omitted;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
-			Assert.IsTrue(data.Any());
-			Assert.IsFalse(data.Any(t => t.CharacterId == "book title or chapter (EPH)"));
+			Assert.That(data.Any(), Is.True);
+			Assert.That(data.Any(t => t.CharacterId == "book title or chapter (EPH)"), Is.False);
 		}
 
 		[Test]
@@ -224,9 +238,9 @@ namespace GlyssenEngineTests.Export
 			for (var index = 1; index < data.Count; index++)
 			{
 				var block = data[index];
-				Assert.AreEqual(++prevNumber, block.Number);
+				Assert.That(++prevNumber, Is.EqualTo(block.Number));
 			}
-			Assert.True(data.All(t => t.BookId == "2JN"));
+			Assert.That(data, ForEvery<ExportBlock>(t => t.BookId, Is.EqualTo("2JN")));
 		}
 
 		[Test]
@@ -255,11 +269,11 @@ namespace GlyssenEngineTests.Export
 			var expectedBlockNumber = exporter.GetExportData().Single(b => b.CharacterId == "Michael, archangel").Number;
 
 			var data = exporter.GetExportData(voiceActorId: 1).Single();
-			Assert.AreEqual("Marlon", data.VoiceActor);
-			Assert.AreEqual(1, data.ChapterNumber);
-			Assert.AreEqual(9, data.VerseNumber);
-			Assert.AreEqual("Michael, archangel", data.CharacterId);
-			Assert.AreEqual(expectedBlockNumber, data.Number);
+			Assert.That(data.VoiceActor, Is.EqualTo("Marlon"));
+			Assert.That(data.ChapterNumber, Is.EqualTo(1));
+			Assert.That(data.VerseNumber, Is.EqualTo(9));
+			Assert.That(data.CharacterId, Is.EqualTo("Michael, archangel"));
+			Assert.That(data.Number, Is.EqualTo(expectedBlockNumber));
 		}
 
 		[Test]
@@ -285,28 +299,28 @@ namespace GlyssenEngineTests.Export
 
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
-			Assert.IsTrue(data.Count > 2);
+			Assert.That(data.Count, Is.GreaterThan(2));
 			for (var index = 0; index < data.Count; index++)
 			{
 				var block = data[index];
-				Assert.AreEqual(index + 1, block.Number);
+				Assert.That(index + 1, Is.EqualTo(block.Number));
 			}
 
 			var iStartOfJude = data.IndexOf(d => d.BookId == "JUD");
-			Assert.IsTrue(iStartOfJude > 0);
-			Assert.IsTrue(data.Take(iStartOfJude).All(d => d.BookId == "GAL"));
-			Assert.IsTrue(data.Skip(iStartOfJude).All(d => d.BookId == "JUD"));
-			Assert.IsTrue(data.Take(iStartOfJude).All(d => d.CharacterId == "narrator (GAL)"));
-			Assert.IsTrue(data.Skip(iStartOfJude).All(d => d.CharacterId == "narrator (JUD)"));
-			Assert.IsTrue(data.Take(iStartOfJude).All(d => d.VoiceActor == "Marlon"));
-			Assert.IsTrue(data.Skip(iStartOfJude).All(d => d.VoiceActor == "Aiden"));
+			Assert.That(iStartOfJude, Is.GreaterThan(0));
+			Assert.That(data.Take(iStartOfJude).All(d => d.BookId == "GAL"));
+			Assert.That(data.Skip(iStartOfJude).All(d => d.BookId == "JUD"));
+			Assert.That(data.Take(iStartOfJude).All(d => d.CharacterId == "narrator (GAL)"));
+			Assert.That(data.Skip(iStartOfJude).All(d => d.CharacterId == "narrator (JUD)"));
+			Assert.That(data.Take(iStartOfJude).All(d => d.VoiceActor == "Marlon"));
+			Assert.That(data.Skip(iStartOfJude).All(d => d.VoiceActor == "Aiden"));
 		}
 
 		[Test]
 		public void GetExportData_BlocksAreJoinedToReferenceText_OutputContainsMatchedAndUnmatchedReferenceText()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD);
-			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			project.DramatizationPreferences.SectionHeadDramatization = ActorOfEitherGender;
 			var narrator = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator);
 			var sectionHead = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical);
 			var jude = project.IncludedBooks.Single();
@@ -333,8 +347,7 @@ namespace GlyssenEngineTests.Export
 			{
 				var secondaryRefBlock = new Block(refBlock.StyleTag, refBlock.ChapterNumber, refBlock.InitialStartVerseNumber, refBlock.InitialEndVerseNumber)
 					{CharacterId = refBlock.CharacterId};
-				Verse verseElement = refBlock.BlockElements.First() as Verse;
-				if (verseElement != null)
+				if (refBlock.BlockElements.First() is Verse verseElement)
 					secondaryRefBlock.AddVerse(verseElement.Number, "Secondary");
 				else
 					secondaryRefBlock.BlockElements = new List<BlockElement> {new ScriptText("the angel named Mike verbalized.")};
@@ -345,82 +358,85 @@ namespace GlyssenEngineTests.Export
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData().ToList();
 
-			Assert.IsTrue(data.All(d => d.BookId == "JUD" && d.ChapterNumber == 1));
+			Assert.That(data, ForEvery<ExportBlock>(
+				(b => b.BookId, Is.EqualTo("JUD"), nameof(ExportBlock.BookId)),
+				(b => b.ChapterNumber, Is.EqualTo(1), nameof(ExportBlock.ChapterNumber))));
+			
 			var i = 0;
 			var row = data[i++];
-			Assert.AreEqual(i, row.Number); // Row 1
-			Assert.AreEqual("p", row.StyleTag);
-			Assert.AreEqual(1, row.VerseNumber);
-			Assert.AreEqual("narrator (JUD)", row.CharacterId);
-			Assert.AreEqual("{1}\u00A0A", row.VernacularText);
-			Assert.AreEqual("{1}\u00A0Ayy", row.AdditionalReferenceText);
-			Assert.AreEqual("{1}\u00A0Secondary", row.EnglishReferenceText);
+			Assert.That(row.Number, Is.EqualTo(i)); // Row 1
+			Assert.That(row.StyleTag, Is.EqualTo("p"));
+			Assert.That(row.VerseNumber, Is.EqualTo(1));
+			Assert.That(row.CharacterId, Is.EqualTo("narrator (JUD)"));
+			Assert.That(row.VernacularText, Is.EqualTo("{1}\u00A0A"));
+			Assert.That(row.AdditionalReferenceText, Is.EqualTo("{1}\u00A0Ayy"));
+			Assert.That(row.EnglishReferenceText, Is.EqualTo("{1}\u00A0Secondary"));
 
 			row = data[i++];
-			Assert.AreEqual(i, row.Number); // Row 2
-			Assert.AreEqual("s", row.StyleTag);
-			Assert.AreEqual(1, row.VerseNumber);
-			Assert.AreEqual("section head (JUD)", row.CharacterId);
-			Assert.AreEqual("Jude complains", row.VernacularText);
-			Assert.IsTrue(string.IsNullOrEmpty(row.AdditionalReferenceText));
-			Assert.IsTrue(string.IsNullOrEmpty(row.EnglishReferenceText));
+			Assert.That(row.Number, Is.EqualTo(i)); // Row 2
+			Assert.That(row.StyleTag, Is.EqualTo("s"));
+			Assert.That(row.VerseNumber, Is.EqualTo(1));
+			Assert.That(row.CharacterId, Is.EqualTo("section head (JUD)"));
+			Assert.That(row.VernacularText, Is.EqualTo("Jude complains"));
+			Assert.That(row.AdditionalReferenceText, Is.Null.Or.Empty);
+			Assert.That(row.EnglishReferenceText, Is.Null.Or.Empty);
 
 			row = data[i++];
-			Assert.AreEqual(i, row.Number); // Row 3
-			Assert.AreEqual("p", row.StyleTag);
-			Assert.AreEqual(2, row.VerseNumber);
-			Assert.AreEqual("Enoch", row.CharacterId);
-			Assert.AreEqual("{2}\u00A0B", row.VernacularText);
-			Assert.IsTrue(string.IsNullOrEmpty(row.AdditionalReferenceText));
-			Assert.IsTrue(string.IsNullOrEmpty(row.EnglishReferenceText));
+			Assert.That(row.Number, Is.EqualTo(i)); // Row 3
+			Assert.That(row.StyleTag, Is.EqualTo("p"));
+			Assert.That(row.VerseNumber, Is.EqualTo(2));
+			Assert.That(row.CharacterId, Is.EqualTo("Enoch"));
+			Assert.That(row.VernacularText, Is.EqualTo("{2}\u00A0B"));
+			Assert.That(row.AdditionalReferenceText, Is.Null.Or.Empty);
+			Assert.That(row.EnglishReferenceText, Is.Null.Or.Empty);
 
 			row = data[i++];
-			Assert.AreEqual(i, row.Number); // Row 4
-			Assert.AreEqual("p", row.StyleTag);
-			Assert.AreEqual(3, row.VerseNumber);
-			Assert.AreEqual("narrator (JUD)", row.CharacterId);
-			Assert.AreEqual("{3}\u00A0C", row.VernacularText);
-			Assert.IsTrue(string.IsNullOrEmpty(row.AdditionalReferenceText));
-			Assert.IsTrue(string.IsNullOrEmpty(row.EnglishReferenceText));
+			Assert.That(row.Number, Is.EqualTo(i)); // Row 4
+			Assert.That(row.StyleTag, Is.EqualTo("p"));
+			Assert.That(row.VerseNumber, Is.EqualTo(3));
+			Assert.That(row.CharacterId, Is.EqualTo("narrator (JUD)"));
+			Assert.That(row.VernacularText, Is.EqualTo("{3}\u00A0C"));
+			Assert.That(row.AdditionalReferenceText, Is.Null.Or.Empty);
+			Assert.That(row.EnglishReferenceText, Is.Null.Or.Empty);
 
 			row = data[i++];
-			Assert.AreEqual(0, row.Number);
-			Assert.AreEqual("p", row.StyleTag);
-			Assert.AreEqual(2, row.VerseNumber);
-			Assert.AreEqual("narrator (JUD)", row.CharacterId);
-			Assert.IsTrue(string.IsNullOrEmpty(row.VernacularText));
-			Assert.AreEqual("{2-3}\u00A0Bee Cee", row.AdditionalReferenceText);
-			Assert.AreEqual("{2-3}\u00A0Secondary", row.EnglishReferenceText);
-			Assert.AreEqual(0, row.Length);
+			Assert.That(row.Number, Is.EqualTo(0));
+			Assert.That(row.StyleTag, Is.EqualTo("p"));
+			Assert.That(row.VerseNumber, Is.EqualTo(2));
+			Assert.That(row.CharacterId, Is.EqualTo("narrator (JUD)"));
+			Assert.That(row.VernacularText, Is.Null.Or.Empty);
+			Assert.That(row.AdditionalReferenceText, Is.EqualTo("{2-3}\u00A0Bee Cee"));
+			Assert.That(row.EnglishReferenceText, Is.EqualTo("{2-3}\u00A0Secondary"));
+			Assert.That(row.Length, Is.EqualTo(0));
 
 			row = data[i++];
-			Assert.AreEqual(5, row.Number); // Row 5
-			Assert.AreEqual("p", row.StyleTag);
-			Assert.AreEqual(4, row.VerseNumber);
-			Assert.AreEqual("Michael", row.CharacterId);
-			Assert.AreEqual("{4}\u00A0D", row.VernacularText);
-			Assert.AreEqual("{4}\u00A0Dee, Michael said.", row.AdditionalReferenceText);
-			Assert.AreEqual("{4}\u00A0Secondary the angel named Mike verbalized.", row.EnglishReferenceText);
+			Assert.That(row.Number, Is.EqualTo(5)); // Row 5
+			Assert.That(row.StyleTag, Is.EqualTo("p"));
+			Assert.That(row.VerseNumber, Is.EqualTo(4));
+			Assert.That(row.CharacterId, Is.EqualTo("Michael"));
+			Assert.That(row.VernacularText, Is.EqualTo("{4}\u00A0D"));
+			Assert.That(row.AdditionalReferenceText, Is.EqualTo("{4}\u00A0Dee, Michael said."));
+			Assert.That(row.EnglishReferenceText, Is.EqualTo("{4}\u00A0Secondary the angel named Mike verbalized."));
 
 			row = data[i++];
-			Assert.AreEqual(6, row.Number);
-			Assert.AreEqual("p", row.StyleTag);
-			Assert.AreEqual(5, row.VerseNumber);
-			Assert.AreEqual("narrator (JUD)", row.CharacterId);
-			Assert.AreEqual("{5}\u00A0E ", row.VernacularText);
-			Assert.AreEqual("{5}\u00A0Ey", row.AdditionalReferenceText);
-			Assert.AreEqual("{5}\u00A0Secondary", row.EnglishReferenceText);
+			Assert.That(row.Number, Is.EqualTo(6));
+			Assert.That(row.StyleTag, Is.EqualTo("p"));
+			Assert.That(row.VerseNumber, Is.EqualTo(5));
+			Assert.That(row.CharacterId, Is.EqualTo("narrator (JUD)"));
+			Assert.That(row.VernacularText, Is.EqualTo("{5}\u00A0E "));
+			Assert.That(row.AdditionalReferenceText, Is.EqualTo("{5}\u00A0Ey"));
+			Assert.That(row.EnglishReferenceText, Is.EqualTo("{5}\u00A0Secondary"));
 
 			row = data[i++];
-			Assert.AreEqual(7, row.Number);
-			Assert.AreEqual("p", row.StyleTag);
-			Assert.AreEqual(6, row.VerseNumber);
-			Assert.AreEqual("narrator (JUD)", row.CharacterId);
-			Assert.AreEqual("{6}\u00A0F", row.VernacularText);
-			Assert.AreEqual("{6}\u00A0Ef ||| + 5 SECs |||", row.AdditionalReferenceText);
-			Assert.AreEqual("{6}\u00A0Secondary ||| + 5 SECs |||", row.EnglishReferenceText);
+			Assert.That(row.Number, Is.EqualTo(7));
+			Assert.That(row.StyleTag, Is.EqualTo("p"));
+			Assert.That(row.VerseNumber, Is.EqualTo(6));
+			Assert.That(row.CharacterId, Is.EqualTo("narrator (JUD)"));
+			Assert.That(row.VernacularText, Is.EqualTo("{6}\u00A0F"));
+			Assert.That(row.AdditionalReferenceText, Is.EqualTo("{6}\u00A0Ef ||| + 5 SECs |||"));
+			Assert.That(row.EnglishReferenceText, Is.EqualTo("{6}\u00A0Secondary ||| + 5 SECs |||"));
 
-			Assert.AreEqual(i, data.Count);
+			Assert.That(data.Count, Is.EqualTo(i));
 		}
 
 		[Test]
@@ -477,8 +493,7 @@ namespace GlyssenEngineTests.Export
 			foreach (var refBlock in refBlocks)
 			{
 				var secondaryRefBlock = new Block(refBlock.StyleTag, refBlock.ChapterNumber, refBlock.InitialStartVerseNumber, refBlock.InitialEndVerseNumber) {CharacterId = refBlock.CharacterId};
-				Verse verseElement = refBlock.BlockElements.First() as Verse;
-				if (verseElement != null)
+				if (refBlock.BlockElements.First() is Verse verseElement)
 					secondaryRefBlock.AddVerse(verseElement.Number, "Some secondary reference text");
 				else
 					secondaryRefBlock.BlockElements = new List<BlockElement> {new ScriptText("Some secondary reference text")};
@@ -488,50 +503,53 @@ namespace GlyssenEngineTests.Export
 			project.ReferenceText = primaryReferenceText;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData().ToList();
-			Assert.AreEqual(mark.Blocks.Count, data.Count);
+			Assert.That(mark.Blocks.Count, Is.EqualTo(data.Count));
 
 			var narratorInOutput = CharacterVerseData.GetCharacterNameForUi(narrator);
 
-			Assert.IsTrue(data.All(d => d.BookId == "MRK" && d.ChapterNumber == 4));
+			Assert.That(data, ForEvery<ExportBlock>(
+				(b => b.BookId, Is.EqualTo("MRK"), nameof(ExportBlock.BookId)),
+				(b => b.ChapterNumber, Is.EqualTo(4), nameof(ExportBlock.ChapterNumber))));
+			
 			var i = 0;
 			var row = data[i];
-			Assert.AreEqual(39, row.VerseNumber);
-			Assert.AreEqual(narratorInOutput, row.CharacterId);
-			Assert.AreEqual(mark.GetScriptBlocks()[i].GetText(true), row.VernacularText);
-			Assert.AreEqual(refBlocks[i].GetText(true), row.AdditionalReferenceText);
+			Assert.That(row.VerseNumber, Is.EqualTo(39));
+			Assert.That(row.CharacterId, Is.EqualTo(narratorInOutput));
+			Assert.That(mark.GetScriptBlocks()[i].GetText(true), Is.EqualTo(row.VernacularText));
+			Assert.That(refBlocks[i].GetText(true), Is.EqualTo(row.AdditionalReferenceText));
 
 			row = data[++i];
-			Assert.AreEqual(39, row.VerseNumber);
-			Assert.AreEqual("Jesus", row.CharacterId);
-			Assert.AreEqual(mark.GetScriptBlocks()[i].GetText(true), row.VernacularText);
-			Assert.AreEqual(refBlocks[i].GetText(true) + "||| + 1.5 SECs |||", row.AdditionalReferenceText);
-			Assert.AreEqual("Some secondary reference text ||| + 1.5 SECs |||", row.EnglishReferenceText);
+			Assert.That(row.VerseNumber, Is.EqualTo(39));
+			Assert.That(row.CharacterId, Is.EqualTo("Jesus"));
+			Assert.That(mark.GetScriptBlocks()[i].GetText(true), Is.EqualTo(row.VernacularText));
+			Assert.That(refBlocks[i].GetText(true) + "||| + 1.5 SECs |||", Is.EqualTo(row.AdditionalReferenceText));
+			Assert.That(row.EnglishReferenceText, Is.EqualTo("Some secondary reference text ||| + 1.5 SECs |||"));
 
 			row = data[++i];
-			Assert.AreEqual(39, row.VerseNumber);
-			Assert.AreEqual(narratorInOutput, row.CharacterId);
-			Assert.AreEqual(mark.GetScriptBlocks()[i].GetText(true), row.VernacularText);
-			Assert.IsTrue(string.IsNullOrEmpty(row.AdditionalReferenceText as string));
+			Assert.That(row.VerseNumber, Is.EqualTo(39));
+			Assert.That(row.CharacterId, Is.EqualTo(narratorInOutput));
+			Assert.That(mark.GetScriptBlocks()[i].GetText(true), Is.EqualTo(row.VernacularText));
+			Assert.That(row.AdditionalReferenceText, Is.Null.Or.Empty);
 
 			row = data[++i];
-			Assert.AreEqual(39, row.VerseNumber);
-			Assert.AreEqual("Jesus", row.CharacterId);
-			Assert.AreEqual(mark.GetScriptBlocks()[i].GetText(true), row.VernacularText);
-			Assert.IsTrue(string.IsNullOrEmpty(row.AdditionalReferenceText as string));
+			Assert.That(row.VerseNumber, Is.EqualTo(39));
+			Assert.That(row.CharacterId, Is.EqualTo("Jesus"));
+			Assert.That(mark.GetScriptBlocks()[i].GetText(true), Is.EqualTo(row.VernacularText));
+			Assert.That(row.AdditionalReferenceText, Is.Null.Or.Empty);
 
 			row = data[++i];
-			Assert.IsTrue(string.IsNullOrEmpty(row.AsObjectArray()[0] as string));
-			Assert.AreEqual(39, row.VerseNumber);
-			Assert.AreEqual(narratorInOutput, row.CharacterId);
-			Assert.AreEqual(mark.GetScriptBlocks()[i].GetText(true), row.VernacularText);
-			Assert.AreEqual(refBlocks[i - 2].GetText(true), row.AdditionalReferenceText);
+			Assert.That(row.AsObjectArray()[0] as string, Is.Null.Or.Empty);
+			Assert.That(row.VerseNumber, Is.EqualTo(39));
+			Assert.That(row.CharacterId, Is.EqualTo(narratorInOutput));
+			Assert.That(mark.GetScriptBlocks()[i].GetText(true), Is.EqualTo(row.VernacularText));
+			Assert.That(refBlocks[i - 2].GetText(true), Is.EqualTo(row.AdditionalReferenceText));
 
 			row = data[++i];
-			Assert.IsTrue(string.IsNullOrEmpty(row.AsObjectArray()[0] as string));
-			Assert.AreEqual(40, row.VerseNumber);
-			Assert.AreEqual("Jesus", row.CharacterId);
-			Assert.AreEqual(mark.GetScriptBlocks()[i].GetText(true), row.VernacularText);
-			Assert.AreEqual(refBlocks[i - 2].GetText(true) + " ||| + 5 SECs |||", row.AdditionalReferenceText);
+			Assert.That(row.AsObjectArray()[0] as string, Is.Null.Or.Empty);
+			Assert.That(row.VerseNumber, Is.EqualTo(40));
+			Assert.That(row.CharacterId, Is.EqualTo("Jesus"));
+			Assert.That(mark.GetScriptBlocks()[i].GetText(true), Is.EqualTo(row.VernacularText));
+			Assert.That(refBlocks[i - 2].GetText(true) + " ||| + 5 SECs |||", Is.EqualTo(row.AdditionalReferenceText));
 		}
 
 		[Test]
@@ -546,26 +564,26 @@ namespace GlyssenEngineTests.Export
 
 			var data = exporter.GetExportData().ToList();
 
-			Assert.IsTrue(data.All(d => d.BookId == "JUD"));
-			Assert.AreEqual("YӘHUDANIN MӘKTUBU", data[0].AdditionalReferenceText);
-			Assert.AreEqual("JUDE", data[0].EnglishReferenceText);
-			Assert.IsTrue(data.Skip(1).All(d => d.ChapterNumber == 1));
-			Assert.AreEqual("YӘHUDA 1", data[1].AdditionalReferenceText);
-			Assert.AreEqual("JUDE CHP 1", data[1].EnglishReferenceText);
+			Assert.That(data.All(d => d.BookId == "JUD"));
+			Assert.That(data[0].AdditionalReferenceText, Is.EqualTo("YӘHUDANIN MӘKTUBU"));
+			Assert.That(data[0].EnglishReferenceText, Is.EqualTo("JUDE"));
+			Assert.That(data.Skip(1).All(d => d.ChapterNumber == 1));
+			Assert.That(data[1].AdditionalReferenceText, Is.EqualTo("YӘHUDA 1"));
+			Assert.That(data[1].EnglishReferenceText, Is.EqualTo("JUDE CHP 1"));
 			var matchedRows = data.Where(d => d.VernacularText != null && d.AdditionalReferenceText != null).ToList();
-			Assert.IsTrue(matchedRows.Count > data.Count / 2); // This is kind of arbitrary, but I just want to say we got a reasonable number of matches
-			Assert.IsTrue(matchedRows.Any(d => d.AdditionalReferenceText.Contains("Ә"))); // A letter that should be in Azeri, but not English
-			Assert.IsTrue(matchedRows.All(d => d.EnglishReferenceText != null));
-			Assert.IsTrue(matchedRows.Any(d => d.EnglishReferenceText.Contains(" the "))); // A word that should be in English, but not Azeri
+			Assert.That(matchedRows.Count, Is.GreaterThan(data.Count / 2)); // This is kind of arbitrary, but I just want to say we got a reasonable number of matches
+			Assert.That(matchedRows.Any(d => d.AdditionalReferenceText.Contains("Ә"))); // A letter that should be in Azeri, but not English
+			Assert.That(matchedRows.All(d => d.EnglishReferenceText != null));
+			Assert.That(matchedRows.Any(d => d.EnglishReferenceText.Contains(" the "))); // A word that should be in English, but not Azeri
 			// Since the test version of Jude does not match perfectly with this reference text, we expect two rows
 			// where the vernacular has no corresponding reference text.
 			var extra = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical));
 			var narrator = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator));
-			Assert.IsTrue(data.Where(d => d.StyleTag == "s1").All(d => d.CharacterId == extra));
+			Assert.That(data.Where(d => d.StyleTag == "s1").All(d => d.CharacterId == extra));
 			var scriptureRowsWithNoReferenceText = data.Where(d => d.AdditionalReferenceText == null && d.StyleTag != "s1").ToList();
-			Assert.AreEqual(2, scriptureRowsWithNoReferenceText.Count);
-			Assert.AreEqual(1, scriptureRowsWithNoReferenceText.Count(d => d.CharacterId == narrator));
-			Assert.IsTrue(scriptureRowsWithNoReferenceText.All(d => d.EnglishReferenceText == null));
+			Assert.That(scriptureRowsWithNoReferenceText.Count, Is.EqualTo(2));
+			Assert.That(scriptureRowsWithNoReferenceText.Count(d => d.CharacterId == narrator), Is.EqualTo(1));
+			Assert.That(scriptureRowsWithNoReferenceText.All(d => d.EnglishReferenceText == null));
 		}
 
 		[Test]
@@ -580,35 +598,35 @@ namespace GlyssenEngineTests.Export
 
 			var data = exporter.GetExportData().ToList();
 
-			Assert.IsTrue(data.All(d => d.BookId == "JUD"));
-			Assert.AreEqual("Иуда", data[0].AdditionalReferenceText);
-			Assert.AreEqual("JUDE", data[0].EnglishReferenceText);
-			Assert.IsTrue(data.Skip(1).All(d => d.ChapterNumber == 1));
-			Assert.AreEqual("Иуда 1", data[1].AdditionalReferenceText);
-			Assert.AreEqual("JUDE CHP 1", data[1].EnglishReferenceText);
+			Assert.That(data.All(d => d.BookId == "JUD"));
+			Assert.That(data[0].AdditionalReferenceText, Is.EqualTo("Иуда"));
+			Assert.That(data[0].EnglishReferenceText, Is.EqualTo("JUDE"));
+			Assert.That(data.Skip(1).All(d => d.ChapterNumber == 1));
+			Assert.That(data[1].AdditionalReferenceText, Is.EqualTo("Иуда 1"));
+			Assert.That(data[1].EnglishReferenceText, Is.EqualTo("JUDE CHP 1"));
 			var matchedRows = data.Where(d => d.VernacularText != null && d.AdditionalReferenceText != null).ToList();
-			Assert.IsTrue(matchedRows.Count > data.Count / 2); // This is kind of arbitrary, but I just want to say we got a reasonable number of matches
-			Assert.IsTrue(matchedRows.Any(d => d.AdditionalReferenceText.Contains("п"))); // A letter that should be in Russian, but not English
-			Assert.IsTrue(matchedRows.All(d => d.EnglishReferenceText != null));
-			Assert.IsTrue(matchedRows.Any(d => d.EnglishReferenceText.Contains(" the "))); // A word that should be in English, but not Russian
+			Assert.That(matchedRows.Count, Is.GreaterThan(data.Count / 2)); // This is kind of arbitrary, but I just want to say we got a reasonable number of matches
+			Assert.That(matchedRows.Any(d => d.AdditionalReferenceText.Contains("п"))); // A letter that should be in Russian, but not English
+			Assert.That(matchedRows, No<ExportBlock>(d => d.EnglishReferenceText, Is.Null));
+			Assert.That(matchedRows.Any(d => d.EnglishReferenceText.Contains(" the "))); // A word that should be in English, but not Russian
 			// Since the test version of Jude does not match perfectly with the standard reference texts, we expect two Scripture rows
 			// where the vernacular has no corresponding reference text.
 			var extra = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical));
 			var narrator = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator));
-			Assert.IsTrue(data.Where(d => d.StyleTag == "s1")
+			Assert.That(data.Where(d => d.StyleTag == "s1")
 				.All(d => d.CharacterId == extra));
 			var scriptureRowsWithNoReferenceText = data.Where(d => d.AdditionalReferenceText == null &&
 				d.StyleTag != "s1").ToList();
-			Assert.AreEqual(2, scriptureRowsWithNoReferenceText.Count);
-			Assert.AreEqual(1, scriptureRowsWithNoReferenceText.Count(d => d.CharacterId == narrator));
-			Assert.IsTrue(scriptureRowsWithNoReferenceText.All(d => d.EnglishReferenceText == null));
+			Assert.That(scriptureRowsWithNoReferenceText.Count, Is.EqualTo(2));
+			Assert.That(scriptureRowsWithNoReferenceText.Count(d => d.CharacterId == narrator), Is.EqualTo(1));
+			Assert.That(scriptureRowsWithNoReferenceText, ForEvery<ExportBlock>(d => d.EnglishReferenceText, Is.Null));
 		}
 
 		[Test]
 		public void GetExportData_ExportAnnotationsInSeparateRows_ReferenceTextsContainAnnotations()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD, TestProject.TestBook.REV);
-			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			project.DramatizationPreferences.SectionHeadDramatization = ActorOfEitherGender;
 			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.AzeriJUD, TestReferenceTextResource.AzeriREV);
 			var exporter = new ProjectExporter(project);
 			exporter.ExportAnnotationsInSeparateRows = true;
@@ -617,42 +635,44 @@ namespace GlyssenEngineTests.Export
 
 			//SFX (sfx come before verse text)
 			var rowsForVerse12 = data.Where(d => d.BookId == "JUD" && d.ChapterNumber == 1 && d.VerseNumber == 12).ToList();
-			Assert.AreEqual(2, rowsForVerse12.Count);
+			Assert.That(rowsForVerse12.Count, Is.EqualTo(2));
 			var annotationRowForVerse12 = rowsForVerse12[0];
 			var rowForVerse12 = rowsForVerse12[1];
-			Assert.IsTrue(annotationRowForVerse12.AdditionalReferenceText.Equals(annotationRowForVerse12.EnglishReferenceText) &&
-				annotationRowForVerse12.AdditionalReferenceText.StartsWith(Sound.kDoNotCombine + exporter.AnnotationElementSeparator + "{SFX"));
-			Assert.IsFalse(rowForVerse12.AdditionalReferenceText.Contains("|||"));
+			Assert.That(annotationRowForVerse12.AdditionalReferenceText,
+				Is.EqualTo(annotationRowForVerse12.EnglishReferenceText));
+			Assert.That(annotationRowForVerse12.AdditionalReferenceText,
+				Does.StartWith(Sound.kDoNotCombine + exporter.AnnotationElementSeparator + "{SFX"));
+			Assert.That(rowForVerse12.AdditionalReferenceText, Does.Not.Contain("|||"));
 
 			//Pause for final verse in book (pauses come after verse text)
 			var rowsForJude25 = data.Where(d => d.BookId == "JUD" && d.ChapterNumber == 1 && d.VerseNumber == 25).ToList();
-			Assert.AreEqual(2, rowsForJude25.Count);
+			Assert.That(rowsForJude25.Count, Is.EqualTo(2));
 			var rowForJude25 = rowsForJude25[0];
 			var annotationRowForJude25 = rowsForJude25[1];
-			Assert.IsFalse(rowForJude25.AdditionalReferenceText.Contains("|||"));
-			Assert.IsTrue(annotationRowForJude25.AdditionalReferenceText.Equals(annotationRowForJude25.EnglishReferenceText) &&
-				annotationRowForJude25.AdditionalReferenceText.Equals(string.Format(Pause.kPauseSecondsFormat, "5")));
+			Assert.That(rowForJude25.AdditionalReferenceText, Does.Not.Contain("|||"));
+			Assert.That(annotationRowForJude25.AdditionalReferenceText.Equals(annotationRowForJude25.EnglishReferenceText) &&
+				annotationRowForJude25.AdditionalReferenceText.Equals(Format(Pause.kPauseSecondsFormat, "5")), Is.True);
 
 			//Pause for non-final verse in book (pauses come after verse text)
 			var rowsForRev1V3 = data.Where(d => d.BookId == "REV" && d.ChapterNumber == 1 && d.VerseNumber == 3).ToList();
-			Assert.AreEqual(3, rowsForRev1V3.Count);
+			Assert.That(rowsForRev1V3.Count, Is.EqualTo(3));
 			var rowForRev1V3 = rowsForRev1V3[0];
 			var annotationRowForRev1V3 = rowsForRev1V3[1];
 			var sectionHeadRowForRev1V3 = rowsForRev1V3[2];
-			Assert.IsFalse(rowForRev1V3.AdditionalReferenceText.Contains("|||"));
-			Assert.IsTrue(annotationRowForRev1V3.AdditionalReferenceText.Equals(annotationRowForRev1V3.EnglishReferenceText) &&
-				annotationRowForRev1V3.AdditionalReferenceText.Equals(string.Format(Pause.kPauseSecondsFormat, "2")));
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterNameForUi(CharacterVerseData.StandardCharacter.ExtraBiblical, "REV"),
-				sectionHeadRowForRev1V3.CharacterId);
+			Assert.That(rowForRev1V3.AdditionalReferenceText, Does.Not.Contain("|||"));
+			Assert.That(annotationRowForRev1V3.AdditionalReferenceText.Equals(annotationRowForRev1V3.EnglishReferenceText) &&
+				annotationRowForRev1V3.AdditionalReferenceText.Equals(Format(Pause.kPauseSecondsFormat, "2")), Is.True);
+			Assert.That(sectionHeadRowForRev1V3.CharacterId,
+				Is.EqualTo(CharacterVerseData.GetStandardCharacterNameForUi(CharacterVerseData.StandardCharacter.ExtraBiblical, "REV")));
 
 			//Pause for final verse in chapter (pauses come after verse text)
 			var rowsForRev1V20 = data.Where(d => d.BookId == "REV" && d.ChapterNumber == 1 && d.VerseNumber == 20).ToList();
-			Assert.AreEqual(2, rowsForRev1V20.Count);
+			Assert.That(rowsForRev1V20.Count, Is.EqualTo(2));
 			var rowForRev1V20 = rowsForRev1V20[0];
 			var annotationRowForRev1V20 = rowsForRev1V20[1];
-			Assert.IsFalse(rowForRev1V20.AdditionalReferenceText.Contains("|||"));
-			Assert.IsTrue(annotationRowForRev1V20.AdditionalReferenceText.Equals(annotationRowForRev1V20.EnglishReferenceText) &&
-				annotationRowForRev1V20.AdditionalReferenceText.Equals(string.Format(Pause.kPauseSecondsFormat, "2")));
+			Assert.That(rowForRev1V20.AdditionalReferenceText, Does.Not.Contain("|||"));
+			Assert.That(annotationRowForRev1V20.AdditionalReferenceText.Equals(annotationRowForRev1V20.EnglishReferenceText) &&
+				annotationRowForRev1V20.AdditionalReferenceText.Equals(Format(Pause.kPauseSecondsFormat, "2")), Is.True);
 		}
 
 		[TestCase(ExportFileType.Excel)]
@@ -660,7 +680,7 @@ namespace GlyssenEngineTests.Export
 		public void GetExportData_AnnotationsCombinedWithData_ReferenceTextsContainAnnotations(ExportFileType exportFileType)
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD, TestProject.TestBook.REV);
-			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			project.DramatizationPreferences.SectionHeadDramatization = ActorOfEitherGender;
 			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.AzeriJUD, TestReferenceTextResource.AzeriREV);
 			var exporter = new ProjectExporter(project) {SelectedFileType = exportFileType};
 			// This is the default: exporter.ExportAnnotationsInSeparateRows = false;
@@ -671,59 +691,59 @@ namespace GlyssenEngineTests.Export
 			var rowsForVerse12 = data.Where(d => d.BookId == "JUD" && d.ChapterNumber == 1 && d.VerseNumber == 12).ToList();
 			var rowForVerse12 = rowsForVerse12.Single();
 			var annotationInfoPlusVerseNum = Sound.kDoNotCombine + exporter.AnnotationElementSeparator + "{SFX--Eerie--Starts @ v12} {12}\u00A0";
-			Assert.IsTrue(rowForVerse12.AdditionalReferenceText.StartsWith(annotationInfoPlusVerseNum));
-			Assert.IsTrue(rowForVerse12.EnglishReferenceText.StartsWith(annotationInfoPlusVerseNum));
-			Assert.AreEqual("{12}\u00A0Gikelo lewic i karamawu me mar ka gicamo matek mukato kare laboŋo lworo, kun giparo pi komgi keken. " +
+			Assert.That(rowForVerse12.AdditionalReferenceText, Does.StartWith(annotationInfoPlusVerseNum));
+			Assert.That(rowForVerse12.EnglishReferenceText, Does.StartWith(annotationInfoPlusVerseNum));
+			Assert.That(rowForVerse12.VernacularText,
+				Is.EqualTo("{12}\u00A0Gikelo lewic i karamawu me mar ka gicamo matek mukato kare laboŋo lworo, kun giparo pi komgi keken. " +
 				"Gubedo calo pol ma pii pe iye ma yamo kolo; girom ki yadi ma nyiggi pe nen i kare me cekgi, ma giputo lwitgi woko, " +
-				"yam guto kiryo. ",
-				rowForVerse12.VernacularText);
+				"yam guto kiryo. "));
 
 			//Pause for final verse in book (pauses come after verse text)
-			var annotationForEndOfBook = " " + string.Format(Pause.kPauseSecondsFormat, "5");
+			var annotationForEndOfBook = " " + Format(Pause.kPauseSecondsFormat, "5");
 			var rowsForJude25 = data.Where(d => d.BookId == "JUD" && d.ChapterNumber == 1 && d.VerseNumber == 25).ToList();
 			var rowForJude25 = rowsForJude25.Single();
 			
-			Assert.IsTrue(rowForJude25.AdditionalReferenceText.EndsWith(annotationForEndOfBook));
-			Assert.IsTrue(rowForJude25.EnglishReferenceText.EndsWith(annotationForEndOfBook));
-			Assert.AreEqual("{25}\u00A0Deyo, dit, loc ki twer ducu obed bot Lubaŋa acel keken, ma Lalarwa, pi Yecu Kricito Rwotwa, " +
-				"cakke ma peya giketo lobo, nio koni, ki kare ma pe gik. Amen.",
-				rowForJude25.VernacularText);
+			Assert.That(rowForJude25.AdditionalReferenceText, Does.EndWith(annotationForEndOfBook));
+			Assert.That(rowForJude25.EnglishReferenceText, Does.EndWith(annotationForEndOfBook));
+			Assert.That(rowForJude25.VernacularText,
+				Is.EqualTo("{25}\u00A0Deyo, dit, loc ki twer ducu obed bot Lubaŋa acel keken, ma Lalarwa, pi Yecu Kricito Rwotwa, " +
+				"cakke ma peya giketo lobo, nio koni, ki kare ma pe gik. Amen."));
 
 			//Pause for non-final verse in book (pauses come after verse text)
 			var rowsForRev1V3 = data.Where(d => d.BookId == "REV" && d.ChapterNumber == 1 && d.VerseNumber == 3).ToList();
-			Assert.AreEqual(2, rowsForRev1V3.Count);
+			Assert.That(rowsForRev1V3.Count, Is.EqualTo(2));
 			var rowForRev1V3 = rowsForRev1V3[0];
 			var sectionHeadRowForRev1V3 = rowsForRev1V3[1];
-			var annotationForTwoSecondPause = " " + string.Format(Pause.kPauseSecondsFormat, "2");
-			Assert.IsTrue(rowForRev1V3.AdditionalReferenceText.EndsWith(annotationForTwoSecondPause));
-			Assert.IsTrue(rowForRev1V3.EnglishReferenceText.EndsWith(annotationForTwoSecondPause));
-			Assert.AreEqual("{3}\u00A0Ŋat ma kwano lok ma gitito i buk man i nyim lwak tye ki gum, jo ma winyo bene tye ki gum, ki jo ma lubo " +
-				"gin ma gicoyo iye bene tye ki gum, pien kare doŋ cok.",
-				rowForRev1V3.VernacularText);
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterNameForUi(CharacterVerseData.StandardCharacter.ExtraBiblical, "REV"),
-				sectionHeadRowForRev1V3.CharacterId);
+			var annotationForTwoSecondPause = " " + Format(Pause.kPauseSecondsFormat, "2");
+			Assert.That(rowForRev1V3.AdditionalReferenceText, Does.EndWith(annotationForTwoSecondPause));
+			Assert.That(rowForRev1V3.EnglishReferenceText, Does.EndWith(annotationForTwoSecondPause));
+			Assert.That(rowForRev1V3.VernacularText,
+				Is.EqualTo("{3}\u00A0Ŋat ma kwano lok ma gitito i buk man i nyim lwak tye ki gum, jo ma winyo bene tye ki gum, ki jo ma lubo " +
+					"gin ma gicoyo iye bene tye ki gum, pien kare doŋ cok."));
+			Assert.That(sectionHeadRowForRev1V3.CharacterId,
+				Is.EqualTo(CharacterVerseData.GetStandardCharacterNameForUi(CharacterVerseData.StandardCharacter.ExtraBiblical, "REV")));
 
 			//Pause for final verse in chapter (pauses come after verse text)
 			var rowForRev1V20 = data.Single(d => d.BookId == "REV" && d.ChapterNumber == 1 && d.VerseNumber == 20);
-			Assert.IsTrue(rowForRev1V20.AdditionalReferenceText.EndsWith(annotationForTwoSecondPause));
-			Assert.IsTrue(rowForRev1V20.EnglishReferenceText.EndsWith(annotationForTwoSecondPause));
-			Assert.AreEqual("{20}\u00A0Koŋ agonnyi tyen lok me muŋ me lakalatwe abiro ma ineno i ciŋa tuŋ lacuc, ki okar-mac abiro me jabu. " +
-				"Lakalatwe abiro gin aye lumalaika pa lwak muye Kricito ma gitye i kabedo abiro mapatpat, doŋ okar-mac abiro-ni gin " +
-				"aye lwak muye Kricito ma gitye i kabedo abiro mapatpat.”",
-				rowForRev1V20.VernacularText);
+			Assert.That(rowForRev1V20.AdditionalReferenceText, Does.EndWith(annotationForTwoSecondPause));
+			Assert.That(rowForRev1V20.EnglishReferenceText, Does.EndWith(annotationForTwoSecondPause));
+			Assert.That(rowForRev1V20.VernacularText,
+				Is.EqualTo("{20}\u00A0Koŋ agonnyi tyen lok me muŋ me lakalatwe abiro ma ineno i ciŋa tuŋ lacuc, ki okar-mac abiro me jabu. " +
+					"Lakalatwe abiro gin aye lumalaika pa lwak muye Kricito ma gitye i kabedo abiro mapatpat, doŋ okar-mac abiro-ni gin " +
+					"aye lwak muye Kricito ma gitye i kabedo abiro mapatpat.”"));
 
 			// PG-1399: 5-second pause at end of book
 			var rowForRev22V21 = data.Single(d => d.BookId == "REV" && d.ChapterNumber == 22 && d.VerseNumber >= 21);
-			Assert.IsTrue(rowForRev22V21.AdditionalReferenceText.EndsWith(annotationForEndOfBook));
-			Assert.IsTrue(rowForRev22V21.EnglishReferenceText.EndsWith(annotationForEndOfBook));
-			Assert.AreEqual("{21}\u00A0Kica pa Rwot Yecu obed ki jo pa Lubaŋa ducu. Amen.", rowForRev22V21.VernacularText);
+			Assert.That(rowForRev22V21.AdditionalReferenceText, Does.EndWith(annotationForEndOfBook));
+			Assert.That(rowForRev22V21.EnglishReferenceText, Does.EndWith(annotationForEndOfBook));
+			Assert.That(rowForRev22V21.VernacularText, Is.EqualTo("{21}\u00A0Kica pa Rwot Yecu obed ki jo pa Lubaŋa ducu. Amen."));
 		}
 
 		[Test]
 		public void GetExportData_EmptyReferenceTextForVersesWithAnnotations_AnnotationsInsertedIntoEmptyReferenceTextsWithoutCrashing()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD, TestProject.TestBook.REV);
-			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			project.DramatizationPreferences.SectionHeadDramatization = ActorOfEitherGender;
 			project.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Russian);
 			var jud = project.IncludedBooks[0];
 			var blockJud12 = jud.GetScriptBlocks().Single(b => b.BlockElements.OfType<Verse>().Any(v => v.Number == "12"));
@@ -735,7 +755,7 @@ namespace GlyssenEngineTests.Export
 			var blockJud25 = jud.GetScriptBlocks().Single(b => b.BlockElements.OfType<Verse>().Any(v => v.Number == "25"));
 			if (blockJud25.InitialStartVerseNumber != 25)
 				blockJud25 = jud.SplitBlock(blockJud25, "24", PortionScript.kSplitAtEndOfVerse);
-			Assert.AreEqual(25, blockJud25.LastVerseNum);
+			Assert.That(blockJud25.LastVerseNum, Is.EqualTo(25));
 			blockJud25.SetMatchedReferenceBlock("{25}").SetMatchedReferenceBlock("");
 			var rev = project.IncludedBooks[1];
 			var blockRev1V3 = rev.GetScriptBlocks().Single(b => b.ChapterNumber == 1 && b.BlockElements.OfType<Verse>().Any(v => v.Number == "3"));
@@ -758,41 +778,43 @@ namespace GlyssenEngineTests.Export
 			//SFX (music/sfx come before verse text)
 			var rowForVerse12 = data.Single(d => d.BookId == "JUD" && d.ChapterNumber == 1 && d.VerseNumber == 12);
 			var annotationInfo = Sound.kDoNotCombine + exporter.AnnotationElementSeparator + "{SFX--Eerie--Starts @ v12}";
-			Assert.AreEqual(annotationInfo + " {12}\u00A0", rowForVerse12.AdditionalReferenceText);
-			Assert.AreEqual(annotationInfo, rowForVerse12.EnglishReferenceText.TrimEnd());
-			Assert.IsTrue(rowForVerse12.AdditionalReferenceText.StartsWith(annotationInfo + " {12}\u00A0"));
-			Assert.AreEqual("{12}\u00A0Gikelo lewic i karamawu me mar ka gicamo matek mukato kare laboŋo lworo, kun giparo pi komgi keken. " +
-				"Gubedo calo pol ma pii pe iye ma yamo kolo; girom ki yadi ma nyiggi pe nen i kare me cekgi, ma giputo lwitgi woko, " +
-				"yam guto kiryo. ",
-				rowForVerse12.VernacularText);
+			Assert.That(rowForVerse12.AdditionalReferenceText, Is.EqualTo(
+				annotationInfo + " {12}\u00A0"));
+			Assert.That(rowForVerse12.EnglishReferenceText.TrimEnd(), Is.EqualTo(annotationInfo));
+			Assert.That(rowForVerse12.AdditionalReferenceText, Does.StartWith(annotationInfo + " {12}\u00A0"));
+			Assert.That(rowForVerse12.VernacularText, Is.EqualTo(
+				"{12}\u00A0Gikelo lewic i karamawu me mar ka gicamo matek mukato kare laboŋo " +
+				"lworo, kun giparo pi komgi keken. Gubedo calo pol ma pii pe iye ma yamo kolo; " +
+				"girom ki yadi ma nyiggi pe nen i kare me cekgi, ma giputo lwitgi woko, " +
+				"yam guto kiryo. "));
 
 			//Pause for final verse in book (pauses come after verse text)
 			var rowsForJude25 = data.Where(d => d.BookId == "JUD" && d.ChapterNumber == 1 && d.VerseNumber == 25).ToList();
 			var rowForJude25 = rowsForJude25.Single();
-			annotationInfo = string.Format(Pause.kPauseSecondsFormat, "5");
-			Assert.AreEqual("{25}\u00A0" + annotationInfo, rowForJude25.AdditionalReferenceText);
-			Assert.AreEqual(annotationInfo, rowForJude25.EnglishReferenceText.TrimStart());
-			Assert.AreEqual("{25}\u00A0Deyo, dit, loc ki twer ducu obed bot Lubaŋa acel keken, ma Lalarwa, pi Yecu Kricito Rwotwa, " +
-				"cakke ma peya giketo lobo, nio koni, ki kare ma pe gik. Amen.",
-				rowForJude25.VernacularText);
+			annotationInfo = Format(Pause.kPauseSecondsFormat, "5");
+			Assert.That(rowForJude25.AdditionalReferenceText, Is.EqualTo("{25}\u00A0" + annotationInfo));
+			Assert.That(annotationInfo, Is.EqualTo(rowForJude25.EnglishReferenceText.TrimStart()));
+			Assert.That(rowForJude25.VernacularText, Is.EqualTo(
+				"{25}\u00A0Deyo, dit, loc ki twer ducu obed bot Lubaŋa acel keken, ma Lalarwa, " +
+				"pi Yecu Kricito Rwotwa, cakke ma peya giketo lobo, nio koni, ki kare ma pe gik. Amen."));
 
 			//Pause for non-final verse in book (pauses come after verse text)
 			var rowForRev1V3 = data.First(d => d.BookId == "REV" && d.ChapterNumber == 1 && d.VerseNumber == 3);
-			annotationInfo = string.Format(Pause.kPauseSecondsFormat, "2");
-			Assert.AreEqual("{3}\u00A0" + annotationInfo, rowForRev1V3.AdditionalReferenceText);
-			Assert.AreEqual(annotationInfo, rowForRev1V3.EnglishReferenceText.TrimStart());
-			Assert.AreEqual("{3}\u00A0Ŋat ma kwano lok ma gitito i buk man i nyim lwak tye ki gum, jo ma winyo bene tye ki gum, ki jo ma lubo " +
-				"gin ma gicoyo iye bene tye ki gum, pien kare doŋ cok.",
-				rowForRev1V3.VernacularText);
+			annotationInfo = Format(Pause.kPauseSecondsFormat, "2");
+			Assert.That(rowForRev1V3.AdditionalReferenceText, Is.EqualTo("{3}\u00A0" + annotationInfo));
+			Assert.That(annotationInfo, Is.EqualTo(rowForRev1V3.EnglishReferenceText.TrimStart()));
+			Assert.That(rowForRev1V3.VernacularText,
+				Is.EqualTo("{3}\u00A0Ŋat ma kwano lok ma gitito i buk man i nyim lwak tye ki gum, jo ma winyo bene tye ki gum, ki jo ma lubo " +
+				"gin ma gicoyo iye bene tye ki gum, pien kare doŋ cok."));
 
 			//Pause for final verse in chapter (pauses come after verse text)
 			var rowForRev1V20 = data.Single(d => d.BookId == "REV" && d.ChapterNumber == 1 && d.VerseNumber == 20);
-			Assert.AreEqual("{20}\u00A0" + annotationInfo, rowForRev1V20.AdditionalReferenceText);
-			Assert.AreEqual(annotationInfo, rowForRev1V20.EnglishReferenceText.TrimStart());
-			Assert.AreEqual("{20}\u00A0Koŋ agonnyi tyen lok me muŋ me lakalatwe abiro ma ineno i ciŋa tuŋ lacuc, ki okar-mac abiro me jabu. " +
+			Assert.That(rowForRev1V20.AdditionalReferenceText, Is.EqualTo("{20}\u00A0" + annotationInfo));
+			Assert.That(annotationInfo, Is.EqualTo(rowForRev1V20.EnglishReferenceText.TrimStart()));
+			Assert.That(rowForRev1V20.VernacularText,
+				Is.EqualTo("{20}\u00A0Koŋ agonnyi tyen lok me muŋ me lakalatwe abiro ma ineno i ciŋa tuŋ lacuc, ki okar-mac abiro me jabu. " +
 				"Lakalatwe abiro gin aye lumalaika pa lwak muye Kricito ma gitye i kabedo abiro mapatpat, doŋ okar-mac abiro-ni gin " +
-				"aye lwak muye Kricito ma gitye i kabedo abiro mapatpat.”",
-				rowForRev1V20.VernacularText);
+				"aye lwak muye Kricito ma gitye i kabedo abiro mapatpat.”"));
 		}
 
 		/// <summary>
@@ -802,7 +824,7 @@ namespace GlyssenEngineTests.Export
 		public void GetExportData_NullPrimaryReferenceTextForAppendedAnnotation_PrimaryReferenceTextContainsOnlyAnnotation()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.REV);
-			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			project.DramatizationPreferences.SectionHeadDramatization = ActorOfEitherGender;
 			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.AzeriREV);
 
 			var rev =project.IncludedBooks.First();
@@ -818,9 +840,9 @@ namespace GlyssenEngineTests.Export
 			//Pause for final verse in chapter (pauses come after verse text)
 			var rowsForRev22V17 = data.Where(d => d.BookId == "REV" && d.ChapterNumber == 22 && d.VerseNumber == 17).ToList();
 			var rowForRev22V17 = rowsForRev22V17.Last();
-			var annotationInfo = " " + string.Format(Pause.kPauseSecondsFormat, "2");
-			Assert.IsTrue(rowForRev22V17.AdditionalReferenceText.EndsWith(annotationInfo));
-			Assert.AreEqual(annotationInfo, rowForRev22V17.EnglishReferenceText);
+			var annotationInfo = " " + Format(Pause.kPauseSecondsFormat, "2");
+			Assert.That(rowForRev22V17.AdditionalReferenceText, Does.EndWith(annotationInfo));
+			Assert.That(annotationInfo, Is.EqualTo(rowForRev22V17.EnglishReferenceText));
 		}
 
 		/// <summary>
@@ -830,7 +852,7 @@ namespace GlyssenEngineTests.Export
 		public void GetExportData_NullPrimaryReferenceTextForPrependedAnnotation_PrimaryReferenceTextContainsOnlyAnnotation()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.REV);
-			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			project.DramatizationPreferences.SectionHeadDramatization = ActorOfEitherGender;
 			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.AzeriREV);
 
 			// Force a block that has a prepended annotation to have a null secondary reference.
@@ -845,8 +867,8 @@ namespace GlyssenEngineTests.Export
 			var rowsForRev1V7 = data.Where(d => d.BookId == "REV" && d.ChapterNumber == 1 && d.VerseNumber == 7).ToList();
 			var rowForRev1V7 = rowsForRev1V7.Single();
 			var annotationInfo = Sound.kDoNotCombine + exporter.AnnotationElementSeparator + "{Music--Starts @ v7} ";
-			Assert.IsTrue(rowForRev1V7.AdditionalReferenceText.StartsWith(annotationInfo));
-			Assert.AreEqual(annotationInfo, rowForRev1V7.EnglishReferenceText);
+			Assert.That(rowForRev1V7.AdditionalReferenceText, Does.StartWith(annotationInfo));
+			Assert.That(annotationInfo, Is.EqualTo(rowForRev1V7.EnglishReferenceText));
 		}
 
 		[Test]
@@ -861,16 +883,16 @@ namespace GlyssenEngineTests.Export
 
 			//Pause mid-verse
 			var rowsForMark4V39 = data.Where(d => d.BookId == "MRK" && d.ChapterNumber == 4 && d.VerseNumber == 39).ToList();
-			Assert.AreEqual(4, rowsForMark4V39.Count);
+			Assert.That(rowsForMark4V39.Count, Is.EqualTo(4));
 			var narratorTextRow1ForMark4V39 = rowsForMark4V39[0];
 			var jesusTextRowForMark4V39 = rowsForMark4V39[0];
 			var annotationRowForMark4V39 = rowsForMark4V39[2];
 			var narratorTextRow2ForMark4V39 = rowsForMark4V39[3];
-			Assert.IsFalse(narratorTextRow1ForMark4V39.AdditionalReferenceText.Contains("|||"));
-			Assert.IsFalse(jesusTextRowForMark4V39.AdditionalReferenceText.Contains("|||"));
-			Assert.IsTrue(annotationRowForMark4V39.AdditionalReferenceText.Equals(annotationRowForMark4V39.EnglishReferenceText) &&
-				annotationRowForMark4V39.AdditionalReferenceText.Equals(string.Format(Pause.kPauseSecondsFormat, "1.5")));
-			Assert.IsFalse(narratorTextRow2ForMark4V39.AdditionalReferenceText.Contains("|||"));
+			Assert.That(narratorTextRow1ForMark4V39.AdditionalReferenceText, Does.Not.Contain("|||"));
+			Assert.That(jesusTextRowForMark4V39.AdditionalReferenceText, Does.Not.Contain("|||"));
+			Assert.That(annotationRowForMark4V39.AdditionalReferenceText.Equals(annotationRowForMark4V39.EnglishReferenceText) &&
+				annotationRowForMark4V39.AdditionalReferenceText.Equals(Format(Pause.kPauseSecondsFormat, "1.5")), Is.True);
+			Assert.That(narratorTextRow2ForMark4V39.AdditionalReferenceText, Does.Not.Contain("|||"));
 		}
 
 		[Test]
@@ -885,15 +907,15 @@ namespace GlyssenEngineTests.Export
 
 			//Pause mid-verse
 			var rowsForMark4V39 = data.Where(d => d.BookId == "MRK" && d.ChapterNumber == 4 && d.VerseNumber == 39).ToList();
-			Assert.AreEqual(3, rowsForMark4V39.Count);
+			Assert.That(rowsForMark4V39.Count, Is.EqualTo(3));
 			var narratorTextRow1ForMark4V39 = rowsForMark4V39[0];
 			var jesusTextRowForMark4V39 = rowsForMark4V39[1];
 			var narratorTextRow2ForMark4V39 = rowsForMark4V39[2];
-			Assert.IsFalse(narratorTextRow1ForMark4V39.AdditionalReferenceText.Contains("|||"));
-			var annotationInfo = " " + string.Format(Pause.kPauseSecondsFormat, "1.5");
-			Assert.IsTrue(jesusTextRowForMark4V39.AdditionalReferenceText.EndsWith(annotationInfo));
-			Assert.IsTrue(jesusTextRowForMark4V39.EnglishReferenceText.EndsWith(annotationInfo));
-			Assert.IsFalse(narratorTextRow2ForMark4V39.AdditionalReferenceText.Contains("|||"));
+			Assert.That(narratorTextRow1ForMark4V39.AdditionalReferenceText, Does.Not.Contain("|||"));
+			var annotationInfo = " " + Format(Pause.kPauseSecondsFormat, "1.5");
+			Assert.That(jesusTextRowForMark4V39.AdditionalReferenceText, Does.EndWith(annotationInfo));
+			Assert.That(jesusTextRowForMark4V39.EnglishReferenceText, Does.EndWith(annotationInfo));
+			Assert.That(narratorTextRow2ForMark4V39.AdditionalReferenceText, Does.Not.Contain("|||"));
 		}
 
 		[TestCase(true)]
@@ -907,26 +929,26 @@ namespace GlyssenEngineTests.Export
 
 			var data = exporter.GeneratePreviewTable();
 
-			Assert.AreEqual("#", data.Columns[(int)ExportColumn.BlockId].ColumnName);
-			Assert.AreEqual("Actor", data.Columns[(int)ExportColumn.Actor].ColumnName);
-			Assert.AreEqual("Tag", data.Columns[(int)ExportColumn.ParaTag].ColumnName);
-			Assert.AreEqual("Book", data.Columns[(int)ExportColumn.BookId].ColumnName);
-			Assert.AreEqual("Chapter", data.Columns[(int)ExportColumn.Chapter].ColumnName);
-			Assert.AreEqual("Verse", data.Columns[(int)ExportColumn.Verse].ColumnName);
-			Assert.AreEqual("Character", data.Columns[(int)ExportColumn.CharacterId].ColumnName);
-			Assert.AreEqual("Character (localized)", data.Columns[(int)ExportColumn.CharacterIdLocalized].ColumnName);
-			Assert.AreEqual("Delivery", data.Columns[(int)ExportColumn.Delivery].ColumnName);
-			Assert.AreEqual("Text", data.Columns[(int)ExportColumn.VernacularText].ColumnName);
-			Assert.AreEqual("English Director's Guide", data.Columns[(int)ExportColumn.EnglishReferenceText].ColumnName);
-			Assert.AreEqual("Russian Director's Guide", data.Columns[(int)ExportColumn.AdditionalReferenceText].ColumnName);
-			Assert.AreEqual("Size", data.Columns[(int)ExportColumn.VernacularTextLength].ColumnName);
+			Assert.That(data.Columns[(int)ExportColumn.BlockId].ColumnName, Is.EqualTo("#"));
+			Assert.That(data.Columns[(int)ExportColumn.Actor].ColumnName, Is.EqualTo("Actor"));
+			Assert.That(data.Columns[(int)ExportColumn.ParaTag].ColumnName, Is.EqualTo("Tag"));
+			Assert.That(data.Columns[(int)ExportColumn.BookId].ColumnName, Is.EqualTo("Book"));
+			Assert.That(data.Columns[(int)ExportColumn.Chapter].ColumnName, Is.EqualTo("Chapter"));
+			Assert.That(data.Columns[(int)ExportColumn.Verse].ColumnName, Is.EqualTo("Verse"));
+			Assert.That(data.Columns[(int)ExportColumn.CharacterId].ColumnName, Is.EqualTo("Character"));
+			Assert.That(data.Columns[(int)ExportColumn.CharacterIdLocalized].ColumnName, Is.EqualTo("Character (localized)"));
+			Assert.That(data.Columns[(int)ExportColumn.Delivery].ColumnName, Is.EqualTo("Delivery"));
+			Assert.That(data.Columns[(int)ExportColumn.VernacularText].ColumnName, Is.EqualTo("Text"));
+			Assert.That(data.Columns[(int)ExportColumn.EnglishReferenceText].ColumnName, Is.EqualTo("English Director's Guide"));
+			Assert.That(data.Columns[(int)ExportColumn.AdditionalReferenceText].ColumnName, Is.EqualTo("Russian Director's Guide"));
+			Assert.That(data.Columns[(int)ExportColumn.VernacularTextLength].ColumnName, Is.EqualTo("Size"));
 			if (includeClipColumn)
 			{
-				Assert.AreEqual("Clip File", data.Columns[(int)ExportColumn.ClipFileLink].ColumnName);
-				Assert.AreEqual(14, data.Columns.Count);
+				Assert.That(data.Columns[(int)ExportColumn.ClipFileLink].ColumnName, Is.EqualTo("Clip File"));
+				Assert.That(data.Columns.Count, Is.EqualTo(14));
 			}
 			else
-				Assert.AreEqual(13, data.Columns.Count);
+				Assert.That(data.Columns.Count, Is.EqualTo(13));
 		}
 
 		[TestCase(true)]
@@ -942,16 +964,17 @@ namespace GlyssenEngineTests.Export
 			block.BlockElements.Add(new Verse("2"));
 			block.BlockElements.Add(new ScriptText("Text of verse two."));
 
-
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			var expectedLine = new StringBuilder("0\t\tp\tMRK\t4\t1\tFred\t\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t\t");
 			expectedLine.Append(textLength);
-			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, true, true, includeSecondaryReferenceText, null, null).AsObjectArray().ToList()));
+			Assert.That(GetTabSeparatedLine(GetExportDataForBlock(block, 0, "MRK", null, null,
+					true, true, includeSecondaryReferenceText, null, null).AsObjectArray().ToList()),
+				Is.EqualTo(expectedLine.ToString()));
 			var actor = new VoiceActor {Name = "ActorGuy1"};
 			expectedLine.Insert(2, "ActorGuy1");
-			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, true, includeSecondaryReferenceText, null, null).AsObjectArray().ToList()));
+			Assert.That(GetTabSeparatedLine(GetExportDataForBlock(block, 0, "MRK", actor, null,
+				true, true, includeSecondaryReferenceText, null, null).AsObjectArray().ToList()),
+				Is.EqualTo(expectedLine.ToString()));
 		}
 
 		[TestCase(true)]
@@ -968,12 +991,14 @@ namespace GlyssenEngineTests.Export
 			int textLength = "Text of verse three, part two. ".Length + "Text of verse four. ".Length + "Text of verse five.".Length;
 			var expectedLine = new StringBuilder("0\t\tp\tMRK\t4\t3\t\t\t\tText of verse three, part two. {4}\u00A0Text of verse four. {5}\u00A0Text of verse five.\t\t\t");
 			expectedLine.Append(textLength);
-			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, true, true, includeSecondaryReferenceText, null, null).AsObjectArray().ToList()));
+			Assert.That(GetTabSeparatedLine(GetExportDataForBlock(block, 0, "MRK", null, null,
+				true, true, includeSecondaryReferenceText, null, null).AsObjectArray().ToList()),
+				Is.EqualTo(expectedLine.ToString()));
 			var actor = new VoiceActor {Name = "ActorGuy1"};
 			expectedLine.Insert(2, "ActorGuy1");
-			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, true, includeSecondaryReferenceText, null, null).AsObjectArray().ToList()));
+			Assert.That(GetTabSeparatedLine(GetExportDataForBlock(block, 0, "MRK", actor, null,
+				true, true, includeSecondaryReferenceText, null, null).AsObjectArray().ToList()),
+				Is.EqualTo(expectedLine.ToString()));
 		}
 
 		[TestCase(true)]
@@ -992,12 +1017,14 @@ namespace GlyssenEngineTests.Export
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			var expectedLine = new StringBuilder("0\t\tp\tMRK\t4\t1\tnarrator (MRK)\t\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t\t");
 			expectedLine.Append(textLength);
-			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, "narrator-MRK", true, true, includeSecondaryReferenceText, null, null).AsObjectArray().ToList()));
+			Assert.That(GetTabSeparatedLine(GetExportDataForBlock(block, 0, "MRK", null, "narrator-MRK", 
+				true, true, includeSecondaryReferenceText, null, null).AsObjectArray().ToList()),
+				Is.EqualTo(expectedLine.ToString()));
 			var actor = new VoiceActor {Name = "ActorGuy1"};
 			expectedLine.Insert(2, "ActorGuy1");
-			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, "narrator-MRK", true, true, includeSecondaryReferenceText, null, null).AsObjectArray().ToList()));
+			Assert.That(GetTabSeparatedLine(GetExportDataForBlock(block, 0, "MRK", actor, "narrator-MRK",
+				true, true, includeSecondaryReferenceText, null, null).AsObjectArray().ToList()),
+				Is.EqualTo(expectedLine.ToString()));
 		}
 
 		[Test]
@@ -1016,12 +1043,14 @@ namespace GlyssenEngineTests.Export
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			var expectedLine = new StringBuilder("0\t\tp\tMRK\t4\t1\tMarko\t\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t\t");
 			expectedLine.Append(textLength);
-			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, true, true, false, null, null).AsObjectArray().ToList()));
+			Assert.That(GetTabSeparatedLine(GetExportDataForBlock(block, 0, "MRK", null, null,
+				true, true, false, null, null).AsObjectArray().ToList()),
+				Is.EqualTo(expectedLine.ToString()));
 			var actor = new VoiceActor {Name = "ActorGuy1"};
 			expectedLine.Insert(2, "ActorGuy1");
-			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, true, false, null, null).AsObjectArray().ToList()));
+			Assert.That(GetTabSeparatedLine(GetExportDataForBlock(block, 0, "MRK", actor, null,
+				true, true, false, null, null).AsObjectArray().ToList()),
+				Is.EqualTo(expectedLine.ToString()));
 		}
 
 		[Test]
@@ -1042,11 +1071,13 @@ namespace GlyssenEngineTests.Export
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			var expectedLine = new StringBuilder("0\t\tp\tMRK\t4\t1\tFred/Marko\t\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t\t");
 			expectedLine.Append(textLength);
-			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, false, true, false, null, null).AsObjectArray().ToList()));
+			Assert.That(GetTabSeparatedLine(GetExportDataForBlock(block, 0, "MRK", null, null,
+				false, true, false, null, null).AsObjectArray().ToList()),
+				Is.EqualTo(expectedLine.ToString()));
 			expectedLine.Insert(2, "ActorGuy1");
-			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, false, true, false, null, null).AsObjectArray().ToList()));
+			Assert.That(GetTabSeparatedLine(GetExportDataForBlock(block, 0, "MRK", actor, null,
+				false, true, false, null, null).AsObjectArray().ToList()),
+				Is.EqualTo(expectedLine.ToString()));
 		}
 
 		[Test]
@@ -1067,8 +1098,9 @@ namespace GlyssenEngineTests.Export
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			var expectedLine = new StringBuilder("0\tActorGuy1\tp\tMRK\t4\t1\tFred\t\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t{1-2}\u00A0Text of verses one and two bridged in harmony and goodness.\t");
 			expectedLine.Append(textLength);
-			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, true, false, null, null).AsObjectArray().ToList()));
+			Assert.That(GetTabSeparatedLine(GetExportDataForBlock(block, 0, "MRK", actor, null,
+				true, true, false, null, null).AsObjectArray().ToList()),
+				Is.EqualTo(expectedLine.ToString()));
 		}
 
 		[Test]
@@ -1092,8 +1124,9 @@ namespace GlyssenEngineTests.Export
 				"{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t{1-2}\u00A0Texto de versiculos uno y dos en harmonia y bondad.\t" +
 				"{1-2}\u00A0Text of verses one and two bridged in harmony and goodness.\t");
 			expectedLine.Append(textLength);
-			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, true, true, null, null).AsObjectArray().ToList()));
+			Assert.That(GetTabSeparatedLine(GetExportDataForBlock(block, 0, "MRK", actor, null,
+				true, true, true, null, null).AsObjectArray().ToList()),
+				Is.EqualTo(expectedLine.ToString()));
 		}
 
 		[Test]
@@ -1115,8 +1148,9 @@ namespace GlyssenEngineTests.Export
 			var expectedLine = new StringBuilder("0\tActorGuy1\tp\tMRK\t4\t1\tFred\t\tWith great gusto and quivering frustration\t" +
 				"{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t{1-2}\u00A0Texto de versiculos uno y dos en harmonia y bondad.\t\t");
 			expectedLine.Append(textLength);
-			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, true, true, null, null).AsObjectArray().ToList()));
+			Assert.That(GetTabSeparatedLine(GetExportDataForBlock(block, 0, "MRK", actor, null,
+				true, true, true, null, null).AsObjectArray().ToList()),
+				Is.EqualTo(expectedLine.ToString()));
 		}
 
 		[Test]
@@ -1131,9 +1165,10 @@ namespace GlyssenEngineTests.Export
 
 			var actor = new VoiceActor {Name = "ActorGuy1"};
 
-			var data = ProjectExporter.GetExportDataForBlock(block, 465, "MRK", actor, null, true, true, true, @"c:\wherever\whenever\however", "MyProject").AsObjectArray();
-			Assert.AreEqual(14, data.Length);
-			Assert.AreEqual(@"c:\wherever\whenever\however\MRK\MyProject_00465_MRK_004_001.wav", data.Last());
+			var data = GetExportDataForBlock(block, 465, "MRK", actor, null, true, true, true, @"c:\wherever\whenever\however", "MyProject").AsObjectArray();
+			Assert.That(data.Length, Is.EqualTo(14));
+			Assert.That(data.Last(),
+				Is.EqualTo(@"c:\wherever\whenever\however\MRK\MyProject_00465_MRK_004_001.wav"));
 		}
 
 		/// <summary>
@@ -1152,24 +1187,26 @@ namespace GlyssenEngineTests.Export
 			foreach (var group in project.CharacterGroupList.CharacterGroups)
 			{
 				var actor = (group.ContainsCharacterWithGender(CharacterGender.Female)) ?
-					new VoiceActor() { Id = i, Gender = ActorGender.Female, Name = "Judy" + i++ } :
-					new VoiceActor() { Id = i, Gender = ActorGender.Male, Name = "Bob" + i++ };
+					new VoiceActor { Id = i, Gender = ActorGender.Female, Name = "Judy" + i++ } :
+					new VoiceActor { Id = i, Gender = ActorGender.Male, Name = "Bob" + i++ };
 				project.VoiceActorList.AllActors.Add(actor);
 				group.VoiceActorId = actor.Id;
 			}
-			Assert.IsTrue(project.CharacterGroupList.AnyVoiceActorAssigned());
-			var exporter = new ProjectExporter(project);
-			exporter.SelectedFileType = ExportFileType.Excel;
-			exporter.IncludeActorBreakdown = true;
+			Assert.That(project.CharacterGroupList.AnyVoiceActorAssigned(), Is.True);
+			var exporter = new ProjectExporter(project)
+			{
+				SelectedFileType = ExportFileType.Excel,
+				IncludeActorBreakdown = true
+			};
 			using (var tempDir = new SIL.TestUtilities.TemporaryFolder("PG855ExportActorExcelScripts"))
 			{
-				exporter.FullFileName = Path.Combine(tempDir.Path, Path.ChangeExtension("base", Constants.kExcelFileExtension));
-				Assert.IsFalse(exporter.ExportNow(false).Any());
-				Assert.IsTrue(Directory.Exists(exporter.ActorDirectory));
+				exporter.FullFileName = Combine(tempDir.Path, ChangeExtension("base", Constants.kExcelFileExtension));
+				Assert.That(exporter.ExportNow(false), Is.Empty);
+				Assert.That(Directory.Exists(exporter.ActorDirectory), Is.True);
 				foreach (var actor in project.CharacterGroupList.AssignedGroups.Select(g => g.VoiceActor.Name))
 				{
-					Assert.IsTrue(File.Exists(Path.Combine(exporter.ActorDirectory,
-						Path.ChangeExtension(actor, Constants.kExcelFileExtension))));
+					Assert.That(Combine(exporter.ActorDirectory,
+						ChangeExtension(actor, Constants.kExcelFileExtension)), Does.Exist);
 				}
 			}
 		}
@@ -1186,11 +1223,14 @@ namespace GlyssenEngineTests.Export
 			exporter.IncludeBookBreakdown = true;
 			using (var tempDir = new SIL.TestUtilities.TemporaryFolder("PG855ExportBookBreakdownExcelScripts"))
 			{
-				exporter.FullFileName = Path.Combine(tempDir.Path, Path.ChangeExtension("base", Constants.kExcelFileExtension));
-				Assert.IsFalse(exporter.ExportNow(false).Any());
-				Assert.IsTrue(Directory.Exists(exporter.BookDirectory));
-				Assert.IsTrue(File.Exists(Path.Combine(exporter.BookDirectory, Path.ChangeExtension("3JN", Constants.kExcelFileExtension))));
-				Assert.IsTrue(File.Exists(Path.Combine(exporter.BookDirectory, Path.ChangeExtension("JUD", Constants.kExcelFileExtension))));
+				exporter.FullFileName = Combine(tempDir.Path,
+					ChangeExtension("base", Constants.kExcelFileExtension));
+				Assert.That(exporter.ExportNow(false), Is.Empty);
+				Assert.That(Directory.Exists(exporter.BookDirectory), Is.True);
+				Assert.That(Combine(exporter.BookDirectory,
+					ChangeExtension("3JN", Constants.kExcelFileExtension)), Does.Exist);
+				Assert.That(Combine(exporter.BookDirectory,
+					ChangeExtension("JUD", Constants.kExcelFileExtension)), Does.Exist);
 			}
 		}
 	}

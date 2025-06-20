@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit.4.3.2\build\NUnit.props" Condition="Exists('..\packages\NUnit.4.3.2\build\NUnit.props')" />
   <Import Project="..\packages\Microsoft.NET.Test.Sdk.17.14.0\build\net462\Microsoft.NET.Test.Sdk.props" Condition="Exists('..\packages\Microsoft.NET.Test.Sdk.17.14.0\build\net462\Microsoft.NET.Test.Sdk.props')" />
   <Import Project="..\packages\Microsoft.CodeCoverage.17.14.0\build\netstandard2.0\Microsoft.CodeCoverage.props" Condition="Exists('..\packages\Microsoft.CodeCoverage.17.14.0\build\netstandard2.0\Microsoft.CodeCoverage.props')" />
   <Import Project="..\packages\SIL.Windows.Forms.Keyboarding.16.0.0\build\SIL.Windows.Forms.Keyboarding.props" Condition="Exists('..\packages\SIL.Windows.Forms.Keyboarding.16.0.0\build\SIL.Windows.Forms.Keyboarding.props')" />
   <Import Project="..\packages\icu.net.3.0.1\build\icu.net.props" Condition="Exists('..\packages\icu.net.3.0.1\build\icu.net.props')" />
-  <Import Project="..\packages\NUnit.3.14.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.14.0\build\NUnit.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -163,8 +163,8 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework, Version=3.14.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.3.14.0\lib\net45\nunit.framework.dll</HintPath>
+    <Reference Include="nunit.framework, Version=4.3.2.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.4.3.2\lib\net462\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="PangoSharp, Version=3.22.24.37, Culture=neutral, PublicKeyToken=313398f2149d753f, processorArchitecture=MSIL">
       <HintPath>..\packages\PangoSharp-signed.3.22.24.37\lib\netstandard2.0\PangoSharp.dll</HintPath>
@@ -192,9 +192,6 @@
     </Reference>
     <Reference Include="SIL.DblBundle, Version=16.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
       <HintPath>..\packages\SIL.DblBundle.16.0.0\lib\net462\SIL.DblBundle.dll</HintPath>
-    </Reference>
-    <Reference Include="SIL.DblBundle.Tests, Version=16.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.DblBundle.Tests.16.0.0\lib\net462\SIL.DblBundle.Tests.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Scripture, Version=16.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
       <HintPath>..\packages\SIL.Scripture.16.0.0\lib\net462\SIL.Scripture.dll</HintPath>
@@ -531,7 +528,6 @@
     <Error Condition="!Exists('..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets'))" />
     <Error Condition="!Exists('..\packages\Mono.Unix.7.1.0-final.1.21458.1\build\Mono.Unix.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Mono.Unix.7.1.0-final.1.21458.1\build\Mono.Unix.targets'))" />
     <Error Condition="!Exists('..\packages\Geckofx60.64.60.0.56\build\Geckofx60.64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Geckofx60.64.60.0.56\build\Geckofx60.64.targets'))" />
-    <Error Condition="!Exists('..\packages\NUnit.3.14.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.14.0\build\NUnit.props'))" />
     <Error Condition="!Exists('..\packages\icu.net.3.0.1\build\icu.net.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\icu.net.3.0.1\build\icu.net.props'))" />
     <Error Condition="!Exists('..\packages\icu.net.3.0.1\build\icu.net.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\icu.net.3.0.1\build\icu.net.targets'))" />
     <Error Condition="!Exists('..\packages\SIL.Windows.Forms.Keyboarding.16.0.0\build\SIL.Windows.Forms.Keyboarding.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SIL.Windows.Forms.Keyboarding.16.0.0\build\SIL.Windows.Forms.Keyboarding.props'))" />
@@ -542,6 +538,7 @@
     <Error Condition="!Exists('..\packages\Microsoft.NET.Test.Sdk.17.14.0\build\net462\Microsoft.NET.Test.Sdk.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NET.Test.Sdk.17.14.0\build\net462\Microsoft.NET.Test.Sdk.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.NET.Test.Sdk.17.14.0\build\net462\Microsoft.NET.Test.Sdk.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NET.Test.Sdk.17.14.0\build\net462\Microsoft.NET.Test.Sdk.targets'))" />
     <Error Condition="!Exists('..\packages\ParatextData.9.5.0.13\build\ParatextData.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ParatextData.9.5.0.13\build\ParatextData.targets'))" />
+    <Error Condition="!Exists('..\packages\NUnit.4.3.2\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.4.3.2\build\NUnit.props'))" />
   </Target>
   <!-- Do not need/want a nuget package for this project. -->
   <Target Name="Pack" />

@@ -10,13 +10,19 @@ using NUnit.Framework;
 using SIL.Reflection;
 using SIL.Scripture;
 using static System.String;
+using static GlyssenCharacters.CharacterVerseData;
+using static GlyssenCharacters.CharacterVerseData.StandardCharacter;
 using static GlyssenEngineTests.ReferenceTextTests;
 using Resources = GlyssenCharactersTests.Properties.Resources;
+using static GlyssenSharedTests.CustomConstraints;
 
 namespace GlyssenEngineTests
 {
 	class ProjectDataMigratorTests
 	{
+		private const string kCreatures =
+			"living creature, first/living creature, second/living creature, third/living creature, fourth/twenty-four elders";
+
 		[OneTimeSetUp]
 		public void OneTimeSetUp()
 		{
@@ -60,11 +66,11 @@ namespace GlyssenEngineTests
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteData(books);
 
-			Assert.AreEqual(2, book.Blocks.Count);
-			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
-			Assert.AreEqual(block2Original.GetText(true), block2.GetText(true));
-			Assert.AreEqual(MultiBlockQuote.Start, block1.MultiBlockQuote);
-			Assert.AreEqual(lastBlockMultiBlockQuote, block2.MultiBlockQuote);
+			Assert.That(book.Blocks.Count, Is.EqualTo(2));
+			Assert.That(block1Original.GetText(true), Is.EqualTo(block1.GetText(true)));
+			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(lastBlockMultiBlockQuote));
 		}
 
 		[Test]
@@ -109,13 +115,13 @@ namespace GlyssenEngineTests
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteData(books);
 
-			Assert.AreEqual(3, book.Blocks.Count);
-			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
-			Assert.AreEqual(block2Original.GetText(true), block2.GetText(true));
-			Assert.AreEqual(block3Original.GetText(true), block3.GetText(true));
-			Assert.AreEqual(MultiBlockQuote.None, block1.MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.Start, block2.MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.Continuation, block3.MultiBlockQuote);
+			Assert.That(book.Blocks.Count, Is.EqualTo(3));
+			Assert.That(block1Original.GetText(true), Is.EqualTo(block1.GetText(true)));
+			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
+			Assert.That(block3Original.GetText(true), Is.EqualTo(block3.GetText(true)));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
+			Assert.That(block3.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Continuation));
 		}
 
 		[Test]
@@ -149,11 +155,11 @@ namespace GlyssenEngineTests
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteData(books);
 
-			Assert.AreEqual(2, book.Blocks.Count);
-			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
-			Assert.AreEqual(block2Original.GetText(true), block2.GetText(true));
-			Assert.AreEqual(MultiBlockQuote.None, block1.MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.Start, block2.MultiBlockQuote);
+			Assert.That(book.Blocks.Count, Is.EqualTo(2));
+			Assert.That(block1Original.GetText(true), Is.EqualTo(block1.GetText(true)));
+			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
 		}
 
 		[TestCase(MultiBlockQuote.Continuation)]
@@ -198,13 +204,13 @@ namespace GlyssenEngineTests
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteData(books);
 
-			Assert.AreEqual(3, book.Blocks.Count);
-			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
-			Assert.AreEqual(block2Original.GetText(true), block2.GetText(true));
-			Assert.AreEqual(block3Original.GetText(true), block3.GetText(true));
-			Assert.AreEqual(MultiBlockQuote.None, block1.MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.Start, block2.MultiBlockQuote);
-			Assert.AreEqual(lastBlockMultiBlockQuote, block3.MultiBlockQuote);
+			Assert.That(book.Blocks.Count, Is.EqualTo(3));
+			Assert.That(block1Original.GetText(true), Is.EqualTo(block1.GetText(true)));
+			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
+			Assert.That(block3Original.GetText(true), Is.EqualTo(block3.GetText(true)));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
+			Assert.That(block3.MultiBlockQuote, Is.EqualTo(lastBlockMultiBlockQuote));
 		}
 
 		[TestCase(MultiBlockQuote.Continuation)]
@@ -261,15 +267,15 @@ namespace GlyssenEngineTests
 		var books = new List<BookScript> { book };
 			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteData(books);
 
-			Assert.AreEqual(4, book.Blocks.Count);
-			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
-			Assert.AreEqual(block2Original.GetText(true), block2.GetText(true));
-			Assert.AreEqual(block3Original.GetText(true), block3.GetText(true));
-			Assert.AreEqual(block4Original.GetText(true), block4.GetText(true));
-			Assert.AreEqual(MultiBlockQuote.None, block1.MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.None, block2.MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.Start, block3.MultiBlockQuote);
-			Assert.AreEqual(lastBlockMultiBlockQuote, block4.MultiBlockQuote);
+			Assert.That(book.Blocks.Count, Is.EqualTo(4));
+			Assert.That(block1Original.GetText(true), Is.EqualTo(block1.GetText(true)));
+			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
+			Assert.That(block3Original.GetText(true), Is.EqualTo(block3.GetText(true)));
+			Assert.That(block4Original.GetText(true), Is.EqualTo(block4.GetText(true)));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block3.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
+			Assert.That(block4.MultiBlockQuote, Is.EqualTo(lastBlockMultiBlockQuote));
 		}
 
 		[Test]
@@ -333,17 +339,17 @@ namespace GlyssenEngineTests
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteData(books);
 
-			Assert.AreEqual(5, book.Blocks.Count);
-			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
-			Assert.AreEqual(block2Original.GetText(true), block2.GetText(true));
-			Assert.AreEqual(block3Original.GetText(true), block3.GetText(true));
-			Assert.AreEqual(block4Original.GetText(true), block4.GetText(true));
-			Assert.AreEqual(block5Original.GetText(true), block5.GetText(true));
-			Assert.AreEqual(MultiBlockQuote.Start, block1.MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.ChangeOfDelivery, block2.MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.Start, block3.MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.ChangeOfDelivery, block4.MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.Continuation, block5.MultiBlockQuote);
+			Assert.That(book.Blocks.Count, Is.EqualTo(5));
+			Assert.That(block1Original.GetText(true), Is.EqualTo(block1.GetText(true)));
+			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
+			Assert.That(block3Original.GetText(true), Is.EqualTo(block3.GetText(true)));
+			Assert.That(block4Original.GetText(true), Is.EqualTo(block4.GetText(true)));
+			Assert.That(block5Original.GetText(true), Is.EqualTo(block5.GetText(true)));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.ChangeOfDelivery));
+			Assert.That(block3.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
+			Assert.That(block4.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.ChangeOfDelivery));
+			Assert.That(block5.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Continuation));
 		}
 
 		[TestCase(MultiBlockQuote.Continuation)]
@@ -364,15 +370,15 @@ namespace GlyssenEngineTests
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
 
-			Assert.AreEqual(4, book.Blocks.Count);
-			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
-			Assert.AreEqual(block2Original.GetText(true), block2.GetText(true));
-			Assert.AreEqual(block3Original.GetText(true), block3.GetText(true));
-			Assert.AreEqual(block4Original.GetText(true), block4.GetText(true));
-			Assert.AreEqual(MultiBlockQuote.None, block1.MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.Start, block2.MultiBlockQuote);
-			Assert.AreEqual(continuingStatus, block3.MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.None, block4.MultiBlockQuote);
+			Assert.That(book.Blocks.Count, Is.EqualTo(4));
+			Assert.That(block1Original.GetText(true), Is.EqualTo(block1.GetText(true)));
+			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
+			Assert.That(block3Original.GetText(true), Is.EqualTo(block3.GetText(true)));
+			Assert.That(block4Original.GetText(true), Is.EqualTo(block4.GetText(true)));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
+			Assert.That(block3.MultiBlockQuote, Is.EqualTo(continuingStatus));
+			Assert.That(block4.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 		}
 
 		[TestCase(MultiBlockQuote.Continuation)]
@@ -389,11 +395,11 @@ namespace GlyssenEngineTests
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
 
-			Assert.AreEqual(2, book.Blocks.Count);
-			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
-			Assert.AreEqual(block2Original.GetText(true), block2.GetText(true));
-			Assert.AreEqual(MultiBlockQuote.None, block1.MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.None, block2.MultiBlockQuote);
+			Assert.That(book.Blocks.Count, Is.EqualTo(2));
+			Assert.That(block1Original.GetText(true), Is.EqualTo(block1.GetText(true)));
+			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 		}
 
 		[Test]
@@ -411,13 +417,13 @@ namespace GlyssenEngineTests
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
 
-			Assert.AreEqual(3, book.Blocks.Count);
-			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
-			Assert.AreEqual(block2Original.GetText(true), block2.GetText(true));
-			Assert.AreEqual(block3Original.GetText(true), block3.GetText(true));
-			Assert.AreEqual(MultiBlockQuote.None, block1.MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.None, block2.MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.None, block3.MultiBlockQuote);
+			Assert.That(book.Blocks.Count, Is.EqualTo(3));
+			Assert.That(block1Original.GetText(true), Is.EqualTo(block1.GetText(true)));
+			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
+			Assert.That(block3Original.GetText(true), Is.EqualTo(block3.GetText(true)));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block3.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 		}
 
 		[TestCase(MultiBlockQuote.Continuation)]
@@ -438,15 +444,15 @@ namespace GlyssenEngineTests
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
 
-			Assert.AreEqual(4, book.Blocks.Count);
-			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
-			Assert.AreEqual(block2Original.GetText(true), block2.GetText(true));
-			Assert.AreEqual(block3Original.GetText(true), block3.GetText(true));
-			Assert.AreEqual(block4Original.GetText(true), block4.GetText(true));
-			Assert.AreEqual(MultiBlockQuote.None, block1.MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.None, block2.MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.Start, block3.MultiBlockQuote);
-			Assert.AreEqual(continuingStatus, block4.MultiBlockQuote);
+			Assert.That(book.Blocks.Count, Is.EqualTo(4));
+			Assert.That(block1Original.GetText(true), Is.EqualTo(block1.GetText(true)));
+			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
+			Assert.That(block3Original.GetText(true), Is.EqualTo(block3.GetText(true)));
+			Assert.That(block4Original.GetText(true), Is.EqualTo(block4.GetText(true)));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block3.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.Start));
+			Assert.That(block4.MultiBlockQuote, Is.EqualTo(continuingStatus));
 		}
 
 		[Test]
@@ -466,15 +472,15 @@ namespace GlyssenEngineTests
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
 
-			Assert.AreEqual(4, book.Blocks.Count);
-			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
-			Assert.AreEqual(block2Original.GetText(true), block2.GetText(true));
-			Assert.AreEqual(block3Original.GetText(true), block3.GetText(true));
-			Assert.AreEqual(block4Original.GetText(true), block4.GetText(true));
-			Assert.AreEqual(MultiBlockQuote.None, block1.MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.None, block2.MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.None, block3.MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.None, block4.MultiBlockQuote);
+			Assert.That(book.Blocks.Count, Is.EqualTo(4));
+			Assert.That(block1Original.GetText(true), Is.EqualTo(block1.GetText(true)));
+			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
+			Assert.That(block3Original.GetText(true), Is.EqualTo(block3.GetText(true)));
+			Assert.That(block4Original.GetText(true), Is.EqualTo(block4.GetText(true)));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block3.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block4.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 		}
 
 		[Test]
@@ -490,11 +496,11 @@ namespace GlyssenEngineTests
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
 
-			Assert.AreEqual(2, book.Blocks.Count);
-			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
-			Assert.AreEqual(block2Original.GetText(true), block2.GetText(true));
-			Assert.AreEqual(MultiBlockQuote.None, block1.MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.None, block2.MultiBlockQuote);
+			Assert.That(book.Blocks.Count, Is.EqualTo(2));
+			Assert.That(block1Original.GetText(true), Is.EqualTo(block1.GetText(true)));
+			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 		}
 
 		[Test]
@@ -510,11 +516,11 @@ namespace GlyssenEngineTests
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
 
-			Assert.AreEqual(2, book.Blocks.Count);
-			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
-			Assert.AreEqual(block2Original.GetText(true), block2.GetText(true));
-			Assert.AreEqual(MultiBlockQuote.None, block1.MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.None, block2.MultiBlockQuote);
+			Assert.That(book.Blocks.Count, Is.EqualTo(2));
+			Assert.That(block1Original.GetText(true), Is.EqualTo(block1.GetText(true)));
+			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 		}
 
 		[Test]
@@ -532,20 +538,20 @@ namespace GlyssenEngineTests
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
 
-			Assert.AreEqual(3, book.Blocks.Count);
-			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
-			Assert.AreEqual(block2Original.GetText(true), block2.GetText(true));
-			Assert.AreEqual(block3Original.GetText(true), block3.GetText(true));
-			Assert.AreEqual(MultiBlockQuote.None, block1.MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.None, block2.MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.None, block3.MultiBlockQuote);
+			Assert.That(book.Blocks.Count, Is.EqualTo(3));
+			Assert.That(block1Original.GetText(true), Is.EqualTo(block1.GetText(true)));
+			Assert.That(block2Original.GetText(true), Is.EqualTo(block2.GetText(true)));
+			Assert.That(block3Original.GetText(true), Is.EqualTo(block3.GetText(true)));
+			Assert.That(block1.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block2.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
+			Assert.That(block3.MultiBlockQuote, Is.EqualTo(MultiBlockQuote.None));
 		}
 
 		[Test]
 		public void CleanUpMultiBlockQuotesAssignedToNarrator_MultiBlockQuoteChainAssignedToNarrator_AllBlocksInChainSetToNone()
 		{
 			var blocks = new List<Block>(7);
-			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			var narrator = GetStandardCharacterId("MAT", Narrator);
 			blocks.Add(CreateTestBlock(1, MultiBlockQuote.None));
 			blocks.Last().SetNonDramaticCharacterId(narrator);
 			blocks.Add(CreateTestBlock(2, MultiBlockQuote.Start));
@@ -562,16 +568,18 @@ namespace GlyssenEngineTests
 			blocks.Last().SetNonDramaticCharacterId(narrator);
 
 			var book = new BookScript("MAT", blocks.Select(b => b.Clone()), ScrVers.English);
-			Assert.IsFalse(blocks.SequenceEqual(book.Blocks), "Sanity check: blocks should have been cloned.");
+			Assert.That(book.Blocks, Is.Not.EqualTo(blocks), "Sanity check: blocks should have been cloned.");
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpMultiBlockQuotesAssignedToNarrator(books);
 
-			Assert.IsTrue(blocks.SequenceEqual(book.Blocks, new SplitBlockComparer()), "Block content should not have changed!");
-			Assert.AreEqual(2, book.Blocks.Count(b => b.MultiBlockQuote != MultiBlockQuote.None && b.CharacterId == "Jesus"),
+			Assert.That(blocks.SequenceEqual(book.Blocks, new SplitBlockComparer()), Is.True,
+				"Block content should not have changed!");
+			Assert.That(book.Blocks.Count(b => b.MultiBlockQuote != MultiBlockQuote.None && b.CharacterId == "Jesus"), Is.EqualTo(2),
 				"Multi-block quote chain for Jesus should not have been affected.");
-			Assert.AreEqual(5, book.Blocks.Count(b => b.CharacterId == narrator),
+			Assert.That(book.Blocks.Count(b => b.CharacterId == narrator), Is.EqualTo(5),
 				"Narrator should still be assigned to the 5 blocks not assigned to Jesus.");
-			Assert.IsTrue(book.Blocks.Where(b => b.CharacterId == narrator).All(b => b.MultiBlockQuote == MultiBlockQuote.None),
+			Assert.That(book.Blocks.Where(b => b.CharacterId == narrator).Select(b => b.MultiBlockQuote),
+				Is.All.EqualTo(MultiBlockQuote.None),
 				"Multi-block quote chain should have gotten broken up for all narrator blocks.");
 		}
 
@@ -579,69 +587,72 @@ namespace GlyssenEngineTests
 		public void ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks_SingleUnclearBlocksMatched_UnclearBlocksSetToCorrespondingCharacterAndDeliveryFromRefBlocks()
 		{
 			var blocks = new List<Block>(4);
-			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			var narrator = GetStandardCharacterId("MAT", Narrator);
 			blocks.Add(CreateTestBlock(1, MultiBlockQuote.None));
 			blocks.Last().SetNonDramaticCharacterId(narrator);
 			blocks.Add(CreateTestBlock(2, MultiBlockQuote.None));
-			blocks.Last().CharacterId = CharacterVerseData.kUnexpectedCharacter;
+			blocks.Last().CharacterId = kUnexpectedCharacter;
 			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil", Delivery = "Panicky" });
 			blocks.Add(CreateTestBlock(3, MultiBlockQuote.Start));
 			blocks.Last().CharacterId = "Jesus";
 			blocks.Add(CreateTestBlock(4, MultiBlockQuote.Continuation));
-			blocks.Last().CharacterId = CharacterVerseData.kAmbiguousCharacter;
+			blocks.Last().CharacterId = kAmbiguousCharacter;
 			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil/Kelsy", CharacterIdInScript = "Kelsy" });
 
 			var book = new BookScript("MAT", blocks.Select(b => b.Clone()), ScrVers.English);
-			Assert.IsFalse(blocks.SequenceEqual(book.Blocks), "Sanity check: blocks should have been cloned.");
+			Assert.That(blocks, Is.Not.EquivalentTo(book.Blocks), "Sanity check: blocks should have been cloned.");
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks(books);
 
-			Assert.IsTrue(blocks.SequenceEqual(book.Blocks, new SplitBlockComparer()), "Block content should not have changed!");
-			Assert.AreEqual(narrator, book.GetScriptBlocks()[0].CharacterId);
-			Assert.AreEqual("Phil", book.GetScriptBlocks()[1].CharacterId);
-			Assert.AreEqual("Phil", book.GetScriptBlocks()[1].CharacterIdInScript);
-			Assert.AreEqual("Panicky", book.GetScriptBlocks()[1].Delivery);
-			Assert.AreEqual("Jesus", book.GetScriptBlocks()[2].CharacterId);
-			Assert.AreEqual("Phil/Kelsy", book.GetScriptBlocks()[3].CharacterId);
-			Assert.AreEqual("Kelsy", book.GetScriptBlocks()[3].CharacterIdInScript);
-			Assert.IsNull(book.GetScriptBlocks()[3].Delivery);
+			Assert.That(blocks.SequenceEqual(book.Blocks, new SplitBlockComparer()), Is.True,
+				"Block content should not have changed!");
+			Assert.That(book.GetScriptBlocks()[0].CharacterId, Is.EqualTo(narrator));
+			Assert.That(book.GetScriptBlocks()[1].CharacterId, Is.EqualTo("Phil"));
+			Assert.That(book.GetScriptBlocks()[1].CharacterIdInScript, Is.EqualTo("Phil"));
+			Assert.That(book.GetScriptBlocks()[1].Delivery, Is.EqualTo("Panicky"));
+			Assert.That(book.GetScriptBlocks()[2].CharacterId, Is.EqualTo("Jesus"));
+			Assert.That(book.GetScriptBlocks()[3].CharacterId, Is.EqualTo("Phil/Kelsy"));
+			Assert.That(book.GetScriptBlocks()[3].CharacterIdInScript, Is.EqualTo("Kelsy"));
+			Assert.That(book.GetScriptBlocks()[3].Delivery, Is.Null);
 		}
 
 		[Test]
 		public void ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks_SomeUnclearBlocksInQuoteChainMatched_AllBlocksInEntireChainSetToSameCharacter()
 		{
 			var blocks = new List<Block>(5);
-			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			var narrator = GetStandardCharacterId("MAT", Narrator);
 			blocks.Add(CreateTestBlock(1, MultiBlockQuote.None));
 			blocks.Last().SetNonDramaticCharacterId(narrator);
 			blocks.Add(CreateTestBlock(2, MultiBlockQuote.Start));
-			blocks.Last().CharacterId = CharacterVerseData.kUnexpectedCharacter;
+			blocks.Last().CharacterId = kUnexpectedCharacter;
 			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil", Delivery = "panicky" }
 				.AddVerse(2, "This is the start of verse two."));
-			blocks.Add(new Block("p", 1, 2) { MultiBlockQuote = MultiBlockQuote.Continuation, CharacterId = CharacterVerseData.kUnexpectedCharacter }
+			blocks.Add(new Block("p", 1, 2) { MultiBlockQuote = MultiBlockQuote.Continuation, CharacterId = kUnexpectedCharacter }
 				.AddText("Esto es el resto de ello."));
 			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil", Delivery = "calmer" }
 				.AddText("This is the rest of it."));
 			blocks.Add(CreateTestBlock(3, MultiBlockQuote.Continuation));
-			blocks.Last().CharacterId = CharacterVerseData.kUnexpectedCharacter;
+			blocks.Last().CharacterId = kUnexpectedCharacter;
 			blocks.Add(CreateTestBlock(4, MultiBlockQuote.None));
 			blocks.Last().CharacterId = "the people";
 
 			var book = new BookScript("MAT", blocks.Select(b => b.Clone()), ScrVers.English);
-			Assert.IsFalse(blocks.SequenceEqual(book.Blocks), "Sanity check: blocks should have been cloned.");
+			Assert.That(blocks, Is.Not.EquivalentTo(book.Blocks),
+				"Sanity check: blocks should have been cloned.");
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks(books);
 
-			Assert.IsTrue(blocks.SequenceEqual(book.Blocks, new SplitBlockComparer()), "Block content should not have changed!");
-			Assert.AreEqual(narrator, book.GetScriptBlocks()[0].CharacterId);
-			Assert.AreEqual("Phil", book.GetScriptBlocks()[1].CharacterId);
-			Assert.AreEqual("panicky", book.GetScriptBlocks()[1].Delivery);
-			Assert.AreEqual("Phil", book.GetScriptBlocks()[2].CharacterId);
-			Assert.AreEqual("calmer", book.GetScriptBlocks()[2].Delivery);
-			Assert.AreEqual("Phil", book.GetScriptBlocks()[3].CharacterId);
-			Assert.AreEqual("calmer", book.GetScriptBlocks()[3].Delivery);
-			Assert.AreEqual("the people", book.GetScriptBlocks()[4].CharacterId);
-			Assert.IsNull(book.GetScriptBlocks()[4].Delivery);
+			Assert.That(blocks.SequenceEqual(book.Blocks, new SplitBlockComparer()), Is.True,
+				"Block content should not have changed!");
+			Assert.That(book.GetScriptBlocks()[0].CharacterId, Is.EqualTo(narrator));
+			Assert.That(book.GetScriptBlocks()[1].CharacterId, Is.EqualTo("Phil"));
+			Assert.That(book.GetScriptBlocks()[1].Delivery, Is.EqualTo("panicky"));
+			Assert.That(book.GetScriptBlocks()[2].CharacterId, Is.EqualTo("Phil"));
+			Assert.That(book.GetScriptBlocks()[2].Delivery, Is.EqualTo("calmer"));
+			Assert.That(book.GetScriptBlocks()[3].CharacterId, Is.EqualTo("Phil"));
+			Assert.That(book.GetScriptBlocks()[3].Delivery, Is.EqualTo("calmer"));
+			Assert.That(book.GetScriptBlocks()[4].CharacterId, Is.EqualTo("the people"));
+			Assert.That(book.GetScriptBlocks()[4].Delivery, Is.Null);
 		}
 
 		[Test]
@@ -653,42 +664,43 @@ namespace GlyssenEngineTests
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.MigrateInvalidCharacterIdForScriptData(books);
 
-			Assert.AreEqual("Andrew", block1.CharacterId);
-			Assert.AreEqual("Andrew", block1.CharacterIdInScript);
-			Assert.AreEqual("Peter", block2.CharacterId);
-			Assert.AreEqual("Peter", block2.CharacterIdInScript);
+			Assert.That(block1.CharacterId, Is.EqualTo("Andrew"));
+			Assert.That(block1.CharacterIdInScript, Is.EqualTo("Andrew"));
+			Assert.That(block2.CharacterId, Is.EqualTo("Peter"));
+			Assert.That(block2.CharacterIdInScript, Is.EqualTo("Peter"));
 		}
 
-		[TestCase(CharacterVerseData.kAmbiguousCharacter)]
-		[TestCase(CharacterVerseData.kUnexpectedCharacter)]
-		public void MigrateInvalidCharacterIdForScriptDataToVersion88_CharacterIdUnclearAndCharacterIdInScriptNotNull_CharacterIdInScriptSetToNull(string unclearCharacterId)
+		[TestCase(kAmbiguousCharacter)]
+		[TestCase(kUnexpectedCharacter)]
+		public void MigrateInvalidCharacterIdForScriptDataToVersion88_CharacterIdUnclearAndCharacterIdInScriptNotNull_CharacterIdInScriptSetToNull(
+			string unclearCharacterId)
 		{
 			var block1 = CreateTestBlock("Andrew");
 			block1.UserConfirmed = true;
 			block1.CharacterId = unclearCharacterId;
-			Assert.AreEqual(unclearCharacterId, block1.CharacterId);
-			Assert.AreEqual("Andrew", block1.CharacterIdInScript);
+			Assert.That(block1.CharacterId, Is.EqualTo(unclearCharacterId));
+			Assert.That(block1.CharacterIdInScript, Is.EqualTo("Andrew"));
 
 			var block2 = CreateTestBlock("Peter");
 			block2.UserConfirmed = true;
 			block2.CharacterId = unclearCharacterId;
-			Assert.AreEqual(unclearCharacterId, block2.CharacterId);
-			Assert.AreEqual("Peter", block2.CharacterIdInScript);
+			Assert.That(block2.CharacterId, Is.EqualTo(unclearCharacterId));
+			Assert.That(block2.CharacterIdInScript, Is.EqualTo("Peter"));
 
 			var book = new BookScript("MAT", new List<Block> { block1, block2 }, ScrVers.English);
 			var books = new List<BookScript> { book };
 
-			Assert.True(block1.UserConfirmed);
-			Assert.True(block2.UserConfirmed);
+			Assert.That(block1.UserConfirmed, Is.True);
+			Assert.That(block2.UserConfirmed, Is.True);
 
 			ProjectDataMigrator.MigrateInvalidCharacterIdForScriptData(books);
 
-			Assert.AreEqual(unclearCharacterId, block1.CharacterId);
-			Assert.AreEqual(unclearCharacterId, block1.CharacterIdInScript);
-			Assert.False(block1.UserConfirmed);
-			Assert.AreEqual(unclearCharacterId, block2.CharacterId);
-			Assert.AreEqual(unclearCharacterId, block2.CharacterIdInScript);
-			Assert.False(block2.UserConfirmed);
+			Assert.That(block1.CharacterId, Is.EqualTo(unclearCharacterId));
+			Assert.That(block1.CharacterIdInScript, Is.EqualTo(unclearCharacterId));
+			Assert.That(block1.UserConfirmed, Is.False);
+			Assert.That(block2.CharacterId, Is.EqualTo(unclearCharacterId));
+			Assert.That(block2.CharacterIdInScript, Is.EqualTo(unclearCharacterId));
+			Assert.That(block2.UserConfirmed, Is.False);
 		}
 
 		[Test]
@@ -701,45 +713,45 @@ namespace GlyssenEngineTests
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.MigrateInvalidCharacterIdForScriptData(books);
 
-			Assert.AreEqual("Andrew/James", block1.CharacterId);
-			Assert.AreEqual("James", block1.CharacterIdInScript);
-			Assert.AreEqual("Peter", block2.CharacterId);
-			Assert.AreEqual("Peter", block2.CharacterIdInScript);
+			Assert.That(block1.CharacterId, Is.EqualTo("Andrew/James"));
+			Assert.That(block1.CharacterIdInScript, Is.EqualTo("James"));
+			Assert.That(block2.CharacterId, Is.EqualTo("Peter"));
+			Assert.That(block2.CharacterIdInScript, Is.EqualTo("Peter"));
 		}
 
 		[Test]
 		public void MigrateInvalidCharacterIdForScriptData_NarratorBlocksWithNonNullCharacterIdInScript_CharacterIdInScriptSetToNull()
 		{
-			var bcMat = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter);
-			var narratorMat = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			var bcMat = GetStandardCharacterId("MAT", BookOrChapter);
+			var narratorMat = GetStandardCharacterId("MAT", Narrator);
 			var block1 = CreateTestBlock("Andrew");
 			block1.UserConfirmed = false;
 			block1.CharacterId = bcMat;
-			Assert.AreEqual(bcMat, block1.CharacterId);
-			Assert.AreEqual("Andrew", block1.CharacterIdInScript);
+			Assert.That(block1.CharacterId, Is.EqualTo(bcMat));
+			Assert.That(block1.CharacterIdInScript, Is.EqualTo("Andrew"));
 
 			var block2 = CreateTestBlock("Peter");
 			block2.UserConfirmed = true;
 			block2.CharacterId = narratorMat;
-			Assert.AreEqual(narratorMat, block2.CharacterId);
-			Assert.AreEqual("Peter", block2.CharacterIdInScript);
+			Assert.That(block2.CharacterId, Is.EqualTo(narratorMat));
+			Assert.That(block2.CharacterIdInScript, Is.EqualTo("Peter"));
 
 			var book = new BookScript("MAT", new List<Block> { block1, block2 }, ScrVers.English);
 			var books = new List<BookScript> { book };
 
-			Assert.False(block1.UserConfirmed);
-			Assert.True(block2.UserConfirmed);
+			Assert.That(block1.UserConfirmed, Is.False);
+			Assert.That(block2.UserConfirmed, Is.True);
 
 			ProjectDataMigrator.MigrateInvalidCharacterIdForScriptData(books);
 
-			Assert.AreEqual(bcMat, block1.CharacterId);
-			Assert.AreEqual(bcMat, block1.CharacterIdInScript);
-			Assert.IsNull(block1.CharacterIdOverrideForScript);
-			Assert.False(block1.UserConfirmed);
-			Assert.AreEqual(narratorMat, block2.CharacterId);
-			Assert.AreEqual(narratorMat, block2.CharacterIdInScript);
-			Assert.IsNull(block2.CharacterIdOverrideForScript);
-			Assert.True(block2.UserConfirmed);
+			Assert.That(block1.CharacterId, Is.EqualTo(bcMat));
+			Assert.That(block1.CharacterIdInScript, Is.EqualTo(bcMat));
+			Assert.That(block1.CharacterIdOverrideForScript, Is.Null);
+			Assert.That(block1.UserConfirmed, Is.False);
+			Assert.That(block2.CharacterId, Is.EqualTo(narratorMat));
+			Assert.That(block2.CharacterIdInScript, Is.EqualTo(narratorMat));
+			Assert.That(block2.CharacterIdOverrideForScript, Is.Null);
+			Assert.That(block2.UserConfirmed, Is.True);
 		}
 
 		[Test]
@@ -752,15 +764,15 @@ namespace GlyssenEngineTests
 			johnSpeakingInRev714.UserConfirmed = true;
 			var elderSpeakingInRev714 = testProject.IncludedBooks.Single().GetBlocksForVerse(7, 14).ElementAt(3);
 			elderSpeakingInRev714.SetCharacterIdAndCharacterIdInScript("elders, one of the", 66);
-			Assert.True(johnSpeakingInRev714.UserConfirmed);
+			Assert.That(johnSpeakingInRev714.UserConfirmed, Is.True);
 
-			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(1));
 
-			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, johnSpeakingInRev714.CharacterId);
-			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, johnSpeakingInRev714.CharacterIdInScript);
-			Assert.False(johnSpeakingInRev714.UserConfirmed);
-			Assert.AreEqual("elders, one of the", elderSpeakingInRev714.CharacterId);
-			Assert.AreEqual("elders, one of the", elderSpeakingInRev714.CharacterIdInScript);
+			Assert.That(johnSpeakingInRev714.CharacterId, Is.EqualTo(kAmbiguousCharacter));
+			Assert.That(johnSpeakingInRev714.CharacterIdInScript, Is.EqualTo(kAmbiguousCharacter));
+			Assert.That(johnSpeakingInRev714.UserConfirmed, Is.False);
+			Assert.That(elderSpeakingInRev714.CharacterId, Is.EqualTo("elders, one of the"));
+			Assert.That(elderSpeakingInRev714.CharacterIdInScript, Is.EqualTo("elders, one of the"));
 		}
 
 		[Test]
@@ -771,16 +783,17 @@ namespace GlyssenEngineTests
 			var angelsSpeakingInRev712 = testProject.IncludedBooks.Single().GetBlocksForVerse(7, 12).ElementAt(1);
 			angelsSpeakingInRev712.SetCharacterIdAndCharacterIdInScript("tons of angelic beings", 66);
 
-			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(1));
 
-			Assert.AreEqual("angels, all the", angelsSpeakingInRev712.CharacterId);
-			Assert.AreEqual("angels, all the", angelsSpeakingInRev712.CharacterIdInScript);
+			Assert.That(angelsSpeakingInRev712.CharacterId, Is.EqualTo("angels, all the"));
+			Assert.That(angelsSpeakingInRev712.CharacterIdInScript, Is.EqualTo("angels, all the"));
 		}
 
 		[TestCase("humming")]
 		[TestCase("")]
 		[TestCase(null)]
-		public void MigrateDeprecatedCharacterIds_DeliveryChanged_DeliveryChangedInBlock(string initialDelivery)
+		public void MigrateDeprecatedCharacterIds_DeliveryChanged_DeliveryChangedInBlock(
+			string initialDelivery)
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
@@ -788,16 +801,18 @@ namespace GlyssenEngineTests
 			foreach (var block in singersInRev59)
 				block.Delivery = initialDelivery;
 
-			Assert.AreEqual(singersInRev59.Count, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.That(singersInRev59.Count, Is.EqualTo(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject)));
 
-			Assert.True(singersInRev59.All(b => b.CharacterId == "living creature, first/living creature, second/living creature, third/living creature, fourth/twenty-four elders" &&
-				b.Delivery == "singing"));
+			Assert.That(singersInRev59, ForEvery<Block>(
+				(b => b.CharacterId, Is.EqualTo(kCreatures), nameof(Block.CharacterId)),
+				(b => b.Delivery, Is.EqualTo("singing"), nameof(Block.Delivery))));
 		}
 
 		[TestCase("Bartimaeus (a blind man)", "humming", "shouting")]
 		[TestCase("Bartimaeus (a blind man)", "", "shouting")]
 		[TestCase("crowd, many in the", null, "rebuking")]
-		public void MigrateDeprecatedCharacterIds_DeliveryChangedForOneOfTwoCharactersInVerse_DeliveryChangedInBlock(string character, string initialDelivery, string expectedDelivery)
+		public void MigrateDeprecatedCharacterIds_DeliveryChangedForOneOfTwoCharactersInVerse_DeliveryChangedInBlock(
+			string character, string initialDelivery, string expectedDelivery)
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
@@ -805,28 +820,30 @@ namespace GlyssenEngineTests
 			block.CharacterId = character;
 			block.Delivery = initialDelivery;
 
-			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
-			Assert.AreEqual(expectedDelivery, block.Delivery);
+			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(1));
+			Assert.That(block.Delivery, Is.EqualTo(expectedDelivery));
 		}
 
 		[Test]
 		public void MigrateDeprecatedCharacterIds_BlockHasNoDeliveryButSomeOfTheVersesHaveOnlyCvEntryWithDelivery_DeliveryLeftUnspecified()
 		{
-			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(new Block("c", 16)
+			var vernacularBlocks = new List<Block>
 			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter),
-				BlockElements = new List<BlockElement>(new[] { new ScriptText("16") })
-			});
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(23, "Jesus rebuked him, saying:", true,  16));
+				new Block("c", 16)
+				{
+					CharacterId = GetStandardCharacterId("MAT", BookOrChapter),
+					BlockElements = new List<BlockElement>(new[] { new ScriptText("16") })
+				},
+				CreateNarratorBlockForVerse(23, "Jesus rebuked him, saying:", true,  16)
+			};
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "«Get the behind me Satan! ")
 				.AddVerse(24, "If you disciples are serious about following me, this is the deal.");
 
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MAT);
 			testProject.Books[0].Blocks = vernacularBlocks;
 
-			Assert.AreEqual(0, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
-			Assert.IsTrue(testProject.Books[0].Blocks.All(b => b.Delivery == null));
+			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(0));
+			Assert.That(testProject.Books[0].Blocks.Select(b => b.Delivery), Is.All.Null);
 		}
 
 		[Test]
@@ -836,11 +853,11 @@ namespace GlyssenEngineTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			var block = testProject.IncludedBooks.Single().GetBlocksForVerse(18, 39).Last();
-			block.CharacterId = CharacterVerseData.kAmbiguousCharacter;
+			block.CharacterId = kAmbiguousCharacter;
 			block.UserConfirmed = true;
 
-			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
-			Assert.AreEqual(false, block.UserConfirmed);
+			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(1));
+			Assert.That(block.UserConfirmed, Is.False);
 		}
 
 		[Test]
@@ -849,11 +866,11 @@ namespace GlyssenEngineTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			var block = testProject.IncludedBooks.Single().GetBlocksForVerse(18, 39).Last();
-			block.CharacterId = CharacterVerseData.kAmbiguousCharacter;
+			block.CharacterId = kAmbiguousCharacter;
 			block.UserConfirmed = false;
 
-			Assert.AreEqual(0, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
-			Assert.AreEqual(false, block.UserConfirmed);
+			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(0));
+			Assert.That(block.UserConfirmed, Is.False);
 		}
 
 		[Test]
@@ -865,10 +882,11 @@ namespace GlyssenEngineTests
 			foreach (var block in singersInRev59)
 				block.SetCharacterIdAndCharacterIdInScript("cuatro living creatures/twenty-four elders", 66);
 
-			Assert.AreEqual(singersInRev59.Count, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.That(singersInRev59.Count, Is.EqualTo(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject)));
 
-			Assert.True(singersInRev59.All(b => b.CharacterId == "living creature, first/living creature, second/living creature, third/living creature, fourth/twenty-four elders" &&
-				b.CharacterIdInScript == "living creature, first"));
+			Assert.That(singersInRev59, ForEvery<Block>(
+				(b => b.CharacterId, Is.EqualTo(kCreatures), nameof(Block.CharacterId)),
+				(b => b.CharacterIdInScript, Is.EqualTo("living creature, first"), nameof(Block.CharacterIdInScript))));
 		}
 
 		[Test]
@@ -879,12 +897,12 @@ namespace GlyssenEngineTests
 			var blockInRev43 = testProject.IncludedBooks.Single().GetBlocksForVerse(4, 3).First();
 			blockInRev43.SetCharacterIdAndCharacterIdInScript("angels, all the", 66);
 			blockInRev43.CharacterIdInScript = "angels, all, the";
-			Assert.AreEqual("angels, all, the", blockInRev43.CharacterIdInScript);
+			Assert.That(blockInRev43.CharacterIdInScript, Is.EqualTo("angels, all, the"));
 
-			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(1));
 
-			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, blockInRev43.CharacterId);
-			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, blockInRev43.CharacterIdInScript);
+			Assert.That(blockInRev43.CharacterId, Is.EqualTo(kUnexpectedCharacter));
+			Assert.That(blockInRev43.CharacterIdInScript, Is.EqualTo(kUnexpectedCharacter));
 		}
 
 		[Test]
@@ -895,22 +913,25 @@ namespace GlyssenEngineTests
 			var blockInRev13V10 = testProject.IncludedBooks.Single().GetBlocksForVerse(13, 10).First();
 			blockInRev13V10.SetCharacterIdAndCharacterIdInScript("angels, all the", 66);
 			blockInRev13V10.CharacterIdInScript = "angels, all, the";
-			Assert.AreEqual("angels, all, the", blockInRev13V10.CharacterIdInScript);
+			Assert.That(blockInRev13V10.CharacterIdInScript, Is.EqualTo("angels, all, the"));
 
-			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(1));
 
-			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, blockInRev13V10.CharacterId);
-			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, blockInRev13V10.CharacterIdInScript);
+			Assert.That(blockInRev13V10.CharacterId, Is.EqualTo(kAmbiguousCharacter));
+			Assert.That(blockInRev13V10.CharacterIdInScript, Is.EqualTo(kAmbiguousCharacter));
 		}
 
 		[Test]
 		public void MigrateDeprecatedCharacterIds_NormalQuoteChangedToAlternate_CharacterIdUnchanged()
 		{
-			Assert.That(!ControlCharacterVerseData.Singleton.GetCharacters(66, 1, new SingleVerse(8)).Any(cv => cv.Character == "God"),
-				"Test setup condition not met: God should not be returned as a character when includeAlternatesAndRareQuotes is false.");
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(66, 1, new SingleVerse(8)),
+				No<CharacterSpeakingMode>(cv => cv.Character, Is.EqualTo("God")),
+				"Test setup condition not met: God should not be returned as a character when " +
+				"`includeAlternatesAndRareQuotes` is false.");
 			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(66, 1, new SingleVerse(8), includeAlternatesAndRareQuotes: true)
 					.Any(cv => cv.Character == "God"),
-				"Test setup condition not met: God should be returned as a character when includeAlternatesAndRareQuotes is true.");
+				"Test setup condition not met: God should be returned as a character when " +
+				"`includeAlternatesAndRareQuotes` is true.");
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			var stringRepresentationOfQuoteBlocksInRevC1V8 = new List<string>(2);
@@ -921,9 +942,11 @@ namespace GlyssenEngineTests
 			}
 			Assert.That(stringRepresentationOfQuoteBlocksInRevC1V8.Any(),
 				"Test setup condition not met: There should be a direct quote in Rev 1:8");
-			Assert.AreEqual(0, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
-			Assert.IsTrue(stringRepresentationOfQuoteBlocksInRevC1V8.SequenceEqual(
-				testProject.IncludedBooks.Single().GetBlocksForVerse(1, 8).Where(b => b.IsQuote).Select(b => b.ToString(true, "REV"))));
+			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(0));
+			Assert.That(stringRepresentationOfQuoteBlocksInRevC1V8, Is.EqualTo(
+				testProject.IncludedBooks.Single().GetBlocksForVerse(1, 8).Where(b => b.IsQuote)
+					.Select(b => b.ToString(true, "REV"))
+			));
 		}
 
 		/// <summary>
@@ -938,10 +961,10 @@ namespace GlyssenEngineTests
 			unexpectedPeterInRev711.SetCharacterIdAndCharacterIdInScript("peter", 66);
 			testProject.ProjectCharacterVerseData.AddEntriesFor(66, unexpectedPeterInRev711);
 
-			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(1));
 
-			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, unexpectedPeterInRev711.CharacterId);
-			Assert.IsFalse(testProject.ProjectCharacterVerseData.Any());
+			Assert.That(unexpectedPeterInRev711.CharacterId, Is.EqualTo(kUnexpectedCharacter));
+			Assert.That(testProject.ProjectCharacterVerseData.Any(), Is.False);
 		}
 
 		[Test]
@@ -961,7 +984,7 @@ namespace GlyssenEngineTests
 				// but it was renamed to "altar". This forward-thinking user added their own "altar" character before that became
 				// the official character ID.
 				altarBlocksInRev16v7 = testProject.IncludedBooks.Single().GetBlocksForVerse(16, 7).Where(b => b.CharacterId == "altar, the").ToList();
-				Assert.IsTrue(altarBlocksInRev16v7.Any());
+				Assert.That(altarBlocksInRev16v7.Any(), Is.True);
 				var projectSpecificDetail = new CharacterDetail
 				{
 					CharacterId = "altar",
@@ -974,7 +997,7 @@ namespace GlyssenEngineTests
 					block.CharacterId = projectSpecificDetail.CharacterId;
 					testProject.ProjectCharacterVerseData.AddEntriesFor(66, block);
 				}
-				Assert.IsTrue(testProject.ProjectCharacterVerseData.Any());
+				Assert.That(testProject.ProjectCharacterVerseData.Any(), Is.True);
 			}
 			finally
 			{
@@ -983,13 +1006,15 @@ namespace GlyssenEngineTests
 				CharacterDetailData.TabDelimitedCharacterDetailData = null;
 			}
 
-			Assert.IsTrue(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject) >= 1);
+			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject) >= 1, Is.True);
 
-			Assert.IsTrue(altarBlocksInRev16v7.All(b => b.CharacterId == "altar"), "The blocks themselves should not have changed.");
-			Assert.IsFalse(testProject.ProjectCharacterVerseData.Any(), "The only entry in ProjectCharacterVerseData should have been removed.");
-			Assert.IsTrue(testProject.AllCharacterDetailDictionary.ContainsKey("altar"),
-				"The only entry in ProjectCharacterDetail should have been removed. This call should throw an exception if the key is " +
-				"present in both.");
+			Assert.That(altarBlocksInRev16v7.Select(b => b.CharacterId), Is.All.EqualTo("altar"),
+				"The blocks themselves should not have changed.");
+			Assert.That(testProject.ProjectCharacterVerseData.Any(), Is.False,
+				"The only entry in ProjectCharacterVerseData should have been removed.");
+			Assert.That(testProject.AllCharacterDetailDictionary.ContainsKey("altar"), Is.True,
+				"The only entry in ProjectCharacterDetail should have been removed. This call " +
+				"should throw an exception if the key is present in both.");
 		}
 
 		[Test]
@@ -1008,9 +1033,9 @@ namespace GlyssenEngineTests
 			block.CharacterId = block.CharacterIdOverrideForScript;
 			block.CharacterIdOverrideForScript = null;
 
-			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
-			Assert.AreEqual(origCharacterId, block.CharacterId);
-			Assert.AreEqual(origCharacterIdForScript, block.CharacterIdOverrideForScript);
+			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(1));
+			Assert.That(block.CharacterId, Is.EqualTo(origCharacterId));
+			Assert.That(block.CharacterIdOverrideForScript, Is.EqualTo(origCharacterIdForScript));
 		}
 
 		[Test]
@@ -1040,13 +1065,13 @@ namespace GlyssenEngineTests
 			verses13And14Block.CharacterId = "Enoch";
 
 			//Setup check
-			Assert.AreEqual("Enoch", verses13And14Block.CharacterId);
+			Assert.That(verses13And14Block.CharacterId, Is.EqualTo("Enoch"));
 
 			//SUT
-			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(1));
 
-			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, verses13And14Block.CharacterId);
-			Assert.IsFalse(verses13And14Block.UserConfirmed);
+			Assert.That(verses13And14Block.CharacterId, Is.EqualTo(kUnexpectedCharacter));
+			Assert.That(verses13And14Block.UserConfirmed, Is.False);
 		}
 
 		[Test]
@@ -1078,15 +1103,15 @@ namespace GlyssenEngineTests
 			testProject.ProjectCharacterVerseData.AddEntriesFor(65, verses13And14Block);
 
 			//Setup check
-			Assert.AreEqual("Enoch", verses13And14Block.CharacterId);
+			Assert.That(verses13And14Block.CharacterId, Is.EqualTo("Enoch"));
 
 			//SUT - Call it twice to make sure first time doesn't delete project CV entry
-			Assert.AreEqual(0, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
-			Assert.AreEqual(0, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(0));
+			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(0));
 
-			Assert.AreEqual("Enoch", verses13And14Block.CharacterId);
-			Assert.IsTrue(verses13And14Block.UserConfirmed);
-			Assert.IsTrue(testProject.ProjectCharacterVerseData.Any());
+			Assert.That(verses13And14Block.CharacterId, Is.EqualTo("Enoch"));
+			Assert.That(verses13And14Block.UserConfirmed, Is.True);
+			Assert.That(testProject.ProjectCharacterVerseData.Any(), Is.True);
 		}
 
 		/// <summary>
@@ -1103,11 +1128,11 @@ namespace GlyssenEngineTests
 
 			var bookScript = testProject.IncludedBooks.Single();
 			var overrideOba = NarratorOverrides.Singleton.Books.Single(b => b.Id == bookScript.BookId).Overrides.Single();
-			Assert.AreEqual(1, overrideOba.StartChapter, "Test setup conditions not met!");
-			Assert.AreEqual(1, overrideOba.EndChapter, "Test setup conditions not met!");
-			Assert.AreEqual(kObadiahTheProphet, overrideOba.Character, "Test setup conditions not met!");
-			Assert.IsTrue(overrideOba.StartVerse <= 19, "Test setup conditions not met!");
-			Assert.AreEqual(21, overrideOba.EndVerse, "Test setup conditions not met!");
+			Assert.That(overrideOba.StartChapter, Is.EqualTo(1), "Test setup conditions not met!");
+			Assert.That(overrideOba.EndChapter, Is.EqualTo(1), "Test setup conditions not met!");
+			Assert.That(overrideOba.Character, Is.EqualTo(kObadiahTheProphet), "Test setup conditions not met!");
+			Assert.That(overrideOba.StartVerse, Is.LessThanOrEqualTo(19), "Test setup conditions not met!");
+			Assert.That(overrideOba.EndVerse, Is.EqualTo(21), "Test setup conditions not met!");
 
 			var explicitObadiahBlocks = new HashSet<Block>();
 			for (int i = 19; i < 21; i++)
@@ -1118,13 +1143,13 @@ namespace GlyssenEngineTests
 					explicitObadiahBlocks.Add(block);
 				}
 			}
-			Assert.IsTrue(explicitObadiahBlocks.Any(), "Test setup conditions not met!");
+			Assert.That(explicitObadiahBlocks.Any(), Is.True, "Test setup conditions not met!");
 
 			//SUT
-			Assert.AreEqual(0, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.That(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject), Is.EqualTo(0));
 
 			foreach (var block in explicitObadiahBlocks)
-				Assert.AreEqual(kObadiahTheProphet, block.CharacterId);
+				Assert.That(block.CharacterId, Is.EqualTo(kObadiahTheProphet));
 		}
 
 		[Test]
@@ -1140,14 +1165,14 @@ namespace GlyssenEngineTests
 			demonSpeakingInMrk59.CharacterIdInScript = null;
 			demonSpeakingInMrk59.UserConfirmed = true;
 
-			Assert.AreEqual(1, ProjectDataMigrator.MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides(testProject));
+			Assert.That(ProjectDataMigrator.MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides(testProject), Is.EqualTo(1));
 
-			Assert.AreEqual("Jesus", jesusSpeakingInMrk59.CharacterId);
-			Assert.AreEqual("Jesus", jesusSpeakingInMrk59.CharacterIdInScript);
-			Assert.IsTrue(jesusSpeakingInMrk59.UserConfirmed);
-			Assert.AreEqual("demons (Legion)/man delivered from Legion of demons", demonSpeakingInMrk59.CharacterId);
-			Assert.AreEqual("demons (Legion)", demonSpeakingInMrk59.CharacterIdInScript);
-			Assert.IsTrue(demonSpeakingInMrk59.UserConfirmed);
+			Assert.That(jesusSpeakingInMrk59.CharacterId, Is.EqualTo("Jesus"));
+			Assert.That(jesusSpeakingInMrk59.CharacterIdInScript, Is.EqualTo("Jesus"));
+			Assert.That(jesusSpeakingInMrk59.UserConfirmed, Is.True);
+			Assert.That(demonSpeakingInMrk59.CharacterId, Is.EqualTo("demons (Legion)/man delivered from Legion of demons"));
+			Assert.That(demonSpeakingInMrk59.CharacterIdInScript, Is.EqualTo("demons (Legion)"));
+			Assert.That(demonSpeakingInMrk59.UserConfirmed, Is.True);
 		}
 
 		// The only place in the NT where this is likely to have occurred was John 11:34, but we don't have John test data, and it didn't seem worth it.
@@ -1164,14 +1189,14 @@ namespace GlyssenEngineTests
 		//	marySpeakingInJhn1134.CharacterIdInScript = null;
 		//	marySpeakingInJhn1134.UserConfirmed = true;
 
-		//	Assert.AreEqual(1, ProjectDataMigrator.MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides(testProject));
+		//	Assert.That(ProjectDataMigrator.MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides(testProject), Is.EqualTo(1));
 
-		//	Assert.AreEqual("Jesus", jesusSpeakingInJhn1134.CharacterId);
-		//	Assert.AreEqual("Jesus", jesusSpeakingInJhn1134.CharacterIdInScript);
-		//	Assert.IsTrue(jesusSpeakingInJhn1134.UserConfirmed);
-		//	Assert.AreEqual("Jews, the/Mary, sister of Martha/Martha", marySpeakingInJhn1134.CharacterId);
-		//	Assert.AreEqual("Mary, sister of Martha", marySpeakingInJhn1134.CharacterIdInScript);
-		//	Assert.IsTrue(marySpeakingInJhn1134.UserConfirmed);
+		//	Assert.That(jesusSpeakingInJhn1134.CharacterId, Is.EqualTo("Jesus"));
+		//	Assert.That(jesusSpeakingInJhn1134.CharacterIdInScript, Is.EqualTo("Jesus"));
+		//	Assert.That(jesusSpeakingInJhn1134.UserConfirmed, Is.True);
+		//	Assert.That(marySpeakingInJhn1134.CharacterId, Is.EqualTo("Jews, the/Mary, sister of Martha/Martha"));
+		//	Assert.That(marySpeakingInJhn1134.CharacterIdInScript, Is.EqualTo("Mary, sister of Martha"));
+		//	Assert.That(marySpeakingInJhn1134.UserConfirmed, Is.True);
 		//}
 
 		[Test]
@@ -1182,19 +1207,20 @@ namespace GlyssenEngineTests
 			// milestone to specify a character ID that was not in the control file at the time of the
 			// original parse. (But then that character was later added.)
 			var altarBlocksInRev16v7 = testProject.IncludedBooks.Single().GetBlocksForVerse(16, 7).Where(b => b.CharacterId == "altar").ToList();
-			Assert.IsTrue(altarBlocksInRev16v7.Any());
+			Assert.That(altarBlocksInRev16v7.Any(), Is.True);
 			foreach (var block in altarBlocksInRev16v7)
 			{
 				block.StyleTag = "qt1-s";
-				block.CharacterId = CharacterVerseData.kNeedsReview;
+				block.CharacterId = kNeedsReview;
 				block.CharacterIdInScript = "altar";
 			}
 
-			Assert.AreEqual(altarBlocksInRev16v7.Count, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.That(altarBlocksInRev16v7.Count, Is.EqualTo(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject)));
 
-			Assert.IsTrue(altarBlocksInRev16v7.All(b => b.CharacterId == "altar" &&
+			Assert.That(altarBlocksInRev16v7.All(b => b.CharacterId == "altar" &&
 				b.CharacterIdInScript == b.CharacterId &&
-				b.IsPredeterminedFirstLevelQuoteStart), "The blocks should no longer be \"Needs Review\".");
+				b.IsPredeterminedFirstLevelQuoteStart), Is.True,
+				"The blocks should no longer be \"Needs Review\".");
 		}
 
 		[TestCase("c")]
@@ -1204,7 +1230,7 @@ namespace GlyssenEngineTests
 			var genesis = new BookScript("GEN",
 				new List<Block>
 				{
-					CreateTestBlock(CharacterVerseData.GetStandardCharacterId("GEN", CharacterVerseData.StandardCharacter.BookOrChapter)),
+					CreateTestBlock(GetStandardCharacterId("GEN", BookOrChapter)),
 					CreateChapterBlock("GEN", 1, chapterStyleTag),
 					CreateTestBlock(1, MultiBlockQuote.None),
 					CreateChapterBlock("GEN", 2, chapterStyleTag),
@@ -1225,7 +1251,7 @@ namespace GlyssenEngineTests
 			var matthew = new BookScript("MAT",
 				new List<Block>
 				{
-					CreateTestBlock(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter)),
+					CreateTestBlock(GetStandardCharacterId("MAT", BookOrChapter)),
 					CreateChapterBlock("MAT", 1, chapterStyleTag),
 					CreateTestBlock(2, MultiBlockQuote.None),
 					CreateTestBlock(1, MultiBlockQuote.None),
@@ -1255,7 +1281,7 @@ namespace GlyssenEngineTests
 			var books = new List<BookScript> { genesis, matthew };
 			ProjectDataMigrator.SetBookIdForChapterBlocks(books);
 
-			Assert.IsFalse(books.SelectMany(book => book.Blocks).Where(bl => bl.StyleTag == "c" || bl.StyleTag == "cl").Any(bl => bl.BookCode == null));
+			Assert.That(books.SelectMany(book => book.Blocks).Where(bl => bl.StyleTag == "c" || bl.StyleTag == "cl").Any(bl => bl.BookCode == null), Is.False);
 		}
 
 		[Test]
@@ -1295,7 +1321,7 @@ namespace GlyssenEngineTests
 					},
 					MultiBlockQuote = MultiBlockQuote.None,
 					SplitId = -1,
-					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+					CharacterId = GetStandardCharacterId("MAT", Narrator),
 				},
 				new Block
 				{
@@ -1321,14 +1347,28 @@ namespace GlyssenEngineTests
 			ProjectDataMigrator.MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits(books);
 
 			var resultingBlocks = book.GetScriptBlocks();
-			Assert.AreEqual(origBlocks.Count, resultingBlocks.Count);
-			Assert.IsTrue(origBlocks.Select(b => b.GetText(true)).SequenceEqual(resultingBlocks.Select(b => b.GetText(true))));
-			Assert.IsTrue(origBlocks.Select(b => b.MultiBlockQuote).SequenceEqual(resultingBlocks.Select(b => b.MultiBlockQuote)));
-			Assert.IsTrue(resultingBlocks.All(b => b.SplitId == 0));
-			Assert.IsTrue(origBlocks.Select(b => b.MatchesReferenceText).SequenceEqual(resultingBlocks.Select(b => b.MatchesReferenceText)));
-			Assert.IsTrue(origBlocks.Select(b => b.GetPrimaryReferenceText()).SequenceEqual(resultingBlocks.Select(b => b.GetPrimaryReferenceText())));
-			Assert.IsTrue(origBlocks.Select(b => b.CharacterId).SequenceEqual(resultingBlocks.Select(b => b.CharacterId)));
-			Assert.IsTrue(origBlocks.Select(b => b.UserConfirmed).SequenceEqual(resultingBlocks.Select(b => b.UserConfirmed)));
+
+			Assert.That(resultingBlocks.Count, Is.EqualTo(origBlocks.Count));
+
+			Assert.That(resultingBlocks.Select(b => b.GetText(true)),
+				Is.EqualTo(origBlocks.Select(b => b.GetText(true))));
+
+			Assert.That(resultingBlocks.Select(b => b.MultiBlockQuote),
+				Is.EqualTo(origBlocks.Select(b => b.MultiBlockQuote)));
+
+			Assert.That(resultingBlocks, ForEvery<Block>(b => b.SplitId, Is.EqualTo(0)));
+
+			Assert.That(resultingBlocks.Select(b => b.MatchesReferenceText),
+				Is.EqualTo(origBlocks.Select(b => b.MatchesReferenceText)));
+
+			Assert.That(resultingBlocks.Select(b => b.GetPrimaryReferenceText()),
+				Is.EqualTo(origBlocks.Select(b => b.GetPrimaryReferenceText())));
+
+			Assert.That(resultingBlocks.Select(b => b.CharacterId),
+				Is.EqualTo(origBlocks.Select(b => b.CharacterId)));
+
+			Assert.That(resultingBlocks.Select(b => b.UserConfirmed),
+				Is.EqualTo(origBlocks.Select(b => b.UserConfirmed)));
 		}
 
 		[Test]
@@ -1375,7 +1415,7 @@ namespace GlyssenEngineTests
 						},
 						MultiBlockQuote = MultiBlockQuote.None,
 						SplitId = -1,
-						CharacterId = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator),
+						CharacterId = GetStandardCharacterId(bookId, Narrator),
 					},
 					new Block
 					{
@@ -1386,7 +1426,7 @@ namespace GlyssenEngineTests
 						},
 						MultiBlockQuote = MultiBlockQuote.None,
 						SplitId = -1,
-						CharacterId = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator),
+						CharacterId = GetStandardCharacterId(bookId, Narrator),
 					},
 					new Block
 					{
@@ -1408,7 +1448,7 @@ namespace GlyssenEngineTests
 						},
 						MultiBlockQuote = MultiBlockQuote.None,
 						SplitId = -1,
-						CharacterId = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator),
+						CharacterId = GetStandardCharacterId(bookId, Narrator),
 					},
 					new Block
 					{
@@ -1448,14 +1488,28 @@ namespace GlyssenEngineTests
 			{
 				var origBookBlocks = origBlocks[i];
 				var resultingBlocks = books[i].GetScriptBlocks();
-				Assert.AreEqual(origBookBlocks.Count, resultingBlocks.Count);
-				Assert.IsTrue(origBookBlocks.Select(b => b.GetText(true)).SequenceEqual(resultingBlocks.Select(b => b.GetText(true))));
-				Assert.IsTrue(origBookBlocks.Select(b => b.MultiBlockQuote).SequenceEqual(resultingBlocks.Select(b => b.MultiBlockQuote)));
-				Assert.IsTrue(resultingBlocks.All(b => b.SplitId == i));
-				Assert.IsTrue(origBookBlocks.Select(b => b.MatchesReferenceText).SequenceEqual(resultingBlocks.Select(b => b.MatchesReferenceText)));
-				Assert.IsTrue(origBookBlocks.Select(b => b.GetPrimaryReferenceText()).SequenceEqual(resultingBlocks.Select(b => b.GetPrimaryReferenceText())));
-				Assert.IsTrue(origBookBlocks.Select(b => b.CharacterId).SequenceEqual(resultingBlocks.Select(b => b.CharacterId)));
-				Assert.IsTrue(origBookBlocks.Select(b => b.UserConfirmed).SequenceEqual(resultingBlocks.Select(b => b.UserConfirmed)));
+
+				Assert.That(resultingBlocks.Count, Is.EqualTo(origBookBlocks.Count));
+
+				Assert.That(resultingBlocks.Select(b => b.GetText(true)),
+					Is.EqualTo(origBookBlocks.Select(b => b.GetText(true))));
+
+				Assert.That(resultingBlocks.Select(b => b.MultiBlockQuote),
+					Is.EqualTo(origBookBlocks.Select(b => b.MultiBlockQuote)));
+
+				Assert.That(resultingBlocks, ForEvery<Block>(b => b.SplitId, Is.EqualTo(i)));
+
+				Assert.That(resultingBlocks.Select(b => b.MatchesReferenceText),
+					Is.EqualTo(origBookBlocks.Select(b => b.MatchesReferenceText)));
+
+				Assert.That(resultingBlocks.Select(b => b.GetPrimaryReferenceText()),
+					Is.EqualTo(origBookBlocks.Select(b => b.GetPrimaryReferenceText())));
+
+				Assert.That(resultingBlocks.Select(b => b.CharacterId),
+					Is.EqualTo(origBookBlocks.Select(b => b.CharacterId)));
+
+				Assert.That(resultingBlocks.Select(b => b.UserConfirmed),
+					Is.EqualTo(origBookBlocks.Select(b => b.UserConfirmed)));
 			}
 		}
 
@@ -1498,7 +1552,7 @@ namespace GlyssenEngineTests
 					},
 					MultiBlockQuote = MultiBlockQuote.None,
 					SplitId = -1,
-					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+					CharacterId = GetStandardCharacterId("MAT", Narrator),
 				},
 				new Block
 				{
@@ -1510,7 +1564,7 @@ namespace GlyssenEngineTests
 					},
 					MultiBlockQuote = MultiBlockQuote.None,
 					SplitId = -1,
-					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+					CharacterId = GetStandardCharacterId("MAT", Narrator),
 					UserConfirmed = true,
 				},
 				new Block
@@ -1551,14 +1605,30 @@ namespace GlyssenEngineTests
 			ProjectDataMigrator.MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits(books);
 
 			var resultingBlocks = book.GetScriptBlocks();
-			Assert.AreEqual(origBlocks.Count, resultingBlocks.Count);
-			Assert.IsTrue(origBlocks.Select(b => b.GetText(true)).SequenceEqual(resultingBlocks.Select(b => b.GetText(true))));
-			Assert.IsTrue(origBlocks.Select(b => b.MultiBlockQuote).SequenceEqual(resultingBlocks.Select(b => b.MultiBlockQuote)));
-			Assert.IsTrue(origBlocks.Select(b => b.SplitId).SequenceEqual(resultingBlocks.Select(b => b.SplitId)));
-			Assert.IsTrue(origBlocks.Select(b => b.MatchesReferenceText).SequenceEqual(resultingBlocks.Select(b => b.MatchesReferenceText)));
-			Assert.IsTrue(origBlocks.Select(b => b.GetPrimaryReferenceText()).SequenceEqual(resultingBlocks.Select(b => b.GetPrimaryReferenceText())));
-			Assert.IsTrue(origBlocks.Select(b => b.CharacterId).SequenceEqual(resultingBlocks.Select(b => b.CharacterId)));
-			Assert.IsTrue(origBlocks.Select(b => b.UserConfirmed).SequenceEqual(resultingBlocks.Select(b => b.UserConfirmed)));
+
+			Assert.That(resultingBlocks.Count, Is.EqualTo(origBlocks.Count));
+
+			Assert.That(resultingBlocks.Select(b => b.GetText(true)),
+				Is.EqualTo(origBlocks.Select(b => b.GetText(true))));
+
+			Assert.That(resultingBlocks.Select(b => b.MultiBlockQuote),
+				Is.EqualTo(origBlocks.Select(b => b.MultiBlockQuote)));
+
+			Assert.That(resultingBlocks.Select(b => b.SplitId),
+				Is.EqualTo(origBlocks.Select(b => b.SplitId)));
+
+			Assert.That(resultingBlocks.Select(b => b.MatchesReferenceText),
+				Is.EqualTo(origBlocks.Select(b => b.MatchesReferenceText)));
+
+			Assert.That(resultingBlocks.Select(b => b.GetPrimaryReferenceText()),
+				Is.EqualTo(origBlocks.Select(b => b.GetPrimaryReferenceText())));
+
+			Assert.That(resultingBlocks.Select(b => b.CharacterId),
+				Is.EqualTo(origBlocks.Select(b => b.CharacterId)));
+
+			Assert.That(resultingBlocks.Select(b => b.UserConfirmed),
+				Is.EqualTo(origBlocks.Select(b => b.UserConfirmed)));
+
 		}
 
 		[Test]
@@ -1586,7 +1656,7 @@ namespace GlyssenEngineTests
 					},
 					MultiBlockQuote = MultiBlockQuote.None,
 					SplitId = 1,
-					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+					CharacterId = GetStandardCharacterId("MAT", Narrator),
 					UserConfirmed = true,
 				},
 				new Block
@@ -1610,13 +1680,26 @@ namespace GlyssenEngineTests
 			ProjectDataMigrator.MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits(books);
 
 			var resultingBlocks = book.GetScriptBlocks();
-			Assert.AreEqual(origBlocks.Count, resultingBlocks.Count);
-			Assert.IsTrue(origBlocks.Select(b => b.GetText(true)).SequenceEqual(resultingBlocks.Select(b => b.GetText(true))));
-			Assert.IsTrue(origBlocks.Select(b => b.MultiBlockQuote).SequenceEqual(resultingBlocks.Select(b => b.MultiBlockQuote)));
-			Assert.IsTrue(origBlocks.Select(b => b.SplitId).SequenceEqual(resultingBlocks.Select(b => b.SplitId)));
-			Assert.IsTrue(origBlocks.Select(b => b.MatchesReferenceText).SequenceEqual(resultingBlocks.Select(b => b.MatchesReferenceText)));
-			Assert.IsTrue(origBlocks.Select(b => b.CharacterId).SequenceEqual(resultingBlocks.Select(b => b.CharacterId)));
-			Assert.IsTrue(origBlocks.Select(b => b.UserConfirmed).SequenceEqual(resultingBlocks.Select(b => b.UserConfirmed)));
+
+			Assert.That(resultingBlocks.Count, Is.EqualTo(origBlocks.Count));
+
+			Assert.That(resultingBlocks.Select(b => b.GetText(true)),
+				Is.EqualTo(origBlocks.Select(b => b.GetText(true))));
+
+			Assert.That(resultingBlocks.Select(b => b.MultiBlockQuote),
+				Is.EqualTo(origBlocks.Select(b => b.MultiBlockQuote)));
+
+			Assert.That(resultingBlocks.Select(b => b.SplitId),
+				Is.EqualTo(origBlocks.Select(b => b.SplitId)));
+
+			Assert.That(resultingBlocks.Select(b => b.MatchesReferenceText),
+				Is.EqualTo(origBlocks.Select(b => b.MatchesReferenceText)));
+
+			Assert.That(resultingBlocks.Select(b => b.CharacterId),
+				Is.EqualTo(origBlocks.Select(b => b.CharacterId)));
+
+			Assert.That(resultingBlocks.Select(b => b.UserConfirmed),
+				Is.EqualTo(origBlocks.Select(b => b.UserConfirmed)));
 		}
 
 		[Test]
@@ -1656,7 +1739,7 @@ namespace GlyssenEngineTests
 					},
 					MultiBlockQuote = MultiBlockQuote.None,
 					SplitId = 0,
-					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+					CharacterId = GetStandardCharacterId("MAT", Narrator),
 					UserConfirmed = true,
 				}
 			};
@@ -1670,14 +1753,28 @@ namespace GlyssenEngineTests
 			ProjectDataMigrator.MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits(books);
 
 			var resultingBlocks = book.GetScriptBlocks();
-			Assert.AreEqual(origBlocks.Count, resultingBlocks.Count);
-			Assert.IsTrue(origBlocks.Select(b => b.GetText(true)).SequenceEqual(resultingBlocks.Select(b => b.GetText(true))));
-			Assert.IsTrue(origBlocks.Select(b => b.MultiBlockQuote).SequenceEqual(resultingBlocks.Select(b => b.MultiBlockQuote)));
-			Assert.IsTrue(origBlocks.Select(b => b.SplitId).SequenceEqual(resultingBlocks.Select(b => b.SplitId)));
-			Assert.IsTrue(origBlocks.Select(b => b.MatchesReferenceText).SequenceEqual(resultingBlocks.Select(b => b.MatchesReferenceText)));
-			Assert.IsTrue(origBlocks.Select(b => b.GetPrimaryReferenceText()).SequenceEqual(resultingBlocks.Select(b => b.GetPrimaryReferenceText())));
-			Assert.IsTrue(origBlocks.Select(b => b.CharacterId).SequenceEqual(resultingBlocks.Select(b => b.CharacterId)));
-			Assert.IsTrue(origBlocks.Select(b => b.UserConfirmed).SequenceEqual(resultingBlocks.Select(b => b.UserConfirmed)));
+			Assert.That(resultingBlocks.Count, Is.EqualTo(origBlocks.Count));
+
+			Assert.That(resultingBlocks.Select(b => b.GetText(true)),
+				Is.EqualTo(origBlocks.Select(b => b.GetText(true))));
+
+			Assert.That(resultingBlocks.Select(b => b.MultiBlockQuote),
+				Is.EqualTo(origBlocks.Select(b => b.MultiBlockQuote)));
+
+			Assert.That(resultingBlocks.Select(b => b.SplitId),
+				Is.EqualTo(origBlocks.Select(b => b.SplitId)));
+
+			Assert.That(resultingBlocks.Select(b => b.MatchesReferenceText),
+				Is.EqualTo(origBlocks.Select(b => b.MatchesReferenceText)));
+
+			Assert.That(resultingBlocks.Select(b => b.GetPrimaryReferenceText()),
+				Is.EqualTo(origBlocks.Select(b => b.GetPrimaryReferenceText())));
+
+			Assert.That(resultingBlocks.Select(b => b.CharacterId),
+				Is.EqualTo(origBlocks.Select(b => b.CharacterId)));
+
+			Assert.That(resultingBlocks.Select(b => b.UserConfirmed),
+				Is.EqualTo(origBlocks.Select(b => b.UserConfirmed)));
 		}
 
 		[Test]
@@ -1694,7 +1791,7 @@ namespace GlyssenEngineTests
 					},
 					MultiBlockQuote = MultiBlockQuote.None,
 					SplitId = 0,
-					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+					CharacterId = GetStandardCharacterId("MAT", Narrator),
 					UserConfirmed = true,
 				},
 				new Block
@@ -1742,14 +1839,28 @@ namespace GlyssenEngineTests
 			ProjectDataMigrator.MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits(books);
 
 			var resultingBlocks = book.GetScriptBlocks();
-			Assert.AreEqual(origBlocks.Count, resultingBlocks.Count);
-			Assert.IsTrue(origBlocks.Select(b => b.GetText(true)).SequenceEqual(resultingBlocks.Select(b => b.GetText(true))));
-			Assert.IsTrue(origBlocks.Select(b => b.MultiBlockQuote).SequenceEqual(resultingBlocks.Select(b => b.MultiBlockQuote)));
-			Assert.IsTrue(origBlocks.Select(b => b.SplitId).SequenceEqual(resultingBlocks.Select(b => b.SplitId)));
-			Assert.IsTrue(origBlocks.Select(b => b.MatchesReferenceText).SequenceEqual(resultingBlocks.Select(b => b.MatchesReferenceText)));
-			Assert.IsTrue(origBlocks.Select(b => b.GetPrimaryReferenceText()).SequenceEqual(resultingBlocks.Select(b => b.GetPrimaryReferenceText())));
-			Assert.IsTrue(origBlocks.Select(b => b.CharacterId).SequenceEqual(resultingBlocks.Select(b => b.CharacterId)));
-			Assert.IsTrue(origBlocks.Select(b => b.UserConfirmed).SequenceEqual(resultingBlocks.Select(b => b.UserConfirmed)));
+			Assert.That(resultingBlocks.Count, Is.EqualTo(origBlocks.Count));
+
+			Assert.That(resultingBlocks.Select(b => b.GetText(true)),
+				Is.EqualTo(origBlocks.Select(b => b.GetText(true))));
+
+			Assert.That(resultingBlocks.Select(b => b.MultiBlockQuote),
+				Is.EqualTo(origBlocks.Select(b => b.MultiBlockQuote)));
+
+			Assert.That(resultingBlocks.Select(b => b.SplitId),
+				Is.EqualTo(origBlocks.Select(b => b.SplitId)));
+
+			Assert.That(resultingBlocks.Select(b => b.MatchesReferenceText),
+				Is.EqualTo(origBlocks.Select(b => b.MatchesReferenceText)));
+
+			Assert.That(resultingBlocks.Select(b => b.GetPrimaryReferenceText()),
+				Is.EqualTo(origBlocks.Select(b => b.GetPrimaryReferenceText())));
+
+			Assert.That(resultingBlocks.Select(b => b.CharacterId),
+				Is.EqualTo(origBlocks.Select(b => b.CharacterId)));
+
+			Assert.That(resultingBlocks.Select(b => b.UserConfirmed),
+				Is.EqualTo(origBlocks.Select(b => b.UserConfirmed)));
 		}
 
 		#region PG-1291/PG-1286
@@ -1776,21 +1887,24 @@ namespace GlyssenEngineTests
 
 			ProjectDataMigrator.MigrateDuplicatedReferenceTextFromJoining(testProject.Books);
 
-			Assert.AreEqual(origBlock1RefText, poetryBlocksInMarkC1V2[0].GetPrimaryReferenceText());
-			Assert.AreEqual(origBlock2RefText, poetryBlocksInMarkC1V2[1].GetPrimaryReferenceText());
+			Assert.That(poetryBlocksInMarkC1V2[0].GetPrimaryReferenceText(),
+				Is.EqualTo(origBlock1RefText));
+			Assert.That(poetryBlocksInMarkC1V2[1].GetPrimaryReferenceText(),
+				Is.EqualTo(origBlock2RefText));
 		}
 
 		[TestCase("{1} This is not empty.  ", " ", 1)]
 		[TestCase("{1} This is not empty. ", "", 2)]
 		[TestCase("{1} Neither is this; ", "but it could have been ", 3)]
 		[TestCase("{1} ", "The other block's ref text was just a verse number.", 1)]
-		public void MigrateDuplicatedReferenceTextFromJoining_MultiVoiceBook_RepeatedBlock2ReferenceTextRemovedFromBlock1(string block1RefText, string block2RefText,
-			int numberOfTimesToJoin)
+		public void MigrateDuplicatedReferenceTextFromJoining_MultiVoiceBook_RepeatedBlock2ReferenceTextRemovedFromBlock1(
+			string block1RefText, string block2RefText, int numberOfTimesToJoin)
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
 			var mark = testProject.IncludedBooks.Single();
 			var poetryBlockInMarkC1V2 = mark.GetBlocksForVerse(1, 2).Single(b => b.StyleTag == "q1");
-			var newBlock = mark.SplitBlock(poetryBlockInMarkC1V2, "2", poetryBlockInMarkC1V2.GetText(true).IndexOf("ma bigero yoni;", StringComparison.Ordinal));
+			var newBlock = mark.SplitBlock(poetryBlockInMarkC1V2, "2",
+				poetryBlockInMarkC1V2.GetText(true).IndexOf("ma bigero yoni;", StringComparison.Ordinal));
 			poetryBlockInMarkC1V2.MultiBlockQuote = MultiBlockQuote.Start;
 			newBlock.MultiBlockQuote = MultiBlockQuote.Continuation;
 			newBlock.CharacterId = poetryBlockInMarkC1V2.CharacterId;
@@ -1808,14 +1922,16 @@ namespace GlyssenEngineTests
 
 			var joinedRefTextToVerifySetup = poetryBlocksInMarkC1V2[0].GetPrimaryReferenceText();
 			if (!IsNullOrWhiteSpace(block2RefText))
-				Assert.AreNotEqual(joinedRefTextToVerifySetup, origBlock1RefText);
-			Assert.IsTrue(joinedRefTextToVerifySetup.StartsWith(origBlock1RefText));
-			Assert.IsTrue(joinedRefTextToVerifySetup.EndsWith(origBlock2RefText));
+				Assert.That(joinedRefTextToVerifySetup, Is.Not.EqualTo(origBlock1RefText));
+			Assert.That(joinedRefTextToVerifySetup, Does.StartWith(origBlock1RefText));
+			Assert.That(joinedRefTextToVerifySetup, Does.EndWith(origBlock2RefText));
 
 			ProjectDataMigrator.MigrateDuplicatedReferenceTextFromJoining(testProject.Books);
 
-			Assert.AreEqual(origBlock1RefText, poetryBlocksInMarkC1V2[0].GetPrimaryReferenceText());
-			Assert.AreEqual(origBlock2RefText, poetryBlocksInMarkC1V2[1].GetPrimaryReferenceText());
+			Assert.That(poetryBlocksInMarkC1V2[0].GetPrimaryReferenceText(),
+				Is.EqualTo(origBlock1RefText));
+			Assert.That(poetryBlocksInMarkC1V2[1].GetPrimaryReferenceText(),
+				Is.EqualTo(origBlock2RefText));
 		}
 
 		[TestCase("{1} This is not  ", " ", " empty ", 2)]
@@ -1858,16 +1974,19 @@ namespace GlyssenEngineTests
 
 			var joinedRefTextToVerifySetup = poetryBlocksInMarkC1V2[0].GetPrimaryReferenceText();
 			if (!IsNullOrWhiteSpace(block2RefText) || !IsNullOrWhiteSpace(block3RefText))
-				Assert.AreNotEqual(joinedRefTextToVerifySetup, origBlock1RefText);
-			Assert.IsTrue(joinedRefTextToVerifySetup.StartsWith(origBlock1RefText));
-			Assert.IsTrue(joinedRefTextToVerifySetup.Contains(origBlock2RefText));
-			Assert.IsTrue(joinedRefTextToVerifySetup.EndsWith(origBlock3RefText));
+				Assert.That(joinedRefTextToVerifySetup, Is.Not.EqualTo(origBlock1RefText));
+			Assert.That(joinedRefTextToVerifySetup, Does.StartWith(origBlock1RefText));
+			Assert.That(joinedRefTextToVerifySetup, Does.Contain(origBlock2RefText));
+			Assert.That(joinedRefTextToVerifySetup, Does.EndWith(origBlock3RefText));
 
 			ProjectDataMigrator.MigrateDuplicatedReferenceTextFromJoining(testProject.Books);
 
-			Assert.AreEqual(origBlock1RefText, poetryBlocksInMarkC1V2[0].GetPrimaryReferenceText());
-			Assert.AreEqual(origBlock2RefText, poetryBlocksInMarkC1V2[1].GetPrimaryReferenceText());
-			Assert.AreEqual(origBlock3RefText, poetryBlocksInMarkC1V2[2].GetPrimaryReferenceText());
+			Assert.That(poetryBlocksInMarkC1V2[0].GetPrimaryReferenceText(),
+				Is.EqualTo(origBlock1RefText));
+			Assert.That(poetryBlocksInMarkC1V2[1].GetPrimaryReferenceText(),
+				Is.EqualTo(origBlock2RefText));
+			Assert.That(poetryBlocksInMarkC1V2[2].GetPrimaryReferenceText(),
+				Is.EqualTo(origBlock3RefText));
 		}
 
 		[TestCase("{1} This is not  ", " ", " empty ", 2)]
@@ -1916,31 +2035,36 @@ namespace GlyssenEngineTests
 			var joinedSecondaryRefTextToVerifySetup = poetryBlocksInMarkC1V2[0].ReferenceBlocks.Single().GetPrimaryReferenceText();
 			if (!IsNullOrWhiteSpace(block2RefText) || !IsNullOrWhiteSpace(block3RefText))
 			{
-				Assert.AreNotEqual(joinedPrimaryRefTextToVerifySetup, origBlock1PrimaryRefText);
-				Assert.AreNotEqual(joinedSecondaryRefTextToVerifySetup, origBlock1SecondaryRefText);
+				Assert.That(joinedPrimaryRefTextToVerifySetup, Is.Not.EqualTo(origBlock1PrimaryRefText));
+				Assert.That(joinedSecondaryRefTextToVerifySetup, Is.Not.EqualTo(origBlock1SecondaryRefText));
 			}
 
-			Assert.IsTrue(joinedPrimaryRefTextToVerifySetup.StartsWith(origBlock1PrimaryRefText));
-			Assert.IsTrue(joinedPrimaryRefTextToVerifySetup.Contains(origBlock2PrimaryRefText));
-			Assert.IsTrue(joinedPrimaryRefTextToVerifySetup.EndsWith(origBlock3PrimaryRefText));
-			Assert.IsTrue(joinedSecondaryRefTextToVerifySetup.StartsWith(origBlock1SecondaryRefText));
-			Assert.IsTrue(joinedSecondaryRefTextToVerifySetup.Contains(origBlock2SecondaryRefText));
-			Assert.IsTrue(joinedSecondaryRefTextToVerifySetup.EndsWith(origBlock3SecondaryRefText));
+			Assert.That(joinedPrimaryRefTextToVerifySetup, Does.StartWith(origBlock1PrimaryRefText));
+			Assert.That(joinedPrimaryRefTextToVerifySetup, Does.Contain(origBlock2PrimaryRefText));
+			Assert.That(joinedPrimaryRefTextToVerifySetup, Does.EndWith(origBlock3PrimaryRefText));
+			Assert.That(joinedSecondaryRefTextToVerifySetup, Does.StartWith(origBlock1SecondaryRefText));
+			Assert.That(joinedSecondaryRefTextToVerifySetup, Does.Contain(origBlock2SecondaryRefText));
+			Assert.That(joinedSecondaryRefTextToVerifySetup, Does.EndWith(origBlock3SecondaryRefText));
 
 			ProjectDataMigrator.MigrateDuplicatedReferenceTextFromJoining(testProject.Books);
 
-			Assert.AreEqual(origBlock1PrimaryRefText, poetryBlocksInMarkC1V2[0].GetPrimaryReferenceText());
-			Assert.AreEqual(origBlock1SecondaryRefText, poetryBlocksInMarkC1V2[0].ReferenceBlocks.Single().GetPrimaryReferenceText());
-			Assert.AreEqual(origBlock2PrimaryRefText, poetryBlocksInMarkC1V2[1].GetPrimaryReferenceText());
-			Assert.AreEqual(origBlock2SecondaryRefText, poetryBlocksInMarkC1V2[1].ReferenceBlocks.Single().GetPrimaryReferenceText());
-			Assert.AreEqual(origBlock3PrimaryRefText, poetryBlocksInMarkC1V2[2].GetPrimaryReferenceText());
-			Assert.AreEqual(origBlock3SecondaryRefText, poetryBlocksInMarkC1V2[2].ReferenceBlocks.Single().GetPrimaryReferenceText());
+			Assert.That(poetryBlocksInMarkC1V2[0].GetPrimaryReferenceText(),
+				Is.EqualTo(origBlock1PrimaryRefText));
+			Assert.That(poetryBlocksInMarkC1V2[0].ReferenceBlocks.Single().GetPrimaryReferenceText(),
+				Is.EqualTo(origBlock1SecondaryRefText));
+			Assert.That(poetryBlocksInMarkC1V2[1].GetPrimaryReferenceText(),
+				Is.EqualTo(origBlock2PrimaryRefText));
+			Assert.That(poetryBlocksInMarkC1V2[1].ReferenceBlocks.Single().GetPrimaryReferenceText(),
+				Is.EqualTo(origBlock2SecondaryRefText));
+			Assert.That(poetryBlocksInMarkC1V2[2].GetPrimaryReferenceText(),
+				Is.EqualTo(origBlock3PrimaryRefText));
+			Assert.That(poetryBlocksInMarkC1V2[2].ReferenceBlocks.Single().GetPrimaryReferenceText(),
+				Is.EqualTo(origBlock3SecondaryRefText));
 		}
 
-		private string ToCyrillic(string english)
-		{
-			return english.Replace('s', 'с').Replace('n', 'н').Replace('e', 'э');
-		}
+		private static string ToCyrillic(string english) =>
+			english.Replace('s', 'с').Replace('n', 'н').Replace('e', 'э');
+
 		#endregion
 
 		#region PG-1311
@@ -1958,21 +2082,21 @@ namespace GlyssenEngineTests
 				.AddVerse(34, "Mœ sœ 'e, lœ butshɔnœ asœmœ, ayakoshe: endje za anga bale, yé anga œ sœpe. ")
 				.AddVerse(35, "Ayashe bisha œ sœ kœtɔ œrœ tœ œsœnœ bale: endje za anga bale, yé anga œ sœpe. "));
 			// The following call sets up the bogus data condition because it sets the Initial start/end verse numbers to 35.
-			AddBlockForVerseInProgress(origBlocks, CharacterVerseData.kUnexpectedCharacter, trailingPunctuation, "p")
+			AddBlockForVerseInProgress(origBlocks, kUnexpectedCharacter, trailingPunctuation, "p")
 				.AddVerse(verseRef, "Ayambarœ nœ Yisu yu she adœke:");
-			AddBlockForVerseInProgress(origBlocks, CharacterVerseData.kUnexpectedCharacter, " «Œrœnœ atamœ œ mbœrœtœ endje kpœta Gbozu?» ", "p");
+			AddBlockForVerseInProgress(origBlocks, kUnexpectedCharacter, " «Œrœnœ atamœ œ mbœrœtœ endje kpœta Gbozu?» ", "p");
 			AddNarratorBlockForVerseInProgress(origBlocks, "é tshe kœgi fœ endje adœke: ", "LUK");
-			AddBlockForVerseInProgress(origBlocks, CharacterVerseData.kAmbiguousCharacter, "«Osho á oko sœ tœnœ, œ kœngbɔtœ endje ɓa zœ.»", "p");
+			AddBlockForVerseInProgress(origBlocks, kAmbiguousCharacter, "«Osho á oko sœ tœnœ, œ kœngbɔtœ endje ɓa zœ.»", "p");
 			var book = new BookScript("LUK", origBlocks, ScrVers.English);
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.MigrateInvalidInitialStartVerseNumberFromSplitBeforePunctuation(books);
 
 			var resultingBlocks = book.GetScriptBlocks();
-			Assert.AreEqual(origBlocks.Count, resultingBlocks.Count);
+			Assert.That(resultingBlocks.Count, Is.EqualTo(origBlocks.Count));
 			for (int i = 2; i < resultingBlocks.Count; i++)
 			{
-				Assert.AreEqual(expectedInitialStartVerse, resultingBlocks[i].InitialStartVerseNumber);
-				Assert.AreEqual(expectedInitialEndVerse, resultingBlocks[i].InitialEndVerseNumber);
+				Assert.That(resultingBlocks[i].InitialStartVerseNumber, Is.EqualTo(expectedInitialStartVerse));
+				Assert.That(resultingBlocks[i].InitialEndVerseNumber, Is.EqualTo(expectedInitialEndVerse));
 			}
 		}
 		#endregion
@@ -1985,7 +2109,7 @@ namespace GlyssenEngineTests
 		public void SetBlocksFollowingSectionHeadToParagraphStart_SetsIsParagraphStartTrueForVersesFollowingSectionHeads(
 			bool initialValueForBlocksFollowingSection, bool initialValueForOtherBlocks)
 		{
-			var sectionHead = CharacterVerseData.GetStandardCharacterId("LEV", CharacterVerseData.StandardCharacter.ExtraBiblical);
+			var sectionHead = GetStandardCharacterId("LEV", ExtraBiblical);
 			var origBlocks = new List<Block>();
 			var indicesOfVersesFollowingSectionHeads = new List<int>(3);
 			origBlocks.Add(CreateChapterBlock("LEV", 1, "c", true));
@@ -2009,16 +2133,16 @@ namespace GlyssenEngineTests
 			ProjectDataMigrator.SetBlocksFollowingSectionHeadToParagraphStart(books);
 
 			var resultingBlocks = book.GetScriptBlocks();
-			Assert.AreEqual(origBlocks.Count, resultingBlocks.Count);
+			Assert.That(resultingBlocks.Count, Is.EqualTo(origBlocks.Count));
 			for (var i = 0; i < resultingBlocks.Count; i++)
 			{
 				var block = resultingBlocks[i];
 				if (block.IsChapterAnnouncement)
 					continue;
 				if (indicesOfVersesFollowingSectionHeads.Contains(i))
-					Assert.IsTrue(block.IsParagraphStart);
+					Assert.That(block.IsParagraphStart);
 				else
-					Assert.AreEqual(initialValueForOtherBlocks, block.IsParagraphStart);
+					Assert.That(block.IsParagraphStart, Is.EqualTo(initialValueForOtherBlocks));
 			}
 		}
 		#endregion
@@ -2068,7 +2192,7 @@ namespace GlyssenEngineTests
 
 		private Block CreateChapterBlock(string bookId, int chapter, string styleTag, bool omitLabel = false)
 		{
-			var chapterVerse = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.BookOrChapter);
+			var chapterVerse = GetStandardCharacterId(bookId, BookOrChapter);
 
 			return new Block
 			{

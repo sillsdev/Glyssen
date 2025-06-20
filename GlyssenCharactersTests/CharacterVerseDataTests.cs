@@ -12,7 +12,7 @@ namespace GlyssenCharactersTests
 		[TestCase("intro-wow")] // Note: To be perfectly strict, we would check for a valid book code, but this method tends to be performance critical, so it's not worth it.
 		public void IsCharacterExtraBiblical_ExtraBiblicalCharacter_ReturnsTrue(string characterId)
 		{
-			Assert.IsTrue(CharacterVerseData.IsCharacterExtraBiblical(characterId));
+			Assert.That(CharacterVerseData.IsCharacterExtraBiblical(characterId), Is.True);
 		}
 
 		[TestCase("BCGEN")]
@@ -22,7 +22,7 @@ namespace GlyssenCharactersTests
 		[TestCase("Joseph")]
 		public void IsCharacterExtraBiblical_NormalCharacter_ReturnsFalse(string characterId)
 		{
-			Assert.IsFalse(CharacterVerseData.IsCharacterExtraBiblical(characterId));
+			Assert.That(CharacterVerseData.IsCharacterExtraBiblical(characterId), Is.False);
 		}
 
 		[TestCase("narrator-MAL")]
@@ -31,7 +31,7 @@ namespace GlyssenCharactersTests
 		[TestCase("intro-REV")]
 		public void IsCharacterStandard_StandardCharacter_ReturnsTrue(string characterId)
 		{
-			Assert.IsTrue(CharacterVerseData.IsCharacterStandard(characterId));
+			Assert.That(CharacterVerseData.IsCharacterStandard(characterId), Is.True);
 		}
 
 		[TestCase("Jesus")]
@@ -43,7 +43,7 @@ namespace GlyssenCharactersTests
 		[TestCase("extra-JOHN")]
 		public void IsCharacterStandard_NonStandardCharacter_ReturnsFalse(string characterId)
 		{
-			Assert.IsFalse(CharacterVerseData.IsCharacterStandard(characterId));
+			Assert.That(CharacterVerseData.IsCharacterStandard(characterId), Is.False);
 		}
 
 		[TestCase("intro-REV")]
@@ -52,7 +52,7 @@ namespace GlyssenCharactersTests
 		[TestCase("interruption-JHN")]
 		public void IsUserAssignable_ExtraBiblicalOrInterruption_ReturnsFalse(string characterId)
 		{
-			Assert.IsFalse(CharacterVerseData.IsUserAssignable(characterId));
+			Assert.That(CharacterVerseData.IsUserAssignable(characterId), Is.False);
 		}
 
 		[TestCase("intro-REVELATION")]
@@ -65,7 +65,7 @@ namespace GlyssenCharactersTests
 		[TestCase("narrator-JHN")]
 		public void IsUserAssignable_NotExtraBiblicalOrInterruption_ReturnsTrue(string characterId)
 		{
-			Assert.IsTrue(CharacterVerseData.IsUserAssignable(characterId));
+			Assert.That(CharacterVerseData.IsUserAssignable(characterId), Is.True);
 		}
 
 		[TestCase("interruption-MAT")]
@@ -73,7 +73,7 @@ namespace GlyssenCharactersTests
 		[TestCase("interruption-FRG")]
 		public void IsInterruption_Interruption_ReturnsTrue(string characterId)
 		{
-			Assert.IsTrue(CharacterVerseData.IsInterruption(characterId));
+			Assert.That(CharacterVerseData.IsInterruption(characterId), Is.True);
 		}
 
 		[TestCase("intro-REV")]
@@ -86,7 +86,7 @@ namespace GlyssenCharactersTests
 		[TestCase("narrator-JHN")]
 		public void IsInterruption_NotInterruption_ReturnsFalse(string characterId)
 		{
-			Assert.IsFalse(CharacterVerseData.IsInterruption(characterId));
+			Assert.That(CharacterVerseData.IsInterruption(characterId), Is.False);
 		}
 
 		// If IsCharacterStandard and/or IsCharacterExtraBiblical need to be tweaked, the following test can be used (and adjusted as needed)
@@ -145,7 +145,7 @@ namespace GlyssenCharactersTests
 		//		}
 		//	}
 
-		//	Assert.IsTrue(proposedNewVersionTotal < baselineTotal);
+		//	Assert.That(proposedNewVersionTotal, Is.LessThan(baselineTotal);
 		//	Console.WriteLine($"Elapsed new proposed version ticks: {proposedNewVersionTotal}; Elapsed baseline version ticks: {baselineTotal}");
 		//}
 	}
