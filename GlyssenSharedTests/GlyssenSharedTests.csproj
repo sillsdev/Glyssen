@@ -96,17 +96,17 @@
     <Reference Include="nunit.framework, Version=4.3.2.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.4.3.2\lib\net462\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Core, Version=16.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Core.16.0.0\lib\net462\SIL.Core.dll</HintPath>
+    <Reference Include="SIL.Core, Version=16.1.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <HintPath>..\packages\SIL.Core.16.1.0\lib\net462\SIL.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.DblBundle, Version=16.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.DblBundle.16.0.0\lib\net462\SIL.DblBundle.dll</HintPath>
+    <Reference Include="SIL.DblBundle, Version=16.1.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <HintPath>..\packages\SIL.DblBundle.16.1.0\lib\net462\SIL.DblBundle.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Scripture, Version=16.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Scripture.16.0.0\lib\net462\SIL.Scripture.dll</HintPath>
+    <Reference Include="SIL.Scripture, Version=16.1.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <HintPath>..\packages\SIL.Scripture.16.1.0\lib\net462\SIL.Scripture.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.WritingSystems, Version=16.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.WritingSystems.16.0.0\lib\net462\SIL.WritingSystems.dll</HintPath>
+    <Reference Include="SIL.WritingSystems, Version=16.1.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <HintPath>..\packages\SIL.WritingSystems.16.1.0\lib\net462\SIL.WritingSystems.dll</HintPath>
     </Reference>
     <Reference Include="Spart, Version=1.0.0.0, Culture=neutral, PublicKeyToken=14d24e064e474331, processorArchitecture=MSIL">
       <HintPath>..\packages\Spart.1.0.0\lib\net461\Spart.dll</HintPath>
