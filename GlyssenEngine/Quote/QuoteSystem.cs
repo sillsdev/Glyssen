@@ -11,6 +11,8 @@ using SIL.WritingSystems;
 using SIL.Xml;
 using static System.Char;
 using static System.String;
+using static SIL.Extensions.StringExtensions;
+using static SIL.WritingSystems.QuotationMarkingSystemType;
 
 namespace GlyssenEngine.Quote
 {
@@ -20,15 +22,13 @@ namespace GlyssenEngine.Quote
 		public static IComparer<QuotationMark> QuotationMarkTypeAndLevelComparer = new TypeAndLevelComparer();
 
 		private Regex m_regexInterruption;
-		private Regex m_regexReportingClause = null;
+		private Regex m_regexReportingClause;
 
 		/// <summary>
 		/// This is deprecated and should only be used for upgrading from old data
 		/// </summary>
-		private static string AnyPunctuation_Deprecated
-		{
-			get { return SIL.Extensions.StringExtensions.kObjReplacementChar.ToString(CultureInfo.InvariantCulture); }
-		}
+		private static string AnyPunctuation_Deprecated =>
+			kObjReplacementChar.ToString(CultureInfo.InvariantCulture);
 
 		private static List<QuoteSystem> s_systems;
 
@@ -48,7 +48,7 @@ namespace GlyssenEngine.Quote
 				{
 					var qs = new QuoteSystem(quoteSystem);
 					if (!IsNullOrWhiteSpace(quoteSystem.Name))
-						qs.Name = Format("{0} with levels 2 ({1}/{2}) and 3.", quoteSystem.Name, level2.Open, level2.Close);
+						qs.Name = $"{quoteSystem.Name} with levels 2 ({level2.Open}/{level2.Close}) and 3.";
 					qs.AllLevels.Add(level2);
 					qs.AllLevels.Add(QuoteUtils.GenerateLevel3(qs, true));
 					systemsWithAllLevels.Add(qs);
@@ -69,7 +69,7 @@ namespace GlyssenEngine.Quote
 		{
 			AllLevels.Add(firstLevel);
 			if (quotationDashMarker != null)
-				AllLevels.Add(new QuotationMark(quotationDashMarker, quotationDashEndMarker, null, 1, QuotationMarkingSystemType.Narrative));
+				AllLevels.Add(new QuotationMark(quotationDashMarker, quotationDashEndMarker, null, 1, Narrative));
 		}
 
 		public QuoteSystem(BulkObservableList<QuotationMark> allLevels) : this()
@@ -107,14 +107,14 @@ namespace GlyssenEngine.Quote
 
 		public string MajorLanguage
 		{
-			get { return m_majorLanguage; }
+			get => m_majorLanguage;
 			set
 			{
 				m_majorLanguage = value;
 				if (value == "French" && AllLevels.Any())
 				{
 					AllLevels[0] = new QuotationMark(AllLevels[0].Open, AllLevels[0].Close, AllLevels[0].Close, 1,
-						QuotationMarkingSystemType.Normal);
+						Normal);
 				}
 			}
 		}
@@ -122,7 +122,7 @@ namespace GlyssenEngine.Quote
 		[XmlIgnore]
 		public BulkObservableList<QuotationMark> AllLevels
 		{
-			get { return m_allLevels; }
+			get => m_allLevels;
 			set
 			{
 				m_allLevels = value;
@@ -131,18 +131,13 @@ namespace GlyssenEngine.Quote
 		}
 
 		[XmlIgnore]
-		public System.Collections.ObjectModel.ReadOnlyCollection<QuotationMark> NormalLevels
-		{
-			get
-			{
-				return m_allLevels.Where(l => l.Type == QuotationMarkingSystemType.Normal).ToList().AsReadOnly();
-			}
-		}
+		public System.Collections.ObjectModel.ReadOnlyCollection<QuotationMark> NormalLevels =>
+			m_allLevels.Where(l => l.Type == Normal).ToList().AsReadOnly();
 
 		[XmlIgnore]
 		public QuotationMark FirstLevel => AllLevels[0];
 
-		public void SetReportingClauseDelimiters(string start, string end = default)
+		public void SetReportingClauseDelimiters(string start, string end = null)
 		{
 			const string kMustBePunctMsg = "Reporting clause delimiter character(s) must be punctuation.";
 			if (IsNullOrEmpty(start))
@@ -200,18 +195,18 @@ namespace GlyssenEngine.Quote
 		[XmlElement("StartQuoteMarker")]
 		public string StartQuoteMarker_DeprecatedXml
 		{
-			get { return null; }
+			get => null;
 			set
 			{
 				if (AllLevels.Count == 0)
 				{
 					var cont = MajorLanguage == "French" ? null : value;
-					AllLevels.Add(new QuotationMark(value, null, cont, 1, QuotationMarkingSystemType.Normal));
+					AllLevels.Add(new QuotationMark(value, null, cont, 1, Normal));
 				}
 				else
 				{
 					var cont = MajorLanguage == "French" ? AllLevels[0].Close : value;
-					AllLevels[0] = new QuotationMark(value, AllLevels[0].Close, cont, 1, QuotationMarkingSystemType.Normal);
+					AllLevels[0] = new QuotationMark(value, AllLevels[0].Close, cont, 1, Normal);
 				}
 			}
 		}
@@ -219,19 +214,19 @@ namespace GlyssenEngine.Quote
 		[XmlElement("EndQuoteMarker")]
 		public string EndQuoteMarker_DeprecatedXml
 		{
-			get { return null; }
+			get => null;
 			set
 			{
 				if (AllLevels.Count == 0)
 				{
 					var cont = MajorLanguage == "French" ? value : null;
-					AllLevels.Add(new QuotationMark(null, value, cont, 1, QuotationMarkingSystemType.Normal));
+					AllLevels.Add(new QuotationMark(null, value, cont, 1, Normal));
 				}
 				else
 				{
 					var cont = MajorLanguage == "French" ? value : AllLevels[0].Continue;
 					AllLevels[0] = new QuotationMark(AllLevels[0].Open, value, cont, 1,
-						QuotationMarkingSystemType.Normal);
+						Normal);
 				}
 			}
 		}
@@ -239,18 +234,18 @@ namespace GlyssenEngine.Quote
 		[XmlElement("QuotationDashMarker")]
 		public string QuotationDashMarker_DeprecatedXml
 		{
-			get { return null; }
+			get => null;
 			set
 			{
-				QuotationMark dialog = AllLevels.FirstOrDefault(l => l.Level == 1 && l.Type == QuotationMarkingSystemType.Narrative);
+				QuotationMark dialog = AllLevels.FirstOrDefault(l => l.Level == 1 && l.Type == Narrative);
 				if (dialog == null)
 				{
-					AllLevels.Add(new QuotationMark(value, null, null, 1, QuotationMarkingSystemType.Narrative));
+					AllLevels.Add(new QuotationMark(value, null, null, 1, Narrative));
 				}
 				else
 				{
 					AllLevels.Remove(dialog);
-					AllLevels.Add(new QuotationMark(value, dialog.Close, dialog.Continue, 1, QuotationMarkingSystemType.Narrative));
+					AllLevels.Add(new QuotationMark(value, dialog.Close, dialog.Continue, 1, Narrative));
 				}
 			}
 		}
@@ -258,20 +253,20 @@ namespace GlyssenEngine.Quote
 		[XmlElement("QuotationDashEndMarker")]
 		public string QuotationDashEndMarker_DeprecatedXml
 		{
-			get { return null; }
+			get => null;
 			set
 			{
-				QuotationMark dialog = AllLevels.FirstOrDefault(l => l.Level == 1 && l.Type == QuotationMarkingSystemType.Narrative);
+				QuotationMark dialog = AllLevels.FirstOrDefault(l => l.Level == 1 && l.Type == Narrative);
 				if (value == AnyPunctuation_Deprecated)
 					value = null;
 				if (dialog == null)
 				{
-					AllLevels.Add(new QuotationMark(null, value, null, 1, QuotationMarkingSystemType.Narrative));
+					AllLevels.Add(new QuotationMark(null, value, null, 1, Narrative));
 				}
 				else
 				{
 					AllLevels.Remove(dialog);
-					AllLevels.Add(new QuotationMark(dialog.Open, value, dialog.Continue, 1, QuotationMarkingSystemType.Narrative));
+					AllLevels.Add(new QuotationMark(dialog.Open, value, dialog.Continue, 1, Narrative));
 				}
 			}
 		}
@@ -280,7 +275,7 @@ namespace GlyssenEngine.Quote
 		public string QuotationDashMarker {
 			get
 			{
-				QuotationMark dialog = AllLevels.FirstOrDefault(l => l.Level == 1 && l.Type == QuotationMarkingSystemType.Narrative);
+				QuotationMark dialog = AllLevels.FirstOrDefault(l => l.Level == 1 && l.Type == Narrative);
 				if (dialog == null)
 					return null;
 				return dialog.Open;
@@ -292,7 +287,7 @@ namespace GlyssenEngine.Quote
 		{
 			get
 			{
-				QuotationMark dialog = AllLevels.FirstOrDefault(l => l.Level == 1 && l.Type == QuotationMarkingSystemType.Narrative);
+				QuotationMark dialog = AllLevels.FirstOrDefault(l => l.Level == 1 && l.Type == Narrative);
 				if (dialog == null)
 					return null;
 				return dialog.Close;
@@ -350,10 +345,7 @@ namespace GlyssenEngine.Quote
 			}
 		}
 
-		public string FullSummary
-		{
-			get { return ToString(); }
-		}
+		public string FullSummary => ToString();
 
 		//public QuoteSystem GetCorrespondingFirstLevelQuoteSystem()
 		//{

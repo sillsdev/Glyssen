@@ -220,7 +220,7 @@ namespace Glyssen.Dialogs
 			PublicationName = m_model.PublicationName;
 			PublicationId = m_model.PublicationId;
 			m_txtVersification.Text = m_model.Versification.Name;
-			m_lblQuoteMarkSummary.Text = m_model.Project.QuoteSystem.ShortSummary;
+			m_lblQuoteMarkSummary.Text = m_model.Project.QuoteSystem?.ShortSummary;
 
 			m_wsFontControl.BindToModel(wsViewModel);
 
@@ -302,6 +302,9 @@ namespace Glyssen.Dialogs
 
 		private void UpdateQuotePageDisplay()
 		{
+			if (m_model.Project == null)
+				return;
+			
 			m_lblQuoteMarkSummary.Text = m_model.Project.QuoteSystem.ShortSummary;
 
 			m_lblQuoteMarkReview.ForeColor = GlyssenColorPalette.ColorScheme.ForeColor;
@@ -432,11 +435,12 @@ namespace Glyssen.Dialogs
 					reparseOkay = true;
 				else
 				{
-					string msg = Format(LocalizationManager.GetString("Project.UnableToLocateTextBundleMsg",
+					var msg = Format(LocalizationManager.GetString("Project.UnableToLocateTextBundleMsg",
 							"The original text release bundle for the project is no longer in its original location ({0}). " +
 							"The Quote Mark Settings cannot be modified without access to it."), m_model.Project.OriginalBundlePath) +
 						Program.LocateBundleYourselfQuestion;
-					string title = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle", "Message caption");
+					var title = LocalizationManager.GetString("Project.UnableToLocateTextBundle",
+						"Unable to Locate Text Bundle", "Message caption");
 					if (DialogResult.Yes == MessageBox.Show(msg, title, MessageBoxButtons.YesNo))
 						reparseOkay = SelectBundleForProjectDlg.GiveUserChanceToFindOriginalBundle(m_model.Project);
 				}

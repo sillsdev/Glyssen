@@ -339,7 +339,7 @@ namespace GlyssenEngine
 		public QuoteSystem QuoteSystem => m_quoteSystem != null ? m_quoteSystem : (m_quoteSystem = QuoteSystem.TryCreateFromWritingSystem(WritingSystem));
 
 		/// <summary>
-		/// Setting the quote system has a number of potential side-effects. Most notably, if the project is awaiting quote system
+		/// Setting the quote system has a number of potential side effects. Most notably, if the project is awaiting quote system
 		/// confirmation and the quote system status is ready for parsing, this kicks off the quote parse. In the event of a later
 		/// change, this can also trigger an automatic backup of the project (because the process of re-applying user decisions when
 		/// the parse changes dramatically can be kind of messy).
