@@ -24,22 +24,27 @@ using GlyssenEngine.Utilities;
 using GlyssenEngine.ViewModels;
 using GlyssenFileBasedPersistence;
 using L10NSharp;
+using NetSparkle;
+using Paratext.Data;
+using Paratext.Data.Languages;
 using SIL.DblBundle;
 using SIL.IO;
 using SIL.Progress;
 using SIL.Reporting;
-using SIL.Windows.Forms;
-using SIL.Windows.Forms.Miscellaneous;
-using NetSparkle;
-using Paratext.Data;
 using SIL.Scripture;
+using SIL.Windows.Forms;
 using SIL.Windows.Forms.Extensions;
+using SIL.Windows.Forms.Miscellaneous;
 using SIL.Windows.Forms.ReleaseNotes;
 using SIL.Windows.Forms.WritingSystems;
+using static System.Environment;
 using static System.String;
+using static System.Windows.Forms.DialogResult;
+using static System.Windows.Forms.MessageBoxButtons;
+using static System.Windows.Forms.MessageBoxIcon;
 using Analytics = DesktopAnalytics.Analytics;
-using Resources = Glyssen.Properties.Resources;
 using AssignCharacterViewModel = GlyssenEngine.ViewModels.AssignCharacterViewModel<System.Drawing.Font>;
+using Resources = Glyssen.Properties.Resources;
 
 namespace Glyssen
 {
@@ -108,11 +113,11 @@ namespace Glyssen
 			var msg = msg1 + "\n\n" + msg2 + msg3;
 			Logger.WriteEvent(msg);
 
-			switch (MessageBox.Show(msg, GlyssenInfo.Product, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
+			switch (MessageBox.Show(msg, GlyssenInfo.Product, AbortRetryIgnore, Warning, MessageBoxDefaultButton.Button2))
 			{
 				default: return BadLdmlRecoveryAction.Repair;
-				case DialogResult.Retry: return BadLdmlRecoveryAction.Retry;
-				case DialogResult.Abort: return BadLdmlRecoveryAction.Abort;
+				case Retry: return BadLdmlRecoveryAction.Retry;
+				case Abort: return BadLdmlRecoveryAction.Abort;
 			}
 		}
 
@@ -230,7 +235,7 @@ namespace Glyssen
 			{
 				{"language", project.LanguageIsoCode},
 				{"ID", project.Id},
-				{"recordingProjectName", Name},
+				{"recordingProjectName", project.Name},
 				{"TotalBlocks", analysis.TotalBlocks.ToString(CultureInfo.InvariantCulture)},
 				{"UserPercentAssigned", analysis.UserPercentAssigned.ToString(CultureInfo.InvariantCulture)},
 				{"TotalPercentAssigned", analysis.TotalPercentAssigned.ToString(CultureInfo.InvariantCulture)},
@@ -283,7 +288,7 @@ namespace Glyssen
 				m_imgCheckAssignCharacters.Image = m_project.ProjectAnalysis.AlignmentPercent == 100 ? Resources.green_check : Resources.yellow_check;
 			m_btnExport.Enabled = readyForUserInteraction && m_btnIdentify.Enabled;
 
-			m_btnAssignVoiceActors.Visible = Environment.GetEnvironmentVariable("Glyssen_ProtoscriptOnly", EnvironmentVariableTarget.User) == null;
+			m_btnAssignVoiceActors.Visible = GetEnvironmentVariable("Glyssen_ProtoscriptOnly", EnvironmentVariableTarget.User) == null;
 			m_btnCastSizePlanning.Visible = m_btnAssignVoiceActors.Visible;
 
 			m_btnCastSizePlanning.Enabled = m_btnCastSizePlanning.Visible && readyForUserInteraction && m_imgCheckAssignCharacters.Visible;
@@ -346,6 +351,8 @@ namespace Glyssen
 			Cursor = Cursors.WaitCursor;
 			var result = dlg.ShowDialog(this);
 			Cursor = origCursor;
+			if (result != Cancel)
+				TrackAnalyticsForMajorActivity(dlg);
 			return result;
 		}
 
@@ -514,7 +521,7 @@ namespace Glyssen
 				existingProject.OriginalBundlePath) +
 				Program.LocateBundleYourselfQuestion;
 			string caption = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
-			if (DialogResult.Yes == MessageBox.Show(msg, caption, MessageBoxButtons.YesNo))
+			if (Yes == MessageBox.Show(msg, caption, YesNo))
 				return SelectBundleForProjectDlg.GiveUserChanceToFindOriginalBundle(existingProject);
 			return false;
 		}
@@ -566,6 +573,12 @@ namespace Glyssen
 			try
 			{
 				SetProject(new Project(bundle, recordingProjectName));
+				Analytics.Track("NewProject",
+					new Dictionary<string, string>
+					{
+						{ "type", "TextReleaseBundle" },
+						{ "recordingProjectName", recordingProjectName }
+					});
 			}
 			catch (InvalidVersificationLineException ex)
 			{
@@ -580,7 +593,7 @@ namespace Glyssen
 					"Error: {2}"),
 					bundlePath, DblBundleFileUtils.kVersificationFileName, error);
 				Logger.WriteError(msg, ex);
-				MessageBox.Show(this, msg, GlyssenInfo.Product, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				MessageBox.Show(this, msg, GlyssenInfo.Product, MessageBoxButtons.OK, Warning);
 				SetProject(null);
 			}
 
@@ -606,7 +619,7 @@ namespace Glyssen
 			var optionalObserverInfo = paratextProject.UserCanEditProject ? Empty :
 				Format(LocalizationManager.GetString("Project.NonEditingRole", "(You do not seem to have editing privileges for this {0} project.)",
 					"Param: \"Paratext\" (product name)"), ParatextScrTextWrapper.kParatextProgramName) +
-				Environment.NewLine;
+				NewLine;
 
 			if (!paratextProject.HasQuotationRulesSet)
 			{
@@ -627,8 +640,8 @@ namespace Glyssen
 					paratextProjName,
 					optionalObserverInfo,
 					ParatextProjectBookInfo.LocalizedCheckName(ParatextScrTextWrapper.kQuotationCheckId));
-				var result = MessageBox.Show(this, msg, GlyssenInfo.Product, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
-				if (result == DialogResult.Cancel)
+				var result = MessageBox.Show(this, msg, GlyssenInfo.Product, OKCancel, Exclamation);
+				if (result == Cancel)
 				{
 					Logger.WriteEvent($"User cancelled project creation because {ParatextScrTextWrapper.kParatextProgramName} " +
 						"Quotation Rules were not defined.");
@@ -660,8 +673,8 @@ namespace Glyssen
 					GlyssenInfo.Product,
 					paratextProject.RequiredCheckNames,
 					optionalObserverInfo);
-				var result = MessageBox.Show(this, msg, GlyssenInfo.Product, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-				if (result == DialogResult.No)
+				var result = MessageBox.Show(this, msg, GlyssenInfo.Product, YesNo, Exclamation);
+				if (result == No)
 				{
 					Logger.WriteEvent("User cancelled project creation because no books passed recommended checks.");
 					SetProject(null);
@@ -687,6 +700,12 @@ namespace Glyssen
 			}
 
 			SetProject(new Project(paratextProject));
+			Analytics.Track("NewProject",
+				new Dictionary<string, string>
+				{
+					{ "type", "Paratext" },
+					{ "paratextProjName", paratextProjName }
+				});
 			m_paratextScrTextWrapperForRecentlyCreatedProject = paratextProject;
 		}
 
@@ -702,11 +721,11 @@ namespace Glyssen
 				var bldr = new StringBuilder(ex.Message);
 				if (ex.InnerException != null)
 				{
-					bldr.Append(Environment.NewLine);
+					bldr.Append(NewLine);
 					bldr.Append(ex.InnerException);
 				}
 
-				MessageBox.Show(this, bldr.ToString(), ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				MessageBox.Show(this, bldr.ToString(), ProductName, MessageBoxButtons.OK, Exclamation);
 				UpdateDisplayOfProjectInfo();
 				return false;
 			}
@@ -879,7 +898,7 @@ namespace Glyssen
 			ShowProjectScriptPresenterDlg(exporter => new ViewScriptDlg(exporter));
 		}
 
-		private void EnsureGroupsAreInSynchWithCharactersInUse()
+		private void EnsureGroupsAreInSyncWithCharactersInUse()
 		{
 			if (!m_project.CharacterGroupList.CharacterGroups.Any())
 				return;
@@ -955,7 +974,7 @@ namespace Glyssen
 			}
 			else if (m_project.ProjectAnalysis.NeedsReviewBlocks > 0)
 			{
-				dlgMessage = BlocksNeedReviewMessage + " " + UseNeedsReviewFilterHint + Environment.NewLine +
+				dlgMessage = BlocksNeedReviewMessage + " " + UseNeedsReviewFilterHint + NewLine +
 					LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.BlocksNeedReviewMessage",
 					"Any block marked for review will not be assigned to a voice actor in the script until an actual biblical " +
 					"character is specified. Are you sure you want to export the script now?");
@@ -967,10 +986,10 @@ namespace Glyssen
 					LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.TitleIncomplete", "Export Incomplete Script?"):
 					LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.Title", "Export Script?");
 
-				dlgMessage += Environment.NewLine +
+				dlgMessage += NewLine +
 					LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.MessageNote",
 						"(Note: You can export the script again as many times as you want.)");
-				export = MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes;
+				export = MessageBox.Show(dlgMessage, dlgTitle, YesNo) == Yes;
 			}
 
 			return export;
@@ -1013,8 +1032,12 @@ namespace Glyssen
 					return;
 			}
 
-			if (ModifierKeys == Keys.Shift && MessageBox.Show("Are you sure you want to automatically disambiguate (for demo purposes)?", ProductName, MessageBoxButtons.YesNo) == DialogResult.Yes)
+			if (ModifierKeys == Keys.Shift &&
+			    MessageBox.Show(@"Are you sure you want to automatically disambiguate (for demo purposes)?",
+				    ProductName, YesNo) == Yes)
+			{
 				m_project.DoDemoDisambiguation();
+			}
 
 			var origCursor = Cursor;
 			Cursor = Cursors.WaitCursor;
@@ -1025,6 +1048,7 @@ namespace Glyssen
 				viewModel.ProjectCharacterVerseDataAdded += HandleProjectCharacterAdded;
 				using (var dlg = new AssignCharacterDlg(viewModel))
 				{
+					TrackAnalyticsForMajorActivity(dlg);
 					LogDialogDisplay(dlg);
 					dlg.ShowDialog(this);
 				}
@@ -1087,6 +1111,27 @@ namespace Glyssen
 			SaveCurrentProject(true);
 		}
 
+		private static void TrackAnalyticsForMajorActivity(object uiElement)
+		{
+			var name = (uiElement as Control)?.Name ?? (uiElement as ToolStripItem)?.Name;
+			if (name == null)
+				throw new ArgumentException(nameof(uiElement), "Expected a UI element with a name");
+
+			// Not strictly necessary, but makes the analytics data a bit cleaner:
+			var sb = new StringBuilder(name);
+			sb.Replace("m_btn", "");
+			sb.Replace("m_", "");
+			sb.Replace("Menu", "");
+			sb.Replace("Dialog", "");
+			sb.Replace("Dlg", "");
+			name = sb.ToString();	
+
+			Analytics.Track("PrimaryActivity", new Dictionary<string, string>
+			{
+				{"activityName", name},
+			});
+		}
+
 		private void Settings_Click(object sender, EventArgs e)
 		{
 			var origCursor = Cursor;
@@ -1102,6 +1147,8 @@ namespace Glyssen
 				Cursor = origCursor;
 				if (result != DialogResult.OK)
 					return;
+
+				TrackAnalyticsForMajorActivity(dlg);
 
 				m_project.UpdateSettings(model, wsModel.CurrentDefaultFontName, (int)wsModel.CurrentDefaultFontSize,
 					wsModel.CurrentRightToLeftScript);
@@ -1149,7 +1196,7 @@ namespace Glyssen
 					"To avoid probable confusion, would you like to allow {1} to clear the matches that cannot be migrated properly?",
 					"Param 0: name of language of new reference text; " +
 					"Param 1: \"Glyssen\" (product name)"), m_project.UiReferenceTextName, GlyssenInfo.Product),
-					ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes;
+					ProductName, YesNo, Warning) == Yes;
 			}
 			return (bool)m_isOkayToClearExistingRefBlocksThatCannotBeMigrated;
 		}
@@ -1191,7 +1238,7 @@ namespace Glyssen
 			LocalizationManager.GetString("MainForm.OneBlockNeedReviewMessage",
 				"There is one block in this project that needs review before finalizing the script.");
 
-		private string UseNeedsReviewFilterHint =>
+		private static string UseNeedsReviewFilterHint =>
 			LocalizationManager.GetString("MainForm.UseNeedsReviewFilterHint",
 			"(You can use the \"Needs review\" filter in Identify Speaking Parts to see which blocks still need attention.)");
 
@@ -1203,8 +1250,8 @@ namespace Glyssen
 					"You can work on voice actor assignments now, but any block marked for review will not be assigned to a " +
 					"character group until an actual biblical character is specified. Therefore, character groups and actor " +
 					"assignments to those groups will be tentative until you complete this work in Identify Speaking Parts. ");
-				if (MessageBox.Show(this, BlocksNeedReviewMessage + Environment.NewLine + msg + Environment.NewLine +
-					UseNeedsReviewFilterHint, ProductName, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.Cancel)
+				if (MessageBox.Show(this, BlocksNeedReviewMessage + NewLine + msg + NewLine +
+					UseNeedsReviewFilterHint, ProductName, OKCancel, Warning) == Cancel)
 				{
 					return;
 				}
@@ -1214,7 +1261,7 @@ namespace Glyssen
 
 			bool regenerateGroups = sender == m_btnCastSizePlanning;
 			if (!regenerateGroups)
-				EnsureGroupsAreInSynchWithCharactersInUse();
+				EnsureGroupsAreInSyncWithCharactersInUse();
 
 			if (!m_project.CharacterGroupList.CharacterGroups.Any())
 				GenerateGroupsProgressDialog.GenerateGroupsWithProgress(m_project, false, true, false, ProjectCastSizePlanningViewModel.SelectedCastSize);
@@ -1283,14 +1330,16 @@ namespace Glyssen
 
 		private void ShowProjectScriptPresenterDlg(Func<ProjectExporter, Form> getProjectScriptPresenterDlg)
 		{
-			EnsureGroupsAreInSynchWithCharactersInUse();
+			EnsureGroupsAreInSyncWithCharactersInUse();
 
 			if (m_project.ReferenceText == null)
 			{
 				if (m_temporaryRefTextOverrideForExporting != null)
 					m_project.ReferenceText = m_temporaryRefTextOverrideForExporting;
-				else if (!ResolveNullReferenceText(Format(LocalizationManager.GetString("Project.TemporarilyUseEnglishReferenceText",
-					"To continue and temporarily use the English reference text, click {0}.", "Param is \"Ignore\" button label (in the current Windows locale)"),
+				else if (!ResolveNullReferenceText(Format(
+					LocalizationManager.GetString("Project.TemporarilyUseEnglishReferenceText",
+					"To continue and temporarily use the English reference text, click {0}.",
+					"Param is \"Ignore\" button label (in the current Windows locale)"),
 					MessageBoxStrings.IgnoreButton)))
 				{
 					return;
@@ -1355,12 +1404,12 @@ namespace Glyssen
 					msg += "\n\n" + ignoreOptionText;
 				Logger.WriteEvent(msg);
 				switch (FlexibleMessageBox.Show(msg, GlyssenInfo.Product,
-					ignoreOptionText == null ? MessageBoxButtons.RetryCancel : MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning,
+					ignoreOptionText == null ? RetryCancel : AbortRetryIgnore, Warning,
 					(sender, e) => { SafeCreateAndOpenFolder(e.LinkText); }))
 				{
-					case DialogResult.Cancel:
-					case DialogResult.Abort: return false;
-					case DialogResult.Ignore:
+					case Cancel:
+					case Abort: return false;
+					case Ignore:
 						m_project.ReferenceText = m_temporaryRefTextOverrideForExporting = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 						break;
 				}
@@ -1430,7 +1479,7 @@ namespace Glyssen
 						"This project uses a custom reference text ({0}). For best results, if you share this project, the custom reference text " +
 						"should be installed on the other computer before importing.");
 					MessageBox.Show(this, Format(msg, m_project.ReferenceTextProxy.CustomIdentifier),
-						ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+						ProductName, MessageBoxButtons.OK, Information);
 				}
 
 				PathUtilities.SelectFileInExplorer(saveAsName);
@@ -1477,6 +1526,7 @@ namespace Glyssen
 			if (IsNullOrEmpty(importFile))
 				return;
 
+			TrackAnalyticsForMajorActivity(sender);
 			try
 			{
 				InitializeProgress();
@@ -1506,7 +1556,7 @@ namespace Glyssen
 					"want to continue and overwrite the existing files?");
 				Logger.WriteEvent(msg + " " + glyssenShare.ProjectFilePath);
 
-				if (MessageBox.Show(msg, GlyssenInfo.Product, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK)
+				if (MessageBox.Show(msg, GlyssenInfo.Product, OKCancel, Warning) != DialogResult.OK)
 					return;
 			}
 
@@ -1528,7 +1578,7 @@ namespace Glyssen
 							"Param 0: name of missing reference text; Param 1: \"Glyssen\"; Param 2: Path to Local Reference Texts folder");
 						FlexibleMessageBox.Show(this, Format(msg, m_project.ReferenceTextProxy.CustomIdentifier, ProductName,
 								"file://" + m_persistenceImpl.GetProjectFolderPath(m_project.ReferenceTextProxy)),
-							ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning, (sender, e) => { SafeCreateAndOpenFolder(e.LinkText); });
+							ProductName, MessageBoxButtons.OK, Warning, (sender, e) => { SafeCreateAndOpenFolder(e.LinkText); });
 					}
 				}
 
