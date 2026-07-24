@@ -14790,6 +14790,7 @@ HOS	5	12	God		God (Yahweh)	Implicit			EntireVerse
 HOS	5	13	God		God (Yahweh)	Implicit			EntireVerse
 HOS	5	14	God		God (Yahweh)	Implicit			EntireVerse
 HOS	5	15	God		God (Yahweh)	Implicit			EntireVerse
+HOS	6	1-3	Hosea			Potential			
 HOS	6	4	God		God (Yahweh)	Implicit			EntireVerse
 HOS	6	5	God		God (Yahweh)	Implicit			EntireVerse
 HOS	6	6	God		God (Yahweh)	Implicit			EntireVerse
