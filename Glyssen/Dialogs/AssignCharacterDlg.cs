@@ -32,11 +32,11 @@ using SplitBlockViewModel = GlyssenEngine.ViewModels.SplitBlockViewModel<System.
 
 namespace Glyssen.Dialogs
 {
-	public partial class AssignCharacterDlg : FormWithPersistedSettings, IMessageFilter, ILocalizable
+	public partial class AssignCharacterDlg : FormWithPersistedSettings, IMessageFilter
 	{
 		private readonly AssignCharacterViewModel m_viewModel;
-		private string m_xOfYFmt;
-		private string m_singleVoiceCheckboxFmt;
+		private readonly string m_xOfYFmt;
+		private readonly string m_singleVoiceCheckboxFmt;
 		private bool m_promptToCloseWhenTaskIsComplete;
 		int m_characterListHoveredIndex = -1;
 		private readonly ToolTip m_characterListToolTip = new ToolTip();
@@ -46,14 +46,32 @@ namespace Glyssen.Dialogs
 		private Font m_primaryReferenceTextFont;
 		private Font m_englishReferenceTextFont;
 		private bool m_userMadeChangesToReferenceTextMatchup;
-		private string m_defaultBlocksViewerText;
+		private readonly string m_defaultBlocksViewerText;
 		private readonly int m_indexOfFirstFilterItemRemoved;
 		private readonly object[] m_filterItemsForRainbowModeOnly;
 		private bool m_addingCharacterDelivery;
 		private bool m_askedUserAboutAssigningOnDoubleClick;
 
-		public void HandleStringsLocalized()
+		private void LocalizeFilterItems()
 		{
+			L10N.LocalizeComboList(m_toolStripComboBoxFilter, "DialogBoxes.AssignCharacterDlg.FilterOptions");
+		}
+
+		public AssignCharacterDlg(AssignCharacterViewModel<Font> viewModel)
+		{
+			InitializeComponent();
+
+			const int numberOfFilterItemsForRainbowModeOnly = 1;
+			m_indexOfFirstFilterItemRemoved = m_toolStripComboBoxFilter.Items.Count - numberOfFilterItemsForRainbowModeOnly;
+			LocalizeFilterItems();
+			m_filterItemsForRainbowModeOnly = new object[numberOfFilterItemsForRainbowModeOnly];
+			for (int i = 0; i < numberOfFilterItemsForRainbowModeOnly; i++)
+				m_filterItemsForRainbowModeOnly[i] = m_toolStripComboBoxFilter.Items[m_indexOfFirstFilterItemRemoved];
+
+			m_viewModel = viewModel;
+
+			m_scriptureReference.VerseControl.GetLocalizedBookName = L10N.GetLocalizedBookNameFunc(m_scriptureReference.VerseControl.GetLocalizedBookName);
+
 			m_viewModel.SetUiStrings(
 				CharacterVerseData.StandardCharacterNameFormatNarrator,
 				CharacterVerseData.StandardCharacterNameFormatBookOrChapter,
@@ -79,30 +97,6 @@ namespace Glyssen.Dialogs
 			m_CharacterOrDeliveryContextMenuItemMoveUp.ToolTipText = m_RefTextContextMenuItemMoveUp.ToolTipText;
 			m_CharacterOrDeliveryContextMenuItemMoveDown.Text = m_RefTextContextMenuItemMoveDown.Text;
 			m_CharacterOrDeliveryContextMenuItemMoveDown.ToolTipText = m_RefTextContextMenuItemMoveDown.ToolTipText;
-		}
-
-		private void LocalizeFilterItems()
-		{
-			L10N.LocalizeComboList(m_toolStripComboBoxFilter, "DialogBoxes.AssignCharacterDlg.FilterOptions");
-		}
-
-		public AssignCharacterDlg(AssignCharacterViewModel<Font> viewModel)
-		{
-			InitializeComponent();
-
-			const int numberOfFilterItemsForRainbowModeOnly = 1;
-			m_indexOfFirstFilterItemRemoved = m_toolStripComboBoxFilter.Items.Count - numberOfFilterItemsForRainbowModeOnly;
-			LocalizeFilterItems();
-			m_filterItemsForRainbowModeOnly = new object[numberOfFilterItemsForRainbowModeOnly];
-			for (int i = 0; i < numberOfFilterItemsForRainbowModeOnly; i++)
-				m_filterItemsForRainbowModeOnly[i] = m_toolStripComboBoxFilter.Items[m_indexOfFirstFilterItemRemoved];
-
-			m_viewModel = viewModel;
-
-			m_scriptureReference.VerseControl.GetLocalizedBookName = L10N.GetLocalizedBookNameFunc(m_scriptureReference.VerseControl.GetLocalizedBookName);
-
-			HandleStringsLocalized();
-			Program.RegisterLocalizable(this);
 
 			if (m_viewModel.CanDisplayReferenceTextForCurrentBlock)
 			{
@@ -166,7 +160,7 @@ namespace Glyssen.Dialogs
 			m_viewModel.CurrentBookSaved += UpdateSavedText;
 			m_viewModel.FilterReset += HandleFilterReset;
 
-			BlocksViewerOnMinimumWidthChanged(m_blocksViewer, new EventArgs());
+			BlocksViewerOnMinimumWidthChanged(m_blocksViewer, EventArgs.Empty);
 			m_blocksViewer.MinimumWidthChanged += BlocksViewerOnMinimumWidthChanged;
 		}
 
@@ -189,7 +183,7 @@ namespace Glyssen.Dialogs
 			}
 			// Even if it's the same filter selected, we need to force it to reset the mode
 			// because other stuff has changed, and this is what triggers our UI to update.
-			HandleFilterChanged(m_toolStripComboBoxFilter, new EventArgs());
+			HandleFilterChanged(m_toolStripComboBoxFilter, EventArgs.Empty);
 		}
 
 		private void BlocksViewerOnMinimumWidthChanged(object sender, EventArgs eventArgs)
@@ -773,7 +767,7 @@ namespace Glyssen.Dialogs
 					}
 					else
 					{
-						// Technically, we shouyld have a separate message for the case where the Delivery column is showing, but in practice
+						// Technically, we should have a separate message for the case where the Delivery column is showing, but in practice
 						// there is no way for the user to set the value for a cell in the Delivery column to null, so even though our code
 						// checks for this, it can't really happen.
 						string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.IncompleteCharacterAssignments",
@@ -1208,12 +1202,9 @@ namespace Glyssen.Dialogs
 				blockToSplit = matchup.GetCorrespondingOriginalBlock(matchup.CorrelatedBlocks[rowIndex]);
 				while (blockToSplit.IsContinuationOfPreviousBlockQuote)
 				{
-					if (rowIndex > 0)
-						blockToSplit = matchup.GetCorrespondingOriginalBlock(matchup.CorrelatedBlocks[--rowIndex]);
-					else
-					{
-						blockToSplit = m_viewModel.BlockAccessor.GetNthPreviousBlockWithinBook(1, blockToSplit);
-					}
+					blockToSplit = rowIndex > 0 ?
+						matchup.GetCorrespondingOriginalBlock(matchup.CorrelatedBlocks[--rowIndex]) :
+						m_viewModel.BlockAccessor.GetNthPreviousBlockWithinBook(1, blockToSplit);
 				}
 			}
 			else
@@ -1434,9 +1425,8 @@ namespace Glyssen.Dialogs
 
 		private void SwapValues(DataGridViewRow rowA, DataGridViewRow rowB, int columnIndex)
 		{
-			var temp = rowA.Cells[columnIndex].Value;
-			rowA.Cells[columnIndex].Value = rowB.Cells[columnIndex].Value;
-			rowB.Cells[columnIndex].Value = temp;
+			(rowA.Cells[columnIndex].Value, rowB.Cells[columnIndex].Value) =
+				(rowB.Cells[columnIndex].Value, rowA.Cells[columnIndex].Value);
 		}
 
 		private void SwapRefText(IReadOnlyList<Block> vernBlocks, int iCurrentVernBlock,
@@ -1542,15 +1532,16 @@ namespace Glyssen.Dialogs
 						.Value as AssignCharacterViewModel.Character;
 					if (selectedCharacter == null)
 					{
-						var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
-						if (newValue != null)
+						if (m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value is string newValue)
+						{
 							selectedCharacter = colCharacter.Items.Cast<AssignCharacterViewModel.Character>()
 								.First(c => c.LocalizedDisplay == newValue);
+						}
 					}
 
 					if (selectedCharacter == null)
 					{
-						Logger.WriteMinorEvent($"No character selected; setting to Ambiguous for " +
+						Logger.WriteMinorEvent("No character selected; setting to Ambiguous for " +
 							$"block {block.ChapterNumber}:{block.InitialStartVerseNumber} {block.GetText(true)}");
 					}
 					else
@@ -1564,7 +1555,7 @@ namespace Glyssen.Dialogs
 							// Narrators are never allowed to have a delivery other than normal.
 							// Unfortunately, by the time we call IsBlockAssignedToUnknownCharacterDeliveryPair below,
 							// the line that sets the character in the reference text matchup will have already reset
-							// the delivery. This leaves the UI out of synch with the data in the block, so we need
+							// the delivery. This leaves the UI out of sync with the data in the block, so we need
 							// to fix that first.
 							var deliveryCell = m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index];
 							if (deliveryCell.Value as string != AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay)
@@ -2095,7 +2086,7 @@ namespace Glyssen.Dialogs
 		{
 			if (e.Control is ComboBox && m_dataGridReferenceText.CurrentRow != null)
 			{
-				// PG-1103: Fix the black background on the drop down menu
+				// PG-1103: Fix the black background on the dropdown menu
 				e.CellStyle.BackColor = m_dataGridReferenceText.CurrentRow.DefaultCellStyle.BackColor;
 			}
 		}

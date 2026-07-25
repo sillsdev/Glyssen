@@ -69,7 +69,7 @@
 			this.label15 = new System.Windows.Forms.Label();
 			this.label16 = new System.Windows.Forms.Label();
 			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
-			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
+			this.m_l10NSharpExtender = new L10NSharp.Windows.Forms.L10NSharpExtender(this.components);
 			numericUpDown1 = new System.Windows.Forms.NumericUpDown();
 			numericUpDown2 = new System.Windows.Forms.NumericUpDown();
 			numericUpDown3 = new System.Windows.Forms.NumericUpDown();
@@ -852,7 +852,7 @@
 		private System.Windows.Forms.RadioButton m_rbCustom;
 		private Utilities.GlyssenColorPalette glyssenColorPalette;
 		private System.Windows.Forms.Label m_lblCastSize;
-		private L10NSharp.UI.L10NSharpExtender m_l10NSharpExtender;
+		private L10NSharp.Windows.Forms.L10NSharpExtender m_l10NSharpExtender;
 		private System.Windows.Forms.Label m_lblMen;
 		private System.Windows.Forms.Label m_lblWomen;
 		private System.Windows.Forms.Label m_lblTotal;

@@ -13,7 +13,7 @@ using SIL.Reporting;
 
 namespace Glyssen.Controls
 {
-	public partial class VoiceActorInformationGrid : UserControl, ILocalizable
+	public partial class VoiceActorInformationGrid : UserControl
 	{
 		public event EventHandler Saved;
 		public event EventHandler RowCountChanged;
@@ -40,8 +40,7 @@ namespace Glyssen.Controls
 
 			m_dataGrid.DataError += m_dataGrid_DataError;
 
-			Program.RegisterLocalizable(this);
-			HandleStringsLocalized();
+			InitializeDataSources();
 
 			ActorGender.ValueMember = "ID";
 			ActorGender.DisplayMember = "Name";
@@ -71,7 +70,7 @@ namespace Glyssen.Controls
 
 		}
 
-		public void HandleStringsLocalized()
+		public void InitializeDataSources()
 		{
 			ActorGender.DataSource = VoiceActorInformationViewModel.GetGenderDataTable();
 			ActorAge.DataSource = VoiceActorInformationViewModel.GetAgeDataTable();

@@ -51,7 +51,7 @@ namespace Glyssen.Dialogs
 			this.m_unAssignActorFromGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_splitGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_AddCharacterToGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
+			this.m_l10NSharpExtender = new L10NSharp.Windows.Forms.L10NSharpExtender(this.components);
 			this.m_toolStrip = new System.Windows.Forms.ToolStrip();
 			this.m_undoButton = new System.Windows.Forms.ToolStripButton();
 			this.m_redoButton = new System.Windows.Forms.ToolStripButton();
@@ -1331,7 +1331,7 @@ namespace Glyssen.Dialogs
 
 		#endregion
 
-		private L10NSharp.UI.L10NSharpExtender m_l10NSharpExtender;
+		private L10NSharp.Windows.Forms.L10NSharpExtender m_l10NSharpExtender;
 		private Controls.SaveStatus m_saveStatus;
 		private System.Windows.Forms.ToolTip m_toolTip;
 		private System.Windows.Forms.ContextMenuStrip m_contextMenuCharacterGroups;

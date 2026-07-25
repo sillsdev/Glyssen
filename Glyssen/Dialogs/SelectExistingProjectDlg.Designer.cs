@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
+			this.m_l10NSharpExtender = new L10NSharp.Windows.Forms.L10NSharpExtender(this.components);
 			this.lblExistingProject = new System.Windows.Forms.Label();
 			this.m_btnOk = new System.Windows.Forms.Button();
 			this.m_listExistingProjects = new Glyssen.Controls.ExistingProjectsList();
@@ -192,7 +192,7 @@
 
 		#endregion
 
-		private L10NSharp.UI.L10NSharpExtender m_l10NSharpExtender;
+		private L10NSharp.Windows.Forms.L10NSharpExtender m_l10NSharpExtender;
 		private System.Windows.Forms.TableLayoutPanel m_tableLayoutPanelMain;
 		private System.Windows.Forms.Label lblExistingProject;
 		private System.Windows.Forms.Button m_btnOk;

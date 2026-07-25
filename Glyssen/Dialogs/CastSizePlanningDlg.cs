@@ -11,12 +11,11 @@ using L10NSharp;
 
 namespace Glyssen.Dialogs
 {
-	public partial class CastSizePlanningDlg : Form, ILocalizable
+	public partial class CastSizePlanningDlg : Form
 	{
 		private readonly CastSizePlanningViewModel m_viewModel;
-		private readonly bool m_loaded;
-		private string m_fmtProjectSummaryPlural;
-		private string m_fmtSuboptimalNarratorsMsg;
+		private readonly bool m_fullyInitialized;
+		private readonly string m_fmtSuboptimalNarratorsMsg;
 
 		public CastSizePlanningDlg(CastSizePlanningViewModel viewModel)
 		{
@@ -26,8 +25,20 @@ namespace Glyssen.Dialogs
 			m_viewModel.FemaleNarratorsValueChanged += m_viewModel_FemaleNarratorsValueChanged;
 			m_castSizePlanningOptions.SetViewModel(m_viewModel);
 
-			HandleStringsLocalized();
-			Program.RegisterLocalizable(this);
+			var fmtProjectSummaryPlural = m_lblProjectSummary.Text;
+			m_fmtSuboptimalNarratorsMsg = m_lblWarningSuboptimalNarratorsForNarrationByAuthor.Text;
+
+			var project = m_viewModel.Project;
+			int includedBooksCount = project.IncludedBooks.Count;
+			if (includedBooksCount == 1)
+				m_lblProjectSummary.Text = string.Format(LocalizationManager.GetString("DialogBoxes.CastSizePlanningDlg.ProjectSummary.Singular",
+					"This project has 1 book with {0} distinct character roles."), project.TotalCharacterCount);
+			else
+				m_lblProjectSummary.Text = string.Format(fmtProjectSummaryPlural, includedBooksCount, project.TotalCharacterCount);
+			m_lblRecordingTime.Text = string.Format(m_lblRecordingTime.Text, project.GetEstimatedRecordingTime());
+
+			Text = string.Format(Text, m_viewModel.Project.Name);
+			m_lblWhenYouClick.Text = string.Format(m_lblWhenYouClick.Text, m_btnGenerate.Text, GlyssenInfo.Product);
 
 			m_tableLayoutStartingOver.Visible = m_viewModel.Project.CharacterGroupListPreviouslyGenerated;
 			m_maleNarrators.Maximum = m_viewModel.MaximumNarratorsValue;
@@ -42,27 +53,7 @@ namespace Glyssen.Dialogs
 			// set the warning icon
 			m_imgNarratorWarning.Image = SystemIcons.Error.ToBitmap();
 
-			m_loaded = true;
-		}
-
-		public void HandleStringsLocalized()
-		{
-			m_fmtProjectSummaryPlural = m_lblProjectSummary.Text;
-			m_fmtSuboptimalNarratorsMsg = m_lblWarningSuboptimalNarratorsForNarrationByAuthor.Text;
-
-			var project = m_viewModel.Project;
-			int includedBooksCount = project.IncludedBooks.Count;
-			if (includedBooksCount == 1)
-				m_lblProjectSummary.Text = string.Format(LocalizationManager.GetString("DialogBoxes.CastSizePlanningDlg.ProjectSummary.Singular",
-					"This project has 1 book with {0} distinct character roles."), project.TotalCharacterCount);
-			else
-				m_lblProjectSummary.Text = string.Format(m_fmtProjectSummaryPlural, includedBooksCount, project.TotalCharacterCount);
-			m_lblRecordingTime.Text = string.Format(m_lblRecordingTime.Text, project.GetEstimatedRecordingTime());
-
-			Text = string.Format(Text, m_viewModel.Project.Name);
-			m_lblWhenYouClick.Text = string.Format(m_lblWhenYouClick.Text, m_btnGenerate.Text, GlyssenInfo.Product);
-			if (m_loaded)
-				ShowOrHideNarratorCountWarnings();
+			m_fullyInitialized = true;
 		}
 
 		private void CastSizePlanningDlg_Load(object sender, EventArgs e)
@@ -203,7 +194,7 @@ namespace Glyssen.Dialogs
 
 		private void MaleNarratorsValueChanged(object sender, EventArgs e)
 		{
-			if (!m_loaded)
+			if (!m_fullyInitialized)
 				return;
 
 			m_viewModel.MaleNarrators = (int)m_maleNarrators.Value;
@@ -212,7 +203,7 @@ namespace Glyssen.Dialogs
 
 		private void FemaleNarratorsValueChanged(object sender, EventArgs e)
 		{
-			if (!m_loaded)
+			if (!m_fullyInitialized)
 				return;
 
 			m_viewModel.FemaleNarrators = (int)m_femaleNarrators.Value;
@@ -252,7 +243,7 @@ namespace Glyssen.Dialogs
 
 		private CastSizeOption CastSizeOption
 		{
-			set { m_castSizePlanningOptions.SelectedCastSizeRow = value; }
+			set => m_castSizePlanningOptions.SelectedCastSizeRow = value;
 		}
 
 		private void UpdateButtonState()
@@ -264,7 +255,7 @@ namespace Glyssen.Dialogs
 
 		private void m_castSizePlanningOptions_CastSizeOptionChanged(object sender, CastSizeOptionChangedEventArgs e)
 		{
-			if (!m_loaded)
+			if (!m_fullyInitialized)
 				return;
 
 			m_viewModel.CastSizeOption = e.Row;

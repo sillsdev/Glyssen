@@ -21,7 +21,7 @@ using static System.String;
 
 namespace Glyssen.Dialogs
 {
-	public partial class ScriptureRangeSelectionDlg : Form, ILocalizable
+	public partial class ScriptureRangeSelectionDlg : Form
 	{
 		private readonly Project m_project;
 		private ParatextScrTextWrapper m_paratextScrTextWrapper;
@@ -50,12 +50,6 @@ namespace Glyssen.Dialogs
 
 			Initialize();
 
-			HandleStringsLocalized();
-			Program.RegisterLocalizable(this);
-		}
-
-		public void HandleStringsLocalized()
-		{
 			Debug.Assert(LocalizationManager.UILanguageId != "en" || Text == "Select Books - {0}",
 				"Dev alert: the localized string and ID of this dialog's window title MUST be kept in sync with the version in Project.FoundUnacceptableChangesInAvailableBooks!");
 

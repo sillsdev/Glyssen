@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Platforms>x64;AnyCPU</Platforms>
     <Company>FCBH-SIL</Company>
-    <Copyright>Copyright © 2014-2023 Faith Comes By Hearing and SIL International</Copyright>
+    <Copyright>Copyright © 2014-2026 Faith Comes By Hearing and SIL International</Copyright>
     <RootNamespace>Glyssen.Shared</RootNamespace>
     <OutputPath>..\output\$(Configuration)\</OutputPath>
     <PackageOutputPath>../output</PackageOutputPath>
@@ -31,10 +31,10 @@ See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="icu.net" Version="3.0.1" />
-    <PackageReference Include="SIL.Core" Version="16.2.0" />
-    <PackageReference Include="SIL.DblBundle" Version="16.2.0" />
-    <PackageReference Include="SIL.Scripture" Version="16.2.0" />
+    <PackageReference Include="icu.net" Version="3.0.2" />
+    <PackageReference Include="SIL.Core" Version="17.0.0" />
+    <PackageReference Include="SIL.DblBundle" Version="17.0.0" />
+    <PackageReference Include="SIL.Scripture" Version="17.0.0" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

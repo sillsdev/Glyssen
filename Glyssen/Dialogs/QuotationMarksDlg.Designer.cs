@@ -34,7 +34,7 @@
             this.components = new System.ComponentModel.Container();
             this.m_btnCancel = new System.Windows.Forms.Button();
             this.m_btnOk = new System.Windows.Forms.Button();
-            this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
+            this.m_l10NSharpExtender = new L10NSharp.Windows.Forms.L10NSharpExtender(this.components);
             this.m_lblHorizontalSeparator2 = new System.Windows.Forms.Label();
             this.m_chkDialogueQuotations = new System.Windows.Forms.CheckBox();
             this.m_cboQuotationDash = new System.Windows.Forms.ComboBox();
@@ -1215,7 +1215,7 @@
 
 		private System.Windows.Forms.Button m_btnCancel;
 		private System.Windows.Forms.Button m_btnOk;
-		private L10NSharp.UI.L10NSharpExtender m_l10NSharpExtender;
+		private L10NSharp.Windows.Forms.L10NSharpExtender m_l10NSharpExtender;
 		private System.Windows.Forms.Label m_lblHorizontalSeparator2;
 		private System.Windows.Forms.CheckBox m_chkDialogueQuotations;
 		private System.Windows.Forms.ComboBox m_cboQuotationDash;
