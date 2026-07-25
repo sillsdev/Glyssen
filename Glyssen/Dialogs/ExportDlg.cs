@@ -13,14 +13,14 @@ using L10NSharp;
 
 namespace Glyssen.Dialogs
 {
-	public partial class ExportDlg : Form, ILocalizable
+	public partial class ExportDlg : Form
 	{
 		private readonly ProjectExporter m_viewModel;
-		private string m_actorDirectoryFmt;
-		private string m_bookDirectoryFmt;
-		private string m_clipDirectoryFmt;
-		private string m_clipListFileFmt;
-		private string m_openFileForMeText;
+		private readonly string m_actorDirectoryFmt;
+		private readonly string m_bookDirectoryFmt;
+		private readonly string m_clipDirectoryFmt;
+		private readonly string m_clipListFileFmt;
+		private readonly string m_openFileForMeText;
 
 		public ExportDlg(ProjectExporter viewModel)
 		{
@@ -31,8 +31,14 @@ namespace Glyssen.Dialogs
 			if (!m_viewModel.IncludeVoiceActors)
 				HideControlsThatRequireVoiceActors();
 
-			HandleStringsLocalized();
-			Program.RegisterLocalizable(this);
+			m_lblDescription.Text = string.Format(m_lblDescription.Text, ProductName);
+			m_actorDirectoryFmt = m_lblActorDirectory.Text;
+			m_bookDirectoryFmt = m_lblBookDirectory.Text;
+			m_clipDirectoryFmt = m_lblClipDirectory.Text;
+			m_clipListFileFmt = m_lblClipListFilename.Text;
+			m_openFileForMeText = m_checkOpenForMe.Text;
+
+			Text = string.Format(Text, m_viewModel.Project.Name);
 
 			m_lblFileName.Text = m_viewModel.FullFileName;
 
@@ -62,18 +68,6 @@ namespace Glyssen.Dialogs
 				MainForm.SetChildFormLocation(this);
 			else
 				CenterToParent();
-		}
-
-		public void HandleStringsLocalized()
-		{
-			m_lblDescription.Text = string.Format(m_lblDescription.Text, ProductName);
-			m_actorDirectoryFmt = m_lblActorDirectory.Text;
-			m_bookDirectoryFmt = m_lblBookDirectory.Text;
-			m_clipDirectoryFmt = m_lblClipDirectory.Text;
-			m_clipListFileFmt = m_lblClipListFilename.Text;
-			m_openFileForMeText = m_checkOpenForMe.Text;
-
-			Text = string.Format(Text, m_viewModel.Project.Name);
 		}
 
 		private void UpdateDisplay()

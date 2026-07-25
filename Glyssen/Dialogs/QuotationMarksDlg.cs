@@ -26,15 +26,15 @@ using BlockNavigatorViewModel = GlyssenEngine.ViewModels.BlockNavigatorViewModel
 
 namespace Glyssen.Dialogs
 {
-	public partial class QuotationMarksDlg : FormWithPersistedSettings, ILocalizable
+	public partial class QuotationMarksDlg : FormWithPersistedSettings
 	{
 		private readonly Project m_project;
 		private readonly BlockNavigatorViewModel m_navigatorViewModel;
 		private readonly ProjectSettingsDlg m_parentDlg;
-		private string m_xOfYFmt;
-		private string m_testResultsFmt;
-		private object m_versesWithMissingExpectedQuotesFilterItem;
-		private object m_allQuotesFilterItem;
+		private readonly string m_xOfYFmt;
+		private readonly string m_testResultsFmt;
+		private readonly object m_versesWithMissingExpectedQuotesFilterItem;
+		private readonly object m_allQuotesFilterItem;
 		private bool m_endMarkerComboIncludesSameAsStartDashTextOption;
 		private bool m_formLoading;
 		private readonly bool m_allowOverride;
@@ -86,8 +86,28 @@ namespace Glyssen.Dialogs
 
 			try
 			{
-				HandleStringsLocalized();
-				Program.RegisterLocalizable(this);
+				L10N.LocalizeComboList(m_toolStripComboBoxFilter, "DialogBoxes.QuotationMarksDlg.FilterOptions");
+
+				m_versesWithMissingExpectedQuotesFilterItem = m_toolStripComboBoxFilter.Items[1];
+				m_allQuotesFilterItem = m_toolStripComboBoxFilter.Items[2];
+
+				if (m_navigatorViewModel?.Mode != BlocksToDisplay.MissingExpectedQuote &&
+				    ((m_project.QuoteSystemStatus & QuoteSystemStatus.NotParseReady) > 0 || m_project.QuoteSystemStatus == QuoteSystemStatus.Guessed))
+				{
+					m_toolStripComboBoxFilter.Items.RemoveAt(2);
+					m_toolStripComboBoxFilter.Items.RemoveAt(1);
+				}
+
+				SetPromptText();
+				SetupQuoteMarksComboBoxes(CurrentQuoteSystem);
+				m_xOfYFmt = m_labelXofY.Text;
+				if (m_labelXofY.Visible)
+					UpdateRelativeNavigationPositionDisplay();
+				m_testResultsFmt = m_testResults.Text;
+				if (m_project.ProjectState != ProjectState.NeedsQuoteSystemConfirmation)
+					ShowTestResults(PercentageOfExpectedQuotesFound(m_project.Books), false);
+
+				Text = Format(Text, m_project.Name);
 
 				SetFilterControlsFromMode();
 
@@ -105,32 +125,6 @@ namespace Glyssen.Dialogs
 		private void HandleCurrentBlockChanged(object sender, EventArgs eventArgs)
 		{
 			LoadBlock();
-		}
-
-		public void HandleStringsLocalized()
-		{
-			L10N.LocalizeComboList(m_toolStripComboBoxFilter, "DialogBoxes.QuotationMarksDlg.FilterOptions");
-
-			m_versesWithMissingExpectedQuotesFilterItem = m_toolStripComboBoxFilter.Items[1];
-			m_allQuotesFilterItem = m_toolStripComboBoxFilter.Items[2];
-
-			if (m_navigatorViewModel?.Mode != BlocksToDisplay.MissingExpectedQuote &&
-				((m_project.QuoteSystemStatus & QuoteSystemStatus.NotParseReady) > 0 || m_project.QuoteSystemStatus == QuoteSystemStatus.Guessed))
-			{
-				m_toolStripComboBoxFilter.Items.RemoveAt(2);
-				m_toolStripComboBoxFilter.Items.RemoveAt(1);
-			}
-
-			SetPromptText();
-			SetupQuoteMarksComboBoxes(CurrentQuoteSystem);
-			m_xOfYFmt = m_labelXofY.Text;
-			if (m_labelXofY.Visible)
-				UpdateRelativeNavigationPositionDisplay();
-			m_testResultsFmt = m_testResults.Text;
-			if (m_project.ProjectState != ProjectState.NeedsQuoteSystemConfirmation)
-				ShowTestResults(PercentageOfExpectedQuotesFound(m_project.Books), false);
-
-			Text = Format(Text, m_project.Name);
 		}
 
 		private void SetPromptText()
@@ -167,7 +161,9 @@ namespace Glyssen.Dialogs
 								"2) After saving the changes there, re-run the {3} check for all books included in this {0} project.\r\n" +
 								"   (Note: The {4} and {5} checks should also pass in order for a book to be included in a {0} project.)\r\n" +
 								"3) Return to {0} and on the {6} tab of the {7} dialog box, click {8}.",
-								"These steps will be introduced by either \"Project.CannotChangeParextProjectQuoteSystem\" or \"Project.ShouldNotChangeParextProjectQuoteSystem\". " +
+								"These steps will be introduced by either " +
+								"\"DialogBoxes.QuotationMarksDlg.CannotChangeParextProjectQuoteSystem\" or " +
+								"\"DialogBoxes.QuotationMarksDlg.ShouldNotChangeParextProjectQuoteSystem\". " +
 								"Param 0: \"Glyssen\" (product name); " +
 								"Param 1: \"Paratext\" (product name); " +
 								"Param 2: Paratext project short name (unique project identifier); " +

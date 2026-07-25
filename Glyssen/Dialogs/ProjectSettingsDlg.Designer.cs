@@ -39,7 +39,7 @@
             System.Windows.Forms.Label m_labelEnglishVersion;
             System.Windows.Forms.Label m_labelOldTestament;
             this.m_labelNewTestament = new System.Windows.Forms.Label();
-            this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
+            this.m_l10NSharpExtender = new L10NSharp.Windows.Forms.L10NSharpExtender(this.components);
             this.m_btnCancel = new System.Windows.Forms.Button();
             this.m_lblLanguageName = new System.Windows.Forms.Label();
             this.m_lblIso639_2_Code = new System.Windows.Forms.Label();
@@ -1828,7 +1828,7 @@
 		private System.Windows.Forms.ComboBox m_cboBookMarker;
 		private System.Windows.Forms.CheckBox m_chkAnnounceChaptersForSingleChapterBooks;
 		private System.Windows.Forms.CheckBox m_chkChapterOneAnnouncements;
-		private L10NSharp.UI.L10NSharpExtender m_l10NSharpExtender;
+		private L10NSharp.Windows.Forms.L10NSharpExtender m_l10NSharpExtender;
 		private System.Windows.Forms.Label m_labelBookIntro;
 		private System.Windows.Forms.Label m_labelNewTestament;
 		private System.Windows.Forms.Label m_labelNTVersion;

@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
+			this.m_l10NSharpExtender = new L10NSharp.Windows.Forms.L10NSharpExtender(this.components);
 			this.m_lblAddOneOrMore = new System.Windows.Forms.Label();
 			this.m_btnOk = new System.Windows.Forms.Button();
 			this.m_btnCancel = new System.Windows.Forms.Button();
@@ -302,7 +302,7 @@
 
 		#endregion
 
-		private L10NSharp.UI.L10NSharpExtender m_l10NSharpExtender;
+		private L10NSharp.Windows.Forms.L10NSharpExtender m_l10NSharpExtender;
 		private System.Windows.Forms.TableLayoutPanel m_tableLayoutPanelMain;
 		private System.Windows.Forms.Label m_lblAddOneOrMore;
 		private System.Windows.Forms.Button m_btnOk;

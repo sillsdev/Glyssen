@@ -6,7 +6,7 @@
     <Authors>SIL International, Faith Comes By Hearing</Authors>
     <Company>FCBH-SIL</Company>
     <Description>Library for working with Glyssen character data</Description>
-    <Copyright>Copyright © 2014-2023 Faith Comes By Hearing and SIL International</Copyright>
+    <Copyright>Copyright © 2014-2026 Faith Comes By Hearing and SIL International</Copyright>
     <PackageProjectUrl>https://software.sil.org/glyssen/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/sillsdev/glyssen/</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
@@ -59,8 +59,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="icu.net" Version="3.0.1" />
-    <PackageReference Include="SIL.Scripture" Version="16.2.0" />
+    <PackageReference Include="icu.net" Version="3.0.2" />
+    <PackageReference Include="SIL.Scripture" Version="17.0.0" />
     <PackageReference Include="System.Buffers" Version="4.6.1" />
     <PackageReference Include="System.Memory" Version="4.6.3" />
   </ItemGroup>

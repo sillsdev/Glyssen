@@ -19,9 +19,9 @@ using static System.String;
 
 namespace Glyssen.Controls
 {
-	public partial class ExistingProjectsList : ProjectsListBase<GlyssenDblTextMetadata, GlyssenDblMetadataLanguage>, ILocalizable
+	public partial class ExistingProjectsList : ProjectsListBase<GlyssenDblTextMetadata, GlyssenDblMetadataLanguage>
 	{
-		private string m_fmtParatextProjectSource;
+		private readonly string m_fmtParatextProjectSource;
 		private readonly Dictionary<string, bool> m_unstartedParatextProjectStates = new Dictionary<string, bool>();
 		private readonly Dictionary<string, string> m_paratextProjectIds = new Dictionary<string, string>();
 		private ApplicationMetadata m_glyssenMetadata = null;
@@ -43,15 +43,8 @@ namespace Glyssen.Controls
 		public ExistingProjectsList()
 		{
 			InitializeComponent();
-			Program.RegisterLocalizable(this);
-			HandleStringsLocalized();
-		}
-
-		public void HandleStringsLocalized()
-		{
 			m_fmtParatextProjectSource = LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLabel",
 				"{0} project: {1}", "Param 0: \"Paratext\" (product name); Param 1: Paratext project short name (unique project identifier)");
-			ReloadExistingProjects();
 		}
 
 		protected override DataGridViewColumn InactiveColumn => colInactive;

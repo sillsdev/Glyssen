@@ -47,6 +47,8 @@ back-up plan.)
 ## _DATE_ Glyssen _VERSION_
 - Fixed bug when project quote system is not set.
 - Improved Analytics.
+- Upgraded several third-party libraries, including the localization framework.
+- On-the-fly custom localization is no longer supported.
 
 ## June 20 2025 Glyssen 6.2.1
 - Fixed a potential security vulnerability (low risk) related to opening files that claim to be glyssenshare files but were actually created to contain malicious content.

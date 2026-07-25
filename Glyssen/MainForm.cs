@@ -26,7 +26,6 @@ using GlyssenFileBasedPersistence;
 using L10NSharp;
 using NetSparkle;
 using Paratext.Data;
-using Paratext.Data.Languages;
 using SIL.DblBundle;
 using SIL.IO;
 using SIL.Progress;
@@ -48,7 +47,7 @@ using Resources = Glyssen.Properties.Resources;
 
 namespace Glyssen
 {
-	public partial class MainForm : FormWithPersistedSettings, ILocalizable
+	public partial class MainForm : FormWithPersistedSettings
 	{
 		private static Sparkle UpdateChecker { get; set; }
 		private readonly PersistenceImplementation m_persistenceImpl;
@@ -77,8 +76,9 @@ namespace Glyssen
 			m_toolStrip.Renderer = new NoBorderToolStripRenderer();
 
 			SetupUiLanguageMenu();
-			HandleStringsLocalized();
-			Program.RegisterLocalizable(this);
+			HandleStringsLocalized(null, EventArgs.Empty);
+
+			Program.PrimaryLocalizationManager.UiLanguageChanged += HandleStringsLocalized;
 
 			m_lastExportLocationLink.Text = Empty;
 
@@ -121,7 +121,7 @@ namespace Glyssen
 			}
 		}
 
-		private void UpgradingProjectToNewParserVersion(object sender, EventArgs e)
+		private static void UpgradingProjectToNewParserVersion(object sender, EventArgs e)
 		{
 			var existingProject = (Project)sender;
 			var details = new Dictionary<string, string>
@@ -243,7 +243,7 @@ namespace Glyssen
 			});
 		}
 
-		public void HandleStringsLocalized()
+		public void HandleStringsLocalized(object sender, EventArgs args)
 		{
 			m_percentAssignedFmt = m_lblPercentAssigned.Text;
 			m_actorsAssignedFmt = m_lblActorsAssigned.Text;
@@ -935,7 +935,7 @@ namespace Glyssen
 			// ENHANCE; Theoretically, we could, before we update the controlfileversion number, set a flag
 			// letting us know if this needs to run or not. It would be for any number < 96.
 			// This method would be moved into Project (which maybe it should be anyway).
-			// But this must be called only AFTER EnsureGroupsAreInSynchWithCharactersInUse has been run.
+			// But this must be called only AFTER EnsureGroupsAreInSyncWithCharactersInUse has been run.
 			if (m_project.CharacterGroupList.CharacterGroups.Any(g => g.GroupIdLabel == CharacterGroup.Label.None))
 				CharacterGroupList.AssignGroupIds(m_project.CharacterGroupList.CharacterGroups);
 		}
@@ -1003,8 +1003,7 @@ namespace Glyssen
 					new Dictionary<string, string>
 					{
 						{ "uiLanguage", languageId },
-						{ "previous", Settings.Default.UserInterfaceLanguage },
-						{"reapplyLocalizations", "true"}
+						{ "previous", Settings.Default.UserInterfaceLanguage }
 					});
 				Logger.WriteEvent("UI language changed from " +
 					$"{Settings.Default.UserInterfaceLanguage} to {languageId}");
@@ -1013,15 +1012,8 @@ namespace Glyssen
 				return true;
 			}
 
-			bool MoreSelected()
-			{
-				Analytics.Track("Opened localization dialog box");
-				return true;
-			}
-
 			m_uiLanguageMenu.InitializeWithAvailableUILocales(LanguageSelected,
-				Program.PrimaryLocalizationManager, Program.LocIncompleteViewModel,
-				MoreSelected);
+				Program.LocIncompleteViewModel);
 		}
 
 		private void Assign_Click(object sender, EventArgs e)
@@ -1115,7 +1107,7 @@ namespace Glyssen
 		{
 			var name = (uiElement as Control)?.Name ?? (uiElement as ToolStripItem)?.Name;
 			if (name == null)
-				throw new ArgumentException(nameof(uiElement), "Expected a UI element with a name");
+				throw new ArgumentException("Expected a UI element with a name", nameof(uiElement));
 
 			// Not strictly necessary, but makes the analytics data a bit cleaner:
 			var sb = new StringBuilder(name);
@@ -1278,7 +1270,7 @@ namespace Glyssen
 			SaveCurrentProject();
 			UpdateDisplayOfProjectInfo();
 			if (launchCastSizePlanning)
-				m_btnCastSizePlanning_Click(m_btnCastSizePlanning, new EventArgs());
+				m_btnCastSizePlanning_Click(m_btnCastSizePlanning, EventArgs.Empty);
 		}
 
 		private class NoBorderToolStripRenderer : ToolStripProfessionalRenderer

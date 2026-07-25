@@ -27,7 +27,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			this.m_L10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
+			this.m_L10NSharpExtender = new L10NSharp.Windows.Forms.L10NSharpExtender(this.components);
 			this.m_dataGridView = new System.Windows.Forms.DataGridView();
 			this.m_btnClose = new System.Windows.Forms.Button();
 			this.m_lblLoading = new System.Windows.Forms.Label();
@@ -242,7 +242,7 @@
 
 		#endregion
 
-		private L10NSharp.UI.L10NSharpExtender m_L10NSharpExtender;
+		private L10NSharp.Windows.Forms.L10NSharpExtender m_L10NSharpExtender;
 		private Utilities.GlyssenColorPalette glyssenColorPalette;
 		private System.Windows.Forms.TableLayoutPanel m_tableLayout;
 		private System.Windows.Forms.DataGridView m_dataGridView;

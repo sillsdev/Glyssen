@@ -37,7 +37,7 @@ namespace Glyssen.Dialogs
 		private LinkLabel m_cancelLink;
 		private bool m_appUsingWaitCursor;
 		private Utilities.GlyssenColorPalette m_glyssenColorPalette;
-		private L10NSharp.UI.L10NSharpExtender l10NSharpExtender1;
+		private L10NSharp.Windows.Forms.L10NSharpExtender l10NSharpExtender1;
 		private bool m_replaceCancelButtonWithLink;
 
 		/// <summary>
@@ -415,7 +415,7 @@ namespace Glyssen.Dialogs
 			this.m_cancelButton = new System.Windows.Forms.Button();
 			this.m_cancelLink = new System.Windows.Forms.LinkLabel();
 			this.m_glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
-			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
+			this.l10NSharpExtender1 = new L10NSharp.Windows.Forms.L10NSharpExtender(this.components);
 			this.m_tableLayout.SuspendLayout();
 			this.m_buttonPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_glyssenColorPalette)).BeginInit();

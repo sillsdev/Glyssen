@@ -36,7 +36,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
+			this.m_l10NSharpExtender = new L10NSharp.Windows.Forms.L10NSharpExtender(this.components);
 			this.m_linkAbout = new System.Windows.Forms.LinkLabel();
 			this.m_lblStartingOver = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
@@ -941,7 +941,7 @@
 
 		#endregion
 
-		private L10NSharp.UI.L10NSharpExtender m_l10NSharpExtender;
+		private L10NSharp.Windows.Forms.L10NSharpExtender m_l10NSharpExtender;
 		private Utilities.GlyssenColorPalette glyssenColorPalette;
 		private System.Windows.Forms.TableLayoutPanel m_tableLayoutStartingOver;
 		private System.Windows.Forms.LinkLabel m_linkAbout;
