@@ -1129,14 +1129,22 @@ namespace GlyssenEngineTests.Script
 					new Sound { SoundType = SoundType.Sfx, EffectName = "effect name", StartVerse = 2 },
 					new Verse("2"),
 					new ScriptText("script text 2"),
+					new Pause { Time = 2.5 },
+					new QuoteId { Id = "q1", Start = true, IsNarrator = true },
 				}
 			};
 
 			var blockBefore = block.Clone();
 			var xmlString = XmlSerializationHelper.SerializeToString(block);
 			xmlString.AssertHasXPathMatchCount("/block/sound", 1);
+			xmlString.AssertHasXPathMatchCount("/block/pause", 1);
+			xmlString.AssertHasXPathMatchCount("/block/quoteId", 1);
 			var blockAfter = XmlSerializationHelper.DeserializeFromString<Block>(xmlString);
 			Assert.That(blockBefore.GetText(true, true), Is.EqualTo(blockAfter.GetText(true, true)));
+			var quoteIdAfter = blockAfter.BlockElements.OfType<QuoteId>().Single();
+			Assert.That(quoteIdAfter.Id, Is.EqualTo("q1"));
+			Assert.That(quoteIdAfter.Start, Is.True);
+			Assert.That(quoteIdAfter.IsNarrator, Is.True);
 		}
 
 		[Test]
