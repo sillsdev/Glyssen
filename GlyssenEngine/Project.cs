@@ -1719,7 +1719,11 @@ namespace GlyssenEngine
 			}
 			catch (Exception e)
 			{
-				ErrorReport.ReportNonFatalException(e);
+				ErrorReport.ReportNonFatalExceptionWithMessage(e,
+					Format(Localizer.GetString("Project.LoadBookError",
+						"An error occurred while loading existing book {0}: {1}",
+						"Param 0: Book ID (e.g., \"RUT\"); Param 1: Error details"),
+						bookId, e.Message));
 				return null;
 			}
 		}
@@ -1774,7 +1778,7 @@ namespace GlyssenEngine
 			SaveProjectMetadata(out var error);
 			if (error != null)
 			{
-				MessageModal.Show(error.Message, true);
+				MessageModal.Show(InnermostExceptionMessage(error), true);
 				return;
 			}
 
@@ -1799,7 +1803,19 @@ namespace GlyssenEngine
 		public void SaveBook(BookScript book)
 		{
 			if (!XmlSerializationHelper.Serialize(Writer.GetTextWriter(this, book), book, out var error))
-				MessageModal.Show(error.Message, true);
+			{
+				MessageModal.Show(Format(Localizer.GetString("Project.SaveBookError",
+					"An error occurred while saving book {0}: {1}",
+					"Param 0: Book ID (e.g., \"RUT\"); Param 1: Error details"),
+					book.BookId, InnermostExceptionMessage(error)), true);
+			}
+		}
+
+		private static string InnermostExceptionMessage(Exception error)
+		{
+			while (error.InnerException != null)
+				error = error.InnerException;
+			return error.Message;
 		}
 
 		public void SaveProjectCharacterVerseData()

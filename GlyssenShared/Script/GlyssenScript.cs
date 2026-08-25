@@ -171,6 +171,7 @@ namespace Glyssen.Shared.Script
 		[XmlElement(Type = typeof(Verse), ElementName = "verse")]
 		[XmlElement(Type = typeof(Sound), ElementName = "sound")]
 		[XmlElement(Type = typeof(Pause), ElementName = "pause")]
+		[XmlElement(Type = typeof(QuoteId), ElementName = "quoteId")]
 		public List<BlockElement> BlockElements { get; set; }
 
 		[XmlIgnore]
