@@ -130,6 +130,10 @@ are trying to support, you're better off using non-advertised shortcuts." -->
           <Component Id="Markdig.Signed.dll" Guid="*">
               <File Id="Markdig.Signed.dll" Name="Markdig.Signed.dll" KeyPath="yes" Source="..\output\release\Markdig.Signed.dll" />
           </Component>
+		  
+          <Component Id="ICSharpCode.SharpZipLib.dll" Guid="*">
+              <File Id="ICSharpCode.SharpZipLib.dll" Name="ICSharpCode.SharpZipLib.dll" KeyPath="yes" Source="..\output\release\ICSharpCode.SharpZipLib.dll" />
+          </Component>
 
           <Component Id="SIL.Core.dll" Guid="*" Win64="yes">
             <File Id="SIL.Core.dll" Name="SIL.Core.dll" KeyPath="yes" Source="..\output\release\SIL.Core.dll" ProcessorArchitecture="x64"/>
@@ -215,10 +219,6 @@ are trying to support, you're better off using non-advertised shortcuts." -->
               <File Id="System.Buffers.dll" Name="System.Buffers.dll" KeyPath="yes" Source="..\output\release\System.Buffers.dll" />
           </Component>
 
-          <Component Id="System.ValueTuple.dll" Guid="*">
-              <File Id="System.ValueTuple.dll" Name="System.ValueTuple.dll" KeyPath="yes" Source="..\output\release\System.ValueTuple.dll" />
-          </Component>
-
           <Component Id="System.Numerics.Vectors.dll" Guid="*">
               <File Id="System.Numerics.Vectors.dll" Name="System.Numerics.Vectors.dll" KeyPath="yes" Source="..\output\release\System.Numerics.Vectors.dll" />
           </Component>
@@ -281,10 +281,6 @@ are trying to support, you're better off using non-advertised shortcuts." -->
 				<File Id="System.Runtime.CompilerServices.Unsafe.dll" Name="System.Runtime.CompilerServices.Unsafe.dll" KeyPath="yes" Source="..\output\release\System.Runtime.CompilerServices.Unsafe.dll" />
 		  </Component>
 
-          <Component Id="DotNetZip.dll" Guid="*" Win64="yes">
-            <File Id="DotNetZip.dll" Name="DotNetZip.dll" KeyPath="yes" Source="..\output\release\DotNetZip.dll" ProcessorArchitecture="x64"/>
-          </Component>
-
           <Component Id="L10NSharp.dll" Guid="*" Win64="yes">
             <File Id="L10NSharp.dll" Name="L10NSharp.dll" KeyPath="yes" Source="..\output\release\L10NSharp.dll" ProcessorArchitecture="x64"/>
           </Component>
@@ -338,6 +334,7 @@ are trying to support, you're better off using non-advertised shortcuts." -->
 
     <Feature Id="ProductFeature" Level="1" Title="Basic Stuff">
       <ComponentRef Id="CreateGlyssenAppDataFolder"/>
+	  <ComponentRef Id="ICSharpCode.SharpZipLib.dll"/>
       <ComponentRef Id="SIL.Core.dll"/>
       <ComponentRef Id="SIL.Core.Desktop.dll"/>
       <ComponentRef Id="SIL.Windows.Forms.dll"/>
@@ -357,7 +354,6 @@ are trying to support, you're better off using non-advertised shortcuts." -->
       <ComponentRef Id="icuin59.dll"/>
       <ComponentRef Id="icuuc59.dll"/>
 	  <ComponentRef Id="System.Buffers.dll"/>
-	  <ComponentRef Id="System.ValueTuple.dll"/>
 	  <ComponentRef Id="System.Numerics.Vectors.dll"/>
 	  <ComponentRef Id="System.Resources.Extensions.dll"/>
       <ComponentRef Id="System.Text.Encodings.Web.dll"/>
@@ -366,7 +362,6 @@ are trying to support, you're better off using non-advertised shortcuts." -->
       <ComponentRef Id="ParatextData.dll"/>
       <ComponentRef Id="PtxUtils.dll"/>
 	  <ComponentRef Id="Spart.dll"/>   <!-- Referenced by ParatextData (results in Fusion load error, but maybe not actually needed) -->
-	  <ComponentRef Id="DotNetZip.dll"/>
 	  <ComponentRef Id="FuzzySharp.dll"/>
 	  <ComponentRef Id="Markdig.Signed.dll"/>
 	  <ComponentRef Id="Microsoft.Bcl.AsyncInterfaces.dll"/>

@@ -7,7 +7,7 @@
 	<PackageOutputPath>../output</PackageOutputPath>
     <Authors>SIL International, Faith Comes By Hearing</Authors>
     <Company>FCBH-SIL</Company>
-    <Copyright>Copyright © 2014-2023 Faith Comes By Hearing and SIL International</Copyright>
+    <Copyright>Copyright © 2014-2026 Faith Comes By Hearing and SIL International</Copyright>
     <Description>Glyssen "business logic" layer used for working with projects to create audio Bible scripts.</Description>
     <RepositoryUrl>https://github.com/sillsdev/glyssen/</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
@@ -61,28 +61,29 @@ See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="icu.net" Version="3.0.1" />
-    <PackageReference Include="JetBrains.Annotations" Version="2024.3.0">
+    <PackageReference Include="icu.net" Version="3.0.2" />
+    <PackageReference Include="JetBrains.Annotations" Version="2025.2.4">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.DotNet.PlatformAbstractions" Version="3.1.6" />
-    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="8.0.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="9.0.18" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Windows.Compatibility" Version="8.0.20" />
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="9.0.12" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-    <PackageReference Include="ParatextData" Version="9.5.0.14" />
-    <PackageReference Include="SIL.Core" Version="16.1.0" />
-    <PackageReference Include="SIL.DblBundle" Version="16.1.0" />
-    <PackageReference Include="SIL.Scripture" Version="16.1.0" />
-    <PackageReference Include="SIL.WritingSystems" Version="16.1.0" />
+    <PackageReference Include="ParatextData" Version="9.5.0.24" />
+    <PackageReference Include="SIL.Core" Version="17.0.0" />
+    <PackageReference Include="SIL.DblBundle" Version="17.0.0" />
+    <PackageReference Include="SIL.Scripture" Version="17.0.0" />
+    <PackageReference Include="SIL.WritingSystems" Version="17.0.0" />
     <PackageReference Include="System.Buffers" Version="4.6.1" />
     <PackageReference Include="System.Memory" Version="4.6.3" />
     <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
+    <PackageReference Include="System.Security.Cryptography.Xml" Version="9.0.18" />
     <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.6.3" />
-    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+    <PackageReference Include="System.ValueTuple" Version="4.6.1" />
   </ItemGroup>
 
   <ItemGroup>

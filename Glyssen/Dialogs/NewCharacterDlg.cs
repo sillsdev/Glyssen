@@ -2,10 +2,11 @@
 using System.Windows.Forms;
 using GlyssenCharacters;
 using L10NSharp;
+using static System.String;
 
 namespace Glyssen.Dialogs
 {
-	public partial class NewCharacterDlg : Form, ILocalizable
+	public partial class NewCharacterDlg : Form
 	{
 		private readonly string m_characterId;
 
@@ -15,8 +16,7 @@ namespace Glyssen.Dialogs
 
 			InitializeComponent();
 
-			HandleStringsLocalized();
-			Program.RegisterLocalizable(this);
+			m_lblInstructions.Text = Format(m_lblInstructions.Text, m_characterId);
 
 			PopulateComboBoxes();
 		}
@@ -37,11 +37,6 @@ namespace Glyssen.Dialogs
 				var dataTable = (DataTable)m_cmbAge.DataSource;
 				return (CharacterAge)dataTable.Rows[m_cmbAge.SelectedIndex][m_cmbAge.ValueMember];
 			}
-		}
-
-		public void HandleStringsLocalized()
-		{
-			m_lblInstructions.Text = string.Format(m_lblInstructions.Text, m_characterId);
 		}
 
 		private DataTable GetGenderDataTable()

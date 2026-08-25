@@ -38,7 +38,7 @@
 			this.m_numFemaleNarrator = new System.Windows.Forms.NumericUpDown();
 			this.m_btnCancel = new System.Windows.Forms.Button();
 			this.m_btnOk = new System.Windows.Forms.Button();
-			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
+			this.m_l10NSharpExtender = new L10NSharp.Windows.Forms.L10NSharpExtender(this.components);
 			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
 			this.m_selectionsTableLayout.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_numMaleNarrator)).BeginInit();
@@ -274,7 +274,7 @@
 		private System.Windows.Forms.Button m_btnCancel;
 		private System.Windows.Forms.Button m_btnOk;
 		private System.Windows.Forms.NumericUpDown m_numMaleNarrator;
-		private L10NSharp.UI.L10NSharpExtender m_l10NSharpExtender;
+		private L10NSharp.Windows.Forms.L10NSharpExtender m_l10NSharpExtender;
 		private System.Windows.Forms.Label m_lblDesiredFemaleNarratorNum;
 		private System.Windows.Forms.NumericUpDown m_numFemaleNarrator;
 		private Utilities.GlyssenColorPalette glyssenColorPalette;

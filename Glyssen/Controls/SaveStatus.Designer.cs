@@ -32,7 +32,7 @@ namespace Glyssen.Controls
 		{
 			this.components = new System.ComponentModel.Container();
 			this.m_lbl = new System.Windows.Forms.Label();
-			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
+			this.l10NSharpExtender1 = new L10NSharp.Windows.Forms.L10NSharpExtender(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -77,6 +77,6 @@ namespace Glyssen.Controls
 		#endregion
 
 		private System.Windows.Forms.Label m_lbl;
-		private L10NSharp.UI.L10NSharpExtender l10NSharpExtender1;
+		private L10NSharp.Windows.Forms.L10NSharpExtender l10NSharpExtender1;
 	}
 }
