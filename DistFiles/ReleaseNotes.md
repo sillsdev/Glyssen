@@ -49,6 +49,7 @@ back-up plan.)
 - Improved Analytics.
 - Upgraded several third-party libraries, including the localization framework.
 - On-the-fly custom localization is no longer supported.
+- Fixed bug in projects that use milestones (new in USFM 3.0)
 
 ## June 20 2025 Glyssen 6.2.1
 - Fixed a potential security vulnerability (low risk) related to opening files that claim to be glyssenshare files but were actually created to contain malicious content.
