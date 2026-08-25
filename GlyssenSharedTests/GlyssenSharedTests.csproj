@@ -16,7 +16,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GlyssenSharedTests</RootNamespace>
     <AssemblyName>GlyssenSharedTests</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -130,16 +130,16 @@
       <HintPath>..\packages\NUnit.4.4.0\lib\net462\nunit.framework.legacy.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Core, Version=17.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Core.17.0.0\lib\net462\SIL.Core.dll</HintPath>
+      <HintPath>..\packages\SIL.Core.17.0.0\lib\net48\SIL.Core.dll</HintPath>
     </Reference>
     <Reference Include="SIL.DblBundle, Version=17.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.DblBundle.17.0.0\lib\net462\SIL.DblBundle.dll</HintPath>
+      <HintPath>..\packages\SIL.DblBundle.17.0.0\lib\net48\SIL.DblBundle.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Scripture, Version=17.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Scripture.17.0.0\lib\net462\SIL.Scripture.dll</HintPath>
+      <HintPath>..\packages\SIL.Scripture.17.0.0\lib\net48\SIL.Scripture.dll</HintPath>
     </Reference>
     <Reference Include="SIL.WritingSystems, Version=17.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.WritingSystems.17.0.0\lib\net462\SIL.WritingSystems.dll</HintPath>
+      <HintPath>..\packages\SIL.WritingSystems.17.0.0\lib\net48\SIL.WritingSystems.dll</HintPath>
     </Reference>
     <Reference Include="Spart, Version=1.0.0.0, Culture=neutral, PublicKeyToken=14d24e064e474331, processorArchitecture=MSIL">
       <HintPath>..\packages\Spart.1.0.0\lib\net461\Spart.dll</HintPath>
