@@ -404,6 +404,7 @@ namespace GlyssenEngine.Script
 		[XmlElement(Type = typeof(Verse), ElementName = "verse")]
 		[XmlElement(Type = typeof(Sound), ElementName = "sound")]
 		[XmlElement(Type = typeof(Pause), ElementName = "pause")]
+		[XmlElement(Type = typeof(QuoteId), ElementName = "quoteId")]
 		public List<BlockElement> BlockElements { get; set; }
 
 		public bool CharacterIsStandard { get { return CharacterVerseData.IsCharacterStandard(CharacterId); } }
