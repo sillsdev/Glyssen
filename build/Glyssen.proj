@@ -69,7 +69,9 @@
 			ToolPath="$(RootDir)/packages/NUnit.ConsoleRunner.3.22.0/tools"
 			WorkingDirectory="$(RootDir)/output/$(Configuration)"
 			Assemblies="@(TestAssemblies)"
-			ExcludeCategory="$(ExtraExcludeCategories)$(excludedCategories)" 
+			ExcludeCategory="$(ExtraExcludeCategories)$(excludedCategories)"
+			OutputXmlFile="$(RootDir)/output/$(Configuration)/TestResults.xml"
+			UseNUnit3Xml="true"
 			Force32Bit="false" />
 	</Target>
 		
