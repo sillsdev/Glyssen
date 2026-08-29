@@ -424,6 +424,9 @@ namespace Glyssen
 					.GetMethods(BindingFlags.Static | BindingFlags.Public)
 					.Where(m => m.Name == "GetString"));
 
+			var characterIdMgr = LocalizationManager.Create(uiLanguage, "GlyssenCharacters", "Characters", version,
+				installedStringFileFolder, relativeSettingPathForLocalizationFolder, Resources.glyssenIcon, IssuesEmailAddress, null);
+
 			LocIncompleteViewModel = new LocalizationIncompleteViewModel(primaryMgr, "glyssen", IssueRequestForLocalization);
 
 			if (IsNullOrEmpty(desiredUiLangId))
