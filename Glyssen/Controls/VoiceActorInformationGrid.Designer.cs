@@ -42,7 +42,7 @@
 			this.m_contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.m_contextMenu_itemDeleteActors = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_deleteRowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
+			this.l10NSharpExtender1 = new L10NSharp.Windows.Forms.L10NSharpExtender(this.components);
 			this.m_dataGrid = new SIL.Windows.Forms.Widgets.BetterGrid.BetterGrid();
 			this.ActorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ActorGender = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -357,7 +357,7 @@
 		private System.Windows.Forms.ContextMenuStrip m_contextMenu;
 		private System.Windows.Forms.ToolStripMenuItem m_contextMenu_itemDeleteActors;
 		private System.Windows.Forms.ToolStripMenuItem m_deleteRowsToolStripMenuItem;
-		private L10NSharp.UI.L10NSharpExtender l10NSharpExtender1;
+		private L10NSharp.Windows.Forms.L10NSharpExtender l10NSharpExtender1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn1;
 		private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn2;

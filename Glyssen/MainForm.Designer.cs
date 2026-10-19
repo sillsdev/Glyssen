@@ -15,8 +15,9 @@
 		{
 			if (disposing)
 			{
-				if (components != null)
-					components.Dispose();
+				components?.Dispose();
+
+				Program.PrimaryLocalizationManager.UiLanguageChanged -= HandleStringsLocalized;
 			}
 			base.Dispose(disposing);
 		}
@@ -30,7 +31,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			this.m_L10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
+			this.m_L10NSharpExtender = new L10NSharp.Windows.Forms.L10NSharpExtender(this.components);
 			this.m_toolStrip = new System.Windows.Forms.ToolStrip();
 			this.m_btnAbout = new System.Windows.Forms.ToolStripButton();
 			this.m_uiLanguageMenu = new System.Windows.Forms.ToolStripDropDownButton();
@@ -766,7 +767,7 @@
 
 		#endregion
 
-		private L10NSharp.UI.L10NSharpExtender m_L10NSharpExtender;
+		private L10NSharp.Windows.Forms.L10NSharpExtender m_L10NSharpExtender;
 		private System.Windows.Forms.ToolStrip m_toolStrip;
 		private System.Windows.Forms.ToolStripButton m_btnAbout;
 		private System.Windows.Forms.ToolStripDropDownButton m_uiLanguageMenu;

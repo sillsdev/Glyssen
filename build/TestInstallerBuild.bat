@@ -8,6 +8,8 @@ pushd .
 MSbuild /target:Build /property:teamcity_build_checkoutDir=..\ /property:GitVersion_SemVer="6.0.7-local" /property:GitVersion_MajorMinorPatch="6.0.7"
 MSbuild /target:ConvertReleaseNotesToHtml;SignIfPossible /property:teamcity_build_checkoutDir=..\ /property:GitVersion_SemVer="6.0.7-local" /property:GitVersion_MajorMinorPatch="6.0.7"
 popd
-PAUSE
+
+ECHO %CMDCMDLINE% | findstr /i /c:"/c" >nul
+IF NOT errorlevel 1 PAUSE
 
 #/verbosity:detailed

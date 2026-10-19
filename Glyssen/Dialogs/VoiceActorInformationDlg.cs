@@ -7,12 +7,12 @@ using L10NSharp;
 
 namespace Glyssen.Dialogs
 {
-	public partial class VoiceActorInformationDlg : FormWithPersistedSettings, ILocalizable
+	public partial class VoiceActorInformationDlg : FormWithPersistedSettings
 	{
 		private readonly VoiceActorInformationViewModel m_viewModel;
 		private readonly bool m_changeOkToGenerateGroups;
 
-		private string m_tallyFmt;
+		private readonly string m_tallyFmt;
 
 		public VoiceActorInformationDlg(VoiceActorInformationViewModel viewModel, bool initialEntry, bool changeOkToGenerateGroups, bool enableOkButtonEvenIfNoChanges = false)
 		{
@@ -26,20 +26,6 @@ namespace Glyssen.Dialogs
 			if (enableOkButtonEvenIfNoChanges)
 				m_btnOk.Enabled = m_viewModel.ActiveActors.Any();
 
-			HandleStringsLocalized();
-			Program.RegisterLocalizable(this);
-		}
-
-		private void VoiceActorInformationDlg_Load(object sender, EventArgs e)
-		{
-			// TODO: re-enable this button once help has been implemented
-			m_toolStripButtonHelp.Visible = false;
-
-			TileFormLocation();
-		}
-
-		public void HandleStringsLocalized()
-		{
 			m_tallyFmt = m_lblTally.Text;
 
 			m_lblActorsEnteredSoFar.Text = string.Format(m_lblActorsEnteredSoFar.Text, m_viewModel.InitialActorCount);
@@ -50,9 +36,17 @@ namespace Glyssen.Dialogs
 			Text = string.Format(Text, m_viewModel.Project.Name);
 		}
 
+		private void VoiceActorInformationDlg_Load(object sender, EventArgs e)
+		{
+			// TODO: re-enable this button once help has been implemented
+			m_toolStripButtonHelp.Visible = false;
+
+			TileFormLocation();
+		}
+
 		private void UpdateTally()
 		{
-			var actors = m_viewModel.Project.VoiceActorList.ActiveActors;
+			var actors = m_viewModel.Project.VoiceActorList.ActiveActors.ToList();
 			int numMale = actors.Count(a => a.Gender == ActorGender.Male);
 			int numFemale = actors.Count(a => a.Gender == ActorGender.Female);
 			int numChildren = actors.Count(a => a.Age == ActorAge.Child);

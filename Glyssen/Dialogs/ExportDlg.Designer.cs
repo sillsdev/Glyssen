@@ -33,7 +33,7 @@ namespace Glyssen.Dialogs
             this.m_btnOk = new System.Windows.Forms.Button();
             this.m_checkIncludeBookBreakdown = new System.Windows.Forms.CheckBox();
             this.m_lblDescription = new System.Windows.Forms.Label();
-            this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
+            this.m_l10NSharpExtender = new L10NSharp.Windows.Forms.L10NSharpExtender(this.components);
             this.m_checkIncludeActorBreakdown = new System.Windows.Forms.CheckBox();
             this.m_btnChange = new System.Windows.Forms.Button();
             this.m_lblFileName = new System.Windows.Forms.Label();
@@ -580,7 +580,7 @@ namespace Glyssen.Dialogs
 
 		private System.Windows.Forms.Button m_btnCancel;
 		private System.Windows.Forms.Button m_btnOk;
-		private L10NSharp.UI.L10NSharpExtender m_l10NSharpExtender;
+		private L10NSharp.Windows.Forms.L10NSharpExtender m_l10NSharpExtender;
 		private System.Windows.Forms.CheckBox m_checkIncludeBookBreakdown;
 		private System.Windows.Forms.Label m_lblDescription;
 		private System.Windows.Forms.TableLayoutPanel m_tableLayoutPanelMan;

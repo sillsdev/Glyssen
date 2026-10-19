@@ -31,7 +31,7 @@
 			this.colModifiedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			colModifiedDate.DefaultCellStyle.Format = "MM/dd/yyyy";
 			this.colInactive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
+			this.l10NSharpExtender1 = new L10NSharp.Windows.Forms.L10NSharpExtender(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			this.SuspendLayout();
 
@@ -86,6 +86,6 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn colBundleName;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colModifiedDate;
 		private System.Windows.Forms.DataGridViewCheckBoxColumn colInactive;
-		private L10NSharp.UI.L10NSharpExtender l10NSharpExtender1;
+		private L10NSharp.Windows.Forms.L10NSharpExtender l10NSharpExtender1;
 	}
 }

@@ -17,16 +17,16 @@ using GlyssenEngine;
 using GlyssenEngine.Utilities;
 using GlyssenFileBasedPersistence;
 using L10NSharp;
-using L10NSharp.UI;
-using L10NSharp.XLiffUtils;
+using L10NSharp.Windows.Forms;
+using L10NSharp.Windows.Forms.UIComponents;
 using Paratext.Data;
 using Paratext.Data.Users;
 using PtxUtils;
 using PtxUtils.Progress;
+using SIL.Core.Desktop.i18n;
 using SIL.Extensions;
 using SIL.IO;
 using SIL.Reporting;
-using SIL.Windows.Forms.i18n;
 using SIL.Windows.Forms.LocalizationIncompleteDlg;
 using SIL.Windows.Forms.Reporting;
 using SIL.WritingSystems;
@@ -49,7 +49,6 @@ namespace Glyssen
 
 		public static IEnumerable<ErrorMessageInfo> CompatibleParatextProjectLoadErrors => ScrTextCollection.ErrorMessages.Where(e => e.ProjecType != ProjectType.Resource && !e.ProjecType.IsNoteType());
 		private static readonly List<Exception> _pendingExceptionsToReportToAnalytics = new List<Exception>();
-		private static readonly HashSet<ILocalizable> s_registeredLocalizableObjects = new HashSet<ILocalizable>();
 		private static UserInfo s_userInfo;
 
 		/// <summary>
@@ -139,7 +138,6 @@ namespace Glyssen
 			//else
 			//{
 			//	RegistrationInfo.Implementation = new GlyssenAnonymousRegistrationInfo();
-
 			//	if (!String.IsNullOrWhiteSpace(Settings.Default.UserSpecifiedParatext8ProjectsDir) &&
 			//		Directory.Exists(Settings.Default.UserSpecifiedParatext8ProjectsDir))
 			//	{
@@ -342,49 +340,6 @@ namespace Glyssen
 
 		public static ILocalizationManager PrimaryLocalizationManager => LocIncompleteViewModel.PrimaryLocalizationManager;
 
-		public static void RegisterLocalizable(ILocalizable uiElement)
-		{
-			lock (s_registeredLocalizableObjects)
-			{
-				if (!s_registeredLocalizableObjects.Any())
-					LocalizeItemDlg<XLiffDocument>.StringsLocalized += HandleStringsLocalized;
-				s_registeredLocalizableObjects.Add(uiElement);
-				if (uiElement is Control ctrl) // Currently this is always true
-					ctrl.Disposed += DisposingLocalizableUiElement;
-			}
-		}
-
-		private static void DisposingLocalizableUiElement(object sender, EventArgs e)
-		{
-			// Technically, this is probably pointless
-			((Control)sender).Disposed -= DisposingLocalizableUiElement;
-			UnregisterLocalizable((ILocalizable)sender);
-		}
-
-		// This could be made public and be called directly if ever we had an object that
-		// implemented ILocalizable but was not a Control.
-		private static void UnregisterLocalizable(ILocalizable uiElement)
-		{
-			lock (s_registeredLocalizableObjects)
-			{
-				s_registeredLocalizableObjects.Remove(uiElement);
-				if (!s_registeredLocalizableObjects.Any())
-					LocalizeItemDlg<XLiffDocument>.StringsLocalized -= HandleStringsLocalized;
-			}
-		}
-
-		private static void HandleStringsLocalized(ILocalizationManager lm)
-		{
-			if (lm == PrimaryLocalizationManager)
-			{
-				lock (s_registeredLocalizableObjects)
-				{
-					foreach (var handler in s_registeredLocalizableObjects)
-						handler.HandleStringsLocalized();
-				}
-			}
-		}
-
 		private static void SetUpLocalization()
 		{
 			SIL.Localizer.Default = new L10NSharpLocalizer();
@@ -406,8 +361,8 @@ namespace Glyssen
 			// a superset of the languages available for Glyssen. But it feels weird not to create
 			// the primary LM first, and the day could come where neither set of languages is a
 			// superset, and then this strategy wouldn't work.
-			LocalizationManager.Create(desiredUiLangId, "Palaso", "Palaso", version,
-				installedStringFileFolder, relativeSettingPathForLocalizationFolder, Resources.glyssenIcon, IssuesEmailAddress,
+			LocalizationManagerWinforms.Create(desiredUiLangId, "Palaso", "Palaso", version,
+				installedStringFileFolder, relativeSettingPathForLocalizationFolder, Resources.glyssenIcon,
 				new [] {"SIL.Windows.Forms", "SIL.DblBundle"},
 				typeof(SIL.Localizer)
 					.GetMethods(BindingFlags.Static | BindingFlags.Public)
@@ -417,8 +372,8 @@ namespace Glyssen
 
 			// ENHANCE: Create a separate LM for GlyssenEngine, so we can generate a nuget package
 			// with the localized strings (similar to what we do for libpalaso and chorus).
-			var primaryMgr = LocalizationManager.Create(uiLanguage, GlyssenInfo.ApplicationId, Application.ProductName, version,
-				installedStringFileFolder, relativeSettingPathForLocalizationFolder, Resources.glyssenIcon, IssuesEmailAddress,
+			var primaryMgr = LocalizationManagerWinforms.Create(uiLanguage, GlyssenInfo.ApplicationId, Application.ProductName, version,
+				installedStringFileFolder, relativeSettingPathForLocalizationFolder, Resources.glyssenIcon,
 				new [] {"Glyssen"},
 				typeof(SIL.Localizer)
 					.GetMethods(BindingFlags.Static | BindingFlags.Public)
@@ -433,7 +388,7 @@ namespace Glyssen
 						{
 							Analytics.Track("SetUiLanguage", new Dictionary<string, string> { { "uiLanguage", dlg.SelectedLanguage }, { "initialStartup", "true" } });
 
-							LocalizationManager.SetUILanguage(dlg.SelectedLanguage, true);
+							LocalizationManagerWinforms.SetUILanguage(dlg.SelectedLanguage, true);
 							Settings.Default.UserInterfaceLanguage = dlg.SelectedLanguage;
 						}
 		}

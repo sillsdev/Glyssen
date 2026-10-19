@@ -30,7 +30,7 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
+			this.m_l10NSharpExtender = new L10NSharp.Windows.Forms.L10NSharpExtender(this.components);
 			this.m_toolStrip = new System.Windows.Forms.ToolStrip();
 			this.m_toolStripLabelFindCharacter = new System.Windows.Forms.ToolStripLabel();
 			this.m_toolStripTextBoxFindCharacter = new System.Windows.Forms.ToolStripTextBox();
@@ -343,7 +343,7 @@
 
 		#endregion
 
-		private L10NSharp.UI.L10NSharpExtender m_l10NSharpExtender;
+		private L10NSharp.Windows.Forms.L10NSharpExtender m_l10NSharpExtender;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;

@@ -48,7 +48,7 @@
 			this.m_btnOk = new System.Windows.Forms.Button();
 			this.m_btnCancel = new System.Windows.Forms.Button();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
+			this.l10NSharpExtender1 = new L10NSharp.Windows.Forms.L10NSharpExtender(this.components);
 			this.m_pnlCharacterAndDeliverySelection.SuspendLayout();
 			this.m_pnlDeliveryFilter.SuspendLayout();
 			this.tableLayoutPanelDelivery.SuspendLayout();
@@ -449,6 +449,6 @@
 		private System.Windows.Forms.ListBox m_listBoxCharacters;
 		private System.Windows.Forms.Button m_btnCancel;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-		private L10NSharp.UI.L10NSharpExtender l10NSharpExtender1;
+		private L10NSharp.Windows.Forms.L10NSharpExtender l10NSharpExtender1;
 	}
 }

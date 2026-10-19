@@ -26,7 +26,7 @@ using BlockNavigatorViewModel = GlyssenEngine.ViewModels.BlockNavigatorViewModel
 
 namespace Glyssen.Dialogs
 {
-	public partial class ProjectSettingsDlg : FormWithPersistedSettings, ILocalizable
+	public partial class ProjectSettingsDlg : FormWithPersistedSettings
 	{
 		private ProjectSettingsViewModel m_model;
 		private WritingSystemSetupModel m_wsViewModel;
@@ -57,24 +57,21 @@ namespace Glyssen.Dialogs
 			for (int i = 0; i < m_cboBookMarker.Items.Count; i++)
 			{
 				var chapterAnnouncement = (ChapterAnnouncement)i;
-				m_cboBookMarker.Items[i] = new ChapterAnnouncementItem(LocalizationManager.GetDynamicString(GlyssenInfo.ApplicationId,
+				m_cboBookMarker.Items[i] = new ChapterAnnouncementItem(
+					LocalizationManager.GetDynamicString(GlyssenInfo.ApplicationId,
 					"DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookMarkerComboBox.Items." + chapterAnnouncement,
 					m_cboBookMarker.Items[i].ToString()), chapterAnnouncement);
 			}
 
-			IReadOnlyList<BookScript> books = model.Project.IncludedBooks.Any() ? model.Project.IncludedBooks : model.Project.Books;
+			var books = model.Project.IncludedBooks.Any() ? model.Project.IncludedBooks :
+				model.Project.Books;
 			if (books.All(book => IsNullOrEmpty(book.PageHeader)))
 				RemoveItemFromBookMarkerCombo(ChapterAnnouncement.PageHeader);
 			if (books.All(book => IsNullOrEmpty(book.MainTitle)))
 				RemoveItemFromBookMarkerCombo(ChapterAnnouncement.MainTitle1);
 
 			SetViewModel(model, wsViewModel);
-			Program.RegisterLocalizable(this);
-			HandleStringsLocalized();
-		}
 
-		public void HandleStringsLocalized()
-		{
 			LoadReferenceTextOptions();
 			LoadProjectDramatizationOptions();
 			UpdateQuotePageDisplay();
@@ -162,7 +159,7 @@ namespace Glyssen.Dialogs
 				string key;
 				if (refTextId.Type == ReferenceTextType.Custom)
 				{
-					var fmt = (refTextId.Missing) ?
+					var fmt = refTextId.Missing ?
 						LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.MissingReferenceText", "Missing: {0}") :
 						LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.CustomReferenceText", "Custom: {0}");
 					key = Format(fmt, refTextId.CustomIdentifier);

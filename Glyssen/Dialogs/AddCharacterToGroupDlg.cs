@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using GlyssenEngine.ViewModels;
 using L10NSharp;
+using static System.String;
 
 namespace Glyssen.Dialogs
 {
-	public partial class AddCharacterToGroupDlg : Form, ILocalizable
+	public partial class AddCharacterToGroupDlg : Form
 	{
 		private readonly AddCharactersToGroupViewModel m_viewModel;
 
@@ -15,18 +16,12 @@ namespace Glyssen.Dialogs
 			InitializeComponent();
 
 			m_viewModel = model;
-			HandleStringsLocalized();
-			Program.RegisterLocalizable(this);
-			m_characterDetailsGrid.RowCount = m_viewModel.FilteredCharactersCount;
-		}
-
-		public void HandleStringsLocalized()
-		{
 			if (m_viewModel.AddingToCameoGroup)
 			{
-				Text = String.Format(LocalizationManager.GetString("DialogBoxes.SelectCameoRoleDlg.Title",
+				Text = Format(LocalizationManager.GetString("DialogBoxes.SelectCameoRoleDlg.Title",
 					"Select a Cameo Role for {0}"), m_viewModel.CameoActorName);
 			}
+			m_characterDetailsGrid.RowCount = m_viewModel.FilteredCharactersCount;
 		}
 
 		public IList<string> SelectedCharacters { get; private set; }

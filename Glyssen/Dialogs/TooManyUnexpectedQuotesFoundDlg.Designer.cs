@@ -35,7 +35,7 @@
 			this.m_lblOnlyNPercentOfExpectedQuotesFound = new System.Windows.Forms.Label();
 			this.m_rdoReview = new System.Windows.Forms.RadioButton();
 			this.m_btnOk = new System.Windows.Forms.Button();
-			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
+			this.l10NSharpExtender1 = new L10NSharp.Windows.Forms.L10NSharpExtender(this.components);
 			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
 			this.tableLayoutPanel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
@@ -220,7 +220,7 @@
 		private System.Windows.Forms.RadioButton m_rdoUseSettings;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.Button m_btnOk;
-		private L10NSharp.UI.L10NSharpExtender l10NSharpExtender1;
+		private L10NSharp.Windows.Forms.L10NSharpExtender l10NSharpExtender1;
 		private System.Windows.Forms.Label m_lblOnlyNPercentOfExpectedQuotesFound;
 		private System.Windows.Forms.RadioButton m_rdoReview;
 		private Utilities.GlyssenColorPalette glyssenColorPalette;

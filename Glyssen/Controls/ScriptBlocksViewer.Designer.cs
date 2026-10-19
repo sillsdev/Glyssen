@@ -1,4 +1,4 @@
-﻿using L10NSharp.UI;
+﻿using L10NSharp.Windows.Forms;
 
 namespace Glyssen.Controls
 {
@@ -38,7 +38,7 @@ namespace Glyssen.Controls
 			this.m_dataGridViewBlocks = new Glyssen.Controls.ScriptBlocksGridView();
 			this.m_blocksDisplayBrowser = new Glyssen.Controls.Browser();
 			this.m_title = new System.Windows.Forms.Label();
-			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
+			this.m_l10NSharpExtender = new L10NSharp.Windows.Forms.L10NSharpExtender(this.components);
 			this.colReference = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colCharacter = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colDelivery = new System.Windows.Forms.DataGridViewTextBoxColumn();

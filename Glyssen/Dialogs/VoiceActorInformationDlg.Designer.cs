@@ -29,7 +29,7 @@ namespace Glyssen.Dialogs
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
+			this.l10NSharpExtender1 = new L10NSharp.Windows.Forms.L10NSharpExtender(this.components);
 			this.m_lblActorsEnteredSoFar = new System.Windows.Forms.Label();
 			this.m_lblTally = new System.Windows.Forms.Label();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -316,7 +316,7 @@ namespace Glyssen.Dialogs
 
 		#endregion
 
-		private L10NSharp.UI.L10NSharpExtender l10NSharpExtender1;
+		private L10NSharp.Windows.Forms.L10NSharpExtender l10NSharpExtender1;
 		private Controls.VoiceActorInformationGrid m_dataGrid;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.Label m_lblActorsEnteredSoFar;
