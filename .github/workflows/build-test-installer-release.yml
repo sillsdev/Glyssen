@@ -50,7 +50,11 @@ jobs:
         run: msbuild build\Glyssen.proj /t:Build /p:Configuration=$env:Configuration /m
 
       - name: Run Tests
-        run: msbuild build\Glyssen.proj /t:Test /p:Configuration=$env:Configuration /m
+        # ExtraExcludeCategories=SkipOnTeamCity mirrors what TeamCity (via the auto-set
+        # teamcity_version property) and AppVeyor (via its own ExtraExcludeCategories env var)
+        # both did: it excludes the handful of NUnit "tests" that are really utility methods
+        # requiring local-only FCBH-SIL audio data that isn't available in CI.
+        run: msbuild build\Glyssen.proj /t:Test /p:Configuration=$env:Configuration /p:ExtraExcludeCategories=SkipOnTeamCity /m
 
       - name: Upload test results
         if: always()
