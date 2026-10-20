@@ -32,10 +32,18 @@ jobs:
           fetch-depth: 0
           submodules: true
 
-      # No separate GitVersion action is needed: GitVersion.MsBuild is already a PackageReference
-      # in Glyssen.csproj and the other packable/versioned projects, so GitVersion_Semver /
-      # GitVersion_MajorMinorPatch etc. get computed automatically as part of each msbuild
-      # invocation below (as long as the checkout above has full history and tags).
+      # The GitVersion.MsBuild PackageReference in Glyssen.csproj (etc.) only computes
+      # GitVersion_Semver / GitVersion_MajorMinorPatch within that child project's own build;
+      # those properties don't flow back to this wrapper project (build\Glyssen.proj), which
+      # evaluates its own $(GitVersion_Semver)/$(GitVersion_MajorMinorPatch) references before
+      # any child project builds. So, as AppVeyor did via its own `gitversion` before_build step,
+      # compute the version once here and expose it as environment variables that the wrapper
+      # picks up for the installer filename, WiX product version, and release notes.
+      - name: Determine version
+        run: |
+          dotnet tool install --global GitVersion.Tool --version 5.12.0
+          $env:GITVERSION_BUILD_NUMBER = "${{ github.run_number }}"
+          dotnet-gitversion /output buildserver /nonormalize
 
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v4
@@ -50,11 +58,11 @@ jobs:
         run: msbuild build\Glyssen.proj /t:Build /p:Configuration=$env:Configuration /m
 
       - name: Run Tests
-        # ExtraExcludeCategories=SkipOnTeamCity mirrors what TeamCity (via the auto-set
+        # ExtraExcludeCategories=SkipInCI mirrors what TeamCity (via the auto-set
         # teamcity_version property) and AppVeyor (via its own ExtraExcludeCategories env var)
         # both did: it excludes the handful of NUnit "tests" that are really utility methods
         # requiring local-only FCBH-SIL audio data that isn't available in CI.
-        run: msbuild build\Glyssen.proj /t:Test /p:Configuration=$env:Configuration /p:ExtraExcludeCategories=SkipOnTeamCity /m
+        run: msbuild build\Glyssen.proj /t:Test /p:Configuration=$env:Configuration /p:ExtraExcludeCategories=SkipInCI /m
 
       - name: Upload test results
         if: always()
@@ -106,13 +114,15 @@ jobs:
       - name: Pack NuGet packages
         run: msbuild build\Glyssen.proj /t:Pack /p:Configuration=$env:Configuration /m
 
-      # You might want to test out the PR packages, but the release should be pulled from nuget
+      # We always pack, but only push events publish to nuget.org. PR builds upload the
+      # packages as workflow artifacts so they can be downloaded and tested without being
+      # published.
       - name: Upload NuGet package artifacts
         if: ${{ github.event_name == 'pull_request' }}
         uses: actions/upload-artifact@v7
         with:
           name: glyssen-nuget-packages
-          if-no-files-found: warn
+          if-no-files-found: error
           path: |
             output/*.nupkg
             output/*.snupkg
