@@ -424,7 +424,7 @@ namespace Glyssen
 					throw;
 				}
 			}
-			UpdateChecker = new Sparkle(@"https://build.palaso.org/guestAuth/repository/download/Glyssen_GlyssenMasterPublish/.lastSuccessful/appcast.xml",
+			UpdateChecker = new Sparkle(@"http://software.sil.org/downloads/r/glyssen/appcast.xml",
 				Icon);
 			UpdateChecker.DoLaunchAfterUpdate = false; // The installer already takes care of launching.
 			// We don't want to do this until the main window is loaded because a) it's very easy for the user to overlook, and b)
