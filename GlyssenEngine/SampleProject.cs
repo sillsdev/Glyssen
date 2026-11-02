@@ -99,7 +99,7 @@ namespace GlyssenEngine
 <p>© 2005, Wycliffe Bible Translators, Inc. All rights reserved.</p>
 <p>This translation text is made available to you under the
 terms of the Creative Commons License: Attribution-Noncommercial-No Derivative Works.
-(<a href=""http://creativecommons.org/licenses/by-nc-nd/3.0/"">http://creativecommons.org/licenses/by-nc-nd/3.0/</a>)
+(<a href=""https://creativecommons.org/licenses/by-nc-nd/3.0/"">creativecommons.org/licenses/by-nc-nd/3.0/</a>)
 In addition, you have permission to port the text to different file formats, as long as you
 do not change any of the text or punctuation of the Bible.</p>
 <p>You may share, copy, distribute, transmit, and extract portions

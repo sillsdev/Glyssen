@@ -2,8 +2,8 @@
 
 All notable changes that affect the packages published via nuget will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/)
-and this project adheres to [Semantic Versioning](http://semver.org/).
+The format is based on [Keep a Changelog](https://keepachangelog.com/)
+and this project adheres to [Semantic Versioning](https://semver.org/).
 
 <!-- Available types of changes:
 ### Added
