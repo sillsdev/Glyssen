@@ -70,7 +70,7 @@ namespace Glyssen
 
 			Project.UpgradingProjectToNewParserVersion += UpgradingProjectToNewParserVersion;
 			Project.GetBadLdmlRecoveryAction += GetBadLdmlFileRecoveryAction;
-			
+
 			Logger.WriteEvent($"Initial UI language: {Settings.Default.UserInterfaceLanguage}");
 
 			m_toolStrip.Renderer = new NoBorderToolStripRenderer();
@@ -431,7 +431,7 @@ namespace Glyssen
 					throw;
 				}
 			}
-			UpdateChecker = new Sparkle(@"http://software.sil.org/downloads/r/glyssen/appcast.xml",
+			UpdateChecker = new Sparkle(@"https://software.sil.org/downloads/r/glyssen/appcast.xml",
 				Icon);
 			UpdateChecker.DoLaunchAfterUpdate = false; // The installer already takes care of launching.
 			// We don't want to do this until the main window is loaded because a) it's very easy for the user to overlook, and b)
@@ -1099,7 +1099,7 @@ namespace Glyssen
 				MessageBox.Show(this, LocalizationManager.GetString("Project.NoBooksIncluded", "No content found in any included books."), GlyssenInfo.Product);
 
 			m_project.ProjectStateChanged -= ProjectStateChangedAfterSelectingBooks;
-			
+
 			SaveCurrentProject(true);
 		}
 
@@ -1116,7 +1116,7 @@ namespace Glyssen
 			sb.Replace("Menu", "");
 			sb.Replace("Dialog", "");
 			sb.Replace("Dlg", "");
-			name = sb.ToString();	
+			name = sb.ToString();
 
 			Analytics.Track("PrimaryActivity", new Dictionary<string, string>
 			{

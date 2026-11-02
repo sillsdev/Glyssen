@@ -97,6 +97,7 @@ jobs:
             output/installer/appcast.xml
             output/releasenotes.download_info
             output/ReleaseNotes.htm
+            DistFiles/ReleaseNotes.md
 
       - name: Create release
         if: ${{ startsWith(github.ref, 'refs/tags/v') }}
