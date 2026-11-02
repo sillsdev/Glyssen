@@ -3,7 +3,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>SIL.GlyssenEngine.l10n</PackageId>
     <Version>$(GitVersion_NuGetVersion)</Version>
-    <Company>SIL International</Company>
+    <Company>SIL Global</Company>
 	<Configuration>Release</Configuration>
   </PropertyGroup>
   <ItemGroup>
