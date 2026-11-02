@@ -2,9 +2,9 @@ Glyssen™
 ====================
 Glyssen makes it easy to produce a high-quality dramatized audio recording of Scripture. It takes the drudgery out of the process by helping to identify all the direct speech in the text and quickly identifying the biblical character who speaks each part. Then it walks you through the process of selecting a cast and assigning roles to the voice actors. Finally, it prepares a complete set of scripts to use in the recording process and helps to ensure that each part is recorded and prepared for post-production.
 
-This is a joint project between [Faith Comes by Hearing](http://www.faithcomesbyhearing.com) and [SIL International](http://www.sil.org).
+Glyssen was originally developed as a joint project between [Faith Comes by Hearing](https://www.faithcomesbyhearing.com) and [SIL Global](https://www.sil.org). Ongoing maintenance and (limited) support are provided by SIL Global.
 
-To learn more about Glyssen, visit [software.sil.org/glyssen](http://software.sil.org/glyssen).
+To learn more about Glyssen, visit [software.sil.org/glyssen](https://software.sil.org/glyssen).
 
 Source Code
 ====================

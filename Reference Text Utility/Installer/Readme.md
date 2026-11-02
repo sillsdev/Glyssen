@@ -1,4 +1,4 @@
-Glyssen's Reference Text Utility uses Microsoft's open source ["WIX Toolset"](http://wixtoolset.org/) installer maker.
+Glyssen's Reference Text Utility uses Microsoft's open source ["WIX Toolset"](https://wixtoolset.org/) installer maker.
 
 Requirements for building the Reference Text Utility Installer:
 
@@ -8,7 +8,7 @@ Requirements for building the Reference Text Utility Installer:
 
 - MSBuild Community tasks. I got the msi from https://github.com/loresoft/msbuildtasks/downloads.
 
-- Palaso.BuildTasks.dll must be installed as a NuGet package.
+- SIL.BuildTasks must be installed as a NuGet package.
 
 - A customized .bat for running the installer: build/TestRTUInstallerBuild.bat (update version number as needed)
 
