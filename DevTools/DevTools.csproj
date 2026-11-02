@@ -445,7 +445,7 @@
   <Import Project="..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets" Condition="Exists('..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see https://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets'))" />
     <Error Condition="!Exists('..\packages\Mono.Unix.7.1.0-final.1.21458.1\build\Mono.Unix.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Mono.Unix.7.1.0-final.1.21458.1\build\Mono.Unix.targets'))" />
