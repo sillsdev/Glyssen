@@ -133,6 +133,50 @@ jobs:
         if: ${{ github.event_name == 'push' }}
         run: dotnet nuget push output/*.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.SILLSDEV_PUBLISH_NUGET_ORG }} --skip-duplicate
 
+  # Publishes the installer and appcast to the stable public mirror that both the appcast's
+  # own <enclosure> URL and MainForm.cs's update-checker point at, decoupling distribution
+  # from whichever CI system happens to build a given release. Runs on ubuntu-latest rather
+  # than windows-latest because windows-latest's bundled OpenSSH client is too old to
+  # negotiate a key exchange algorithm this server offers (confirmed via a failed
+  # ssh-keyscan); Ubuntu's OpenSSH build has no such problem.
+  publish_to_software_sil_org:
+    name: Publish to software.sil.org
+    needs: build_test
+    runs-on: ubuntu-latest
+    if: ${{ startsWith(github.ref, 'refs/tags/v') }}
+    steps:
+      - name: Download installer artifacts
+        uses: actions/download-artifact@v7
+        with:
+          name: glyssen-installer
+
+      - name: Upload to software.sil.org
+        env:
+          SFTP_PRIVATE_KEY: ${{ secrets.GLYSSEN_SFTP_PRIVATE_KEY }}
+          SFTP_PASSPHRASE: ${{ secrets.GLYSSEN_SFTP_PASSPHRASE }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          echo "$SFTP_PRIVATE_KEY" > ~/.ssh/gha_glyssen
+          chmod 600 ~/.ssh/gha_glyssen
+          # Strip the passphrase from this throwaway copy of the key, since it only needs
+          # to exist for the lifetime of this job and sftp has no non-interactive way to
+          # supply a passphrase without the added complexity of ssh-agent/SSH_ASKPASS.
+          ssh-keygen -p -P "$SFTP_PASSPHRASE" -N "" -f ~/.ssh/gha_glyssen
+          # Host key fingerprint confirmed independently with TechOps (SIL) rather than
+          # trusted on first connect.
+          echo "software.sil.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJwY1f1tshznQKx9dc5CDFaZnan3s1quy6i0up1h9wUL" >> ~/.ssh/known_hosts
+          sftp -i ~/.ssh/gha_glyssen -o StrictHostKeyChecking=yes -b - gha_glyssen@software.sil.org << 'SFTP_COMMANDS'
+          cd upload_areas/glyssen
+          put output/installer/GlyssenInstaller*.exe
+          put output/installer/*.download_info
+          put output/installer/appcast.xml
+          put output/releasenotes.download_info
+          put output/ReleaseNotes.htm
+          put DistFiles/ReleaseNotes.md
+          SFTP_COMMANDS
+
   report:
     name: Test Report
     needs: build_test
