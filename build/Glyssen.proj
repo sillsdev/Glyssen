@@ -7,7 +7,7 @@
 		<SolutionPath>$(RootDir)/$(Solution)</SolutionPath>
 		<ApplicationName>Glyssen</ApplicationName>
 		<Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
-		<ExtraExcludeCategories Condition="'$(teamcity_version)' != ''">SkipOnTeamCity,$(ExtraExcludeCategories)</ExtraExcludeCategories>
+		<ExtraExcludeCategories Condition="'$(teamcity_version)' != ''">SkipInCI,$(ExtraExcludeCategories)</ExtraExcludeCategories>
 		<TeamCity Condition="'$(teamcity_version)' != ''">true</TeamCity>
 		<TeamCity Condition="'$(teamcity_version)' == ''">false</TeamCity>
 		<SILBuildTasksProps>$(RootDir)/packages/SIL.BuildTasks/build/SIL.BuildTasks.props</SILBuildTasksProps>
@@ -69,7 +69,9 @@
 			ToolPath="$(RootDir)/packages/NUnit.ConsoleRunner.3.20.1/tools"
 			WorkingDirectory="$(RootDir)/output/$(Configuration)"
 			Assemblies="@(TestAssemblies)"
-			ExcludeCategory="$(ExtraExcludeCategories)$(excludedCategories)" 
+			ExcludeCategory="$(ExtraExcludeCategories)$(excludedCategories)"
+			OutputXmlFile="$(RootDir)/output/$(Configuration)/TestResults.xml"
+			UseNUnit3Xml="true"
 			Force32Bit="false" />
 	</Target>
 		
@@ -145,6 +147,27 @@
 			Regex='DEV_VERSION_NUMBER'
 			ReplacementText ="$(GitVersion_MajorMinorPatch)" />
 
+	</Target>
+
+	<Target Name="GenerateBridgeAppcast">
+		<!-- Produces a standalone, correctly-versioned appcast.xml for publishing to this
+			project's legacy TeamCity artifact location only (the one still baked into
+			installations predating the move to GitHub Actions). TeamCity no longer builds
+			the installer itself, so this intentionally doesn't depend on Build/Installer:
+			it just patches the template with the version of whatever was actually built
+			and released via GitHub Actions, so existing installations can discover the new
+			release and fetch it from software.sil.org, same as the enclosure URL below has
+			always pointed to. This target (and the TeamCity build configuration that calls
+			it) can be retired once installations old enough to still be polling the legacy
+			URL are no longer a concern. -->
+		<MakeDir Directories="$(RootDir)\output" ContinueOnError="true" />
+
+		<Copy SourceFiles="$(RootDir)\Installer\appcast.xml" DestinationFolder="$(RootDir)\output" />
+
+		<FileUpdate File="$(RootDir)\output\appcast.xml"
+			DatePlaceholder='DEV_RELEASE_DATE'
+			Regex='DEV_VERSION_NUMBER'
+			ReplacementText="$(GitVersion_MajorMinorPatch)" />
 	</Target>
 
 	<Target Name="ReferenceTextUtilityInstaller" DependsOnTargets="SetInstallerVersionNumber; Build ">

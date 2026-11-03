@@ -173,7 +173,7 @@ namespace GlyssenEngineTests.Quote
 		}
 
 		[Test]
-		[Category("SkipOnTeamCity")]
+		[Category("SkipInCI")]
 		public void Guess_NoQuotes_GivesUpWithoutTakingForever()
 		{
 			var sw = new Stopwatch();
