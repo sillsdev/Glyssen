@@ -688,7 +688,7 @@
     <Copy SourceFiles="@(XliffFiles)" DestinationFiles="@(XliffFiles->'$(SolutionDir)/DistFiles/localization/%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
   </Target>
   <!-- Do not need/want a nuget package for this project.
-  Can't use IsPackable false because Appveyor build requires the Pack target. -->
+  Can't use IsPackable false because build\Glyssen.proj requires the Pack target. -->
   <Target Name="Pack" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
