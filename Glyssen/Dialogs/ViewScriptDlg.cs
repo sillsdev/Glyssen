@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Windows.Forms;
-using Glyssen.Shared;
 using Glyssen.Utilities;
 using GlyssenEngine.Export;
 using SIL;
+using static System.String;
+using static Glyssen.Shared.Constants;
 
 namespace Glyssen.Dialogs
 {
-	public partial class ViewScriptDlg : FormWithPersistedSettings, ILocalizable
+	public partial class ViewScriptDlg : FormWithPersistedSettings
 	{
 		private readonly ProjectExporter m_viewModel;
 
@@ -16,15 +17,9 @@ namespace Glyssen.Dialogs
 			InitializeComponent();
 			m_viewModel = viewModel;
 
-			HandleStringsLocalized();
-			Program.RegisterLocalizable(this);
-		}
-
-		public void HandleStringsLocalized()
-		{
-			Text = string.Format(Text, m_viewModel.Project.Name);
-			m_exportToHearThisToolStripMenuItem.Text = string.Format(m_exportToHearThisToolStripMenuItem.Text,
-				Constants.kHearThisProductName);
+			Text = Format(Text, m_viewModel.Project.Name);
+			m_exportToHearThisToolStripMenuItem.Text =
+				Format(m_exportToHearThisToolStripMenuItem.Text, kHearThisProductName);
 		}
 
 		private void m_exportToSpreadsheetMenuItem_Click(object sender, EventArgs e)

@@ -8,7 +8,7 @@ using L10NSharp;
 
 namespace Glyssen.Dialogs
 {
-	public partial class ExportToRecordingToolDlg : Form, ILocalizable
+	public partial class ExportToRecordingToolDlg : Form
 	{
 		private readonly ProjectExporter m_viewModel;
 
@@ -18,8 +18,11 @@ namespace Glyssen.Dialogs
 
 			InitializeComponent();
 
-			HandleStringsLocalized();
-			Program.RegisterLocalizable(this);
+			m_lblDescription.Text = string.Format(m_lblDescription.Text, ProductName, Constants.kGlyssenScriptFileExtension,
+				Constants.kHearThisProductName, Constants.kHearThisMinimumSupportedVersion);
+			m_lblWarning.Text = string.Format(m_lblWarning.Text, Constants.kHearThisProductName);
+
+			Text = string.Format(Text, Constants.kHearThisProductName, m_viewModel.Project.Name);
 		}
 
 		private void ExportToRecordingToolDlg_Load(object sender, EventArgs e)
@@ -28,15 +31,6 @@ namespace Glyssen.Dialogs
 				MainForm.SetChildFormLocation(this);
 			else
 				CenterToParent();
-		}
-
-		public void HandleStringsLocalized()
-		{
-			m_lblDescription.Text = string.Format(m_lblDescription.Text, ProductName, Constants.kGlyssenScriptFileExtension,
-				Constants.kHearThisProductName, Constants.kHearThisMinimumSupportedVersion);
-			m_lblWarning.Text = string.Format(m_lblWarning.Text, Constants.kHearThisProductName);
-
-			Text = string.Format(Text, Constants.kHearThisProductName, m_viewModel.Project.Name);
 		}
 
 		private void Browse_Click(object sender, EventArgs e)

@@ -60,7 +60,7 @@ namespace Glyssen.Dialogs
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
+			this.m_l10NSharpExtender = new L10NSharp.Windows.Forms.L10NSharpExtender(this.components);
 			this.m_btnNext = new System.Windows.Forms.Button();
 			this.m_btnPrevious = new System.Windows.Forms.Button();
 			this.m_btnAssign = new System.Windows.Forms.Button();
@@ -1721,7 +1721,7 @@ namespace Glyssen.Dialogs
 		}
 		#endregion
 
-		private L10NSharp.UI.L10NSharpExtender m_l10NSharpExtender;
+		private L10NSharp.Windows.Forms.L10NSharpExtender m_l10NSharpExtender;
 		private System.Windows.Forms.Button m_btnNext;
 		private System.Windows.Forms.Button m_btnPrevious;
 		private System.Windows.Forms.Button m_btnAssign;

@@ -38,4 +38,20 @@
   <File Id="ProgramDir.localization.Palaso.tp.xlf" Guid="37817949-e33c-4f63-b589-8ff2d881d8e8" />
   <File Id="ProgramDir.localization.Palaso.am.xlf" Guid="8eb045f8-b08d-4ec3-81de-7f1263751e6e" />
   <File Id="ProgramDir.localization.Palaso.nl.xlf" Guid="2ba90db9-61f5-4e3b-962c-e9267b95f2c0" />
+  <File Id="ProgramDir.localization.Palaso.fuc.xlf" Guid="82bdae00-27c6-4366-b043-67ec0de14397" />
+  <File Id="ProgramDir.localization.Palaso.ha.xlf" Guid="23cbf689-d004-4310-b741-57bb11a4b95d" />
+  <File Id="ProgramDir.localization.Palaso.ksw.xlf" Guid="95e663a5-2eb8-427c-9181-556091200895" />
+  <File Id="ProgramDir.localization.Palaso.kw.xlf" Guid="4c24dd92-6499-48a8-9041-6c87b54b4ecd" />
+  <File Id="ProgramDir.localization.Palaso.ky.xlf" Guid="657a91fa-251c-42c0-a0c7-5c7ebc7946a9" />
+  <File Id="ProgramDir.localization.Palaso.lo.xlf" Guid="729f088d-6051-435b-8aaf-b15518388f11" />
+  <File Id="ProgramDir.localization.Palaso.mam.xlf" Guid="4826ac8a-2b92-4ae8-9acc-a947bc549e44" />
+  <File Id="ProgramDir.localization.Palaso.pbu.xlf" Guid="b71bbaa1-4736-43d5-b606-b285462f2c32" />
+  <File Id="ProgramDir.localization.Palaso.prs.xlf" Guid="b4e15fad-f9c9-4ad3-bd3c-f72d9fb3c02c" />
+  <File Id="ProgramDir.localization.Palaso.qaa.xlf" Guid="e9d11a2e-cf2c-4455-804e-3613d7eb5512" />
+  <File Id="ProgramDir.localization.Palaso.quc.xlf" Guid="4afb8e72-b670-4bc4-a7fa-40b6a4164e8a" />
+  <File Id="ProgramDir.localization.Palaso.tg.xlf" Guid="4c17d894-59e8-4e5f-a9c8-75f88e91b94c" />
+  <File Id="ProgramDir.localization.Palaso.tl.xlf" Guid="b1092a22-c161-4589-b3ba-32220b1afb2d" />
+  <File Id="ProgramDir.localization.Palaso.tpi.xlf" Guid="838cdbbb-d901-430f-99c3-c7fefa8aa396" />
+  <File Id="ProgramDir.localization.Palaso.uz.xlf" Guid="ebb2e0dc-af89-41e9-8349-ff95371a1459" />
+  <File Id="ProgramDir.localization.Palaso.yua.xlf" Guid="66152157-b3c6-497d-9c21-78149172ed0e" />
 </InstallerMetadata>

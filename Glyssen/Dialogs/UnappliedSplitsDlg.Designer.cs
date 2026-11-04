@@ -28,7 +28,7 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UnappliedSplitsDlg));
-			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
+			this.m_l10NSharpExtender = new L10NSharp.Windows.Forms.L10NSharpExtender(this.components);
 			this.m_lblInstructions = new System.Windows.Forms.Label();
 			this.m_btnCopyToClipboard = new System.Windows.Forms.Button();
 			this.m_btnClose = new System.Windows.Forms.Button();
@@ -241,7 +241,7 @@
 
 		#endregion
 
-		private L10NSharp.UI.L10NSharpExtender m_l10NSharpExtender;
+		private L10NSharp.Windows.Forms.L10NSharpExtender m_l10NSharpExtender;
 		private Controls.Browser m_browser;
 		private System.Windows.Forms.Label m_lblInstructions;
 		private System.Windows.Forms.Button m_btnCopyToClipboard;

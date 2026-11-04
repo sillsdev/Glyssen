@@ -7,33 +7,25 @@ using GlyssenEngine.ViewModels;
 
 namespace Glyssen.Dialogs
 {
-	public partial class UnappliedSplitsDlg : Form, ILocalizable
+	public partial class UnappliedSplitsDlg : Form
 	{
 		private const string kHtmlFrame = "<html><head><meta charset=\"UTF-8\">" +
 								"<style>{0}</style></head><body>{1}</body></html>";
 
 		private string m_style;
-		private readonly string m_projectName;
 		private readonly UnappliedSplitsViewModel m_model;
 		private readonly IFontInfo<Font> m_font;
 		private string m_htmlFilePath;
 
 		public UnappliedSplitsDlg(string projectName, IFontInfo<Font> fontProxy, UnappliedSplitsViewModel model)
 		{
-			m_projectName = projectName;
 			m_font = fontProxy;
 			m_model = model;
 			InitializeComponent();
 
-			HandleStringsLocalized();
-			Program.RegisterLocalizable(this);
+			m_lblInstructions.Text = string.Format(m_lblInstructions.Text, projectName);
 
 			m_browser.Disposed += Browser_Disposed;
-		}
-
-		public void HandleStringsLocalized()
-		{
-			m_lblInstructions.Text = string.Format(m_lblInstructions.Text, m_projectName);
 		}
 
 		void Browser_Disposed(object sender, EventArgs e)

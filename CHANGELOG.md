@@ -1,6 +1,6 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
+All notable changes that affect the packages published via nuget will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
@@ -15,6 +15,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 -->
 
 ## [Unreleased]
+
+### Changed
+- Upgraded several third-party dependencies that GlyssenEngine depends on, including SIL.Core, SIL.DblBundle, SIL.Scripture, SIL.WritingSystems (16.2.0 → 17.0.0), ParatextData, and icu.net. Clients of GlyssenEngine should watch for possible incompatibilities.
+
+### Security
+- Added an explicit dependency on System.Security.Cryptography.Xml 9.0.18 to patch a security vulnerability in a transitive dependency.
 
 ## [6.2.0] - 2025-06-20
 

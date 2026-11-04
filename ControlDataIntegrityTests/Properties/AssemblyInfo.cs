@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("FCBH-SIL")]
 [assembly: AssemblyProduct("ControlDataIntegrityTests")]
-[assembly: AssemblyCopyright("Copyright © 2014-2025 Faith Comes By Hearing and SIL Global")]
+[assembly: AssemblyCopyright("Copyright © 2014-2026 Faith Comes By Hearing and SIL Global")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
