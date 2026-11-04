@@ -8,7 +8,7 @@
         <authors>SIL</authors>
 		<license type="expression">MIT</license>
 		<projectUrl>https://github.com/sillsdev/glyssen</projectUrl>
-		<copyright>Copyright © 2020 SIL International</copyright>
+		<copyright>Copyright © 2020 SIL Global</copyright>
     </metadata>
 	<files>
 	  <file src="GlyssenengineL10n\**\GlyssenEngine.*.xlf" target="content" />

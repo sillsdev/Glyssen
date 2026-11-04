@@ -1,4 +1,4 @@
-Glyssen uses Microsoft's open source ["WIX Toolset"](http://wixtoolset.org/) installer maker.
+Glyssen uses Microsoft's open source ["WIX Toolset"](https://wixtoolset.org/) installer maker.
 
 Requirements for building the installer:
 

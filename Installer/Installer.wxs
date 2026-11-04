@@ -13,7 +13,7 @@
 <?define Property_UpgradeCode = "{cd92c128-d3c7-4c9a-acc6-81e4184ef6ca}" ?>
 
 <!-- good intro to the component vs. file thing, and why each file here is a separate component:
-http://blogs.msdn.com/robmen/archive/2003/10/04/56479.aspx -->
+https://blogs.msdn.com/robmen/archive/2003/10/04/56479.aspx -->
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension"
       xmlns:fire="http://schemas.microsoft.com/wix/FirewallExtension">
@@ -26,7 +26,7 @@ http://blogs.msdn.com/robmen/archive/2003/10/04/56479.aspx -->
 
     <!-- changed schedule from afterInstallInitialize, to afterInstallValidate, hopes that upgrades which have some library (e.g. palaso) with a lower version won't leave us
         with no palaso at all, as afterInstallInitialize was doing. But it's not clear whether even this will work, as it depends on when the "costing" happens:
-        http://msdn.microsoft.com/en-us/library/aa371197.aspx -->
+        https://msdn.microsoft.com/en-us/library/aa371197.aspx -->
     <MajorUpgrade Schedule="afterInstallValidate"
 		DowngradeErrorMessage="A later version of Glyssen is already installed. If you really want to downgrade, first uninstall Glyssen, then do this install again."/>
 
