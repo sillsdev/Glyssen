@@ -22,6 +22,8 @@ jobs:
   build_test:
     name: Build Test Installer Release
     runs-on: windows-latest
+    outputs:
+      nuget_published: ${{ steps.publish_nuget.outcome == 'success' }}
 
     steps:
       - name: Checkout
@@ -127,54 +129,48 @@ jobs:
             output/*.nupkg
             output/*.snupkg
 
-      # When refreshing the Nuget publishing token, make sure it covers the Glyssen packages
-      - name: Publish NuGet packages
+      # Uses nuget.org's Trusted Publishing (OIDC), which requires a Trusted Publishing policy
+      # on the nuget.org "sil-lsdev" account (the owner of the Glyssen packages) matching this
+      # exact repo/workflow file:
+      #   Repository owner: sillsdev | Repository: Glyssen
+      #   Workflow file: build-test-installer-release.yml | Environment: (blank)
+      # "sil-lsdev" below is just that account's public nuget.org profile name, not a secret.
+      #
+      # TEMPORARY: continue-on-error and the warning step below are a stopgap until that policy
+      # is confirmed set up and working. Until then, login will fail with "no matching policy"
+      # and the packages won't be published, but the installer release itself still succeeds.
+      # Remove continue-on-error (on both steps) and the warning step once that's confirmed.
+      - name: NuGet login (OIDC -> temporary API key)
+        id: nuget_login
         if: ${{ github.event_name == 'push' }}
-        run: dotnet nuget push output\*.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.SILLSDEV_PUBLISH_NUGET_ORG }} --skip-duplicate
+        continue-on-error: true
+        uses: NuGet/login@v1
+        with:
+          user: sil-lsdev
 
-  # Publishes the installer and appcast to the stable public mirror that both the appcast's
-  # own <enclosure> URL and MainForm.cs's update-checker point at, decoupling distribution
-  # from whichever CI system happens to build a given release. Runs on ubuntu-latest rather
-  # than windows-latest because windows-latest's bundled OpenSSH client is too old to
-  # negotiate a key exchange algorithm this server offers (confirmed via a failed
-  # ssh-keyscan); Ubuntu's OpenSSH build has no such problem.
+      - name: Publish NuGet packages
+        id: publish_nuget
+        if: ${{ github.event_name == 'push' && steps.nuget_login.outcome == 'success' }}
+        continue-on-error: true
+        run: dotnet nuget push output\*.nupkg --api-key ${{ steps.nuget_login.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+
+      - name: Warn if NuGet publish failed (branch build)
+        if: ${{ github.event_name == 'push' && !startsWith(github.ref, 'refs/tags/v') && (steps.nuget_login.outcome == 'failure' || steps.publish_nuget.outcome == 'failure') }}
+        run: echo "::warning::Publishing NuGet packages failed (see the 'NuGet login'/'Publish NuGet packages' steps above). This is currently non-blocking while the nuget.org Trusted Publishing policy is being set up, so the build still succeeded, but the NuGet packages were NOT updated for this version."
+
+      - name: Warn if NuGet publish failed (release build)
+        if: ${{ startsWith(github.ref, 'refs/tags/v') && (steps.nuget_login.outcome == 'failure' || steps.publish_nuget.outcome == 'failure') }}
+        run: echo "::warning::Publishing NuGet packages failed for this release. The installer build, signing, and draft GitHub release still succeeded, but the automatic publish to software.sil.org was skipped since this is a tagged release. To publish to software.sil.org anyway, manually run the 'Publish installer to software.sil.org' workflow with run_id=${{ github.run_id }}."
+
+  # See publish-software-sil-org.yml for what this does. Only runs for tag builds, and only
+  # when NuGet publishing succeeded; see the 'Warn if NuGet publish failed (release build)' step
+  # above for how to publish anyway when that's not the case.
   publish_to_software_sil_org:
     name: Publish to software.sil.org
     needs: build_test
-    runs-on: ubuntu-latest
-    if: ${{ startsWith(github.ref, 'refs/tags/v') }}
-    steps:
-      - name: Download installer artifacts
-        uses: actions/download-artifact@v7
-        with:
-          name: glyssen-installer
-
-      - name: Upload to software.sil.org
-        env:
-          SFTP_PRIVATE_KEY: ${{ secrets.GLYSSEN_SFTP_PRIVATE_KEY }}
-          SFTP_PASSPHRASE: ${{ secrets.GLYSSEN_SFTP_PASSPHRASE }}
-        run: |
-          set -euo pipefail
-          mkdir -p ~/.ssh
-          chmod 700 ~/.ssh
-          echo "$SFTP_PRIVATE_KEY" > ~/.ssh/gha_glyssen
-          chmod 600 ~/.ssh/gha_glyssen
-          # Strip the passphrase from this throwaway copy of the key, since it only needs
-          # to exist for the lifetime of this job and sftp has no non-interactive way to
-          # supply a passphrase without the added complexity of ssh-agent/SSH_ASKPASS.
-          ssh-keygen -p -P "$SFTP_PASSPHRASE" -N "" -f ~/.ssh/gha_glyssen
-          # Host key fingerprint confirmed independently with TechOps (SIL) rather than
-          # trusted on first connect.
-          echo "software.sil.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJwY1f1tshznQKx9dc5CDFaZnan3s1quy6i0up1h9wUL" >> ~/.ssh/known_hosts
-          sftp -i ~/.ssh/gha_glyssen -o StrictHostKeyChecking=yes -b - gha_glyssen@software.sil.org << 'SFTP_COMMANDS'
-          cd upload_areas/glyssen
-          put output/installer/GlyssenInstaller*.exe
-          put output/installer/*.download_info
-          put output/installer/appcast.xml
-          put output/releasenotes.download_info
-          put output/ReleaseNotes.htm
-          put DistFiles/ReleaseNotes.md
-          SFTP_COMMANDS
+    if: ${{ startsWith(github.ref, 'refs/tags/v') && needs.build_test.outputs.nuget_published == 'true' }}
+    uses: ./.github/workflows/publish-software-sil-org.yml
+    secrets: inherit
 
   report:
     name: Test Report
