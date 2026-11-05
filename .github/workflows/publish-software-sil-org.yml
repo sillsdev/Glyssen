@@ -1,0 +1,96 @@
+name: Publish installer to software.sil.org
+
+# Publishes the installer and appcast to the stable public mirror that both the appcast's own
+# <enclosure> URL and MainForm.cs's update-checker point at, decoupling distribution from
+# whichever CI system happens to build a given release.
+#
+# Called automatically (workflow_call) from build-test-installer-release.yml after a tag build,
+# using that same run's own glyssen-installer artifact. Can also be run directly
+# (workflow_dispatch) to (re)publish the artifacts from an already-completed tag build without
+# rebuilding anything -- e.g. if the automatic publish was skipped because NuGet publishing
+# failed for that release and it's since been decided it's fine to publish anyway.
+
+on:
+  workflow_call:
+    inputs:
+      run_id:
+        description: 'Run ID to pull the glyssen-installer artifact from (defaults to the current run)'
+        required: false
+        type: string
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: >-
+          Run ID of a previous "Build Test Installer Release" tag build whose installer/release-notes/appcast
+          artifacts should be (re)published to software.sil.org
+        required: true
+        type: string
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  publish:
+    name: Publish to software.sil.org
+    # Runs on ubuntu-latest rather than windows-latest because windows-latest's bundled OpenSSH
+    # client is too old to negotiate a key exchange algorithm this server offers (confirmed via
+    # a failed ssh-keyscan); Ubuntu's OpenSSH build has no such problem.
+    runs-on: ubuntu-latest
+    steps:
+      # Only needed for a manual run against an arbitrary run_id, to avoid accidentally
+      # publishing a stray branch/PR build as though it were a tagged release.
+      - name: Verify source run was a tagged release build
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          run_json=$(gh api "repos/${{ github.repository }}/actions/runs/${{ inputs.run_id }}")
+          path=$(echo "$run_json" | jq -r .path)
+          head_branch=$(echo "$run_json" | jq -r .head_branch)
+          if [ "$path" != ".github/workflows/build-test-installer-release.yml" ]; then
+            echo "::error::Run ${{ inputs.run_id }} is not a 'Build Test Installer Release' run (workflow: $path)."
+            exit 1
+          fi
+          case "$head_branch" in
+            v*) ;;
+            *)
+              echo "::error::Run ${{ inputs.run_id }} was not triggered by a version tag (ref: $head_branch). Refusing to publish a non-release build to software.sil.org."
+              exit 1
+              ;;
+          esac
+
+      - name: Download installer artifacts
+        uses: actions/download-artifact@v7
+        with:
+          name: glyssen-installer
+          run-id: ${{ inputs.run_id || github.run_id }}
+          github-token: ${{ github.token }}
+
+      - name: Upload to software.sil.org
+        env:
+          SFTP_PRIVATE_KEY: ${{ secrets.GLYSSEN_SFTP_PRIVATE_KEY }}
+          SFTP_PASSPHRASE: ${{ secrets.GLYSSEN_SFTP_PASSPHRASE }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          echo "$SFTP_PRIVATE_KEY" > ~/.ssh/gha_glyssen
+          chmod 600 ~/.ssh/gha_glyssen
+          # Strip the passphrase from this throwaway copy of the key, since it only needs
+          # to exist for the lifetime of this job and sftp has no non-interactive way to
+          # supply a passphrase without the added complexity of ssh-agent/SSH_ASKPASS.
+          ssh-keygen -p -P "$SFTP_PASSPHRASE" -N "" -f ~/.ssh/gha_glyssen
+          # Host key fingerprint confirmed independently with TechOps (SIL) rather than
+          # trusted on first connect.
+          echo "software.sil.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJwY1f1tshznQKx9dc5CDFaZnan3s1quy6i0up1h9wUL" >> ~/.ssh/known_hosts
+          sftp -i ~/.ssh/gha_glyssen -o StrictHostKeyChecking=yes -b - gha_glyssen@software.sil.org << 'SFTP_COMMANDS'
+          cd upload_areas/glyssen
+          put output/installer/GlyssenInstaller*.exe
+          put output/installer/*.download_info
+          put output/installer/appcast.xml
+          put output/releasenotes.download_info
+          put output/ReleaseNotes.htm
+          put DistFiles/ReleaseNotes.md
+          SFTP_COMMANDS
