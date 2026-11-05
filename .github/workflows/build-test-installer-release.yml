@@ -128,9 +128,20 @@ jobs:
             output/*.snupkg
 
       # When refreshing the Nuget publishing token, make sure it covers the Glyssen packages
+      #
+      # TEMPORARY: continue-on-error and the warning step below are a stopgap while access to
+      # the nuget.org account that owns these packages is sorted out with TechOps (neither the
+      # repo maintainers nor TechOps currently have the access needed to issue a new key or set
+      # up Trusted Publishing). Remove both once that's resolved and this step is reliable again.
       - name: Publish NuGet packages
+        id: publish_nuget
         if: ${{ github.event_name == 'push' }}
+        continue-on-error: true
         run: dotnet nuget push output\*.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.SILLSDEV_PUBLISH_NUGET_ORG }} --skip-duplicate
+
+      - name: Warn if NuGet publish failed
+        if: ${{ steps.publish_nuget.outcome == 'failure' }}
+        run: echo "::warning::Publishing NuGet packages failed (see the 'Publish NuGet packages' step above). This is currently non-blocking while nuget.org access is being sorted out with TechOps, so the installer release still succeeded, but the NuGet packages were NOT updated for this version."
 
   # Publishes the installer and appcast to the stable public mirror that both the appcast's
   # own <enclosure> URL and MainForm.cs's update-checker point at, decoupling distribution
