@@ -127,14 +127,12 @@ jobs:
             output/*.nupkg
             output/*.snupkg
 
-      # Uses nuget.org's Trusted Publishing (OIDC) instead of a stored, expiring API key: see
-      # https://learn.microsoft.com/nuget/nuget-org/trusted-publishing. This requires a Trusted
-      # Publishing policy to exist on the nuget.org "sil-lsdev" account (the owner of the
-      # Glyssen packages) naming this exact repo/workflow file:
+      # Uses nuget.org's Trusted Publishing (OIDC), which requires a Trusted Publishing policy
+      # on the nuget.org "sil-lsdev" account (the owner of the Glyssen packages) matching this
+      # exact repo/workflow file:
       #   Repository owner: sillsdev | Repository: Glyssen
       #   Workflow file: build-test-installer-release.yml | Environment: (blank)
-      # "sil-lsdev" below is just that account's public nuget.org profile name (visible on any
-      # Glyssen package page), not a secret.
+      # "sil-lsdev" below is just that account's public nuget.org profile name, not a secret.
       #
       # TEMPORARY: continue-on-error and the warning step below are a stopgap until that policy
       # is confirmed set up and working. Until then, login will fail with "no matching policy"
