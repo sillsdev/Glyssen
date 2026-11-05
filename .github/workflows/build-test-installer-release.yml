@@ -130,7 +130,7 @@ jobs:
       # When refreshing the Nuget publishing token, make sure it covers the Glyssen packages
       - name: Publish NuGet packages
         if: ${{ github.event_name == 'push' }}
-        run: dotnet nuget push output/*.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.SILLSDEV_PUBLISH_NUGET_ORG }} --skip-duplicate
+        run: dotnet nuget push output\*.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.SILLSDEV_PUBLISH_NUGET_ORG }} --skip-duplicate
 
   # Publishes the installer and appcast to the stable public mirror that both the appcast's
   # own <enclosure> URL and MainForm.cs's update-checker point at, decoupling distribution
