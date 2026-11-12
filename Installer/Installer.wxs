@@ -285,6 +285,10 @@ are trying to support, you're better off using non-advertised shortcuts." -->
             <File Id="L10NSharp.dll" Name="L10NSharp.dll" KeyPath="yes" Source="..\output\release\L10NSharp.dll" ProcessorArchitecture="x64"/>
           </Component>
 
+          <Component Id="L10NSharp.Windows.Forms.dll" Guid="*" Win64="yes">
+            <File Id="L10NSharp.Windows.Forms.dll" Name="L10NSharp.Windows.Forms.dll" KeyPath="yes" Source="..\output\release\L10NSharp.Windows.Forms.dll" ProcessorArchitecture="x64"/>
+          </Component>
+
           <Component Id="Segment.Analytics.CSharp.dll" Guid="*" Win64="yes">
               <File Id="Segment.Analytics.CSharp.dll" Name="Segment.Analytics.CSharp.dll" KeyPath="yes" Source="..\output\release\Segment.Analytics.CSharp.dll" ProcessorArchitecture="x64"/>
           </Component>
@@ -372,6 +376,7 @@ are trying to support, you're better off using non-advertised shortcuts." -->
 	  <ComponentRef Id="System.Memory.dll"/>
 	  <ComponentRef Id="System.Runtime.CompilerServices.Unsafe.dll"/>
       <ComponentRef Id="L10NSharp.dll"/>
+      <ComponentRef Id="L10NSharp.Windows.Forms.dll"/>
       <ComponentRef Id="Glyssen.exe" />
 	  <ComponentRef Id="ComponentDesktopShortcut" />
       <ComponentRef Id="GlyssenShortcut" />
