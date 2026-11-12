@@ -31,10 +31,10 @@ See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="icu.net" Version="3.0.2" />
-    <PackageReference Include="SIL.Core" Version="17.0.0" />
-    <PackageReference Include="SIL.DblBundle" Version="17.0.0" />
-    <PackageReference Include="SIL.Scripture" Version="17.0.0" />
+    <PackageReference Include="icu.net" Version="4.0.0" />
+    <PackageReference Include="SIL.Core" Version="18.0.0" />
+    <PackageReference Include="SIL.DblBundle" Version="18.0.0" />
+    <PackageReference Include="SIL.Scripture" Version="18.0.0" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

@@ -4,7 +4,7 @@
   <Import Project="..\packages\Microsoft.Testing.Extensions.Telemetry.2.1.0\build\netstandard2.0\Microsoft.Testing.Extensions.Telemetry.props" Condition="Exists('..\packages\Microsoft.Testing.Extensions.Telemetry.2.1.0\build\netstandard2.0\Microsoft.Testing.Extensions.Telemetry.props')" />
   <Import Project="..\packages\Microsoft.Testing.Platform.MSBuild.2.1.0\build\Microsoft.Testing.Platform.MSBuild.props" Condition="Exists('..\packages\Microsoft.Testing.Platform.MSBuild.2.1.0\build\Microsoft.Testing.Platform.MSBuild.props')" />
   <Import Project="..\packages\Microsoft.Testing.Platform.2.1.0\build\netstandard2.0\Microsoft.Testing.Platform.props" Condition="Exists('..\packages\Microsoft.Testing.Platform.2.1.0\build\netstandard2.0\Microsoft.Testing.Platform.props')" />
-  <Import Project="..\packages\icu.net.3.0.2\build\icu.net.props" Condition="Exists('..\packages\icu.net.3.0.2\build\icu.net.props')" />
+  <Import Project="..\packages\icu.net.4.0.0\build\icu.net.props" Condition="Exists('..\packages\icu.net.4.0.0\build\icu.net.props')" />
   <Import Project="..\packages\NUnit.4.4.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.4.4.0\build\NUnit.props')" />
   <Import Project="..\packages\Microsoft.NET.Test.Sdk.17.14.1\build\net462\Microsoft.NET.Test.Sdk.props" Condition="Exists('..\packages\Microsoft.NET.Test.Sdk.17.14.1\build\net462\Microsoft.NET.Test.Sdk.props')" />
   <Import Project="..\packages\Microsoft.CodeCoverage.17.14.1\build\netstandard2.0\Microsoft.CodeCoverage.props" Condition="Exists('..\packages\Microsoft.CodeCoverage.17.14.1\build\netstandard2.0\Microsoft.CodeCoverage.props')" />
@@ -71,11 +71,11 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="icu.net, Version=3.0.0.0, Culture=neutral, PublicKeyToken=416fdd914afa6b66, processorArchitecture=MSIL">
-      <HintPath>..\packages\icu.net.3.0.2\lib\net451\icu.net.dll</HintPath>
+    <Reference Include="icu.net, Version=4.0.0.0, Culture=neutral, PublicKeyToken=416fdd914afa6b66, processorArchitecture=MSIL">
+      <HintPath>..\packages\icu.net.4.0.0\lib\net462\icu.net.dll</HintPath>
     </Reference>
-    <Reference Include="Markdig.Signed, Version=0.42.0.0, Culture=neutral, PublicKeyToken=870da25a133885f8, processorArchitecture=MSIL">
-      <HintPath>..\packages\Markdig.Signed.0.42.0\lib\net462\Markdig.Signed.dll</HintPath>
+    <Reference Include="Markdig.Signed, Version=1.4.0.0, Culture=neutral, PublicKeyToken=870da25a133885f8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Markdig.Signed.1.4.0\lib\net462\Markdig.Signed.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ApplicationInsights, Version=2.23.0.29, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.2.23.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
@@ -87,8 +87,8 @@
     <Reference Include="Microsoft.DotNet.PlatformAbstractions, Version=3.1.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.DotNet.PlatformAbstractions.3.1.6\lib\net45\Microsoft.DotNet.PlatformAbstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Extensions.DependencyModel, Version=9.0.0.18, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Extensions.DependencyModel.9.0.18\lib\net462\Microsoft.Extensions.DependencyModel.dll</HintPath>
+    <Reference Include="Microsoft.Extensions.DependencyModel, Version=10.0.0.9, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyModel.10.0.9\lib\net462\Microsoft.Extensions.DependencyModel.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Testing.Extensions.MSBuild, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Testing.Platform.MSBuild.2.1.0\lib\netstandard2.0\Microsoft.Testing.Extensions.MSBuild.dll</HintPath>
@@ -129,17 +129,17 @@
     <Reference Include="nunit.framework.legacy, Version=4.4.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.4.4.0\lib\net462\nunit.framework.legacy.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Core, Version=17.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Core.17.0.0\lib\net48\SIL.Core.dll</HintPath>
+    <Reference Include="SIL.Core, Version=18.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <HintPath>..\packages\SIL.Core.18.0.0\lib\net48\SIL.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.DblBundle, Version=17.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.DblBundle.17.0.0\lib\net48\SIL.DblBundle.dll</HintPath>
+    <Reference Include="SIL.DblBundle, Version=18.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <HintPath>..\packages\SIL.DblBundle.18.0.0\lib\net48\SIL.DblBundle.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Scripture, Version=17.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Scripture.17.0.0\lib\net48\SIL.Scripture.dll</HintPath>
+    <Reference Include="SIL.Scripture, Version=18.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <HintPath>..\packages\SIL.Scripture.18.0.0\lib\net48\SIL.Scripture.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.WritingSystems, Version=17.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.WritingSystems.17.0.0\lib\net48\SIL.WritingSystems.dll</HintPath>
+    <Reference Include="SIL.WritingSystems, Version=18.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <HintPath>..\packages\SIL.WritingSystems.18.0.0\lib\net48\SIL.WritingSystems.dll</HintPath>
     </Reference>
     <Reference Include="Spart, Version=1.0.0.0, Culture=neutral, PublicKeyToken=14d24e064e474331, processorArchitecture=MSIL">
       <HintPath>..\packages\Spart.1.0.0\lib\net461\Spart.dll</HintPath>
@@ -338,10 +338,10 @@
     <Error Condition="!Exists('..\packages\Microsoft.NET.Test.Sdk.17.14.1\build\net462\Microsoft.NET.Test.Sdk.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NET.Test.Sdk.17.14.1\build\net462\Microsoft.NET.Test.Sdk.targets'))" />
     <Error Condition="!Exists('..\packages\Mono.Posix.5.4.0.201\build\net45\Mono.Posix.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Mono.Posix.5.4.0.201\build\net45\Mono.Posix.targets'))" />
     <Error Condition="!Exists('..\packages\Mono.Unix.7.1.0-final.1.21458.1\build\Mono.Unix.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Mono.Unix.7.1.0-final.1.21458.1\build\Mono.Unix.targets'))" />
-    <Error Condition="!Exists('..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets'))" />
+    <Error Condition="!Exists('..\packages\System.ValueTuple.4.6.2\build\net471\System.ValueTuple.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.ValueTuple.4.6.2\build\net471\System.ValueTuple.targets'))" />
     <Error Condition="!Exists('..\packages\NUnit.4.4.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.4.4.0\build\NUnit.props'))" />
-    <Error Condition="!Exists('..\packages\icu.net.3.0.2\build\icu.net.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\icu.net.3.0.2\build\icu.net.props'))" />
-    <Error Condition="!Exists('..\packages\icu.net.3.0.2\build\icu.net.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\icu.net.3.0.2\build\icu.net.targets'))" />
+    <Error Condition="!Exists('..\packages\icu.net.4.0.0\build\icu.net.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\icu.net.4.0.0\build\icu.net.props'))" />
+    <Error Condition="!Exists('..\packages\icu.net.4.0.0\build\icu.net.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\icu.net.4.0.0\build\icu.net.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.Testing.Platform.2.1.0\build\netstandard2.0\Microsoft.Testing.Platform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Testing.Platform.2.1.0\build\netstandard2.0\Microsoft.Testing.Platform.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.Testing.Platform.2.1.0\build\netstandard2.0\Microsoft.Testing.Platform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Testing.Platform.2.1.0\build\netstandard2.0\Microsoft.Testing.Platform.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.Testing.Platform.MSBuild.2.1.0\build\Microsoft.Testing.Platform.MSBuild.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Testing.Platform.MSBuild.2.1.0\build\Microsoft.Testing.Platform.MSBuild.props'))" />
@@ -354,8 +354,8 @@
   <Import Project="..\packages\Microsoft.NET.Test.Sdk.17.14.1\build\net462\Microsoft.NET.Test.Sdk.targets" Condition="Exists('..\packages\Microsoft.NET.Test.Sdk.17.14.1\build\net462\Microsoft.NET.Test.Sdk.targets')" />
   <Import Project="..\packages\Mono.Posix.5.4.0.201\build\net45\Mono.Posix.targets" Condition="Exists('..\packages\Mono.Posix.5.4.0.201\build\net45\Mono.Posix.targets')" />
   <Import Project="..\packages\Mono.Unix.7.1.0-final.1.21458.1\build\Mono.Unix.targets" Condition="Exists('..\packages\Mono.Unix.7.1.0-final.1.21458.1\build\Mono.Unix.targets')" />
-  <Import Project="..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets" Condition="Exists('..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets')" />
-  <Import Project="..\packages\icu.net.3.0.2\build\icu.net.targets" Condition="Exists('..\packages\icu.net.3.0.2\build\icu.net.targets')" />
+  <Import Project="..\packages\System.ValueTuple.4.6.2\build\net471\System.ValueTuple.targets" Condition="Exists('..\packages\System.ValueTuple.4.6.2\build\net471\System.ValueTuple.targets')" />
+  <Import Project="..\packages\icu.net.4.0.0\build\icu.net.targets" Condition="Exists('..\packages\icu.net.4.0.0\build\icu.net.targets')" />
   <Import Project="..\packages\Microsoft.Testing.Platform.2.1.0\build\netstandard2.0\Microsoft.Testing.Platform.targets" Condition="Exists('..\packages\Microsoft.Testing.Platform.2.1.0\build\netstandard2.0\Microsoft.Testing.Platform.targets')" />
   <Import Project="..\packages\Microsoft.Testing.Platform.MSBuild.2.1.0\build\Microsoft.Testing.Platform.MSBuild.targets" Condition="Exists('..\packages\Microsoft.Testing.Platform.MSBuild.2.1.0\build\Microsoft.Testing.Platform.MSBuild.targets')" />
   <Import Project="..\packages\NUnit3TestAdapter.6.2.0\build\net462\NUnit3TestAdapter.targets" Condition="Exists('..\packages\NUnit3TestAdapter.6.2.0\build\net462\NUnit3TestAdapter.targets')" />
