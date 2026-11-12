@@ -15,15 +15,17 @@
     UpgradeCode="$(var.Property_UpgradeCode)">
 
 		<bal:Condition Message="Windows 7 or later is required. (32-bit Windows not supported)">(VersionNT64 &gt; v6.0)</bal:Condition>
-		
+
 		<util:RegistrySearch Root="HKLM"
 			Key="SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\x64"
 			Variable="VCPLUSPLUS2015"
 			Value="Installed"
 			Result="value"/>
-					 
+
 		<BootstrapperApplicationRef
 			Id="WixStandardBootstrapperApplication.RtfLicense">
+			<!-- LicenseFile is required by this BootstrapperApplicationRef variant (CNDL0010: "exactly
+			     one of LicenseFile or LicenseUrl" is mandatory). -->
 			<bal:WixStandardBootstrapperApplication
 				LicenseFile="..\..\DistFiles\License.rtf"
 				LogoFile ="Glyssen-64.png"
@@ -32,12 +34,12 @@
 				LaunchTarget="[ProgramFiles64Folder]Glyssen\Glyssen.exe" />
 		</BootstrapperApplicationRef>
 		<Chain>
-		
+
 			<!-- use heat command to get RemotePayload attributes -->
 			<!-- example: heat payload vc_redist.x64.exe -o x64.wxs -->
-			
+
 			<!-- The bundle already requires this InstallCondition="VersionNT64" -->
-			
+
 			<!-- Visual C++ 2015 Redistributable (x64) -->
 			<ExePackage
 				Id="vc_redist.x64.exe"
@@ -55,8 +57,10 @@
 				<RemotePayload CertificatePublicKey="52868DFCA6E3AF2632389E6C1EE7D0468D3797D0" CertificateThumbprint="3BDA323E552DB1FDE5F4FBEE75D6D5B2B187EEDC" Description="Microsoft Visual C++ 2015 Redistributable (x64) - 14.0.23026" Hash="3155CB0F146B927FCC30647C1A904CD162548C8C" ProductName="Microsoft Visual C++ 2015 Redistributable (x64) - 14.0.23026" Size="14572000" Version="14.0.23026.0" />
 				<ExitCode Value="1638" Behavior="success"/> <!-- Don't fail if newer version is installed -->
 			</ExePackage>
-			
-			<MsiPackage SourceFile="..\..\output\installer\Glyssen.msi"/>
+
+			<!-- DisplayInternalUI: without this, Burn suppresses the MSI's own UI sequence entirely, which
+			     would hide the new Privacy Settings dialog. -->
+			<MsiPackage SourceFile="..\..\output\installer\Glyssen.msi" DisplayInternalUI="yes"/>
 		</Chain>
 	</Bundle>
 
