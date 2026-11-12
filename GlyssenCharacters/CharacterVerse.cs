@@ -289,21 +289,24 @@ namespace GlyssenCharacters
 
 		private void Localize()
 		{
-			m_localizedCharacter = GetLocalizedCharacterString(Character);
-			m_localizedAlias = IsNullOrWhiteSpace(Alias) ? null : GetLocalizedCharacterString(Alias);
+			var detail = CharacterDetailData.Singleton.GetAll().FirstOrDefault(d => d.CharacterId == Character);
+			// I think detail should never be null, but we wouldn't want to crash if I'm wrong.
+			var comment = (detail == null) ? "" : (detail.ReferenceComment + " " + detail.Comment).Trim();
+			m_localizedCharacter = GetLocalizedCharacterString(Character, comment);
+			m_localizedAlias = IsNullOrWhiteSpace(Alias) ? null : GetLocalizedCharacterString(Alias, "Alias - " + comment);
 			m_localized = true;
 		}
 
 		// If an ID or Alias consists of multiple individual characters (or groups), separated by slashes,
 		// each individual is localized separately.
-		private string GetLocalizedCharacterString(string character)
+		private string GetLocalizedCharacterString(string character, string comment)
 		{
-			return Join(kMultiCharacterIdSeparator, character.SplitCharacterId().Select(GetLocalizedIndividualCharacterString));
+			return Join(kMultiCharacterIdSeparator, character.SplitCharacterId().Select(c => GetLocalizedIndividualCharacterString(c, comment)));
 		}
 
-		internal static string GetLocalizedIndividualCharacterString(string character)
+		internal static string GetLocalizedIndividualCharacterString(string character, string comment)
 		{
-			return Localizer.GetDynamicString(GlyssenInfo.ApplicationId, "CharacterName." + character, character);
+			return Localizer.GetDynamicString(GlyssenInfo.ApplicationId, "CharacterName." + character, character, comment);
 		}
 
 		#region Equality Members
@@ -439,7 +442,7 @@ namespace GlyssenCharacters
 		public NarratorOverrideCharacter(string character)
 		{
 			Character = character;
-			LocalizedCharacter = CharacterVerse.GetLocalizedIndividualCharacterString(character);
+			LocalizedCharacter = CharacterVerse.GetLocalizedIndividualCharacterString(character, "narrator override");
 		}
 	}
 
