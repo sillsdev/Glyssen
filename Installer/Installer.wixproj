@@ -1,16 +1,27 @@
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <!-- Wix.targets (imported below) doesn't pull in Microsoft.Common.targets like a normal project, so without this
+       import, NuGet's PackageReference restore hooks (needed for the SIL.Installer package) never get wired up. -->
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <ProductVersion>3.0</ProductVersion>
     <ProjectGuid>{ae2c52bc-6b66-4f8b-8b50-2cba58a8207d}</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
     <OutputName>Glyssen</OutputName>
+    <!-- Set explicitly: importing Microsoft.Common.targets (below, needed for PackageReference restore) defaults
+         TargetName to the project file name ("Installer") before Wix.targets gets a chance to fall back to OutputName. -->
+    <TargetName>$(OutputName)</TargetName>
     <OutputType>Package</OutputType>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <!-- Required by the SIL.Installer package's Analytics.wxs fragment. WiX 3 preprocessor variables are
+         file-scoped, so this must be set here (applies to every compiled file) rather than via <?define?>
+         in Installer.wxs (which would only be visible within that one file). -->
+    <DefineConstants>ProductName=Glyssen</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <OutputPath>..\output\installer\</OutputPath>
     <IntermediateOutputPath>output\wixobj\$(Platform)\$(Configuration)</IntermediateOutputPath>
-    <DefineConstants>Debug</DefineConstants>
+    <DefineConstants>Debug;$(DefineConstants)</DefineConstants>
     <AllowIdenticalRows>False</AllowIdenticalRows>
     <CabinetCachePath>
     </CabinetCachePath>
@@ -94,6 +105,12 @@
       <Name>WixFirewallExtension</Name>
     </WixExtension>
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="SIL.Installer" Version="18.0.0" />
+  </ItemGroup>
+  <!-- Provides the NuGet PackageReference restore targets; imported before Wix.targets so Wix.targets' own
+       Build/Clean target definitions (which follow) take precedence over Common.targets' generic ones. -->
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets" />
 	
   <!-- See https://wixtoolset.org/documentation/manual/v3/overview/insignia.html -->

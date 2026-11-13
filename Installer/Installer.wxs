@@ -11,6 +11,9 @@
 <!-- This needs to match the one in Glyssen Bootstrap Installer.wxs -->
 <!-- Don't even think of EVER changing this -->
 <?define Property_UpgradeCode = "{cd92c128-d3c7-4c9a-acc6-81e4184ef6ca}" ?>
+<!-- ProductName is defined via DefineConstants in Installer.wixproj (required by the SIL.Installer
+     package's Analytics.wxs fragment; preprocessor variables are file-scoped in WiX 3, so it must be
+     set at the project level to be visible to that separately-compiled file). -->
 
 <!-- good intro to the component vs. file thing, and why each file here is a separate component:
 https://blogs.msdn.com/robmen/archive/2003/10/04/56479.aspx -->
@@ -35,9 +38,20 @@ https://blogs.msdn.com/robmen/archive/2003/10/04/56479.aspx -->
       <UpgradeVersion Minimum ="0.0.0" IncludeMinimum ="yes" Maximum ="$(var.Property_ProductVersion)" IncludeMaximum ="no" Property ="OLDERVERSIONBEINGUPGRADED" />
     </Upgrade >
 
-    <!-- show the license page - now done in boot-strapper -->
-    <UIRef Id="WixUI_Minimal"/>
-    <!-- <WixVariable Id="WixUILicenseRtf" Value="..\distfiles\License.rtf" /> -->
+    <!-- The SIL.Installer package's analytics opt-out navigation, which only knows how to wire
+         itself in ahead of VerifyReadyDlg via LicenseAgreementDlg, requires a UI with
+         LicenseAgreementDlg. The install-directory prompt itself is suppressed automatically by
+         that same navigation (it wires License -> Privacy -> VerifyReady).
+         TODO: Unfortunately, this results in an annoying UX redundancy: showing the license a
+         second time (because it is required to be shown earlier in the Bootstrapper). Remove the
+         second License display by passing a flag (e.g. an MsiProperty such as
+         LAUNCHED_VIA_BOOTSTRAPPER) into the chained MsiPackage in the bootstrapper and adding
+         Publish overrides in this installer to skip LicenseAgreementDlg only when that flag is
+         set, falling back to License -> Privacy -> VerifyReady flow for anyone who runs
+         the MSI directly. -->
+    <UIRef Id="WixUI_InstallDir"/>
+    <Property Id="WIXUI_INSTALLDIR" Value="ProgramDir" />
+    <WixVariable Id="WixUILicenseRtf" Value="..\DistFiles\license.rtf" />
     <!-- Top banner / 493 × 58 -->
     <WixVariable Id="WixUIBannerBmp" Value="installerBanner.jpg" />
     <!-- Background bitmap used on the welcome and completion dialogs / 493 × 312 -->
@@ -122,15 +136,15 @@ are trying to support, you're better off using non-advertised shortcuts." -->
           <Component Id="GlyssenFileBasedPersistence.pdb" Guid="*">
             <File Id="GlyssenFileBasedPersistence.pdb" Name="GlyssenFileBasedPersistence.pdb" KeyPath="yes" Source="..\output\release\GlyssenFileBasedPersistence.pdb" />
           </Component>
-		  
+
           <Component Id="FuzzySharp.dll" Guid="*">
               <File Id="FuzzySharp.dll" Name="FuzzySharp.dll" KeyPath="yes" Source="..\output\release\FuzzySharp.dll" />
           </Component>
-		  
+
           <Component Id="Markdig.Signed.dll" Guid="*">
               <File Id="Markdig.Signed.dll" Name="Markdig.Signed.dll" KeyPath="yes" Source="..\output\release\Markdig.Signed.dll" />
           </Component>
-		  
+
           <Component Id="ICSharpCode.SharpZipLib.dll" Guid="*">
               <File Id="ICSharpCode.SharpZipLib.dll" Name="ICSharpCode.SharpZipLib.dll" KeyPath="yes" Source="..\output\release\ICSharpCode.SharpZipLib.dll" />
           </Component>
@@ -272,11 +286,11 @@ are trying to support, you're better off using non-advertised shortcuts." -->
           <Component Id="Microsoft.Win32.SystemEvents.dll" Guid="*" Win64="yes">
             <File Id="Microsoft.Win32.SystemEvents.dll" Name="Microsoft.Win32.SystemEvents.dll" KeyPath="yes" Source="..\output\release\Microsoft.Win32.SystemEvents.dll" ProcessorArchitecture="x64"/>
           </Component>
-		  
+
 		  <Component Id="System.Memory.dll" Guid="{1814A58A-237B-4EA5-9391-7D12DAA514DC}">
 			<File Id="System.Memory.dll" Name="System.Memory.dll" KeyPath="yes" Source="..\output\release\System.Memory.dll" />
 		  </Component>
-		  
+
 		  <Component Id="System.Runtime.CompilerServices.Unsafe.dll" Guid="{5F914DE1-3C72-4F3B-997B-65A187345B92}">
 				<File Id="System.Runtime.CompilerServices.Unsafe.dll" Name="System.Runtime.CompilerServices.Unsafe.dll" KeyPath="yes" Source="..\output\release\System.Runtime.CompilerServices.Unsafe.dll" />
 		  </Component>
@@ -320,7 +334,7 @@ are trying to support, you're better off using non-advertised shortcuts." -->
         </Directory>
       </Directory>
     </Directory>
-	
+
 	<DirectoryRef Id="ProgramMenuFolder">
 	  <Component Id="GlyssenShortcut" Guid="{B8000306-EB15-4458-8264-97C1F888AD1E}">
 		<Shortcut Id="GlyssenStartMenuShortcut"
@@ -337,6 +351,7 @@ are trying to support, you're better off using non-advertised shortcuts." -->
     </Component>
 
     <Feature Id="ProductFeature" Level="1" Title="Basic Stuff">
+      <ComponentGroupRef Id="SilAnalyticsComponents" />
       <ComponentRef Id="CreateGlyssenAppDataFolder"/>
 	  <ComponentRef Id="ICSharpCode.SharpZipLib.dll"/>
       <ComponentRef Id="SIL.Core.dll"/>
