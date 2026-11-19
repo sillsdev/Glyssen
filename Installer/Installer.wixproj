@@ -106,7 +106,7 @@
     </WixExtension>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="SIL.Installer" Version="18.0.0" />
+    <PackageReference Include="SIL.Installer" Version="18.1.0-beta0008" />
   </ItemGroup>
   <!-- Provides the NuGet PackageReference restore targets; imported before Wix.targets so Wix.targets' own
        Build/Clean target definitions (which follow) take precedence over Common.targets' generic ones. -->

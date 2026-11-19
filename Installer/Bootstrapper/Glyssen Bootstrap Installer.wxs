@@ -24,8 +24,9 @@
 
 		<BootstrapperApplicationRef
 			Id="WixStandardBootstrapperApplication.RtfLicense">
-			<!-- LicenseFile is required by this BootstrapperApplicationRef variant (CNDL0010: "exactly
-			     one of LicenseFile or LicenseUrl" is mandatory). -->
+			<!-- We set LicenseFile so the license is shown early, here in the bootstrapper.
+			     The LAUNCHED_VIA_BOOTSTRAPPER MsiProperty below keeps the chained MSI from showing
+				 it again. -->
 			<bal:WixStandardBootstrapperApplication
 				LicenseFile="..\..\DistFiles\License.rtf"
 				LogoFile ="Glyssen-64.png"
@@ -60,7 +61,11 @@
 
 			<!-- DisplayInternalUI: without this, Burn suppresses the MSI's own UI sequence entirely, which
 			     would hide the new Privacy Settings dialog. -->
-			<MsiPackage SourceFile="..\..\output\installer\Glyssen.msi" DisplayInternalUI="yes"/>
+			<MsiPackage SourceFile="..\..\output\installer\Glyssen.msi" DisplayInternalUI="yes">
+				<!-- Tells SIL.Installer's AnalyticsNavigation.wxs that the license was already
+					 shown and should be skipped. -->
+				<MsiProperty Name="LAUNCHED_VIA_BOOTSTRAPPER" Value="1" />
+			</MsiPackage>
 		</Chain>
 	</Bundle>
 
