@@ -46,6 +46,7 @@ back-up plan.)
 
 ## _DATE_ Glyssen _VERSION_
 - Fixed bug when project quote system is not set.
+- Fixed a bug that could associate a user's real email address and name with their analytics data if they ever changed the UI language, even though analytics are supposed to be anonymous.
 - Improved Analytics.
 - Upgraded several third-party libraries, including the localization framework.
 - On-the-fly custom localization is no longer supported.
