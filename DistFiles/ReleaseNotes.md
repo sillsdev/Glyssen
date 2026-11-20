@@ -47,6 +47,7 @@ back-up plan.)
 ## _DATE_ Glyssen _VERSION_
 - Fixed bug when project quote system is not set.
 - Improved Analytics.
+- Added the ability to opt out of analytics reporting, via the Installer and the Privacy menu.
 - Upgraded several third-party libraries, including the localization framework.
 - On-the-fly custom localization is no longer supported.
 - Fixed bug in projects that use milestones (new in USFM 3.0)

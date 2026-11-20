@@ -24,10 +24,12 @@ using Paratext.Data.Users;
 using PtxUtils;
 using PtxUtils.Progress;
 using SIL.Core.Desktop.i18n;
+using SIL.Core.Desktop.Privacy;
 using SIL.Extensions;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Windows.Forms.LocalizationIncompleteDlg;
+using SIL.Windows.Forms.Privacy;
 using SIL.Windows.Forms.Reporting;
 using SIL.WritingSystems;
 using static System.Char;
@@ -50,6 +52,7 @@ namespace Glyssen
 		public static IEnumerable<ErrorMessageInfo> CompatibleParatextProjectLoadErrors => ScrTextCollection.ErrorMessages.Where(e => e.ProjecType != ProjectType.Resource && !e.ProjecType.IsNoteType());
 		private static readonly List<Exception> _pendingExceptionsToReportToAnalytics = new List<Exception>();
 		private static UserInfo s_userInfo;
+		internal static IAnalyticsConsent AnalyticsImpl;
 
 		/// <summary>
 		/// The main entry point for the application.
@@ -154,12 +157,21 @@ namespace Glyssen
 			//	}
 			//}
 
+			// Needed in every build configuration so the Privacy Settings dialog has something to show,
+			// even though only the release path below uses AllowTracking to gate initial tracking.
+			AnalyticsImpl = new AnalyticsConsent(Application.ProductName);
+			AnalyticsImpl.AllowTrackingChanged += (_, e) => Analytics.AllowTracking = e.IsTrackingAllowed;
+
 #if DEBUG
 			using (new DesktopAnalytics.Analytics("jBh7Qg4jw2nRFE8j8EY1FDipzin3RFIP", s_userInfo))
 #else
-			//default is to allow tracking if this isn't set
+			// If this is a release build, allow opt-out via the persisted consent setting (written by the
+			// installer or the in-app Privacy Settings dialog). The FEEDBACK env var remains a tester
+			// override that takes precedence, so testers aren't generating false analytics.
 			string feedbackSetting = Environment.GetEnvironmentVariable("FEEDBACK")?.ToLower();
-			var allowTracking = string.IsNullOrEmpty(feedbackSetting) || feedbackSetting == "yes" || feedbackSetting == "true";
+			var allowTracking = !string.IsNullOrEmpty(feedbackSetting)
+				? (feedbackSetting == "yes" || feedbackSetting == "true")
+				: AnalyticsImpl.AllowTracking;
 
 			using (new DesktopAnalytics.Analytics("WEyYj2BOnZAP9kplKmo2BDPvfyofbMZy", s_userInfo, allowTracking))
 #endif

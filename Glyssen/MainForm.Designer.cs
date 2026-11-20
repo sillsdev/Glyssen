@@ -34,6 +34,7 @@
 			this.m_L10NSharpExtender = new L10NSharp.Windows.Forms.L10NSharpExtender(this.components);
 			this.m_toolStrip = new System.Windows.Forms.ToolStrip();
 			this.m_btnAbout = new System.Windows.Forms.ToolStripButton();
+			this.m_btnPrivacySettings = new System.Windows.Forms.ToolStripButton();
 			this.m_uiLanguageMenu = new System.Windows.Forms.ToolStripDropDownButton();
 			this.m_shareMenu = new System.Windows.Forms.ToolStripDropDownButton();
 			this.m_exportMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,6 +91,7 @@
 			this.m_toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.m_toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.m_btnAbout,
+            this.m_btnPrivacySettings,
             this.m_uiLanguageMenu,
             this.m_shareMenu});
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_toolStrip, null);
@@ -123,7 +125,27 @@
 			this.m_btnAbout.Text = "About...";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnAbout, true);
 			this.m_btnAbout.Click += new System.EventHandler(this.About_Click);
-			// 
+			//
+			// m_btnPrivacySettings
+			//
+			this.m_btnPrivacySettings.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+			this.m_btnPrivacySettings.AutoToolTip = false;
+			this.m_btnPrivacySettings.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_btnPrivacySettings, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_btnPrivacySettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.glyssenColorPalette.SetForeColor(this.m_btnPrivacySettings, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_btnPrivacySettings.ForeColor = System.Drawing.SystemColors.HotTrack;
+			this.m_btnPrivacySettings.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnPrivacySettings, "Manage privacy settings");
+			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnPrivacySettings, null);
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnPrivacySettings, "MainForm.PrivacySettings");
+			this.m_btnPrivacySettings.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
+			this.m_btnPrivacySettings.Name = "m_btnPrivacySettings";
+			this.m_btnPrivacySettings.Size = new System.Drawing.Size(66, 19);
+			this.m_btnPrivacySettings.Text = "Privacy...";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnPrivacySettings, true);
+			this.m_btnPrivacySettings.Click += new System.EventHandler(this.PrivacySettings_Click);
+			//
 			// m_uiLanguageMenu
 			// 
 			this.m_uiLanguageMenu.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -770,6 +792,7 @@
 		private L10NSharp.Windows.Forms.L10NSharpExtender m_L10NSharpExtender;
 		private System.Windows.Forms.ToolStrip m_toolStrip;
 		private System.Windows.Forms.ToolStripButton m_btnAbout;
+		private System.Windows.Forms.ToolStripButton m_btnPrivacySettings;
 		private System.Windows.Forms.ToolStripDropDownButton m_uiLanguageMenu;
 		private Utilities.GlyssenColorPalette glyssenColorPalette;
 		private System.Windows.Forms.TableLayoutPanel m_tableLayoutPanel;

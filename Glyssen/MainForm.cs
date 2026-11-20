@@ -34,6 +34,7 @@ using SIL.Scripture;
 using SIL.Windows.Forms;
 using SIL.Windows.Forms.Extensions;
 using SIL.Windows.Forms.Miscellaneous;
+using SIL.Windows.Forms.Privacy;
 using SIL.Windows.Forms.ReleaseNotes;
 using SIL.Windows.Forms.WritingSystems;
 using static System.Environment;
@@ -1207,6 +1208,12 @@ namespace Glyssen
 				dlg.ReleaseNotesClicked += HandleAboutDialogReleaseNotesClicked;
 				dlg.ShowDialog(this);
 			}
+		}
+
+		private void PrivacySettings_Click(object sender, EventArgs e)
+		{
+			using (var dlg = new PrivacyDlg(Program.AnalyticsImpl))
+				dlg.ShowDialog(this);
 		}
 
 		private void HandleAboutDialogCheckForUpdatesClick(object sender, EventArgs e)

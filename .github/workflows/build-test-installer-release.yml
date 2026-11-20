@@ -76,6 +76,15 @@ jobs:
       - name: Create HTML release notes
         run: msbuild build\Glyssen.proj /t:ConvertReleaseNotesToHtml /p:Configuration=$env:Configuration
 
+      # Installer.wixproj pulls in the SIL.Installer package via PackageReference, but it's a
+      # classic (non-SDK) project that isn't part of Glyssen.sln, so the "Restore NuGet packages"
+      # step above never restores it. Unlike SDK-style projects, it also doesn't auto-restore on
+      # build, so without this step the installer build fails with LGHT0094 ("Unresolved
+      # reference to symbol 'WixComponentGroup:SilAnalyticsComponents'") because the package's
+      # Analytics.wxs fragment was never extracted.
+      - name: Restore Installer NuGet packages
+        run: msbuild Installer\Installer.sln /t:restore
+
       - name: Build installer
         run: msbuild build\Glyssen.proj /t:Installer /p:Configuration=$env:Configuration /m
 
