@@ -405,15 +405,6 @@ namespace Glyssen
 
 		public static void UpdateUiLanguageForUser(string languageId)
 		{
-			// Analytics.IdentifyUpdate (SIL.DesktopAnalytics >= 6.1.1 - see Glyssen.csproj) honors
-			// the retainPii:false policy Analytics was constructed with below, sanitizing
-			// s_userInfo's real email/name before sending. Earlier versions sent it verbatim,
-			// leaking PII every time a user changed their UI language - see
-			// https://github.com/sillsdev/DesktopAnalytics.net/pull/44. s_userInfo.Email itself is
-			// unrelated to the separate (and correctly-scoped) email address a user may optionally
-			// supply when requesting a minimally-supported localization (see
-			// LocalizationIncompleteViewModel.UserEmailAddress, which is sent only as a property on
-			// that one "UI language request" event).
 			s_userInfo.UILanguageCode = languageId;
 			Analytics.IdentifyUpdate(s_userInfo);
 		}
